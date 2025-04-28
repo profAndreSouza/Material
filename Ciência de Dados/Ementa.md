@@ -1,15 +1,4 @@
-# Ciência de Dados
-
-## Módulo Específico
-**Perfil:** Função 3
-
-| Modalidade        | Carga Horária |
-|-------------------|---------------|
-| Síncrona          | 80h           |
-| Assíncrona        | 80h           |
-| Presencial Total  | 66h40min      |
-
----
+# Ciência de Dados - 80 aulas - 66h40
 
 ## Conhecimentos
 
