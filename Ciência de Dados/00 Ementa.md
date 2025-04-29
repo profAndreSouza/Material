@@ -101,7 +101,7 @@
 
 ## Referências Básicas
 
-- **CAETANO, Marco Antonio Leonel.** *Python e mercado financeiro: programação para estudantes, investidores e analistas.* 1. ed. São Paulo: Blucher, 2021. E-book. [Disponível aqui](https://plataforma.bvirtual.com.br). Acesso em: 02 out. 2023.
+- **CAETANO, Marco Antonio Leonel.** *Python e mercado financeiro: programação para estudantes, investidores e analistas.* 1. ed. São Paulo: Blucher, 2021. E-book. [Disponível aqui](https://plataforma.bvirtual.com.br/Leitor/Publicacao/194662/pdf/0). Acesso em: 02 out. 2023.
 - **BARBETTA, Pedro Alberto; REIS, Marcelo Menezes; BORNIA, Antonio Cezar.** *Estatística: para cursos de engenharia e informática.* 2. ed. São Paulo: Atlas, 2008. 410 p. ISBN 9788522449897.
 - **DEMANA, Franklin D. et al.** *Pré-cálculo.* 2. ed. São Paulo: Pearson, 2013. 452 p. ISBN 9788581430966.
 
@@ -109,8 +109,8 @@
 
 ## Referências Complementares
 
-- **GIOLO, Suely Ruiz.** *Introdução à análise de dados categóricos com aplicações.* 1. ed. São Paulo: Blucher, 2017. E-book. [Disponível aqui](https://plataforma.bvirtual.com.br). Acesso em: 02 out. 2023.
+- **GIOLO, Suely Ruiz.** *Introdução à análise de dados categóricos com aplicações.* 1. ed. São Paulo: Blucher, 2017. E-book. [Disponível aqui](https://plataforma.bvirtual.com.br/Leitor/Publicacao/176575/pdf/0). Acesso em: 02 out. 2023.
 - **FLEMMING, Diva Marilia; GONÇALVES, Mirian Buss.** *Cálculo A: funções, limite, derivação e integração.* 6. ed., rev. ampl. São Paulo: Pearson, 2006. 448 p. ISBN 9788576051152.
 - **HOFFMANN, Laurence D.; BRADLEY, Gerald L.** *Cálculo: um curso moderno e suas aplicações.* 10. ed. Rio de Janeiro: LTC, 2010. 587 p. ISBN 0070293724.
-- **BONAFINI, Fernanda César (org.).** *Estatística.* 2. ed. São Paulo: Pearson, 2019. E-book. [Disponível aqui](https://plataforma.bvirtual.com.br). Acesso em: 02 out. 2023.
-- **SILVA, Rodolfo dos Santos.** *Estatística aplicada.* 1. ed. São Paulo: Contentus, 2020. E-book. [Disponível aqui](https://plataforma.bvirtual.com.br). Acesso em: 02 out. 2023.
+- **BONAFINI, Fernanda César (org.).** *Estatística.* 2. ed. São Paulo: Pearson, 2019. E-book. [Disponível aqui](https://plataforma.bvirtual.com.br/Leitor/Publicacao/182728/pdf/0). Acesso em: 02 out. 2023.
+- **SILVA, Rodolfo dos Santos.** *Estatística aplicada.* 1. ed. São Paulo: Contentus, 2020. E-book. [Disponível aqui](https://plataforma.bvirtual.com.br/Leitor/Publicacao/188071/pdf/0). Acesso em: 02 out. 2023.
