@@ -48,6 +48,64 @@ Amostragem é o processo de selecionar uma parte da população para análise.
 - A população é dividida em **estratos** homogêneos (ex: faixa etária, sexo, região) e então é feita uma amostra aleatória dentro de cada grupo.
 - Garante melhor representatividade da diversidade.
 
+```python
+# Exemplo prático: Amostragem Aleatória Simples, Sistemática e Estratificada
+
+import random
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Criar base de dados fictícia
+clientes = [f"Cliente {i}" for i in range(1, 101)]
+df_clientes = pd.DataFrame({
+    "ID": range(1, 101),
+    "Nome": clientes,
+    "Grupo": ["Par" if i % 2 == 0 else "Ímpar" for i in range(1, 101)]
+})
+
+print("Base de dados (primeiras linhas):")
+print(df_clientes.head())
+
+# Amostragem Aleatória Simples
+amostra_aleatoria = df_clientes.sample(n=10, random_state=42)
+print("\nAmostragem Aleatória Simples:")
+print(amostra_aleatoria)
+
+# Amostragem Sistemática
+passo = 10
+inicio = random.randint(0, passo - 1)  # Início aleatório
+amostra_sistematica = df_clientes.iloc[inicio::passo]
+print(f"\nAmostragem Sistemática (início na posição {inicio}):")
+print(amostra_sistematica)
+
+# Amostragem Estratificada
+grupo_par = df_clientes[df_clientes['Grupo'] == 'Par']
+grupo_impar = df_clientes[df_clientes['Grupo'] == 'Ímpar']
+amostra_par = grupo_par.sample(n=5, random_state=42)
+amostra_impar = grupo_impar.sample(n=5, random_state=42)
+amostra_estratificada = pd.concat([amostra_par, amostra_impar])
+print("\nAmostragem Estratificada:")
+print(amostra_estratificada.sort_values(by='ID'))
+
+# Visualização gráfica das amostras
+fig, axes = plt.subplots(3, 1, figsize=(10, 12))
+
+axes[0].bar(amostra_aleatoria['ID'], [1]*10, color='skyblue')
+axes[0].set_title('Amostragem Aleatória Simples')
+axes[0].set_yticks([])
+
+axes[1].bar(amostra_sistematica['ID'], [1]*len(amostra_sistematica), color='lightgreen')
+axes[1].set_title('Amostragem Sistemática')
+axes[1].set_yticks([])
+
+axes[2].bar(amostra_estratificada['ID'], [1]*len(amostra_estratificada), color='salmon')
+axes[2].set_title('Amostragem Estratificada')
+axes[2].set_yticks([])
+
+plt.tight_layout()
+plt.show()
+```
+
 ---
 
 ## Pensamento Estatístico
