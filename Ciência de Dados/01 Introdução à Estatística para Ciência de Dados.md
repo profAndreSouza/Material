@@ -48,10 +48,11 @@ Amostragem é o processo de selecionar uma parte da população para análise.
 - A população é dividida em **estratos** homogêneos (ex: faixa etária, sexo, região) e então é feita uma amostra aleatória dentro de cada grupo.
 - Garante melhor representatividade da diversidade.
 
+<img src="img/1-amostragem.png">
+
 ### 5. Exemplo prático: Amostragem Aleatória Simples, Sistemática e Estratificada
 
 ```python
-
 import random
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -64,20 +65,13 @@ df_clientes = pd.DataFrame({
     "Grupo": ["Par" if i % 2 == 0 else "Ímpar" for i in range(1, 101)]
 })
 
-print("Base de dados (primeiras linhas):")
-print(df_clientes.head())
-
 # Amostragem Aleatória Simples
 amostra_aleatoria = df_clientes.sample(n=10, random_state=42)
-print("\nAmostragem Aleatória Simples:")
-print(amostra_aleatoria)
 
 # Amostragem Sistemática
 passo = 10
-inicio = random.randint(0, passo - 1)  # Início aleatório
+inicio = random.randint(0, passo - 1)
 amostra_sistematica = df_clientes.iloc[inicio::passo]
-print(f"\nAmostragem Sistemática (início na posição {inicio}):")
-print(amostra_sistematica)
 
 # Amostragem Estratificada
 grupo_par = df_clientes[df_clientes['Grupo'] == 'Par']
@@ -85,26 +79,35 @@ grupo_impar = df_clientes[df_clientes['Grupo'] == 'Ímpar']
 amostra_par = grupo_par.sample(n=5, random_state=42)
 amostra_impar = grupo_impar.sample(n=5, random_state=42)
 amostra_estratificada = pd.concat([amostra_par, amostra_impar])
-print("\nAmostragem Estratificada:")
-print(amostra_estratificada.sort_values(by='ID'))
 
-# Visualização gráfica das amostras
-fig, axes = plt.subplots(3, 1, figsize=(10, 12))
+# Visualização com scatter plot
+fig, axes = plt.subplots(3, 1, figsize=(10, 12), sharey=True)
 
-axes[0].bar(amostra_aleatoria['ID'], [1]*10, color='skyblue')
+# Aleatória
+axes[0].scatter(df_clientes['ID'], [1]*100, color='lightgrey', label='Todos')
+axes[0].scatter(amostra_aleatoria['ID'], [1]*10, color='blue', label='Amostra')
 axes[0].set_title('Amostragem Aleatória Simples')
 axes[0].set_yticks([])
+axes[0].legend()
 
-axes[1].bar(amostra_sistematica['ID'], [1]*len(amostra_sistematica), color='lightgreen')
+# Sistemática
+axes[1].scatter(df_clientes['ID'], [1]*100, color='lightgrey', label='Todos')
+axes[1].scatter(amostra_sistematica['ID'], [1]*len(amostra_sistematica), color='green', label='Amostra')
 axes[1].set_title('Amostragem Sistemática')
 axes[1].set_yticks([])
+axes[1].legend()
 
-axes[2].bar(amostra_estratificada['ID'], [1]*len(amostra_estratificada), color='salmon')
+# Estratificada
+colors = amostra_estratificada['Grupo'].map({'Par': 'red', 'Ímpar': 'orange'})
+axes[2].scatter(df_clientes['ID'], [1]*100, color='lightgrey', label='Todos')
+axes[2].scatter(amostra_estratificada['ID'], [1]*10, color=colors, label='Amostra')
 axes[2].set_title('Amostragem Estratificada')
 axes[2].set_yticks([])
+axes[2].legend()
 
 plt.tight_layout()
 plt.show()
+
 ```
 
 ---
