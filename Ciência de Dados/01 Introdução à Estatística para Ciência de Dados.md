@@ -272,7 +272,6 @@ plt.show()
 ---
 
 ## Exercícios Extras
-## Exercícios Extras
 
 1. **[Conceitual]** Defina estatística descritiva e inferencial com exemplos práticos do dia a dia.
 
