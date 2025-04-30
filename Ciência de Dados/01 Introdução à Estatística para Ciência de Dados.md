@@ -272,23 +272,26 @@ plt.show()
 ---
 
 ## Exercícios Extras
+## Exercícios Extras
 
-**Conceituais:**
-1. Defina estatística descritiva e inferencial com exemplos práticos do dia a dia.
-2. Explique a diferença entre amostragem aleatória simples e amostragem estratificada.
-3. Cite duas situações reais onde seria preferível usar amostragem sistemática.
+1. **[Conceitual]** Defina estatística descritiva e inferencial com exemplos práticos do dia a dia.
 
-**Práticos:**
-4. Simule, em papel, uma amostragem aleatória simples de 5 elementos de uma população de 20 pessoas.
-5. Escreva um pequeno código Python que:
+2. **[Conceitual]** Explique a diferença entre amostragem aleatória simples e amostragem estratificada.
+
+3. **[Conceitual]** Cite duas situações reais onde seria preferível usar amostragem sistemática.
+
+4. **[Prático]** Simule, em papel, uma amostragem aleatória simples de 5 elementos de uma população de 20 pessoas.
+
+5. **[Prático]** Escreva um pequeno código Python que:
    - Crie uma lista de 50 elementos.
    - Realize uma amostragem sistemática para escolher 5 elementos.
-6. Imagine uma pesquisa de opinião em uma cidade sobre novos aplicativos de transporte. 
+
+6. **[Prático]** Imagine uma pesquisa de opinião em uma cidade sobre novos aplicativos de transporte.
    - Como você faria uma amostragem estratificada por idade?
 
-**Reflexivos:**
-7. Por que é importante garantir que a amostra seja representativa da população?
-8. Quais os riscos de utilizar uma amostra mal selecionada na tomada de decisão?
+7. **[Reflexivo]** Por que é importante garantir que a amostra seja representativa da população?
+
+8. **[Reflexivo]** Quais os riscos de utilizar uma amostra mal selecionada na tomada de decisão?
 
 ---
 
@@ -296,11 +299,3 @@ plt.show()
 - **BARBETTA, Pedro Alberto et al.** Estatística: para cursos de engenharia e informática.
 - **BONAFINI, Fernanda César (org.)** Estatística.
 - **SILVA, Rodolfo dos Santos** Estatística aplicada.
-
----
-
-# Conclusão da Aula
-- Estatística é uma ferramenta fundamental na análise de dados.
-- A qualidade de uma análise depende de como os dados foram coletados e organizados.
-- Amostragem correta é essencial para gerar resultados confiáveis em ciência de dados.
-
