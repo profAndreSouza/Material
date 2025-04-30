@@ -48,9 +48,9 @@ Amostragem é o processo de selecionar uma parte da população para análise.
 - A população é dividida em **estratos** homogêneos (ex: faixa etária, sexo, região) e então é feita uma amostra aleatória dentro de cada grupo.
 - Garante melhor representatividade da diversidade.
 
-<img src="img/1-amostragem.png">
-
 ### 5. Exemplo prático: Amostragem Aleatória Simples, Sistemática e Estratificada
+
+<img src="img/1-amostragem.png">
 
 ```python
 import random
@@ -113,12 +113,62 @@ plt.show()
 ---
 
 ## Pensamento Estatístico
+Claro! Aqui está o conteúdo formata
 
-**Processo de raciocínio**:
-1. **Coleta de dados** (Quem? O quê? Quando? Onde? Como?).
-2. **Organização dos dados** (Tabelas, gráficos, categorias).
-3. **Análise** (estatísticas descritivas e inferência).
-4. **Interpretação** (Conclusões práticas).
+O **pensamento estatístico** é um processo estruturado de raciocínio usado para compreender fenômenos por meio da coleta, organização, análise e interpretação de dados. Ele é fundamental em diversas áreas do conhecimento, apoiando a tomada de decisões com base em evidências.
+
+---
+
+### 1. Coleta de Dados
+
+A primeira etapa do pensamento estatístico consiste em reunir dados relevantes que possam responder a uma pergunta ou sustentar uma investigação. Essa coleta deve ser planejada cuidadosamente para garantir a confiabilidade das conclusões.
+
+#### Perguntas-chave:
+- **Quem?** — Sujeitos ou fontes dos dados (ex: pessoas, sensores, máquinas).
+- **O quê?** — Variáveis ou características observadas (ex: idade, temperatura, tempo).
+- **Quando?** — Período ou frequência da coleta (ex: diário, mensal, sazonal).
+- **Onde?** — Local da coleta (ex: campo, laboratório, plataforma digital).
+- **Como?** — Métodos de coleta (ex: entrevistas, experimentos, registros automáticos).
+
+---
+
+### 2. Organização dos Dados
+
+Após a coleta, os dados precisam ser organizados de maneira clara e acessível. Essa etapa facilita a identificação de padrões, erros e lacunas.
+
+### Principais formas de organização:
+- **Tabelas** — Estruturação dos dados em linhas e colunas.
+- **Gráficos** — Representações visuais como gráficos de barras, linhas, setores e histogramas.
+- **Categorias** — Classificação dos dados em grupos (quantitativos x qualitativos; contínuos x discretos).
+
+---
+
+### 3. Análise dos Dados
+
+Nesta etapa, os dados organizados são examinados para extrair informações úteis, fazer comparações e testar hipóteses.
+
+#### Técnicas utilizadas:
+- **Estatísticas descritivas** — Medidas como média, mediana, moda, variância e desvio padrão.
+- **Análise gráfica** — Visualizações que auxiliam na detecção de tendências, dispersões e correlações.
+- **Inferência estatística** — Aplicação de métodos para generalizar resultados de uma amostra para a população (ex: testes de hipótese, regressões, intervalos de confiança).
+
+---
+
+### 4. Interpretação dos Resultados
+
+A etapa final envolve transformar os resultados numéricos em informações compreensíveis e úteis para a tomada de decisão.
+
+#### Elementos da interpretação:
+- **Conclusões práticas** — O que os dados mostram? Como se aplicam ao problema investigado?
+- **Reconhecimento de limitações** — Identificação de possíveis vieses, erros de amostragem ou limitações dos métodos utilizados.
+- **Recomendações** — Sugestões com base nos dados analisados, incluindo propostas de ações ou novas investigações.
+
+---
+
+### Importância do Pensamento Estatístico
+
+O pensamento estatístico promove decisões fundamentadas em evidências, reduzindo incertezas. É amplamente utilizado em áreas como saúde, engenharia, economia, educação, ciência de dados, entre outras.
+
 
 ---
 
