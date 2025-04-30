@@ -25,6 +25,67 @@
 
 ---
 
+
+## Pensamento Estatístico
+
+O **pensamento estatístico** é um processo estruturado de raciocínio usado para compreender fenômenos por meio da coleta, organização, análise e interpretação de dados. Ele é fundamental em diversas áreas do conhecimento, apoiando a tomada de decisões com base em evidências.
+
+---
+
+### 1. Coleta de Dados
+
+A primeira etapa do pensamento estatístico consiste em reunir dados relevantes que possam responder a uma pergunta ou sustentar uma investigação. Essa coleta deve ser planejada cuidadosamente para garantir a confiabilidade das conclusões.
+
+#### Perguntas-chave:
+- **Quem?** — Sujeitos ou fontes dos dados (ex: pessoas, sensores, máquinas).
+- **O quê?** — Variáveis ou características observadas (ex: idade, temperatura, tempo).
+- **Quando?** — Período ou frequência da coleta (ex: diário, mensal, sazonal).
+- **Onde?** — Local da coleta (ex: campo, laboratório, plataforma digital).
+- **Como?** — Métodos de coleta (ex: entrevistas, experimentos, registros automáticos).
+
+---
+
+### 2. Organização dos Dados
+
+Após a coleta, os dados precisam ser organizados de maneira clara e acessível. Essa etapa facilita a identificação de padrões, erros e lacunas.
+
+### Principais formas de organização:
+- **Tabelas** — Estruturação dos dados em linhas e colunas.
+- **Gráficos** — Representações visuais como gráficos de barras, linhas, setores e histogramas.
+- **Categorias** — Classificação dos dados em grupos (quantitativos x qualitativos; contínuos x discretos).
+
+---
+
+### 3. Análise dos Dados
+
+Nesta etapa, os dados organizados são examinados para extrair informações úteis, fazer comparações e testar hipóteses.
+
+#### Técnicas utilizadas:
+- **Estatísticas descritivas** — Medidas como média, mediana, moda, variância e desvio padrão.
+- **Análise gráfica** — Visualizações que auxiliam na detecção de tendências, dispersões e correlações.
+- **Inferência estatística** — Aplicação de métodos para generalizar resultados de uma amostra para a população (ex: testes de hipótese, regressões, intervalos de confiança).
+
+---
+
+### 4. Interpretação dos Resultados
+
+A etapa final envolve transformar os resultados numéricos em informações compreensíveis e úteis para a tomada de decisão.
+
+#### Elementos da interpretação:
+- **Conclusões práticas** — O que os dados mostram? Como se aplicam ao problema investigado?
+- **Reconhecimento de limitações** — Identificação de possíveis vieses, erros de amostragem ou limitações dos métodos utilizados.
+- **Recomendações** — Sugestões com base nos dados analisados, incluindo propostas de ações ou novas investigações.
+
+---
+
+### Importância do Pensamento Estatístico
+
+O pensamento estatístico promove decisões fundamentadas em evidências, reduzindo incertezas. É amplamente utilizado em áreas como saúde, engenharia, economia, educação, ciência de dados, entre outras.
+
+
+---
+
+
 ## Tipos de Amostragem
 
 Amostragem é o processo de selecionar uma parte da população para análise.
@@ -112,91 +173,76 @@ plt.show()
 
 ---
 
-## Pensamento Estatístico
-Claro! Aqui está o conteúdo formata
-
-O **pensamento estatístico** é um processo estruturado de raciocínio usado para compreender fenômenos por meio da coleta, organização, análise e interpretação de dados. Ele é fundamental em diversas áreas do conhecimento, apoiando a tomada de decisões com base em evidências.
-
----
-
-### 1. Coleta de Dados
-
-A primeira etapa do pensamento estatístico consiste em reunir dados relevantes que possam responder a uma pergunta ou sustentar uma investigação. Essa coleta deve ser planejada cuidadosamente para garantir a confiabilidade das conclusões.
-
-#### Perguntas-chave:
-- **Quem?** — Sujeitos ou fontes dos dados (ex: pessoas, sensores, máquinas).
-- **O quê?** — Variáveis ou características observadas (ex: idade, temperatura, tempo).
-- **Quando?** — Período ou frequência da coleta (ex: diário, mensal, sazonal).
-- **Onde?** — Local da coleta (ex: campo, laboratório, plataforma digital).
-- **Como?** — Métodos de coleta (ex: entrevistas, experimentos, registros automáticos).
-
----
-
-### 2. Organização dos Dados
-
-Após a coleta, os dados precisam ser organizados de maneira clara e acessível. Essa etapa facilita a identificação de padrões, erros e lacunas.
-
-### Principais formas de organização:
-- **Tabelas** — Estruturação dos dados em linhas e colunas.
-- **Gráficos** — Representações visuais como gráficos de barras, linhas, setores e histogramas.
-- **Categorias** — Classificação dos dados em grupos (quantitativos x qualitativos; contínuos x discretos).
-
----
-
-### 3. Análise dos Dados
-
-Nesta etapa, os dados organizados são examinados para extrair informações úteis, fazer comparações e testar hipóteses.
-
-#### Técnicas utilizadas:
-- **Estatísticas descritivas** — Medidas como média, mediana, moda, variância e desvio padrão.
-- **Análise gráfica** — Visualizações que auxiliam na detecção de tendências, dispersões e correlações.
-- **Inferência estatística** — Aplicação de métodos para generalizar resultados de uma amostra para a população (ex: testes de hipótese, regressões, intervalos de confiança).
-
----
-
-### 4. Interpretação dos Resultados
-
-A etapa final envolve transformar os resultados numéricos em informações compreensíveis e úteis para a tomada de decisão.
-
-#### Elementos da interpretação:
-- **Conclusões práticas** — O que os dados mostram? Como se aplicam ao problema investigado?
-- **Reconhecimento de limitações** — Identificação de possíveis vieses, erros de amostragem ou limitações dos métodos utilizados.
-- **Recomendações** — Sugestões com base nos dados analisados, incluindo propostas de ações ou novas investigações.
-
----
-
-### Importância do Pensamento Estatístico
-
-O pensamento estatístico promove decisões fundamentadas em evidências, reduzindo incertezas. É amplamente utilizado em áreas como saúde, engenharia, economia, educação, ciência de dados, entre outras.
-
-
----
-
 ## Projeto Prático: Simulador de Amostragem
 
-**Objetivo**:  
-Entender de forma prática os conceitos de amostragem aplicados em ciência de dados.
+### Objetivo
+Demonstrar de forma prática os principais tipos de amostragem usados em estatística e ciência de dados, por meio da criação e manipulação de uma base de clientes fictícios.
 
-**Descrição**:  
-- Criar uma base fictícia com **100 clientes** nomeados como "Cliente 1", "Cliente 2", ..., "Cliente 100".
-- Realizar:
-  - **Amostragem Aleatória Simples**: Sorteio de 10 clientes.
-  - **Amostragem Sistemática**: Escolher 1 a cada 10 clientes, iniciando em posição aleatória.
-  - **Amostragem Estratificada**: Dividir em dois grupos (por exemplo, "Clientes pares" e "Clientes ímpares") e sortear proporcionalmente.
+---
 
-**Ferramentas**:
-- Python 3.x
-- Biblioteca: `random`
+### Descrição
 
-**Código Exemplo (Rascunho básico para Amostragem Aleatória Simples)**:
+Criaremos uma população composta por **100 clientes** nomeados sequencialmente como:
+
+```
+Cliente 1, Cliente 2, Cliente 3, ..., Cliente 100
+```
+
+A seguir, aplicaremos três métodos de amostragem:
+
+#### 1. Amostragem Aleatória Simples  
+Seleciona **10 clientes** de forma totalmente aleatória, sem reposição.
+
+#### 2. Amostragem Sistemática  
+Escolhe **1 cliente a cada 10**, iniciando em uma posição aleatória entre os primeiros 10.
+
+#### 3. Amostragem Estratificada  
+Divide a população em **dois estratos**:
+- Clientes **pares** (Cliente 2, Cliente 4, ...)
+- Clientes **ímpares** (Cliente 1, Cliente 3, ...)
+
+Sorteia **5 clientes de cada estrato**, formando uma amostra proporcional e balanceada.
+
+---
+
+### Código Python — Simulador de Amostragem
+
 ```python
 import random
 
+# Criando a base de clientes
 clientes = [f"Cliente {i}" for i in range(1, 101)]
+
+# 1. Amostragem Aleatória Simples
 amostra_simples = random.sample(clientes, 10)
 
-print("Amostra Aleatória Simples:", amostra_simples)
+# 2. Amostragem Sistemática
+intervalo = 10
+inicio = random.randint(0, intervalo - 1)
+amostra_sistematica = clientes[inicio::intervalo][:10]
+
+# 3. Amostragem Estratificada
+clientes_pares = [c for c in clientes if int(c.split()[1]) % 2 == 0]
+clientes_impares = [c for c in clientes if int(c.split()[1]) % 2 != 0]
+amostra_estratificada = random.sample(clientes_pares, 5) + random.sample(clientes_impares, 5)
+
+# Resultados
+print("Amostra Aleatória Simples:")
+print(amostra_simples)
+
+print("\nAmostra Sistemática:")
+print(amostra_sistematica)
+
+print("\nAmostra Estratificada:")
+print(amostra_estratificada)
 ```
+
+---
+
+### Observações
+- A amostragem sistemática depende do ponto de partida aleatório (`inicio`).
+- A estratificação ajuda a garantir representatividade entre subgrupos distintos da população.
+
 
 ---
 
