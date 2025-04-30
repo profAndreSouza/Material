@@ -209,32 +209,57 @@ Sorteia **5 clientes de cada estrato**, formando uma amostra proporcional e bala
 
 ```python
 import random
+import pandas as pd
+import matplotlib.pyplot as plt
 
-# Criando a base de clientes
-clientes = [f"Cliente {i}" for i in range(1, 101)]
+# Criando a base de clientes com IDs
+df_clientes = pd.DataFrame({
+    'ID': list(range(1, 101)),
+    'Nome': [f"Cliente {i}" for i in range(1, 101)]
+})
 
 # 1. Amostragem Aleatória Simples
-amostra_simples = random.sample(clientes, 10)
+amostra_aleatoria = df_clientes.sample(n=10, random_state=42)
 
 # 2. Amostragem Sistemática
 intervalo = 10
 inicio = random.randint(0, intervalo - 1)
-amostra_sistematica = clientes[inicio::intervalo][:10]
+amostra_sistematica = df_clientes.iloc[inicio::intervalo].head(10)
 
 # 3. Amostragem Estratificada
-clientes_pares = [c for c in clientes if int(c.split()[1]) % 2 == 0]
-clientes_impares = [c for c in clientes if int(c.split()[1]) % 2 != 0]
-amostra_estratificada = random.sample(clientes_pares, 5) + random.sample(clientes_impares, 5)
+df_clientes['Grupo'] = df_clientes['ID'].apply(lambda x: 'Par' if x % 2 == 0 else 'Ímpar')
+grupo_par = df_clientes[df_clientes['Grupo'] == 'Par'].sample(n=5, random_state=42)
+grupo_impar = df_clientes[df_clientes['Grupo'] == 'Ímpar'].sample(n=5, random_state=42)
+amostra_estratificada = pd.concat([grupo_par, grupo_impar])
 
-# Resultados
-print("Amostra Aleatória Simples:")
-print(amostra_simples)
+# Visualização com scatter plot
+fig, axes = plt.subplots(1, 3, figsize=(12, 3), sharey=True)
 
-print("\nAmostra Sistemática:")
-print(amostra_sistematica)
+# Aleatória
+axes[0].scatter(df_clientes['ID'], [1]*100, color='lightgrey', label='Todos')
+axes[0].scatter(amostra_aleatoria['ID'], [1]*10, color='blue', label='Amostra')
+axes[0].set_title('Amostragem Aleatória Simples')
+axes[0].set_yticks([])
+axes[0].legend()
 
-print("\nAmostra Estratificada:")
-print(amostra_estratificada)
+# Sistemática
+axes[1].scatter(df_clientes['ID'], [1]*100, color='lightgrey', label='Todos')
+axes[1].scatter(amostra_sistematica['ID'], [1]*len(amostra_sistematica), color='green', label='Amostra')
+axes[1].set_title('Amostragem Sistemática')
+axes[1].set_yticks([])
+axes[1].legend()
+
+# Estratificada
+colors = amostra_estratificada['Grupo'].map({'Par': 'red', 'Ímpar': 'orange'})
+axes[2].scatter(df_clientes['ID'], [1]*100, color='lightgrey', label='Todos')
+axes[2].scatter(amostra_estratificada['ID'], [1]*10, color=colors, label='Amostra')
+axes[2].set_title('Amostragem Estratificada')
+axes[2].set_yticks([])
+axes[2].legend()
+
+plt.tight_layout()
+plt.show()
+
 ```
 
 ---
