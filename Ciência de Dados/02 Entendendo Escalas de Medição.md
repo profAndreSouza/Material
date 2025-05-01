@@ -7,28 +7,82 @@
 
 ---
 
-## Escalas de Medição
+## **Conceito Geral**
 
-Em estatística, as **escalas de medição** são fundamentais para definir como os dados podem ser manipulados e interpretados. Elas determinam quais operações matemáticas são permitidas com os dados e quais análises são apropriadas.
+Em estatística, as **escalas de medição** são fundamentais para definir como os dados podem ser manipulados e interpretados. Elas determinam quais operações matemáticas são permitidas com os dados e quais análises são apropriadas. A escolha correta da escala influencia diretamente na validade das análises estatísticas aplicadas.
 
-### 1. **Escala Nominal**
+---
+
+## **1. Escala Nominal**
+
 - Classifica os dados em categorias **sem ordem ou hierarquia**.
 - As categorias são **mutuamente exclusivas**.
+- **Operações possíveis:** Contagem e moda.
 - **Exemplos:** Gênero, estado civil, tipo sanguíneo.
 
-### 2. **Escala Ordinal**
+### **Exemplo Prático (Questionário)**
+- Qual é o seu estado civil?  
+  - ( ) Solteiro(a)  
+  - ( ) Casado(a)  
+  - ( ) Divorciado(a)  
+  - ( ) Viúvo(a)
+
+- Qual é sua cor favorita?  
+  - ( ) Azul  
+  - ( ) Vermelho  
+  - ( ) Verde  
+  - ( ) Outra
+
+---
+
+## **2. Escala Ordinal**
+
 - Agrupa os dados em categorias **ordenadas**, mas **sem garantir que os intervalos entre as categorias sejam iguais**.
-- **Exemplos:** Nível de escolaridade, classificação de dor (leve, moderada, intensa), ranking de satisfação.
+- **Operações possíveis:** Mediana, percentis, análise ordinal.
+- **Exemplos:** Nível de escolaridade, dor (leve/média/intensa), ranking de satisfação.
 
-### 3. **Escala Intervalar**
+### **Exemplo Prático (Questionário)**
+- Como você classificaria sua dor de cabeça agora?  
+  - ( ) Leve  
+  - ( ) Moderada  
+  - ( ) Intensa
+
+- Qual o seu nível de satisfação com a aula de hoje?  
+  - ( ) Muito insatisfeito  
+  - ( ) Insatisfeito  
+  - ( ) Neutro  
+  - ( ) Satisfeito  
+  - ( ) Muito satisfeito
+
+---
+
+## **3. Escala Intervalar**
+
 - Possui **ordem**, **intervalos iguais entre os valores**, mas **não possui zero absoluto**.
-- É possível realizar **adições e subtrações**, mas não multiplicações/divisões significativas.
-- **Exemplos:** Temperatura em Celsius, datas de nascimento.
+- **Operações possíveis:** Somar e subtrair, calcular médias.
+- **Exemplos:** Temperatura em °C, datas no calendário.
 
-### 4. **Escala de Razão**
-- Possui **todas as propriedades anteriores** (ordem, intervalos iguais, e um **zero absoluto**).
-- Permite **todas as operações matemáticas**.
-- **Exemplos:** Altura, idade, peso, distância, tempo decorrido.
+### **Exemplo Prático (Questionário)**
+- Em que ano você começou a faculdade?  
+  - [____]
+
+- Qual foi a temperatura média hoje na sua cidade? (°C)  
+  - [____]
+
+---
+
+## **4. Escala de Razão**
+
+- Possui **ordem, intervalos iguais e zero absoluto**.
+- Permite **todas as operações matemáticas**, inclusive proporções e razões.
+- **Exemplos:** Altura, idade, peso, tempo decorrido.
+
+### **Exemplo Prático (Questionário)**
+- Quantos minutos você estudou hoje?  
+  - [____] minutos
+
+- Qual é a sua altura em centímetros?  
+  - [____] cm
 
 ---
 
@@ -54,7 +108,7 @@ Após a criação:
 
 ---
 
-## Exercícios Extras (sem resolução)
+## Exercícios
 
 1. Classifique como nominal, ordinal, intervalar ou razão:
    - (a) Tipo de combustível de veículos  
