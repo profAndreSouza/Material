@@ -86,27 +86,167 @@ Em estatística, as **escalas de medição** são fundamentais para definir como
 
 ---
 
-## Projeto Prático  
+## **5. Exemplo Escalas**
 
-### **Criação de um Mini Questionário de Escalas**
 
-Crie um pequeno questionário com **4 a 6 perguntas**, em que:
-- Cada pergunta represente um **tipo de escala** (nominal, ordinal, intervalar e razão).
-- As perguntas sejam pensadas para **aplicações reais ou simuladas**.
-- As respostas sejam organizadas em uma tabela simples.
+<img src="img/2-escala.png">
 
-**Exemplo de perguntas para o questionário:**
-1. Qual seu estado civil? → *(Nominal)*  
-2. Qual o seu nível de dor hoje? (leve, moderada, forte) → *(Ordinal)*  
-3. Em que ano você começou a faculdade? → *(Intervalar)*  
-4. Quantos minutos você estuda por dia? → *(Razão)*
+```python
 
-Após a criação:
-- Classifique cada pergunta com o tipo de escala.
-- Justifique o motivo da classificação.
-- Opcional: aplique a 5 colegas e registre os dados.
+# ESCALAS DE MEDIÇÃO EM ESTATÍSTICA
+# Script demonstrativo no Google Colab com grid 2x2 de gráficos
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Simulando um pequeno conjunto de respostas a um questionário
+data = {
+    'Estado Civil (Nominal)': ['Solteiro', 'Casado', 'Solteiro', 'Divorciado', 'Viúvo', 'Casado'],
+    'Satisfação (Ordinal)': ['Satisfeito', 'Muito satisfeito', 'Neutro', 'Insatisfeito', 'Muito satisfeito', 'Satisfeito'],
+    'Ano Ingresso (Intervalar)': [2018, 2019, 2020, 2018, 2021, 2019],
+    'Tempo de Estudo (Razão - minutos)': [120, 90, 150, 30, 60, 45],
+}
+
+df = pd.DataFrame(data)
+
+# Ordenar valores ordinais
+ordem = ['Muito insatisfeito', 'Insatisfeito', 'Neutro', 'Satisfeito', 'Muito satisfeito']
+df['Satisfação (Ordinal)'] = pd.Categorical(df['Satisfação (Ordinal)'], categories=ordem, ordered=True)
+
+# Criar figura e eixos 2x2
+fig, axs = plt.subplots(2, 2, figsize=(14, 10))
+fig.suptitle('Visualização de Escalas de Medição', fontsize=16)
+
+# Escala Nominal
+sns.countplot(x='Estado Civil (Nominal)', data=df, ax=axs[0, 0])
+axs[0, 0].set_title('Escala Nominal: Estado Civil')
+axs[0, 0].set_xlabel('Estado Civil')
+axs[0, 0].set_ylabel('Contagem')
+
+# Escala Ordinal
+sns.countplot(x='Satisfação (Ordinal)', data=df, order=ordem, ax=axs[0, 1])
+axs[0, 1].set_title('Escala Ordinal: Satisfação')
+axs[0, 1].set_xlabel('Nível de Satisfação')
+axs[0, 1].set_ylabel('Contagem')
+axs[0, 1].tick_params(axis='x', rotation=30)
+
+# Escala Intervalar
+sns.histplot(df['Ano Ingresso (Intervalar)'], bins=4, kde=True, ax=axs[1, 0])
+axs[1, 0].set_title('Escala Intervalar: Ano de Ingresso')
+axs[1, 0].set_xlabel('Ano')
+axs[1, 0].set_ylabel('Frequência')
+
+# Escala de Razão
+sns.barplot(x=df.index, y='Tempo de Estudo (Razão - minutos)', data=df, ax=axs[1, 1])
+axs[1, 1].set_title('Escala de Razão: Tempo de Estudo')
+axs[1, 1].set_xlabel('Aluno')
+axs[1, 1].set_ylabel('Minutos')
+
+plt.tight_layout(rect=[0, 0, 1, 0.96])
+plt.show()
+
+# Exibir a tabela
+print("=== TABELA DE RESPOSTAS ===")
+display(df)
+
+```
+Claro! Aqui está o **projeto prático formatado como Wiki**, incluindo os **scripts de resolução em Python (Google Colab compatível)**:
 
 ---
+
+## Projeto Prático: Mini Questionário de Escalas de Medição
+
+### Objetivo
+
+Criar um questionário com perguntas que representem cada tipo de escala estatística (nominal, ordinal, intervalar e razão). Em seguida, simular a coleta de dados, organizar os resultados em uma tabela e gerar visualizações para análise.
+
+---
+
+### Questionário Proposto
+
+| Nº | Pergunta | Tipo de Escala | Justificativa |
+|----|----------|----------------|---------------|
+| 1  | Qual seu estado civil? | **Nominal** | Não possui ordem ou hierarquia, apenas classificação. |
+| 2  | Como você classificaria seu nível de estresse hoje? (Baixo, Médio, Alto) | **Ordinal** | Há ordem entre as categorias, mas a distância entre elas não é mensurável. |
+| 3  | Em que ano você começou a faculdade? | **Intervalar** | Possui ordem e intervalos iguais, mas não há zero absoluto significativo. |
+| 4  | Quantas horas você dormiu na última noite? | **Razão** | Possui zero absoluto e permite todas as operações matemáticas. |
+| 5  | Qual a sua cor favorita? | **Nominal** | Classificação sem hierarquia. |
+| 6  | Quantas vezes você se exercitou na última semana? | **Razão** | Há ordem, intervalos iguais e zero significa "nenhuma vez". |
+
+---
+
+### Simulação de Respostas
+
+```python
+import pandas as pd
+
+# Criando o DataFrame com respostas simuladas de 6 participantes
+respostas = {
+    'Estado Civil (Nominal)': ['Solteiro', 'Casado', 'Divorciado', 'Solteiro', 'Casado', 'Viúvo'],
+    'Estresse (Ordinal)': ['Baixo', 'Médio', 'Alto', 'Médio', 'Baixo', 'Alto'],
+    'Ano de Ingresso (Intervalar)': [2019, 2020, 2018, 2021, 2020, 2019],
+    'Horas de Sono (Razão)': [6, 7.5, 5, 8, 4.5, 7],
+    'Cor Favorita (Nominal)': ['Azul', 'Vermelho', 'Verde', 'Azul', 'Preto', 'Roxo'],
+    'Exercícios/Semana (Razão)': [2, 3, 0, 1, 4, 2]
+}
+
+df = pd.DataFrame(respostas)
+df
+```
+
+---
+
+### Visualização Gráfica das Escalas
+
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Ordenação da escala ordinal
+ordem_estresse = ['Baixo', 'Médio', 'Alto']
+df['Estresse (Ordinal)'] = pd.Categorical(df['Estresse (Ordinal)'], categories=ordem_estresse, ordered=True)
+
+# Gráficos em grid 2x2
+fig, axs = plt.subplots(2, 2, figsize=(14, 10))
+fig.suptitle("Visualização de Escalas de Medição", fontsize=16)
+
+# Escala Nominal - Estado Civil
+sns.countplot(x='Estado Civil (Nominal)', data=df, ax=axs[0, 0])
+axs[0, 0].set_title('Estado Civil (Nominal)')
+
+# Escala Ordinal - Estresse
+sns.countplot(x='Estresse (Ordinal)', data=df, order=ordem_estresse, ax=axs[0, 1])
+axs[0, 1].set_title('Nível de Estresse (Ordinal)')
+
+# Escala Intervalar - Ano de Ingresso
+sns.histplot(df['Ano de Ingresso (Intervalar)'], bins=4, kde=True, ax=axs[1, 0])
+axs[1, 0].set_title('Ano de Ingresso (Intervalar)')
+
+# Escala de Razão - Horas de Sono
+sns.barplot(x=df.index, y='Horas de Sono (Razão)', data=df, ax=axs[1, 1])
+axs[1, 1].set_title('Horas de Sono (Razão)')
+
+plt.tight_layout(rect=[0, 0, 1, 0.96])
+plt.show()
+```
+
+---
+
+### Análise e Discussão
+
+- As escalas **nominais** foram representadas por categorias sem hierarquia (estado civil e cor favorita).
+- A **escala ordinal** apresentou uma ordenação clara de níveis de estresse.
+- A **escala intervalar** mostrou o ano de ingresso, permitindo observar a distribuição ao longo do tempo.
+- As **escalas de razão** possibilitaram operações matemáticas completas, como média e total.
+
+---
+
+### Atividade Opcional
+
+- Aplique esse questionário com colegas.
+- Insira os dados no DataFrame e repita as análises e gráficos.
+
 
 ## Exercícios
 

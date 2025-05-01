@@ -109,7 +109,7 @@ Amostragem é o processo de selecionar uma parte da população para análise.
 - A população é dividida em **estratos** homogêneos (ex: faixa etária, sexo, região) e então é feita uma amostra aleatória dentro de cada grupo.
 - Garante melhor representatividade da diversidade.
 
-### 5. Exemplo prático: Amostragem Aleatória Simples, Sistemática e Estratificada
+### 5. Exemplo Amostragem Aleatória Simples, Sistemática e Estratificada
 
 <img src="img/1-amostragem.png">
 
