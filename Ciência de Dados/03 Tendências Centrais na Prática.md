@@ -20,9 +20,9 @@ A **média** é a soma de todos os valores dividida pelo número de elementos. E
 #### Exemplo:
 Para o conjunto de dados [2, 3, 3, 4, 10], a média é:
 
-$
+$$
 \text{Média} = \frac{2 + 3 + 3 + 4 + 10}{5} = \frac{22}{5} = 4,4
-$
+$$
 
 No caso acima, o valor **10** (outlier) eleva a média. A média é útil quando os dados não possuem outliers significativos.
 
