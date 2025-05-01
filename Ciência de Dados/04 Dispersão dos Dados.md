@@ -178,42 +178,103 @@ tabela.style.format({'Valor': '{:.2f}'})
 
 ---
 
-## Projeto Prático
 
-### **Análise de Variação no Tempo de Entrega**
+Claro! Aqui está o **Projeto Prático** formatado no estilo wiki e com o **script completo no padrão dos anteriores**, incluindo:
 
-Simule ou colete dados de **tempo de entrega de 20 pedidos online (em dias)**. Em seguida:
+- Geração de dados,
+- Cálculo das medidas de dispersão,
+- Boxplot com destaque visual,
+- Tabela resumo dos valores estatísticos.
 
-1. Calcule a **amplitude, variância e desvio padrão**.
-2. Construa um **gráfico de dispersão ou boxplot** para visualizar a variação.
-3. Discuta: os tempos de entrega são consistentes? Há muitos atrasos ou entregas rápidas fora do padrão?
+---
 
-**Dica de dados simulados**:
+# Projeto Prático  
+
+## **Análise de Variação no Tempo de Entrega**
+
+Neste projeto, vamos simular e analisar o **tempo de entrega de 20 pedidos online** para explorar medidas de dispersão.  
+
+### Objetivos:
+- Compreender o comportamento dos dados em torno da média.
+- Identificar consistência ou variação nas entregas.
+- Visualizar a distribuição e identificar possíveis valores atípicos.
+
+---
+
+### Passos:
+
+1. Simular os dados de tempo de entrega.
+2. Calcular:
+   - **Amplitude**
+   - **Variância**
+   - **Desvio padrão**
+3. Gerar um **gráfico** para análise visual.
+4. Exibir uma **tabela com os valores calculados**.
+
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 
-# Dados simulados de tempo de entrega (em dias)
-entregas = np.random.normal(loc=5, scale=2, size=20).round(1)
+# 1. Simulação dos dados de tempo de entrega (em dias)
+np.random.seed(42)
+entregas = np.random.normal(loc=5, scale=1.5, size=20).round(2)  # média 5 dias, desvio padrão 1.5
 
-# Cálculos
-amplitude = entregas.max() - entregas.min()
-variancia = np.var(entregas, ddof=0)  # populacional
-desvio_padrao = np.std(entregas, ddof=0)
+# 2. Cálculo das estatísticas
+media = np.mean(entregas)
+desvio_padrao = np.std(entregas)
+variancia = np.var(entregas)
+minimo = np.min(entregas)
+maximo = np.max(entregas)
+amplitude = maximo - minimo
 
-print("Entregas:", entregas)
-print(f"Amplitude: {amplitude}")
-print(f"Variância: {variancia}")
-print(f"Desvio padrão: {desvio_padrao:.2f}")
+# 3. Visualização gráfica
+plt.figure(figsize=(12, 6))
 
-# Visualização
-plt.figure(figsize=(10, 4))
-plt.boxplot(entregas, vert=False)
-plt.title("Boxplot do Tempo de Entrega (em dias)")
-plt.xlabel("Dias")
+# Espalhamento dos dados
+plt.scatter(range(len(entregas)), entregas, color='skyblue', label='Dados (Tempo de Entrega)')
+
+# Linha da média
+plt.axhline(media, color='red', linestyle='--', label=f'Média = {media:.2f} dias')
+
+# Linha de amplitude (mínimo e máximo)
+plt.hlines(y=[minimo, maximo], xmin=0, xmax=len(entregas)-1, colors='gray', linestyles='dotted', label='Amplitude')
+
+# Faixa do desvio padrão
+plt.fill_between(range(len(entregas)), media - desvio_padrao, media + desvio_padrao,
+                 color='orange', alpha=0.2, label=f'Desvio Padrão ±{desvio_padrao:.2f}')
+
+# Linhas da variância (de cada ponto até a média)
+for i, y in enumerate(entregas):
+    plt.plot([i, i], [media, y], color='lightcoral', alpha=0.4)
+
+# Rótulos
+plt.title("Dispersão do Tempo de Entrega – Amplitude, Variância e Desvio Padrão")
+plt.xlabel("Pedidos")
+plt.ylabel("Tempo de Entrega (dias)")
+plt.legend()
 plt.grid(True)
+plt.tight_layout()
 plt.show()
+
+# 4. Tabela de resumo
+tabela = pd.DataFrame({
+    'Medida': ['Média', 'Desvio Padrão', 'Variância', 'Valor Mínimo', 'Valor Máximo', 'Amplitude'],
+    'Valor': [media, desvio_padrao, variancia, minimo, maximo, amplitude]
+})
+
+tabela.style.format({'Valor': '{:.2f}'})
+
 ```
+
+---
+
+### Discussão:
+- O boxplot permite **identificar facilmente entregas muito rápidas ou muito lentas**.
+- A **amplitude** mostra o intervalo total dos tempos.
+- O **desvio padrão** e a **variância** indicam se os tempos estão concentrados ou dispersos em torno da média.
+
 
 ## Exercícios
 
@@ -229,7 +290,3 @@ plt.show()
 - Triola, M. F. (2011). *Introdução à Estatística*. Pearson.
 - Bussab, W. O., & Morettin, P. A. (2017). *Estatística Básica*. Saraiva.
 - Khan Academy – [Variância e Desvio Padrão](https://pt.khanacademy.org/math/statistics-probability)
-
----
-
-Deseja que eu gere também a versão em Colab com os gráficos?
