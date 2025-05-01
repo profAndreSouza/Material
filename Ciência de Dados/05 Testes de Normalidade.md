@@ -99,7 +99,7 @@ Onde:
 
 ---
 
-### Script em Colab: Teste Qui-quadrado de Aderência
+### Exemplo Teste Qui-quadrado
 
 <img src="img/5-qui_quadrado.png">
 
@@ -152,11 +152,75 @@ plt.show()
 
 ```
 
+---
 
-#### **Shapiro-Wilk**
+### Shapiro-Wilk
 
-* Ideal para **amostras pequenas** (n < 50).
-* Testa a hipótese nula de que os dados vêm de uma distribuição normal.
+O **teste de Shapiro-Wilk** verifica se uma amostra de dados vem de uma **distribuição normal**. É especialmente recomendado para **amostras pequenas (n < 50)**, mas também pode ser usado com tamanhos moderados.
+
+#### Características:
+
+* **Tipo de dado**: quantitativo contínuo.
+* **Hipóteses**:
+
+  * **H₀**: os dados seguem uma distribuição normal.
+  * **H₁**: os dados **não** seguem uma distribuição normal.
+* **Interpretação**:
+
+  * Se o **p-valor < 0.05**, rejeitamos H₀ → os dados **não** são normalmente distribuídos.
+  * Se o **p-valor ≥ 0.05**, **não rejeitamos** H₀ → os dados **podem** ser considerados normais.
+
+---
+
+### Etapas do teste:
+
+1. Gerar ou coletar dados.
+2. Aplicar `shapiro` do `scipy.stats`.
+3. Verificar o valor de W (estatística do teste) e o p-valor.
+4. Usar histogramas e gráficos de densidade para visualizar a distribuição.
+
+---
+
+### Exemplo Shapiro-Wilk
+
+
+<img src="img/5-shapiro_wilk.png">
+
+```python
+# Shapiro-Wilk - Teste de Normalidade
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import shapiro
+import seaborn as sns
+
+# Gerar dados simulados (exemplo: normal ou não normal)
+np.random.seed(0)
+dados_normais = np.random.normal(loc=50, scale=5, size=30)
+# dados_nao_normais = np.random.exponential(scale=5, size=30)
+
+# Teste de Shapiro-Wilk
+stat, p = shapiro(dados_normais)
+
+# Resultado
+print("Estatística W:", round(stat, 4))
+print("p-valor:", round(p, 4))
+if p < 0.05:
+    print("Resultado: Os dados NÃO seguem uma distribuição normal (rejeta H₀)")
+else:
+    print("Resultado: Os dados seguem uma distribuição normal (não rejeita H₀)")
+
+# Gráfico
+plt.figure(figsize=(10, 5))
+sns.histplot(dados_normais, kde=True, bins=10, color='skyblue')
+plt.title("Distribuição dos Dados - Shapiro-Wilk")
+plt.xlabel("Valor")
+plt.ylabel("Frequência")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+
+---
 
 #### **Kolmogorov-Smirnov (K-S)**
 
