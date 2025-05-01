@@ -71,8 +71,8 @@ Desvios ao quadrado:
 - (6 − 5.67)² ≈ 0.11  
 
 Soma dos quadrados: ≈ 4.67  
-Variância populacional: \( \sigma^2 = \frac{4.67}{3} ≈ 1.56 \)  
-Variância amostral: \( s^2 = \frac{4.67}{2} ≈ 2.33 \)
+Variância populacional: $` \sigma^2 = \frac{4.67}{3} ≈ 1.56 `$  
+Variância amostral: $` s^2 = \frac{4.67}{2} ≈ 2.33 `$
 
 #### Interpretação:
 - Quanto maior a variância, **maior o espalhamento** dos dados em relação à média.
