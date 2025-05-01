@@ -271,7 +271,7 @@ tabela.style.format({'Valor': '{:.2f}'})
 ---
 
 ### Discussão:
-- O boxplot permite **identificar facilmente entregas muito rápidas ou muito lentas**.
+- O gráfico permite **identificar facilmente entregas muito rápidas ou muito lentas**.
 - A **amplitude** mostra o intervalo total dos tempos.
 - O **desvio padrão** e a **variância** indicam se os tempos estão concentrados ou dispersos em torno da média.
 
