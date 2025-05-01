@@ -36,9 +36,10 @@ Para o conjunto de dados ordenados [2, 3, 3, 4, 10], a mediana é o valor do mei
 
 Em outro exemplo com número par de elementos: [1, 2, 3, 4], a mediana será a média entre **2** e **3**, ou seja:
 
-$
+$$
 \text{Mediana} = \frac{2 + 3}{2} = 2,5
-$
+$$
+
 
 A mediana é uma excelente medida quando há **outliers**, pois não é tão influenciada por valores extremos.
 
