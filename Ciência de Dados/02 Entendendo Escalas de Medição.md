@@ -151,7 +151,6 @@ print("=== TABELA DE RESPOSTAS ===")
 display(df)
 
 ```
-Claro! Aqui está o **projeto prático formatado como Wiki**, incluindo os **scripts de resolução em Python (Google Colab compatível)**:
 
 ---
 
