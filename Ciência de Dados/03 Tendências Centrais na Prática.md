@@ -20,9 +20,9 @@ A **média** é a soma de todos os valores dividida pelo número de elementos. E
 #### Exemplo:
 Para o conjunto de dados [2, 3, 3, 4, 10], a média é:
 
-\[
+$
 \text{Média} = \frac{2 + 3 + 3 + 4 + 10}{5} = \frac{22}{5} = 4,4
-\]
+$
 
 No caso acima, o valor **10** (outlier) eleva a média. A média é útil quando os dados não possuem outliers significativos.
 
@@ -36,9 +36,9 @@ Para o conjunto de dados ordenados [2, 3, 3, 4, 10], a mediana é o valor do mei
 
 Em outro exemplo com número par de elementos: [1, 2, 3, 4], a mediana será a média entre **2** e **3**, ou seja:
 
-\[
+$
 \text{Mediana} = \frac{2 + 3}{2} = 2,5
-\]
+$
 
 A mediana é uma excelente medida quando há **outliers**, pois não é tão influenciada por valores extremos.
 
@@ -89,10 +89,6 @@ Os percentis são úteis para identificar a **distribuição** dos dados em rela
 
 
 <img src="img/3-tendencia.png">
-
-| Média    | Mediana   | Moda      | 1º Quartil (Q1) | 3º Quartil (Q3) | Percentil 90 (P90) |
-|----------|-----------|-----------|-----------------|-----------------|--------------------|
-| 70.89712 | 71.411442 | 31.705153 | 60.34215        | 81.05616        | 92.068722          |
 
 
 ```python
@@ -163,6 +159,12 @@ summary
 
 
 ```
+
+
+
+| Média    | Mediana   | Moda      | 1º Quartil (Q1) | 3º Quartil (Q3) | Percentil 90 (P90) |
+|----------|-----------|-----------|-----------------|-----------------|--------------------|
+| 70.89712 | 71.411442 | 31.705153 | 60.34215        | 81.05616        | 92.068722          |
 
 ## Projeto Prático
 
