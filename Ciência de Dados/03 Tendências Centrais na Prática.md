@@ -227,7 +227,7 @@ plt.show()
 
 ---
 
-## Exercícios Extras (sem resolução)
+## Exercícios
 
 1. Explique com suas palavras a diferença entre média e mediana.
 2. Em um conjunto de dados com outliers, qual medida de tendência central é mais robusta? Por quê?
@@ -244,7 +244,3 @@ plt.show()
 - **Vídeo Aula:** [Khan Academy - Medidas de tendência central](https://pt.khanacademy.org/math/statistics-probability)
 - **Artigo:** IBGE Explica – [O que são média, mediana e moda?](https://educa.ibge.gov.br/jovens/conheca-o-brasil/populacao/18397-media-mediana-e-moda.html)
 - **Colab Complementar:** [Notebook interativo com dados reais de notas escolares] *(criar conforme necessidade da turma)*
-
----
-
-Se quiser, posso gerar o notebook `.ipynb` para você com esse conteúdo. Deseja?
