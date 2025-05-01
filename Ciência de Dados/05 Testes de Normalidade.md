@@ -60,14 +60,14 @@ Onde:
 
 ---
 
-### Elementos importantes do resultado (`scipy.stats.chi2_contingency`):
+#### Elementos importantes do resultado (`scipy.stats.chi2_contingency`):
 
-#### ✅ `chi2`
+##### `chi2`
 
 * Valor da estatística do teste.
 * Quanto maior, maior a evidência contra a hipótese nula.
 
-#### ✅ `p`
+##### `p`
 
 * **p-valor**: probabilidade de obter um valor tão extremo quanto o observado, assumindo que H₀ é verdadeira.
 * **Interpretação**:
@@ -75,7 +75,7 @@ Onde:
   * Se `p < 0.05`: rejeitamos H₀ → existe associação significativa.
   * Se `p ≥ 0.05`: não rejeitamos H₀ → não há evidência de associação.
 
-#### ✅ `dof` (graus de liberdade)
+##### `dof` (graus de liberdade)
 
 * Número de valores livres para variar, dado um conjunto de restrições.
 
@@ -87,7 +87,7 @@ Onde:
 
 * Impacta diretamente a distribuição de referência usada para calcular o p-valor.
 
-#### ✅ `expected`
+##### `expected`
 
 * **Frequências esperadas** em cada célula da tabela, caso as variáveis fossem independentes.
 * São usadas na fórmula do teste para comparar com as frequências observadas.
@@ -99,7 +99,7 @@ Onde:
 
 ---
 
-### Exemplo Teste Qui-quadrado
+#### Exemplo Teste Qui-quadrado
 
 <img src="img/5-qui_quadrado.png">
 
