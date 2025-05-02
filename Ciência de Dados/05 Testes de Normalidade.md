@@ -81,9 +81,9 @@ Onde:
 
 * Calculado como:
 
-  $$
-  \text{dof} = (n\_linhas - 1) \times (n\_colunas - 1)
-  $$
+$$
+\text{dof} = (n\_linhas - 1) \times (n\_colunas - 1)
+$$
 
 * Impacta diretamente a distribuição de referência usada para calcular o p-valor.
 
@@ -93,9 +93,9 @@ Onde:
 * São usadas na fórmula do teste para comparar com as frequências observadas.
 * Calculadas por:
 
-  $$
-  E_{ij} = \frac{(\text{soma da linha } i) \times (\text{soma da coluna } j)}{\text{total geral}}
-  $$
+$$
+E_{ij} = \frac{(\text{soma da linha } i) \times (\text{soma da coluna } j)}{\text{total geral}}
+$$
 
 ---
 
@@ -172,7 +172,7 @@ O **teste de Shapiro-Wilk** verifica se uma amostra de dados vem de uma **distri
 
 ---
 
-### Etapas do teste:
+#### Etapas do teste:
 
 1. Gerar ou coletar dados.
 2. Aplicar `shapiro` do `scipy.stats`.
@@ -181,7 +181,7 @@ O **teste de Shapiro-Wilk** verifica se uma amostra de dados vem de uma **distri
 
 ---
 
-### Exemplo Shapiro-Wilk
+#### Exemplo Shapiro-Wilk
 
 
 <img src="img/5-shapiro_wilk.png">
@@ -222,10 +222,73 @@ plt.show()
 
 ---
 
-#### **Kolmogorov-Smirnov (K-S)**
+### Kolmogorov-Smirnov (K-S)
 
-* Compara a distribuição dos dados com uma distribuição teórica (por exemplo, normal).
-* Pode ser usado com a correção de Lilliefors quando os parâmetros da normal são estimados.
+O **teste de Kolmogorov-Smirnov (K-S)** é utilizado para comparar a distribuição de uma amostra com uma distribuição teórica (como a normal). Ele avalia a **maior diferença entre as funções de distribuição acumuladas** (CDFs) da amostra e da distribuição de referência.
+
+---
+
+#### Características:
+
+* **Tipo de dado**: quantitativo contínuo.
+* **Hipóteses**:
+
+  * **H₀**: os dados seguem a distribuição teórica especificada (ex: normal).
+  * **H₁**: os dados **não** seguem essa distribuição.
+* **Importante**: ao usar com a distribuição normal, **os parâmetros (média e desvio padrão) devem ser conhecidos**. Se forem estimados da própria amostra, o teste deve ser ajustado com a **correção de Lilliefors** (o `kstest` padrão não aplica essa correção).
+
+---
+
+#### Etapas do teste:
+
+1. Calcular a CDF da amostra.
+2. Comparar com a CDF teórica (ex: `norm.cdf()`).
+3. Observar o valor de **D (estatística do teste)** e o **p-valor**.
+4. Se necessário, usar visualizações como histogramas ou curvas de densidade acumulada.
+
+---
+
+#### Exemplo:
+
+<img src="img/5-Kolmogorov_Smirnov.png">
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import kstest, norm
+
+# Gerar dados simulados
+np.random.seed(42)
+dados = np.random.normal(loc=50, scale=10, size=100)
+
+# Normalizar os dados (Z-score), já que o KS exige parâmetros conhecidos
+dados_norm = (dados - np.mean(dados)) / np.std(dados)
+
+# Aplicar o teste K-S comparando com a distribuição normal padrão
+stat, p = kstest(dados_norm, 'norm')
+
+# Resultados
+print("Estatística D:", round(stat, 4))
+print("p-valor:", round(p, 4))
+if p < 0.05:
+    print("Resultado: Os dados NÃO seguem a distribuição normal (rejeta H₀)")
+else:
+    print("Resultado: Os dados seguem a distribuição normal (não rejeita H₀)")
+
+# Gráfico: Distribuição dos dados
+plt.figure(figsize=(10, 5))
+sns.histplot(dados_norm, kde=True, color='mediumseagreen', bins=20)
+plt.title("Distribuição dos Dados Normalizados - Teste K-S")
+plt.xlabel("Z-score")
+plt.ylabel("Frequência")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+
+---
+
 
 #### **Anderson-Darling**
 
