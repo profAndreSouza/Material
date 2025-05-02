@@ -32,13 +32,11 @@ Você deve considerar aplicar testes de normalidade nas seguintes situações:
 
 ---
 
-## Principais testes:
-
-### Qui-quadrado
+## Qui-quadrado
 
 O **teste Qui-quadrado de aderência** (ou de independência, no caso de tabelas de contingência) verifica se há **associação significativa entre duas variáveis categóricas**. Ele compara as **frequências observadas** com as **frequências esperadas** sob a hipótese de que as variáveis são independentes.
 
-#### Características:
+### Características:
 
 * **Tipo de dado**: qualitativo/categórico ou quantitativo categorizado.
 * **Pré-requisito**: dados organizados em **tabela de contingência**.
@@ -47,7 +45,7 @@ O **teste Qui-quadrado de aderência** (ou de independência, no caso de tabelas
   * **H₀ (nula)**: as variáveis são independentes.
   * **H₁ (alternativa)**: existe associação entre as variáveis.
 
-#### Fórmula:
+### Fórmula:
 
 $$
 \chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
@@ -60,14 +58,14 @@ Onde:
 
 ---
 
-#### Elementos importantes do resultado (`scipy.stats.chi2_contingency`):
+### Elementos importantes do resultado (`scipy.stats.chi2_contingency`):
 
-##### `chi2`
+#### `chi2`
 
 * Valor da estatística do teste.
 * Quanto maior, maior a evidência contra a hipótese nula.
 
-##### `p`
+#### `p`
 
 * **p-valor**: probabilidade de obter um valor tão extremo quanto o observado, assumindo que H₀ é verdadeira.
 * **Interpretação**:
@@ -75,7 +73,7 @@ Onde:
   * Se `p < 0.05`: rejeitamos H₀ → existe associação significativa.
   * Se `p ≥ 0.05`: não rejeitamos H₀ → não há evidência de associação.
 
-##### `dof` (graus de liberdade)
+#### `dof` (graus de liberdade)
 
 * Número de valores livres para variar, dado um conjunto de restrições.
 
@@ -87,7 +85,7 @@ $$
 
 * Impacta diretamente a distribuição de referência usada para calcular o p-valor.
 
-##### `expected`
+#### `expected`
 
 * **Frequências esperadas** em cada célula da tabela, caso as variáveis fossem independentes.
 * São usadas na fórmula do teste para comparar com as frequências observadas.
@@ -99,7 +97,7 @@ $$
 
 ---
 
-#### Exemplo Teste Qui-quadrado
+### Exemplo Teste Qui-quadrado
 
 <img src="img/5-qui_quadrado.png">
 
@@ -154,11 +152,11 @@ plt.show()
 
 ---
 
-### Shapiro-Wilk
+## Shapiro-Wilk
 
 O **teste de Shapiro-Wilk** verifica se uma amostra de dados vem de uma **distribuição normal**. É especialmente recomendado para **amostras pequenas (n < 50)**, mas também pode ser usado com tamanhos moderados.
 
-#### Características:
+### Características:
 
 * **Tipo de dado**: quantitativo contínuo.
 * **Hipóteses**:
@@ -172,7 +170,7 @@ O **teste de Shapiro-Wilk** verifica se uma amostra de dados vem de uma **distri
 
 ---
 
-#### Etapas do teste:
+### Etapas do teste:
 
 1. Gerar ou coletar dados.
 2. Aplicar `shapiro` do `scipy.stats`.
@@ -181,7 +179,7 @@ O **teste de Shapiro-Wilk** verifica se uma amostra de dados vem de uma **distri
 
 ---
 
-#### Exemplo Shapiro-Wilk
+### Exemplo Shapiro-Wilk
 
 
 <img src="img/5-shapiro_wilk.png">
@@ -222,13 +220,13 @@ plt.show()
 
 ---
 
-### Kolmogorov-Smirnov (K-S)
+## Kolmogorov-Smirnov (K-S)
 
 O **teste de Kolmogorov-Smirnov (K-S)** é utilizado para comparar a distribuição de uma amostra com uma distribuição teórica (como a normal). Ele avalia a **maior diferença entre as funções de distribuição acumuladas** (CDFs) da amostra e da distribuição de referência.
 
 ---
 
-#### Características:
+### Características:
 
 * **Tipo de dado**: quantitativo contínuo.
 * **Hipóteses**:
@@ -239,7 +237,7 @@ O **teste de Kolmogorov-Smirnov (K-S)** é utilizado para comparar a distribuiç
 
 ---
 
-#### Etapas do teste:
+### Etapas do teste:
 
 1. Calcular a CDF da amostra.
 2. Comparar com a CDF teórica (ex: `norm.cdf()`).
@@ -248,7 +246,7 @@ O **teste de Kolmogorov-Smirnov (K-S)** é utilizado para comparar a distribuiç
 
 ---
 
-#### Exemplo Kolmogorov-Smirnov
+### Exemplo Kolmogorov-Smirnov
 
 <img src="img/5-Kolmogorov_Smirnov.png">
 
@@ -289,13 +287,13 @@ plt.show()
 
 ---
 
-### Anderson-Darling
+## Anderson-Darling
 
 O **teste de Anderson-Darling** é uma forma avançada de teste de aderência, utilizado para verificar se os dados seguem uma distribuição específica (normal, exponencial, etc.). É uma extensão do teste de Kolmogorov-Smirnov, porém **dá mais peso às caudas da distribuição** (extremos), sendo mais sensível a discrepâncias nas pontas dos dados.
 
 ---
 
-#### Características:
+### Características:
 
 * **Tipo de dado**: quantitativo contínuo.
 * **Vantagem**: mais sensível a desvios na cauda dos dados (valores muito altos ou baixos).
@@ -318,6 +316,8 @@ O **teste de Anderson-Darling** é uma forma avançada de teste de aderência, u
 ---
 
 ### Exemplo Anderson Darling
+
+<img src="img/5-Anderson_Darling.png">
 
 ```python
 import numpy as np
