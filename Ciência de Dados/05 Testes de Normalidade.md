@@ -82,7 +82,7 @@ Onde:
 * Calculado como:
 
 $$
-\text{dof} = (n\_linhas - 1) \times (n\_colunas - 1)
+\text{dof} = (n\_ linhas - 1) \times (n\_ colunas - 1)
 $$
 
 * Impacta diretamente a distribuição de referência usada para calcular o p-valor.
