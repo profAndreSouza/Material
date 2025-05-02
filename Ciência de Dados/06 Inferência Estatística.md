@@ -233,4 +233,3 @@ else:
 
 * Livro: Bussab & Morettin – **Estatística Básica**, capítulo sobre Inferência Estatística.
 * Khan Academy: [Inferência Estatística](https://pt.khanacademy.org/math/statistics-probability)
-* Curso Aberto da USP: [Estatística Descritiva e Inferencial](https://edisciplinas.usp.br/)
