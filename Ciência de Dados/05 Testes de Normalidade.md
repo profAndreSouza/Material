@@ -289,29 +289,55 @@ plt.show()
 
 ## Anderson-Darling
 
-O **teste de Anderson-Darling** é uma forma avançada de teste de aderência, utilizado para verificar se os dados seguem uma distribuição específica (normal, exponencial, etc.). É uma extensão do teste de Kolmogorov-Smirnov, porém **dá mais peso às caudas da distribuição** (extremos), sendo mais sensível a discrepâncias nas pontas dos dados.
+O **teste de Anderson-Darling** é uma forma avançada de teste de aderência, utilizado para verificar se os dados seguem uma **distribuição específica** (como normal, exponencial, etc.). Ele é uma extensão do teste de Kolmogorov-Smirnov, porém **dá mais peso às caudas da distribuição** — ou seja, ele é **mais sensível a discrepâncias nos valores muito altos ou muito baixos**.
 
 ---
 
 ### Características:
 
 * **Tipo de dado**: quantitativo contínuo.
-* **Vantagem**: mais sensível a desvios na cauda dos dados (valores muito altos ou baixos).
+* **Vantagem**: mais sensível a desvios nas extremidades (caudas) da distribuição.
 * **Hipóteses**:
 
-  * **H₀**: os dados seguem a distribuição teórica especificada.
-  * **H₁**: os dados **não** seguem essa distribuição.
-* Pode ser aplicado a várias distribuições além da normal.
+  * **H₀ (nula)**: os dados seguem a distribuição teórica especificada.
+  * **H₁ (alternativa)**: os dados **não** seguem essa distribuição.
+* Pode ser aplicado a várias distribuições além da normal (exponencial, logística, etc.).
 
 ---
 
-### Interpretação dos resultados:
+### Interpretação dos Resultados
 
-* O teste retorna:
+O teste retorna:
 
-  * **Estatística A²** (quanto maior, maior a evidência contra H₀).
-  * Uma lista de **valores críticos** para diferentes níveis de significância (15%, 10%, 5%, 2.5%, 1%).
-* Se **A²** for maior que o valor crítico correspondente ao nível de significância, **rejeita-se H₀**.
+* **Estatística A²**: quanto maior for esse valor, **maior a evidência contra H₀**.
+* Uma **tabela de valores críticos** para diferentes **níveis de significância**:
+
+  * **15%**, **10%**, **5%**, **2.5%**, **1%**.
+
+Você deve comparar o valor de **A²** com esses valores críticos.
+
+* Se **A² for maior que o valor crítico correspondente**, **rejeita-se H₀** (os dados não seguem a distribuição teórica).
+
+---
+
+### O que é "nível de significância"?
+
+O **nível de significância** indica **quanto risco estamos dispostos a aceitar** ao dizer que os dados **não seguem uma determinada distribuição** (e podemos estar errados).
+
+| Nível de Significância | O que significa na prática?                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| **10% (0,10)**         | Mais tolerante. Aceita até 10% de chance de erro.            |
+| **5% (0,05)**          | Mais comum. Equilíbrio entre rigor e praticidade.            |
+| **1% (0,01)**          | Muito rigoroso. Só rejeita H₀ com forte evidência nos dados. |
+
+Se você definir o nível de significância como **5%**, está aceitando uma chance de 5 em 100 de **rejeitar H₀ mesmo que ela seja verdadeira** — ou seja, cometer um **erro tipo I**.
+
+---
+
+### Conclusão:
+
+* Se a estatística **A²** ultrapassa o valor crítico do nível escolhido, os dados **não seguem a distribuição teórica** (rejeita-se H₀).
+* Se **A² for menor ou igual**, então **não há evidências suficientes para rejeitar H₀** — os dados **podem ser considerados normais** (ou conforme a distribuição testada).
 
 ---
 
