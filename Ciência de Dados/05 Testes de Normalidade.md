@@ -82,7 +82,7 @@ Onde:
 * Calculado como:
 
 $$
-\text{dof} = (n\_ linhas - 1) \times (n\_ colunas - 1)
+\text{dof} = (nLinhas - 1) \times (nColunas - 1)
 $$
 
 * Impacta diretamente a distribuição de referência usada para calcular o p-valor.
@@ -248,7 +248,7 @@ O **teste de Kolmogorov-Smirnov (K-S)** é utilizado para comparar a distribuiç
 
 ---
 
-#### Exemplo:
+#### Exemplo Kolmogorov-Smirnov
 
 <img src="img/5-Kolmogorov_Smirnov.png">
 
@@ -289,14 +289,75 @@ plt.show()
 
 ---
 
+### Anderson-Darling
 
-#### **Anderson-Darling**
+O **teste de Anderson-Darling** é uma forma avançada de teste de aderência, utilizado para verificar se os dados seguem uma distribuição específica (normal, exponencial, etc.). É uma extensão do teste de Kolmogorov-Smirnov, porém **dá mais peso às caudas da distribuição** (extremos), sendo mais sensível a discrepâncias nas pontas dos dados.
 
-* Testa a aderência dos dados a várias distribuições.
-* Mais sensível a discrepâncias nas extremidades da distribuição.
+---
 
+#### Características:
 
-> **Importante**: Em todos esses testes, o valor de **p** indica a probabilidade de os dados pertencerem a uma distribuição normal. Se **p < 0,05**, rejeita-se a hipótese de normalidade.
+* **Tipo de dado**: quantitativo contínuo.
+* **Vantagem**: mais sensível a desvios na cauda dos dados (valores muito altos ou baixos).
+* **Hipóteses**:
+
+  * **H₀**: os dados seguem a distribuição teórica especificada.
+  * **H₁**: os dados **não** seguem essa distribuição.
+* Pode ser aplicado a várias distribuições além da normal.
+
+---
+
+### Interpretação dos resultados:
+
+* O teste retorna:
+
+  * **Estatística A²** (quanto maior, maior a evidência contra H₀).
+  * Uma lista de **valores críticos** para diferentes níveis de significância (15%, 10%, 5%, 2.5%, 1%).
+* Se **A²** for maior que o valor crítico correspondente ao nível de significância, **rejeita-se H₀**.
+
+---
+
+### Exemplo Anderson Darling
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import anderson
+
+# Gerar dados simulados
+np.random.seed(42)
+dados = np.random.normal(loc=100, scale=15, size=100)
+
+# Teste de Anderson-Darling
+resultado = anderson(dados, dist='norm')
+
+# Mostrar resultados
+print("Estatística A²:", round(resultado.statistic, 4))
+print("\nValores críticos e significância:")
+for critico, sig in zip(resultado.critical_values, resultado.significance_level):
+    print(f"  {sig}% : {critico:.4f}")
+
+# Veredito com base no nível de 5%
+nivel_significancia = 5
+indice = resultado.significance_level.tolist().index(nivel_significancia)
+if resultado.statistic > resultado.critical_values[indice]:
+    print("\nResultado: Os dados NÃO seguem uma distribuição normal (rejeta H₀)")
+else:
+    print("\nResultado: Os dados seguem uma distribuição normal (não rejeita H₀)")
+
+# Gráfico da distribuição dos dados
+plt.figure(figsize=(10, 5))
+sns.histplot(dados, kde=True, color='slateblue', bins=20)
+plt.title("Distribuição dos Dados - Teste Anderson-Darling")
+plt.xlabel("Valor")
+plt.ylabel("Frequência")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+
+---
 
 ## Projeto Prático
 
@@ -360,5 +421,4 @@ print(f"Qui-quadrado: p = {p_chi2:.4f}")
 
 * Artigo: ["Normality Tests for Statistical Analysis: A Guide"](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3693611/)
 * Documentação do SciPy: [`scipy.stats`](https://docs.scipy.org/doc/scipy/reference/stats.html)
-* Vídeo-aula: "Testes de Normalidade com Python" (YouTube)
 * Livro: "Estatística Aplicada e Probabilidades para Engenheiros", Montgomery & Runger – Capítulo sobre Distribuições
