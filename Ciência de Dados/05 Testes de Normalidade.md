@@ -396,9 +396,6 @@ Neste projeto, você irá:
    * **Qui-quadrado**
 3. Comparar e interpretar os resultados com base nos valores de **p** ou valores críticos.
 
----
-
-### Script:
 
 ```python
 import numpy as np
