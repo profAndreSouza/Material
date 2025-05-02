@@ -8,7 +8,7 @@
 | **4: Dispersão dos Dados** | Amplitude, variância e desvio padrão. | Analisar a variação do tempo de entrega de pedidos em uma loja online. |
 | **5: Testes de Normalidade** | Testes: Qui-quadrado, Kolmogorov-Smirnov, Shapiro-Wilk, Anderson Darling. | Verificar se os tempos de atendimento de uma clínica seguem uma distribuição normal. |
 | **6: Inferência Estatística** | Inferência estatística clássica. | Simular uma pesquisa eleitoral e inferir resultados para toda a população. |
-| **7: Introdução à Regressão Linear** | Análise de regressão simples. | Prever o valor de vendas baseado no número de visitas ao site. |
+| **7: Introdução à Regressão** | Análise de regressão simples. | Prever o valor de vendas baseado no número de visitas ao site. |
 | **8: Séries Temporais Básicas** | Conceitos iniciais de séries temporais. | Analisar o histórico de temperatura de uma cidade e detectar tendências. |
 | **9: Correlação e Associação** | Relações entre variáveis quantitativas e categóricas. | Avaliar a correlação entre horas de estudo e notas em provas. |
 | **10: Funções Matemáticas em Data Science** | Funções: representação, domínio, contradomínio, imagem, tipos (polinomial, trigonométrica, exponencial). | Criar e plotar gráficos de diferentes funções usando Python. |
