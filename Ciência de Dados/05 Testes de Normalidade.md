@@ -105,6 +105,7 @@ $$
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 from scipy.stats import chi2_contingency
 
 # Criando a tabela de contingência fictícia
@@ -114,39 +115,34 @@ dados = pd.DataFrame({
     'Lento': [10, 15, 20]
 }, index=['Manhã', 'Tarde', 'Noite'])
 
-# Exibe a tabela
-print("Tabela de contingência (observada):")
-display(dados)
-
 # Teste Qui-quadrado
 chi2, p, dof, expected = chi2_contingency(dados)
 
-# Resultado
-print(f"Estatística Qui-quadrado: {chi2:.2f}")
-print(f"p-valor: {p:.4f}")
-print(f"Graus de liberdade: {dof}")
-print("Frequências esperadas sob H₀ (independência):")
-display(pd.DataFrame(expected, index=dados.index, columns=dados.columns))
+# Diferença entre observado e esperado
+diff = dados - expected
 
-# Interpretação
-if p > 0.05:
-    print("As variáveis são provavelmente independentes (não há associação significativa).")
-else:
-    print("Existe associação significativa entre turno e tempo de atendimento.")
+# Figura com 2 subgráficos lado a lado
+fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 
-# Gráfico de barras empilhadas mais claro
-cores = ['#a6cee3', '#1f78b4', '#b2df8a']  # Cores suaves
+# Gráfico 1: barras empilhadas
+cores = ['#a6cee3', '#1f78b4', '#b2df8a']
+dados.plot(kind='bar', stacked=True, color=cores, ax=axes[0], edgecolor='black')
+axes[0].set_title('Distribuição por Turno', fontsize=13)
+axes[0].set_xlabel('Turno do Dia')
+axes[0].set_ylabel('Nº de Atendimentos')
+axes[0].legend(title='Tempo')
+axes[0].grid(axis='y', linestyle='--', alpha=0.7)
+axes[0].tick_params(axis='x', rotation=0)
 
-dados.plot(kind='bar', stacked=True, figsize=(10, 6), color=cores, edgecolor='black')
+# Gráfico 2: mapa de calor da diferença (observado - esperado)
+sns.heatmap(diff, annot=True, fmt=".1f", cmap="coolwarm", center=0, ax=axes[1], cbar_kws={'label': 'Desvio (Obs - Esp)'})
+axes[1].set_title('Mapa de Calor: Desvios Observados x Esperados', fontsize=13)
+axes[1].set_xlabel('Tempo de Atendimento')
+axes[1].set_ylabel('Turno do Dia')
 
-plt.title('Distribuição de Tempo de Atendimento por Turno', fontsize=14)
-plt.xlabel('Turno do Dia', fontsize=12)
-plt.ylabel('Número de Atendimentos', fontsize=12)
-plt.xticks(rotation=0)
-plt.legend(title='Tempo de Atendimento', fontsize=10, title_fontsize=11)
-plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.show()
+
 
 ```
 
