@@ -332,10 +332,6 @@ O **nível de significância** indica **quanto risco estamos dispostos a aceitar
 
 Se você definir o nível de significância como **5%**, está aceitando uma chance de 5 em 100 de **rejeitar H₀ mesmo que ela seja verdadeira** — ou seja, cometer um **erro tipo I**.
 
----
-
-### Conclusão:
-
 * Se a estatística **A²** ultrapassa o valor crítico do nível escolhido, os dados **não seguem a distribuição teórica** (rejeita-se H₀).
 * Se **A² for menor ou igual**, então **não há evidências suficientes para rejeitar H₀** — os dados **podem ser considerados normais** (ou conforme a distribuição testada).
 
@@ -389,52 +385,96 @@ plt.show()
 
 ### **Verificando a Normalidade no Tempo de Atendimento**
 
-1. **Simule ou colete dados reais** do tempo de atendimento de uma clínica (em minutos).
-2. Aplique os testes de **Shapiro-Wilk**, **Kolmogorov-Smirnov**, **Anderson-Darling** e **Qui-quadrado**.
-3. Comente os resultados com base nos valores de **p**.
+Neste projeto, você irá:
 
-**Dica de código em Python:**
+1. Simular ou utilizar dados reais de tempo de atendimento de uma clínica (em minutos).
+2. Aplicar **quatro testes de normalidade**:
+
+   * **Shapiro-Wilk**
+   * **Kolmogorov-Smirnov (K-S)**
+   * **Anderson-Darling**
+   * **Qui-quadrado**
+3. Comparar e interpretar os resultados com base nos valores de **p** ou valores críticos.
+
+---
+
+### Script:
 
 ```python
 import numpy as np
-from scipy import stats
-from statsmodels.stats.diagnostic import lilliefors
 import matplotlib.pyplot as plt
 import seaborn as sns
+from scipy import stats
+from scipy.stats import chi2_contingency
+import pandas as pd
 
-# Simulando dados de tempo de atendimento
+# 1. Gerar dados simulados: tempo de atendimento (em minutos)
 np.random.seed(42)
 tempos = np.random.normal(loc=30, scale=5, size=100)
 
-# Histogram
-plt.figure(figsize=(10, 4))
-sns.histplot(tempos, kde=True, bins=15, color='skyblue')
-plt.title("Distribuição dos Tempos de Atendimento")
-plt.xlabel("Minutos")
+# 2. Visualização da distribuição
+plt.figure(figsize=(10, 5))
+sns.histplot(tempos, bins=10, kde=True, color='skyblue')
+plt.title("Distribuição dos Tempos de Atendimento (minutos)")
+plt.xlabel("Tempo de Atendimento")
+plt.ylabel("Frequência")
 plt.grid(True)
+plt.tight_layout()
 plt.show()
+
+# 3. Testes de Normalidade
 
 # Shapiro-Wilk
 stat_shapiro, p_shapiro = stats.shapiro(tempos)
 
-# Kolmogorov-Smirnov (com média e desvio estimados)
-stat_ks, p_ks = stats.kstest((tempos - np.mean(tempos)) / np.std(tempos), 'norm')
+# Kolmogorov-Smirnov
+tempos_padronizados = (tempos - np.mean(tempos)) / np.std(tempos)
+stat_ks, p_ks = stats.kstest(tempos_padronizados, 'norm')
 
 # Anderson-Darling
-result_ad = stats.anderson(tempos)
+ad_result = stats.anderson(tempos)
 
-# Qui-quadrado (com agrupamento em classes)
-freq_obs, bins = np.histogram(tempos, bins='auto')
-freq_esp = len(tempos) * (stats.norm.cdf(bins[1:], loc=np.mean(tempos), scale=np.std(tempos)) -
+# Chi2_contingency: transformar frequências em uma matriz "artificial" de contingência
+obs_freq, bins = np.histogram(tempos, bins=6)
+exp_freq = len(tempos) * (stats.norm.cdf(bins[1:], loc=np.mean(tempos), scale=np.std(tempos)) -
                           stats.norm.cdf(bins[:-1], loc=np.mean(tempos), scale=np.std(tempos)))
-stat_chi2, p_chi2 = stats.chisquare(freq_obs, f_exp=freq_esp)
 
-# Resultados
-print(f"Shapiro-Wilk: p = {p_shapiro:.4f}")
-print(f"Kolmogorov-Smirnov: p = {p_ks:.4f}")
-print(f"Anderson-Darling: estatística = {result_ad.statistic:.4f}")
-print(f"Qui-quadrado: p = {p_chi2:.4f}")
+# Organizando como matriz 2xN para o chi2_contingency
+contingencia = np.array([obs_freq, exp_freq])
+chi2_stat, p_chi2, dof, expected = chi2_contingency(contingencia)
+
+# 4. Apresentação dos Resultados
+print("=== Resultados dos Testes de Normalidade ===\n")
+print(f"Shapiro-Wilk: estatística = {stat_shapiro:.4f} | p = {p_shapiro:.4f}")
+print(f"Kolmogorov-Smirnov: estatística = {stat_ks:.4f} | p = {p_ks:.4f}")
+print(f"Anderson-Darling: estatística = {ad_result.statistic:.4f}")
+for i, sig in enumerate(ad_result.significance_level):
+    crit = ad_result.critical_values[i]
+    status = "REJEITA H₀" if ad_result.statistic > crit else "NÃO REJEITA H₀"
+    print(f"  Nível {sig:.1f}%: valor crítico = {crit:.4f} → {status}")
+print(f"Qui-quadrado (chi2_contingency): estatística = {chi2_stat:.4f} | p = {p_chi2:.4f}")
+print(f"  Graus de liberdade = {dof}")
+print("  Frequências esperadas:")
+print(np.round(expected, 2))
+
+# 5. Resumo final
+resumo = pd.DataFrame({
+    "Teste": ["Shapiro-Wilk", "Kolmogorov-Smirnov", "Anderson-Darling", "Qui-quadrado (contingência)"],
+    "Estatística": [stat_shapiro, stat_ks, ad_result.statistic, chi2_stat],
+    "Valor-p": [p_shapiro, p_ks, "-", p_chi2],
+    "Conclusão (p<0.05)": [
+        "Rejeita H₀" if p_shapiro < 0.05 else "Não Rejeita H₀",
+        "Rejeita H₀" if p_ks < 0.05 else "Não Rejeita H₀",
+        "Ver níveis críticos",
+        "Rejeita H₀" if p_chi2 < 0.05 else "Não Rejeita H₀"
+    ]
+})
+print("\nResumo:")
+display(resumo)
+
 ```
+
+---
 
 ## Exercícios
 
