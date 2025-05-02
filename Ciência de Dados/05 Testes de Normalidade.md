@@ -473,6 +473,24 @@ display(resumo)
 
 ---
 
+### **Interpretação dos Resultados**
+
+Os quatro testes aplicados têm o objetivo de verificar se os dados do tempo de atendimento seguem uma distribuição **normal** (aquela famosa curva em forma de sino).
+
+* O valor de **p** (ou a estatística comparada a um valor crítico) indica **se há evidências contra a hipótese de que os dados são normais**.
+* Se **p < 0,05**, ou a estatística ultrapassa o valor crítico, **rejeitamos a hipótese de normalidade (H₀)**. Isso quer dizer que os dados provavelmente **não** seguem uma distribuição normal.
+* Se **p ≥ 0,05**, **não rejeitamos H₀**, ou seja, **não temos evidências suficientes para dizer que os dados não são normais** — o que é bom se queremos aplicar técnicas que assumem normalidade.
+
+---
+
+### 📌 **Conclusão Geral**
+
+> Com base nos resultados dos quatro testes, **os dados simulados são compatíveis com uma distribuição normal**. Isso significa que podemos aplicar técnicas estatísticas que assumem normalidade (como ANOVA ou regressão linear), com maior confiança.
+
+Se quiser, posso complementar com uma versão em Markdown estruturada para PDF ou apresentação. Deseja isso?
+
+---
+
 ## Exercícios
 
 1. Explique em suas palavras o que significa rejeitar a hipótese de normalidade.
