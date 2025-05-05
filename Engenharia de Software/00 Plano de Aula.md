@@ -23,6 +23,10 @@
 | 19   | 30-06-25 | Feedback individual e fechamento dos projetos                                             |
 | 20   | 07-07-25 | Reavaliação                                                                               |
 
+
+---
+
+
 # E-commerce (2º semestre)
 
 | Aula | Data     | Atividade Principal                                                               |
