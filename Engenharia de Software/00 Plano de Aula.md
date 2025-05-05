@@ -49,9 +49,6 @@
 | 40   | 15-12-25 | Revisão Geral e Avaliação do processo de engenharia                               |
 
 
-
-Claro! Aqui está a seção de **cálculo da nota** formatada em **Markdown** no estilo de wiki:
-
 ---
 
 ## Avaliações e Cálculo da Nota
