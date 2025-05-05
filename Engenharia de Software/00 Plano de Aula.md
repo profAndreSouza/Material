@@ -59,19 +59,19 @@
 | --------- | --------- | ---------------------------------------------- |
 | **P1**    | 09-Jun-25 | Avaliação Conceitual Individual (Dissertativa) |
 | **P2**    | 30-Jun-25 | Entrega do Projeto                             |
-| **REAVA** | 14-Jul-25 | Reavaliação Conceitual Individual              |
+| **REAVA1** | 14-Jul-25 | Reavaliação Conceitual Individual              |
 
-**Cálculo da Nota do 1º Semestre (N1Sem):**
+**Cálculo da Nota do 1º Semestre (N1):**
 
 ```
-N1Sem = (P1 × 0.4) + (P2 × 0.6)
+N1 = (P1 × 0.4) + (P2 × 0.6)
 ou
-N1Sem = 6, se REAVA ≥ 6
+N1 = 6, se REAVA1 ≥ 6
 ```
 
 ---
 
-### 🧩 2º Semestre – *E-commerce*
+### 2º Semestre – *E-commerce*
 
 | Avaliação  | Data        | Descrição                                      |
 | ---------- | ----------- | ---------------------------------------------- |
@@ -79,12 +79,12 @@ N1Sem = 6, se REAVA ≥ 6
 | **P4**     | (a definir) | Entrega do Projeto                             |
 | **REAVA2** | (a definir) | Reavaliação Conceitual Individual              |
 
-**Cálculo da Nota do 2º Semestre (N2Sem):**
+**Cálculo da Nota do 2º Semestre (N2):**
 
 ```
-N2Sem = (P3 × 0.4) + (P4 × 0.6)
+N2 = (P3 × 0.4) + (P4 × 0.6)
 ou
-N2Sem = 6, se REAVA2 ≥ 6
+N2 = 6, se REAVA2 ≥ 6
 ```
 
 ---
@@ -92,7 +92,7 @@ N2Sem = 6, se REAVA2 ≥ 6
 ### Nota Final (NF)
 
 ```
-NF = (N1Sem × 0.5) + (N2Sem × 0.5)
+NF = (N1 × 0.5) + (N2 × 0.5)
 ```
 
 ---
@@ -106,7 +106,7 @@ NF = (N1Sem × 0.5) + (N2Sem × 0.5)
 
 ### Competições de Referência
 
-| Competição     | Aplicação            |
-| -------------- | -------------------- |
-| **Interfatec** | Bônus no 1º Semestre |
-| **OBI**        | Bônus no 2º Semestre |
+| Competição     | Aplicação   |
+| -------------- | ----------- |
+| **Interfatec** | Bônus na N1 |
+| **OBI**        | Bônus na N2 |
