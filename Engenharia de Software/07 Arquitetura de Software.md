@@ -55,9 +55,6 @@ Cada um desses módulos pode ser desenvolvido e testado separadamente, respeitan
 ## 3. Esboço de Arquitetura de Sistemas (Visão de Alto Nível)
 
 A visão de alto nível mostra como as partes do sistema se comunicam e interagem, sem entrar em detalhes de implementação.
-Claro! Abaixo está o exemplo **reformulado** considerando que o **totem será uma PWA (Progressive Web App) implementada com arquitetura MVC em C# (ASP.NET Core MVC)**. Também detalhei cada parte da arquitetura, seguindo a mesma estrutura explicativa.
-
----
 
 ## 3.1. Exemplo: Sistema de Totem de Autoatendimento (PWA com ASP.NET MVC)
 
