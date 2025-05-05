@@ -152,10 +152,10 @@ Página `/Cardapio/Index` exibe os produtos com botões de "Adicionar ao pedido"
 ### Considerações Técnicas
 
 * **Tecnologia base:** ASP.NET Core MVC 8.0+
-* **Banco de dados:** PostgreSQL 15+ via EF Core
+* **Banco de dados:** SQL Server
 * **Padrão arquitetural:** MVC tradicional
 * **PWA suportada via:** `manifest.json`, `service-worker.js`
-* **Autenticação (opcional):** Cookie-based ou JWT para área administrativa
+* **Autenticação:** JWT para área administrativa
 
 ---
 
