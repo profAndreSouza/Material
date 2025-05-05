@@ -19,9 +19,11 @@ As entrevistas são uma técnica qualitativa e direta de coleta de dados, em que
 Durante a entrevista com os atendentes de um restaurante, foram feitas as seguintes perguntas:
 
 * **Pergunta 1:** Quais são os principais desafios no atendimento ao cliente?
+
   **Resposta:** Há um grande fluxo de clientes nos horários de pico, o que gera longas filas no caixa.
 
 * **Pergunta 2:** Como funciona atualmente o processo de pedidos?
+
   **Resposta:** O atendente anota o pedido manualmente ou o cliente escolhe no balcão. Em seguida, o pedido é inserido no sistema.
 
 **Requisitos identificados:**
