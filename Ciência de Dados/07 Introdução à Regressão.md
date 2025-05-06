@@ -261,41 +261,116 @@ Isso significa que:
 
 ### Definição
 
-Modela uma relação **não linear** entre as variáveis por meio de potências de $x$:
+A **Regressão Polinomial** é uma extensão da regressão linear simples que permite modelar relações **não lineares** entre as variáveis. Isso é feito adicionando **potências (termos polinomiais)** da variável preditora:
 
 $$
-y = a + b_1x + b_2x^2 + \dots + b_nx^n
+y = a + b_1x + b_2x^2 + b_3x^3 + \dots + b_nx^n
 $$
 
-### Exemplo em TI
+Onde:
 
-**Problema**: prever o tempo de execução de um algoritmo com base no tamanho da entrada, onde o crescimento não é linear (por exemplo, $O(n^2)$).
+* $x$: variável preditora
+* $x^2, x^3, ..., x^n$: termos polinomiais
+* $y$: variável resposta
+
+Essa abordagem é útil quando os dados exibem **curvatura**, algo comum em problemas de análise de desempenho, aprendizado de máquina, e análise de algoritmos.
+
+---
+
+### Objetivo
+
+Permitir que um modelo linear aprenda **padrões curvos** nos dados, ao invés de forçar um ajuste em linha reta. A ideia é continuar usando **regressão linear** nos parâmetros, mas sobre variáveis transformadas (não-lineares).
+
+---
+
+### Exemplo em Ciência de Dados (TI)
+
+**Problema**: Um cientista de dados precisa prever o **tempo de execução de um algoritmo** em milissegundos com base no **tamanho da entrada (n)**. A complexidade algorítmica, como $O(n^2)$, não segue uma relação linear simples.
+
+
+<img src="img/7-regressao_polinomial.png">
+
+### Implementação em Python
 
 ```python
-from sklearn.preprocessing import PolynomialFeatures
+import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
 
-# Simulando dados com padrão quadrático
+# Simulando dados com comportamento quadrático
+np.random.seed(2)
 x = np.linspace(1, 100, 100)
-y = 0.05 * x**2 + np.random.normal(0, 50, 100)
+y = 0.05 * x**2 + np.random.normal(0, 50, 100)  # padrão O(n^2)
 x = x.reshape(-1, 1)
 
-# Ajustando modelo polinomial de grau 2
+# Transformando para polinômio de grau 2
 poly = PolynomialFeatures(degree=2)
 x_poly = poly.fit_transform(x)
+
+# Treinando modelo
 model = LinearRegression()
 model.fit(x_poly, y)
 y_pred = model.predict(x_poly)
 
 # Visualização
-plt.scatter(x, y, label='Dados reais', alpha=0.6)
-plt.plot(x, y_pred, color='red', label='Modelo polinomial')
-plt.title('Regressão Polinomial: Tamanho da entrada vs Tempo de execução')
+plt.figure(figsize=(8, 5))
+plt.scatter(x, y, color='blue', label='Dados reais', alpha=0.6)
+plt.plot(x, y_pred, color='red', label='Modelo polinomial (grau 2)')
+plt.title('Regressão Polinomial: Tamanho da Entrada vs Tempo de Execução')
 plt.xlabel('Tamanho da entrada (n)')
 plt.ylabel('Tempo de execução (ms)')
 plt.legend()
+plt.grid(True)
 plt.show()
 ```
+
+
+### Interpretação
+
+O gráfico resultante mostra que:
+
+* O **tempo de execução aumenta de forma quadrática** conforme o tamanho da entrada cresce.
+* O modelo polinomial consegue capturar essa curvatura que um modelo linear simples não conseguiria.
+
+A equação ajustada tem o formato:
+
+$$
+\text{Tempo} = a + b_1 \cdot n + b_2 \cdot n^2
+$$
+
+Os coeficientes podem ser acessados por:
+
+```python
+print(f"Coeficientes: {model.coef_}")
+print(f"Intercepto: {model.intercept_}")
+```
+
+---
+
+### Aplicações em TI
+
+* **Análise de complexidade empírica de algoritmos** (tempo de execução, uso de memória)
+* Modelagem de **latência de rede** com relação ao tamanho de pacotes
+* Previsão de **tempo de compilação** com base em linhas de código
+* Análise de curva de aprendizado de modelos de ML (ex: relação entre volume de dados e acurácia)
+
+---
+
+### Vantagens
+
+* Captura **relações não lineares** sem precisar usar modelos não lineares complexos
+* Fácil de interpretar e treinar
+* Útil quando há **tendência curvilínea evidente nos dados**
+
+---
+
+### Limitações
+
+* Pode **superajustar** os dados se o grau do polinômio for muito alto (overfitting)
+* Requer mais cuidado com **normalização** e **escalonamento** das variáveis
+* Só lida com **curvas suaves** — não é apropriado para padrões altamente complexos
+
 
 ---
 
