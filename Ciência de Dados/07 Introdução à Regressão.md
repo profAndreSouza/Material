@@ -384,35 +384,213 @@ print(f"Intercepto: {model.intercept_}")
 
 ---
 
-
 ## Projeto Prático
 
-**Tema**: Previsão de vendas com regressão linear e identificação de padrões temporais.
+### Tema: Previsão de Vendas e Padrões Temporais
 
-### Parte 1 – Regressão Linear:
+### Parte 1 – Regressão Linear
 
-* Simular um conjunto de dados com uma variável `vendas` e `gastos com propaganda`.
-* Calcular e visualizar a regressão linear.
-* Avaliar o modelo com R² e valor-p.
+**Objetivo**: Modelar a relação entre os gastos com propaganda e as vendas mensais.
 
-### Parte 2 – Séries Temporais:
+<img src="img/7-parte_1.png">
 
-* Gerar dados de vendas mensais com tendência e sazonalidade.
-* Aplicar médias móveis e identificar padrões.
-* Construir gráficos com `matplotlib` e `seaborn` para interpretar visualmente os componentes da série.
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+import scipy.stats as stats
+
+# Gerar dados simulados
+np.random.seed(42)
+gastos = np.random.uniform(1000, 10000, 50)
+vendas = 3.5 * gastos + np.random.normal(0, 10000, 50)
+
+df = pd.DataFrame({
+    'gastos_prop': gastos,
+    'vendas': vendas
+})
+
+# Regressão Linear
+X = df[['gastos_prop']]
+y = df['vendas']
+
+model = LinearRegression()
+model.fit(X, y)
+y_pred = model.predict(X)
+
+# Avaliação do modelo
+r2 = r2_score(y, y_pred)
+slope, intercept, r_value, p_value, std_err = stats.linregress(df['gastos_prop'], df['vendas'])
+
+# Visualização
+plt.figure(figsize=(8,5))
+sns.regplot(x='gastos_prop', y='vendas', data=df)
+plt.title('Regressão Linear: Gastos com Propaganda vs Vendas')
+plt.xlabel('Gastos com Propaganda (R$)')
+plt.ylabel('Vendas (R$)')
+plt.grid(True)
+plt.show()
+
+print(f"R²: {r2:.4f}")
+print(f"Coeficiente angular (b): {slope:.2f}")
+print(f"Intercepto (a): {intercept:.2f}")
+print(f"Valor-p: {p_value:.4f}")
+```
 
 ---
 
-## Exercícios
+### Parte 2 – Séries Temporais
 
-1. **Regressão Linear Simples**:
-   Com um dataset simulado, modele a relação entre `horas de estudo` e `nota na prova`. Avalie o R² e interprete o coeficiente angular.
+**Objetivo**: Simular e visualizar padrões sazonais e tendências em vendas mensais.
 
-2. **Previsão com Séries Temporais**:
-   Simule dados de produção mensal de uma fábrica. Utilize médias móveis para suavizar e identificar a tendência.
 
-3. **Desafio**:
-   Dado um conjunto de dados reais (ex: temperatura média mensal), aplique técnicas de séries temporais para prever os próximos 6 meses.
+<img src="img/7-parte_2.png">
+
+```python
+# Simular dados mensais com tendência + sazonalidade
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+import scipy.stats as stats
+
+# Gerar dados simulados
+np.random.seed(42)
+gastos = np.random.uniform(1000, 10000, 50)
+vendas = 3.5 * gastos + np.random.normal(0, 10000, 50)
+
+df = pd.DataFrame({
+    'gastos_prop': gastos,
+    'vendas': vendas
+})
+
+# Regressão Linear
+X = df[['gastos_prop']]
+y = df['vendas']
+
+model = LinearRegression()
+model.fit(X, y)
+y_pred = model.predict(X)
+
+# Avaliação
+r2 = r2_score(y, y_pred)
+slope, intercept, r_value, p_value, std_err = stats.linregress(df['gastos_prop'], df['vendas'])
+
+# Ordenar os dados para linha contínua
+df_sorted = df.sort_values('gastos_prop')
+y_line = model.predict(df_sorted[['gastos_prop']])
+
+# Visualização
+plt.figure(figsize=(8,5))
+plt.scatter(df['gastos_prop'], df['vendas'], alpha=0.6, label='Dados reais')
+plt.plot(df_sorted['gastos_prop'], y_line, color='red', label='Linha de regressão')
+plt.title('Regressão Linear: Gastos com Propaganda vs Vendas')
+plt.xlabel('Gastos com Propaganda (R$)')
+plt.ylabel('Vendas (R$)')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+print(f"R²: {r2:.4f}")
+print(f"Coeficiente angular (b): {slope:.2f}")
+print(f"Intercepto (a): {intercept:.2f}")
+print(f"Valor-p: {p_value:.4f}")
+```
+
+---
+
+##  Exercícios
+
+---
+
+### 1. Regressão Linear Simples
+
+**Problema**: Relacionar horas de estudo com nota da prova.
+
+```python
+np.random.seed(7)
+horas = np.random.randint(1, 10, 30)
+nota = 6 * horas + np.random.normal(0, 5, 30)
+
+df_estudo = pd.DataFrame({'horas_estudo': horas, 'nota_prova': nota})
+
+model = LinearRegression()
+model.fit(df_estudo[['horas_estudo']], df_estudo['nota_prova'])
+preds = model.predict(df_estudo[['horas_estudo']])
+
+r2 = r2_score(df_estudo['nota_prova'], preds)
+
+plt.figure(figsize=(7,4))
+sns.regplot(x='horas_estudo', y='nota_prova', data=df_estudo)
+plt.title('Horas de Estudo vs Nota na Prova')
+plt.grid(True)
+plt.show()
+
+print(f"Coef. Angular (b): {model.coef_[0]:.2f}")
+print(f"R²: {r2:.3f}")
+```
+
+---
+
+### 2. Previsão com Séries Temporais
+
+**Problema**: Produção mensal de uma fábrica com tendência de crescimento.
+
+```python
+meses = pd.date_range(start='2022-01', periods=24, freq='M')
+producao = 1000 + np.linspace(0, 500, 24) + np.random.normal(0, 50, 24)
+
+df_fabrica = pd.DataFrame({'mes': meses, 'producao': producao})
+df_fabrica.set_index('mes', inplace=True)
+df_fabrica['mm_3'] = df_fabrica['producao'].rolling(window=3).mean()
+
+plt.figure(figsize=(8,4))
+plt.plot(df_fabrica.index, df_fabrica['producao'], label='Produção Real')
+plt.plot(df_fabrica.index, df_fabrica['mm_3'], label='Média Móvel (3)', linestyle='--')
+plt.title('Produção Mensal com Suavização')
+plt.xlabel('Mês')
+plt.ylabel('Produção (unidades)')
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+### 3. Desafio: Previsão com Dados Reais
+
+**Problema**: Usar uma série temporal real (ex: temperatura média mensal) e prever os próximos 6 meses com médias móveis ou extrapolação simples.
+
+```python
+# Simulando dados reais (temperatura média mensal)
+np.random.seed(4)
+meses = pd.date_range(start='2021-01', periods=36, freq='M')
+temp = 20 + 5*np.sin(2 * np.pi * meses.month / 12) + np.random.normal(0, 1.5, 36)
+
+df_temp = pd.DataFrame({'mes': meses, 'temperatura': temp})
+df_temp.set_index('mes', inplace=True)
+
+# Média móvel e extrapolação simples
+df_temp['mm_6'] = df_temp['temperatura'].rolling(window=6).mean()
+
+plt.figure(figsize=(9,5))
+plt.plot(df_temp.index, df_temp['temperatura'], label='Temperatura Real')
+plt.plot(df_temp.index, df_temp['mm_6'], label='Média Móvel (6)', linestyle='--')
+plt.title('Temperatura Média Mensal')
+plt.xlabel('Mês')
+plt.ylabel('Temperatura (°C)')
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
 
 ---
 
