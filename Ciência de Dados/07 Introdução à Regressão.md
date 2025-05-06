@@ -8,170 +8,153 @@
 * Explorar visualizações e medidas de ajuste de modelos estatísticos.
 
 ---
-Aqui está a fusão dos dois conteúdos — a explicação teórica e os exemplos práticos de código — em um único material coeso e organizado:
+
+## Introdução
+
+A regressão é uma técnica fundamental na ciência de dados, utilizada para **prever valores numéricos** com base em uma ou mais variáveis. Em TI, isso pode incluir:
+
+* Previsão de tempo de resposta de aplicações
+* Estimativa de uso de CPU/memória
+* Análise de desempenho de redes
+
+A seguir, exploramos três tipos principais: **regressão linear simples**, **múltipla** e **polinomial**.
 
 ---
 
-## Regressão Linear
+## 1. Regressão Linear Simples
 
-A **regressão linear** é uma das técnicas estatísticas e de aprendizado de máquina mais utilizadas para prever **valores contínuos**, modelando a relação entre uma **variável dependente (Y)** e **uma ou mais variáveis independentes (X)**.
+### Definição
 
----
-
-## Tipos de Regressão
-
-### Regressão Linear Simples
-
-Modela a relação entre **uma variável independente (X)** e **uma variável dependente (Y)** assumindo uma relação linear:
+Modela a relação entre **uma variável preditora $x$** e uma **variável resposta $y$** com uma equação linear:
 
 $$
-Y = \beta_0 + \beta_1 X + \varepsilon
+y = a + bx
 $$
 
-* **\$\beta\_0\$**: intercepto (valor de Y quando X = 0)
-* **\$\beta\_1\$**: coeficiente angular (quanto Y varia a cada unidade de X)
-* **\$\varepsilon\$**: erro aleatório
+### Exemplo em TI
 
-> O objetivo é minimizar a **soma dos quadrados dos resíduos** (erros entre os valores reais e previstos).
-
----
-
-### Etapas da Regressão Linear
-
-#### 1. **Exploração dos Dados**
-
-* Visualização com gráficos de dispersão
-* Cálculo da correlação (Pearson)
+**Problema**: prever o tempo de resposta de um servidor com base no número de requisições por segundo.
 
 ```python
-sns.scatterplot(x="Metragem", y="Preço", data=df)
-plt.title("Relação entre Metragem e Preço")
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+# Simulando dados
+np.random.seed(0)
+x = np.random.randint(10, 100, 50)
+y = 0.5 * x + np.random.normal(0, 5, 50)
+df = pd.DataFrame({'requests_per_sec': x, 'response_time_ms': y})
+
+# Treinando modelo
+model = LinearRegression()
+model.fit(df[['requests_per_sec']], df['response_time_ms'])
+
+# Visualização
+sns.regplot(x='requests_per_sec', y='response_time_ms', data=df)
+plt.title('Regressão Linear Simples: Requisições vs Tempo de Resposta')
+plt.xlabel('Requisições por segundo')
+plt.ylabel('Tempo de resposta (ms)')
+plt.show()
 ```
 
 ---
 
-#### 2. **Ajuste do Modelo**
+## 2. Regressão Linear Múltipla
 
-Usa-se o método dos mínimos quadrados (`LinearRegression`):
+### Definição
+
+Utiliza **duas ou mais variáveis preditoras** para modelar uma resposta:
+
+$$
+y = a + b_1x_1 + b_2x_2 + \dots + b_nx_n
+$$
+
+### Exemplo em TI
+
+**Problema**: prever o consumo de CPU (%) com base no número de processos ativos e o uso de memória (MB).
 
 ```python
 from sklearn.linear_model import LinearRegression
+from sklearn.datasets import make_regression
 
-x = df[['Metragem']]
-y = df['Preço']
-modelo = LinearRegression()
-modelo.fit(x, y)
+# Simulando dados
+np.random.seed(1)
+X, y = make_regression(n_samples=100, n_features=2, noise=10)
+df = pd.DataFrame(X, columns=['processes', 'memory_usage_MB'])
+df['cpu_usage_percent'] = y
+
+# Treinando modelo
+model = LinearRegression()
+model.fit(df[['processes', 'memory_usage_MB']], df['cpu_usage_percent'])
+
+# Visualização em 2D com variável fixa (slices)
+import matplotlib.pyplot as plt
+
+slice_mem = df['memory_usage_MB'].mean()
+df_slice = df.copy()
+df_slice = df_slice[np.abs(df_slice['memory_usage_MB'] - slice_mem) < 5]
+
+sns.lmplot(x='processes', y='cpu_usage_percent', data=df_slice)
+plt.title('Regressão Linear Múltipla (slice da memória)')
+plt.xlabel('Número de processos')
+plt.ylabel('Consumo de CPU (%)')
+plt.show()
 ```
 
 ---
 
-#### 3. **Avaliação do Modelo**
+## 3. Regressão Polinomial
 
-* **R²**: mede a proporção da variação de Y explicada por X
-* **MAE, MSE, RMSE**: métricas de erro
-* **Gráficos de resíduos**: verificam os pressupostos
+### Definição
 
-```python
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-
-r2 = r2_score(y, df["Predito"])
-mae = mean_absolute_error(y, df["Predito"])
-rmse = mean_squared_error(y, df["Predito"]) ** 0.5
-```
-
----
-
-### Exemplo 1: Previsão de Preço de Casa com Base na Metragem
-
-```python
-np.random.seed(42)
-metragem = np.random.normal(100, 20, 100)
-preco = metragem * 3000 + np.random.normal(0, 20000, 100)
-df = pd.DataFrame({'Metragem': metragem, 'Preço': preco})
-```
-
-A regressão retorna uma reta do tipo:
-
-```
-Preço = 3000 * Metragem + erro
-```
-
-Visualização da reta ajustada:
-
-```python
-df["Predito"] = modelo.predict(x)
-sns.lineplot(x="Metragem", y="Predito", data=df, color="red", label="Regressão")
-```
-
----
-
-### Exemplo 2: Previsão de Altura com Base na Idade
-
-```python
-df = pd.DataFrame({'Idade': [5, 6, 7.5, 8, 9, 11, 10.5, 12], 'Altura': [105, 110, 115, 120, 125, 130, 135, 140]})
-modelo.fit(df[['Idade']], df['Altura'])
-```
-
-Saída:
-
-```
-Altura = 4.31 * Idade + 83.22
-```
-
----
-
-### Pressupostos da Regressão Linear
-
-1. **Linearidade** entre X e Y
-2. **Independência dos erros**
-3. **Homoscedasticidade** (variância constante)
-4. **Normalidade dos resíduos**
-
----
-
-## Regressão Linear Múltipla
-
-Usa **duas ou mais variáveis independentes**:
+Modela uma relação **não linear** entre as variáveis por meio de potências de $x$:
 
 $$
-Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_n X_n + \varepsilon
+y = a + b_1x + b_2x^2 + \dots + b_nx^n
 $$
 
-> Exemplo: prever preço de carro com base em **ano**, **potência**, e **quilometragem**.
+### Exemplo em TI
 
-### Exemplo com dados fictícios:
+**Problema**: prever o tempo de execução de um algoritmo com base no tamanho da entrada, onde o crescimento não é linear (por exemplo, $O(n^2)$).
 
 ```python
-dados = {
-    'Quilometragem': [15000, 30000, 45000, 60000, 75000, 90000, 105000, 120000],
-    'Ano': [2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015],
-    'Potencia': [110, 120, 130, 120, 125, 115, 110, 100],
-    'Preco': [95000, 87000, 79000, 72000, 65000, 58000, 51000, 44000]
-}
-df = pd.DataFrame(dados)
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+
+# Simulando dados com padrão quadrático
+x = np.linspace(1, 100, 100)
+y = 0.05 * x**2 + np.random.normal(0, 50, 100)
+x = x.reshape(-1, 1)
+
+# Ajustando modelo polinomial de grau 2
+poly = PolynomialFeatures(degree=2)
+x_poly = poly.fit_transform(x)
+model = LinearRegression()
+model.fit(x_poly, y)
+y_pred = model.predict(x_poly)
+
+# Visualização
+plt.scatter(x, y, label='Dados reais', alpha=0.6)
+plt.plot(x, y_pred, color='red', label='Modelo polinomial')
+plt.title('Regressão Polinomial: Tamanho da entrada vs Tempo de execução')
+plt.xlabel('Tamanho da entrada (n)')
+plt.ylabel('Tempo de execução (ms)')
+plt.legend()
+plt.show()
 ```
 
 ---
 
-#### Multicolinearidade
+## Comparação
 
-* Quando variáveis independentes estão **altamente correlacionadas entre si**
-* Pode prejudicar a interpretação e a estabilidade do modelo
-
-**Dica**: use `df.corr()` para verificar correlações antes de treinar o modelo.
-
----
-
-## Regressão Polinomial
-
-Extensão da linear que permite curvas:
-
-$$
-Y = \beta_0 + \beta_1 X + \beta_2 X^2 + \dots + \varepsilon
-$$
-
-* Ideal para padrões **não lineares**
-* Tome cuidado com **overfitting** (modelo muito complexo)
+| Tipo            | Ideal para                                                 | Exemplo em TI                           |
+| --------------- | ---------------------------------------------------------- | --------------------------------------- |
+| Linear Simples  | Uma variável preditora com relação linear                  | Requisições vs Tempo de resposta        |
+| Linear Múltipla | Várias variáveis com impacto linear                        | Processos e memória vs Consumo de CPU   |
+| Polinomial      | Relações não lineares (crescimento exponencial/quadrático) | Tamanho da entrada vs Tempo de execução |
 
 ---
 
