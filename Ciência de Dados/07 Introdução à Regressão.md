@@ -20,9 +20,6 @@ A regressão é uma técnica fundamental na ciência de dados, utilizada para **
 A seguir, exploramos três tipos principais: **regressão linear simples**, **múltipla** e **polinomial**.
 
 ---
-Claro! Abaixo está uma **explicação mais completa e detalhada** do conteúdo sobre **Regressão Linear Simples**, incluindo definição, interpretação dos coeficientes, equação do modelo, e um exemplo prático com Python voltado à área de TI.
-
----
 
 ## 1. Regressão Linear Simples
 
