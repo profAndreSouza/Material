@@ -58,8 +58,6 @@ Encontrar a **reta que melhor se ajusta** aos dados, minimizando o erro quadrát
 
 **Problema**: Suponha que uma equipe de engenharia de software esteja monitorando o tempo de resposta de uma API REST. Observou-se que o número de requisições por segundo afeta diretamente esse tempo. Nosso objetivo é criar um modelo que **preveja o tempo de resposta (em milissegundos)** com base na **carga de requisições por segundo**.
 
----
-
 <img src="img/7-regressao_simples.png">
 
 ### Implementação em Python
@@ -101,7 +99,6 @@ plt.ylabel('Tempo de resposta (ms)')
 plt.show()
 ```
 
----
 
 ### Saída esperada (exemplo):
 
@@ -134,51 +131,129 @@ Este modelo simples permite estimar como a **escalabilidade do sistema** pode im
 
 Para cenários mais complexos, recomenda-se migrar para **regressão múltipla** ou outros modelos mais robustos (ex: árvores, redes neurais).
 
-
-
 ---
 
 ## 2. Regressão Linear Múltipla
 
 ### Definição
 
-Utiliza **duas ou mais variáveis preditoras** para modelar uma resposta:
+A **Regressão Linear Múltipla** é uma generalização da regressão linear simples que permite **usar duas ou mais variáveis preditoras** para modelar uma variável resposta. A equação do modelo é:
 
-$$
+\[
 y = a + b_1x_1 + b_2x_2 + \dots + b_nx_n
-$$
+\]
 
-### Exemplo em TI
+Onde:
+- \( y \): variável dependente (resposta)
+- \( x_1, x_2, ..., x_n \): variáveis independentes (ou preditoras)
+- \( a \): intercepto
+- \( b_1, b_2, ..., b_n \): coeficientes das variáveis preditoras
 
-**Problema**: prever o consumo de CPU (%) com base no número de processos ativos e o uso de memória (MB).
+### Objetivo
+
+O modelo estima como **múltiplas variáveis independentes, simultaneamente**, afetam uma variável dependente. Ele busca o **melhor ajuste linear** aos dados, minimizando o erro quadrático médio.
+
+### Interpretação dos coeficientes
+
+Cada coeficiente \( b_i \) representa a **mudança esperada em \( y \)** quando \( x_i \) varia uma unidade, mantendo as outras variáveis constantes.
+
+---
+
+### Exemplo em Ciência de Dados (TI)
+
+**Problema**: Um engenheiro de infraestrutura deseja prever o **uso da CPU (%)** com base em:
+- o número de **processos ativos**
+- e o **uso de memória (em MB)**
+
+Essa tarefa é comum em **monitoramento de sistemas** e **otimização de recursos** em servidores e clusters.
+
+
+### Implementação em Python
 
 ```python
+import numpy as np
+import pandas as pd
 from sklearn.linear_model import LinearRegression
-from sklearn.datasets import make_regression
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-# Simulando dados
+# Simulando dados realistas
 np.random.seed(1)
-X, y = make_regression(n_samples=100, n_features=2, noise=10)
+X = np.random.normal(0, 1, (100, 2))
+coef = np.array([15, 8])  # pesos para processos e memória
+y = X @ coef + np.random.normal(0, 10, 100)  # CPU (%) com ruído
+
+# Montando DataFrame
 df = pd.DataFrame(X, columns=['processes', 'memory_usage_MB'])
 df['cpu_usage_percent'] = y
 
-# Treinando modelo
+# Treinando o modelo
 model = LinearRegression()
 model.fit(df[['processes', 'memory_usage_MB']], df['cpu_usage_percent'])
 
-# Visualização em 2D com variável fixa (slices)
-import matplotlib.pyplot as plt
+# Coeficientes do modelo
+intercept = model.intercept_
+coef_proc, coef_mem = model.coef_
 
+print(f"Equação do modelo:\nCPU% = {intercept:.2f} + {coef_proc:.2f}·processos + {coef_mem:.2f}·memória_MB")
+```
+
+### Visualização com corte (slice)
+
+Como a regressão múltipla envolve múltiplas variáveis, é impossível representar graficamente em 2D **todas as dimensões ao mesmo tempo**. Uma alternativa é **fixar uma variável** (ex: uso de memória) e visualizar a relação entre a outra (nº de processos) e a variável resposta.
+
+<img src="img/7-regressao_multipla.png">
+
+```python
+# Seleciona um "slice" com memória próxima da média
 slice_mem = df['memory_usage_MB'].mean()
-df_slice = df.copy()
-df_slice = df_slice[np.abs(df_slice['memory_usage_MB'] - slice_mem) < 5]
+df_slice = df[np.abs(df['memory_usage_MB'] - slice_mem) < 0.1]
 
-sns.lmplot(x='processes', y='cpu_usage_percent', data=df_slice)
-plt.title('Regressão Linear Múltipla (slice da memória)')
+# Visualização da regressão com processos fixando memória
+sns.lmplot(x='processes', y='cpu_usage_percent', data=df_slice, ci=None, line_kws={'color': 'red'})
+plt.title('Regressão Linear Múltipla (Memória ≈ média)')
 plt.xlabel('Número de processos')
 plt.ylabel('Consumo de CPU (%)')
 plt.show()
 ```
+
+### Interpretação
+
+Se o modelo imprimir, por exemplo:
+
+```
+Equação do modelo:
+CPU% = -0.23 + 15.22·processos + 7.85·memória_MB
+```
+
+Isso significa que:
+- O uso da CPU cresce **15,22%** para cada unidade adicional em "processos", mantendo a memória constante.
+- O uso da CPU cresce **7,85%** para cada MB adicional em uso de memória, mantendo o número de processos constante.
+
+---
+
+### Aplicações em TI
+
+- Previsão de uso de recursos em **data centers**
+- Análise de performance em **containers e microserviços**
+- Tomada de decisão para **autoescalonamento de máquinas virtuais**
+- Diagnóstico de sobrecarga em **monitoramento de sistemas**
+
+---
+
+### Vantagens da regressão múltipla
+
+- Considera **múltiplos fatores simultaneamente**
+- Facilita a análise de **interações entre variáveis**
+- É base para modelos mais complexos (ex: regressão regularizada, redes neurais)
+
+---
+
+### Limitações
+
+- Assume que a relação entre as variáveis e a resposta é **linear**
+- Pode sofrer com **multicolinearidade** (quando variáveis preditoras são correlacionadas)
+- Sensível a **outliers** e à escala dos dados
 
 ---
 
