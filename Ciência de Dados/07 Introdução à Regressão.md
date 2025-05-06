@@ -20,20 +20,52 @@ A regressão é uma técnica fundamental na ciência de dados, utilizada para **
 A seguir, exploramos três tipos principais: **regressão linear simples**, **múltipla** e **polinomial**.
 
 ---
+Claro! Abaixo está uma **explicação mais completa e detalhada** do conteúdo sobre **Regressão Linear Simples**, incluindo definição, interpretação dos coeficientes, equação do modelo, e um exemplo prático com Python voltado à área de TI.
+
+---
 
 ## 1. Regressão Linear Simples
 
 ### Definição
 
-Modela a relação entre **uma variável preditora $x$** e uma **variável resposta $y$** com uma equação linear:
+A **Regressão Linear Simples** é um modelo estatístico que busca descrever e quantificar a relação entre **duas variáveis numéricas**:
+
+* **Variável independente (ou preditora)** $x$: aquela que utilizamos para prever.
+* **Variável dependente (ou resposta)** $y$: aquela que desejamos prever.
+
+A equação da regressão linear simples é dada por:
 
 $$
 y = a + bx
 $$
 
-### Exemplo em TI
+Onde:
 
-**Problema**: prever o tempo de resposta de um servidor com base no número de requisições por segundo.
+* $y$: valor estimado (previsão) da variável resposta
+* $x$: valor observado da variável preditora
+* $a$: **intercepto**, valor de $y$ quando $x = 0$
+* $b$: **coeficiente angular**, indica quanto $y$ varia para cada unidade de variação em $x$
+
+### Objetivo
+
+Encontrar a **reta que melhor se ajusta** aos dados, minimizando o erro quadrático (diferença entre os valores reais e previstos).
+
+### Interpretação dos coeficientes
+
+* **Intercepto $a$**: valor esperado de $y$ quando $x = 0$. Pode ou não ter interpretação prática, dependendo do contexto.
+* **Inclinação $b$**: representa a **taxa de variação** de $y$ em relação a $x$. Um valor positivo indica que $y$ cresce com $x$; um valor negativo indica que $y$ decresce com $x$.
+
+---
+
+### Exemplo em Ciência de Dados (TI)
+
+**Problema**: Suponha que uma equipe de engenharia de software esteja monitorando o tempo de resposta de uma API REST. Observou-se que o número de requisições por segundo afeta diretamente esse tempo. Nosso objetivo é criar um modelo que **preveja o tempo de resposta (em milissegundos)** com base na **carga de requisições por segundo**.
+
+---
+
+<img src="img/7-regressao_simples.png">
+
+### Implementação em Python
 
 ```python
 import seaborn as sns
@@ -42,23 +74,70 @@ import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 
-# Simulando dados
+# Gerando dados simulados
 np.random.seed(0)
-x = np.random.randint(10, 100, 50)
-y = 0.5 * x + np.random.normal(0, 5, 50)
-df = pd.DataFrame({'requests_per_sec': x, 'response_time_ms': y})
+x = np.random.randint(10, 100, 50)  # Requisições por segundo
+y = 0.5 * x + np.random.normal(0, 5, 50)  # Tempo de resposta com ruído
 
-# Treinando modelo
+# Organizando em DataFrame
+df = pd.DataFrame({
+    'requests_per_sec': x,
+    'response_time_ms': y
+})
+
+# Treinando o modelo de regressão
 model = LinearRegression()
 model.fit(df[['requests_per_sec']], df['response_time_ms'])
 
+# Coeficientes
+intercept = model.intercept_
+slope = model.coef_[0]
+
+print(f'Equação do modelo: y = {intercept:.2f} + {slope:.2f}x')
+
 # Visualização
-sns.regplot(x='requests_per_sec', y='response_time_ms', data=df)
+sns.set(style='whitegrid')
+sns.regplot(x='requests_per_sec', y='response_time_ms', data=df, ci=None, line_kws={'color': 'red'})
 plt.title('Regressão Linear Simples: Requisições vs Tempo de Resposta')
 plt.xlabel('Requisições por segundo')
 plt.ylabel('Tempo de resposta (ms)')
 plt.show()
 ```
+
+---
+
+### Saída esperada (exemplo):
+
+```
+Equação do modelo: y = 1.73 + 0.49x
+```
+
+Isso significa que:
+
+* Quando não há requisições (x = 0), o tempo de resposta estimado é **1,73 ms**.
+* A cada nova requisição por segundo, o tempo de resposta aumenta em média **0,49 ms**.
+
+---
+
+### Discussão
+
+Este modelo simples permite estimar como a **escalabilidade do sistema** pode impactar a **performance**. Com ele, é possível:
+
+* Prever gargalos
+* Planejar escalabilidade horizontal (adicionar instâncias)
+* Simular cenários de carga
+
+---
+
+### Limitações da Regressão Linear Simples
+
+* Supõe que a relação entre $x$ e $y$ é **linear**.
+* Não captura efeitos de outras variáveis (ex: memória, rede).
+* É sensível a **outliers** (valores extremos).
+
+Para cenários mais complexos, recomenda-se migrar para **regressão múltipla** ou outros modelos mais robustos (ex: árvores, redes neurais).
+
+
 
 ---
 
