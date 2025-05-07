@@ -8,6 +8,56 @@ A DML (Data Manipulation Language) é o conjunto de comandos SQL usados para man
 
 ---
 
+Com base no esquema fornecido, aqui está um conteúdo didático e prático sobre **Manipulação de Dados com SQL (DML)**, com foco em `INSERT`, `UPDATE`, `DELETE`, boas práticas e aplicação de integridade referencial.
+
+---
+
+## 📘 Manipulação de Dados com SQL (DML)
+
+DML (Data Manipulation Language) é o subconjunto da SQL responsável por inserir, atualizar e remover dados nas tabelas. Os principais comandos são:
+
+* `INSERT`: Insere novos registros.
+* `UPDATE`: Altera registros existentes.
+* `DELETE`: Remove registros.
+
+---
+
+## Comando `INSERT`
+
+Para inserir dados no banco, a ordem de inserção precisa respeitar a integridade referencial.
+
+### Exemplo prático: Inserir um cliente do tipo pessoa física
+
+```sql
+-- 1. Inserir na tabela cliente (gera o ID)
+INSERT INTO cliente DEFAULT VALUES RETURNING id;
+-- Suponha que retornou id = 1
+
+-- 2. Inserir na tabela pessoa_fisica
+INSERT INTO pessoa_fisica (id, nome, cpf, nascimento)
+VALUES (1, 'João Silva', '123.456.789-00', '1990-01-01');
+
+-- 3. Inserir endereço
+INSERT INTO endereco (cliente_id, logradouro, numero, cidade, estado, cep, tipo)
+VALUES (1, 'Rua das Flores', '100', 'São Paulo', 'SP', '01000-000', 'Residencial');
+
+-- 4. Inserir telefone
+INSERT INTO telefone (cliente_id, ddd, numero, tipo)
+VALUES (1, '11', '912345678', 'Movel');
+
+-- 5. Inserir e-mail
+INSERT INTO email (cliente_id, email)
+VALUES (1, 'joao.silva@email.com');
+```
+
+> 💡 **Boas práticas de inserção:**
+
+* Sempre utilize transações (`BEGIN ... COMMIT`) ao inserir em múltiplas tabelas.
+* Valide dados previamente (ex.: CPF, CNPJ, formatos).
+* Use `RETURNING` para capturar o ID gerado em `SERIAL`.
+
+---
+
 ## Comando `INSERT` com subconsulta (`INSERT INTO ... SELECT`)
 
 Esse formato permite inserir dados com base em resultados de outras consultas, o que é útil para migrações, duplicações ou integração entre tabelas.
