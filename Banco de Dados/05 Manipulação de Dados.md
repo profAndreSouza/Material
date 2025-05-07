@@ -16,7 +16,7 @@ Para inserir dados no banco, a ordem de inserção precisa respeitar a integrida
 
 ```sql
 -- 1. Inserir na tabela cliente (gera o ID)
-INSERT INTO cliente DEFAULT VALUES RETURNING id;
+INSERT INTO cliente DEFAULT VALUES;
 -- Suponha que retornou id = 1
 
 -- 2. Inserir na tabela pessoa_fisica
@@ -44,45 +44,130 @@ VALUES (1, 'joao.silva@email.com');
 
 ---
 
-## Comando `INSERT` com subconsulta (`INSERT INTO ... SELECT`)
+## Inserção com Subconsulta: `INSERT INTO ... SELECT`
 
-Esse formato permite inserir dados com base em resultados de outras consultas, o que é útil para migrações, duplicações ou integração entre tabelas.
+O comando `INSERT INTO ... SELECT` permite inserir dados com base no resultado de outras consultas. Esse formato é especialmente útil quando você precisa copiar dados de uma tabela para outra, migrar registros, ou inserir dados vinculados, como em casos com chaves estrangeiras.
 
-### Exemplo: Inserir cliente e seus dados associados
+### Exemplo prático
 
-1. Inserir um cliente com retorno do ID
+Imagine que queremos copiar os dados de clientes ativos de uma tabela de backup para a tabela principal:
 
 ```sql
--- Criação do cliente e captura do ID via CTE
-WITH novo_cliente AS (
-    INSERT INTO cliente
-    DEFAULT VALUES
-    RETURNING id
-)
--- Inserir pessoa física vinculada ao cliente criado
-INSERT INTO pessoa_fisica (id, nome, cpf, nascimento)
-SELECT id, 'João Silva', '123.456.789-00', '1990-01-01'
-FROM novo_cliente;
+INSERT INTO cliente (nome, cpf, nascimento, ativo)
+SELECT nome, cpf, nascimento, true
+FROM cliente_backup
+WHERE ativo = true;
 ```
 
-2. Inserir dados complementares com `SELECT` baseado no ID gerado
+Neste exemplo:
+
+* Os dados são extraídos da tabela `cliente_backup`;
+* Apenas os clientes ativos (`WHERE ativo = true`) são inseridos na tabela `cliente`;
+* A consulta dispensa variáveis ou estruturas temporárias como CTEs.
+
+> ✅ **Vantagem:** Simples e direto, ideal para situações em que não é necessário encadear várias etapas ou capturar valores intermediários.
+
+---
+
+## Inserção em Múltiplas Tabelas com CTE
+
+### O que é uma CTE?
+
+CTE (*Common Table Expression*) é uma expressão temporária nomeada, definida com a cláusula `WITH`, que pode ser usada para organizar e encadear consultas de forma mais clara e eficiente. Ela é muito útil quando:
+
+* Você precisa reutilizar o resultado de uma subconsulta;
+* Quer melhorar a legibilidade de comandos complexos;
+* Deseja inserir dados em várias tabelas que compartilham um valor comum (como um ID gerado automaticamente).
+
+A CTE permite que você "capture" resultados intermediários, como o `id` gerado ao inserir um novo cliente, e utilize esse valor imediatamente nas próximas inserções.
+
+
+A sintaxe geral é:
 
 ```sql
--- Endereço
-INSERT INTO endereco (cliente_id, logradouro, numero, cidade, estado, cep, tipo)
-SELECT id, 'Rua das Flores', '100', 'São Paulo', 'SP', '01000-000', 'Residencial'
-FROM novo_cliente;
+WITH nome_cte AS (
+    instrução SQL
+)
+SELECT ...
+FROM nome_cte;
+```
 
--- Telefone
-INSERT INTO telefone (cliente_id, ddd, numero, tipo)
-SELECT id, '11', '912345678', 'Movel'
-FROM novo_cliente;
+Quando usamos `INSERT INTO ... RETURNING` dentro de uma CTE, podemos capturar chaves primárias recém-geradas para utilizá-las em outras inserções, sem precisar usar variáveis ou múltiplos blocos `BEGIN/END`.
 
--- Email
+---
+
+### Exemplo 1: Inserção com `DO $$ ... BEGIN ... END $$`
+
+Este é um bloco anônimo em PL/pgSQL (PostgreSQL), onde usamos uma variável para armazenar o `id` retornado ao inserir um novo cliente. Esse valor é reutilizado nas inserções seguintes.
+
+```sql
+DO $$
+DECLARE
+    novo_id INT;
+BEGIN
+    INSERT INTO cliente (ativo) VALUES (true) RETURNING id INTO novo_id;
+
+    INSERT INTO pessoa_fisica (id, nome, cpf, nascimento)
+    VALUES (novo_id, 'João Machado', '123.321.123-21', '1970-04-23');
+
+    INSERT INTO endereco (cliente_id, logradouro, numero, cidade, estado, cep, tipo)
+    VALUES (novo_id, 'Rua das Flores', '100', 'São Paulo', 'SP', '01000-000', 'Residencial');
+
+    INSERT INTO telefone (cliente_id, ddd, numero, tipo)
+    VALUES (novo_id, '11', '912345678', 'Movel');
+
+    INSERT INTO email (cliente_id, email)
+    VALUES (novo_id, 'joao.silva@email.com');
+END $$;
+```
+
+> **Vantagens:** Utilização direta de variáveis, controle transacional.
+> **Desvantagens:** Mais verboso; exige PL/pgSQL; não pode ser usado diretamente em ferramentas que só aceitam SQL puro.
+
+---
+
+### Exemplo 2: Inserção com `CTE encadeada (WITH ...)`
+
+Neste exemplo, utilizamos CTEs para capturar o `id` do cliente gerado e reutilizá-lo em todas as inserções relacionadas, sem a necessidade de blocos `DO`.
+
+```sql
+WITH 
+novo_cliente AS (
+	INSERT INTO cliente (ativo) VALUES (true) RETURNING id
+),
+pf AS (
+	INSERT INTO pessoa_fisica (id, nome, cpf, nascimento)
+	SELECT id, 'João Machado', '123.321.123-21', '1970-04-23'
+	FROM novo_cliente
+),
+endereco AS (
+	INSERT INTO endereco (cliente_id, logradouro, numero, cidade, estado, cep, tipo)
+	SELECT id, 'Rua das Flores', '100', 'São Paulo', 'SP', '01000-000', 'Residencial'
+	FROM novo_cliente
+),
+telefone AS (
+	INSERT INTO telefone (cliente_id, ddd, numero, tipo)
+	SELECT id, '11', '912345678', 'Movel'
+	FROM novo_cliente
+)
 INSERT INTO email (cliente_id, email)
 SELECT id, 'joao.silva@email.com'
 FROM novo_cliente;
 ```
+
+> **Vantagens:** Inteiramente em SQL; fácil de integrar com scripts de migração e ferramentas como pgAdmin, DBeaver, etc.
+> **Desvantagens:** Requer compatibilidade com `INSERT INTO ... RETURNING` e o suporte a CTEs (disponível a partir do PostgreSQL 8.4).
+
+---
+
+### Quando usar CTEs para inserção?
+
+Use CTEs quando:
+
+* Precisa capturar um valor gerado (como o `id`) para uso em outras tabelas.
+* Está lidando com scripts SQL puros (sem PL/pgSQL).
+* Quer manter o código enxuto e funcional, evitando múltiplas etapas manuais.
+
 
 ### Boas práticas de inserção com subconsulta
 
