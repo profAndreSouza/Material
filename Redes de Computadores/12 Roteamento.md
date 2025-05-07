@@ -1157,8 +1157,250 @@ O **ping** verifica a conectividade básica, enquanto o **traceroute** mostra os
 ---
 
 
+## Exercícios
 
-### Referências Bibliográficas
+### Exercício 1: Configuração de Roteamento Estático
+
+#### **Contexto do Exercício**
+
+Você é o administrador de rede da "TechCorp", uma empresa com três filiais em diferentes localizações. A tarefa é configurar **rotas estáticas** para permitir a comunicação entre essas filiais, que possuem redes diferentes.
+
+A rede está dividida da seguinte forma:
+
+* **Filial A (Roteador R1)**:
+
+  * Rede: **192.168.1.0/24**
+  * Endereço IP do Roteador: **192.168.1.1**
+
+* **Filial B (Roteador R2)**:
+
+  * Rede: **192.168.2.0/24**
+  * Endereço IP do Roteador: **192.168.2.1**
+
+* **Filial C (Roteador R3)**:
+
+  * Rede: **192.168.3.0/24**
+  * Endereço IP do Roteador: **192.168.3.1**
+
+**Objetivo:**
+
+1. **Configurar rotas estáticas** nos roteadores para garantir que eles possam se comunicar entre si.
+
+#### **Passos do Exercício**
+
+1. **Configuração das Interfaces dos Roteadores**
+
+   * No **Roteador R1**, configure a interface que conecta à **Filial A**:
+
+     ```bash
+     R1(config)# interface g0/0
+     R1(config-if)# ip address 192.168.1.1 255.255.255.0
+     R1(config-if)# no shutdown
+     ```
+
+   * No **Roteador R2**, configure a interface que conecta à **Filial B**:
+
+     ```bash
+     R2(config)# interface g0/0
+     R2(config-if)# ip address 192.168.2.1 255.255.255.0
+     R2(config-if)# no shutdown
+     ```
+
+   * No **Roteador R3**, configure a interface que conecta à **Filial C**:
+
+     ```bash
+     R3(config)# interface g0/0
+     R3(config-if)# ip address 192.168.3.1 255.255.255.0
+     R3(config-if)# no shutdown
+     ```
+
+2. **Configuração de Rotas Estáticas**
+
+   Configure as rotas estáticas para que os roteadores saibam como alcançar as redes das outras filiais.
+
+   * No **Roteador R1**, configure rotas estáticas para alcançar **Filial B** e **Filial C**:
+
+     ```bash
+     R1(config)# ip route 192.168.2.0 255.255.255.0 192.168.1.2
+     R1(config)# ip route 192.168.3.0 255.255.255.0 192.168.1.2
+     ```
+
+   * No **Roteador R2**, configure rotas estáticas para alcançar **Filial A** e **Filial C**:
+
+     ```bash
+     R2(config)# ip route 192.168.1.0 255.255.255.0 192.168.2.2
+     R2(config)# ip route 192.168.3.0 255.255.255.0 192.168.2.2
+     ```
+
+   * No **Roteador R3**, configure rotas estáticas para alcançar **Filial A** e **Filial B**:
+
+     ```bash
+     R3(config)# ip route 192.168.1.0 255.255.255.0 192.168.3.2
+     R3(config)# ip route 192.168.2.0 255.255.255.0 192.168.3.2
+     ```
+
+3. **Testar a Conectividade**
+
+   * No **Roteador R1**, teste a conectividade com a **Filial B** e **Filial C**:
+
+     ```bash
+     R1# ping 192.168.2.1
+     R1# ping 192.168.3.1
+     ```
+
+   * No **Roteador R2**, teste a conectividade com a **Filial A** e **Filial C**:
+
+     ```bash
+     R2# ping 192.168.1.1
+     R2# ping 192.168.3.1
+     ```
+
+   * No **Roteador R3**, teste a conectividade com a **Filial A** e **Filial B**:
+
+     ```bash
+     R3# ping 192.168.1.1
+     R3# ping 192.168.2.1
+     ```
+
+---
+
+### Exercício 2: Configuração de Roteamento Dinâmico (RIP)
+
+#### **Contexto do Exercício**
+
+Você é o administrador de rede da "TechCorp", e agora a empresa decidiu usar **roteamento dinâmico** para facilitar a propagação de rotas automaticamente entre os roteadores. Você deve configurar o **RIP** (Routing Information Protocol) nos roteadores para propagar as rotas de forma dinâmica.
+
+A rede e as configurações dos roteadores permanecem as mesmas do exercício anterior:
+
+* **Filial A (Roteador R1)**:
+
+  * Rede: **192.168.1.0/24**
+  * Endereço IP do Roteador: **192.168.1.1**
+
+* **Filial B (Roteador R2)**:
+
+  * Rede: **192.168.2.0/24**
+  * Endereço IP do Roteador: **192.168.2.1**
+
+* **Filial C (Roteador R3)**:
+
+  * Rede: **192.168.3.0/24**
+  * Endereço IP do Roteador: **192.168.3.1**
+
+**Objetivo:**
+
+1. **Configurar o RIP** para permitir a troca de rotas entre os roteadores de forma dinâmica.
+
+#### **Passos do Exercício**
+
+1. **Configuração das Interfaces dos Roteadores**
+
+   * No **Roteador R1**, configure a interface que conecta à **Filial A**:
+
+     ```bash
+     R1(config)# interface g0/0
+     R1(config-if)# ip address 192.168.1.1 255.255.255.0
+     R1(config-if)# no shutdown
+     ```
+
+   * No **Roteador R2**, configure a interface que conecta à **Filial B**:
+
+     ```bash
+     R2(config)# interface g0/0
+     R2(config-if)# ip address 192.168.2.1 255.255.255.0
+     R2(config-if)# no shutdown
+     ```
+
+   * No **Roteador R3**, configure a interface que conecta à **Filial C**:
+
+     ```bash
+     R3(config)# interface g0/0
+     R3(config-if)# ip address 192.168.3.1 255.255.255.0
+     R3(config-if)# no shutdown
+     ```
+
+2. **Configuração do RIP**
+
+   Agora, você deve configurar o **RIP** nos três roteadores para propagação automática das rotas.
+
+   * No **Roteador R1**, configure o RIP:
+
+     ```bash
+     R1(config)# router rip
+     R1(config-router)# version 2
+     R1(config-router)# network 192.168.0.0
+     ```
+
+   * No **Roteador R2**, configure o RIP:
+
+     ```bash
+     R2(config)# router rip
+     R2(config-router)# version 2
+     R2(config-router)# network 192.168.0.0
+     ```
+
+   * No **Roteador R3**, configure o RIP:
+
+     ```bash
+     R3(config)# router rip
+     R3(config-router)# version 2
+     R3(config-router)# network 192.168.0.0
+     ```
+
+3. **Verificação das Tabelas de Roteamento**
+
+   Após configurar o RIP, verifique se as rotas estão sendo propagadas corretamente.
+
+   * No **Roteador R1**, verifique a tabela de roteamento:
+
+     ```bash
+     R1# show ip route
+     ```
+
+   * No **Roteador R2**, verifique a tabela de roteamento:
+
+     ```bash
+     R2# show ip route
+     ```
+
+   * No **Roteador R3**, verifique a tabela de roteamento:
+
+     ```bash
+     R3# show ip route
+     ```
+
+4. **Testar a Conectividade**
+
+   * No **Roteador R1**, teste a conectividade com a **Filial B** e **Filial C**:
+
+     ```bash
+     R1# ping 192.168.2.1
+     R1# ping 192.168.3.1
+     ```
+
+   * No **Roteador R2**, teste a conectividade com a **Filial A** e **Filial C**:
+
+     ```bash
+     R2# ping 192.168.1.1
+     R2# ping 192.168.3.1
+     ```
+
+   * No **Roteador R3**, teste a conectividade com a **Filial A** e **Filial B**:
+
+     ```bash
+     ```
+
+
+````
+ R3# ping 192.168.1.1
+ R3# ping 192.168.2.1
+ ```
+````
+
+---
+
+
+## Referências Bibliográficas
 
 1. **Cisco Networking Academy**. (2020). *CCNA Routing and Switching: Introduction to Networks (Version 7)*. Cisco Press.
 
