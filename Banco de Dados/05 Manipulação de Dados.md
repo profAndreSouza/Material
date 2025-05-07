@@ -36,7 +36,7 @@ INSERT INTO email (cliente_id, email)
 VALUES (1, 'joao.silva@email.com');
 ```
 
-> 💡 **Boas práticas de inserção:**
+> **Boas práticas de inserção:**
 
 * Sempre utilize transações (`BEGIN ... COMMIT`) ao inserir em múltiplas tabelas.
 * Valide dados previamente (ex.: CPF, CNPJ, formatos).
@@ -65,7 +65,7 @@ Neste exemplo:
 * Apenas os clientes ativos (`WHERE ativo = true`) são inseridos na tabela `cliente`;
 * A consulta dispensa variáveis ou estruturas temporárias como CTEs.
 
-> ✅ **Vantagem:** Simples e direto, ideal para situações em que não é necessário encadear várias etapas ou capturar valores intermediários.
+> **Vantagem:** Simples e direto, ideal para situações em que não é necessário encadear várias etapas ou capturar valores intermediários.
 
 ---
 
