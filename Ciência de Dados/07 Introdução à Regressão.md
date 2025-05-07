@@ -594,6 +594,141 @@ plt.show()
 
 ---
 
+## Exercícios
+
+
+### 1 — Regressão Linear Simples (Vendas x Investimento em Publicidade)
+
+**Contexto:**  
+Uma empresa quer prever as vendas de seu produto com base no investimento em publicidade digital.
+
+**Tarefa:**  
+- Gere o modelo de regressão linear simples.  
+- Plote o gráfico com a linha de regressão.  
+- Interprete os coeficientes.
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+np.random.seed(1)
+investimento = np.random.uniform(1000, 10000, 100)
+vendas = 5000 + 1.2 * investimento + np.random.normal(0, 2000, 100)
+
+df1 = pd.DataFrame({'Investimento_Publicidade': investimento, 'Vendas': vendas})
+df1.to_csv("vendas_publicidade.csv", index=False)
+df1.head()
+```
+
+---
+
+### 2 — Regressão Linear Múltipla (Preço de Imóveis)
+
+**Contexto:**
+Você é um analista imobiliário e deseja prever o preço de casas com base em:
+
+* Área construída (m²)
+* Número de quartos
+* Distância do centro da cidade (km)
+
+**Tarefa:**
+
+* Ajuste uma regressão linear múltipla.
+* Verifique a significância das variáveis.
+* Avalie o desempenho com R².
+
+```python
+np.random.seed(2)
+area = np.random.uniform(50, 250, 100)
+quartos = np.random.randint(1, 5, 100)
+dist_centro = np.random.uniform(1, 20, 100)
+preco = 50000 + 1200*area + 15000*quartos - 2000*dist_centro + np.random.normal(0, 20000, 100)
+
+df2 = pd.DataFrame({'Area': area, 'Quartos': quartos, 'Dist_Centro': dist_centro, 'Preco': preco})
+df2.to_csv("preco_imoveis.csv", index=False)
+df2.head()
+```
+
+---
+
+### 3 — Regressão Polinomial (Crescimento de uma Planta)
+
+**Contexto:**
+Um biólogo observou o crescimento de uma planta ao longo de 30 dias. O crescimento segue uma curva, não uma linha reta.
+
+**Tarefa:**
+
+* Ajuste um modelo polinomial de 2º ou 3º grau.
+* Compare com a regressão linear simples.
+* Visualize a curva ajustada.
+
+```python
+dias = np.arange(1, 31)
+altura = 2*dias**2 - 15*dias + 100 + np.random.normal(0, 10, 30)
+
+df3 = pd.DataFrame({'Dia': dias, 'Altura_cm': altura})
+df3.to_csv("crescimento_planta.csv", index=False)
+df3.head()
+```
+
+---
+
+### 4 — Regressão Linear Múltipla (Desempenho Escolar)
+
+**Contexto:**
+Uma escola quer prever a nota final dos alunos com base em:
+
+* Número de horas de estudo semanais
+* Participação nas aulas (%)
+* Média das notas anteriores
+
+**Tarefa:**
+
+* Ajuste um modelo e interprete os coeficientes.
+* Verifique correlações entre variáveis.
+
+```python
+np.random.seed(4)
+horas_estudo = np.random.uniform(0, 20, 100)
+participacao = np.random.uniform(50, 100, 100)
+media_ant = np.random.uniform(4, 9, 100)
+nota_final = 1 + 0.4*horas_estudo + 0.3*participacao + 2.5*media_ant + np.random.normal(0, 5, 100)
+
+df4 = pd.DataFrame({
+    'Horas_Estudo': horas_estudo,
+    'Participacao': participacao,
+    'Media_Anterior': media_ant,
+    'Nota_Final': nota_final
+})
+df4.to_csv("desempenho_escolar.csv", index=False)
+df4.head()
+```
+
+---
+
+### 5 — Regressão Polinomial (Desempenho de Motor em Função da Temperatura)
+
+**Contexto:**
+Um engenheiro estuda o desempenho de um motor em função da temperatura ambiente. O desempenho apresenta comportamento não linear.
+
+**Tarefa:**
+
+* Ajuste uma regressão polinomial de 2º ou 3º grau.
+* Identifique a temperatura ótima de desempenho.
+
+```python
+temperatura = np.linspace(0, 100, 100)
+desempenho = -0.05*(temperatura - 60)**2 + 100 + np.random.normal(0, 3, 100)
+
+df5 = pd.DataFrame({'Temperatura': temperatura, 'Desempenho': desempenho})
+df5.to_csv("desempenho_motor.csv", index=False)
+df5.head()
+```
+
+---
+
+
 ## Materiais de Estudo Complementares
 
 * [Khan Academy – Regressão Linear](https://pt.khanacademy.org/math/statistics-probability/describing-relationships-quantitative-data)
