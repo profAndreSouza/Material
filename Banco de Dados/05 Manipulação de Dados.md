@@ -121,8 +121,8 @@ BEGIN
 END $$;
 ```
 
-> **Vantagens:** Utilização direta de variáveis, controle transacional.
-> **Desvantagens:** Mais verboso; exige PL/pgSQL; não pode ser usado diretamente em ferramentas que só aceitam SQL puro.
+* **Vantagens:** Utilização direta de variáveis, controle transacional.
+* **Desvantagens:** Mais verboso; exige PL/pgSQL; não pode ser usado diretamente em ferramentas que só aceitam SQL puro.
 
 ---
 
@@ -155,8 +155,8 @@ SELECT id, 'joao.silva@email.com'
 FROM novo_cliente;
 ```
 
-> **Vantagens:** Inteiramente em SQL; fácil de integrar com scripts de migração e ferramentas como pgAdmin, DBeaver, etc.
-> **Desvantagens:** Requer compatibilidade com `INSERT INTO ... RETURNING` e o suporte a CTEs (disponível a partir do PostgreSQL 8.4).
+* **Vantagens:** Inteiramente em SQL; fácil de integrar com scripts de migração e ferramentas como pgAdmin, DBeaver, etc.
+* **Desvantagens:** Requer compatibilidade com `INSERT INTO ... RETURNING` e o suporte a CTEs (disponível a partir do PostgreSQL 8.4).
 
 ---
 
