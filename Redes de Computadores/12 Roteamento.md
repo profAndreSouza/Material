@@ -1388,14 +1388,9 @@ A rede e as configurações dos roteadores permanecem as mesmas do exercício an
    * No **Roteador R3**, teste a conectividade com a **Filial A** e **Filial B**:
 
      ```bash
+     R3# ping 192.168.1.1
+     R3# ping 192.168.2.1
      ```
-
-
-````
- R3# ping 192.168.1.1
- R3# ping 192.168.2.1
- ```
-````
 
 ---
 
