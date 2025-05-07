@@ -8,20 +8,6 @@ A DML (Data Manipulation Language) é o conjunto de comandos SQL usados para man
 
 ---
 
-Com base no esquema fornecido, aqui está um conteúdo didático e prático sobre **Manipulação de Dados com SQL (DML)**, com foco em `INSERT`, `UPDATE`, `DELETE`, boas práticas e aplicação de integridade referencial.
-
----
-
-## 📘 Manipulação de Dados com SQL (DML)
-
-DML (Data Manipulation Language) é o subconjunto da SQL responsável por inserir, atualizar e remover dados nas tabelas. Os principais comandos são:
-
-* `INSERT`: Insere novos registros.
-* `UPDATE`: Altera registros existentes.
-* `DELETE`: Remove registros.
-
----
-
 ## Comando `INSERT`
 
 Para inserir dados no banco, a ordem de inserção precisa respeitar a integridade referencial.
