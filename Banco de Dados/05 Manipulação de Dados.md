@@ -221,7 +221,7 @@ WHERE cliente_id = (
 
 ---
 
-### Exemplos adicionais com seu banco
+### Exemplos adicionais
 
 #### Atualizar o tipo de telefone de um cliente específico
 
@@ -357,7 +357,7 @@ Neste banco de dados, como as tabelas `pessoa_fisica`, `endereco`, `telefone` e 
 
 ## Integridade Referencial na Prática
 
-A **integridade referencial** é o mecanismo que garante que os relacionamentos entre as tabelas sejam **coerentes e seguros**. No seu banco, isso está implementado por meio de:
+A **integridade referencial** é o mecanismo que garante que os relacionamentos entre as tabelas sejam **coerentes e seguros**. No banco, isso está implementado por meio de:
 
 ### 1. Relacionamentos com `REFERENCES` e `ON DELETE CASCADE`
 
