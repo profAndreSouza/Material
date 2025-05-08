@@ -178,40 +178,136 @@ Use CTEs quando:
 
 ---
 
-## Comando `UPDATE`
+## Manipulação de Dados com SQL – `UPDATE`
 
-Atualiza dados existentes com base em critérios definidos.
+O comando `UPDATE` é usado para modificar dados existentes em uma tabela. Ele permite alterar valores de uma ou mais colunas, com base em uma condição especificada no `WHERE`.
 
-### Exemplo: Atualizar nome e e-mail de um cliente
+### Sintaxe geral
 
 ```sql
--- Atualizar o nome
+UPDATE nome_da_tabela
+SET coluna1 = valor1,
+    coluna2 = valor2,
+    ...
+WHERE condição;
+```
+
+* `nome_da_tabela`: tabela que terá os dados atualizados.
+* `SET`: define as colunas que receberão os novos valores.
+* `WHERE`: define quais registros devem ser alterados. **Se omitido, todos os registros serão atualizados.**
+
+---
+
+### Exemplo prático com `pessoa_fisica` e `email`
+
+#### Atualizar o nome de um cliente (pessoa física)
+
+```sql
 UPDATE pessoa_fisica
 SET nome = 'João Pedro da Silva'
 WHERE cpf = '123.456.789-00';
+```
 
--- Atualizar o e-mail
+#### Atualizar o e-mail desse cliente (em outra tabela)
+
+```sql
 UPDATE email
 SET email = 'joao.pedro@email.com'
 WHERE cliente_id = (
-    SELECT id FROM pessoa_fisica WHERE cpf = '123.456.789-00'
+    SELECT id FROM pessoa_fisica
+    WHERE cpf = '123.456.789-00'
 );
 ```
 
+---
+
+### Exemplos adicionais com seu banco
+
+#### Atualizar o tipo de telefone de um cliente específico
+
+```sql
+UPDATE telefone
+SET tipo = 'Movel'
+WHERE cliente_id = (
+    SELECT id FROM pessoa_fisica
+    WHERE cpf = '123.456.789-00'
+)
+AND tipo = 'Fixo';
+```
+
+#### Marcar um cliente como inativo
+
+```sql
+UPDATE cliente
+SET ativo = FALSE
+WHERE id = (
+    SELECT id FROM pessoa_juridica
+    WHERE cnpj = '12.345.678/0001-90'
+);
+```
+
+#### Atualizar múltiplos campos de endereço de uma vez
+
+```sql
+UPDATE endereco
+SET logradouro = 'Av. Brasil',
+    numero = '200',
+    tipo = 'Comercial'
+WHERE cliente_id = (
+    SELECT id FROM pessoa_fisica
+    WHERE cpf = '123.456.789-00'
+);
+```
+
+---
+
 ### Boas práticas de atualização
 
-* Sempre utilize `WHERE` com condições específicas para evitar alterações em massa.
-* Teste a condição com um `SELECT` antes de aplicar um `UPDATE`.
-* Utilize transações ao alterar dados críticos ou múltiplas tabelas.
-* Faça backup antes de operações sensíveis.
+1. **Sempre use `WHERE`**
+   Evite atualizações em massa acidentais. Um `UPDATE` sem condição pode alterar todos os registros da tabela.
+
+2. **Teste com `SELECT` antes**
+
+   ```sql
+   SELECT * FROM pessoa_fisica WHERE cpf = '123.456.789-00';
+   ```
+
+3. **Use transações para segurança**
+
+   ```sql
+   BEGIN;
+
+   UPDATE cliente SET ativo = FALSE WHERE id = 101;
+   UPDATE email SET email = 'novo@email.com' WHERE cliente_id = 101;
+
+   COMMIT; -- ou ROLLBACK em caso de erro
+   ```
+
+4. **Verifique a integridade dos dados**
+   Confirme que os dados não violarão restrições como `UNIQUE`, `NOT NULL` ou `CHECK`.
+
+5. **Faça backup antes de alterações em produção**
+   Especialmente se o `UPDATE` afetar várias tabelas ou registros críticos.
 
 ---
 
 ## Comando `DELETE`
 
-Remove registros de uma tabela.
+O comando `DELETE` é utilizado para **remover registros** de uma tabela em um banco de dados relacional. Seu uso deve ser sempre acompanhado de **critérios bem definidos** para evitar exclusões acidentais.
 
-### Exemplo: Remover um cliente e todos os dados relacionados
+### Sintaxe geral
+
+```sql
+DELETE FROM nome_da_tabela
+WHERE condição;
+```
+
+* `nome_da_tabela`: tabela da qual os registros serão excluídos.
+* `condição`: define quais linhas devem ser removidas. A ausência de `WHERE` remove **todos os registros** da tabela.
+
+### Exemplo: Remover um cliente e todos os seus dados associados
+
+Suponha que o cliente é do tipo **pessoa física** com CPF `123.456.789-00`. Para removê-lo:
 
 ```sql
 DELETE FROM cliente
@@ -220,33 +316,88 @@ WHERE id = (
 );
 ```
 
-Como a integridade referencial está configurada com `ON DELETE CASCADE`, os dados relacionados nas tabelas `pessoa_fisica`, `endereco`, `telefone` e `email` serão automaticamente removidos.
+Neste banco de dados, como as tabelas `pessoa_fisica`, `endereco`, `telefone` e `email` possuem chave estrangeira com a cláusula `ON DELETE CASCADE`, ao remover o cliente, **todos os dados vinculados a ele serão removidos automaticamente**.
+
+---
 
 ### Boas práticas de remoção
 
-* Sempre filtre usando identificadores únicos.
-* Evite `DELETE` sem `WHERE`.
-* Use `BEGIN` e `ROLLBACK` durante testes.
-* Certifique-se que a regra `ON DELETE CASCADE` está definida corretamente para evitar dados órfãos.
+1. **Sempre utilize `WHERE` com filtros específicos**
+
+   * Utilize chaves primárias ou outros campos únicos para evitar remoções em massa.
+   * Exemplo de cuidado:
+
+     ```sql
+     DELETE FROM cliente WHERE id = 105;  -- seguro  
+     DELETE FROM cliente;                 -- perigoso!
+     ```
+
+2. **Valide a condição com um `SELECT` antes de deletar**
+
+   ```sql
+   SELECT * FROM cliente WHERE id = 105;
+   ```
+
+3. **Utilize transações para testes e segurança**
+
+   ```sql
+   BEGIN;
+
+   DELETE FROM cliente WHERE id = 105;
+
+   ROLLBACK;  -- desfaz a remoção, útil durante testes
+   ```
+
+4. **Garanta que a integridade referencial está bem configurada**
+
+   * A cláusula `ON DELETE CASCADE` evita que dados fiquem órfãos (sem vínculo com o cliente).
+   * Certifique-se de que todas as chaves estrangeiras relevantes estão protegidas por essa regra, quando apropriado.
 
 ---
 
 ## Integridade Referencial na Prática
 
-O esquema fornecido garante integridade referencial com:
+A **integridade referencial** é o mecanismo que garante que os relacionamentos entre as tabelas sejam **coerentes e seguros**. No seu banco, isso está implementado por meio de:
 
-* `REFERENCES` e `ON DELETE CASCADE`, que mantêm consistência entre as tabelas.
-* Restrições `UNIQUE` em CPF e CNPJ, evitando duplicações.
-* Campos obrigatórios (`NOT NULL`) e `CHECK` em colunas como tipo de telefone e endereço.
+### 1. Relacionamentos com `REFERENCES` e `ON DELETE CASCADE`
 
-### Exemplo de violação bloqueada:
+Exemplo da tabela `pessoa_fisica`:
 
 ```sql
--- Tentar inserir uma pessoa jurídica com cliente inexistente
-INSERT INTO pessoa_juridica (id, nome_fantasia, razao_social, cnpj)
-SELECT 999, 'Empresa X', 'Empresa X Ltda.', '12.345.678/0001-99';
--- ERRO: violação da chave estrangeira, pois cliente 999 não existe
+id INTEGER PRIMARY KEY REFERENCES cliente(id) ON DELETE CASCADE
 ```
+
+Significa que:
+
+* `pessoa_fisica.id` deve corresponder a um `cliente.id` existente.
+* Se esse cliente for excluído, o registro na `pessoa_fisica` será excluído automaticamente.
+
+### 2. Restrições de unicidade e validação de dados
+
+* CPF e CNPJ possuem restrição `UNIQUE`:
+
+  ```sql
+  cpf VARCHAR(14) UNIQUE NOT NULL,
+  cnpj VARCHAR(18) UNIQUE NOT NULL,
+  ```
+
+  Isso impede o cadastro duplicado.
+
+* Campos com `NOT NULL` obrigam a presença de valores essenciais.
+
+* `CHECK` nas colunas `tipo` (em `telefone` e `endereco`) limitam os valores a um conjunto definido.
+
+### Exemplo de tentativa de inserção inválida
+
+```sql
+-- Tentar adicionar uma pessoa jurídica com ID de cliente inexistente
+INSERT INTO pessoa_juridica (id, nome_fantasia, razao_social, cnpj)
+VALUES (999, 'Empresa X', 'Empresa X Ltda.', '12.345.678/0001-99');
+```
+
+**Resultado:**
+
+> ERRO: violação de chave estrangeira — não existe cliente com ID 999.
 
 ---
 
