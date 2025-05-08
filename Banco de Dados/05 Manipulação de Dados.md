@@ -436,3 +436,187 @@ VALUES (999, 'Empresa X', 'Empresa X Ltda.', '12.345.678/0001-99');
 14. **Mova todos os telefones do tipo "Recado" para o tipo "Fixo", apenas se o cliente tiver mais de um número cadastrado.**
 
 15. **Crie um backup temporário da tabela `email` em uma nova tabela chamada `email_backup`, inserindo os dados usando `INSERT INTO email_backup SELECT ...`. Em seguida, apague todos os e-mails de clientes cujo nome contenha "Maria".**
+
+
+
+
+### Resolução dos Exercícios
+
+```sql
+-- 1. Inserir novo cliente pessoa física
+WITH novo_cliente AS (
+  INSERT INTO cliente (ativo) VALUES (true) RETURNING id
+)
+INSERT INTO pessoa_fisica (id, nome, cpf, nascimento)
+SELECT id, 'Ana Lima', '123.456.789-01', DATE '1992-04-15'
+FROM novo_cliente;
+
+-- 2. Inserir endereço residencial
+WITH cliente_id AS (
+  SELECT id FROM pessoa_fisica WHERE cpf = '123.456.789-01'
+)
+INSERT INTO endereco (cliente_id, logradouro, numero, cidade, estado, cep, tipo)
+SELECT id, 'Rua Central', '150', 'Campinas', 'SP', '13000-000', 'Residencial'
+FROM cliente_id;
+
+-- 3. Inserir telefone móvel
+WITH cliente_id AS (
+  SELECT id FROM pessoa_fisica WHERE cpf = '123.456.789-01'
+)
+INSERT INTO telefone (cliente_id, ddd, numero, tipo)
+SELECT id, '19', '99887766', 'Movel'
+FROM cliente_id;
+
+-- 4. Atualizar nome
+UPDATE pessoa_fisica
+SET nome = 'Ana Maria Lima'
+WHERE cpf = '123.456.789-01';
+
+-- 5. Remover telefone do cliente
+DELETE FROM telefone
+WHERE cliente_id = (SELECT id FROM pessoa_fisica WHERE cpf = '123.456.789-01');
+
+-- 6. Inserir cliente PJ
+WITH novo_cliente AS (
+  INSERT INTO cliente (ativo) VALUES (true) RETURNING id
+)
+INSERT INTO pessoa_juridica (id, nome_fantasia, razao_social, cnpj)
+SELECT id, 'Tech Mais', 'Tech Mais Soluções LTDA', '12.345.678/0001-90'
+FROM novo_cliente;
+
+-- 7. Endereço comercial
+WITH cliente_id AS (
+  SELECT id FROM pessoa_juridica WHERE cnpj = '12.345.678/0001-90'
+)
+INSERT INTO endereco (cliente_id, logradouro, numero, cidade, estado, cep, tipo)
+SELECT id, 'Av. das Indústrias', '500', 'São Paulo', 'SP', '01100-000', 'Comercial'
+FROM cliente_id;
+
+-- 8. Dois e-mails via subconsultas
+INSERT INTO email (cliente_id, email)
+SELECT id, 'contato@techmais.com.br'
+FROM pessoa_juridica
+WHERE cnpj = '12.345.678/0001-90';
+
+INSERT INTO email (cliente_id, email)
+SELECT id, 'suporte@techmais.com.br'
+FROM pessoa_juridica
+WHERE cnpj = '12.345.678/0001-90';
+
+-- 9. Atualizar nome fantasia
+UPDATE pessoa_juridica
+SET nome_fantasia = 'Tech Mais Soluções'
+WHERE cnpj = '12.345.678/0001-90';
+
+-- 10. Remover cliente PJ e dados relacionados
+DO $$
+DECLARE
+  cid INT;
+BEGIN
+  SELECT id INTO cid FROM pessoa_juridica WHERE cnpj = '12.345.678/0001-90';
+
+  DELETE FROM email WHERE cliente_id = cid;
+  DELETE FROM telefone WHERE cliente_id = cid;
+  DELETE FROM endereco WHERE cliente_id = cid;
+  DELETE FROM pessoa_juridica WHERE id = cid;
+  DELETE FROM cliente WHERE id = cid;
+END $$;
+
+-- 11. Inserir 3 novos clientes pessoa física com dados completos
+WITH c1 AS (
+  INSERT INTO cliente (ativo) VALUES (true) RETURNING id
+),
+pf1 AS (
+  INSERT INTO pessoa_fisica (id, nome, cpf, nascimento)
+  SELECT id, 'Carlos Mendes', '111.222.333-44', DATE '1985-01-10' FROM c1
+),
+e1 AS (
+  INSERT INTO endereco (cliente_id, logradouro, numero, cidade, estado, cep, tipo)
+  SELECT id, 'Rua A', '10', 'Curitiba', 'PR', '80000-000', 'Residencial' FROM c1
+),
+t1 AS (
+  INSERT INTO telefone (cliente_id, ddd, numero, tipo)
+  SELECT id, '41', '999998888', 'Movel' FROM c1
+),
+c2 AS (
+  INSERT INTO cliente (ativo) VALUES (true) RETURNING id
+),
+pf2 AS (
+  INSERT INTO pessoa_fisica (id, nome, cpf, nascimento)
+  SELECT id, 'João Pedro', '555.666.777-88', DATE '1990-06-21' FROM c2
+),
+e2 AS (
+  INSERT INTO endereco (cliente_id, logradouro, numero, cidade, estado, cep, tipo)
+  SELECT id, 'Rua B', '20', 'Belo Horizonte', 'MG', '30000-000', 'Residencial' FROM c2
+),
+t2 AS (
+  INSERT INTO telefone (cliente_id, ddd, numero, tipo)
+  SELECT id, '31', '988887777', 'Movel' FROM c2
+),
+c3 AS (
+  INSERT INTO cliente (ativo) VALUES (true) RETURNING id
+),
+pf3 AS (
+  INSERT INTO pessoa_fisica (id, nome, cpf, nascimento)
+  SELECT id, 'Luciana Costa', '999.888.777-66', DATE '1995-09-05' FROM c3
+),
+e3 AS (
+  INSERT INTO endereco (cliente_id, logradouro, numero, cidade, estado, cep, tipo)
+  SELECT id, 'Rua C', '30', 'Recife', 'PE', '50000-000', 'Residencial' FROM c3
+),
+t3 AS (
+  INSERT INTO telefone (cliente_id, ddd, numero, tipo)
+  SELECT id, '81', '977776666', 'Movel' FROM c3
+)
+INSERT INTO email (cliente_id, email)
+SELECT id, unnest(ARRAY[
+  'carlos@email.com',
+  'joao@email.com',
+  'luciana@email.com'
+]) FROM cliente WHERE id IN ((SELECT id FROM c1), (SELECT id FROM c2), (SELECT id FROM c3));
+```
+
+```sql
+-- 12. Atualizar nome de João para "Cliente Premium"
+UPDATE pessoa_fisica
+SET nome = nome || ' - Cliente Premium'
+WHERE nome ILIKE 'João%';
+
+-- 13. Remover clientes inativos e dados relacionados
+DO $$
+DECLARE
+  cid INT;
+BEGIN
+  FOR cid IN SELECT id FROM cliente WHERE ativo = FALSE LOOP
+    DELETE FROM email WHERE cliente_id = cid;
+    DELETE FROM telefone WHERE cliente_id = cid;
+    DELETE FROM endereco WHERE cliente_id = cid;
+    DELETE FROM pessoa_fisica WHERE id = cid;
+    DELETE FROM pessoa_juridica WHERE id = cid;
+    DELETE FROM cliente WHERE id = cid;
+  END LOOP;
+END $$;
+
+-- 14. Mover telefones do tipo "Recado" para "Fixo" se cliente tem mais de um telefone
+UPDATE telefone
+SET tipo = 'Fixo'
+WHERE tipo = 'Recado'
+  AND cliente_id IN (
+    SELECT cliente_id
+    FROM telefone
+    GROUP BY cliente_id
+    HAVING COUNT(*) > 1
+  );
+
+-- 15. Backup da tabela `email` e remoção de "Maria"
+CREATE TABLE email_backup AS
+SELECT * FROM email;
+
+DELETE FROM email
+WHERE cliente_id IN (
+  SELECT pf.id
+  FROM pessoa_fisica pf
+  WHERE pf.nome ILIKE '%Maria%'
+);
+```
+
