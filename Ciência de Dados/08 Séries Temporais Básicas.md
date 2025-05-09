@@ -390,7 +390,7 @@ onde $k$ é a janela (número de períodos) e $y_t$ é o valor observado no temp
 
 **Exemplo prático (Colab): Aplicando Média Móvel**
 
-<img src="img/8-media_movel_2.png">
+<img src="img/8-media_movel2.png">
 
 ```python
 import pandas as pd  # Importa a biblioteca pandas para manipulação de dados em formato de tabelas (DataFrame).
@@ -447,16 +447,20 @@ Existem dois tipos comuns de decomposição:
 <img src="img/8-decomposicao_2.png">
 
 ```python
-from statsmodels.tsa.seasonal import seasonal_decompose
+from statsmodels.tsa.seasonal import seasonal_decompose  # Importa a função 'seasonal_decompose' da biblioteca statsmodels para decomposição sazonal de séries temporais.
 
 # Decomposição aditiva (assumindo ciclo mensal)
-resultado = seasonal_decompose(serie['Temperatura'], model='additive', period=30)
+resultado = seasonal_decompose(serie['Temperatura'], model='additive', period=30)  
+# Aplica a decomposição sazonal à série temporal 'Temperatura', utilizando o modelo aditivo.
+# O modelo 'additive' assume que a série é a soma dos componentes: tendência, sazonalidade e erro.
+# O parâmetro 'period=30' define a periodicidade da sazonalidade, indicando que o ciclo sazonal se repete a cada **30 dias** (como um ciclo mensal).
 
 # Plotando os componentes
-resultado.plot()
-plt.suptitle("Decomposição da Série Temporal", fontsize=14)
-plt.tight_layout()
-plt.show()
+resultado.plot()  # Gera os gráficos dos componentes resultantes da decomposição: tendência, sazonalidade e resíduos.
+plt.suptitle("Decomposição da Série Temporal", fontsize=14)  # Define o título do gráfico como 'Decomposição da Série Temporal', com tamanho de fonte 14.
+plt.tight_layout()  # Ajusta o layout do gráfico para evitar sobreposição de elementos.
+plt.show()  # Exibe o gráfico resultante.
+
 ```
 
 ---
