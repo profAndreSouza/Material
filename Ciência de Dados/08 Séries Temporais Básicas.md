@@ -267,30 +267,36 @@ São o tipo mais comum e útil para séries temporais. Mostram claramente a vari
 
 **Exemplo prático (Colab): Gráfico de linha**
 
-<img src="img/8-temporal.png>
+<img src="img/8-graf_linha.png">
 
 ```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
+import pandas as pd  # Importa a biblioteca pandas, que é utilizada para manipulação e análise de dados.
+import numpy as np  # Importa a biblioteca NumPy, usada para operações matemáticas e geração de números aleatórios.
+import matplotlib.pyplot as plt  # Importa a biblioteca matplotlib, usada para criar gráficos.
 
 # Simulação de série temporal
-np.random.seed(0)
-dias = pd.date_range(start='2023-01-01', periods=180)
-serie = 25 + 5 * np.sin(2 * np.pi * dias.dayofyear / 365 * 4) + np.random.normal(0, 1, 180)
+np.random.seed(0)  # Define a semente do gerador de números aleatórios para garantir resultados reproduzíveis.
+dias = pd.date_range(start='2023-01-01', periods=180)  # Cria uma sequência de 180 datas, começando em 1º de janeiro de 2023.
 
-df = pd.DataFrame({'Data': dias, 'Temperatura': serie})
-df.set_index('Data', inplace=True)
+# Geração da série temporal com sazonalidade e ruído
+serie = 25 + 5 * np.sin(2 * np.pi * dias.dayofyear / 365 * 4) + np.random.normal(0, 1, 180)
+# A série gerada consiste em:
+# - Uma base de valor 25 (representando o valor médio ou de referência).
+# - Uma **variação sazonal** simulada pela função seno, com amplitude 5 e 4 ciclos por ano (multiplicado por 4).
+# - **Ruído aleatório** com distribuição normal, média 0 e desvio padrão 1, para simular flutuações imprevistas.
+
+df = pd.DataFrame({'Data': dias, 'Temperatura': serie})  # Cria um DataFrame com as datas e os valores de temperatura gerados.
+df.set_index('Data', inplace=True)  # Define a coluna 'Data' como o índice do DataFrame para facilitar a manipulação da série temporal.
 
 # Gráfico de linha
-plt.figure(figsize=(12,4))
-plt.plot(df['Temperatura'], label='Temperatura')
-plt.title('Gráfico de Linha - Série Temporal')
-plt.xlabel('Data')
-plt.ylabel('Valor')
-plt.grid(True)
-plt.legend()
-plt.show()
+plt.figure(figsize=(12,4))  # Cria uma nova figura de gráfico com tamanho 12x4 polegadas (mais largo para um gráfico de séries temporais).
+plt.plot(df['Temperatura'], label='Temperatura')  # Plota a série de temperatura no gráfico com o rótulo 'Temperatura'.
+plt.title('Gráfico de Linha - Série Temporal')  # Define o título do gráfico como 'Gráfico de Linha - Série Temporal'.
+plt.xlabel('Data')  # Define o rótulo do eixo X como 'Data'.
+plt.ylabel('Valor')  # Define o rótulo do eixo Y como 'Valor'.
+plt.grid(True)  # Adiciona uma grade ao gráfico para facilitar a leitura dos valores.
+plt.legend()  # Exibe a legenda com o rótulo 'Temperatura'.
+plt.show()  # Exibe o gráfico gerado.
 ```
 
 ---
@@ -303,20 +309,25 @@ As **médias móveis** suavizam a série, permitindo identificar tendências de 
 
 **Exemplo prático (Colab): Aplicando média móvel**
 
+<img src="img/8-media_movel.png">
+
 ```python
 # Adicionando uma média móvel de 7 dias
-df['MM_7'] = df['Temperatura'].rolling(window=7).mean()
+df['MM_7'] = df['Temperatura'].rolling(window=7).mean()  
+# Cria uma nova coluna 'MM_7' no DataFrame, que contém a média móvel de 7 dias dos valores de 'Temperatura'.
+# A função rolling(window=7) cria uma janela de 7 dias e a função mean() calcula a média desses 7 dias para cada ponto da série.
 
 # Plotando série original e média móvel
-plt.figure(figsize=(12,4))
-plt.plot(df['Temperatura'], alpha=0.5, label='Original')
-plt.plot(df['MM_7'], color='red', label='Média Móvel 7 dias')
-plt.title('Série com Média Móvel')
-plt.xlabel('Data')
-plt.ylabel('Valor')
-plt.legend()
-plt.grid(True)
-plt.show()
+plt.figure(figsize=(12,4))  # Cria uma nova figura de gráfico com tamanho 12x4 polegadas, adequado para visualização de séries temporais.
+plt.plot(df['Temperatura'], alpha=0.5, label='Original')  # Plota a série original de temperatura com transparência (alpha=0.5) para facilitar a visualização da linha de média móvel.
+plt.plot(df['MM_7'], color='red', label='Média Móvel 7 dias')  # Plota a série da média móvel de 7 dias com linha vermelha.
+plt.title('Série com Média Móvel')  # Define o título do gráfico.
+plt.xlabel('Data')  # Define o rótulo do eixo X como 'Data'.
+plt.ylabel('Valor')  # Define o rótulo do eixo Y como 'Valor'.
+plt.legend()  # Exibe a legenda para identificar a série original e a média móvel.
+plt.grid(True)  # Adiciona uma grade ao gráfico para facilitar a leitura dos valores.
+plt.show()  # Exibe o gráfico gerado.
+
 ```
 
 ---
@@ -333,17 +344,22 @@ A decomposição permite separar a série em três componentes:
 
 **Exemplo prático (Colab): Decomposição com statsmodels**
 
+<img src="img/8-decomposicao.png">
+
 ```python
-from statsmodels.tsa.seasonal import seasonal_decompose
+from statsmodels.tsa.seasonal import seasonal_decompose  # Importa a função 'seasonal_decompose' da biblioteca statsmodels para decomposição sazonal de séries temporais.
 
 # Usando decomposição aditiva (ideal para dados com somas de componentes)
-resultado = seasonal_decompose(df['Temperatura'], model='additive', period=30)
+resultado = seasonal_decompose(df['Temperatura'], model='additive', period=30)  
+# Aplica a decomposição sazonal à série temporal 'Temperatura', utilizando o modelo aditivo.
+# O modelo 'additive' assume que a série é a soma dos componentes: tendência, sazonalidade e erro.
+# O parâmetro 'period=30' define o número de períodos sazonais por ciclo (no caso, 30 dias, considerando um ciclo mensal).
 
 # Plotando os componentes
-resultado.plot()
-plt.suptitle("Decomposição da Série Temporal", fontsize=14)
-plt.tight_layout()
-plt.show()
+resultado.plot()  # Gera os gráficos dos componentes resultantes da decomposição: tendência, sazonalidade e resíduos.
+plt.suptitle("Decomposição da Série Temporal", fontsize=14)  # Define o título do gráfico como 'Decomposição da Série Temporal', com tamanho de fonte 14.
+plt.tight_layout()  # Ajusta o layout do gráfico para evitar sobreposição de elementos.
+plt.show()  # Exibe o gráfico resultante.
 ```
 
 ---
@@ -374,32 +390,39 @@ onde $k$ é a janela (número de períodos) e $y_t$ é o valor observado no temp
 
 **Exemplo prático (Colab): Aplicando Média Móvel**
 
+<img src="img/8-media_movel_2.png">
+
 ```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
+import pandas as pd  # Importa a biblioteca pandas para manipulação de dados em formato de tabelas (DataFrame).
+import numpy as np  # Importa a biblioteca numpy para cálculos numéricos e geração de números aleatórios.
+import matplotlib.pyplot as plt  # Importa a biblioteca matplotlib para criação de gráficos.
 
 # Série simulada
-np.random.seed(42)
-datas = pd.date_range(start='2023-01-01', periods=90)
-valores = 20 + 3 * np.sin(2 * np.pi * datas.dayofyear / 365 * 4) + np.random.normal(0, 1, 90)
-serie = pd.DataFrame({'Data': datas, 'Temperatura': valores})
-serie.set_index('Data', inplace=True)
+np.random.seed(42)  # Define uma semente para o gerador de números aleatórios, garantindo que os resultados sejam reproduzíveis.
+datas = pd.date_range(start='2023-01-01', periods=90)  # Cria um intervalo de 90 dias a partir de 01 de janeiro de 2023.
+valores = 20 + 3 * np.sin(2 * np.pi * datas.dayofyear / 365 * 4) + np.random.normal(0, 1, 90)  
+# Gera uma série de valores de temperatura simulada com uma componente sazonal (usando a função seno) e um componente de ruído aleatório.
+# A fórmula 3 * np.sin(...) gera a sazonalidade e np.random.normal(0, 1, 90) adiciona um ruído normal com média 0 e desvio padrão 1.
+
+serie = pd.DataFrame({'Data': datas, 'Temperatura': valores})  # Cria um DataFrame com as colunas 'Data' e 'Temperatura'.
+serie.set_index('Data', inplace=True)  # Define a coluna 'Data' como o índice do DataFrame, facilitando a manipulação de séries temporais.
 
 # Média móvel de 7 dias
-serie['MM_7'] = serie['Temperatura'].rolling(window=7).mean()
+serie['MM_7'] = serie['Temperatura'].rolling(window=7).mean()  
+# Cria uma nova coluna 'MM_7' no DataFrame, que contém a média móvel de 7 dias dos valores de 'Temperatura'.
+# A função rolling(window=7) cria uma janela deslizante de 7 dias e a função mean() calcula a média dentro dessa janela.
 
 # Gráfico
-plt.figure(figsize=(12,4))
-plt.plot(serie['Temperatura'], label='Original', alpha=0.6)
-plt.plot(serie['MM_7'], label='Média Móvel (7 dias)', color='orange')
-plt.title('Aplicação da Média Móvel')
-plt.xlabel('Data')
-plt.ylabel('Temperatura')
-plt.legend()
-plt.grid(True)
-plt.tight_layout()
-plt.show()
+plt.figure(figsize=(12,4))  # Cria uma nova figura para o gráfico com tamanho 12x4 polegadas.
+plt.plot(serie['Temperatura'], label='Original', alpha=0.6)  # Plota a série original de temperatura com uma transparência de 60% (alpha=0.6).
+plt.plot(serie['MM_7'], label='Média Móvel (7 dias)', color='orange')  # Plota a média móvel de 7 dias com linha laranja.
+plt.title('Aplicação da Média Móvel')  # Define o título do gráfico.
+plt.xlabel('Data')  # Define o rótulo do eixo X como 'Data'.
+plt.ylabel('Temperatura')  # Define o rótulo do eixo Y como 'Temperatura'.
+plt.legend()  # Exibe a legenda para identificar as duas linhas no gráfico.
+plt.grid(True)  # Adiciona uma grade ao gráfico para facilitar a leitura dos valores.
+plt.tight_layout()  # Ajusta o layout do gráfico para evitar sobreposição de elementos.
+plt.show()  # Exibe o gráfico gerado.
 ```
 
 ---
@@ -420,6 +443,8 @@ Existem dois tipos comuns de decomposição:
 > A decomposição facilita a análise individual dos componentes.
 
 **Exemplo prático (Colab): Decomposição Aditiva com `statsmodels`**
+
+<img src="img/8-decomposicao_2.png">
 
 ```python
 from statsmodels.tsa.seasonal import seasonal_decompose
