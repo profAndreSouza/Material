@@ -62,27 +62,90 @@ plt.show()
 
 ### 2. Sazonalidade (Seasonality)
 
-A **sazonalidade** refere-se a padrões que se repetem em intervalos regulares (diariamente, mensalmente, anualmente). Ela é **previsível** e geralmente está ligada a fatores naturais, econômicos ou culturais.
+A **sazonalidade** é um dos componentes fundamentais de uma série temporal e representa **padrões que se repetem em intervalos regulares e previsíveis**, como dias, meses ou anos. Esses padrões estão geralmente associados a **fatores externos recorrentes**, como clima, calendário, comportamento de consumo ou eventos periódicos.
+
+#### Características principais:
+
+* **Periodicidade fixa**: A sazonalidade ocorre em ciclos regulares, como:
+
+  * **Diária**: variação de temperatura ao longo do dia.
+  * **Semanal**: fluxo de clientes maior aos finais de semana.
+  * **Mensal ou trimestral**: aumento de vendas em determinados meses.
+  * **Anual**: mudanças de temperatura conforme estações do ano.
+
+* **Previsível**: Ao contrário do ruído aleatório, a sazonalidade pode ser **antecipada e modelada**, pois segue padrões históricos.
+
+* **Amplitude**: A intensidade da variação sazonal pode ser constante (sazonalidade aditiva) ou proporcional ao valor da série (sazonalidade multiplicativa).
+
+---
+
+#### Exemplos práticos de sazonalidade:
+
+| Situação                                | Comportamento sazonal esperado                               |
+| --------------------------------------- | ------------------------------------------------------------ |
+| Vendas de sorvete                       | Aumentam no verão                                            |
+| Contas de energia elétrica              | Aumentam no inverno (aquecimento) ou verão (ar-condicionado) |
+| Frequência escolar                      | Diminui durante férias escolares                             |
+| Tráfego em sites de comércio eletrônico | Aumenta em datas como Black Friday e Natal                   |
+
+---
+
+#### Identificando sazonalidade:
+
+A sazonalidade pode ser identificada por meio de:
+
+* **Gráficos de linha** ao longo do tempo.
+* **Decomposição de séries temporais**, que separa tendência, sazonalidade e ruído.
+* **Autocorrelação (ACF)**, que revela repetição de padrões em intervalos regulares.
+
 
 > Exemplo: O aumento das vendas de ventiladores durante o verão.
 
 **Exemplo prático (Colab): Simulação de sazonalidade anual**
 
 ```python
-# Simulando dados com sazonalidade
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Simulando dados
 dias = pd.date_range(start='2022-01-01', periods=365)
+
+# Série com sazonalidade
 sazonalidade = 10 + 5 * np.sin(2 * np.pi * dias.dayofyear / 365)
-ruido = np.random.normal(0, 0.8, 365)
-serie = sazonalidade + ruido
+ruido_com = np.random.normal(0, 0.8, 365)
+serie_com_sazonalidade = sazonalidade + ruido_com
 
-df = pd.DataFrame({'Data': dias, 'Valor': serie})
-df.set_index('Data', inplace=True)
+# Série sem sazonalidade (apenas tendência linear + ruído)
+tendencia = np.linspace(10, 15, 365)
+ruido_sem = np.random.normal(0, 0.8, 365)
+serie_sem_sazonalidade = tendencia + ruido_sem
 
-# Plotando
-plt.figure(figsize=(12,5))
-plt.plot(df['Valor'], label='Série com Sazonalidade')
-plt.title('Série Temporal com Padrão Sazonal Anual Simulado')
-plt.legend()
+# Criando DataFrame
+df = pd.DataFrame({
+    'Data': dias,
+    'Com Sazonalidade': serie_com_sazonalidade,
+    'Sem Sazonalidade': serie_sem_sazonalidade
+}).set_index('Data')
+
+# Plotando as séries separadas lado a lado
+fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+
+# Série com sazonalidade
+axes[0].plot(df['Com Sazonalidade'], color='blue')
+axes[0].set_title('Série com Sazonalidade')
+axes[0].set_xlabel('Data')
+axes[0].set_ylabel('Valor')
+axes[0].grid(True)
+
+# Série sem sazonalidade
+axes[1].plot(df['Sem Sazonalidade'], color='orange')
+axes[1].set_title('Série sem Sazonalidade')
+axes[1].set_xlabel('Data')
+axes[1].set_ylabel('Valor')
+axes[1].grid(True)
+
+plt.tight_layout()
 plt.show()
 ```
 
