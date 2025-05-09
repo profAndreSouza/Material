@@ -166,6 +166,8 @@ Essas relações podem ser representadas em **grafos semânticos**, que conectam
 ```python
 from nltk.corpus import wordnet as wn
 
+nltk.download('wordnet')
+
 cachorro = wn.synsets('dog')[0]
 print(cachorro.definition())
 print(cachorro.hypernyms())  # Conceitos mais gerais
