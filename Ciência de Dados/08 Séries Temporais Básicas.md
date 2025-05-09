@@ -153,7 +153,22 @@ plt.show()
 
 ### 3. Ciclos (Cycles)
 
-Ciclos são **flutuações de longo prazo**, que **não têm periodicidade fixa** como a sazonalidade. Podem ser causados por fatores econômicos, políticos ou sociais.
+Ciclos (ou flutuações cíclicas) são variações de longo prazo que ocorrem em períodos indeterminados e não seguem uma periodicidade fixa, ao contrário da **sazonalidade**, que tem um comportamento regular e previsível. Os ciclos podem durar de vários anos a várias décadas, e sua característica principal é que não se repetem em intervalos regulares.
+
+Esses ciclos podem ser causados por uma série de fatores **externos** e **estruturais**, como:
+
+* **Fatores econômicos**: Crises econômicas, recessões, mudanças nas políticas fiscais e monetárias, variações nos mercados financeiros e nos preços das commodities. Por exemplo, uma recessão pode reduzir o consumo e afetar a produção, enquanto uma recuperação econômica pode impulsionar esses indicadores.
+
+* **Fatores políticos**: Mudanças em regimes políticos, políticas de governo, guerra ou estabilidade política. Isso pode afetar a confiança do consumidor, o investimento e os fluxos de comércio.
+
+* **Fatores sociais**: Mudanças demográficas ou tendências sociais, como envelhecimento da população, mudanças nas preferências dos consumidores ou até mesmo inovações tecnológicas que alteram os padrões de consumo e produção.
+
+Esses ciclos podem ser mais difíceis de prever e modelar devido à sua natureza imprevisível e à complexidade dos fatores envolvidos. Um exemplo clássico de flutuação cíclica é o **ciclo econômico**, que inclui períodos de crescimento (expansão) seguidos de recessões.
+
+**Exemplo**: O ciclo de **expansão e contração econômica** é um exemplo de flutuação cíclica. Durante uma expansão, as empresas aumentam sua produção, o emprego cresce, o consumo sobe, enquanto durante uma contração (ou recessão), há uma queda na atividade econômica, desemprego e queda no consumo.
+
+Em **modelos de previsão**, a dificuldade com ciclos é que eles não seguem padrões fixos, e podem exigir técnicas de análise de dados mais avançadas, como séries temporais com componentes de tendência e ciclos, para serem corretamente identificados e analisados.
+
 
 > Exemplo: Ciclos de expansão e recessão na economia.
 
@@ -179,7 +194,27 @@ plt.show()
 
 ### 4. Aleatoriedade (Ruído)
 
-O **ruído** representa variações imprevisíveis, que **não estão associadas a nenhum padrão sistemático**. São os resíduos ou erros aleatórios da série.
+O **ruído** em uma série temporal refere-se a **variações aleatórias e imprevisíveis** que não estão associadas a nenhum padrão sistemático ou estrutura subjacente. Essas flutuações são consideradas como **erros ou resíduos** que não podem ser explicados por tendências, ciclos ou sazonalidade.
+
+Esses componentes de **ruído** são importantes porque, embora não sejam úteis para a modelagem ou previsão, eles representam **a imprevisibilidade ou a aleatoriedade** que não pode ser prevista ou controlada. O ruído pode ser causado por uma série de fatores, como:
+
+* **Erros de medição**: Erros na coleta de dados ou imprecisões nos sensores.
+* **Variações imprevisíveis**: Mudanças que ocorrem sem um padrão ou explicação clara, como eventos naturais inesperados ou choques econômicos súbitos.
+* **Comportamentos imprevisíveis dos indivíduos**: No contexto de vendas, por exemplo, o comportamento do consumidor pode ser influenciado por fatores que não são capturados no modelo (promoções imprevistas, ações de concorrentes, etc.).
+
+### Características do Ruído:
+
+* **Aleatoriedade**: O ruído não segue nenhum padrão ou tendência específica, sendo imprevisível.
+* **Dificuldade de modelagem**: Como o ruído não tem uma origem identificável ou uma relação com outras variáveis, ele é difícil de modelar ou usar para previsões.
+* **Não correlacionado**: O ruído geralmente é considerado **não autocorrelacionado**, ou seja, ele não tem relação com os valores passados da série temporal.
+
+### Exemplo:
+
+Em uma previsão de vendas, se um evento inesperado, como uma falha no sistema de vendas ou uma interrupção na cadeia de suprimentos, ocorre e afeta os resultados, isso geraria uma variação que seria considerada **ruído**. Essas flutuações não seriam explicadas por fatores como tendência (crescimento nas vendas ao longo do tempo) ou sazonalidade (aumento das vendas durante festas de fim de ano), mas sim por uma ocorrência aleatória.
+
+### Modelagem do Ruído:
+
+Ao construir modelos de previsão, como modelos ARIMA ou modelos de suavização exponencial, o **ruído** é geralmente tratado como o componente residual ou erro que o modelo não consegue explicar. Quanto melhor o modelo, menos ruído ele deve capturar, já que ele conseguirá identificar e modelar mais dos padrões sistemáticos presentes nos dados.
 
 > Exemplo: Uma queda inesperada de temperatura devido a um fenômeno climático atípico.
 
