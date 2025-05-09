@@ -31,31 +31,33 @@ A **tendência** representa o **movimento de longo prazo** na série. Pode indic
 
 **Exemplo prático (Colab): Detectando tendência com média móvel**
 
+<img src="img/8-tendencia.png">
+
 ```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
+import pandas as pd  # Importa a biblioteca pandas para manipulação de dados, como séries temporais.
+import numpy as np  # Importa a biblioteca NumPy, que é usada para operações matemáticas e geradores de números aleatórios.
+import matplotlib.pyplot as plt  # Importa o matplotlib, uma biblioteca para visualização de gráficos.
 
 # Criando uma série temporal com tendência crescente
-np.random.seed(0)
-dias = pd.date_range(start='2022-01-01', periods=100)
-tendencia = np.linspace(20, 30, 100)
-ruido = np.random.normal(0, 1, 100)
-serie = tendencia + ruido
+np.random.seed(0)  # Define a semente para o gerador de números aleatórios para garantir resultados reprodutíveis.
+dias = pd.date_range(start='2022-01-01', periods=100)  # Cria uma sequência de 100 datas começando de 1º de janeiro de 2022.
+tendencia = np.linspace(20, 30, 100)  # Cria um array de 100 valores igualmente espaçados entre 20 e 30 (tendência crescente).
+ruido = np.random.normal(0, 1, 100)  # Gera 100 valores de ruído com distribuição normal, média 0 e desvio padrão 1.
+serie = tendencia + ruido  # Adiciona o ruído à tendência para criar a série temporal final.
 
-df = pd.DataFrame({'Data': dias, 'Temperatura': serie})
-df.set_index('Data', inplace=True)
+df = pd.DataFrame({'Data': dias, 'Temperatura': serie})  # Cria um DataFrame com as datas e as temperaturas (série temporal).
+df.set_index('Data', inplace=True)  # Define a coluna 'Data' como o índice do DataFrame.
 
 # Média móvel para suavizar a tendência
-df['MediaMovel_7'] = df['Temperatura'].rolling(window=7).mean()
+df['MediaMovel_7'] = df['Temperatura'].rolling(window=7).mean()  # Calcula a média móvel de 7 dias da série 'Temperatura' e armazena na nova coluna.
 
 # Plotando
-plt.figure(figsize=(10,5))
-plt.plot(df['Temperatura'], label='Temperatura Diária', alpha=0.5)
-plt.plot(df['MediaMovel_7'], label='Média Móvel (7 dias)', color='red')
-plt.title('Tendência com Média Móvel')
-plt.legend()
-plt.show()
+plt.figure(figsize=(10,5))  # Cria uma nova figura de gráfico com tamanho 10x5 polegadas.
+plt.plot(df['Temperatura'], label='Temperatura Diária', alpha=0.5)  # Plota a série de temperatura com opacidade de 50% (alpha=0.5).
+plt.plot(df['MediaMovel_7'], label='Média Móvel (7 dias)', color='red')  # Plota a média móvel de 7 dias em vermelho.
+plt.title('Tendência com Média Móvel')  # Adiciona o título ao gráfico.
+plt.legend()  # Exibe a legenda com os rótulos das séries.
+plt.show()  # Exibe o gráfico gerado.
 ```
 
 ---
@@ -103,50 +105,53 @@ A sazonalidade pode ser identificada por meio de:
 
 **Exemplo prático (Colab): Simulação de sazonalidade anual**
 
+<img src="img/8-sazonalidade.png">
+
 ```python
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
+import numpy as np  # Importa a biblioteca NumPy, usada para operações matemáticas e geração de números aleatórios.
+import pandas as pd  # Importa a biblioteca pandas, usada para manipulação de dados, como séries temporais.
+import matplotlib.pyplot as plt  # Importa a biblioteca matplotlib para criar gráficos.
 
 # Simulando dados
-dias = pd.date_range(start='2022-01-01', periods=365)
+dias = pd.date_range(start='2022-01-01', periods=365)  # Cria uma sequência de datas, representando 365 dias a partir de 1º de janeiro de 2022.
 
 # Série com sazonalidade
-sazonalidade = 10 + 5 * np.sin(2 * np.pi * dias.dayofyear / 365)
-ruido_com = np.random.normal(0, 0.8, 365)
-serie_com_sazonalidade = sazonalidade + ruido_com
+sazonalidade = 10 + 5 * np.sin(2 * np.pi * dias.dayofyear / 365)  # Cria uma série com sazonalidade usando uma função seno (variação anual). 
+# O fator 5 altera a amplitude e o termo '10' define o valor médio. A expressão `dias.dayofyear` considera o dia do ano.
+ruido_com = np.random.normal(0, 0.8, 365)  # Gera um ruído aleatório com distribuição normal (média 0 e desvio padrão 0.8).
+serie_com_sazonalidade = sazonalidade + ruido_com  # Adiciona o ruído à série de sazonalidade, criando a série final com flutuações.
 
 # Série sem sazonalidade (apenas tendência linear + ruído)
-tendencia = np.linspace(10, 15, 365)
-ruido_sem = np.random.normal(0, 0.8, 365)
-serie_sem_sazonalidade = tendencia + ruido_sem
+tendencia = np.linspace(10, 15, 365)  # Cria uma tendência linear que vai de 10 a 15 ao longo de 365 dias.
+ruido_sem = np.random.normal(0, 0.8, 365)  # Gera um ruído aleatório para a série sem sazonalidade.
+serie_sem_sazonalidade = tendencia + ruido_sem  # Adiciona o ruído à tendência linear, criando a série final sem sazonalidade.
 
 # Criando DataFrame
 df = pd.DataFrame({
-    'Data': dias,
-    'Com Sazonalidade': serie_com_sazonalidade,
-    'Sem Sazonalidade': serie_sem_sazonalidade
-}).set_index('Data')
+    'Data': dias,  # Adiciona as datas à coluna 'Data'.
+    'Com Sazonalidade': serie_com_sazonalidade,  # Adiciona a série com sazonalidade à coluna 'Com Sazonalidade'.
+    'Sem Sazonalidade': serie_sem_sazonalidade  # Adiciona a série sem sazonalidade à coluna 'Sem Sazonalidade'.
+}).set_index('Data')  # Define a coluna 'Data' como o índice do DataFrame para facilitar a manipulação de séries temporais.
 
 # Plotando as séries separadas lado a lado
-fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+fig, axes = plt.subplots(1, 2, figsize=(14, 6))  # Cria uma figura com dois subgráficos lado a lado (1 linha e 2 colunas), com tamanho de 14x6 polegadas.
 
 # Série com sazonalidade
-axes[0].plot(df['Com Sazonalidade'], color='blue')
-axes[0].set_title('Série com Sazonalidade')
-axes[0].set_xlabel('Data')
-axes[0].set_ylabel('Valor')
-axes[0].grid(True)
+axes[0].plot(df['Com Sazonalidade'], color='blue')  # Plota a série com sazonalidade no primeiro subgráfico com a cor azul.
+axes[0].set_title('Série com Sazonalidade')  # Adiciona o título ao primeiro gráfico.
+axes[0].set_xlabel('Data')  # Define o rótulo do eixo X como 'Data' no primeiro gráfico.
+axes[0].set_ylabel('Valor')  # Define o rótulo do eixo Y como 'Valor' no primeiro gráfico.
+axes[0].grid(True)  # Adiciona uma grade ao primeiro gráfico.
 
 # Série sem sazonalidade
-axes[1].plot(df['Sem Sazonalidade'], color='orange')
-axes[1].set_title('Série sem Sazonalidade')
-axes[1].set_xlabel('Data')
-axes[1].set_ylabel('Valor')
-axes[1].grid(True)
+axes[1].plot(df['Sem Sazonalidade'], color='orange')  # Plota a série sem sazonalidade no segundo subgráfico com a cor laranja.
+axes[1].set_title('Série sem Sazonalidade')  # Adiciona o título ao segundo gráfico.
+axes[1].set_xlabel('Data')  # Define o rótulo do eixo X como 'Data' no segundo gráfico.
+axes[1].set_ylabel('Valor')  # Define o rótulo do eixo Y como 'Valor' no segundo gráfico.
+axes[1].grid(True)  # Adiciona uma grade ao segundo gráfico.
 
-plt.tight_layout()
-plt.show()
+plt.tight_layout()  # Ajusta automaticamente o layout para que não haja sobreposição entre os gráficos e seus elementos.
+plt.show()  # Exibe os gráficos gerados na tela.
 ```
 
 ---
@@ -172,22 +177,31 @@ Em **modelos de previsão**, a dificuldade com ciclos é que eles não seguem pa
 
 > Exemplo: Ciclos de expansão e recessão na economia.
 
+
 **Exemplo prático (Colab): Adicionando ciclos à série**
+
+<img src="img/8-ciclos.png">
 
 ```python
 # Simulando ciclos com função senoidal de baixa frequência
-ciclo = 3 * np.sin(2 * np.pi * dias[:100].dayofyear / 365 * 0.25)  
-serie_ciclo = tendencia + ciclo + ruido[:100]
+ciclo = 3 * np.sin(2 * np.pi * dias[:100].dayofyear / 365 * 0.25)  # Cria uma série de ciclos com uma função seno de baixa frequência.
+# A amplitude do ciclo é 3 e a frequência é ajustada com o fator 0.25 para torná-lo um ciclo mais longo (ciclo de baixa frequência).
 
-df = pd.DataFrame({'Data': dias[:100], 'Valor': serie_ciclo})
-df.set_index('Data', inplace=True)
+# Slice tendencia and ruido to match the length of ciclo and dias[:100]
+serie_ciclo = tendencia[:100] + ciclo + ruido[:100]  # Combina uma tendência linear (primeiros 100 valores), o ciclo gerado acima, e o ruído correspondente.
 
-# Plotando
-plt.figure(figsize=(10,4))
-plt.plot(df['Valor'], label='Série com Ciclo')
-plt.title('Série com Ciclo de Longo Prazo Simulado')
-plt.legend()
-plt.show()
+df = pd.DataFrame({'Data': dias[:100], 'Valor': serie_ciclo})  # Cria um DataFrame com as datas (os primeiros 100 dias) e a série temporal gerada.
+df.set_index('Data', inplace=True)  # Define a coluna 'Data' como o índice do DataFrame para facilitar a manipulação de séries temporais.
+
+# Plotting the resulting series
+plt.figure(figsize=(10, 5))  # Cria uma nova figura de gráfico com o tamanho de 10x5 polegadas.
+plt.plot(df['Valor'])  # Plota a série temporal gerada (soma da tendência, ciclo e ruído).
+plt.title('Série Temporal com Ciclos')  # Adiciona o título ao gráfico.
+plt.xlabel('Data')  # Define o rótulo do eixo X como 'Data'.
+plt.ylabel('Valor')  # Define o rótulo do eixo Y como 'Valor'.
+plt.grid(True)  # Adiciona uma grade ao gráfico para facilitar a visualização.
+plt.show()  # Exibe o gráfico gerado.
+
 ```
 
 ---
@@ -220,18 +234,21 @@ Ao construir modelos de previsão, como modelos ARIMA ou modelos de suavização
 
 **Exemplo prático (Colab): Ruído puro**
 
-```python
-# Série com apenas ruído
-ruido = np.random.normal(0, 1, 100)
-dias = pd.date_range(start='2022-01-01', periods=100)
-df = pd.DataFrame({'Data': dias, 'Ruido': ruido})
-df.set_index('Data', inplace=True)
+<img src="img/8-ruido.png">
 
-plt.figure(figsize=(10,3))
-plt.plot(df['Ruido'], label='Ruído Aleatório')
-plt.title('Série com Ruído Aleatório')
-plt.legend()
-plt.show()
+```python
+ruido = np.random.normal(0, 1, 100)  # Gera 100 valores de ruído com distribuição normal, média 0 e desvio padrão 1.
+dias = pd.date_range(start='2022-01-01', periods=100)  # Cria uma sequência de 100 datas, começando em 1º de janeiro de 2022.
+
+df = pd.DataFrame({'Data': dias, 'Ruido': ruido})  # Cria um DataFrame com as datas e os valores de ruído gerados.
+df.set_index('Data', inplace=True)  # Define a coluna 'Data' como o índice do DataFrame, facilitando a manipulação de séries temporais.
+
+# Gráfico de linha
+plt.figure(figsize=(10,3))  # Cria uma nova figura de gráfico com tamanho 10x3 polegadas, mais estreito, ideal para séries temporais.
+plt.plot(df['Ruido'], label='Ruído Aleatório')  # Plota a série de ruído aleatório.
+plt.title('Série com Ruído Aleatório')  # Define o título do gráfico como 'Série com Ruído Aleatório'.
+plt.legend()  # Exibe a legenda com o rótulo 'Ruído Aleatório'.
+plt.show()  # Exibe o gráfico gerado.
 ```
 
 ---
@@ -249,6 +266,8 @@ São o tipo mais comum e útil para séries temporais. Mostram claramente a vari
 > Exemplo: Visualizar a série de temperatura diária de uma cidade.
 
 **Exemplo prático (Colab): Gráfico de linha**
+
+<img src="img/8-temporal.png>
 
 ```python
 import pandas as pd
