@@ -98,7 +98,7 @@ Ciclos são **flutuações de longo prazo**, que **não têm periodicidade fixa*
 
 ```python
 # Simulando ciclos com função senoidal de baixa frequência
-ciclo = 3 * np.sin(2 * np.pi * dias.dayofyear / 365 * 0.25)
+ciclo = 3 * np.sin(2 * np.pi * dias[:100].dayofyear / 365 * 0.25)  
 serie_ciclo = tendencia + ciclo + ruido[:100]
 
 df = pd.DataFrame({'Data': dias[:100], 'Valor': serie_ciclo})
@@ -391,10 +391,6 @@ df.rename(columns={'Mean': 'Temperatura'}, inplace=True)
 df = df[['Data', 'Temperatura']]
 df.head()
 ```
-
----
-
-Claro! Aqui está a seção **Exercícios** com os scripts prontos para carregamento dos dados e início da análise, usando duas opções de dataset:
 
 ---
 
