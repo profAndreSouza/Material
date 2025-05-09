@@ -178,19 +178,7 @@ tabela.style.format({'Valor': '{:.2f}'})
 
 ---
 
-
-Claro! Aqui está o **Projeto Prático** formatado no estilo wiki e com o **script completo no padrão dos anteriores**, incluindo:
-
-- Geração de dados,
-- Cálculo das medidas de dispersão,
-- Boxplot com destaque visual,
-- Tabela resumo dos valores estatísticos.
-
----
-
-# Projeto Prático  
-
-## **Análise de Variação no Tempo de Entrega**
+## Projeto Prático: **Análise de Variação no Tempo de Entrega**
 
 Neste projeto, vamos simular e analisar o **tempo de entrega de 20 pedidos online** para explorar medidas de dispersão.  
 
