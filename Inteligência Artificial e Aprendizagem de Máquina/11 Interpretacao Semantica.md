@@ -53,6 +53,9 @@ Interpretação semântica é essencial em várias aplicações de PLN, como:
 ### Exemplo Prático com spaCy
 
 ```python
+!python -m spacy download pt_core_news_sm
+!python -m spacy download pt_core_news_md
+
 import spacy
 
 nlp = spacy.load("pt_core_news_sm")
@@ -369,6 +372,7 @@ Ou formalmente:
 import nltk
 from nltk.sem import Valuation, Model, Assignment
 from nltk import CFG, FeatureChartParser
+nltk.download('book_grammars')
 
 # Definindo uma gramática com semântica simbólica
 grammar = nltk.load('grammars/book_grammars/simple-sem.fcfg')
@@ -616,9 +620,6 @@ Neste exercício, vamos construir uma gramática simples usando o **NLTK** para 
 #### Script no Colab:
 
 ```python
-# Instalando o NLTK
-!pip install nltk
-
 # Importando bibliotecas
 import nltk
 from nltk import CFG
@@ -660,12 +661,6 @@ Neste exercício, vamos usar **spaCy** para identificar relações e dependênci
 #### Script no Colab:
 
 ```python
-# Instalando o spaCy
-!pip install spacy
-
-# Baixando o modelo de linguagem
-!python -m spacy download pt_core_news_sm
-
 # Importando spaCy
 import spacy
 
@@ -696,36 +691,5 @@ Neste exercício, vamos criar um mini-projeto para interpretar perguntas em ling
 #### Script no Colab:
 
 ```python
-# Instalando spaCy
-!pip install spacy
 
-# Baixando o modelo de linguagem
-!python -m spacy download pt_core_news_sm
-
-# Importando spaCy
-import spacy
-
-# Carregando o modelo de linguagem
-nlp = spacy.load("pt_core_news_sm")
-
-# Base de conhecimento fictícia
-base_conhecimento = {
-    "quem é o presidente": "O presidente do Brasil é Lula.",
-    "qual é a capital da França": "A capital da França é Paris.",
-    "qual é a cor do céu": "O céu é azul durante o dia."
-}
-
-# Função para interpretar perguntas e gerar respostas
-def responder_pergunta(pergunta):
-    doc = nlp(pergunta.lower())
-    for sent in doc.sents:
-        # Verifica se a pergunta está na base de conhecimento
-        if str(sent) in base_conhecimento:
-            return base_conhecimento[str(sent)]
-    return "Desculpe, não sei a resposta."
-
-# Teste de perguntas
-print(responder_pergunta("Qual é a capital da França?"))
-print(responder_pergunta("Quem é o presidente?"))
-print(responder_pergunta("Qual é a cor do céu?"))
 ```
