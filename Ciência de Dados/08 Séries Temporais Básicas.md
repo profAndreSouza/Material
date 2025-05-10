@@ -378,19 +378,17 @@ Neste projeto, o aluno realizará uma análise exploratória de uma **série tem
 
 ### Etapas:
 
-1. **Importar os dados e tratá-los**: carregar o arquivo CSV contendo as temperaturas, filtrar colunas úteis e converter datas.
+- Etapa 1: Importação de bibliotecas
 
 ```python
-# Etapa 1: Importação de bibliotecas
 import pandas as pd               # Manipulação de dados
 import matplotlib.pyplot as plt   # Visualização de gráficos
 from statsmodels.tsa.seasonal import seasonal_decompose  # Decomposição de séries temporais
 ```
 
-2. **Plotar a série temporal bruta**: gerar um gráfico de linha para visualizar a variação de temperatura ao longo do tempo.
+- Etapa 2: Leitura do dataset
 
 ```python
-# Etapa 2: Leitura do dataset
 # Dataset global de temperatura média mensal da Terra (fonte pública do GitHub)
 df = pd.read_csv('https://raw.githubusercontent.com/datasets/global-temp/master/data/monthly.csv')
 
