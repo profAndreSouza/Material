@@ -490,7 +490,7 @@ df = pd.read_csv(url)
 df.head()
 
 # Converter a coluna de data para datetime
-df['Data'] = pd.to_datetime(df['Date'] if 'Date' in df.columns else df['Data'])
+df['Data'] = pd.to_datetime(df['Year'] if 'Year' in df.columns else df['Data'])
 
 # Renomear coluna de temperatura (se necessário)
 if 'Mean' in df.columns:
