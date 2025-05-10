@@ -394,51 +394,78 @@ Python, com bibliotecas:
 
 ---
 
-## Script para Carregamento do Dataset (NOAA ou CSV local)
-
-### Exemplo 1: Carregando CSV local (base comum para cidade brasileira)
 
 ```python
-import pandas as pd
+# Etapa 1: Importação de bibliotecas
+import pandas as pd               # Manipulação de dados
+import matplotlib.pyplot as plt   # Visualização de gráficos
+from statsmodels.tsa.seasonal import seasonal_decompose  # Decomposição de séries temporais
 
-# Caminho do arquivo (você pode usar upload no Colab ou apontar para seu Drive)
-caminho_csv = 'temperatura_sp_diario.csv'
-
-# Carregando o dataset
-df = pd.read_csv(caminho_csv)
-
-# Exibindo as primeiras linhas
-df.head()
-```
-
-### Exemplo 2: Dataset NOAA formatado (GHCN-Daily)
-
-```python
-import pandas as pd
-
-# Dataset: Exemplo formatado do NOAA (pré-processado com temperaturas mínimas/máximas/medias)
-# Link alternativo do Kaggle ou CSV próprio já limpo
+# Etapa 2: Leitura do dataset
+# Dataset global de temperatura média mensal da Terra (fonte pública do GitHub)
 df = pd.read_csv('https://raw.githubusercontent.com/datasets/global-temp/master/data/monthly.csv')
 
-# Pré-visualização
+# Exibe as 5 primeiras linhas do dataset
 df.head()
-```
 
-### Pré-tratamento sugerido
+# Etapa 3: Pré-processamento dos dados
 
-```python
-# Converter a coluna de data
+# Converte a coluna 'Date' para o formato datetime
 df['Data'] = pd.to_datetime(df['Date'])
 
-# Filtrar apenas o período recente, se necessário
+# Filtra apenas os dados a partir do ano 2000
 df = df[df['Data'] >= '2000-01-01']
 
-# Renomear para facilitar
+# Renomeia a coluna 'Mean' para 'Temperatura' para facilitar a leitura
 df.rename(columns={'Mean': 'Temperatura'}, inplace=True)
 
-# Resetar índice e verificar
+# Mantém apenas as colunas relevantes: Data e Temperatura
 df = df[['Data', 'Temperatura']]
+
+# Visualiza o DataFrame tratado
 df.head()
+
+# Etapa 4: Visualização da série temporal bruta
+
+plt.figure(figsize=(14, 5))
+plt.plot(df['Data'], df['Temperatura'], label='Temperatura Média')
+plt.title('Temperatura Média Global (desde 2000)')
+plt.xlabel('Ano')
+plt.ylabel('Temperatura (°C)')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+# Etapa 5: Aplicação de média móvel de 12 meses (suavização)
+
+# Cria uma nova coluna com a média móvel
+df['Media_Movel_12m'] = df['Temperatura'].rolling(window=12).mean()
+
+# Plota a série original e a média móvel
+plt.figure(figsize=(14, 5))
+plt.plot(df['Data'], df['Temperatura'], label='Temperatura Média Original', alpha=0.5)
+plt.plot(df['Data'], df['Media_Movel_12m'], label='Média Móvel (12 meses)', color='red')
+plt.title('Temperatura Média com Suavização (12 meses)')
+plt.xlabel('Ano')
+plt.ylabel('Temperatura (°C)')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+# Etapa 6 (Opcional): Decomposição da série temporal
+
+# Como os dados são mensais, usamos period=12 (12 meses por ano)
+resultado = seasonal_decompose(df['Temperatura'], model='additive', period=12)
+
+# Plota os componentes da decomposição: Observado, Tendência, Sazonalidade, Resíduo
+plt.rcParams.update({'figure.figsize': (12, 8)})
+resultado.plot()
+plt.suptitle('Decomposição da Série Temporal da Temperatura Média', fontsize=16)
+plt.tight_layout()
+plt.show()
+
 ```
 
 ---
