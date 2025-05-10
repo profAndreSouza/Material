@@ -410,8 +410,8 @@ df.head()
 
 # Etapa 3: Pré-processamento dos dados
 
-# Converte a coluna 'Date' para o formato datetime
-df['Data'] = pd.to_datetime(df['Date'])
+# Converte a coluna 'Year' para o formato datetime
+df['Data'] = pd.to_datetime(df['Year'])
 
 # Filtra apenas os dados a partir do ano 2000
 df = df[df['Data'] >= '2000-01-01']
