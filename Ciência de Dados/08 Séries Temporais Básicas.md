@@ -396,11 +396,9 @@ df = pd.read_csv('https://raw.githubusercontent.com/datasets/global-temp/master/
 df.head()
 ```
 
-3. **Aplicar uma média móvel (ex: 30 dias)**: suavizar a curva para evidenciar padrões.
+- Etapa 3: Pré-processamento dos dados
 
 ```python
-# Etapa 3: Pré-processamento dos dados
-
 # Converte a coluna 'Year' para o formato datetime
 df['Data'] = pd.to_datetime(df['Year'])
 
@@ -418,11 +416,9 @@ df.head()
 ```
 
 
-4. **Identificar tendências visuais**: reconhecer se a temperatura tem aumentado/diminuído ao longo do tempo.
+- Etapa 4: Visualização da série temporal bruta
 
 ```python
-# Etapa 4: Visualização da série temporal bruta
-
 plt.figure(figsize=(14, 5))
 plt.plot(df['Data'], df['Temperatura'], label='Temperatura Média')
 plt.title('Temperatura Média Global (desde 2000)')
@@ -434,11 +430,9 @@ plt.tight_layout()
 plt.show()
 ```
 
+- Etapa 5: Aplicação de média móvel de 12 meses (suavização)
 
-5. **suavização**: Aplicação de média móvel de 12 meses
 ```python
-# Etapa 5: Aplicação de média móvel de 12 meses (suavização)
-
 # Cria uma nova coluna com a média móvel
 df['Media_Movel_12m'] = df['Temperatura'].rolling(window=12).mean()
 
@@ -454,10 +448,11 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 ```
-6. **(Opcional) Decomposição da série**: separar os componentes de tendência, sazonalidade e ruído.
-```python
-# Etapa 6 (Opcional): Decomposição da série temporal
 
+
+- Etapa 6 (Opcional): Decomposição da série temporal
+
+```python
 # Como os dados são mensais, usamos period=12 (12 meses por ano)
 resultado = seasonal_decompose(df['Temperatura'], model='additive', period=12)
 
