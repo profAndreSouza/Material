@@ -334,13 +334,18 @@ plt.show()  # Exibe o gráfico gerado.
 
 ### 3. Decomposição da Série Temporal
 
-A decomposição permite separar a série em três componentes:
+A **decomposição** permite quebrar uma série temporal em três componentes:
 
-* **Tendência (Trend)**
-* **Sazonalidade (Seasonality)**
-* **Resíduo (Residual)**
+* **Tendência (Trend)**: direção geral da série (ex: crescimento ou queda)
+* **Sazonalidade (Seasonality)**: padrões recorrentes em intervalos regulares
+* **Ruído (Residual)**: flutuações não explicadas por tendência ou sazonalidade
 
-> Isso facilita a compreensão de como cada fator contribui para a variação total da série.
+Existem dois tipos comuns de decomposição:
+
+* **Aditiva**: quando a variação sazonal é constante ao longo do tempo.
+* **Multiplicativa**: quando a variação sazonal cresce com o nível da série.
+
+> A decomposição facilita a análise individual dos componentes.
 
 **Exemplo prático (Colab): Decomposição com statsmodels**
 
@@ -364,110 +369,8 @@ plt.show()  # Exibe o gráfico resultante.
 
 ---
 
-## Técnicas Básicas
 
-As técnicas básicas de séries temporais são ferramentas simples, porém poderosas, para **compreender e visualizar padrões ocultos** nos dados. Elas são frequentemente aplicadas na etapa exploratória para ajudar a formular modelos de previsão mais sofisticados.
-
----
-
-### 1. Médias Móveis (Moving Averages)
-
-A **média móvel** calcula a média de um número fixo de observações passadas para cada ponto da série. Ela é usada para:
-
-* **Reduzir o ruído aleatório**
-* **Evidenciar a tendência de longo prazo**
-* **Detectar mudanças no comportamento da série**
-
-#### Fórmula (média móvel simples):
-
-$$
-MA_t = \frac{1}{k} \sum_{i=0}^{k-1} y_{t-i}
-$$
-
-onde $k$ é a janela (número de períodos) e $y_t$ é o valor observado no tempo $t$.
-
-> Exemplo: média móvel de 7 dias em uma série de temperaturas.
-
-**Exemplo prático (Colab): Aplicando Média Móvel**
-
-<img src="img/8-media_movel2.png">
-
-```python
-import pandas as pd  # Importa a biblioteca pandas para manipulação de dados em formato de tabelas (DataFrame).
-import numpy as np  # Importa a biblioteca numpy para cálculos numéricos e geração de números aleatórios.
-import matplotlib.pyplot as plt  # Importa a biblioteca matplotlib para criação de gráficos.
-
-# Série simulada
-np.random.seed(42)  # Define uma semente para o gerador de números aleatórios, garantindo que os resultados sejam reproduzíveis.
-datas = pd.date_range(start='2023-01-01', periods=90)  # Cria um intervalo de 90 dias a partir de 01 de janeiro de 2023.
-valores = 20 + 3 * np.sin(2 * np.pi * datas.dayofyear / 365 * 4) + np.random.normal(0, 1, 90)  
-# Gera uma série de valores de temperatura simulada com uma componente sazonal (usando a função seno) e um componente de ruído aleatório.
-# A fórmula 3 * np.sin(...) gera a sazonalidade e np.random.normal(0, 1, 90) adiciona um ruído normal com média 0 e desvio padrão 1.
-
-serie = pd.DataFrame({'Data': datas, 'Temperatura': valores})  # Cria um DataFrame com as colunas 'Data' e 'Temperatura'.
-serie.set_index('Data', inplace=True)  # Define a coluna 'Data' como o índice do DataFrame, facilitando a manipulação de séries temporais.
-
-# Média móvel de 7 dias
-serie['MM_7'] = serie['Temperatura'].rolling(window=7).mean()  
-# Cria uma nova coluna 'MM_7' no DataFrame, que contém a média móvel de 7 dias dos valores de 'Temperatura'.
-# A função rolling(window=7) cria uma janela deslizante de 7 dias e a função mean() calcula a média dentro dessa janela.
-
-# Gráfico
-plt.figure(figsize=(12,4))  # Cria uma nova figura para o gráfico com tamanho 12x4 polegadas.
-plt.plot(serie['Temperatura'], label='Original', alpha=0.6)  # Plota a série original de temperatura com uma transparência de 60% (alpha=0.6).
-plt.plot(serie['MM_7'], label='Média Móvel (7 dias)', color='orange')  # Plota a média móvel de 7 dias com linha laranja.
-plt.title('Aplicação da Média Móvel')  # Define o título do gráfico.
-plt.xlabel('Data')  # Define o rótulo do eixo X como 'Data'.
-plt.ylabel('Temperatura')  # Define o rótulo do eixo Y como 'Temperatura'.
-plt.legend()  # Exibe a legenda para identificar as duas linhas no gráfico.
-plt.grid(True)  # Adiciona uma grade ao gráfico para facilitar a leitura dos valores.
-plt.tight_layout()  # Ajusta o layout do gráfico para evitar sobreposição de elementos.
-plt.show()  # Exibe o gráfico gerado.
-```
-
----
-
-### 2. Decomposição de Séries Temporais
-
-A **decomposição** permite quebrar uma série temporal em três componentes:
-
-* **Tendência (Trend)**: direção geral da série (ex: crescimento ou queda)
-* **Sazonalidade (Seasonality)**: padrões recorrentes em intervalos regulares
-* **Ruído (Residual)**: flutuações não explicadas por tendência ou sazonalidade
-
-Existem dois tipos comuns de decomposição:
-
-* **Aditiva**: quando a variação sazonal é constante ao longo do tempo.
-* **Multiplicativa**: quando a variação sazonal cresce com o nível da série.
-
-> A decomposição facilita a análise individual dos componentes.
-
-**Exemplo prático (Colab): Decomposição Aditiva com `statsmodels`**
-
-<img src="img/8-decomposicao_2.png">
-
-```python
-from statsmodels.tsa.seasonal import seasonal_decompose  # Importa a função 'seasonal_decompose' da biblioteca statsmodels para decomposição sazonal de séries temporais.
-
-# Decomposição aditiva (assumindo ciclo mensal)
-resultado = seasonal_decompose(serie['Temperatura'], model='additive', period=30)  
-# Aplica a decomposição sazonal à série temporal 'Temperatura', utilizando o modelo aditivo.
-# O modelo 'additive' assume que a série é a soma dos componentes: tendência, sazonalidade e erro.
-# O parâmetro 'period=30' define a periodicidade da sazonalidade, indicando que o ciclo sazonal se repete a cada **30 dias** (como um ciclo mensal).
-
-# Plotando os componentes
-resultado.plot()  # Gera os gráficos dos componentes resultantes da decomposição: tendência, sazonalidade e resíduos.
-plt.suptitle("Decomposição da Série Temporal", fontsize=14)  # Define o título do gráfico como 'Decomposição da Série Temporal', com tamanho de fonte 14.
-plt.tight_layout()  # Ajusta o layout do gráfico para evitar sobreposição de elementos.
-plt.show()  # Exibe o gráfico resultante.
-
-```
-
----
-
-## Projeto Prático
-
-### Tema: Análise Histórica da Temperatura de uma Cidade
+## Projeto Prático : Análise Histórica da Temperatura de uma Cidade
 
 ### Descrição:
 
