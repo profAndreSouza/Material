@@ -388,25 +388,19 @@ from statsmodels.tsa.seasonal import seasonal_decompose  # Decomposição de sé
 ```
 
 2. **Plotar a série temporal bruta**: gerar um gráfico de linha para visualizar a variação de temperatura ao longo do tempo.
-3. **Aplicar uma média móvel (ex: 30 dias)**: suavizar a curva para evidenciar padrões.
-4. **Identificar tendências visuais**: reconhecer se a temperatura tem aumentado/diminuído ao longo do tempo.
-5. **(Opcional) Decomposição da série**: separar os componentes de tendência, sazonalidade e ruído.
 
 ```python
-
-```python
-# Etapa 1: Importação de bibliotecas
-import pandas as pd               # Manipulação de dados
-import matplotlib.pyplot as plt   # Visualização de gráficos
-from statsmodels.tsa.seasonal import seasonal_decompose  # Decomposição de séries temporais
-
 # Etapa 2: Leitura do dataset
 # Dataset global de temperatura média mensal da Terra (fonte pública do GitHub)
 df = pd.read_csv('https://raw.githubusercontent.com/datasets/global-temp/master/data/monthly.csv')
 
 # Exibe as 5 primeiras linhas do dataset
 df.head()
+```
 
+3. **Aplicar uma média móvel (ex: 30 dias)**: suavizar a curva para evidenciar padrões.
+
+```python
 # Etapa 3: Pré-processamento dos dados
 
 # Converte a coluna 'Year' para o formato datetime
@@ -423,7 +417,12 @@ df = df[['Data', 'Temperatura']]
 
 # Visualiza o DataFrame tratado
 df.head()
+```
 
+
+4. **Identificar tendências visuais**: reconhecer se a temperatura tem aumentado/diminuído ao longo do tempo.
+
+```python
 # Etapa 4: Visualização da série temporal bruta
 
 plt.figure(figsize=(14, 5))
@@ -435,7 +434,11 @@ plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+```
 
+
+5. **suavização**: Aplicação de média móvel de 12 meses
+```python
 # Etapa 5: Aplicação de média móvel de 12 meses (suavização)
 
 # Cria uma nova coluna com a média móvel
@@ -452,7 +455,9 @@ plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.show()
-
+```
+6. **(Opcional) Decomposição da série**: separar os componentes de tendência, sazonalidade e ruído.
+```python
 # Etapa 6 (Opcional): Decomposição da série temporal
 
 # Como os dados são mensais, usamos period=12 (12 meses por ano)
