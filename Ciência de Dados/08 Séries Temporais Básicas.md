@@ -379,21 +379,20 @@ Neste projeto, o aluno realizará uma análise exploratória de uma **série tem
 ### Etapas:
 
 1. **Importar os dados e tratá-los**: carregar o arquivo CSV contendo as temperaturas, filtrar colunas úteis e converter datas.
+
+```python
+# Etapa 1: Importação de bibliotecas
+import pandas as pd               # Manipulação de dados
+import matplotlib.pyplot as plt   # Visualização de gráficos
+from statsmodels.tsa.seasonal import seasonal_decompose  # Decomposição de séries temporais
+```
+
 2. **Plotar a série temporal bruta**: gerar um gráfico de linha para visualizar a variação de temperatura ao longo do tempo.
 3. **Aplicar uma média móvel (ex: 30 dias)**: suavizar a curva para evidenciar padrões.
 4. **Identificar tendências visuais**: reconhecer se a temperatura tem aumentado/diminuído ao longo do tempo.
 5. **(Opcional) Decomposição da série**: separar os componentes de tendência, sazonalidade e ruído.
 
-### Ferramentas:
-
-Python, com bibliotecas:
-
-* `pandas` (manipulação de dados)
-* `matplotlib`, `seaborn` (visualização)
-* `statsmodels` (decomposição)
-
----
-
+```python
 
 ```python
 # Etapa 1: Importação de bibliotecas
