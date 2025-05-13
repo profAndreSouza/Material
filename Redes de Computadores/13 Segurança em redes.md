@@ -231,6 +231,17 @@ Imagine uma **estrada pública (Internet)**. Uma VPN é como **um túnel subterr
 
 ```mermaid
 graph TD
+    user_no_vpn["Usuário sem VPN"] --> internet1["Internet"]
+    internet1 --> server1["Servidor Web"]
+
+    user_vpn["Usuário com VPN"] --> vpn_server["Servidor VPN"]
+    vpn_server --> internet2["Internet"]
+    internet2 --> server2["Servidor Web"]
+    user_vpn -.-> secure_tunnel["Túnel VPN / Criptografia"]
+```
+
+```mermaid
+graph TD
     %% Sem VPN
     A1[Usuário (sem VPN)] --> B1[Internet]
     B1 --> C1[Servidor Web]
