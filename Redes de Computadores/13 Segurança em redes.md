@@ -46,9 +46,9 @@ graph TD
 
 ---
 
-### 1.3 Objetivos da Segurança: CIA
+### 1.3 Objetivos da Segurança: CID
 
-A sigla **CIA** representa os três pilares da segurança da informação:
+A sigla **CID** representa os três pilares da segurança da informação:
 
 | Pilar                 | Descrição                                                         |
 | --------------------- | ----------------------------------------------------------------- |
@@ -64,7 +64,7 @@ A sigla **CIA** representa os três pilares da segurança da informação:
 * Integridade: o valor de uma transferência não pode ser alterado durante o processo.
 * Disponibilidade: o serviço precisa estar acessível 24/7.
 
-#### Diagrama – Tríade CIA:
+#### Diagrama – Tríade CID:
 
 ```mermaid
 graph TD
