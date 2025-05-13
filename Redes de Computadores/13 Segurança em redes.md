@@ -240,20 +240,6 @@ graph TD
     user_vpn -.-> secure_tunnel["Túnel VPN / Criptografia"]
 ```
 
-```mermaid
-graph TD
-    %% Sem VPN
-    A1[Usuário (sem VPN)] --> B1[Internet]
-    B1 --> C1[Servidor Web]
-
-    %% Com VPN
-    A2[Usuário (com VPN)] --> D1[Servidor VPN]
-    D1 --> E1[Internet]
-    E1 --> F1[Servidor Web]
-    D1 -.-> G[Criptografia / Túnel Seguro]
-
-```
-
 ---
 
 ### 3.3 Protocolos de VPN
@@ -320,9 +306,6 @@ cd ~/openvpn-ca
 
 
 As **VPNs** são ferramentas essenciais para **proteger a comunicação em redes inseguras**, como redes públicas ou conexões remotas. Elas garantem **sigilo e segurança** na troca de informações e são amplamente utilizadas tanto por **usuários comuns quanto por empresas**. Saber como configurar e aplicar os diferentes protocolos é essencial para qualquer profissional de redes ou segurança.
-
----
-Vamos agora desenvolver o **Tópico 4: Controle de Acesso em Redes**, abordando os conceitos, modelos, tecnologias e exemplos reais com diagramas para facilitar a compreensão.
 
 ---
 
