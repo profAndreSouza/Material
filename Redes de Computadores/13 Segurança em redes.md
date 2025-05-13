@@ -230,15 +230,17 @@ Imagine uma **estrada pública (Internet)**. Uma VPN é como **um túnel subterr
 #### Diagrama – Comunicação com e sem VPN:
 
 ```mermaid
-graph LR
-    subgraph Sem VPN
-        A1[Usuário] --> I1[Internet] --> S1[Servidor]
-    end
+graph TD
+    %% Sem VPN
+    A1[Usuário (sem VPN)] --> B1[Internet]
+    B1 --> C1[Servidor Web]
 
-    subgraph Com VPN
-        A2[Usuário] --> V[Servidor VPN] --> I2[Internet] --> S2[Servidor]
-        V -.-> Proteção/Criptografia .-.
-    end
+    %% Com VPN
+    A2[Usuário (com VPN)] --> D1[Servidor VPN]
+    D1 --> E1[Internet]
+    E1 --> F1[Servidor Web]
+    D1 -.-> G[Criptografia / Túnel Seguro]
+
 ```
 
 ---
