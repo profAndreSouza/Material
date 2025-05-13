@@ -898,13 +898,30 @@ Permitir que usuários da Internet acessem um servidor web na DMZ, mas **impedir
 
 ### Topologia Simples
 
+
+```mermaid
+graph TD
+    INTERNET[PC da Internet<br/>IP: 200.0.0.2]
+    R1[Roteador<br/>G0/0: 200.0.0.1<br/>G0/1: 192.168.1.1<br/>G0/2: 192.168.10.1]
+    SW_DMZ[Switch DMZ]
+    SERVER[Servidor Web<br/>IP: 192.168.1.2]
+    SW_LAN[Switch LAN]
+    PC_LAN[PC Interno<br/>IP: 192.168.10.10]
+
+    INTERNET -->|G0/0| R1
+    R1 -->|G0/1| SW_DMZ
+    SW_DMZ --> SERVER
+    R1 -->|G0/2| SW_LAN
+    SW_LAN --> PC_LAN
 ```
-[Internet PC]
-     |
-[Router]---[Switch DMZ]---[Servidor Web]
-     |
-[Switch LAN]---[PC Interno]
-```
+
+#### Legenda da Topologia
+
+* **INTERNET → R1 (G0/0):** simula o acesso externo
+* **R1 → Switch DMZ (G0/1):** conecta à zona pública (DMZ)
+* **R1 → Switch LAN (G0/2):** conecta à rede privada interna
+* **ACL no G0/0:** restringe o tráfego da Internet apenas à DMZ
+
 
 ---
 
