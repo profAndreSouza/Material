@@ -101,17 +101,17 @@ O projeto deve ser entregue com a seguinte documentação, conforme o formato AB
 
 10. **Conclusão**
 
-* Resumo do processo de desenvolvimento
-* Lições aprendidas
-* Possíveis melhorias no projeto
+    * Resumo do processo de desenvolvimento
+    * Lições aprendidas
+    * Possíveis melhorias no projeto
 
 11. **Referências**
 
-* Referências bibliográficas utilizadas para embasar o projeto
+    * Referências bibliográficas utilizadas para embasar o projeto
 
 12. **Apêndices** (se necessário)
 
-* Códigos completos, diagramas ou outros materiais adicionais
+    * Códigos completos, diagramas ou outros materiais adicionais
 
 ---
 
