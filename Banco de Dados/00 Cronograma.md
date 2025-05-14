@@ -1,4 +1,4 @@
-# **Cronograma de Aulas – Banco de Dados**
+# Cronograma de Aulas – Banco de Dados
 
 ## **Aula 1 – Introdução aos Bancos de Dados Relacionais**
 
@@ -90,7 +90,7 @@
 * Queries parametrizadas
 * Introdução à segurança em acesso a dados
 
-## **Aula 16 – Projeto Final e Apresentações**
+## **Aula 16 – Projeto Final**
 
 * Apresentação do projeto documentado
 * Avaliação técnica e de documentação

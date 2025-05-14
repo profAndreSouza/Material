@@ -37,6 +37,54 @@ REVOKE INSERT ON cliente FROM usuario1;
 
 Este comando remove a permissão de inserção para o usuário `usuario1` na tabela `cliente`.
 
+
+### Script Exemplo
+
+```sql
+-- 1. Criação do Banco de Dados
+CREATE DATABASE empresa_db;
+
+-- Conectar-se ao banco empresa_db para executar os próximos comandos
+\c empresa_db;
+
+-- 2. Criação de um esquema de exemplo
+CREATE SCHEMA gerenciamento;
+
+-- 3. Criação de uma tabela simples
+CREATE TABLE gerenciamento.departamentos (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    localizacao VARCHAR(100)
+);
+
+-- 4. Criação de usuários
+-- Usuário com acesso total
+CREATE USER admin_user WITH PASSWORD 'admin123';
+
+-- Usuário com acesso restrito apenas para SELECT
+CREATE USER leitura_user WITH PASSWORD 'leitura123';
+
+-- 5. Concessão de permissões (DCL)
+
+-- Concede todos os privilégios ao usuário administrador
+GRANT ALL PRIVILEGES ON SCHEMA gerenciamento TO admin_user;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA gerenciamento TO admin_user;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA gerenciamento TO admin_user;
+
+-- Concede apenas permissão de leitura ao usuário leitura_user
+GRANT USAGE ON SCHEMA gerenciamento TO leitura_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA gerenciamento TO leitura_user;
+
+-- Garante que permissões sejam propagadas para futuras tabelas
+ALTER DEFAULT PRIVILEGES IN SCHEMA gerenciamento
+    GRANT SELECT ON TABLES TO leitura_user;
+
+-- 6. Exemplo de revogação
+-- Revoga a permissão de leitura do usuário leitura_user
+-- REVOKE SELECT ON gerenciamento.departamentos FROM leitura_user;
+
+```
+
 ---
 
 ## DTL: `BEGIN`, `COMMIT`, `ROLLBACK`, `SAVEPOINT`
@@ -162,6 +210,79 @@ COMMIT;
 ```
 
 ---
+
+### Script Exemplo
+
+```sql
+-- 1. Criação de um banco de dados de exemplo
+CREATE DATABASE transacoes_db;
+
+-- Conectar-se ao banco transacoes_db para executar os próximos comandos
+\c transacoes_db;
+
+-- 2. Criação de uma tabela simples para o exemplo de transações
+CREATE TABLE contas (
+    id SERIAL PRIMARY KEY,
+    titular VARCHAR(100),
+    saldo NUMERIC(10, 2) NOT NULL
+);
+
+-- Inserção de dados de exemplo
+INSERT INTO contas (titular, saldo) VALUES ('João', 1000.00);
+INSERT INTO contas (titular, saldo) VALUES ('Maria', 1500.00);
+
+-- 3. Exemplo de uso de transações com DTL
+
+-- Início de uma transação
+BEGIN;
+
+-- Tentativa de realizar transferências de dinheiro (simulando um erro)
+UPDATE contas SET saldo = saldo - 200 WHERE titular = 'João';
+UPDATE contas SET saldo = saldo + 200 WHERE titular = 'Maria';
+
+-- Simulando um erro: tentativa de débito superior ao saldo de João
+UPDATE contas SET saldo = saldo - 2000 WHERE titular = 'João';  -- Erro, saldo de João não é suficiente
+
+-- Verificando os saldos antes de finalizar
+SELECT * FROM contas;
+
+-- Caso ocorra um erro, fazemos rollback da transação
+ROLLBACK;  -- A transação é desfeita, e os saldos voltam ao estado original
+
+-- 4. Novo exemplo com SAVEPOINT para controle parcial de transações
+
+-- Início de outra transação
+BEGIN;
+
+-- Inserção de dados e uso de SAVEPOINT
+INSERT INTO contas (titular, saldo) VALUES ('Pedro', 800.00);
+
+-- SAVEPOINT marca um ponto na transação
+SAVEPOINT antes_transferencia;
+
+-- Transferência entre contas (corretamente realizada)
+UPDATE contas SET saldo = saldo - 300 WHERE titular = 'João';
+UPDATE contas SET saldo = saldo + 300 WHERE titular = 'Maria';
+
+-- Verificando antes de aplicar o COMMIT
+SELECT * FROM contas;
+
+-- Caso ocorra um erro após o SAVEPOINT, podemos reverter a transação até o ponto marcado
+-- Simulando um erro
+UPDATE contas SET saldo = saldo - 10000 WHERE titular = 'João';  -- Erro, saldo insuficiente
+
+-- Revertendo a transação para o ponto anterior ao erro
+ROLLBACK TO SAVEPOINT antes_transferencia;
+
+-- Verificando os saldos após o rollback
+SELECT * FROM contas;
+
+-- 5. Finalizando a transação
+COMMIT;  -- Agora, as alterações feitas até o SAVEPOINT são aplicadas e confirmadas
+
+-- 6. Resultado final
+SELECT * FROM contas;
+```
 
 ## Referências
 
