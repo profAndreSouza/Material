@@ -123,4 +123,6 @@ O projeto deve ser entregue com a seguinte documentação, conforme o formato AB
 4. **Inovação no uso de DCL e DTL**: Implementação de controle de acesso e controle de transações (se aplicável).
 5. **Documentação**: Qualidade e organização da documentação no formato ABNT.
 
-## Prazo de Entrega 18/06
+## Prazo de Entrega
+
+* O prazo de entrega é o dia 20 de junho. Certifique-se de que todos os arquivos estão organizados e disponíveis no repositório GitHub.
