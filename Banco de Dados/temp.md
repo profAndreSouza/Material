@@ -20,4 +20,15 @@ CREATE TABLE vendas (
     data_venda TIMESTAMP DEFAULT NOW()
 );
 
+-- View: Resumo de vendas com total por cliente
+CREATE VIEW resumo_vendas AS
+SELECT 
+    c.id AS cliente_id,
+    c.nome AS cliente_nome,
+    SUM(p.preco * v.quantidade) AS total_gasto
+FROM vendas v
+JOIN clientes c ON v.cliente_id = c.id
+JOIN produtos p ON v.produto_id = p.id
+GROUP BY c.id, c.nome;
+
 ```
