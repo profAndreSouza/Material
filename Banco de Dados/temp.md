@@ -31,4 +31,44 @@ JOIN clientes c ON v.cliente_id = c.id
 JOIN produtos p ON v.produto_id = p.id
 GROUP BY c.id, c.nome;
 
+
+-- Dados
+INSERT INTO clientes (nome, email) VALUES
+('Ana Souza', 'ana.souza@email.com'),
+('Bruno Lima', 'bruno.lima@email.com'),
+('Carla Mendes', 'carla.mendes@email.com'),
+('Diego Rocha', 'diego.rocha@email.com'),
+('Eduarda Martins', 'eduarda.martins@email.com');
+
+
+INSERT INTO produtos (nome, preco) VALUES
+('Teclado Mecânico', 250.00),
+('Mouse Gamer', 150.00),
+('Monitor 24"', 899.90),
+('Headset Bluetooth', 320.50),
+('Webcam Full HD', 199.99);
+
+
+INSERT INTO vendas (cliente_id, produto_id, quantidade, data_venda) VALUES
+(1, 2, 1, '2025-05-01 10:00:00'),
+(2, 3, 2, '2025-05-01 11:30:00'),
+(3, 1, 1, '2025-05-02 09:15:00'),
+(4, 5, 3, '2025-05-02 14:45:00'),
+(5, 4, 2, '2025-05-03 16:00:00'),
+(1, 1, 1, '2025-05-03 17:10:00'),
+(2, 2, 2, '2025-05-04 12:00:00'),
+(3, 3, 1, '2025-05-04 13:25:00'),
+(4, 4, 1, '2025-05-05 15:40:00'),
+(5, 5, 1, '2025-05-05 18:10:00'),
+(1, 3, 1, '2025-05-06 08:00:00'),
+(2, 5, 2, '2025-05-06 10:20:00'),
+(3, 2, 3, '2025-05-07 11:15:00'),
+(4, 1, 2, '2025-05-07 14:30:00'),
+(5, 2, 1, '2025-05-08 16:50:00'),
+(1, 4, 1, '2025-05-08 17:45:00'),
+(2, 1, 1, '2025-05-09 09:30:00'),
+(3, 5, 2, '2025-05-09 12:15:00'),
+(4, 2, 1, '2025-05-10 13:00:00'),
+(5, 3, 1, '2025-05-10 15:00:00');
+
 ```
