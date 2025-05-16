@@ -91,4 +91,15 @@ END;
 
 $$ LANGUAGE plpgsql;
 
+
+
+-- Ambas as consultas produzem a mesma saída
+SELECT * 
+FROM resumo_vendas
+ORDER BY cliente_id;
+
+SELECT id AS cliente_id, nome AS cliente_nome, calcular_total_vendas_cliente(id) AS total_gasto
+FROM clientes
+ORDER BY id;
+
 ```
