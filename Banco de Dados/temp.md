@@ -75,7 +75,7 @@ INSERT INTO vendas (cliente_id, produto_id, quantidade, data_venda) VALUES
 
 -- Function: Calcula total de vendas de um cliente
 CREATE OR REPLACE FUNCTION calcular_total_vendas_cliente(cid INT)
-RETURN NUMERIC AS $$
+RETURNS NUMERIC AS $$
 
 DECLARE
 	total NUMERIC; 
