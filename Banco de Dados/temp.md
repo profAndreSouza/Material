@@ -127,7 +127,7 @@ $$;
 -- DCL: Criação de usuário e permissões
 CREATE USER vendedor WITH PASSWORD 'senha123';
 
-GRANT CONNECT ON DATABASE current_database() TO vendedor;
+GRANT CONNECT ON DATABASE ecommerce TO vendedor;
 GRANT USAGE ON SCHEMA public TO vendedor;
 GRANT SELECT, INSERT ON clientes, produtos, vendas TO vendedor;
 GRANT EXECUTE ON FUNCTION calcular_total_vendas_cliente(INT) TO vendedor;
