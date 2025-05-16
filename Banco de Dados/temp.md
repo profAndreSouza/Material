@@ -73,7 +73,7 @@ INSERT INTO vendas (cliente_id, produto_id, quantidade, data_venda) VALUES
 
 
 
--- Function: Calcula total de vendas de um cliente
+-- FUNCTION: Calcula total de vendas de um cliente
 CREATE OR REPLACE FUNCTION calcular_total_vendas_cliente(cid INT)
 RETURNS NUMERIC AS $$
 
@@ -101,5 +101,24 @@ ORDER BY cliente_id;
 SELECT id AS cliente_id, nome AS cliente_nome, calcular_total_vendas_cliente(id) AS total_gasto
 FROM clientes
 ORDER BY id;
+
+
+-- PROCEDURE
+CREATE OR REPLACE PROCEDURE registrar_venda (
+	pid_cliente INT,
+	pid_produto INT,
+	pquantidade INT
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+	IF pquantidade <= 0 THEN
+		RAISE EXCEPTION 'Quantidade inválida!';
+	END IF;
+	
+	INSERT INTO vendas (cliente_id, produto_id, quantidade)
+	VALUES (pid_cliente, pid_produto, pquantidade);
+END;
+$$;
 
 ```
