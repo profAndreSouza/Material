@@ -71,4 +71,24 @@ INSERT INTO vendas (cliente_id, produto_id, quantidade, data_venda) VALUES
 (4, 2, 1, '2025-05-10 13:00:00'),
 (5, 3, 1, '2025-05-10 15:00:00');
 
+
+
+-- Function: Calcula total de vendas de um cliente
+CREATE OR REPLACE FUNCTION calcular_total_vendas_cliente(cid INT)
+RETURN NUMERIC AS $$
+
+DECLARE
+	total NUMERIC; 
+BEGIN
+	SELECT COALESCE(SUM(p.preco * v.quantidade), 0)
+	INTO total
+	FROM vendas v
+	INNER JOIN produtos p ON v.produto_id = p.id
+	WHERE v.cliente_id = cid;
+
+	RETURN total;
+END;
+
+$$ LANGUAGE plpgsql;
+
 ```
