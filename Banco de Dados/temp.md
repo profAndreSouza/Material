@@ -121,4 +121,25 @@ BEGIN
 END;
 $$;
 
+
+
+
+-- DCL: Criação de usuário e permissões
+CREATE USER vendedor WITH PASSWORD 'senha123';
+
+GRANT CONNECT ON DATABASE current_database() TO vendedor;
+GRANT USAGE ON SCHEMA public TO vendedor;
+GRANT SELECT, INSERT ON clientes, produtos, vendas TO vendedor;
+GRANT EXECUTE ON FUNCTION calcular_total_vendas_cliente(INT) TO vendedor;
+GRANT EXECUTE ON PROCEDURE registrar_venda(INT, INT, INT) TO vendedor;
+
+-- DTL: Exemplo de transação explícita
+BEGIN;
+
+-- Tentativa de venda com quantidade inválida (irá causar rollback)
+CALL registrar_venda(1, 1, -5);
+
+-- Este COMMIT não será atingido se houver erro
+COMMIT;
+
 ```
