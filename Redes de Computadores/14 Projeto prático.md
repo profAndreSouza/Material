@@ -1,7 +1,7 @@
 # Projeto Prático: Rede Corporativa Segura com DMZ, VLANs e NAT
 
 ## Objetivo
-
+F
 Implementar uma rede corporativa com segmentação via VLANs, uma zona desmilitarizada (DMZ) para serviços públicos, controle de acesso com ACLs, e serviços como DHCP, DNS, Web e NAT para acesso à internet.
 
 
@@ -45,22 +45,22 @@ graph TD
 **Comando:**
 
 ```bash
-enable                         # Entra no modo privilegiado
-configure terminal             # Entra no modo de configuração global
+enable                         ! Entra no modo privilegiado
+configure terminal             ! Entra no modo de configuração global
 
-vlan 10                        # Cria a VLAN 10
- name RH                      # Nomeia a VLAN como RH
+vlan 10                        ! Cria a VLAN 10
+ name RH                      ! Nomeia a VLAN como RH
 
-vlan 20                        # Cria a VLAN 20
- name TI                      # Nomeia a VLAN como TI
+vlan 20                        ! Cria a VLAN 20
+ name TI                      ! Nomeia a VLAN como TI
 
-vlan 30                        # Cria a VLAN 30
- name Financeiro              # Nomeia a VLAN como Financeiro
+vlan 30                        ! Cria a VLAN 30
+ name Financeiro              ! Nomeia a VLAN como Financeiro
 
-vlan 99                        # Cria a VLAN 99
- name Gerenciamento           # VLAN para administração da rede
+vlan 99                        ! Cria a VLAN 99
+ name Gerenciamento           ! VLAN para administração da rede
 
-exit                           # Sai para o modo global
+exit                           ! Sai para o modo global
 ```
 
 ## Bloco 2 – Subinterfaces no Roteador para Inter-VLAN
@@ -70,9 +70,9 @@ exit                           # Sai para o modo global
 **Comando:**
 
 ```bash
-interface g0/1.10              # Cria subinterface para VLAN 10
- encapsulation dot1Q 10       # Define o ID da VLAN na subinterface
- ip address 192.168.10.1 255.255.255.0  # Endereço de gateway para VLAN 10
+interface g0/1.10              ! Cria subinterface para VLAN 10
+ encapsulation dot1Q 10       ! Define o ID da VLAN na subinterface
+ ip address 192.168.10.1 255.255.255.0  ! Endereço de gateway para VLAN 10
 
 interface g0/1.20
  encapsulation dot1Q 20
@@ -95,10 +95,10 @@ interface g0/1.99
 **Comando:**
 
 ```bash
-interface g0/2                 # Interface dedicada para a DMZ
- description DMZ              # Comentário para identificação
- ip address 200.0.0.1 255.255.255.0  # IP da interface na rede pública
- no shutdown                  # Ativa a interface
+interface g0/2                 ! Interface dedicada para a DMZ
+ description DMZ              ! Comentário para identificação
+ ip address 200.0.0.1 255.255.255.0  ! IP da interface na rede pública
+ no shutdown                  ! Ativa a interface
 
 ```
 
@@ -111,23 +111,23 @@ interface g0/2                 # Interface dedicada para a DMZ
 
 ```bash
 access-list 1 permit 192.168.0.0 0.0.255.255
-# Cria uma ACL padrão permitindo toda a faixa 192.168.0.0/16 (redes internas)
+! Cria uma ACL padrão permitindo toda a faixa 192.168.0.0/16 (redes internas)
 
 interface g0/0
  ip address dhcp
  ip nat outside
-# Define interface externa (acesso à internet), recebe IP via DHCP
+! Define interface externa (acesso à internet), recebe IP via DHCP
 
 interface g0/1
  ip nat inside
-# Define como interface interna (VLANs)
+! Define como interface interna (VLANs)
 
 interface g0/2
  ip nat inside
-# A DMZ também precisa sair para a internet (ex: atualizações)
+! A DMZ também precisa sair para a internet (ex: atualizações)
 
 ip nat inside source list 1 interface g0/0 overload
-# Realiza NAT com sobrecarga (PAT), traduzindo IPs internos para o IP público
+! Realiza NAT com sobrecarga (PAT), traduzindo IPs internos para o IP público
 
 ```
 
@@ -144,29 +144,29 @@ ip nat inside source list 1 interface g0/0 overload
 ```bash
 ! Bloqueio da Financeiro para a Internet
 access-list 110 deny ip 192.168.30.0 0.0.0.255 any
-# Bloqueia qualquer tráfego da VLAN 30 com destino à internet
+! Bloqueia qualquer tráfego da VLAN 30 com destino à internet
 
 access-list 110 permit ip any any
-# Permite todo o resto do tráfego
+! Permite todo o resto do tráfego
 
 interface g0/1
  ip access-group 110 in
-# Aplica a ACL na entrada da interface interna (VLANs)
+! Aplica a ACL na entrada da interface interna (VLANs)
 
 
 ! Restrições de acesso à DMZ
 access-list 120 permit tcp any host 200.0.0.10 eq 80
-# Permite tráfego HTTP para o servidor Web da DMZ
+! Permite tráfego HTTP para o servidor Web da DMZ
 
 access-list 120 permit udp any host 200.0.0.20 eq 53
-# Permite DNS (UDP) para o servidor DNS da DMZ
+! Permite DNS (UDP) para o servidor DNS da DMZ
 
 access-list 120 deny ip any any
-# Bloqueia qualquer outro acesso
+! Bloqueia qualquer outro acesso
 
 interface g0/2
  ip access-group 120 in
-# Aplica essa ACL na interface da DMZ (tráfego vindo da rede interna)
+! Aplica essa ACL na interface da DMZ (tráfego vindo da rede interna)
 
 ```
 
@@ -182,7 +182,7 @@ ip dhcp pool RH
  network 192.168.10.0 255.255.255.0
  default-router 192.168.10.1
  dns-server 200.0.0.20
-# Define escopo para VLAN 10 com gateway e servidor DNS
+! Define escopo para VLAN 10 com gateway e servidor DNS
 
 ip dhcp pool TI
  network 192.168.20.0 255.255.255.0
