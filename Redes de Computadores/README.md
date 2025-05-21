@@ -1,4 +1,8 @@
-# Redes de Computadores 
+# Redes de Computadores
+
+Este repositório reúne conteúdos e materiais didáticos relacionados à disciplina de **Redes de Computadores**.
+⚠️ **Atenção**: Este material está em desenvolvimento e sofre atualizações constantes à medida que o conteúdo é construído e aprimorado.
+
 
 ## Competências Desenvolvidas
 
