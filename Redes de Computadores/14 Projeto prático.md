@@ -21,7 +21,6 @@ graph TD
 
     DMZ_WEB[Web Server - 200.0.0.10]
     DMZ_DNS[DNS Server - 200.0.0.20]
-    DHCP_SRV[Servidor DHCP]
 
     ISP --> R1
     R1 --> SW_Core
@@ -30,7 +29,6 @@ graph TD
     SW_Core --> VLAN10
     SW_Core --> VLAN20
     SW_Core --> VLAN30
-    SW_Core --> DHCP_SRV
 
     SW_DMZ --> DMZ_WEB
     SW_DMZ --> DMZ_DNS
