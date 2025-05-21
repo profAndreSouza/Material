@@ -7,17 +7,18 @@ Implementar uma rede corporativa com segmentação via VLANs, uma zona desmilita
 
 ## Diagrama Lógico da Rede
 
-```mermaid
-graph TD
+```mermaidgraph TD
     ISP[Internet / ISP]
-    R1[Roteador Central (NAT, ACL)]
-    SW_Core[Switch Core Layer 3]
+    R1[Roteador Central - NAT e ACL]
+    SW_Core[Switch Core - VLANs]
     SW_DMZ[Switch DMZ]
-    VLAN10[PCs VLAN 10<br/>192.168.10.0/24]
-    VLAN20[PCs VLAN 20<br/>192.168.20.0/24]
-    VLAN30[PCs VLAN 30<br/>192.168.30.0/24]
-    DMZ_WEB[Web Server<br/>200.0.0.10]
-    DMZ_DNS[DNS Server<br/>200.0.0.20]
+    
+    VLAN10[PCs VLAN 10 (192.168.10.0/24)]
+    VLAN20[PCs VLAN 20 (192.168.20.0/24)]
+    VLAN30[PCs VLAN 30 (192.168.30.0/24)]
+
+    DMZ_WEB[Web Server - 200.0.0.10]
+    DMZ_DNS[DNS Server - 200.0.0.20]
     DHCP_SRV[Servidor DHCP]
 
     ISP --> R1
@@ -31,6 +32,7 @@ graph TD
 
     SW_DMZ --> DMZ_WEB
     SW_DMZ --> DMZ_DNS
+
 ```
 
 ## Bloco 1 – Criação de VLANs no Switch Core
