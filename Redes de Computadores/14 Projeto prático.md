@@ -1,7 +1,7 @@
 # Projeto Prático: Rede Corporativa Segura com DMZ, VLANs e NAT
 
 ## Objetivo
-F
+
 Implementar uma rede corporativa com segmentação via VLANs, uma zona desmilitarizada (DMZ) para serviços públicos, controle de acesso com ACLs, e serviços como DHCP, DNS, Web e NAT para acesso à internet.
 
 
@@ -11,7 +11,7 @@ Implementar uma rede corporativa com segmentação via VLANs, uma zona desmilita
 
 graph TD
     ISP[Internet ISP]
-    R1[Roteador Central - NAT e ACL]
+    R1[Roteador Central - NAT, ACL e DHCP]
     SW_Core[Switch Core VLANs]
     SW_DMZ[Switch DMZ]
 
@@ -177,6 +177,10 @@ interface g0/2
 **Configuração no Servidor DHCP:**
 
 ```bash
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+ip dhcp excluded-address 192.168.20.1 192.168.20.10
+ip dhcp excluded-address 192.168.30.1 192.168.30.10
+! Reserva endereços iniciais para gateway e equipamentos fixos
 
 ip dhcp pool RH
  network 192.168.10.0 255.255.255.0
