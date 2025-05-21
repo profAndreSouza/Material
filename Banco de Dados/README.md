@@ -1,4 +1,8 @@
-# Banco de Dados - 100 aulas - 83h20
+# Banco de Dados
+
+Este repositório reúne conteúdos e materiais didáticos relacionados à disciplina.
+
+| ⚠️ **Atenção**: Este material está em desenvolvimento e sofre atualizações constantes à medida que o conteúdo é construído e aprimorado.
 
 ## Conteúdos Programáticos
 
