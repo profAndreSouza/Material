@@ -7,7 +7,8 @@ Implementar uma rede corporativa com segmentação via VLANs, uma zona desmilita
 
 ## Diagrama Lógico da Rede
 
-```mermaidgraph TD
+```mermaid
+graph TD
     ISP[Internet / ISP]
     R1[Roteador Central - NAT e ACL]
     SW_Core[Switch Core - VLANs]
