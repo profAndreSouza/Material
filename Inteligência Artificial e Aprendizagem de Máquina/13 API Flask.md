@@ -10,58 +10,86 @@ API para análise de texto com:
 * Descoberta de Conhecimento em Texto
 * Interface Web para interação com chatbot
 
-## Estrutura do Projeto
-
-```
-chatbot_nlp_api/
-│
-├── app.py
-├── requirements.txt
-│
-├── controllers/
-│   └── analysis_controller.py
-│
-├── services/
-│   └── nlp_service.py
-│
-├── core/
-│   └── models.py
-│
-├── templates/
-│   └── index.html
-│
-└── static/
-    └── style.css
-```
-
-
-## Requisitos
+## Estrutura recomendada do projeto
 
 ```bash
-pip install -r requirements.txt
-python -m spacy download en_core_web_sm
+nlp_chatbot/
+├── app/
+│   ├── __init__.py
+│   ├── routes.py
+│   ├── nlp/
+│   │   ├── __init__.py
+│   │   ├── processor.py
+│   │   ├── sentiment.py
+│   │   ├── syntactic.py
+│   │   └── semantic.py
+├── controllers/
+│   └── analysis_controller.py
+├── core/
+│   └── models.py
+├── services/
+│   └── nlp_service.py
+├── templates/
+│   └── index.html
+├── static/
+│   ├── style.css
+│   └── script.js
+├── requirements.txt
+├── run.py
+└── README.md
 ```
 
+## Criação do ambiente virtual
 
-## `requirements.txt`
+```bash
+# Crie e ative o ambiente virtual
+python -m venv venv
+venv\Scripts\activate
+
+```
+
+## Instalação das dependências
+
+Crie o arquivo `requirements.txt` com:
 
 ```txt
 flask
 spacy
+textblob
+nltk
 scikit-learn
 transformers
 torch
 ```
 
+E instale com:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Setup adicional
+
+```bash
+# Baixe modelos do spaCy e TextBlob
+python -m spacy download en_core_web_sm
+python -m textblob.download_corpora
+
+# Baixe recursos do NLTK
+python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+```
+
 ## Execução
 
 ```bash
-python app.py
+python run.py
 ```
 
-Acesse [http://localhost:5000](http://localhost:5000)
+Acesse: [http://localhost:5000](http://localhost:5000)
 
-## `app.py`
+## Código principal
+
+### `run.py`
 
 ```python
 from flask import Flask, render_template
@@ -70,11 +98,11 @@ from controllers.analysis_controller import bp_analysis
 def create_app():
     app = Flask(__name__)
     app.register_blueprint(bp_analysis)
-    
+
     @app.route("/")
     def home():
         return render_template("index.html")
-    
+
     return app
 
 if __name__ == "__main__":
@@ -82,7 +110,7 @@ if __name__ == "__main__":
     app.run(debug=True)
 ```
 
-## `core/models.py`
+### `core/models.py`
 
 ```python
 import spacy
@@ -94,7 +122,7 @@ sentiment_pipeline = pipeline("sentiment-analysis")
 tfidf_vectorizer = TfidfVectorizer()
 ```
 
-## `services/nlp_service.py`
+### `services/nlp_service.py`
 
 ```python
 from core.models import nlp, sentiment_pipeline, tfidf_vectorizer
@@ -133,7 +161,7 @@ def analyze_text(text: str):
     }
 ```
 
-## `controllers/analysis_controller.py`
+### `controllers/analysis_controller.py`
 
 ```python
 from flask import Blueprint, request, jsonify
@@ -153,7 +181,9 @@ def analyze():
     return jsonify(result)
 ```
 
-## `templates/index.html`
+## Interface Web
+
+### `templates/index.html`
 
 ```html
 <!DOCTYPE html>
@@ -192,9 +222,7 @@ def analyze():
 </html>
 ```
 
----
-
-## `static/style.css`
+### `static/style.css`
 
 ```css
 pre {
@@ -203,7 +231,7 @@ pre {
 }
 ```
 
-## `static/script.js`
+### `static/script.js`
 
 ```js
 const form = document.getElementById('analyzeForm');
@@ -232,13 +260,13 @@ form.onsubmit = async (e) => {
 };
 ```
 
-## Funcionalidades Incluídas
+## Funcionalidades incluídas
 
 | Funcionalidade                       | Tecnologias Usadas           |
 | ------------------------------------ | ---------------------------- |
-| Tokenização, lematização, POS        | `spaCy`                      |
+| Tokenização, Lematização, POS        | `spaCy`                      |
 | Análise sintática                    | `spaCy`                      |
 | Análise de sentimentos               | `transformers` (HuggingFace) |
-| TF-IDF (extração de características) | `scikit-learn`               |
-| Extração semântica (entidades)       | `spaCy`                      |
-| Interface web                        | `Flask + HTML + JS`          |
+| Extração de características (TF-IDF) | `scikit-learn`               |
+| Interpretação Semântica              | `spaCy`                      |
+| Interface web                        | `Flask + Bootstrap + JS`     |
