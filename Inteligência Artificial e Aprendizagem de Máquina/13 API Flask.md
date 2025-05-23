@@ -197,7 +197,7 @@ def analyze():
   <div class="container py-5">
     <div class="card shadow-lg">
       <div class="card-body">
-        <h1 class="card-title text-center mb-4">🔍 NLP Chatbot Analyzer</h1>
+        <h1 class="card-title text-center mb-4">NLP Chatbot Analyzer</h1>
         
         <form id="analyzeForm">
           <div class="mb-3">
