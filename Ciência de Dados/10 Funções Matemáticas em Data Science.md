@@ -304,7 +304,7 @@ import matplotlib.pyplot as plt
 ```
 
 
-### **Exercício 1: Função Polinomial e Tendência de Crescimento**
+### 1: Função Polinomial e Tendência de Crescimento
 
 > **Contexto**: Você está analisando a tendência de crescimento de acessos diários a uma plataforma. A curva observada se assemelha a um polinômio de 2º grau.
 
@@ -322,7 +322,7 @@ plt.show()
 ```
 
 
-### **Exercício 2: Função Trigonométrica e Sazonalidade**
+### 2: Função Trigonométrica e Sazonalidade
 
 > **Contexto**: Ao analisar o tráfego em um site, você nota variações sazonais (picos e vales) ao longo do tempo. Isso pode ser modelado com funções trigonométricas.
 
@@ -340,7 +340,7 @@ plt.show()
 ```
 
 
-### **Exercício 3: Função Exponencial e Crescimento de Usuários**
+### 3: Função Exponencial e Crescimento de Usuários
 
 > **Contexto**: Um produto recém-lançado apresenta crescimento exponencial de usuários nas primeiras semanas.
 
@@ -359,19 +359,71 @@ plt.show()
 
 ## Exercícios
 
-1. Criar um Colab com três funções:
+### 1. Funções Polinomiais (1º e 2º Grau)
 
-   * Uma função polinomial do 3º grau
-   * Uma função trigonométrica combinada (ex: $f(x) = \sin(x) + \cos(2x)$)
-   * Uma função exponencial decrescente (ex: $f(x) = e^{-x}$)
+1. Preço do Ingresso:
+   Uma casa de shows cobra R\$ 30,00 por ingresso. Para cada real que o preço aumenta, 10 pessoas deixam de ir. Sabendo que 500 pessoas iriam ao show com o preço inicial, determine a função que expressa a arrecadação em função do aumento $x$ no preço. Qual o preço que maximiza a arrecadação?
 
-2. Plotar os gráficos com `matplotlib`.
+2. Custo de Produção:
+   O custo $C(x)$ para produzir $x$ unidades de um produto é dado por $C(x) = 2x + 150$. Determine o custo para 100 unidades e o ponto de equilíbrio se o preço de venda for R\$ 5 por unidade.
 
-3. Analisar os seguintes pontos para cada gráfico:
+3. Lucro de um Aplicativo:
+   Um desenvolvedor de apps estima que o lucro $L(x)$ em mil reais é dado por $L(x) = -2x^2 + 40x - 100$, onde $x$ é o número de milhares de downloads pagos. Qual o número ótimo de downloads para lucro máximo?
 
-   * Domínio utilizado
-   * Crescimento/decrescimento da função
-   * Ponto de mínimo ou máximo, se houver
+4. Queda de Objeto:
+   A altura $h(t)$ de um objeto lançado do alto de um prédio é dada por $h(t) = -5t^2 + 20t + 50$. Em quanto tempo ele atinge o solo?
+
+5. Variação de Temperatura:
+   A temperatura de um líquido ao longo do tempo é dada por $T(t) = -t^2 + 8t + 10$. Quando a temperatura é máxima? Qual o valor dessa temperatura?
+
+6. Tarifa de Táxi:
+   Uma corrida de táxi custa R\$ 4,00 de bandeirada mais R\$ 2,50 por km rodado. Modele a função e calcule o custo para 15 km.
+
+7. Área de um Terreno:
+   Um fazendeiro quer construir um cercado retangular com 100m de cerca. A área $A(x)$ do terreno é dada por $A(x) = x(50 - x)$, onde $x$ é o comprimento. Qual a largura para máxima área?
+
+8. Movimento Uniforme:
+   Um carro percorre uma estrada com velocidade constante. Sua posição em função do tempo é $s(t) = 80t$, onde $t$ é o tempo em horas. Qual a distância após 2h30min?
+
+9. Lucro de uma Loja:
+   Uma loja vende camisetas por R\$ 40,00 e o custo de produção é $C(x) = 20x + 100$. Determine a função lucro e calcule o lucro para 30 camisetas vendidas.
+
+10. Altura de um Projétil:
+    A trajetória de uma bola lançada para cima é dada por $h(t) = -4.9t^2 + 14t$. Em que tempo a bola atinge a altura máxima e qual essa altura?
+
+### 2. Funções Trigonométricas
+
+11. Altura da Maré:
+    A altura da maré em metros é dada por $h(t) = 2\sin\left(\frac{\pi t}{6}\right) + 3$, onde $t$ é o tempo em horas. Qual a altura da maré às 3h, 6h e 9h?
+
+12. Rotação de um Painel Solar:
+    O ângulo $\theta(t)$ de inclinação de um painel solar varia com o tempo segundo $\theta(t) = 30\cos\left(\frac{\pi t}{12}\right)$, onde $t$ é em horas. Qual a inclinação ao meio-dia e às 18h?
+
+13. Pêndulo:
+    A posição $s(t)$ de um pêndulo é dada por $s(t) = 5\cos(2t)$. Qual é o valor máximo e mínimo da oscilação?
+
+14. Oscilação de Tensão:
+    A tensão alternada em um circuito é $V(t) = 110\sin(100\pi t)$. Qual a frequência da tensão? E a amplitude?
+
+15. Fase de um Mecanismo Cíclico:
+    Um pistão de motor se move de acordo com $x(t) = 4\sin(2\pi t)$, onde $x$ é o deslocamento. Qual o período do movimento?
+
+### 3. Funções Exponenciais
+
+16. Crescimento Populacional:
+    A população de uma bactéria dobra a cada 3 horas. Se inicialmente há 200 bactérias, quantas existirão após 12 horas?
+
+17. Decaimento Radioativo:
+    A massa $M(t)$ de uma substância radioativa é dada por $M(t) = 100e^{-0.2t}$. Qual a massa após 5 horas?
+
+18. Juros Compostos:
+    Um valor de R\$ 1.000,00 é aplicado a 5% ao mês em juros compostos. Qual o montante após 12 meses?
+
+19. Resfriamento de um Corpo:
+    A temperatura $T(t)$ de um corpo resfriando é dada por $T(t) = 25 + (75)e^{-0.1t}$. Qual será a temperatura após 10 minutos?
+
+20. Carga de uma Bateria:
+    A carga $Q(t)$ de uma bateria segue $Q(t) = 100(1 - e^{-0.05t})$, onde $t$ está em minutos. Após quanto tempo a carga será 95% da carga máxima?
 
 
 ## Materiais de Apoio
