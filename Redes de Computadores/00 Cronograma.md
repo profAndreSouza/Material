@@ -30,7 +30,7 @@
 ## Composição da Nota Final
 
 **Fórmula:**  
-`NF = P1 * 0.4 + T * 0.4 + EX * 0.2`
+`NF = P1 * 0.35 + T * 0.5 + EX * 0.15`
 
 | Componente                  | Peso  |
 |----------------------------|-------|
