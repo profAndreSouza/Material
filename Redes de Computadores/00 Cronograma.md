@@ -37,3 +37,9 @@
 | **P1** – Avaliação Teórica e Prática       | 40%   |
 | **T** – Trabalho com implementação          | 40%   |
 | **EX** – Exercícios feitos em sala de aula | 20%   |
+
+### Exercícios (Trabalhos)
+
+- ~~T1 - IEEE 802.3~~
+- ~~T2 - Protocolos~~
+- T3 - Segurança
