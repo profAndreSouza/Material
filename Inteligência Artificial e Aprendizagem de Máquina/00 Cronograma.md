@@ -19,8 +19,8 @@
 | 13   | 23-Mai | Exercícios de Fixação (Textos e Semântica)                            |
 | 14   | 30-Mai | Aprendizado de Máquina Aplicado ao Processamento de Linguagem Natural |
 | 15   | 06-Jun | Avaliação                                                             |
-| 16   | 13-Jun | Aplicações de Processamento de Linguagem Natural                      |
-| 17   | 27-Jun | Reconhecimento de Voz                                                 |
+| 16   | 13-Jun | Reconhecimento de Voz                                                 |
+| 17   | 27-Jun | Aplicações de Processamento de Linguagem Natural                      |
 | 18   | 04-Jul | Exercícios de Fixação (Revisão Geral)                                 |
 | 19   | 11-Jul | REAVA (Recuperação Avaliativa)                                        |
 | 20   | 18-Jul | Encerramento do primeiro semestre                                     |

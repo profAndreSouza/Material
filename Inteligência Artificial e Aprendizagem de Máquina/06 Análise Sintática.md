@@ -130,5 +130,3 @@ for tree in parser.parse(['João', 'gosta', 'de', 'sorvete']):
 ## 9. Conclusão
 
 A análise sintática é essencial para compreender a estrutura e o significado de frases em PLN. As representações por árvore de constituintes e de dependência oferecem diferentes formas de análise, sendo ambas complementares. Ferramentas como `spaCy` e `nltk` facilitam a implementação e visualização dessas estruturas, servindo como base para aplicações mais avançadas em linguagem natural.
-
-```
