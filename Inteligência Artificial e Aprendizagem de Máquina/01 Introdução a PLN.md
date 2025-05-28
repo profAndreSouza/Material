@@ -1,4 +1,4 @@
-# Aula 2 – Introdução ao Processamento de Linguagem Natural
+# Introdução ao Processamento de Linguagem Natural
 
 ## Objetivos da Aula
 

@@ -1,5 +1,10 @@
 # Inteligência Artificial e Aprendizagem de Máquina (Presencial – 80 aulas)
 
+Este repositório reúne conteúdos e materiais didáticos relacionados à disciplina.
+
+| ⚠️ **Atenção**: Este material está em desenvolvimento e sofre atualizações constantes à medida que o conteúdo é construído e aprimorado.
+
+
 ## Competências Profissionais Desenvolvidas
 
 * Aplicar conceitos de Inteligência Artificial no desenvolvimento de projetos de software.

@@ -1,4 +1,4 @@
-# Aula 3 – Representação e Processamento de Texto
+# Representação e Processamento de Texto
 
 ## Objetivos da Aula
 
