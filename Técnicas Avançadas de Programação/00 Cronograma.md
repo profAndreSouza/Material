@@ -13,15 +13,15 @@
 | 9    | 14-04-25   | Finalização das Views iniciais                                            |
 | 10   | 28-04-25   | Início da Construção do DER (Diagrama Entidade-Relacionamento)            |
 | 11   | 05-05-25   | Definição dos Models com base no DER                                      |
-| 12   | 12-05-25   | Implementação dos primeiros Controllers e Views (Cadastro de Produtos)     |
+| 12   | 12-05-25   | Implementação dos primeiros Controllers e Views (Cadastro de Produtos)    |
 | 13   | 19-05-25   | Continuação: Controllers e Views (Pedidos e Clientes)                     |
 | 14   | 26-05-25   | Finalização do CRUD das Entidades Principais                              |
 | 15   | 02-06-25   | Revisão geral do Projeto: Testes dos fluxos principais                    |
 | 16   | 09-06-25   | Ajustes finais no sistema + Preparo para Apresentação                     |
-| 17   | 16-06-25   | Avaliação (Prova Conceitual)                                               |
+| 17   | 16-06-25   | Avaliação (Prova Conceitual)                                              |
 | 18   | 23-06-25   | Apresentação final dos projetos do Tótem                                  |
 | 19   | 30-06-25   | Feedback individual dos projetos + Melhorias sugeridas                    |
-| 20   | 07-07-25   | Reavaliação                                                                |
+| 20   | 07-07-25   | Reavaliação                                                               |
 
 ---
 
