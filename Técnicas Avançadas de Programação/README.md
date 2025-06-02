@@ -1,5 +1,10 @@
 # Técnicas Avançadas de Programação
 
+Este repositório reúne conteúdos e materiais didáticos relacionados à disciplina.
+
+| ⚠️ **Atenção**: Este material está em desenvolvimento e sofre atualizações constantes à medida que o conteúdo é construído e aprimorado.
+
+
 ## Competências Profissionais Desenvolvidas
 
 - Aplicar linguagens de programação back-end, front-end e raciocínio lógico adequados para a resolução de situações-problema e/ou desenvolvimento de projetos diversos.
