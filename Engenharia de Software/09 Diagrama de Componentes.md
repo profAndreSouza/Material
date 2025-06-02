@@ -41,41 +41,6 @@ Imagine um sistema de e-commerce dividido em componentes. O diagrama de componen
 * **Dependência (`Dependency`)**: Linha pontilhada indicando uso de outro componente.
 
 
-### Diagrama em Mermaid
-
-```mermaid
-%%{init: { "theme": "default" } }%%
-graph TB
-  subgraph Frontend
-    A[Frontend Web (React)]
-  end
-
-  subgraph Backend
-    B[API de Pedidos (Node.js)]
-    C[API de Produtos (Node.js)]
-    D[Autenticação (JWT)]
-  end
-
-  subgraph Serviços Externos
-    E[Serviço de Pagamento (Stripe)]
-    F[Correios API]
-  end
-
-  subgraph Banco_de_Dados
-    G[(MySQL)]
-    H[(Redis Cache)]
-  end
-
-  A -->|REST| B
-  A -->|REST| C
-  B -->|JWT| D
-  B -->|REST| E
-  B -->|REST| F
-  B -->|SQL| G
-  C -->|SQL| G
-  B -->|Cache| H
-```
-
 ## Conclusão
 
 O **Diagrama de Componentes** é essencial para entender **como as partes de um sistema interagem fisicamente**. Ele é útil tanto no planejamento quanto na manutenção de sistemas complexos, e sua representação gráfica facilita a comunicação entre desenvolvedores, arquitetos e stakeholders.
