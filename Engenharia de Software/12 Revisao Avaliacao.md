@@ -15,7 +15,7 @@
 ## 3. Modelos de Processo de Software
 
 * Modelo Cascata: fases e suas características
-* Modelo Espiral: foco em riscos e prototipação iterativa
+* ~~Modelo Espiral: foco em riscos e prototipação iterativa~~
 * Modelo de Prototipação: criação e validação rápida de versões
 * Vantagens e desvantagens de cada modelo
 
@@ -35,13 +35,13 @@
 
 * Estrutura básica: “Como \[persona], eu quero \[ação] para \[benefício]”
 * Critérios de aceitação
-* INVEST (Independente, Negociável, Valiosa, Estimável, Pequena, Testável)
+* ~~INVEST (Independente, Negociável, Valiosa, Estimável, Pequena, Testável)~~
 
 ## 7. Validação de Requisitos
 
 * Revisão de requisitos com o cliente
 * Prototipagem como ferramenta de validação
-* Técnicas de validação: reuniões, walkthroughs, inspeções
+* Técnicas de validação: reuniões, ~~walkthroughs, inspeções~~
 
 ## 8. Casos de Uso
 
