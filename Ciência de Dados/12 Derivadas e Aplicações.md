@@ -146,3 +146,20 @@ plt.show()
 1. Dada a função \$f(x) = x^3 - 6x^2 + 9x + 2\$, calcule a derivada e identifique os pontos de máximo e mínimo.
 2. Com uma série temporal de temperatura por hora, estime a variação instantânea de temperatura.
 3. Modele um cenário de aceleração de um robô com dados fictícios e plote velocidade e aceleração.
+
+## Material de Apoio
+
+1. **GRANVILLE, William Anthony.**
+   *Cálculo Diferencial e Integral.* 2. ed. São Paulo: Blucher, 2012.
+
+2. **ANTON, Howard; BIVENS, Irl; DAVIS, Stephen.**
+   *Cálculo.* 10. ed. Porto Alegre: Bookman, 2019.
+
+3. **GUIDORIZZI, Hamilton Luiz.**
+   *Um Curso de Cálculo – Volume 1.* 6. ed. Rio de Janeiro: LTC, 2010.
+
+4. **LEITHOLD, Louis.**
+   *O Cálculo com Geometria Analítica – Volume 1.* 6. ed. São Paulo: Harbra, 1994.
+
+5. **STEWART, James.**
+   *Cálculo.* 8. ed. São Paulo: Cengage Learning, 2018.

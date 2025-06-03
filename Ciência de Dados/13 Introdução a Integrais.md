@@ -197,3 +197,20 @@ print(f"Estimativa do volume total de vendas no dia: {area_total:.2f} unidades")
 2. **Compare áreas** entre diferentes dias (alterando a curva).
 3. **Adicione intervalo parcial**: calcular vendas só entre 9h e 18h.
 4. **Desafio**: encontre a **hora com pico de vendas** e discuta estratégias que um sistema poderia adotar (ex: balanceamento de carga, cache de produtos populares).
+
+## Material de Apoio
+
+1. **GRANVILLE, William Anthony.**
+   *Cálculo Diferencial e Integral.* 2. ed. São Paulo: Blucher, 2012.
+
+2. **ANTON, Howard; BIVENS, Irl; DAVIS, Stephen.**
+   *Cálculo.* 10. ed. Porto Alegre: Bookman, 2019.
+
+3. **GUIDORIZZI, Hamilton Luiz.**
+   *Um Curso de Cálculo – Volume 1.* 6. ed. Rio de Janeiro: LTC, 2010.
+
+4. **LEITHOLD, Louis.**
+   *O Cálculo com Geometria Analítica – Volume 1.* 6. ed. São Paulo: Harbra, 1994.
+
+5. **STEWART, James.**
+   *Cálculo.* 8. ed. São Paulo: Cengage Learning, 2018.

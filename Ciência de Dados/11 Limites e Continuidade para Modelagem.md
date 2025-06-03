@@ -114,10 +114,6 @@ plt.show()
 
 ## Material de Apoio
 
-Claro! Aqui estão **referências bibliográficas válidas e reconhecidas academicamente** sobre **limites, derivadas e integrais**, em português, apropriadas para cursos de Análise e Desenvolvimento de Sistemas, Engenharia ou Ciências Exatas. As fontes incluem livros consagrados usados no ensino superior brasileiro:
-
-### Referências Bibliográficas
-
 1. **GRANVILLE, William Anthony.**
    *Cálculo Diferencial e Integral.* 2. ed. São Paulo: Blucher, 2012.
 
