@@ -147,6 +147,7 @@ plt.show()
 2. Com uma série temporal de temperatura por hora, estime a variação instantânea de temperatura.
 3. Modele um cenário de aceleração de um robô com dados fictícios e plote velocidade e aceleração.
 
+
 ## Material de Apoio
 
 1. **GRANVILLE, William Anthony.**

@@ -191,7 +191,7 @@ print(f"Estimativa do volume total de vendas no dia: {area_total:.2f} unidades")
 * Alunos podem explorar diferentes formas de curva (picos de manhã, à noite, etc.).
 
 
-### Exercícios:
+## Exercícios:
 
 1. **Modifique a função de vendas** para simular diferentes padrões (ex: e-commerce com pico à noite).
 2. **Compare áreas** entre diferentes dias (alterando a curva).
