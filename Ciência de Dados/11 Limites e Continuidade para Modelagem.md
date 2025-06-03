@@ -110,3 +110,25 @@ plt.show()
 1. **Sensores com falhas**: simule uma função contínua com uma **descontinuidade de salto** e identifique o ponto onde os dados devem ser tratados.
 2. **Análise de rupturas em séries temporais**: use funções com descontinuidade para representar mudanças bruscas de regime (ex: queda de acessos, ruptura de tendência).
 3. **Pré-processamento**: onde ocorrem descontinuidades, aplique estratégias de imputação ou suavização.
+
+
+## Material de Apoio
+
+Claro! Aqui estão **referências bibliográficas válidas e reconhecidas academicamente** sobre **limites, derivadas e integrais**, em português, apropriadas para cursos de Análise e Desenvolvimento de Sistemas, Engenharia ou Ciências Exatas. As fontes incluem livros consagrados usados no ensino superior brasileiro:
+
+### Referências Bibliográficas
+
+1. **GRANVILLE, William Anthony.**
+   *Cálculo Diferencial e Integral.* 2. ed. São Paulo: Blucher, 2012.
+
+2. **ANTON, Howard; BIVENS, Irl; DAVIS, Stephen.**
+   *Cálculo.* 10. ed. Porto Alegre: Bookman, 2019.
+
+3. **GUIDORIZZI, Hamilton Luiz.**
+   *Um Curso de Cálculo – Volume 1.* 6. ed. Rio de Janeiro: LTC, 2010.
+
+4. **LEITHOLD, Louis.**
+   *O Cálculo com Geometria Analítica – Volume 1.* 6. ed. São Paulo: Harbra, 1994.
+
+5. **STEWART, James.**
+   *Cálculo.* 8. ed. São Paulo: Cengage Learning, 2018.
