@@ -1,4 +1,9 @@
-# Ciência de Dados - 80 aulas - 66h40
+# Ciência de Dados
+
+Este repositório reúne conteúdos e materiais didáticos relacionados à disciplina.
+
+| ⚠️ **Atenção**: Este material está em desenvolvimento e sofre atualizações constantes à medida que o conteúdo é construído e aprimorado.
+
 
 ## Conhecimentos
 

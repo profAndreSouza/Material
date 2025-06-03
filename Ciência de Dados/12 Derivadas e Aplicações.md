@@ -58,7 +58,7 @@ Em problemas de análise de séries temporais ou simulações físicas, as deriv
 * Detectar **pontos de inflexão** ou máximos/mínimos
 
 
-## Projeto Prático: Estimar a velocidade instantânea de um carro
+## Projeto Prático 1: Estimar a velocidade instantânea de um carro
 
 > Vamos usar dados de distância ao longo do tempo para calcular a **velocidade média** e a **velocidade instantânea estimada** usando diferenciação numérica.
 
@@ -89,6 +89,44 @@ plt.plot(tempo, velocidade, 'o-', color='orange', label='Velocidade (m/s)')
 plt.title('Velocidade Instantânea Estimada')
 plt.xlabel('Tempo (s)')
 plt.ylabel('Velocidade (m/s)')
+plt.grid(True)
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+```
+
+## Projeto Prático 2: Estimativa de Taxa de Crescimento de Usuários em uma Aplicação Web
+
+> Usar diferenciação numérica (derivada) para estimar a velocidade de crescimento de usuários ativos ao longo do tempo — algo comum em sistemas de monitoramento, analytics ou dashboards de produtos digitais.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Dados simulados: tempo em dias e número de usuários ativos
+dias = np.array([0, 1, 2, 3, 4, 5, 6])
+usuarios = np.array([50, 80, 120, 180, 260, 360, 480])  # crescimento de usuários
+
+# Estimando a taxa de crescimento (derivada numérica)
+crescimento = np.gradient(usuarios, dias)
+
+# Visualização
+plt.figure(figsize=(10, 4))
+
+plt.subplot(1, 2, 1)
+plt.plot(dias, usuarios, 'o-', label='Usuários Ativos')
+plt.title('Usuários Ativos ao Longo do Tempo')
+plt.xlabel('Dias')
+plt.ylabel('Total de Usuários')
+plt.grid(True)
+plt.legend()
+
+plt.subplot(1, 2, 2)
+plt.plot(dias, crescimento, 'o-', color='green', label='Taxa de Crescimento')
+plt.title('Estimativa de Velocidade de Crescimento')
+plt.xlabel('Dias')
+plt.ylabel('Usuários por Dia')
 plt.grid(True)
 plt.legend()
 
