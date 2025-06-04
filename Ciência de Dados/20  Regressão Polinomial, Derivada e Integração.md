@@ -21,6 +21,19 @@ Eles coletaram os seguintes dados:
 | 10       | 59.0         |
 
 
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from numpy.polynomial import Polynomial
+from scipy.integrate import quad
+
+# Dados coletados
+t = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+trafego = np.array([2, 3.1, 4.8, 8.5, 14.2, 20.1, 27.5, 35.9, 44.8, 52.2, 59.0])
+
+```
+
+
 ### 1. Modelagem por Regressão Polinomial
 
 * A curva vermelha ajusta os dados com um polinômio de grau 3.
@@ -31,14 +44,6 @@ f(t) = -0.055t^3 + 1.232t^2 - 1.168t + 2.467
 $$
 
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
-from numpy.polynomial import Polynomial
-from scipy.integrate import quad
-
-# Dados coletados
-t = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-trafego = np.array([2, 3.1, 4.8, 8.5, 14.2, 20.1, 27.5, 35.9, 44.8, 52.2, 59.0])
 
 # Regressão polinomial de grau 3
 coef = np.polyfit(t, trafego, 3)
