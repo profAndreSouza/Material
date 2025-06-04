@@ -43,6 +43,8 @@ $$
 f(t) = -0.055t^3 + 1.232t^2 - 1.168t + 2.467
 $$
 
+<img src="img/20-polinomial.png">
+
 ```python
 
 # Regressão polinomial de grau 3
@@ -98,6 +100,9 @@ $$
 \int_0^{10} f(t)\,dt \approx \boxed{240.48\ \text{GB}}
 $$
 
+
+<img src="img/20-integral.png">
+
 ```python
 
 # Integração da função
@@ -133,6 +138,8 @@ print(f"{ip[4]:.3f}x⁴ + {ip[3]:.3f}x³ + {ip[2]:.3f}x² + {ip[1]:.3f}x + c")
 | 13h  | 75,56 GB              |
 | 14h  | 77,80 GB              |
 
+
+<img src="img/20-predicao.png">
 
 ```python
 
