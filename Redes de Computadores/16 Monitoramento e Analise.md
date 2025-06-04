@@ -146,6 +146,22 @@ Manter registros organizados de falhas, tempos de resposta, intervenções e sol
 
 ## Trabalhos
 
+**Objetivo:**
+Investigar e apresentar, de forma objetiva, conceitos e aplicações práticas relacionadas ao monitoramento e à segurança em redes de computadores.
+
+**Formato da Atividade:**
+
+* Trabalho em grupo.
+* Entrega obrigatória de **apresentação em slides (.ppt ou .pdf)** com os resultados da pesquisa.
+* **Não é necessário entregar relatório escrito.**
+
+**Apresentação:**
+
+* Tempo máximo de **15 minutos por grupo**.
+* Todos os integrantes devem participar da apresentação.
+* É recomendável o uso de exemplos, imagens e esquemas para facilitar a compreensão.
+
+
 ### **Grupo 1 – Riscos de Segurança no Monitoramento de Redes**
 
 **Tema:** Interceptações, vazamentos e ataques relacionados ao monitoramento de tráfego de rede.
