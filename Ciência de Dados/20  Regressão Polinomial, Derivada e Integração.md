@@ -52,12 +52,8 @@ p = np.poly1d(coef)
 # Pontos para gráfico suave
 t_fine = np.linspace(0, 10, 500)
 trafego_fit = p(t_fine)
-trafego_deriv = dp(t_fine)
 
 # Gráfico da regressão polinomial
-plt.figure(figsize=(16, 4))
-
-plt.subplot(1, 3, 1)
 plt.scatter(t, trafego, color='blue', label='Dados Reais')
 plt.plot(t_fine, trafego_fit, color='red', label='Regressão Polinomial')
 plt.title("Modelagem com Regressão Polinomial (Grau 3)")
@@ -65,6 +61,11 @@ plt.xlabel("Hora")
 plt.ylabel("Tráfego (GB)")
 plt.legend()
 plt.grid(True)
+
+
+print("Função Polinomial do Tráfego:")
+print(f"{p[3]:.3f}x³ + {p[2]:.3f}x² + {p[1]:.3f}x + {p[0]:.3f}")
+
 ```
 
 ### 2. Derivada: Taxa de Variação do Tráfego
@@ -77,16 +78,13 @@ f'(t) = -0.164t^2 + 2.464t - 1.168
 $$
 
 ```python
+
 # Derivada da função
 dp = np.polyder(p)
 
-# Gráfico da derivada
-plt.subplot(1, 3, 2)
-plt.plot(t_fine, trafego_deriv, color='green')
-plt.title("Derivada: Taxa de Variação do Tráfego")
-plt.xlabel("Hora")
-plt.ylabel("GB/hora")
-plt.grid(True)
+# Imprimir a função derivada
+print("Função derivada (Taxa de Variação do Tráfego):")
+print(f"{dp[2]:.3f}x² + {dp[1]:.3f}x + {dp[0]:.3f}")
 
 ```
 
@@ -106,7 +104,6 @@ $$
 integral_total, _ = quad(p, 0, 10)
 
 # Área sob a curva (integração)
-plt.subplot(1, 3, 3)
 plt.plot(t_fine, trafego_fit, color='orange', label='Função Polinomial')
 plt.fill_between(t_fine, trafego_fit, color='orange', alpha=0.3, label=f'Área ≈ {integral_total:.2f} GB')
 plt.title("Integração: Volume Total de Dados")
@@ -114,9 +111,14 @@ plt.xlabel("Hora")
 plt.ylabel("Tráfego (GB)")
 plt.legend()
 plt.grid(True)
-
-plt.tight_layout()
 plt.show()
+
+
+print(f"Volume acumulado de dados:≈ {integral_total:.2f} GB")
+
+ip = np.polyint(p)
+print("Função Integral do Tráfego (Indefinida):")
+print(f"{ip[4]:.3f}x⁴ + {ip[3]:.3f}x³ + {ip[2]:.3f}x² + {ip[1]:.3f}x + c")
 
 
 ```
