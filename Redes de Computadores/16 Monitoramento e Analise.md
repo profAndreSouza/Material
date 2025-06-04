@@ -162,68 +162,74 @@ Investigar e apresentar, de forma objetiva, conceitos e aplicações práticas r
 * É recomendável o uso de exemplos, imagens e esquemas para facilitar a compreensão.
 
 
-### **Grupo 1 – Riscos de Segurança no Monitoramento de Redes**
+### **Grupo 1 – Segurança e Privacidade no Monitoramento de Redes**
 
-**Tema:** Interceptações, vazamentos e ataques relacionados ao monitoramento de tráfego de rede.
-**Objetivo:** Investigar os principais riscos de segurança ao utilizar ferramentas de captura e análise de pacotes, como sniffing e spoofing.
-**Sugestão de tópicos a abordar:**
+**Tema:**
+Riscos técnicos e legais relacionados à segurança e privacidade no monitoramento de redes.
 
-* Ataques de *man-in-the-middle* durante sessões de monitoramento.
-* Vazamento de dados sensíveis ao capturar pacotes não criptografados.
+**Objetivo:**
+Analisar os principais riscos de segurança, ataques e implicações legais (como a LGPD) no uso de ferramentas de monitoramento de tráfego.
+
+**Sugestão de tópicos:**
+
+* Ataques de *man-in-the-middle* e sniffing de pacotes.
+* Vazamento de dados sensíveis em redes não criptografadas.
+* O que a LGPD permite ou restringe em redes corporativas.
+* Boas práticas de privacidade e proteção de dados monitorados.
 * Casos reais de falhas de segurança por uso indevido de ferramentas.
 
-### **Grupo 2 – Autenticação, Autorização e Controle de Acesso em Ambientes de Monitoramento**
-
-**Tema:** Como garantir que apenas pessoas autorizadas possam monitorar e acessar dados da rede.
-**Objetivo:** Pesquisar técnicas e ferramentas para controle de acesso seguro em plataformas de monitoramento.
-**Sugestão de tópicos a abordar:**
-
-* Autenticação em dois fatores (2FA).
-* Gerenciamento de usuários e perfis de acesso.
-* Integração com políticas de segurança da informação.
-
-### **Grupo 3 – LGPD e Políticas de TI no Monitoramento de Redes**
-
-**Tema:** Conformidade legal e institucional no uso de ferramentas de monitoramento.
-**Objetivo:** Analisar como a LGPD (Lei Geral de Proteção de Dados) impacta o monitoramento de tráfego em redes empresariais.
-**Sugestão de tópicos a abordar:**
-
-* O que é permitido monitorar em redes corporativas.
-* Boas práticas de privacidade.
-* Como documentar o uso das ferramentas e proteger os dados monitorados.
 
 
-### **Grupo 4 – Análise de Pacotes com Wireshark: Aplicações e Limitações**
+### **Grupo 2 – Controle de Acesso e Gestão Segura no Monitoramento**
 
-**Tema:** Estudo prático e teórico do Wireshark como ferramenta de análise de tráfego.
-**Objetivo:** Demonstrar como usar o Wireshark para capturar pacotes e interpretar informações de rede.
-**Sugestão de tópicos a abordar:**
+**Tema:**
+Mecanismos de autenticação, autorização e controle de acesso no uso de ferramentas de monitoramento.
 
-* Protocolos mais comuns identificáveis com Wireshark.
-* Casos de uso em diagnóstico de falhas.
-* Limitações e cuidados legais no uso da ferramenta.
+**Objetivo:**
+Estudar como proteger o acesso às informações de rede, garantindo que apenas usuários autorizados utilizem ferramentas de monitoramento.
 
+**Sugestão de tópicos:**
 
-### **Grupo 5 – Ferramentas Clássicas de Diagnóstico: Ping, Traceroute e Netstat**
-
-**Tema:** Utilização de comandos básicos para diagnóstico de problemas de rede.
-**Objetivo:** Investigar como cada ferramenta funciona, seus parâmetros, interpretações e limitações.
-**Sugestão de tópicos a abordar:**
-
-* Diferença entre ICMP e TCP em diagnósticos.
-* Exemplos de análise de rotas e conexões ativas.
-* Demonstrações práticas com simulações.
+* Autenticação em dois fatores (2FA) e autenticação robusta.
+* Gerenciamento de usuários, senhas e perfis de acesso.
+* Integração com políticas institucionais de segurança da informação.
+* Registro de acessos e auditoria de uso das ferramentas.
 
 
-### **Grupo 6 – Plataformas de Monitoramento Contínuo: Nagios, Zabbix e PRTG**
 
-**Tema:** Comparação entre ferramentas completas de monitoramento.
-**Objetivo:** Explorar os recursos, arquitetura e aplicações de plataformas corporativas de monitoramento em tempo real.
-**Sugestão de tópicos a abordar:**
+### **Grupo 3 – Ferramentas Práticas de Análise de Rede**
 
-* Como instalar e configurar uma das ferramentas (mínimo viável).
-* Diferenças entre agentes e coleta passiva.
-* Casos de uso em empresas ou instituições de ensino.
+**Tema:**
+Utilização de ferramentas técnicas como Wireshark, ping, traceroute e netstat para análise de redes.
+
+**Objetivo:**
+Demonstrar o uso prático de ferramentas de análise e diagnóstico de redes, interpretando seus resultados e compreendendo suas limitações.
+
+**Sugestão de tópicos:**
+
+* Captura e análise de pacotes com Wireshark.
+* Protocolos comuns identificados nas análises.
+* Diagnóstico com comandos ping, traceroute e netstat.
+* Diferença entre ICMP, TCP e UDP nas análises.
+* Limitações técnicas e legais das ferramentas.
+
+
+
+### **Grupo 4 – Monitoramento Corporativo com Plataformas Profissionais**
+
+**Tema:**
+Análise e comparação de ferramentas corporativas de monitoramento contínuo, como Nagios, Zabbix e PRTG.
+
+**Objetivo:**
+Explorar recursos, arquitetura e aplicações práticas de plataformas de monitoramento usadas em ambientes profissionais.
+
+**Sugestão de tópicos:**
+
+* Instalação e configuração básica de uma plataforma (mínimo viável).
+* Diferença entre agentes e coleta passiva.
+* Alertas, relatórios e dashboards.
+* Exemplos de aplicação em empresas ou instituições de ensino.
+* Comparativo entre as ferramentas estudadas.
 
 
 ## Referências
