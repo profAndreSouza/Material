@@ -144,37 +144,6 @@ Manter registros organizados de falhas, tempos de resposta, intervenções e sol
 
 **Exemplo:** Após registrar várias quedas de conexão no setor financeiro, a análise do histórico mostra que sempre ocorrem após atualizações automáticas do switch. A equipe, então, decide programar essas atualizações fora do horário de expediente.
 
-## Referências
-
-**LIVROS**
-
-TANENBAUM, Andrew S.; WETHERALL, David J. *Redes de computadores*. 5. ed. Rio de Janeiro: Pearson, 2011.
-
-KUROSE, James F.; ROSS, Keith W. *Redes de computadores e a internet: uma abordagem top-down*. 6. ed. São Paulo: Pearson, 2017.
-
-FOROUZAN, Behrouz A. *Data communications and networking*. 5th ed. New York: McGraw-Hill, 2012.
-
-MACHADO, Fernando; MAIA, Luiz Paulo. *Segurança de redes*. São Paulo: Novatec, 2014.
-
-
-**LEIS E NORMAS**
-
-BRASIL. *Lei nº 13.709, de 14 de agosto de 2018*. Lei Geral de Proteção de Dados Pessoais (LGPD). Disponível em: [https://www.gov.br/lgpd](https://www.gov.br/lgpd). Acesso em: 4 jun. 2025.
-
-ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. *ABNT NBR ISO/IEC 27002:2022 — Tecnologia da informação — Técnicas de segurança — Código de prática para controles de segurança da informação*. Rio de Janeiro, 2022.
-
-
-**DOCUMENTAÇÃO DE FERRAMENTAS**
-
-WIRESHARK. *Documentation*. Disponível em: [https://www.wireshark.org/docs/](https://www.wireshark.org/docs/). Acesso em: 4 jun. 2025.
-
-NAGIOS. *Nagios documentation*. Disponível em: [https://www.nagios.org/documentation/](https://www.nagios.org/documentation/). Acesso em: 4 jun. 2025.
-
-ZABBIX. *Zabbix documentation*. Disponível em: [https://www.zabbix.com/documentation/](https://www.zabbix.com/documentation/). Acesso em: 4 jun. 2025.
-
-PAESSLER. *PRTG network monitor documentation*. Disponível em: [https://www.paessler.com/support](https://www.paessler.com/support). Acesso em: 4 jun. 2025.
-
-
 ## Trabalhos
 
 ### **Grupo 1 – Riscos de Segurança no Monitoramento de Redes**
@@ -239,3 +208,35 @@ PAESSLER. *PRTG network monitor documentation*. Disponível em: [https://www.pae
 * Como instalar e configurar uma das ferramentas (mínimo viável).
 * Diferenças entre agentes e coleta passiva.
 * Casos de uso em empresas ou instituições de ensino.
+
+
+## Referências
+
+**LIVROS**
+
+TANENBAUM, Andrew S.; WETHERALL, David J. *Redes de computadores*. 5. ed. Rio de Janeiro: Pearson, 2011.
+
+KUROSE, James F.; ROSS, Keith W. *Redes de computadores e a internet: uma abordagem top-down*. 6. ed. São Paulo: Pearson, 2017.
+
+FOROUZAN, Behrouz A. *Data communications and networking*. 5th ed. New York: McGraw-Hill, 2012.
+
+MACHADO, Fernando; MAIA, Luiz Paulo. *Segurança de redes*. São Paulo: Novatec, 2014.
+
+
+**LEIS E NORMAS**
+
+BRASIL. *Lei nº 13.709, de 14 de agosto de 2018*. Lei Geral de Proteção de Dados Pessoais (LGPD). Disponível em: [https://www.gov.br/lgpd](https://www.gov.br/lgpd). Acesso em: 4 jun. 2025.
+
+ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. *ABNT NBR ISO/IEC 27002:2022 — Tecnologia da informação — Técnicas de segurança — Código de prática para controles de segurança da informação*. Rio de Janeiro, 2022.
+
+
+**DOCUMENTAÇÃO DE FERRAMENTAS**
+
+WIRESHARK. *Documentation*. Disponível em: [https://www.wireshark.org/docs/](https://www.wireshark.org/docs/). Acesso em: 4 jun. 2025.
+
+NAGIOS. *Nagios documentation*. Disponível em: [https://www.nagios.org/documentation/](https://www.nagios.org/documentation/). Acesso em: 4 jun. 2025.
+
+ZABBIX. *Zabbix documentation*. Disponível em: [https://www.zabbix.com/documentation/](https://www.zabbix.com/documentation/). Acesso em: 4 jun. 2025.
+
+PAESSLER. *PRTG network monitor documentation*. Disponível em: [https://www.paessler.com/support](https://www.paessler.com/support). Acesso em: 4 jun. 2025.
+
