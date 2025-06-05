@@ -6,7 +6,6 @@
 * **Agrupamento de dados**: Agrupa registros para realizar cálculos em grupos de dados, em vez de em registros individuais.
 * **Subconsultas**: Consultas dentro de outra consulta para obter resultados intermediários.
 
----
 
 ## Funções Agregadas e de String
 
@@ -52,7 +51,7 @@ SELECT CONCAT(nome, ' ', sobrenome) AS nome_completo
 FROM cliente;
 ```
 
----
+
 
 ## `GROUP BY`, `HAVING`
 
@@ -85,7 +84,7 @@ HAVING AVG(preco) > 100;
 
 Esse exemplo retorna apenas as categorias onde o preço médio é maior que 100.
 
----
+
 
 ## Subconsultas e Aliases
 
@@ -127,7 +126,7 @@ JOIN categoria c ON p.categoria_id = c.categoria_id;
 
 No exemplo, o alias **`p`** é atribuído à tabela `produto` e **`c`** à tabela `categoria`, tornando a consulta mais concisa.
 
----
+
 
 ## Referências
 
