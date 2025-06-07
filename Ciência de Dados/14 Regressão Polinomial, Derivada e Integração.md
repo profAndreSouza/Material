@@ -66,7 +66,7 @@ plt.grid(True)
 
 
 print("Função Polinomial do Tráfego:")
-print(f"{p[3]:.3f}x³ + {p[2]:.3f}x² + {p[1]:.3f}x + {p[0]:.3f}")
+print(f"{p[3]:.3f}t³ + {p[2]:.3f}t² + {p[1]:.3f}t + {p[0]:.3f}")
 
 ```
 
@@ -86,7 +86,7 @@ dp = np.polyder(p)
 
 # Imprimir a função derivada
 print("Função derivada (Taxa de Variação do Tráfego):")
-print(f"{dp[2]:.3f}x² + {dp[1]:.3f}x + {dp[0]:.3f}")
+print(f"{dp[2]:.3f}t² + {dp[1]:.3f}t + {dp[0]:.3f}")
 
 ```
 
@@ -123,7 +123,7 @@ print(f"Volume acumulado de dados:≈ {integral_total:.2f} GB")
 
 ip = np.polyint(p)
 print("Função Integral do Tráfego (Indefinida):")
-print(f"{ip[4]:.3f}x⁴ + {ip[3]:.3f}x³ + {ip[2]:.3f}x² + {ip[1]:.3f}x + c")
+print(f"{ip[4]:.3f}t⁴ + {ip[3]:.3f}t³ + {ip[2]:.3f}t² + {ip[1]:.3f}t + c")
 
 
 ```
