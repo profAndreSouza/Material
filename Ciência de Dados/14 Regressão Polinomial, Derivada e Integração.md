@@ -72,7 +72,6 @@ print(f"{p[3]:.3f}t³ + {p[2]:.3f}t² + {p[1]:.3f}t + {p[0]:.3f}")
 
 ### 2. Derivada: Taxa de Variação do Tráfego
 
-* A curva verde mostra como o tráfego está **crescendo ao longo do tempo**.
 * A derivada da função é:
 
 $$
