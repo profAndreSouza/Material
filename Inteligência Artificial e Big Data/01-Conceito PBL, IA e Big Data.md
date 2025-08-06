@@ -142,23 +142,7 @@ Para essa primeira atividade prática, vocês terão acesso a um conjunto de dad
    * Descrição: Dados comportamentais e de vendas em um e-commerce, ideal para explorar diferentes perfis de clientes.
    * Também em inglês.
 
-
-## Datasets em português e contexto brasileiro
-
-Encontrar datasets públicos em português e com foco no varejo brasileiro é mais difícil, mas algumas fontes oferecem dados úteis:
-
-* **IBGE - Pesquisa de Orçamentos Familiares (POF)**
-
-  * URL: [https://www.ibge.gov.br/estatisticas/economicas/condicoes-de-vida/9162-pesquisa-de-orcamentos-familiares.html](https://www.ibge.gov.br/estatisticas/economicas/condicoes-de-vida/9162-pesquisa-de-orcamentos-familiares.html)
-  * Descrição: Dados detalhados sobre consumo das famílias brasileiras, podendo ser usados para entender padrões de compra.
-  * Exige trabalho para adaptar e limpar.
-
-* **Kaggle Brasil – Base de dados de vendas de supermercado**
-
-  * Exemplo: [https://www.kaggle.com/datasets/victorsoeiro/supermarket-sales](https://www.kaggle.com/datasets/victorsoeiro/supermarket-sales)
-  * Contém dados de vendas em supermercados no Brasil, com colunas como gênero, faixa etária, produto, quantidade, total da compra e mais.
-
-* **Dados abertos do Governo Brasileiro (dados.gov.br)**
+3. **Dados abertos do Governo Brasileiro (dados.gov.br)**
 
   * URL: [https://dados.gov.br/dataset](https://dados.gov.br/dataset)
   * Possui vários conjuntos de dados que podem incluir dados de comércio, como microdados da Nota Fiscal Eletrônica, que requerem processamento para uso.
