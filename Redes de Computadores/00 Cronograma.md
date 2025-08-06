@@ -30,16 +30,17 @@
 ## Composição da Nota Final
 
 **Fórmula:**  
-`NF = P1 * 0.35 + T * 0.5 + EX * 0.15`
+`NF = P1 * 0.35 + T * 0.5 + EX * 0.15` + SETEC
 
 | Componente                  | Peso  |
 |----------------------------|-------|
 | **P1** – Avaliação Teórica e Prática       | 40%   |
 | **T** – Trabalho com implementação          | 40%   |
 | **EX** – Exercícios feitos em sala de aula | 20%   |
+| **SETEC** - Bônus participação 100% da semana | 1 ponto na média final |
 
 ### Exercícios (Trabalhos)
 
-- ~~T1 - IEEE 802.3~~
-- ~~T2 - Protocolos~~
+- T1 - IEEE 802.3
+- T2 - Protocolos
 - T3 - Segurança
