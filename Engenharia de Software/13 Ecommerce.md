@@ -50,11 +50,10 @@ O projeto será executado utilizando **metodologia SCRUM**, com o aluno desempen
 * **Disponibilidade:** suportar ≥ 50 usuários simultâneos no teste.
 * **Escalabilidade:** arquitetura modular (frontend/backend separados).
 * **Manutenibilidade:** código padronizado e testado.
-* **Portabilidade:** compatível com Linux, preferencialmente via Docker.
 * **Acessibilidade:** contraste adequado e navegação por teclado (mínimo AA).
 * **Compatibilidade:** navegadores modernos e mobile.
 * **Privacidade:** política de privacidade e boas práticas de dados.
-* **Internacionalização:** suporte a pt-BR e possibilidade de multilínguas (opcional).
+* **Internacionalização:** suporte a pt-BR e possibilidade de multilínguas.
 
 
 ## **6. Regras de Negócio**
