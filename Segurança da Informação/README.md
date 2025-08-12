@@ -27,11 +27,12 @@ Compreender e aplicar as melhores práticas de Segurança da Informação de aco
 
 A nota final (**NF**) é calculada da seguinte forma:
 
-$$ \text{NF} = \frac{P1 + P2}{2} + \text{SETEC} $$
+$$ \text{NF} = \frac{P1 + P2}{2} + \text{EX} + \text{SETEC} $$
 
 - **P1:** 1ª Avaliação – 14/10 (cobre aulas 1 a 8)  
 - **P2:** 2ª Avaliação – 02/12 (cobre aulas 11 a 16)  
-- **SETEC:** Bônus de 1 ponto para participação 100% na Semana de Tecnologia (06 a 10 de outubro)  
+- **SETEC:** Bônus de 1 ponto para participação 100% na Semana de Tecnologia (06 a 10 de outubro) 
+- **EX:** Exercícios feitos em aula (2 pontos proporcional a quantidade entregue)  
 - Se **NF < 6**, o aluno fará a **REAVA** (Reavaliação) em 09/12, que substituirá a NF para fins de aprovação.
 
 ## Cronograma de Aulas
@@ -69,4 +70,3 @@ $$ \text{NF} = \frac{P1 + P2}{2} + \text{SETEC} $$
 ### Complementar
 - **NBR/ISSO/IEC 17799**. *Tecnologia da Informação: Código de prática para a gestão da segurança da informação*. Associação Brasileira de Normas Técnicas (ABNT), 2002.  
 - PEIXOTO, M. C. P. *Engenharia Social e Segurança da Informação*. Brasport, 2006.
-```
