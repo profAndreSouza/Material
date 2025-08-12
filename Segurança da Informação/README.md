@@ -27,9 +27,7 @@ Compreender e aplicar as melhores práticas de Segurança da Informação de aco
 
 A nota final (**NF**) é calculada da seguinte forma:
 
-\[
-\text{NF} = \frac{P1 + P2}{2} + \text{SETEC}
-\]
+$$ \text{NF} = \frac{P1 + P2}{2} + \text{SETEC} $$
 
 - **P1:** 1ª Avaliação – 14/10 (cobre aulas 1 a 8)  
 - **P2:** 2ª Avaliação – 02/12 (cobre aulas 11 a 16)  
