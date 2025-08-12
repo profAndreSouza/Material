@@ -31,7 +31,7 @@ $$ \text{NF} = \frac{P1 + P2}{2} + \text{SETEC} $$
 
 - **P1:** 1ª Avaliação – 14/10 (cobre aulas 1 a 8)  
 - **P2:** 2ª Avaliação – 02/12 (cobre aulas 11 a 16)  
-- **SETEC:** Bônus de 1 ponto para participação 100% na Semana de Tecnologia (07/10)  
+- **SETEC:** Bônus de 1 ponto para participação 100% na Semana de Tecnologia (06 a 10 de outubro)  
 - Se **NF < 6**, o aluno fará a **REAVA** (Reavaliação) em 09/12, que substituirá a NF para fins de aprovação.
 
 ## Cronograma de Aulas
@@ -55,7 +55,7 @@ $$ \text{NF} = \frac{P1 + P2}{2} + \text{SETEC} $$
 | 15     | 18/11   | Gestão de Incidentes + Conformidade | Tratamento de incidentes, comunicação, requisitos legais, conformidade e auditoria. (Aulas combinadas para reduzir 1 encontro expositivo) |
 | 16     | 25/11   | Plano de Continuidade de Negócios | Identificação de riscos, elaboração, manutenção e testes.                                     |
 | 17     | 02/12   | 2ª Avaliação                   | Conteúdo das aulas 11 a 16.                                                                  |
-| 18     | 06/12   | Aula de Dúvidas e Revisão Final | Revisão geral, orientações para REAVA.                                                      |
+| 18     | 06/12 (Reposição)   | Aula de Dúvidas e Revisão Final | Revisão geral, orientações para REAVA.                                                      |
 | 19     | 09/12   | REAVA                         | Reavaliação para alunos com média inferior a 6.                                             |
 | 20     | 16/12   | Encerramento                  | Notas e Conceitos Finais.                                                                    |
 
