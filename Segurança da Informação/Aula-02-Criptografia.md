@@ -460,7 +460,7 @@ A criptografia é usada em sistemas de autenticação para proteger credenciais 
 3. **Protocolos Criptográficos**
 
    * **TLS/SSL (Cap. 7 e 8, p. 410–438):** união de simétrica, assimétrica e hash para garantir comunicações seguras.
-   * **HTTPS (Cap. 17, p. 437–438):** aplicação prática que os alunos utilizam diariamente em sites seguros.
+   * **HTTPS (Cap. 17, p. 437–438):** aplicação utilizada diariamente em sites seguros.
 
 4. **Aplicações Reais**
 
@@ -476,7 +476,7 @@ A criptografia é usada em sistemas de autenticação para proteger credenciais 
 * Investigação mostrou que **a criptografia não foi corretamente aplicada** em partes do sistema e que conexões HTTPS estavam mal configuradas.
 * Impactos: roubo de identidades, perda de confiança dos clientes, multas milionárias.
 
-**Questões para Debate (dividir a turma em grupos):**
+**Questões para Debate (em grupos):**
 
 1. **Onde houve falhas de segurança?** – Relacionar com os conceitos estudados (TLS, HTTPS, hash de senhas, gestão de chaves).
 2. **Como a criptografia poderia ter evitado ou reduzido o impacto do ataque?**
@@ -509,15 +509,15 @@ A criptografia é usada em sistemas de autenticação para proteger credenciais 
   * Combina simétrica (dados), assimétrica (troca de chaves, certificados) e hash/HMAC (integridade).
   * Garante que a comunicação cliente-servidor seja segura mesmo em redes inseguras.
   * Base para HTTPS, VPNs SSL, e-mail seguro (S/MIME).
-  * 📖 p. 410–438 — detalhamento do funcionamento do Handshake, Record Protocol e aplicação em HTTPS.&#x20;
+  * 📖 p. 410–438 — detalhamento do funcionamento do Handshake, Record Protocol e aplicação em HTTPS.
 
 * **HTTPS (Cap. 17)**:
 
   * HTTP encapsulado em TLS/SSL, usado no dia a dia em bancos, e-commerce, redes sociais.
   * Exemplo prático: inspeção de certificados digitais em navegadores.
-  * 📖 p. 437–438 — explicação do uso em navegadores e aplicações comerciais.&#x20;
+  * 📖 p. 437–438 — explicação do uso em navegadores e aplicações comerciais.
 
-**Mensagem Final:** protocolos criptográficos são a “ponte” que transforma teoria em prática, levando os algoritmos para a vida real.
+Protocolos criptográficos são a “ponte” que transforma teoria em prática, levando os algoritmos para a vida real.
 
 
 ### **6.3 Indicação de Leitura Complementar**
@@ -528,5 +528,3 @@ Para aprofundamento e reforço dos conceitos, recomenda-se:
 * **Cap. 7–8:** TLS/SSL (arquitetura, handshake, protocolos auxiliares).
 * **Cap. 9:** Criptografia Assimétrica (RSA, ElGamal, ECC).
 * **Cap. 11:** Funções de Hash (SHA, MD5, propriedades e usos).
-
-📚 Essas seções cobrem **a base conceitual + aplicações práticas**, preparando os alunos para entender implementações modernas em segurança de redes.
