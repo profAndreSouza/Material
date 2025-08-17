@@ -5,7 +5,7 @@
 ### **1.1 Importância da Criptografia para a Segurança da Informação**
 
 A comunicação em redes abertas, como a Internet, está sujeita a diversos tipos de ataques: escuta clandestina (*eavesdropping*), adulteração de mensagens, falsificação de identidade e negação de autoria.
-A **criptografia** surge como ferramenta fundamental para mitigar esses riscos, fornecendo mecanismos de proteção tanto para **dados em trânsito** (e.g., transmissão de senhas, transações financeiras) quanto para **dados em repouso** (e.g., armazenamento em bancos de dados e dispositivos móveis).
+A **criptografia** é a principal ferramenta para mitigar esses riscos, fornecendo proteção tanto para **dados em trânsito** (e.g., transmissão de senhas, transações financeiras) quanto para **dados em repouso** (e.g., armazenamento em bancos de dados e dispositivos móveis).
 
 📖 **Referência**: Cap. 1, p. 21–23 — Tanenbaum & Wetherall destacam a necessidade da criptografia como componente essencial da segurança em redes de computadores, reforçando que ela viabiliza comunicação segura mesmo em ambientes hostis.
 
@@ -443,17 +443,90 @@ A criptografia é usada em sistemas de autenticação para proteger credenciais 
 * 📖 **Referência**: Cap. 8, p. 268–272 — seção sobre protocolos de autenticação (Kerberos, certificados).
 
 
+# **5. Conclusão e Atividade**
 
-## **5. Atividade em Sala (remover e trocar por estudo de caso)**
+### **5.1 Síntese Final da Aula**
 
-1. **Exercício prático**:
-   * Alunos gerar hashes com `sha256sum` (Linux) ou Python.
-   * Criptografar/Descriptografar um texto usando **AES** (via biblioteca Python `cryptography`).
-2. **Discussão**: vantagens e limitações de cada tipo de criptografia em diferentes cenários.
+1. **Importância da Criptografia**
+
+   * Base da segurança da informação: protege **confidencialidade, integridade, autenticação e não repúdio** (Cap. 1, p. 23–24).
+
+2. **Tipos de Criptografia**
+
+   * **Simétrica (Cap. 2, p. 34–38):** rápida e eficiente, usada para grandes volumes de dados (ex.: AES).
+   * **Assimétrica (Cap. 9, p. 292–298):** resolve a distribuição de chaves e permite assinaturas digitais (ex.: RSA, ECC).
+   * **Funções de Hash (Cap. 11, p. 371–380):** resumos de integridade e base para autenticação (ex.: SHA-2).
+
+3. **Protocolos Criptográficos**
+
+   * **TLS/SSL (Cap. 7 e 8, p. 410–438):** união de simétrica, assimétrica e hash para garantir comunicações seguras.
+   * **HTTPS (Cap. 17, p. 437–438):** aplicação prática que os alunos utilizam diariamente em sites seguros.
+
+4. **Aplicações Reais**
+
+   * VPNs (p. 273–275), E-mails seguros (p. 281–284), Autenticação (p. 268–272), Blockchain (hash + ECC, p. 371–380 e 308–310).
+   * Conexão entre teoria e prática no cotidiano (bancos, e-commerce, redes sociais, sistemas corporativos).
 
 
-## **6. Encerramento e Revisão (20 min)**
+### **5.2 Estudo de Caso com Debate em Sala**
 
-* Comparação dos três tipos de criptografia.
-* Reforço da importância dos protocolos na proteção de dados em trânsito.
-* Indicação de leitura complementar no livro (Cap. 2, 7, 8, 9 e 11).
+**Caso Real: Vazamento de Dados da Equifax (2017)**
+
+* Uma das maiores agências de crédito dos EUA sofreu um vazamento que expôs dados de **147 milhões de pessoas**.
+* Investigação mostrou que **a criptografia não foi corretamente aplicada** em partes do sistema e que conexões HTTPS estavam mal configuradas.
+* Impactos: roubo de identidades, perda de confiança dos clientes, multas milionárias.
+
+**Questões para Debate (dividir a turma em grupos):**
+
+1. **Onde houve falhas de segurança?** – Relacionar com os conceitos estudados (TLS, HTTPS, hash de senhas, gestão de chaves).
+2. **Como a criptografia poderia ter evitado ou reduzido o impacto do ataque?**
+3. **Que boas práticas as empresas devem adotar para proteger dados sensíveis?**
+4. **Como equilibrar segurança, custo e usabilidade em sistemas que lidam com milhões de usuários?**
+
+**Objetivo do Debate:**
+
+* Estimular pensamento crítico sobre a aplicação real dos conceitos aprendidos.
+* Mostrar que criptografia não é apenas matemática ou teoria, mas **fator estratégico para negócios e proteção de pessoas**.
+
+
+# **6. Encerramento e Revisão**
+
+
+### **6.1 Comparação dos Três Tipos de Criptografia**
+
+| Tipo            | Definição                                  | Exemplos                                | Vantagens                                                     | Desvantagens                                       | Aplicações                                                            |
+| --------------- | ------------------------------------------ | --------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------- | --------------------------------------------------------------------- |
+| **Simétrica**   | Mesma chave para cifrar/decifrar.          | DES, 3DES, AES, RC4                     | Rápida, ideal para grandes volumes.                           | Distribuição de chaves é problemática.             | Criptografia de discos (BitLocker, VeraCrypt), VPNs.                  |
+| **Assimétrica** | Par de chaves (pública/privada).           | RSA, ElGamal, ECC                       | Resolve distribuição de chaves, suporta assinaturas digitais. | Mais lenta, pouco eficiente para grandes volumes.  | Certificados digitais, assinatura eletrônica, troca de chaves em TLS. |
+| **Hash**        | Função unidirecional que gera resumo fixo. | MD5 (obsoleto), SHA-1 (obsoleto), SHA-2 | Integridade, efeito avalanche, resistência a colisões.        | Vulnerabilidade se algoritmo estiver comprometido. | Verificação de integridade, armazenamento de senhas, blockchain.      |
+
+* 📖 **Referências**: Cap. 2 (p. 34–38), Cap. 9 (p. 292–298), Cap. 11 (p. 371–380).
+
+### **6.2 Reforço da Importância dos Protocolos na Proteção de Dados em Trânsito**
+
+* **TLS/SSL (Cap. 7 e 8)**:
+
+  * Combina simétrica (dados), assimétrica (troca de chaves, certificados) e hash/HMAC (integridade).
+  * Garante que a comunicação cliente-servidor seja segura mesmo em redes inseguras.
+  * Base para HTTPS, VPNs SSL, e-mail seguro (S/MIME).
+  * 📖 p. 410–438 — detalhamento do funcionamento do Handshake, Record Protocol e aplicação em HTTPS.&#x20;
+
+* **HTTPS (Cap. 17)**:
+
+  * HTTP encapsulado em TLS/SSL, usado no dia a dia em bancos, e-commerce, redes sociais.
+  * Exemplo prático: inspeção de certificados digitais em navegadores.
+  * 📖 p. 437–438 — explicação do uso em navegadores e aplicações comerciais.&#x20;
+
+**Mensagem Final:** protocolos criptográficos são a “ponte” que transforma teoria em prática, levando os algoritmos para a vida real.
+
+
+### **6.3 Indicação de Leitura Complementar**
+
+Para aprofundamento e reforço dos conceitos, recomenda-se:
+
+* **Cap. 2:** Criptografia Simétrica (DES, 3DES, AES, RC4).
+* **Cap. 7–8:** TLS/SSL (arquitetura, handshake, protocolos auxiliares).
+* **Cap. 9:** Criptografia Assimétrica (RSA, ElGamal, ECC).
+* **Cap. 11:** Funções de Hash (SHA, MD5, propriedades e usos).
+
+📚 Essas seções cobrem **a base conceitual + aplicações práticas**, preparando os alunos para entender implementações modernas em segurança de redes.
