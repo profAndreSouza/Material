@@ -498,7 +498,7 @@ Segundo Tanenbaum, Feamster e Wetherall (2021, p. 65), a escolha do meio de tran
 
 
 
-📖 **Leitura complementar recomendada:**
+## Leitura complementar recomendada:
 
 * TANENBAUM, A. S.; FEAMSTER, N.; WETHERALL, D. J. *Redes de Computadores*. 6. ed. São Paulo: Grupo A, 2021.
   * O papel da camada física (pp. 39–41).
