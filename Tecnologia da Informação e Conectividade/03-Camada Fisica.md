@@ -90,7 +90,7 @@ O **par trançado** é formado por pares de fios de cobre entrelaçados, de form
 * Suscetível a interferências eletromagnéticas, principalmente em UTP.
 * Distância máxima: geralmente 100 metros sem repetição de sinal.
 
-💡 *Exemplo prático:* A maior parte das redes corporativas utiliza cabos **UTP Cat6** para conexões entre computadores e switches.
+*Exemplo prático:* A maior parte das redes corporativas utiliza cabos **UTP Cat6** para conexões entre computadores e switches.
 
 
 #### b) Cabo Coaxial
@@ -125,7 +125,7 @@ Essa estrutura oferece **boa imunidade a interferências externas** e permite tr
 * Menos flexível, mais difícil de instalar.
 * Hoje substituído por fibra óptica em redes modernas.
 
-💡 *Exemplo prático:* A conexão de **TV por assinatura** e **internet a cabo** ainda utiliza coaxial em muitas residências.
+*Exemplo prático:* A conexão de **TV por assinatura** e **internet a cabo** ainda utiliza coaxial em muitas residências.
 
 #### c) Fibra Óptica
 
@@ -163,7 +163,7 @@ A **fibra óptica** transmite sinais por meio de **pulsos de luz**, usando laser
 * Requer equipamentos específicos (transceptores ópticos, conectores de precisão).
 * Fibra é mais frágil que cabos metálicos.
 
-💡 *Exemplo prático:* A tecnologia **FTTH (Fiber to the Home)** leva fibra óptica diretamente à residência, permitindo conexões de **300 Mbps até 1 Gbps** ou mais.
+*Exemplo prático:* A tecnologia **FTTH (Fiber to the Home)** leva fibra óptica diretamente à residência, permitindo conexões de **300 Mbps até 1 Gbps** ou mais.
 
 
 
@@ -202,7 +202,7 @@ Esses meios podem operar em diferentes **faixas de frequência**, variando de **
 * Suscetíveis a **interferências** (outros dispositivos, micro-ondas, paredes).
 * Segurança: sinais podem ser interceptados sem contato físico.
 
-💡 *Exemplo prático:* redes Wi-Fi domésticas utilizam ondas de rádio para conectar notebooks e celulares ao roteador sem cabos.
+*Exemplo prático:* redes Wi-Fi domésticas utilizam ondas de rádio para conectar notebooks e celulares ao roteador sem cabos.
 
 
 
@@ -227,7 +227,7 @@ Esses meios podem operar em diferentes **faixas de frequência**, variando de **
 * Requer torres altas e alinhamento preciso.
 * A transmissão pode ser afetada por condições atmosféricas (chuva forte, neblina).
 
-💡 *Exemplo prático:* operadoras de telefonia usam micro-ondas para conectar torres de celular em áreas onde a fibra ainda não chegou.
+*Exemplo prático:* operadoras de telefonia usam micro-ondas para conectar torres de celular em áreas onde a fibra ainda não chegou.
 
 
 
@@ -258,7 +258,7 @@ Esses meios podem operar em diferentes **faixas de frequência**, variando de **
 * Custo alto de lançamento e manutenção.
 * Dependência de condições climáticas (chuva intensa pode degradar o sinal).
 
-💡 *Exemplo prático:* a internet via **Starlink** usa satélites em órbita baixa para oferecer conexões rápidas em regiões rurais, com latência comparável à da fibra óptica.
+*Exemplo prático:* a internet via **Starlink** usa satélites em órbita baixa para oferecer conexões rápidas em regiões rurais, com latência comparável à da fibra óptica.
 
 
 
@@ -305,7 +305,7 @@ Essa tecnologia é a base de redes modernas, desde conexões **Wi-Fi domésticas
 * Alcance limitado (\~30 m em ambientes internos).
 * Segurança depende de protocolos (WPA2, WPA3).
 
-💡 *Exemplo prático:* redes domésticas e empresariais usam Wi-Fi como substituto ao cabeamento, permitindo conectar diversos dispositivos móveis.
+*Exemplo prático:* redes domésticas e empresariais usam Wi-Fi como substituto ao cabeamento, permitindo conectar diversos dispositivos móveis.
 
 
 
@@ -331,7 +331,7 @@ Essa tecnologia é a base de redes modernas, desde conexões **Wi-Fi domésticas
 * Baixa taxa de transmissão (até 2 Mbps no Bluetooth clássico, 50 Mbps no 5.0).
 * Alcance reduzido.
 
-💡 *Exemplo prático:* conectar fones sem fio ao celular para chamadas ou música.
+*Exemplo prático:* conectar fones sem fio ao celular para chamadas ou música.
 
 
 
@@ -361,7 +361,7 @@ Essa tecnologia é a base de redes modernas, desde conexões **Wi-Fi domésticas
 * Dependência da infraestrutura das operadoras.
 * Frequências mais altas (mmWave) têm alcance menor e exigem mais antenas.
 
-💡 *Exemplo prático:* o 5G já permite **jogos em nuvem (cloud gaming)** sem lag perceptível, além de viabilizar **carros conectados**.
+*Exemplo prático:* o 5G já permite **jogos em nuvem (cloud gaming)** sem lag perceptível, além de viabilizar **carros conectados**.
 
 
 
@@ -387,7 +387,7 @@ Essa tecnologia é a base de redes modernas, desde conexões **Wi-Fi domésticas
 * Alcance extremamente limitado.
 * Taxas de transmissão muito baixas.
 
-💡 *Exemplo prático:* pagar compras aproximando o cartão ou celular da maquininha.
+*Exemplo prático:* pagar compras aproximando o cartão ou celular da maquininha.
 
 
 
@@ -431,7 +431,7 @@ Segundo Tanenbaum, Feamster e Wetherall (2021, p. 65), a escolha do meio de tran
 * Menor flexibilidade (requer cabeamento fixo).
 * Instalação e manutenção podem ser complexas.
 
-💡 *Exemplo prático:* interconexão de servidores em **data centers** utiliza predominantemente **fibra óptica** para garantir alta velocidade e baixa latência.
+*Exemplo prático:* interconexão de servidores em **data centers** utiliza predominantemente **fibra óptica** para garantir alta velocidade e baixa latência.
 
 
 
@@ -454,7 +454,7 @@ Segundo Tanenbaum, Feamster e Wetherall (2021, p. 65), a escolha do meio de tran
 * Alcance limitado em alguns padrões (Wi-Fi, Bluetooth, NFC).
 * Qualidade variável: dependente de obstáculos, distância e congestionamento do espectro.
 
-💡 *Exemplo prático:* o **Wi-Fi** permite rápida instalação em residências e empresas, mas sofre interferência de paredes e de outros roteadores próximos.
+*Exemplo prático:* o **Wi-Fi** permite rápida instalação em residências e empresas, mas sofre interferência de paredes e de outros roteadores próximos.
 
 
 
@@ -474,8 +474,88 @@ Segundo Tanenbaum, Feamster e Wetherall (2021, p. 65), a escolha do meio de tran
 
 
 
+## 3. Parte Teórica- Codificação e Multiplexação
 
-## 3. Parte Prática – Packet Tracer
+### 3.1 Codificação de Sinais (pp. 60–64)
+
+A **codificação de sinais digitais** define como os bits (0 e 1) são representados eletricamente ou opticamente durante a transmissão. A escolha do esquema de codificação impacta diretamente em **sincronização, consumo de banda, detecção de erros e imunidade a ruídos**.
+
+#### Principais métodos:
+
+##### NRZ (Non-Return to Zero)
+
+* Representa 1 como nível alto e 0 como nível baixo (ou vice-versa).
+* Simples, mas pode gerar longas sequências de bits iguais → **perda de sincronização**.
+* Usado em transmissões de baixo custo e curtas distâncias.
+
+##### NRZI (Non-Return to Zero Inverted)
+
+* O bit **1** é representado por uma **mudança de nível**; o bit **0**, por **manter o nível**.
+* Reduz o problema de sincronização em longas sequências de 1s ou 0s.
+* Utilizado em tecnologias como **USB** e **SONET/SDH**.
+
+##### Manchester
+
+* Cada bit é representado por uma **transição no meio do intervalo de tempo**.
+* 0 = transição de alto para baixo; 1 = transição de baixo para alto (ou vice-versa, dependendo do padrão).
+* Excelente para sincronização, porém consome **o dobro da largura de banda**.
+* Usado em **Ethernet 10BASE-T**.
+
+
+#### Comparativo dos Métodos de Codificação
+
+| Método         | Vantagens                                          | Desvantagens                                                       | Aplicações Típicas            |
+| -------------- | -------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------- |
+| **NRZ**        | Simplicidade; baixo custo de implementação         | Problemas de sincronização em sequências longas; sensível a ruídos | RS-232, links seriais simples |
+| **NRZI**       | Boa sincronização; reduz redundância de transições | Ainda pode falhar em sequências específicas de bits                | USB, SONET/SDH                |
+| **Manchester** | Sincronização confiável; fácil detecção de erros   | Consome o dobro da largura de banda; maior custo                   | Ethernet 10BASE-T, RFID       |
+
+
+### 3.2 Modulação e Multiplexação de Sinais  (pp. 58–64)
+
+A transmissão de dados digitais através de meios físicos exige técnicas que permitam **adaptar os sinais** ao meio e, em muitos casos, **otimizar a utilização da largura de banda disponível**. As principais técnicas são a **modulação** e a **multiplexação**.
+
+#### a) Modulação de Sinais
+
+A **modulação** é o processo de converter um **sinal digital** (sequência de bits) em um **sinal analógico** adequado para o meio de transmissão (cabo de cobre, rádio, fibra óptica). Isso é feito alterando propriedades de uma **onda portadora** (geralmente senoidal).
+
+Principais tipos de modulação:
+
+* **ASK (Amplitude Shift Keying)** – a amplitude da portadora varia conforme os bits (1 → amplitude alta, 0 → amplitude baixa).
+* **FSK (Frequency Shift Keying)** – a frequência da portadora varia (bit 1 → frequência f1, bit 0 → frequência f0).
+* **PSK (Phase Shift Keying)** – a fase da portadora é alterada de acordo com os bits transmitidos.
+* **QAM (Quadrature Amplitude Modulation)** – combinação de amplitude + fase, permitindo transmitir **vários bits por símbolo**.
+
+*Exemplo prático:* modens ADSL e cabos de TV a cabo utilizam **QAM** para transmitir grandes quantidades de dados em meios limitados.
+
+
+#### b) Multiplexação
+
+A **multiplexação** permite que **vários sinais** compartilhem o mesmo meio físico de transmissão, aumentando a eficiência da rede.
+
+Principais técnicas:
+
+* **FDM (Frequency Division Multiplexing)** – divide a largura de banda em canais de **frequências diferentes**.
+
+  * Exemplo: transmissões de rádio FM, onde cada estação ocupa uma faixa de frequência distinta.
+
+* **TDM (Time Division Multiplexing)** – divide o meio em **intervalos de tempo**, cada usuário transmite em seu "slot".
+
+  * Exemplo: telefonia digital (E1/T1), onde cada chamada ocupa um intervalo de tempo fixo.
+
+* **WDM (Wavelength Division Multiplexing)** – variante do FDM para **fibra óptica**, onde cada canal usa um **comprimento de onda** diferente da luz.
+
+  * Exemplo: enlaces de longa distância de operadoras, que transmitem dezenas de canais em uma única fibra.
+
+* **CDM (Code Division Multiplexing)** – cada usuário tem um **código exclusivo** para modular o sinal, permitindo transmissão simultânea.
+
+  * Exemplo: tecnologia 3G celular (CDMA).
+
+*Exemplo prático:* em redes de fibra óptica, o **WDM** permite que provedores transmitam **internet, TV e telefonia** na mesma fibra, em diferentes comprimentos de onda.
+
+
+
+## 4. Parte Prática – Packet Tracer
 
 ### Atividade 1: Montagem de Rede Simples
 
@@ -491,7 +571,7 @@ Segundo Tanenbaum, Feamster e Wetherall (2021, p. 65), a escolha do meio de tran
 
 * Simular **fibra óptica** e comparar latência em topologia maior.
 
-## 4. Encerramento e Discussão
+## 5. Encerramento e Discussão
 
 * Revisão dos tipos de meios de transmissão.
 * Debate em grupo: *“Qual seria o meio físico mais adequado para redes industriais, residenciais e de longa distância?”*
