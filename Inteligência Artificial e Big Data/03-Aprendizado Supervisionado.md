@@ -163,6 +163,7 @@ Esse dataset contém transações de uma loja de e-commerce no Reino Unido entre
 
 Para esta aula, vamos focar em criar uma variável-alvo simplificada: **se o cliente voltará a comprar em até 30 dias (1) ou não (0)**, baseada no histórico de transações.
 
+**Arquivo usado em aula:** [https://colab.research.google.com/drive/1lwXe7l-PS1kDpDiJwT7nNa6OH9nfn6Eh?usp=sharing](https://colab.research.google.com/drive/1lwXe7l-PS1kDpDiJwT7nNa6OH9nfn6Eh?usp=sharing)
 
 #### **Bloco 1 – Importação de bibliotecas**
 
