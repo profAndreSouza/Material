@@ -1,6 +1,6 @@
 # **Aula 3 – Aprendizado Supervisionado**
 
-## **1. Contextualização Inicial (5–10 min)**
+## **1. Contextualização Inicial**
 
 Na última aula, tratamos e preparamos o dataset da empresa de varejo. Agora chegamos ao momento de **modelar** os dados para prever o comportamento dos clientes.
 
