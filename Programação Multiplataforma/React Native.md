@@ -46,9 +46,16 @@ Antes de começar, você precisa ter instalado:
    cd mobile
    ```
 
-3. **Inicie o servidor de desenvolvimento**:
+3. **Instale as dependências**:
+   ```bash
+   npx expo install react-dom react-native-web @expo/metro-runtime
+   ```
+
+4. **Inicie o servidor de desenvolvimento**:
    ```bash
    npx expo start
    ```
    Isso abrirá o **Expo DevTools** no seu navegador. Escaneie o QR code com o aplicativo **Expo Go** no seu dispositivo móvel para visualizar o app.
+
+
 
