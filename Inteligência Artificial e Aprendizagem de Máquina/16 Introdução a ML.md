@@ -131,8 +131,184 @@ Esse tipo de aprendizado é o mais utilizado na prática (regressão, classifica
 
 ## Prática no Colab (Python)
 
+Arquivo (Colab)[https://colab.research.google.com/drive/15YVb9Wxfy40IIRlHPDER9lFbuET2X1QG]
+
 ```python
 
+
+import math
+import random
+import numpy as np
+import matplotlib.pyplot as plt
+
+def sigmoid(x):
+    return 1 / (1 + math.exp(-x))
+
+def sigmoid_deriv(x):
+    return x * (1 - x)
+
+def normalizar_idade(idade):
+    return (idade - 18) / (80 - 18)
+
+idades = [i for i in range(18, 81)]
+seguros = [(i - 50)**2 + 200 + random.uniform(-50, 50) for i in idades]
+
+plt.scatter(idades, seguros, color="blue")
+plt.title("Valor do Seguro por Idade")
+plt.show()
+
+# Normalizar a entrada e a saída
+X = [[normalizar_idade(i)] for i in idades]
+y = [[(s - min(seguros)) / (max(seguros) - min(seguros))] for s in seguros]
+
+# Inicialização da rede
+
+input_neurons = 1     # idade
+hidden_neurons = 5    # 5 neurônios na camada oculta
+output_neurons = 1    # valor previsto
+
+# Pesos e bias aleatórios
+w_input_hidden = [[random.uniform(-1, 1) for _ in range(hidden_neurons)] for _ in range(input_neurons)]
+w_hidden_output = [[random.uniform(-1, 1)] for _ in range(hidden_neurons)]
+
+bias_hidden = [random.uniform(-1, 1) for _ in range(hidden_neurons)]
+bias_output = [random.uniform(-1, 1) for _ in range(output_neurons)]
+
+## PRÓXIMA AULA CONTINUAMOS DAQUI
+
+# Taxa de aprendizado
+lr = 0.1
+epoch = 5000
+
+# Treinamento
+
+for epoch in range(epoch):  # número de épocas
+    total_error = 0
+    for i in range(len(X)):
+        # Forward pass ----------------
+        entrada = X[i]
+
+        # Camada oculta
+        hidden_input = [0] * hidden_neurons
+        hidden_output = [0] * hidden_neurons
+        for j in range(hidden_neurons):
+            hidden_input[j] = sum(entrada[k] * w_input_hidden[k][j] for k in range(input_neurons)) + bias_hidden[j]
+            hidden_output[j] = sigmoid(hidden_input[j])
+
+        # Camada de saída
+        final_input = [0] * output_neurons
+        final_output = [0] * output_neurons
+        for j in range(output_neurons):
+            final_input[j] = sum(hidden_output[k] * w_hidden_output[k][j] for k in range(hidden_neurons)) + bias_output[j]
+            final_output[j] = sigmoid(final_input[j])
+
+        # Calcular erro ----------------
+        erro = [y[i][j] - final_output[j] for j in range(output_neurons)]
+        total_error += sum(e**2 for e in erro)
+
+        # Backpropagation --------------
+        # Saída -> oculto
+        d_output = [erro[j] * sigmoid_deriv(final_output[j]) for j in range(output_neurons)]
+
+        # Oculto -> entrada
+        d_hidden = [0] * hidden_neurons
+        for j in range(hidden_neurons):
+            d_hidden[j] = sum(d_output[k] * w_hidden_output[j][k] for k in range(output_neurons)) * sigmoid_deriv(hidden_output[j])
+
+        # Atualizar pesos saída -> oculto
+        for j in range(hidden_neurons):
+            for k in range(output_neurons):
+                w_hidden_output[j][k] += lr * d_output[k] * hidden_output[j]
+
+        for j in range(output_neurons):
+            bias_output[j] += lr * d_output[j]
+
+        # Atualizar pesos entrada -> oculto
+        for j in range(input_neurons):
+            for k in range(hidden_neurons):
+                w_input_hidden[j][k] += lr * d_hidden[k] * entrada[j]
+
+        for j in range(hidden_neurons):
+            bias_hidden[j] += lr * d_hidden[j]
+
+    # Mostrar erro a cada 500 épocas
+    if epoch % 500 == 0:
+        print(f"Época {epoch}, Erro Total: {total_error:.4f}")
+
+# Teste da rede
+
+def prever(idade):
+    entrada = [normalizar_idade(idade)]
+
+    # Camada oculta
+    hidden_output = [0] * hidden_neurons
+    for j in range(hidden_neurons):
+        soma = sum(entrada[k] * w_input_hidden[k][j] for k in range(input_neurons)) + bias_hidden[j]
+        hidden_output[j] = sigmoid(soma)
+
+    # Camada saída
+    final_output = [0] * output_neurons
+    for j in range(output_neurons):
+        soma = sum(hidden_output[k] * w_hidden_output[k][j] for k in range(hidden_neurons)) + bias_output[j]
+        final_output[j] = sigmoid(soma)
+
+    # Desnormalizar saída
+    return final_output[0] * (max(seguros) - min(seguros)) + min(seguros)
+
+# Testando previsões
+for idade in [18, 30, 50, 70, 80]:
+    print(f"Idade: {idade}, Seguro Previsto: {prever(idade):.2f}")
+
+# Dataset ideal (sem ruído)
+seguros_ideal = [(i - 50)**2 + 200 for i in idades]
+
+# Idades para previsão (menos pontos)
+idades_prev = list(range(18, 81, 5))
+seguros_previstos = [prever(i) for i in idades_prev]
+
+# Curva suave da rede neural
+idades_suave = np.linspace(18, 80, 300)
+seguros_suave = [prever(i) for i in idades_suave]
+
+# Criar figura e subplots 2x2
+fig, axs = plt.subplots(2, 2, figsize=(12, 10))
+
+# Gráfico 1: apenas pontos azuis do dataset original
+axs[0, 0].scatter(idades, seguros, color='blue')
+axs[0, 0].set_title("Dataset Original (com ruído)")
+axs[0, 0].set_xlabel("Idade")
+axs[0, 0].set_ylabel("Valor do Seguro")
+axs[0, 0].grid(True)
+
+# Gráfico 2: dataset ideal e curva vermelha sobreposta
+axs[0, 1].scatter(idades, seguros_ideal, color='orange', label='Dataset Ideal')
+axs[0, 1].plot(idades_suave, seguros_suave, color='red', linewidth=2, label='Curva Rede Neural')
+axs[0, 1].set_title("Dataset Ideal + Curva Rede Neural")
+axs[0, 1].set_xlabel("Idade")
+axs[0, 1].set_ylabel("Valor do Seguro")
+axs[0, 1].legend()
+axs[0, 1].grid(True)
+
+# Gráfico 3: curva vermelha e dados previstos (poucas idades)
+axs[1, 0].plot(idades_suave, seguros_suave, color='red', linewidth=2, label='Curva Rede Neural')
+axs[1, 0].scatter(idades_prev, seguros_previstos, color='green', label='Valores Previsto')
+axs[1, 0].set_title("Curva Rede Neural + Previsões")
+axs[1, 0].set_xlabel("Idade")
+axs[1, 0].set_ylabel("Valor do Seguro")
+axs[1, 0].legend()
+axs[1, 0].grid(True)
+
+# Gráfico 4: dataset original e pontos previstos
+axs[1, 1].scatter(idades, seguros, color='blue', label='Dataset Original')
+axs[1, 1].scatter(idades_prev, seguros_previstos, color='green', label='Valores Previsto')
+axs[1, 1].set_title("Dataset Original + Previsões")
+axs[1, 1].set_xlabel("Idade")
+axs[1, 1].set_ylabel("Valor do Seguro")
+axs[1, 1].legend()
+axs[1, 1].grid(True)
+
+plt.tight_layout()
+plt.show()
 
 ```
 
