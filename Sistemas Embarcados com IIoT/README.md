@@ -121,8 +121,8 @@ Este repositório reúne conteúdos e materiais didáticos relacionados à disci
 
 | Aula | Teoria                                | Prática                                             | Entregáveis                 |
 | ---- | ------------------------------------- | --------------------------------------------------- | --------------------------- |
-| 1    | GPIO (tipos de conexão, I2C)          | Exercícios básicos no ESP32                         | Pesquisa sobre interrupções |
-| 2    | Interrupções                          | Revisão prática em simulação                        | Resumo em duplas            |
+| 1    | GPIO (tipos de conexão, I2C)          |                                                     | Pesquisa sobre interrupções |
+| 2    | Interrupções                          |                                                     | Resumo em duplas            |
 | 3    | Mapeamento de periféricos             | Identificação de motores e sensores da empilhadeira | Levantamento de componentes |
 | 4    | Microprocessador, oscilador e memória | Planejamento da pinagem GPIO                        | Tabela de pinagem           |
 | 5    | Interfaceamento eletrônico            | Teste de acionamento de motores no ESP32            | Registro em diário de bordo |
