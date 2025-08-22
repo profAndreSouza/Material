@@ -6,9 +6,7 @@
 * Introduzir o conceito de **mapeamento de periféricos** internos e externos no ESP32.
 * Realizar o **levantamento prático** dos periféricos da empilhadeira 3D (motores, sensores, atuadores) e planejar o uso das GPIOs.
 
-## Parte Teórica
-
-### 1. Revisão Rápida de GPIO
+## 1. Revisão Rápida de GPIO
 
 * **Entrada** → sensores, botões, sinais digitais.
 * **Saída** → LEDs, motores, relés.
@@ -17,7 +15,7 @@
 **Dica para alunos:** nem todos os pinos do ESP32 suportam todas as funções. Sempre verificar o **datasheet**.
 
 
-### 2. Mapeamento de Periféricos
+## 2. Mapeamento de Periféricos
 
 * **Periféricos Internos**:
 
@@ -49,9 +47,7 @@
 | LED indicador       | Saída digital         | GPIO 2              | Status do sistema     |
 
 
-## Parte Prática
-
-### Atividade: Levantamento dos periféricos da empilhadeira
+## Atividade: Levantamento dos periféricos da empilhadeira
 
 1. **Dividir em duplas** (mesmas do projeto).
 2. **Observar a empilhadeira física** e identificar:
@@ -63,7 +59,7 @@
 4. **Criar um primeiro esboço da tabela de mapeamento** (GPIO vs Componente).
 
 
-## 📑 Entregável da Aula
+## Entregável da Aula
 
 * Cada dupla deve entregar **uma tabela inicial de mapeamento de periféricos** da empilhadeira.
 * Esta tabela será **base para o planejamento do código** e evolução do projeto.
