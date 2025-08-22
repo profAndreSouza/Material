@@ -511,7 +511,7 @@ A **codificação de sinais digitais** define como os bits (0 e 1) são represen
 | **Manchester** | Sincronização confiável; fácil detecção de erros   | Consome o dobro da largura de banda; maior custo                   | Ethernet 10BASE-T, RFID       |
 
 
-### 3.2 Modulação e Multiplexação de Sinais  (pp. 58–64)
+### 3.2 Modulação e Multiplexação de Sinais  (pp. git58–64)
 
 A transmissão de dados digitais através de meios físicos exige técnicas que permitam **adaptar os sinais** ao meio e, em muitos casos, **otimizar a utilização da largura de banda disponível**. As principais técnicas são a **modulação** e a **multiplexação**.
 
