@@ -1,4 +1,6 @@
-# Cronograma de Aulas — 1º Semestre
+# Cronograma de Aulas
+
+## 1º Semestre
 
 | Aula | Data   | Conteúdo                                                              |
 | ---- | ------ | --------------------------------------------------------------------- |
@@ -25,7 +27,33 @@
 | 19   | 11-Jul | REAVA (Recuperação Avaliativa)                                        |
 | 20   | 18-Jul | Encerramento do primeiro semestre                                     |
 
----
+
+## 2º Semestre
+
+| Aula | Data   | Conteúdo                                                               |
+| ---- | ------ | ---------------------------------------------------------------------- |
+| 1    |        | Introdução à Aprendizagem de Máquina (conceitos, tipos de aprendizado) |
+| 2    |        | Preparação de Dados e Pré-Processamento                                |
+| 3    |        | Regressão Linear e Aplicações                                          |
+| 4    |        | Regressão Logística e Classificação Binária                            |
+| 5    |        | Avaliação de Modelos (métricas, overfitting, underfitting)             |
+| 6    |        | Árvores de Decisão e Random Forest                                     |
+| 7    |        | KNN (K-Nearest Neighbors) e Métricas de Distância                      |
+| 8    |        | SVM (Support Vector Machines)                                          |
+| 9    |        | Clustering: K-Means e Agrupamento Hierárquico                          |
+| 10   |        | PCA e Redução de Dimensionalidade                                      |
+| 11   |        | Redes Neurais Artificiais – Introdução                                 |
+| 12   |        | Redes Neurais Profundas (Deep Learning)                                |
+| 13   |        | Redes Convolucionais (CNNs)                                            |
+| 14   |        | Redes Recorrentes (RNNs, LSTM, GRU)                                    |
+| 15   |        | Aprendizado por Reforço                                                |
+| 16   |        | Revisão Geral e Exercícios Integradores                                |
+| 17   |        | Avaliação Final / Apresentação de Trabalhos                            |
+| 18   |        | Semana de Tecnologia                                                   |
+| 19   |        | REAVA (Recuperação Avaliativa)                                         |
+| 20   |        | Encerramento geral                                                     |
+
+
 
 ## Estrutura de Avaliação
 
