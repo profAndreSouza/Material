@@ -296,7 +296,7 @@ flowchart TD
   E -- Sim --> G[Hotfix prioritário]
   F --> H[Implementar correção]
   G --> H
-  H --> I[Testar (unit, integração, regressão)]
+  H --> I[Testar - unit, integração, regressão]
   I --> J{Aprovado?}
   J -- Não --> H
   J -- Sim --> K[Deploy]
