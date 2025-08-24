@@ -93,7 +93,7 @@ Um **processo de software** é o conjunto organizado de atividades, papéis, art
 **Princípios:**
 
 * Visualizar o trabalho (**quadro Kanban**)
-* **Limitar WIP** (trabalho em progresso)
+* **Limitar WIP** (work in progress - trabalho em progresso)
 * Gerir fluxo (métricas como lead time/cycle time)
 * Políticas explícitas, melhoria contínua
 
