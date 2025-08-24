@@ -117,18 +117,18 @@ mindmap
       "Manter e evoluir"
       "Gerenciar qualidade"
     Importância/Objetivos
-      Qualidade
-      Confiabilidade
-      Prazo & Custo
-      Sustentabilidade & Manutenibilidade
-      Reuso & Padronização
+      "Qualidade"
+      "Confiabilidade"
+      "Prazo & Custo"
+      "Sustentabilidade & Manutenibilidade"
+      "Reuso & Padronização"
       "Redução de riscos"
     Desafios
-      Complexidade
+      "Complexidade"
       "Mudança constante"
-      Comunicação
-      Integração de equipes
-      Conformidade/Regulação
+      "Comunicação"
+      "Integração de equipes"
+      "Conformidade/Regulação"
       "Escalabilidade & Segurança"
 ```
 
