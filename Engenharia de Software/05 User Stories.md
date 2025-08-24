@@ -106,8 +106,24 @@ Essa hierarquia facilita o alinhamento entre estratégia de negócio (épicos), 
 
 ```mermaid
 graph TD
-    A[Épico: Digitalizar o processo de pedidos no restaurante] --> B[Feature: Permitir pedidos via totem digital]
-    B --> C1[User Story 1: Selecionar pedido pelo totem]
-    B --> C2[User Story 2: Pagar via Pix ou cartão no totem]
-    B --> C3[User Story 3: Personalizar ingredientes do lanche]
+    %% Épico 1
+    A[Épico 1: Digitalizar o processo de pedidos no restaurante] --> B1[Feature 1.1: Pedidos via totem digital]
+    A --> B2[Feature 1.2: Pagamentos digitais]
+
+    B1 --> C11[User Story 1.1.1: Selecionar pedido no totem]
+    B1 --> C12[User Story 1.1.2: Personalizar ingredientes]
+
+    B2 --> C21[User Story 1.2.1: Pagar via Pix]
+    B2 --> C22[User Story 1.2.2: Pagar via cartão de crédito]
+
+    %% Épico 2
+    D[Épico 2: Gerenciar fluxo de pedidos na cozinha] --> E1[Feature 2.1: Painel de pedidos]
+    D --> E2[Feature 2.2: Controle de preparo]
+
+    E1 --> F11[User Story 2.1.1: Visualizar pedidos em tempo real]
+    E1 --> F12[User Story 2.1.2: Ordenar pedidos por prioridade]
+
+    E2 --> F21[User Story 2.2.1: Marcar pedido como 'em preparo']
+    E2 --> F22[User Story 2.2.2: Marcar pedido como 'concluído']
+
 ```
