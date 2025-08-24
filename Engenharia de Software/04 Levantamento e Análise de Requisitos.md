@@ -127,27 +127,3 @@ A validação garante que os requisitos estejam **claros, completos e consistent
 * **Casos de Uso (UML):** modelagem de atores e interações para validar fluxos.
 * **Revisões com stakeholders:** reuniões de alinhamento.
 * **Modelagem de processos:** uso de diagramas para validar fluxos de negócio.
-
-
-
-## 4.4. Exemplo Visual – Diagrama de Casos de Uso
-
-```mermaid
-graph TD
-    Cliente[Cliente] --> RealizarPedido((Realizar Pedido))
-    Cliente --> PersonalizarPedido((Personalizar Pedido))
-    Cliente --> EfetuarPagamento((Efetuar Pagamento))
-    Cliente --> ConsultarTempo((Consultar Tempo de Preparo))
-
-    Atendente[Atendente] --> AuxiliarPedido((Auxiliar Pedido))
-    Atendente --> ConfirmarEntrega((Confirmar Entrega))
-
-    Administrador[Administrador] --> GerenciarCardapio((Gerenciar Cardápio))
-    Administrador --> GerarRelatorios((Gerar Relatórios))
-```
-
-**Interpretação:**
-
-* O cliente pode realizar, personalizar e pagar o pedido.
-* O atendente apoia quando necessário.
-* O administrador mantém o cardápio e gera relatórios.
