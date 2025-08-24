@@ -133,21 +133,17 @@ A validação garante que os requisitos estejam **claros, completos e consistent
 ## 4.4. Exemplo Visual – Diagrama de Casos de Uso
 
 ```mermaid
-usecaseDiagram
-  actor Cliente
-  actor Atendente
-  actor Administrador
+graph TD
+    Cliente[Cliente] --> RealizarPedido((Realizar Pedido))
+    Cliente --> PersonalizarPedido((Personalizar Pedido))
+    Cliente --> EfetuarPagamento((Efetuar Pagamento))
+    Cliente --> ConsultarTempo((Consultar Tempo de Preparo))
 
-  Cliente --> (Realizar Pedido)
-  Cliente --> (Personalizar Pedido)
-  Cliente --> (Efetuar Pagamento)
-  Cliente --> (Consultar Tempo de Preparo)
+    Atendente[Atendente] --> AuxiliarPedido((Auxiliar Pedido))
+    Atendente --> ConfirmarEntrega((Confirmar Entrega))
 
-  Atendente --> (Auxiliar Pedido)
-  Atendente --> (Confirmar Entrega)
-
-  Administrador --> (Gerenciar Cardápio)
-  Administrador --> (Gerar Relatórios)
+    Administrador[Administrador] --> GerenciarCardapio((Gerenciar Cardápio))
+    Administrador --> GerarRelatorios((Gerar Relatórios))
 ```
 
 **Interpretação:**
