@@ -111,7 +111,7 @@ mindmap
       "Cobre todo o ciclo de vida"
     Papel do Engenheiro
       "Elicitar e analisar requisitos"
-      "Projetar (UML, arquitetura)"
+      "Projetar - UML, arquitetura"
       "Codificar"
       "Testar e validar"
       "Manter e evoluir"
