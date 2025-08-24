@@ -52,16 +52,16 @@
 * Comparação entre casos de uso e user stories
 
 
-### 6. Modelagem de Casos de Uso
+    ### 6. Modelagem de Casos de Uso
 
-* Elementos básicos de um caso de uso
-* Elaboração textual de casos
-* Identificação de atores, fluxos principais e alternativos
-* Representação visual em diagrama UML
+    * Elementos básicos de um caso de uso
+    * Elaboração textual de casos
+    * Identificação de atores, fluxos principais e alternativos
+    * Representação visual em diagrama UML
 
-**Diagramas associados:**
+    **Diagramas associados:**
 
-* Casos de uso (sistema de vendas)
+    * Casos de uso (sistema de vendas)
 
 
 ### 7. Modelagem de Processos e Fluxos
