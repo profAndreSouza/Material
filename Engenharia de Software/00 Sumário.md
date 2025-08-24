@@ -1,4 +1,4 @@
-## Sumário de Conteúdos – 1º Semestre (Totem ADS Burguer)
+## Sumário de Conteúdos 
 
 ### 1. **Fundamentos da Engenharia de Software**
 
