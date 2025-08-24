@@ -1,68 +1,116 @@
-## Sumário de Conteúdos 
-
-### 1. **Fundamentos da Engenharia de Software**
+### 1. Fundamentos da Engenharia de Software
 
 * Conceito de Engenharia de Software
 * Papel do engenheiro de software
 * Importância e objetivos da disciplina
 * Principais desafios no desenvolvimento de software
+* Evolução histórica da disciplina
+
+**Diagramas associados:**
+
+* Mapa mental (visão geral)
+* Fluxograma (ciclo de vida genérico)
 
 
-### 2. **Modelos de Processo de Software**
+### 2. Modelos de Processo de Software
 
+* Definição de processo de software
 * Modelo Cascata
 * Modelo Espiral
 * Modelo de Prototipação
+* Modelos ágeis (Scrum, XP, Kanban – visão introdutória)
 * Comparação entre modelos e aplicações práticas
 
+**Diagramas associados:**
 
-### 3. **Levantamento e Análise de Requisitos**
-
-* Técnicas de levantamento de requisitos (entrevistas, questionários, observação)
-* Análise e interpretação de requisitos
-* Identificação de requisitos funcionais e não funcionais
-* Técnicas de validação e refinamento de requisitos
+* Fluxograma (reaproveitado para ilustrar diferentes ciclos)
 
 
-### 4. **User Stories (Histórias de Usuário)**
+### 3. Engenharia de Requisitos – Introdução
 
-* Estrutura de uma história de usuário: "Como \[tipo de usuário], eu quero \[ação] para \[benefício]"
+* Importância dos requisitos no sucesso do projeto
+* Diferença entre requisitos funcionais e não funcionais
+* Características de bons requisitos (clareza, testabilidade, rastreabilidade)
+
+
+### 4. Levantamento e Análise de Requisitos
+
+* Técnicas de levantamento: entrevistas, questionários, observação, brainstorming
+* Análise e interpretação de requisitos coletados
+* Validação e refinamento com stakeholders
+
+**Diagramas associados:**
+
+* Diagrama de Casos de Uso (UML) para identificar atores e funcionalidades
+
+
+### 5. Especificação de Requisitos com User Stories
+
+* Estrutura de uma história de usuário
 * Critérios de aceitação
-* Revisão e validação colaborativa com stakeholders
+* Revisão colaborativa com stakeholders
+* Comparação entre casos de uso e user stories
 
 
-### 5. **Modelagem de Casos de Uso**
+### 6. Modelagem de Casos de Uso
 
 * Elementos básicos de um caso de uso
-* Elaboração textual e identificação de atores
-* Fluxo principal, alternativos e exceções
-* Diagrama de Casos de Uso (UML)
+* Elaboração textual de casos
+* Identificação de atores, fluxos principais e alternativos
+* Representação visual em diagrama UML
+
+**Diagramas associados:**
+
+* Casos de uso (sistema de vendas)
 
 
-### 6. **Diagramas de Atividades**
+### 7. Modelagem de Processos e Fluxos
 
-* Fluxos de ações
+* Uso de diagramas de atividades para representar workflows
 * Decisões, paralelismo e finalizações
-* Representação visual de processos
-* Uso de atividades na modelagem de requisitos e funcionalidades
+* Complementação com diagramas de sequência para interações dinâmicas
+
+**Diagramas associados:**
+
+* Diagrama de Atividades (tratativa de bug)
+* Diagrama de Sequência (checkout simplificado)
 
 
-### 7. **Arquitetura de Software**
+### 8. Arquitetura de Software
 
-* Conceitos iniciais: propósito, camadas, modularização
-* Esboço de arquitetura de sistemas (visão de alto nível)
-* Boas práticas de estruturação
+* Conceitos: modularização, camadas, padrões arquiteturais
+* Arquitetura lógica x arquitetura física
+* Benefícios da boa arquitetura (manutenibilidade, escalabilidade, desempenho)
+
+**Diagramas associados:**
+
+* Diagrama de Classes (núcleo do domínio de vendas)
+* Diagrama de Estados (ciclo de vida de pedido)
 
 
-### 8. **Projeto de Interfaces e Experiência do Usuário**
+### 9. Projeto de Interfaces e Experiência do Usuário
 
-* Criação de wireframes (rascunhos de telas principais)
+* Conceito de UX e UI no contexto de software
+* Criação de wireframes como ferramenta de prototipação
 * Design centrado no usuário
-* Navegação, usabilidade e consistência
+* Usabilidade, consistência e acessibilidade
 
 
-### 9. **Documentação de Software**
+### 10. Qualidade e Testes de Software
 
-* Objetivo e importância da documentação
-* Modelos simples de documentação técnica
-* Estrutura básica do documento final de projeto
+* Garantia de qualidade de software (QA)
+* Tipos de teste: unitário, integração, sistema, aceitação
+* Automação de testes
+* Métricas de qualidade (defeitos, cobertura, confiabilidade)
+
+
+### 11. Documentação de Software
+
+* Importância da documentação técnica e de usuário
+* Estrutura mínima de documentação de projeto
+* Integração dos diagramas UML como parte da especificação
+* Boas práticas de manutenção documental
+
+**Diagramas associados:**
+
+* Todos os anteriores (casos de uso, atividades, classes, sequência, estados) como parte da documentação formal
