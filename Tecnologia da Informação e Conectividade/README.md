@@ -117,3 +117,141 @@ Este repositório reúne conteúdos e materiais didáticos relacionados à disci
 - LIMA FILHO, Eduardo Corrêa (org.). Fundamentos de redes e cabeamento estruturado. São Paulo: Pearson, 2015.
 - STALLINGS, William. Criptografia e segurança de redes: princípios e práticas. São Paulo: Pearson, 2015.
 - LIMA, Janssen dos Reis. Monitoramento de redes com Zabbix. Rio de Janeiro: Brasport, 2014.
+
+## Cronograma
+
+| Aula   | Tema / Projeto                            | Teoria (breve)                                                    | Prática no Packet Tracer                                                                    |
+| ------ | ----------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| **01** | Introdução à disciplina                   | Plano de ensino, redes no dia a dia                               | —                                                                                           |
+| **02** | Classificação e Modelo OSI                | LAN, MAN, WAN. Topologias. OSI                                    | Identificação de topologias em cenários simples                                             |
+| **03** | Camada Física + Transmissão e Codificação | Meios de transmissão, cabeamento, NRZ, Manchester, simplex/duplex | Montagem de cenários, cabeamento, teste de conectividade e simulação de tráfego             |
+| **04** | **Ethernet Básico**                       | Quadro Ethernet. Endereços MAC                                    | Montar rede simples com PCs + switch e analisar endereços MAC                               |
+| **05** | **Projeto 1 – Escritório Simples**        | Revisão OSI + Ethernet                                            | Criar rede de 5 PCs e 1 switch. Testar ping e tráfego                                       |
+| **06** | VLANs e Segmentação                       | Conceito de VLANs, isolamento lógico                              | Criar 2 VLANs em um switch. Verificar comunicação interna                                   |
+| **07** | **Projeto 2 – Rede com Departamentos**    | VLANs, Trunking                                                   | Montar rede com 2 switches e 2 VLANs + roteador interligando                                |
+| **08** | Endereçamento IPv4                        | Classes, máscaras, subnetting                                     | Configurar IPs em hosts e roteadores (cenário de um prédio)                                 |
+| **09** | **Projeto 3 – Subredes em um Campus**     | Revisão IPv4                                                      | Criar rede com 3 subredes interligadas via roteador                                         |
+| **10** | Roteamento Estático                       | Conceitos de rotas                                                | Configurar rotas estáticas em rede com 3 roteadores                                         |
+| **11** | **Projeto 4 – Rede Intermunicipal**       | Revisão + roteamento estático                                     | Simular matriz e filial conectadas                                                          |
+| **12** | Roteamento Dinâmico                       | RIP, OSPF (básico)                                                | Configurar RIP entre roteadores. Comparar com estático                                      |
+| **13** | **Projeto 5 – Expansão de Rede**          | OSPF + VLANs                                                      | Rede de campus universitário (switching + roteamento dinâmico)                              |
+| **14** | Protocolos de Aplicação                   | TCP x UDP. Protocolos HTTP, DNS, SMTP, SSH                        | Simular servidores Web, DNS e E-mail no Packet Tracer                                       |
+| **15** | **Desafio Final – Rede Completa**         | Revisão geral                                                     | Montar rede com VLANs, roteamento dinâmico + serviços (DNS, Web, Email). Apresentação final |
+
+
+## Projetos – Packet Tracer
+
+
+### **Projeto 1 – Escritório Simples (Aula 05)**
+
+**Contexto:**
+Uma pequena empresa de contabilidade precisa conectar seus 5 computadores em rede para compartilhar arquivos e acessar a internet futuramente.
+
+**Requisitos:**
+
+* Montar a rede com **1 switch** e **5 PCs**.
+* Usar cabeamento correto.
+* Configurar endereços IPv4 em todos os PCs (mesma sub-rede).
+* Testar conectividade com `ping`.
+
+**Critérios de Sucesso:**
+* Todos os PCs se comunicam entre si.
+* Endereços IP corretamente configurados.
+* Cabeamento apropriado (direto PC–Switch).
+
+
+
+### **Projeto 2 – Rede com Departamentos (Aula 07)**
+
+**Contexto:**
+Uma escola precisa separar a rede do **Departamento Administrativo** da rede dos **Professores** para aumentar a segurança.
+
+**Requisitos:**
+
+* Criar **duas VLANs** (Administração e Professores).
+* Configurar 2 switches interligados por um **trunk**.
+* Usar um roteador para permitir comunicação entre as VLANs.
+* Testar conectividade entre PCs da mesma VLAN e entre VLANs diferentes (via roteador).
+
+**Critérios de Sucesso:**
+* Comunicação **dentro de cada VLAN**.
+* Comunicação **entre VLANs via roteador**.
+* Trunk configurado corretamente entre switches.
+
+
+
+### **Projeto 3 – Subredes em um Campus (Aula 09)**
+
+**Contexto:**
+Um campus universitário precisa organizar suas redes por prédios: **Biblioteca**, **Laboratórios** e **Secretaria**. Cada prédio terá sua própria sub-rede.
+
+**Requisitos:**
+
+* Definir endereçamento IPv4 com **3 sub-redes**.
+* Configurar roteador central ligando as sub-redes.
+* Configurar IPs nos hosts de cada prédio.
+* Testar conectividade entre prédios.
+
+**Critérios de Sucesso:**
+* Sub-redes bem definidas (sem sobreposição de IP).
+* Hosts se comunicam dentro da sub-rede.
+* Roteador garante comunicação entre as 3 sub-redes.
+
+
+
+### **Projeto 4 – Rede Intermunicipal (Aula 11)**
+
+**Contexto:**
+Uma empresa tem **matriz** em uma cidade e **filial** em outra. Precisa interligar as duas redes usando **roteamento estático**.
+
+**Requisitos:**
+
+* Criar duas redes locais (Matriz e Filial).
+* Interligar com **dois roteadores**.
+* Configurar rotas estáticas para comunicação entre os sites.
+* Testar conectividade entre PCs da Matriz e da Filial.
+
+**Critérios de Sucesso:**
+* Cada rede local funcionando.
+* Rotas estáticas corretamente configuradas.
+* Comunicação fim-a-fim entre matriz e filial.
+
+
+
+### **Projeto 5 – Expansão de Rede (Aula 13)**
+
+**Contexto:**
+Um **campus universitário** está expandindo sua rede. Agora, precisa suportar vários departamentos com VLANs e garantir **roteamento dinâmico (OSPF)**.
+
+**Requisitos:**
+
+* Criar pelo menos **3 VLANs** (Ex: TI, Alunos, Professores).
+* Configurar switches com VLANs e trunking.
+* Configurar roteadores com OSPF para anunciar as redes.
+* Garantir que todos os departamentos se comuniquem.
+
+**Critérios de Sucesso:**
+* VLANs funcionando corretamente.
+* OSPF anunciando as rotas de forma dinâmica.
+* Comunicação fim-a-fim entre todos os departamentos.
+
+
+
+### **Projeto Final – Rede Completa (Aula 15)**
+
+**Contexto:**
+Uma **universidade fictícia** precisa de uma rede que integre **departamentos, serviços e comunicação entre campi**. Esse será o projeto final do semestre.
+
+**Requisitos:**
+
+* Criar pelo menos **4 VLANs** (Administração, Professores, Alunos, Biblioteca).
+* Configurar switches com VLANs e trunking.
+* Configurar **roteamento dinâmico (OSPF)**.
+* Incluir pelo menos **2 serviços de aplicação** (ex: DNS, Web, E-mail).
+* Garantir comunicação entre todas as áreas.
+
+**Critérios de Sucesso:**
+* VLANs + roteamento dinâmico funcionando.
+* Serviços de aplicação configurados e acessíveis (DNS resolve, Web abre página, E-mail simulado).
+* Documentação simples: diagrama + tabela de IPs.
+
