@@ -330,3 +330,11 @@ Durante a análise crítica, podem ser usados critérios como:
 
 * Qualquer e-mail suspeito deve ser reportado ao time de segurança em até 24h.
 * Vazamento de dados deve ser comunicado imediatamente à gestão.
+
+## 6. Referências
+
+* FERREIRA, F. N.; ARAUJO, M. Política de Segurança da Informação. Ciência Moderna, 2008.
+* FONTES, E. Praticando a Segurança da Informação. Brasport, 2008.
+* STALLINGS, W. Criptografia e Segurança de Redes. Pearson, 2008.
+* ABNT. NBR/ISO/IEC 17799 – Código de prática para a gestão da segurança da informação. ABNT, 2002.
+* PEIXOTO, M. C. P. Engenharia Social e Segurança da Informação. Brasport, 2006.
