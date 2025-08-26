@@ -1,4 +1,4 @@
-# **Aula – Criptografia Aplicada**
+# Criptografia Aplicada
 
 ## **1. Introdução**
 
