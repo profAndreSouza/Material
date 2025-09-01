@@ -55,7 +55,7 @@ Os conteúdos são apresentados em etapas, começando do básico até visualiza�
 Sua opinião é fundamental para melhorar este material.  
 Por favor, preencha o formulário abaixo e contribua com sugestões:  
 
-👉 [**Avaliar e Sugerir Melhorias (Google Forms)**](https://docs.google.com/forms/d/e/1FAIpQLSesMDnF5YrlgjC8UwvIHMuvq8FAXiJGh54pCjoEA3t7Ul0oJw/viewform?usp=dialog){:open-in-new-tab}
+👉 [**Avaliar e Sugerir Melhorias (Google Forms)**](https://docs.google.com/forms/d/e/1FAIpQLSesMDnF5YrlgjC8UwvIHMuvq8FAXiJGh54pCjoEA3t7Ul0oJw/viewform?usp=dialog)
 
 
 ## Como usar este material
