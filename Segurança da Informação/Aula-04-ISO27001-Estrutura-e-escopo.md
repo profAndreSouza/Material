@@ -85,7 +85,7 @@ Um SGSI não se limita à área de tecnologia. Ele envolve **pessoas, processos 
 
 ### Estrutura do SGSI
 
-A ISO/IEC 27001 propõe que o SGSI seja construído com base no **ciclo PDCA (Plan – Do – Check – Act)**, que promove a melhoria contínua:
+A ISO/IEC 27001 propõe que o SGSI seja construído com base no **ciclo PDCA (Plan – Do – Check – Act)**, que promove a melhoria contínua. O SGSI segue o ciclo PDCA da norma. Enquanto na seção anterior vimos o conceito geral, aqui destacamos como cada etapa se traduz em ações práticas dentro da gestão da segurança:
 
 **Plan (Planejar)**
 
