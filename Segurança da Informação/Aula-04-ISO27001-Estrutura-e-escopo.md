@@ -56,7 +56,6 @@ O **escopo** é um dos primeiros passos na implementação da norma. Ele define 
   1. Uma **clínica médica** define o escopo como: “Proteção dos registros eletrônicos de pacientes e sistemas de gestão hospitalar”.
   2. Um **banco** define o escopo como: “Infraestrutura de datacenter e sistemas de internet banking”.
   3. Uma **universidade** pode restringir o escopo ao “Departamento de TI responsável pelo sistema acadêmico online”.
-Claro! Aqui está o **item 2 detalhado**, mantendo o estilo de explicação mais completo, sem ícones e sem resumo no final:
 
 
 ## 2. Termos Fundamentais
