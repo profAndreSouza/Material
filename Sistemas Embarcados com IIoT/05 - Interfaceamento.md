@@ -44,7 +44,7 @@ Implemente no Wokwi (ESP32) um **semáforo de pedestres** com as seguintes carac
 
 ## Componentes no Wokwi (diagram.json resumido)
 
-* ESP32
+* ESP32-S3
 * 5 LEDs (vermelho, amarelo, verde carros; vermelho, verde pedestres)
 * 1 botão (pedestre)
 * 1 servo motor (portão simbólico)
