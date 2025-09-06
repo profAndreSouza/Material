@@ -255,3 +255,15 @@ void controlar(int sequencia) {
 * 1 botão (pedestre)
 * 1 servo motor (portão simbólico)
 * Resistores de 220 Ω em série com cada LED
+
+
+# Exercício: Semáforo de Duas Ruas com Travessia de Pedestres Sob Demanda
+
+Implemente um sistema de semáforo para **duas ruas que se cruzam** e **pedestres**, obedecendo às seguintes regras:
+
+1. A **rua principal** possui ciclo automático: verde → amarelo → vermelho.
+2. A **rua secundária** só fica verde quando a rua principal está vermelha, e retorna a vermelho após seu ciclo.
+3. Os **pedestres só atravessam quando pressionarem um botão**. Durante a travessia, os carros devem estar com o semáforo vermelho.
+4. Ao final da travessia ou se o botão não for pressionado, o sistema retorna ao ciclo normal das ruas.
+
+**Objetivo:** Coordenar corretamente os semáforos das ruas e a travessia de pedestres usando lógica de controle e interrupções para o botão.
