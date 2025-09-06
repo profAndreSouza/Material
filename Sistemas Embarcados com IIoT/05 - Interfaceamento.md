@@ -1,14 +1,18 @@
 # Semáforo Inteligente com Botão de Prioridade e Controle de Portão (Servo)
 
-Neste projeto no **Wokwi (ESP32-S3)**, você implementará um **semáforo inteligente para pedestres**, integrando **LEDs, botão e motor de portão**.
+Neste projeto no **Wokwi (ESP32-S3)**, você implementará um **semáforo inteligente para pedestres**, integrando **LEDs, botão e motor de portão (servo)**.
+
+
 
 ## Conceitos trabalhados
 
 * **GPIO** (entrada e saída digital)
-* **Interrupções (botão em hardware)**
+* **Interrupções em hardware (botão com `attachInterrupt`)**
 * **Mapeamento de periféricos internos/externos**
-* **Interfaceamento eletrônico (LED, botão e motor)**
-* **Controle de tempo (funções de atraso e estado)**
+* **Interfaceamento eletrônico (LEDs, botão e servo motor)**
+* **Controle de tempo com `delay()`**
+
+
 
 ## Requisitos do Projeto
 
@@ -19,23 +23,24 @@ Neste projeto no **Wokwi (ESP32-S3)**, você implementará um **semáforo inteli
 
 2. **Botão de Pedestre (entrada digital com interrupção):**
 
-   * Conectado ao **GPIO 38**.
-   * Quando pressionado, deve **solicitar prioridade** para os pedestres.
+   * Conectado ao **GPIO 38**
+   * Quando pressionado, deve **solicitar prioridade** para os pedestres
 
 3. **Servo Motor (portão):**
 
-   * Conectado ao **GPIO 20**.
-   * Gira **0° (fechado)** durante o ciclo dos carros.
-   * Gira **90° (aberto)** quando os pedestres atravessam.
+   * Conectado ao **GPIO 20**
+   * Posição **0° (fechado)** durante ciclo de carros
+   * Posição **90° (aberto)** durante travessia dos pedestres
 
 4. **Temporização do Ciclo:**
 
-   * Ciclo normal: **4s verde → 2s amarelo → 4s vermelho**.
-   * Se o botão for pressionado, após o ciclo atual:
+   * **Carros verdes por 2s**
+   * Se o botão for pressionado:
 
-     * **Carros ficam vermelhos**
-     * **Pedestres ficam verdes**
-     * **Portão abre (servo 90°) por 4s**
+     * **Carros amarelos por 0,5s**
+     * **Carros vermelhos + pedestres verdes por 2s**
+     * **Portão abre (servo 90°)** durante a travessia
+
 
 
 ## Mapeamento de GPIOs
@@ -53,6 +58,7 @@ Neste projeto no **Wokwi (ESP32-S3)**, você implementará um **semáforo inteli
 
 ## Código Exemplo (`sketch.ino`)
 
+
 Disponível no Wokwi[https://wokwi.com/projects/441298346724503553]
 
 ```cpp
@@ -67,7 +73,7 @@ Disponível no Wokwi[https://wokwi.com/projects/441298346724503553]
 #define SERVO_PINO 20
 
 Servo servo;
-volatile bool pedestre = false;
+bool pedestre = false;
 
 void IRAM_ATTR acionar() {
   pedestre = true;
@@ -79,10 +85,10 @@ void setup() {
   pinMode(LED_VERMELHO_CARRO, OUTPUT);
   pinMode(LED_VERDE_PEDESTRE, OUTPUT);
   pinMode(LED_VERMELHO_PEDESTRE, OUTPUT);
-
+  
   pinMode(BOTAO_PEDESTRE, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(BOTAO_PEDESTRE), acionar, FALLING);
-
+  
   servo.attach(SERVO_PINO);
   servo.write(0);
 }
@@ -90,41 +96,33 @@ void setup() {
 void loop() {
   controlar(1);
   servo.write(0);
-  delay(4000);
-
-  controlar(2);
   delay(2000);
 
   if (pedestre) {
+    controlar(2);
+    delay(500);
+
     controlar(3);
     servo.write(90);
-    delay(4000);
+    delay(2000);
     pedestre = false;
-  } else {
-    controlar(4);
-    delay(4000);
   }
 }
 
-void controlar(int seq) {
-  digitalWrite(LED_VERDE_CARRO, LOW);
-  digitalWrite(LED_AMARELO_CARRO, LOW);
-  digitalWrite(LED_VERMELHO_CARRO, LOW);
-  digitalWrite(LED_VERDE_PEDESTRE, LOW);
-  digitalWrite(LED_VERMELHO_PEDESTRE, LOW);
-
-  if (seq == 1) { // Carros verde
+void controlar(int sequencia) {
+  if (sequencia == 1) {
+    digitalWrite(LED_VERMELHO_CARRO, LOW);
     digitalWrite(LED_VERDE_CARRO, HIGH);
+    digitalWrite(LED_VERDE_PEDESTRE, LOW);
     digitalWrite(LED_VERMELHO_PEDESTRE, HIGH);
-  } else if (seq == 2) { // Carros amarelo
+  } else if (sequencia == 2) {
+    digitalWrite(LED_VERDE_CARRO, LOW);
     digitalWrite(LED_AMARELO_CARRO, HIGH);
-    digitalWrite(LED_VERMELHO_PEDESTRE, HIGH);
-  } else if (seq == 3) { // Pedestres verde
+  } else {
+    digitalWrite(LED_AMARELO_CARRO, LOW);
     digitalWrite(LED_VERMELHO_CARRO, HIGH);
+    digitalWrite(LED_VERMELHO_PEDESTRE, LOW);
     digitalWrite(LED_VERDE_PEDESTRE, HIGH);
-  } else if (seq == 4) { // Carros vermelho (sem pedestre)
-    digitalWrite(LED_VERMELHO_CARRO, HIGH);
-    digitalWrite(LED_VERMELHO_PEDESTRE, HIGH);
   }
 }
 ```
@@ -250,7 +248,7 @@ void controlar(int seq) {
 }
 ```
 
-## Componentes no Wokwi (`diagram.json`)
+## Componentes no Wokwi
 
 * ESP32-S3
 * 5 LEDs (Carros: vermelho, amarelo, verde; Pedestres: vermelho, verde)
