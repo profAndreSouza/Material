@@ -42,7 +42,7 @@ Essa abordagem favorece o entendimento claro das funcionalidades esperadas e é 
 **Pós-condições:** Pedido registrado, enviado para a cozinha e pagamento confirmado.
 
 
-### Fluxo Principal (em Tabela)
+### Fluxo Principal
 
 | **Passo** | **Ator Principal (Cliente)**                | **Sistema**                            |
 | --------- | ------------------------------------------- | -------------------------------------- |
@@ -121,26 +121,49 @@ Essa abordagem favorece o entendimento claro das funcionalidades esperadas e é 
 | 8         | —                                   | Envia pedido                          | Cozinha recebe pedido para preparação          |
 
 
+
 ## 6.6. Conexão com User Story no SCRUM
 
-Dentro do **framework SCRUM**, cada **Caso de Uso** pode ser decomposto em **User Stories** que alimentarão o **Product Backlog**.
-A hierarquia é:
+Dentro do **framework SCRUM**, os **Casos de Uso** podem servir como base para a criação de **User Stories** que irão compor o **Product Backlog**.
+
+A hierarquia em Scrum é:
 
 **Épico → Feature → User Story → Tasks**
 
-### Exemplo:
+* **Épico**: uma iniciativa estratégica ou objetivo de negócio amplo.
+* **Feature**: uma funcionalidade relevante do sistema (um Caso de Uso pode ser tratado como uma Feature).
+* **User Story**: descreve uma necessidade específica do usuário final, geralmente derivada de fluxos principais ou alternativos de um Caso de Uso.
+* **Tasks**: atividades técnicas necessárias para implementar cada User Story.
+
+### Relação entre Caso de Uso e User Story
+
+* **Um Caso de Uso pode originar várias User Stories**.
+* **Cada User Story representa uma fatia de valor** (um cenário ou variação), em vez de descrever todo o caso de uso completo.
+* Assim, o Caso de Uso funciona como um **guarda-chuva de entendimento**, enquanto as User Stories são as **unidades de trabalho ágil** que entram no backlog.
+
+
+### Exemplo prático
 
 * **Épico:** Gestão de Pedidos Digitais
-* **Feature:** Realizar Pedido no Totem
-* **User Story:**
-  *Como cliente, quero registrar meu pedido no totem digital, para que eu possa comprar de forma rápida sem precisar de atendimento humano.*
-* **Tasks:**
+* **Feature (Caso de Uso):** Realizar Pedido no Totem
 
-  * Criar interface de seleção de itens.
-  * Implementar personalização de produtos.
-  * Desenvolver integração com sistema de pagamento.
-  * Gerar nota fiscal eletrônica.
-  * Enviar pedido para cozinha.
+#### User Stories derivadas do Caso de Uso “Realizar Pedido”:
+
+1. *Como cliente, quero visualizar o cardápio digital, para escolher meus itens sem ajuda do garçom.*
+2. *Como cliente, quero personalizar meu pedido, para adaptá-lo às minhas preferências.*
+3. *Como cliente, quero pagar com Pix, para concluir rapidamente minha compra.*
+4. *Como cliente, quero ser notificado quando um item estiver indisponível, para substituí-lo antes do pagamento.*
+5. *Como cliente, quero acompanhar o status do meu pedido, para saber quando ele estará pronto.*
+
+#### Exemplo de Tasks da User Story “Pagar com Pix”:
+
+* Criar integração com API de pagamentos via Pix.
+* Desenvolver tela de confirmação do pagamento.
+* Implementar fallback para outro meio de pagamento em caso de falha.
+* Testar fluxo de pagamento bem-sucedido e com erro.
+
+
+Dessa forma, o **Caso de Uso dá contexto e completude**, enquanto as **User Stories** permitem que a entrega seja **incremental e ágil**.
 
 
 ## 6.7. Aplicações Práticas
