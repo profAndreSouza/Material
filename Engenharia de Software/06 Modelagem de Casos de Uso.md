@@ -57,39 +57,40 @@ Essa abordagem favorece o entendimento claro das funcionalidades esperadas e é 
 ## 6.4. Diagrama de Casos de Uso (UML)
 
 ```mermaid
-usecaseDiagram
-    actor Cliente
-    actor Garçom
-    actor "Sistema de Pagamento" as Pagamento
-    actor "Cozinha" as Cozinha
+usecase
+  actor Cliente
+  actor Garçom
+  actor "Sistema de Pagamento" as Pagamento
+  actor "Cozinha" as Cozinha
 
-    rectangle Sistema {
-        (Consultar Cardápio) as UC1
-        (Realizar Pedido) as UC2
-        (Personalizar Pedido) as UC3
-        (Efetuar Pagamento) as UC4
-        (Emitir Nota Fiscal) as UC5
-        (Enviar Pedido à Cozinha) as UC6
-        (Acompanhar Status do Pedido) as UC7
-        (Cancelar Pedido) as UC8
-        (Solicitar Alteração do Pedido) as UC9
-    }
+  rectangle Sistema {
+    (Consultar Cardápio) as UC1
+    (Realizar Pedido) as UC2
+    (Personalizar Pedido) as UC3
+    (Efetuar Pagamento) as UC4
+    (Emitir Nota Fiscal) as UC5
+    (Enviar Pedido à Cozinha) as UC6
+    (Acompanhar Status do Pedido) as UC7
+    (Cancelar Pedido) as UC8
+    (Solicitar Alteração do Pedido) as UC9
+  }
 
-    Cliente --> UC1
-    Cliente --> UC2
-    Cliente --> UC7
-    Cliente --> UC8
+  Cliente --> UC1
+  Cliente --> UC2
+  Cliente --> UC7
+  Cliente --> UC8
 
-    Garçom --> UC2
-    Garçom --> UC9
+  Garçom --> UC2
+  Garçom --> UC9
 
-    UC2 --> UC4 : <<include>>
-    UC2 --> UC6 : <<include>>
-    UC2 --> UC3 : <<extend>>
+  UC2 --> UC4 : <<include>>
+  UC2 --> UC6 : <<include>>
+  UC2 --> UC3 : <<extend>>
 
-    UC4 --> UC5 : <<include>>
-    UC6 --> Cozinha
-    UC4 --> Pagamento
+  UC4 --> UC5 : <<include>>
+  UC6 --> Cozinha
+  UC4 --> Pagamento
+
 ```
 
 
