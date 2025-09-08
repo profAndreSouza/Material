@@ -32,9 +32,13 @@ Essa abordagem favorece o entendimento claro das funcionalidades esperadas e é 
 ## 6.3. Exemplo de Caso de Uso – Realizar Pedido
 
 **Nome:** Realizar Pedido
+
 **Ator Principal:** Cliente
+
 **Objetivo:** Permitir ao cliente realizar um pedido utilizando o totem digital.
+
 **Pré-condições:** Cliente deve estar na interface inicial do totem.
+
 **Pós-condições:** Pedido registrado, enviado para a cozinha e pagamento confirmado.
 
 
