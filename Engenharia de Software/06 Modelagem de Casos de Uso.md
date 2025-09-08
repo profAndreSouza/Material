@@ -1,7 +1,7 @@
 # 6. Modelagem de Casos de Uso
 
 A modelagem de **Casos de Uso** é uma técnica da Engenharia de Software utilizada para capturar e descrever os **requisitos funcionais** de um sistema de forma centrada nas interações entre os **atores** (usuários ou sistemas externos) e o sistema em desenvolvimento.
-Essa abordagem favorece o entendimento claro das funcionalidades esperadas e é amplamente utilizada em projetos orientados a objetos.
+Essa abordagem favorece o entendimento claro das funcionalidades esperadas e é amplamente utilizada em projetos orientados a objetos, mas também pode ser **mapeada diretamente para User Stories** dentro do **framework SCRUM**, permitindo a integração entre requisitos e backlog ágil.
 
 
 ## 6.1. Elementos Básicos de um Caso de Uso
@@ -16,22 +16,20 @@ Essa abordagem favorece o entendimento claro das funcionalidades esperadas e é 
   * **«extend»**: Extensão opcional que ocorre em certas condições.
 
 
-
 ## 6.2. Estrutura Textual do Caso de Uso
 
-Um caso de uso costuma conter:
+| **Campo**               | **Descrição**                                        |
+| ----------------------- | ---------------------------------------------------- |
+| **Nome do Caso de Uso** | Identificação da funcionalidade.                     |
+| **Atores Envolvidos**   | Primários e secundários que interagem com o sistema. |
+| **Objetivo**            | Resultado de valor esperado pelo ator principal.     |
+| **Pré-condições**       | O que deve estar válido antes do início.             |
+| **Fluxo Principal**     | Passos sequenciais do cenário ideal.                 |
+| **Fluxos Alternativos** | Exceções ou caminhos opcionais.                      |
+| **Pós-condições**       | Estado final do sistema após execução.               |
 
-* **Nome do Caso de Uso**
-* **Atores Envolvidos (Primários e Secundários)**
-* **Objetivo do Ator Principal**
-* **Pré-condições**
-* **Fluxo Principal de Eventos**
-* **Fluxos Alternativos / de Exceção**
-* **Pós-condições**
 
-
-
-## 6.3. Exemplo: Caso de Uso – Realizar Pedido
+## 6.3. Exemplo de Caso de Uso – Realizar Pedido
 
 **Nome:** Realizar Pedido
 **Ator Principal:** Cliente
@@ -50,7 +48,7 @@ Um caso de uso costuma conter:
 7. Sistema processa o pagamento.
 8. Sistema confirma e envia para cozinha.
 
-### Fluxos de Exceção
+### Fluxos Alternativos
 
 * **Pagamento falhou:** sistema exibe erro → cliente escolhe outro método.
 * **Item indisponível:** sistema alerta → cliente remove ou substitui.
@@ -77,7 +75,6 @@ usecaseDiagram
         (Solicitar Alteração do Pedido) as UC9
     }
 
-    %% Atores iniciando casos de uso
     Cliente --> UC1
     Cliente --> UC2
     Cliente --> UC7
@@ -86,7 +83,6 @@ usecaseDiagram
     Garçom --> UC2
     Garçom --> UC9
 
-    %% Relações include e extend
     UC2 --> UC4 : <<include>>
     UC2 --> UC6 : <<include>>
     UC2 --> UC3 : <<extend>>
@@ -96,48 +92,74 @@ usecaseDiagram
     UC4 --> Pagamento
 ```
 
-### Explicação do mapa visual
 
-* **Atores Principais**:
+## 6.5. Tabela Descritiva do Caso de Uso – Realizar Pedido
 
-  * **Cliente** – pode consultar cardápio, realizar pedido, acompanhar status, cancelar pedido.
-  * **Garçom** – pode realizar pedido e solicitar alterações em pedidos existentes.
-* **Atores Secundários**:
+| **Campo**               | **Descrição**                                                                                                                                                                                                                                                                      |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Nome do Caso de Uso** | Realizar Pedido                                                                                                                                                                                                                                                                    |
+| **Atores Principais**   | Cliente, Garçom                                                                                                                                                                                                                                                                    |
+| **Ator Secundário**     | Sistema de Pagamento, Cozinha                                                                                                                                                                                                                                                      |
+| **Objetivo**            | Permitir que o cliente ou o garçom registre um pedido, efetue o pagamento e envie-o para a cozinha.                                                                                                                                                                                |
+| **Pré-condições**       | - O cliente deve estar na interface inicial do sistema (totem ou atendimento com o garçom). <br> - O sistema deve estar em funcionamento.                                                                                                                                          |
+| **Pós-condições**       | - Pedido registrado e enviado à cozinha. <br> - Pagamento confirmado. <br> - Nota fiscal emitida (quando aplicável).                                                                                                                                                               |
+| **Fluxo Principal**     | 1. Cliente/Garçom inicia pedido.<br>2. Seleciona itens.<br>3. Opção de personalização (*extend*).<br>4. Sistema calcula valor.<br>5. Confirma pedido.<br>6. Inclui **Efetuar Pagamento**.<br>7. Pagamento inclui **Emitir Nota Fiscal**.<br>8. Inclui **Enviar Pedido à Cozinha**. |
+| **Fluxos Alternativos** | **A1 – Item Indisponível:** Sistema alerta → cliente substitui. <br> **A2 – Pagamento Falhou:** Sistema exibe erro → cliente escolhe outro método.                                                                                                                                 |
 
-  * **Sistema de Pagamento** – apoia o processo de pagamento.
-  * **Cozinha** – recebe pedidos enviados para preparação.
-* **Include**:
+### Fluxo em Tabela – 2 Colunas (Ator Principal x Sistema)
 
-  * *Realizar Pedido* inclui obrigatoriamente *Efetuar Pagamento* e *Enviar Pedido à Cozinha*.
-  * *Efetuar Pagamento* inclui *Emitir Nota Fiscal*.
-* **Extend**:
-
-  * *Realizar Pedido* pode estender para *Personalizar Pedido*.
-* **Fluxos Alternativos / Exceções**:
-
-  * Falha no pagamento → pedido não concluído.
-  * Pedido cancelado → notifica cozinha e sistema de pagamento.
-  * Alteração de pedido → opcional, permite reenvio à cozinha.
-
-
-## Estrutura Textual do Caso de Uso – Realizar Pedido
-
-| **Campo**               | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                             |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Nome do Caso de Uso** | Realizar Pedido                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Atores Principais**   | Cliente, Garçom                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Ator Secundário**     | Sistema de Pagamento                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Objetivo**            | Permitir que o cliente ou o garçom registre um pedido, efetue o pagamento e envie-o para a cozinha.                                                                                                                                                                                                                                                                                                       |
-| **Pré-condições**       | - O cliente deve estar na interface inicial do sistema (totem ou atendimento com o garçom). <br> - O sistema deve estar em funcionamento.                                                                                                                                                                                                                                                                 |
-| **Pós-condições**       | - Pedido registrado e enviado à cozinha. <br> - Pagamento confirmado. <br> - Nota fiscal emitida (quando aplicável).                                                                                                                                                                                                                                                                                      |
-| **Fluxo Principal**     | 1. O Cliente ou Garçom inicia o pedido.<br>2. Os itens são selecionados.<br>3. O sistema oferece a opção de personalização (*extend*).<br>4. O sistema apresenta o valor total.<br>5. O Cliente/Garçom confirma o pedido.<br>6. O caso de uso inclui o **Efetuar Pagamento**.<br>7. O pagamento, se aprovado, inclui **Emitir Nota Fiscal**.<br>8. O caso de uso inclui o envio do pedido para a cozinha. |
-| **Fluxos Alternativos** | **A1 – Item Indisponível:**<br>1. O sistema informa a falta do item.<br>2. O Cliente/Garçom remove ou substitui o item.<br><br>**A2 – Pagamento Falhou:**<br>1. O sistema exibe mensagem de erro.<br>2. O Cliente/Garçom escolhe outro método de pagamento.<br>3. Fluxo principal é retomado a partir do passo 6.                                                                                         |
+| **Passo** | **Ator Principal (Cliente/Garçom)** | **Sistema**                           |
+| --------- | ----------------------------------- | ------------------------------------- |
+| 1         | Solicita iniciar pedido             | Exibe cardápio disponível             |
+| 2         | Seleciona itens desejados           | Registra seleção                      |
+| 3         | Personaliza item (opcional)         | Ajusta pedido conforme personalização |
+| 4         | Solicita visualizar valor           | Calcula e apresenta valor total       |
+| 5         | Confirma pedido                     | Exibe opções de pagamento             |
+| 6         | Escolhe método de pagamento         | Processa pagamento                    |
+| 7         | Confirma pagamento                  | Emite nota fiscal (quando aplicável)  |
+| 8         | —                                   | Envia pedido para a cozinha           |
 
 
-## 6.5. Aplicações Práticas
+### Fluxo em Tabela – 3 Colunas (Ator Principal x Sistema x Ator Secundário)
+
+| **Passo** | **Ator Principal (Cliente/Garçom)** | **Sistema**                           | **Ator Secundário (Ex.: Pagamento / Cozinha)** |
+| --------- | ----------------------------------- | ------------------------------------- | ---------------------------------------------- |
+| 1         | Solicita iniciar pedido             | Exibe cardápio                        | —                                              |
+| 2         | Seleciona itens desejados           | Registra seleção                      | —                                              |
+| 3         | Personaliza item (opcional)         | Ajusta pedido                         | —                                              |
+| 4         | Solicita visualizar valor           | Calcula e apresenta total             | —                                              |
+| 5         | Confirma pedido                     | Solicita método de pagamento          | —                                              |
+| 6         | Escolhe pagamento (Pix/Cartão)      | Envia dados da transação              | Sistema de Pagamento processa a operação       |
+| 7         | Confirma pagamento                  | Registra aprovação e gera nota fiscal | Sistema de Pagamento confirma operação         |
+| 8         | —                                   | Envia pedido                          | Cozinha recebe pedido para preparação          |
+
+
+## 6.6. Conexão com User Story no SCRUM
+
+Dentro do **framework SCRUM**, cada **Caso de Uso** pode ser decomposto em **User Stories** que alimentarão o **Product Backlog**.
+A hierarquia é:
+
+**Épico → Feature → User Story → Tasks**
+
+### Exemplo:
+
+* **Épico:** Gestão de Pedidos Digitais
+* **Feature:** Realizar Pedido no Totem
+* **User Story:**
+  *Como cliente, quero registrar meu pedido no totem digital, para que eu possa comprar de forma rápida sem precisar de atendimento humano.*
+* **Tasks:**
+
+  * Criar interface de seleção de itens.
+  * Implementar personalização de produtos.
+  * Desenvolver integração com sistema de pagamento.
+  * Gerar nota fiscal eletrônica.
+  * Enviar pedido para cozinha.
+
+
+## 6.7. Aplicações Práticas
 
 * Facilita **comunicação entre equipe e stakeholders**.
 * Define funcionalidades claras para o **backlog do projeto**.
-* Serve como base para **testes funcionais**.
+* Serve como base para **criação de User Stories em SCRUM**.
 * Ajuda na **validação dos requisitos** junto ao cliente.
-
+* Permite rastrear **do Caso de Uso → User Story → Tarefas**, garantindo cobertura.
