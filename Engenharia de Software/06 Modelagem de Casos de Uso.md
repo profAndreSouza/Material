@@ -37,21 +37,39 @@ Essa abordagem favorece o entendimento claro das funcionalidades esperadas e é 
 **Pré-condições:** Cliente deve estar na interface inicial do totem.
 **Pós-condições:** Pedido registrado, enviado para a cozinha e pagamento confirmado.
 
-### Fluxo Principal
 
-1. O cliente visualiza o cardápio.
-2. Seleciona itens desejados.
-3. Personaliza o pedido, se necessário.
-4. Visualiza valor total.
-5. Confirma o pedido.
-6. Escolhe método de pagamento (Pix ou cartão).
-7. Sistema processa o pagamento.
-8. Sistema confirma e envia para cozinha.
+### Fluxo Principal (em Tabela)
+
+| **Passo** | **Ator Principal (Cliente)**                | **Sistema**                            |
+| --------- | ------------------------------------------- | -------------------------------------- |
+| 1         | Visualiza o cardápio                        | Exibe o cardápio disponível            |
+| 2         | Seleciona itens desejados                   | Registra itens escolhidos              |
+| 3         | Personaliza o pedido (opcional)             | Ajusta o pedido conforme escolha       |
+| 4         | Solicita visualizar valor total             | Calcula e apresenta o valor total      |
+| 5         | Confirma o pedido                           | Solicita método de pagamento           |
+| 6         | Escolhe método de pagamento (Pix ou Cartão) | Processa o pagamento                   |
+| 7         | Confirma pagamento                          | Emite nota fiscal (quando aplicável)   |
+| 8         | —                                           | Confirma pedido e envia para a cozinha |
+
 
 ### Fluxos Alternativos
 
-* **Pagamento falhou:** sistema exibe erro → cliente escolhe outro método.
-* **Item indisponível:** sistema alerta → cliente remove ou substitui.
+#### A1 – Pagamento Falhou
+
+| **Passo** | **Ator Principal (Cliente)**        | **Sistema**                                |
+| --------- | ----------------------------------- | ------------------------------------------ |
+| 6a        | Escolhe método de pagamento         | Processa pagamento                         |
+| 7a        | —                                   | Exibe mensagem de erro                     |
+| 8a        | Seleciona outro método de pagamento | Reinicia processamento a partir do passo 6 |
+
+
+#### A2 – Item Indisponível
+
+| **Passo** | **Ator Principal (Cliente)**   | **Sistema**                        |
+| --------- | ------------------------------ | ---------------------------------- |
+| 2a        | Seleciona item fora de estoque | Identifica indisponibilidade       |
+| 3a        | Remove ou substitui o item     | Atualiza pedido conforme alteração |
+
 
 
 ## 6.4. Diagrama de Casos de Uso (UML)
