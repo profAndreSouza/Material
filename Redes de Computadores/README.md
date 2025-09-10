@@ -96,6 +96,6 @@ O docente definirá periodicamente, em seu plano de ensino semestral, os instrum
 
 ### Exercícios (Trabalhos)
 
-- T1 - IEEE 802.3
+- ~T1 - IEEE 802.3~
 - T2 - Protocolos
 - T3 - Segurança
