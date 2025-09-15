@@ -118,4 +118,3 @@ Switch(config-if)# switchport access vlan 20
 - TANENBAUM, A. S.; FEAMSTER, N.; WETHERALL, D. J. *Redes de Computadores*, 6ª ed.  
 - KUROSE, J.; ROSS, K. *Redes de Computadores e a Internet: uma abordagem top-down*, 8ª ed.  
 - CISCO Networking Academy – CCNA Switching, Routing, and Wireless Essentials.
-```
