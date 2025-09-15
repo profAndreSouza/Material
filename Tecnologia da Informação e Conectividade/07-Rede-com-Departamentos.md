@@ -151,4 +151,3 @@ Router(config-subif)# ip address 192.168.20.254 255.255.255.0
 * KUROSE, J.; ROSS, K. *Redes de Computadores e a Internet: uma abordagem top-down*, 8ª ed.
 * CISCO Networking Academy – CCNA Switching and Routing Essentials.
 
-```
