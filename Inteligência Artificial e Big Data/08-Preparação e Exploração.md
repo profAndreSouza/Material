@@ -1,12 +1,4 @@
-# Interpretação, Estratégias e Ética
-
-Nesta etapa vamos:
-
-1. Analisar estatísticas e gráficos dos clusters.
-2. Criar personas a partir dos dados.
-3. Relacionar padrões com estratégias comerciais.
-4. Refletir sobre limitações e ética.
-
+# Preparação, Exploração e Interpretação
 
 ## 1. Estatísticas por cluster
 
