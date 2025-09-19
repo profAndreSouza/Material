@@ -117,31 +117,34 @@ Este repositório reúne conteúdos e materiais didáticos relacionados à disci
 * PEREIRA, Fábio. *Microcontrolador PIC18 detalhado: hardware e software*. 1. ed. São Paulo: Érica, 2010.
 
 
-## Cronograma 
+Perfeito, André 👌
+Se o **foco central** precisa ser **atividade prática em simulação (Wokwi, Tinkercad) ou no Arduino físico**, podemos reforçar isso no cronograma para cada aula. Assim, o aluno já sabe desde o início que **toda teoria terá aplicação prática imediata**.
 
+Aqui está a versão ajustada, mantendo sua estrutura mas explicitando o **foco em simulação/laboratório**:
 
-| Aula | Tema Principal                                         | Prática/Atividade                                            | Entregável                   |
-| ---- | ------------------------------------------------------ | ------------------------------------------------------------ | ---------------------------- |
-| 1    | GPIO e protocolos básicos (I2C, SPI, UART)             | Escaneamento de dispositivos I2C no ESP32                    | Exercícios de fixação        |
-| 2    | Interrupções (internas e externas)                     | Botão com interrupção + acionamento de LED                   | Resumo em duplas             |
-| 3    | Mapeamento de periféricos + ADC/DAC                    | Levantamento dos periféricos da empilhadeira 3D              | Tabela inicial de mapeamento |
-| 4    | Interfaceamento eletrônico (LEDs, servo, botão)        | Semáforo inteligente com botão de pedestre (Wokwi)           | Registro em diário de bordo  |
-| 5    | **Projeto Integrador**     | -            | -        |
-| 6    | PWM e temporizadores                                   | Controle de motor DC com PWM                                 | Código inicial               |
-| 7    | Comunicação Serial e UART                              | Envio de dados entre ESP32 e PC                              | Exercício prático            |
-| 8    | Protocolos IIoT – MQTT (conceito e prática)            | Publicação/assinatura em broker público                      | Teste em laboratório         |
-| 5    | **Projeto Integrador**     | -            | -        |
-protótipo                | Relatório parcial            |
-| 10   | Comunicação sem fio – Wi-Fi                            | ESP32 conectado ao Wi-Fi e envio de dados a um servidor      | Demonstração em aula         |
-| 11   | Comunicação sem fio – Bluetooth                        | Troca de mensagens entre ESP32 e celular                     | Exercício prático            |
-| 12   | Protocolos IIoT – HTTP e REST API                      | Enviar dados para API simples (GET/POST)                     | Código validado              |
-| 13    | **Projeto Integrador**     | -            | -        |
-Bluetooth                        | Relatório parcial            |
-| 14   | Integração com serviços em nuvem (ThingSpeak/Firebase) | Registro de dados em dashboard na nuvem                      | Código revisado              |
-| 15   | Segurança em IoT (autenticação e criptografia)         | Implementação de chave de autenticação no MQTT               | Exercício aplicado           |
-| 16   | Protocolos industriais – Modbus/CoAP                   | Exemplo de comunicação Modbus TCP ou CoAP                    | Exercício prático            |
-| 17    | **Projeto Integrador**     | -            | -        |
-nuvem                         | Relatório parcial            |
-| 18   | Integração com bots e dashboards (Telegram/Node-RED)   | ESP32 enviando dados para bot do Telegram ou painel Node-RED | Protótipo funcional          |
-| 19   | Revisão geral + validação final do projeto             | Testes finais no protótipo físico                            | Projeto concluído            |
-| 20   | **Encerramento**: Prova + Semana de Tecnologia         | Apresentação dos protótipos e fechamento do curso            | Avaliação final              |
+---
+
+## Cronograma – 20 Aulas
+
+| Aula | Teoria                                        | Prática/Atividade (simulação Wokwi/Tinkercad/Arduino físico)          | Entregáveis                 |
+| ---- | --------------------------------------------- | --------------------------------------------------------------------- | --------------------------- |
+| 1    | GPIO (tipos de conexão, I2C)                  | Simulação no **Wokwi** de leitura de dispositivos I2C                 | Pesquisa sobre interrupções |
+| 2    | Interrupções                                  | Botão físico ou em **Wokwi** acionando LED via interrupção            | Resumo em duplas            |
+| 3    | Mapeamento de periféricos                     | Identificação de motores/sensores da empilhadeira (protótipo físico)  | Levantamento de componentes |
+| 4    | Microprocessador, oscilador e memória         | Planejamento da pinagem no ESP32 (**tabela em planilha**)             | Tabela de pinagem           |
+| 5    | Interfaceamento eletrônico                    | Teste de motores no **ESP32 físico** ou **Wokwi**                     | Registro em diário de bordo |
+| 6    | **Projeto Integrador**  | - | - |
+| 7    | Conversores AD/DA, PWM, PCM                   | Controle de velocidade de motor DC via PWM (**Wokwi**)                | Código inicial              |
+| 8    | Temporizadores e contadores                   | LED piscante e controle de motor usando **Timers no ESP32**           | Exercício prático           |
+| 9    | **Projeto Integrador**   | - | - |
+| 10   | IIoT: definição e aplicações                  | Comunicação Serial/WiFi no **ESP32 (Wokwi + broker online)**          | Relatório parcial           |
+| 11   | Protocolos de comunicação IIoT (MQTT/HTTP)    | Publicar dados em **broker MQTT público**                             | Teste em laboratório        |
+| 12   | Interfaces Bluetooth/WiFi                     | Integração **ESP32 ↔ Telegram bot**                                   | Protótipo inicial           |
+| 13   | **Projeto Integrador**   | - | - |
+| 14   | Plataforma de desenvolvimento e simulação     | Controle de motor via Telegram (**ESP32 + bot**)                      | Demonstração em aula        |
+| 15   | Serviços em nuvem (ThingSpeak/Firebase)       | Envio de dados de sensor para dashboard na nuvem                      | Código revisado             |
+| 16   | **Projeto Integrador**    | - | - |
+| 17   | Segurança em IIoT (autenticação/criptografia) | Autenticação em conexão MQTT (**broker com usuário/senha**)           | Exercício aplicado          |
+| 18   | Protocolos industriais (Modbus/CoAP)          | Simulação de rede Modbus/CoAP (**Tinkercad/Wokwi**)                   | Exercício prático           |
+| 19   | **Projeto Integrador**  | - | - |
+| 20   | Encerramento (Prova + Semana de Tecnologia)   | Apresentação dos protótipos (**demonstração prática**)                | Avaliação final             |
