@@ -1,4 +1,4 @@
-# Aula 7 – Conversores AD/DA, PWM, PCM e Controle de Velocidade de Motor DC (Wokwi)
+# Aula 7 – Conversores AD/DA, PWM e PCM
 
 ## 1. Introdução
 
@@ -30,11 +30,24 @@ V_{in} \approx \frac{512}{1023} \times 5 \approx 2,5V
 $$
 
 
+
 ### 2.2 Conversor Digital-Analógico (DAC)
 
-* Faz o caminho inverso: converte números digitais em tensões contínuas.
-* Alguns microcontroladores possuem DACs reais.
-* O Arduino UNO não possui DAC, mas pode gerar sinais "equivalentes" usando **PWM**.
+* O **DAC** converte valores digitais em tensões analógicas contínuas, permitindo que um microcontrolador “gere” sinais analógicos de verdade.
+* Alguns microcontroladores possuem **DACs reais**, que fornecem uma saída analógica precisa, diferente do PWM que apenas **emula** a tensão média.
+
+**Exemplos de microcontroladores com DAC real:**
+
+| Microcontrolador     | Resolução DAC | Observações                                                                                             |
+| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------- |
+| **Arduino Due**      | 12 bits       | Dois canais DAC; pode gerar sinais contínuos sem PWM.                                                   |
+| **ESP32**            | 8 bits        | Dois canais DAC integrados; útil para áudio, controle de LEDs e motores.                                |
+| **STM32** (diversos) | 12 bits       | Alguns modelos com múltiplos canais DAC, usados em sistemas industriais e geração de sinais analógicos. |
+| **Teensy 3.x/4.x**   | 12 bits       | DAC rápido, usado em áudio e instrumentação.                                                            |
+
+* O **Arduino UNO** não possui DAC real, mas é possível gerar sinais analógicos aproximados usando **PWM**, modulando a largura do pulso para criar uma tensão média equivalente.
+* Aplicações típicas de DAC real incluem: geração de **sinais de áudio**, **controle preciso de atuadores analógicos**, **instrumentação** e **simulação de sensores analógicos**.
+
 
 
 ### 2.3 PWM (Pulse Width Modulation)
