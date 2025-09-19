@@ -117,14 +117,7 @@ Este repositório reúne conteúdos e materiais didáticos relacionados à disci
 * PEREIRA, Fábio. *Microcontrolador PIC18 detalhado: hardware e software*. 1. ed. São Paulo: Érica, 2010.
 
 
-Perfeito, André 👌
-Se o **foco central** precisa ser **atividade prática em simulação (Wokwi, Tinkercad) ou no Arduino físico**, podemos reforçar isso no cronograma para cada aula. Assim, o aluno já sabe desde o início que **toda teoria terá aplicação prática imediata**.
-
-Aqui está a versão ajustada, mantendo sua estrutura mas explicitando o **foco em simulação/laboratório**:
-
----
-
-## Cronograma – 20 Aulas
+## Cronograma 
 
 | Aula | Teoria                                        | Prática/Atividade (simulação Wokwi/Tinkercad/Arduino físico)          | Entregáveis                 |
 | ---- | --------------------------------------------- | --------------------------------------------------------------------- | --------------------------- |
