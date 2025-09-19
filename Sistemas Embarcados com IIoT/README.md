@@ -117,24 +117,31 @@ Este repositório reúne conteúdos e materiais didáticos relacionados à disci
 * PEREIRA, Fábio. *Microcontrolador PIC18 detalhado: hardware e software*. 1. ed. São Paulo: Érica, 2010.
 
 
-## Cronograma de Aulas
+## Cronograma 
 
-| Aula | Teoria                                | Prática                                             | Entregáveis                 |
-| ---- | ------------------------------------- | --------------------------------------------------- | --------------------------- |
-| 1    | GPIO (tipos de conexão, I2C)          |                                                     | Pesquisa sobre interrupções |
-| 2    | Interrupções                          |                                                     | Resumo em duplas            |
-| 3    | Mapeamento de periféricos             | Identificação de motores e sensores da empilhadeira | Levantamento de componentes |
-| 4    | Microprocessador, oscilador e memória | Planejamento da pinagem GPIO                        | Tabela de pinagem           |
-| 5    | Interfaceamento eletrônico            | Teste de acionamento de motores no ESP32            | Registro em diário de bordo |
-| 6    | Conversores AD/DA, PWM, PCM           | Controle de velocidade de motor via PWM             | Código-fonte inicial        |
-| 7    | Temporizadores e contadores           | Uso de timers no controle da empilhadeira           | Exercício prático           |
-| 8    | Interrupções (aplicações)             | Leitura de sensores com interrupção                 | Código de exemplo           |
-| 9    | IIoT: definição e aplicações          | Comunicação via Serial/WiFi                         | Relatório parcial           |
-| 10   | Protocolos de comunicação IIoT        | Conexão ESP32 → WiFi/server                         | Teste em laboratório        |
-| 11   | Interfaces Bluetooth/WiFi             | Integração ESP32 com bot do Telegram                | Protótipo inicial           |
-| 12   | Plataforma de desenvolvimento         | Controle de motor via Telegram                      | Demonstração em aula        |
-| 13   | Serviços em nuvem                     | Registro de dados em nuvem (Firebase/Google Sheets) | Relatório parcial           |
-| 14   | Segurança em IIoT                     | Feedback de comandos no Telegram                    | Código revisado             |
-| 15   | Revisão geral                         | Finalização do projeto da empilhadeira              | Projeto concluído           |
-| 16   | Prova                                 | Questões teóricas + exercícios práticos             | Avaliação individual        |
-| 17   | Apresentação dos projetos             | Demonstração da empilhadeira controlada             | Apresentação final          |
+
+| Aula | Tema Principal                                         | Prática/Atividade                                            | Entregável                   |
+| ---- | ------------------------------------------------------ | ------------------------------------------------------------ | ---------------------------- |
+| 1    | GPIO e protocolos básicos (I2C, SPI, UART)             | Escaneamento de dispositivos I2C no ESP32                    | Exercícios de fixação        |
+| 2    | Interrupções (internas e externas)                     | Botão com interrupção + acionamento de LED                   | Resumo em duplas             |
+| 3    | Mapeamento de periféricos + ADC/DAC                    | Levantamento dos periféricos da empilhadeira 3D              | Tabela inicial de mapeamento |
+| 4    | Interfaceamento eletrônico (LEDs, servo, botão)        | Semáforo inteligente com botão de pedestre (Wokwi)           | Registro em diário de bordo  |
+| 5    | **Projeto Integrador**     | -            | -        |
+| 6    | PWM e temporizadores                                   | Controle de motor DC com PWM                                 | Código inicial               |
+| 7    | Comunicação Serial e UART                              | Envio de dados entre ESP32 e PC                              | Exercício prático            |
+| 8    | Protocolos IIoT – MQTT (conceito e prática)            | Publicação/assinatura em broker público                      | Teste em laboratório         |
+| 5    | **Projeto Integrador**     | -            | -        |
+protótipo                | Relatório parcial            |
+| 10   | Comunicação sem fio – Wi-Fi                            | ESP32 conectado ao Wi-Fi e envio de dados a um servidor      | Demonstração em aula         |
+| 11   | Comunicação sem fio – Bluetooth                        | Troca de mensagens entre ESP32 e celular                     | Exercício prático            |
+| 12   | Protocolos IIoT – HTTP e REST API                      | Enviar dados para API simples (GET/POST)                     | Código validado              |
+| 13    | **Projeto Integrador**     | -            | -        |
+Bluetooth                        | Relatório parcial            |
+| 14   | Integração com serviços em nuvem (ThingSpeak/Firebase) | Registro de dados em dashboard na nuvem                      | Código revisado              |
+| 15   | Segurança em IoT (autenticação e criptografia)         | Implementação de chave de autenticação no MQTT               | Exercício aplicado           |
+| 16   | Protocolos industriais – Modbus/CoAP                   | Exemplo de comunicação Modbus TCP ou CoAP                    | Exercício prático            |
+| 17    | **Projeto Integrador**     | -            | -        |
+nuvem                         | Relatório parcial            |
+| 18   | Integração com bots e dashboards (Telegram/Node-RED)   | ESP32 enviando dados para bot do Telegram ou painel Node-RED | Protótipo funcional          |
+| 19   | Revisão geral + validação final do projeto             | Testes finais no protótipo físico                            | Projeto concluído            |
+| 20   | **Encerramento**: Prova + Semana de Tecnologia         | Apresentação dos protótipos e fechamento do curso            | Avaliação final              |
