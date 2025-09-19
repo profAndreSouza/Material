@@ -1,4 +1,4 @@
-# Aula 3 – Revisão de GPIO + Mapeamento de Periféricos
+# Revisão de GPIO + Mapeamento de Periféricos
 
 ## Objetivos da Aula
 

@@ -1,4 +1,4 @@
-# Aula 2 – Interrupções
+# Interrupções
 
 ## 1. Conceitos Fundamentais
 

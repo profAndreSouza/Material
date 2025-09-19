@@ -1,4 +1,4 @@
-# Aula 1 – GPIO e Tipos de Conexão (I2C como exemplo)
+# GPIO e Tipos de Conexão (I2C como exemplo)
 
 ## 1. Conceitos Fundamentais
 
