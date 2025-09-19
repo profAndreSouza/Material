@@ -61,80 +61,86 @@ Aplicações: controle de brilho de LEDs, velocidade de motores, posição de se
   * **PWM** representa a proporção de tempo ativo.
 
 
-## 3. Estudo de Caso: Controle de Motor DC via PWM
+## 3. Estudo de Caso: Controle de Motor DC via PWM com LCD e LEDs Indicativos
 
-No simulador Wokwi vamos montar um circuito onde:
+No simulador Wokwi, o circuito terá:
 
-* Um potenciômetro define a velocidade desejada.
-* O Arduino lê o potenciômetro via ADC.
-* A saída PWM do Arduino controla o brilho de um LED, representando a velocidade de um motor DC.
+* Um **potenciômetro** que define a velocidade desejada do motor.
+* O Arduino lê o potenciômetro via **ADC**.
+* A saída PWM do Arduino controla a velocidade do **motor DC**.
+* **4 LEDs** indicam a velocidade em escala (0 a 4).
+* Um **LCD I2C 16x2** mostra a rotação atual do motor.
 
 
 ### 3.1 Componentes usados
 
 * Arduino UNO
 * Potenciômetro de 10kΩ
-* LED vermelho
-* Resistor 220Ω
+* Motor DC (simulado no Wokwi)
+* Driver de motor (ex: L298N ou ponte H simulada)
+* 4 LEDs (cores variadas para indicar velocidade)
+* 4 resistores de 220Ω
+* LCD I2C 16x2
 * Fios de conexão
 
 
 ### 3.2 Esquema de ligação
 
-* **Potenciômetro**
+**Potenciômetro**
 
-  * Terminal 1 → GND
-  * Terminal 2 (cursor) → A0 do Arduino
-  * Terminal 3 → 5V
+* Terminal 1 → GND
+* Terminal 2 (cursor) → A0 do Arduino
+* Terminal 3 → 5V
 
-* **LED**
+**Motor DC**
 
-  * Ânodo → Pino 9 (PWM) do Arduino
-  * Cátodo → Resistor de 220Ω → GND
+* Conectado a saída PWM do driver (IN1/IN2 ou EN do L298N)
+* Alimentação do motor conforme Wokwi
+
+**LEDs de indicação de velocidade**
+
+* LED1 → Pino 3 → Resistor 220Ω → GND
+* LED2 → Pino 4 → Resistor 220Ω → GND
+* LED3 → Pino 5 → Resistor 220Ω → GND
+* LED4 → Pino 6 → Resistor 220Ω → GND
+
+**LCD I2C**
+
+* SDA → A4 do Arduino
+* SCL → A5 do Arduino
+* VCC → 5V
+* GND → GND
 
 
 ### 3.3 Código Arduino (Wokwi)
 
 ```cpp
-// Controle de velocidade de motor DC (simulado com LED) via PWM
 
-int potPin = A0;      // Potenciômetro no A0
-int pwmPin = 9;       // Saída PWM no pino 9
-int potValue = 0;     // Valor lido do potenciômetro (0-1023)
-int pwmValue = 0;     // Valor convertido para PWM (0-255)
 
-void setup() {
-  pinMode(pwmPin, OUTPUT);
-  Serial.begin(9600);
-}
 
-void loop() {
-  // Leitura analógica (ADC)
-  potValue = analogRead(potPin);
-
-  // Conversão para faixa do PWM (0-255)
-  pwmValue = map(potValue, 0, 1023, 0, 255);
-
-  // Geração do sinal PWM
-  analogWrite(pwmPin, pwmValue);
-
-  // Exibição no monitor serial
-  Serial.print("Potenciometro: ");
-  Serial.print(potValue);
-  Serial.print("  | PWM: ");
-  Serial.println(pwmValue);
-
-  delay(100);
-}
 ```
 
 
-## 4. Experimentos sugeridos
+### 3.4 Funcionamento do Circuito
 
-1. Girar o potenciômetro e observar como o brilho do LED varia.
-2. Calcular a tensão aproximada no cursor do potenciômetro para diferentes posições.
-3. Alterar o pino PWM e observar o resultado.
-4. Modificar o código para inverter a lógica: potenciômetro em 0 → LED aceso, potenciômetro no máximo → LED apagado.
+1. O **potenciômetro** define a velocidade desejada do motor.
+2. O Arduino lê o valor do potenciômetro via ADC (0–1023).
+3. A saída PWM controla o motor, variando sua velocidade.
+4. O **LCD** exibe a rotação do motor em porcentagem (0–100%).
+5. Os **4 LEDs** mostram a velocidade de forma visual:
+
+   * 0–25% → LED1 aceso
+   * 26–50% → LED1 e LED2 acesos
+   * 51–75% → LED1, LED2 e LED3 acesos
+   * 76–100% → todos os LEDs acesos
+
+
+### 4. Experimentos sugeridos
+
+1. Girar o potenciômetro e observar a velocidade do motor no LCD e nos LEDs.
+2. Testar diferentes escalas de LEDs, alterando a quantidade de LEDs acesos por faixa.
+3. Modificar o código para exibir no LCD a tensão lida pelo potenciômetro.
+4. Adicionar um botão para ligar/desligar o motor e observar a reação do LCD e LEDs.
 
 
 ## 5. Conclusão
