@@ -135,7 +135,7 @@ No simulador Wokwi, o circuito terá:
    * 76–100% → todos os LEDs acesos
 
 
-### 4. Experimentos sugeridos
+## 4. Experimentos sugeridos
 
 1. Girar o potenciômetro e observar a velocidade do motor no LCD e nos LEDs.
 2. Testar diferentes escalas de LEDs, alterando a quantidade de LEDs acesos por faixa.
