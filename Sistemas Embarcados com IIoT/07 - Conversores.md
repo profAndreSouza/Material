@@ -113,10 +113,10 @@ Disponível em: https://www.tinkercad.com/things/aO8m389mfnp-bodacious-hillar-ka
 
 **LEDs de indicação de velocidade**
 
-* LED1 → Pino 3 → Resistor 220Ω → GND
-* LED2 → Pino 4 → Resistor 220Ω → GND
-* LED3 → Pino 5 → Resistor 220Ω → GND
-* LED4 → Pino 6 → Resistor 220Ω → GND
+* LED1 → Pino 2 → Resistor 220Ω → GND
+* LED2 → Pino 3 → Resistor 220Ω → GND
+* LED3 → Pino 4 → Resistor 220Ω → GND
+* LED4 → Pino 5 → Resistor 220Ω → GND
 
 **LCD I2C**
 
