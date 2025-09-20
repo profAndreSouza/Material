@@ -76,7 +76,7 @@ Aplicações: controle de brilho de LEDs, velocidade de motores, posição de se
 
 ## 3. Estudo de Caso: Controle de Motor DC via PWM com LCD e LEDs Indicativos
 
-No simulador Wokwi, o circuito terá:
+No simulador Tinkercad, o circuito terá:
 
 * Um **potenciômetro** que define a velocidade desejada do motor.
 * O Arduino lê o potenciômetro via **ADC**.
@@ -84,13 +84,14 @@ No simulador Wokwi, o circuito terá:
 * **4 LEDs** indicam a velocidade em escala (0 a 4).
 * Um **LCD I2C 16x2** mostra a rotação atual do motor.
 
+Disponível em: https://www.tinkercad.com/things/aO8m389mfnp-bodacious-hillar-kasi/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard&sharecode=rx8bWMyJKV3AxXGpOOQZW9HIvhHv7xpluXhXLHClX4M
+
 
 ### 3.1 Componentes usados
 
 * Arduino UNO
 * Potenciômetro de 10kΩ
-* Motor DC (simulado no Wokwi)
-* Driver de motor (ex: L298N ou ponte H simulada)
+* Motor DC
 * 4 LEDs (cores variadas para indicar velocidade)
 * 4 resistores de 220Ω
 * LCD I2C 16x2
@@ -107,8 +108,8 @@ No simulador Wokwi, o circuito terá:
 
 **Motor DC**
 
-* Conectado a saída PWM do driver (IN1/IN2 ou EN do L298N)
-* Alimentação do motor conforme Wokwi
+* Terminal 1 → GND
+* Terminal 2 → Pino 9
 
 **LEDs de indicação de velocidade**
 
@@ -125,10 +126,84 @@ No simulador Wokwi, o circuito terá:
 * GND → GND
 
 
-### 3.3 Código Arduino (Wokwi)
+### 3.3 Código Arduino (Tinkercad)
+
 
 ```cpp
 
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
+
+#define PINO_POTENCIOMETRO A0
+#define PINO_MOTOR         9
+#define PINO_LED1          2
+#define PINO_LED2          3
+#define PINO_LED3          4
+#define PINO_LED4          5
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+void setup() {
+  lcd.init();
+  lcd.backlight();
+  lcd.print("Velocidade Motor");
+  pinMode(PINO_LED1, OUTPUT);
+  pinMode(PINO_LED2, OUTPUT);
+  pinMode(PINO_LED3, OUTPUT);
+  pinMode(PINO_LED4, OUTPUT);
+  pinMode(PINO_MOTOR, OUTPUT);
+}
+
+void loop() {
+  int valorPotenciometro = analogRead(PINO_POTENCIOMETRO);
+  int porcentagemVelocidade = map(valorPotenciometro, 0, 1023, 0, 100);
+  int velocidadePWM = map(valorPotenciometro, 0, 1023, 0, 100);
+  
+  atualizarLCD(porcentagemVelocidade);
+  controlarMotor(velocidadePWM);
+  controlarLEDs(porcentagemVelocidade);
+  
+  delay(500);
+}
+
+void atualizarLCD(int porcentagemVelocidade) {
+  lcd.setCursor(0, 1);
+  lcd.print("                ");
+  lcd.setCursor(0, 1);
+  lcd.print(porcentagemVelocidade);
+  lcd.print("%");
+}
+
+void controlarMotor(int velocidadePWM){
+  analogWrite(PINO_MOTOR, velocidadePWM);
+}
+
+void controlarLEDs(int porcentagemVelocidade){
+  switch (porcentagemVelocidade) {
+    case 0:
+      acenderLEDs(0);
+      break;
+    case 1 ... 25:
+      acenderLEDs(1);
+      break;
+    case 26 ... 50:
+      acenderLEDs(2);
+      break;
+    case 51 ... 75:
+      acenderLEDs(3);
+      break;
+    default:
+      acenderLEDs(4);
+      break;
+  }
+}
+
+void acenderLEDs(int ledsAtivos) {
+  digitalWrite(PINO_LED1, ledsAtivos >= 1 ? HIGH : LOW);
+  digitalWrite(PINO_LED2, ledsAtivos >= 2 ? HIGH : LOW);
+  digitalWrite(PINO_LED3, ledsAtivos >= 3 ? HIGH : LOW);
+  digitalWrite(PINO_LED4, ledsAtivos >= 4 ? HIGH : LOW);
+}
 
 
 ```
