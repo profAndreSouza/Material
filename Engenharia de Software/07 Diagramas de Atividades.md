@@ -119,7 +119,7 @@ flowchart TD
     B --> C[Revisar carrinho]
     C --> D[Confirmar pedido]
 
-    D --> E[Gerar pedido (draft)]
+    D --> E[Gerar pedido - draft]
     E --> F[Solicitar método de pagamento]
     F --> G[Escolher forma de pagamento]
 
@@ -154,7 +154,7 @@ flowchart TD
     end
 
     subgraph Totem
-        D --> E[Gerar pedido (draft)]
+        D --> E[Gerar pedido - draft]
         E --> G[Solicitar método de pagamento]
         G --> F
         F --> H[Enviar requisição ao PSP]
