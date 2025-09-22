@@ -43,9 +43,65 @@ Exemplos:
 * “Como **administrador**, quero cadastrar novos produtos para manter o catálogo atualizado.”
 * “Como **cliente**, quero rastrear meu pedido para acompanhar a entrega.”
 
+#### **User Story no Contexto do UML e Scrum**
+
+Uma **User Story (História do Usuário)** é uma descrição curta e simples de uma funcionalidade do ponto de vista do **usuário ou ator**.
+
+* Formato clássico:
+
+  ```
+  Como [ator], quero [funcionalidade] para [benefício].
+  ```
+* Exemplo:
+  *Como cliente, quero adicionar produtos ao carrinho para concluir uma compra.*
+
+No **UML**, a user story se relaciona principalmente com **Diagramas de Casos de Uso**, pois ambos descrevem **o que o sistema deve fazer do ponto de vista do usuário**.
+
+* **Casos de uso** representam visualmente essas interações.
+* **User stories** detalham o requisito de forma textual e orientada ao Scrum.
+
+
+#### **Correlação com Scrum**
+
+No Scrum, uma User Story é **um item do Product Backlog** e segue uma hierarquia:
+
+1. **Épico:** Grande objetivo de negócio (ex.: “Gestão de Pedidos”).
+2. **Feature:** Funcionalidade que atende parte do épico (ex.: “Carrinho de compras”).
+3. **User Story:** Requisito do usuário (ex.: “Adicionar produto ao carrinho”).
+4. **Task:** Tarefas concretas para implementar a User Story (ex.: “Criar botão ‘Adicionar ao carrinho’”).
+
+**Artefatos Scrum relacionados:**
+
+* **Product Backlog:** Lista priorizada de User Stories, Épicos e Features.
+* **Sprint Backlog:** Conjunto de User Stories selecionadas para a sprint e suas tasks.
+* **Increment:** Conjunto de funcionalidades entregues após a sprint.
+
+**Cerimônias Scrum que usam User Stories:**
+
+* **Sprint Planning:** Seleção das User Stories para a sprint.
+* **Daily Scrum:** Verificação do progresso nas tasks das User Stories.
+* **Sprint Review:** Demonstração do incremento de funcionalidades implementadas a partir das User Stories.
+
+
+#### **Resumo**
+
+| Scrum / Ágil | UML                                             | Observação                                       |
+| ------------ | ----------------------------------------------- | ------------------------------------------------ |
+| Épico        | —                                               | Grande objetivo de negócio, não detalhado em UML |
+| Feature      | Pacote ou componente                            | Representa uma funcionalidade do sistema         |
+| User Story   | Caso de Uso                                     | Mostra interação usuário-sistema                 |
+| Task         | Mensagens em Diagrama de Sequência / Atividades | Implementação técnica de uma User Story          |
+
+**Observação:**
+
+* Uma **User Story** pode originar **um ou mais casos de uso** no UML.
+* As **tasks** correspondem a atividades detalhadas que podem ser mapeadas em **diagramas de atividades ou de sequência**, mostrando como a funcionalidade será implementada.
+
+
 ### 2.2 Diagrama de Casos de Uso
 
-Representa **atores externos** e as principais funcionalidades.
+- Para que serve: Mostra as interações entre os usuários (atores) e o sistema, representando funcionalidades que o sistema deve oferecer.
+- Foco: Requisitos e visão do sistema pelo usuário.
 
 ```bash
 usecaseDiagram
@@ -64,13 +120,12 @@ usecaseDiagram
   (Finalizar Pedido) --> Pagamento
 ```
 
-
-
 ## 3. Modelagem de Processos
 
-### 3.1 Diagrama de Atividades – Fluxo de Compra
+### 3.1 Diagrama de Atividades
 
-Mostra **como o processo ocorre passo a passo**.
+- Para que serve: Representa o fluxo de atividades ou processos dentro do sistema, incluindo decisões e paralelismos.
+- Foco: Processos e workflows, visualizando o comportamento do sistema.
 
 ```mermaid
 flowchart TD
@@ -88,12 +143,12 @@ flowchart TD
 ```
 
 
-
 ## 4. Modelagem Estrutural
 
 ### 4.1 Diagrama de Classes
 
-Mostra a **estrutura estática** (entidades, atributos e relacionamentos).
+- Para que serve: Representa as classes do sistema, seus atributos, métodos e relacionamentos.
+- Foco: Estrutura estática do sistema e modelagem de dados.
 
 ```mermaid
 classDiagram
@@ -208,10 +263,12 @@ CREATE TABLE Pagamentos (
 ```
 
 
-
 ## 5. Modelagem Comportamental
 
-### 5.1 Diagrama de Sequência – Checkout
+### 5.1 Diagrama de Sequência
+
+- Para que serve: Mostra a sequência de mensagens ou interações entre objetos ao longo do tempo.
+- Foco: Comportamento dinâmico do sistema durante a execução de um caso de uso.
 
 ```mermaid
 sequenceDiagram
@@ -228,11 +285,12 @@ sequenceDiagram
   Sistema->>Cliente: Enviar e-mail de confirmação
 ```
 
-
-
 ## 6. Modelagem Arquitetural
 
 ### 6.1 Diagrama de Componentes
+
+- Para que serve: Mostra os componentes físicos ou lógicos do sistema e como eles se relacionam.
+- Foco: Arquitetura do sistema e organização modular.
 
 ```mermaid
 graph TD
@@ -246,9 +304,10 @@ graph TD
   F --> I[Gateway Externo de Pagamentos]
 ```
 
-
-
 ### 6.2 Diagrama de Implantação (Deployment)
+
+- Para que serve: Representa como o sistema será fisicamente instalado, incluindo hardware, nós, dispositivos e conexões.
+- Foco: Infraestrutura e distribuição física do software.
 
 ```mermaid
 graph TD
@@ -257,7 +316,6 @@ graph TD
   WebServer --> DB[(Banco de Dados)]
   WebServer --> PayAPI[API de Pagamento Externa]
 ```
-
 
 ## Resumo
 
