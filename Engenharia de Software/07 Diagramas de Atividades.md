@@ -136,7 +136,7 @@ flowchart TD
     M --> P[Preparo dos itens]
     N --> P
     O --> P
-    P --> end([Fim])
+    P --> End([Fim])
 ```
 
 
