@@ -5,26 +5,30 @@
 ### 1.1 Requisitos Funcionais
 
 Definem **o que o sistema deve fazer**.
+São as funcionalidades principais que entregam valor ao usuário.
 
 Exemplos em um e-commerce:
 
-* Cadastrar novos produtos no catálogo.
-* Permitir login e cadastro de clientes.
+* Cadastrar e gerenciar produtos no catálogo.
+* Permitir login, cadastro e recuperação de senha de clientes.
 * Adicionar produtos ao carrinho de compras.
-* Calcular valor total e descontos do pedido.
-* Integrar com sistema de pagamento (cartão, PIX, boleto).
+* Calcular valor total e aplicar cupons de desconto.
+* Finalizar compra com diferentes métodos de pagamento (cartão, PIX, boleto).
 * Gerar relatórios de vendas para o administrador.
+* Rastrear pedidos em andamento.
 
 ### 1.2 Requisitos Não Funcionais
 
-Definem **restrições ou qualidades do sistema**.
+Definem **qualidades, restrições ou critérios de desempenho**.
 
-Exemplos:
+Exemplos em um e-commerce:
 
-* O sistema deve responder em menos de 2 segundos em consultas simples.
-* O pagamento deve seguir protocolos de segurança (ex.: SSL, PCI-DSS).
-* A aplicação deve estar disponível 24/7.
-* Interface responsiva para desktop e mobile.
+* O sistema deve responder em **menos de 2 segundos** em operações simples.
+* O pagamento deve seguir protocolos de segurança (**SSL, PCI-DSS**).
+* O sistema deve estar disponível **24/7**, com tolerância a falhas.
+* Interface responsiva e acessível em dispositivos **desktop e mobile**.
+* Banco de dados deve suportar até **100 mil usuários ativos simultâneos**.
+
 
 
 ## 2. Modelagem de Requisitos
@@ -35,21 +39,15 @@ Formato: **Como \[ator], quero \[funcionalidade] para \[benefício].**
 
 Exemplos:
 
-* “Como cliente, quero adicionar produtos ao carrinho para realizar uma compra completa.”
-* “Como administrador, quero cadastrar novos produtos para manter o catálogo atualizado.”
-* “Como cliente, quero rastrear meu pedido para acompanhar a entrega.”
+* “Como **cliente**, quero adicionar produtos ao carrinho para concluir uma compra.”
+* “Como **administrador**, quero cadastrar novos produtos para manter o catálogo atualizado.”
+* “Como **cliente**, quero rastrear meu pedido para acompanhar a entrega.”
 
 ### 2.2 Diagrama de Casos de Uso
 
-Representa **atores** e **funcionalidades principais**.
+Representa **atores externos** e as principais funcionalidades.
 
-Exemplo para e-commerce:
-
-* **Cliente**: pesquisar produto, adicionar ao carrinho, finalizar pedido, rastrear entrega.
-* **Administrador**: cadastrar produto, gerenciar estoque, gerar relatórios.
-* **Sistema de Pagamento**: processar transações.
-
-```mermaid
+```bash
 usecaseDiagram
   actor Cliente
   actor Administrador
@@ -70,27 +68,9 @@ usecaseDiagram
 
 ## 3. Modelagem de Processos
 
-### 3.1 Diagrama de Atividades
+### 3.1 Diagrama de Atividades – Fluxo de Compra
 
-Mostra os **fluxos de ações** do sistema.
-
-Exemplo: **Processo de Finalização de Compra**
-
-1. Cliente faz login.
-2. Seleciona produtos e adiciona ao carrinho.
-3. Confirma endereço de entrega.
-4. Escolhe forma de pagamento.
-5. Sistema processa pagamento.
-6. Pedido é confirmado.
-7. Cliente recebe notificação por e-mail.
-
-👉 Dica didática: usar **partições (swimlanes)** para separar responsabilidades:
-
-* Cliente
-* Sistema de E-commerce
-* Gateway de Pagamento
-
-#### Diagrama de Atividades – **Fluxo de Compra**
+Mostra **como o processo ocorre passo a passo**.
 
 ```mermaid
 flowchart TD
@@ -107,26 +87,13 @@ flowchart TD
     J --> K[Fim]
 ```
 
+
+
 ## 4. Modelagem Estrutural
 
 ### 4.1 Diagrama de Classes
 
-Mostra a **estrutura estática**.
-
-Exemplo de classes em e-commerce:
-
-* **Cliente** (id, nome, e-mail, senha)
-* **Produto** (id, nome, descrição, preço, estoque)
-* **Pedido** (id, data, status, valorTotal)
-* **ItemPedido** (quantidade, subtotal)
-* **Pagamento** (id, tipo, status, data)
-
-Relacionamentos:
-
-* Um Cliente pode realizar vários Pedidos.
-* Um Pedido contém vários ItensPedido.
-* Cada ItemPedido está associado a um Produto.
-* Um Pedido gera um Pagamento.
+Mostra a **estrutura estática** (entidades, atributos e relacionamentos).
 
 ```mermaid
 classDiagram
@@ -170,27 +137,81 @@ classDiagram
   Pedido "1" --> "1" Pagamento
 ```
 
+
+
 ### 4.2 Modelo de Dados (DER e Lógico)
 
-* Tabelas correspondem às classes principais.
-* Exemplo: `Clientes`, `Produtos`, `Pedidos`, `ItensPedido`, `Pagamentos`.
-* DER mostra chaves primárias e estrangeiras.
+Embora não faça parte da UML, é **essencial** para o projeto de banco de dados.
+
+#### DER Conceitual
+
+Entidades:
+
+* **Cliente(id, nome, email, senha)**
+* **Produto(id, nome, descricao, preco, estoque)**
+* **Pedido(id, data, status, valorTotal, clienteId)**
+* **ItemPedido(id, quantidade, subtotal, pedidoId, produtoId)**
+* **Pagamento(id, tipo, status, data, pedidoId)**
+
+Relacionamentos:
+
+* Cliente faz → Pedido
+* Pedido contém → ItemPedido
+* ItemPedido refere-se → Produto
+* Pedido gera → Pagamento
+
+#### Modelo Lógico (tabelas simplificadas)
+
+```sql
+CREATE TABLE Clientes (
+  id INT PRIMARY KEY,
+  nome VARCHAR(100),
+  email VARCHAR(100) UNIQUE,
+  senha VARCHAR(200)
+);
+
+CREATE TABLE Produtos (
+  id INT PRIMARY KEY,
+  nome VARCHAR(100),
+  descricao TEXT,
+  preco DECIMAL(10,2),
+  estoque INT
+);
+
+CREATE TABLE Pedidos (
+  id INT PRIMARY KEY,
+  data TIMESTAMP,
+  status VARCHAR(50),
+  valorTotal DECIMAL(10,2),
+  clienteId INT,
+  FOREIGN KEY (clienteId) REFERENCES Clientes(id)
+);
+
+CREATE TABLE ItensPedido (
+  id INT PRIMARY KEY,
+  quantidade INT,
+  subtotal DECIMAL(10,2),
+  pedidoId INT,
+  produtoId INT,
+  FOREIGN KEY (pedidoId) REFERENCES Pedidos(id),
+  FOREIGN KEY (produtoId) REFERENCES Produtos(id)
+);
+
+CREATE TABLE Pagamentos (
+  id INT PRIMARY KEY,
+  tipo VARCHAR(50),
+  status VARCHAR(50),
+  data TIMESTAMP,
+  pedidoId INT,
+  FOREIGN KEY (pedidoId) REFERENCES Pedidos(id)
+);
+```
+
 
 
 ## 5. Modelagem Comportamental
 
-### 5.1 Diagrama de Sequência
-
-Mostra **a troca de mensagens ao longo do tempo**.
-
-Exemplo: **Checkout do Pedido**
-
-1. Cliente → Sistema: “Finalizar Pedido”.
-2. Sistema → Carrinho: calcular valor total.
-3. Sistema → Gateway de Pagamento: processar transação.
-4. Gateway → Sistema: confirmação de pagamento.
-5. Sistema → Pedido: alterar status para “Confirmado”.
-6. Sistema → Cliente: enviar notificação por e-mail.
+### 5.1 Diagrama de Sequência – Checkout
 
 ```mermaid
 sequenceDiagram
@@ -207,20 +228,11 @@ sequenceDiagram
   Sistema->>Cliente: Enviar e-mail de confirmação
 ```
 
+
+
 ## 6. Modelagem Arquitetural
 
 ### 6.1 Diagrama de Componentes
-
-Mostra a divisão em **módulos de software**.
-
-Exemplo de módulos em e-commerce:
-
-* **Catálogo de Produtos**
-* **Carrinho e Pedidos**
-* **Autenticação de Usuários**
-* **Pagamentos**
-* **Relatórios e Promoções**
-
 
 ```mermaid
 graph TD
@@ -234,32 +246,24 @@ graph TD
   F --> I[Gateway Externo de Pagamentos]
 ```
 
+
+
 ### 6.2 Diagrama de Implantação (Deployment)
-
-Mostra **a infraestrutura**.
-
-Exemplo simplificado:
-
-* **Servidor Web** (frontend e backend).
-* **Servidor de Banco de Dados** (armazenamento de clientes, pedidos, produtos).
-* **API de Pagamento** (serviço externo).
-* **Cliente** (navegador web ou aplicativo mobile).
 
 ```mermaid
 graph TD
   User[Cliente] --> Browser[Navegador / App Mobile]
-
   Browser --> WebServer[Servidor Web/API]
   WebServer --> DB[(Banco de Dados)]
   WebServer --> PayAPI[API de Pagamento Externa]
 ```
 
 
-## Resumo Didático
+## Resumo
 
 * **Levantamento de Requisitos** → descreve o que o sistema deve ter.
 * **Casos de Uso / Histórias** → mostram quem usa e para quê.
 * **Atividades** → descrevem os fluxos principais.
-* **Classes / Dados** → organizam a estrutura estática.
-* **Sequência** → detalha as interações dinâmicas.
-* **Componentes / Implantação** → explicam a arquitetura lógica e física.
+* **Classes / DER / Lógico** → organizam dados e estrutura.
+* **Sequência** → detalha interações dinâmicas.
+* **Componentes / Implantação** → explicam arquitetura lógica e física.
