@@ -1,120 +1,158 @@
 # Aula 06 – VLANs e Segmentação
 
 ## Objetivos de Aprendizagem
-* Compreender o conceito de **VLANs (Virtual LANs)**.
-* Diferenciar segmentação física e segmentação lógica.
-* Criar VLANs em um switch para isolar domínios de broadcast.
-* Testar a comunicação entre dispositivos em VLANs diferentes.
+
+* Compreender o conceito de **VLANs (Virtual Local Area Networks)** e sua função em redes locais.
+* Diferenciar **segmentação física** e **segmentação lógica**.
+* Configurar VLANs em switches para criar **domínios de broadcast isolados**.
+* Compreender a necessidade do **roteamento entre VLANs** para comunicação entre redes distintas.
+* Relacionar VLANs com **cenários reais de empresas, escolas e provedores de internet**.
 
 
-## 1. Introdução
+## 1. Introdução: Por que usar VLANs?
 
-Nas redes locais tradicionais, **todos os dispositivos conectados a um switch pertencem ao mesmo domínio de broadcast**.  
-Isso significa que uma mensagem enviada em broadcast (ex.: ARP Request) é recebida por **todos os hosts da rede**, o que pode causar:
+Em uma rede local tradicional:
 
-- Tráfego desnecessário.
-- Risco de segurança.
-- Dificuldade de gerenciamento.
+* Todos os dispositivos conectados a um switch estão no **mesmo domínio de broadcast**.
+* Isso significa que mensagens como **ARP Request** ou **DHCP Discover** são replicadas para **todos os hosts da rede**, mesmo os que não precisam da informação.
 
-As **VLANs** resolvem esse problema ao permitir criar **redes lógicas independentes dentro de um mesmo switch físico**.
+### Problemas causados:
+
+1. **Tráfego excessivo** – a rede fica sobrecarregada com mensagens desnecessárias.
+2. **Risco de segurança** – qualquer máquina pode capturar pacotes que não lhe dizem respeito.
+3. **Gestão difícil** – todos os setores da empresa compartilham o mesmo ambiente, dificultando a aplicação de regras específicas.
+
+As VLANs surgem como uma solução, permitindo que um único switch físico seja **dividido logicamente em vários switches virtuais**.
 
 
 ## 2. Conceito de VLAN
 
-- **VLAN (Virtual Local Area Network):** uma rede lógica configurada em software dentro de um switch.
-- Permite separar os dispositivos em **grupos distintos**, mesmo que estejam no **mesmo equipamento físico**.
+* **VLAN (Virtual Local Area Network):** tecnologia que cria redes lógicas dentro de um mesmo dispositivo físico.
+* Uma VLAN funciona como se fosse uma rede independente.
 
-### Benefícios:
-- **Segurança:** tráfego de uma VLAN não é visível em outra.
-- **Eficiência:** redução de broadcast.
-- **Flexibilidade:** reorganização de grupos sem alterar cabos.
-- **Gerenciamento:** facilita políticas de rede.
+### Analogia:
 
+Imagine um prédio comercial com vários andares.
 
-## 3. Exemplo Prático
+* **Sem VLANs:** todos os andares estão conectados a um único alto-falante. Uma mensagem enviada é ouvida por todos.
+* **Com VLANs:** cada andar tem o seu próprio sistema de som. Mensagens enviadas no 3º andar não são ouvidas no 5º andar.
 
-Imagine uma empresa com dois departamentos:
+### Benefícios das VLANs:
 
-- **Administração**
-- **Suporte Técnico**
-
-Ambos estão conectados ao **mesmo switch**.  
-Sem VLANs → todos estão na mesma rede.  
-Com VLANs → criamos **VLAN 10 (Administração)** e **VLAN 20 (Suporte Técnico)**.  
-
-Assim, cada departamento só se comunica internamente.
+1. **Segurança** – tráfego fica isolado por grupo/setor.
+2. **Eficiência** – redução de broadcast e melhor uso da banda.
+3. **Flexibilidade** – reorganização dos grupos sem recabeamento físico.
+4. **Escalabilidade** – facilita a expansão da rede e o gerenciamento centralizado.
 
 
-## 4. Configuração de VLANs no Packet Tracer
+## 3. Segmentação Física x Segmentação Lógica
 
-### Cenário
-- 1 switch.
-- 4 PCs (2 Administração, 2 Suporte Técnico).
+* **Segmentação Física:** cada grupo de usuários teria um switch separado fisicamente.
 
-### Passo a Passo
-1. Adicionar 1 switch e 4 PCs.
-2. Conectar cada PC ao switch com cabo direto.
-3. Configurar IPs:
-   - Administração: `192.168.10.1` e `192.168.10.2`
-   - Suporte: `192.168.20.1` e `192.168.20.2`
-   - Máscara: `255.255.255.0` em todos.
-4. Criar VLANs no switch:
-```
+  * Vantagem: isolamento real.
+  * Desvantagem: mais equipamentos, mais custos e menos flexibilidade.
 
-Switch> enable
-Switch# configure terminal
-Switch(config)# vlan 10
-Switch(config-vlan)# name ADMINISTRACAO
-Switch(config)# vlan 20
-Switch(config-vlan)# name SUPORTE
+* **Segmentação Lógica (com VLANs):** um único switch pode abrigar vários grupos de usuários isolados.
 
-```
-5. Atribuir portas às VLANs:
-```
+  * Vantagem: reduz custo e aumenta flexibilidade.
+  * Desvantagem: exige switches gerenciáveis e configuração correta.
 
-Switch(config)# interface fastEthernet 0/1
-Switch(config-if)# switchport mode access
-Switch(config-if)# switchport access vlan 10
-!
-Switch(config)# interface fastEthernet 0/2
-Switch(config-if)# switchport mode access
-Switch(config-if)# switchport access vlan 10
-!
-Switch(config)# interface fastEthernet 0/3
-Switch(config-if)# switchport mode access
-Switch(config-if)# switchport access vlan 20
-!
-Switch(config)# interface fastEthernet 0/4
-Switch(config-if)# switchport mode access
-Switch(config-if)# switchport access vlan 20
+
+## 4. Exemplo Real: Empresa com 3 Departamentos
+
+* **Administração** – VLAN 10
+* **Suporte Técnico** – VLAN 20
+* **Professores** – VLAN 30
+
+Todos os computadores estão conectados ao **mesmo switch físico**, mas logicamente separados em três redes diferentes.
+
+### Situação sem VLANs:
+
+* Todo tráfego circula para todos os setores.
+
+### Situação com VLANs:
+
+* Administração só enxerga seu próprio tráfego.
+* Suporte só enxerga seu tráfego.
+* Professores só enxerga seu tráfego.
+* Para comunicação entre setores → precisa de um **roteador ou switch de camada 3**.
+
+
+## 5. Configuração de VLANs no Switch (roteiro de prática)
+
+### Etapas
+
+1. Criar as VLANs no switch.
+2. Nomear cada VLAN.
+3. Atribuir portas específicas a cada VLAN.
+4. Configurar IPs nos PCs para cada rede.
+5. Testar conectividade dentro da mesma VLAN e entre VLANs.
+
+### Estrutura de comandos (preencher em sala):
+
+```bash
 
 ```
 
-6. Testar ping:
-- PC1 ↔ PC2 (Administração) → **funciona** ✅
-- PC3 ↔ PC4 (Suporte Técnico) → **funciona** ✅
-- PC1 ↔ PC3 (entre VLANs) → **falha** ❌
+
+## 6. Roteamento entre VLANs (Inter-VLAN Routing)
+
+* VLANs criam redes independentes.
+* Para que máquinas em VLANs diferentes se comuniquem, é necessário um **dispositivo de camada 3**.
+
+### Opções:
+
+1. **Router-on-a-Stick (Roteador com subinterfaces)**
+
+   * Cada VLAN é associada a uma **subinterface** do roteador.
+   * A porta do roteador conecta-se ao **switch trunk** que transporta várias VLANs.
+   * Cada subinterface recebe um **IP da respectiva VLAN**, permitindo roteamento entre elas.
+
+   **Exemplo de configuração:**
+
+   ```bash
+
+   
+   ```
+
+   * **Observações importantes:**
+
+     * `GigabitEthernet0/0` é a interface física do roteador.
+     * `.10`, `.20` e `.30` são **subinterfaces** correspondentes às VLANs 10, 20 e 30.
+     * O comando `encapsulation dot1Q <VLAN>` define a VLAN associada à subinterface.
+
+2. **Switch Layer 3**
+
+   * Switch gerenciável que suporta **SVIs (Switch Virtual Interfaces)**.
+   * Permite roteamento interno entre VLANs sem precisar de roteador externo.
 
 
-## 5. Questões para Discussão
-1. Por que os PCs de VLANs diferentes não conseguem se comunicar diretamente?  
-2. Qual seria a solução para permitir comunicação entre VLANs (dica: **roteador ou switch camada 3**)?  
-3. Em que cenários reais você aplicaria VLANs?
+## 6.1 Diferença entre Interface Física e Subinterface
+
+| Tipo de Interface | Função                                         | Observações                                                                     |
+| ----------------- | ---------------------------------------------- | ------------------------------------------------------------------------------- |
+| Interface Física  | Conecta roteador a switch                      | Uma porta física, pode ter apenas 1 IP nativo ou ser trunk para múltiplas VLANs |
+| Subinterface      | Representa uma VLAN dentro da interface física | Permite múltiplos IPs e roteamento entre VLANs na mesma porta física            |
 
 
-## 6. Critérios de Sucesso
-- VLANs criadas corretamente no switch.
-- PCs da mesma VLAN se comunicam.
-- PCs de VLANs diferentes **não** se comunicam.
-- Documentação com tabela de IPs e VLANs atribuídas.
+## 7. Cenários Reais de Aplicação
+
+* **Escolas e universidades:** separar rede de alunos, professores e administração.
+* **Hospitais:** separar rede de médicos, enfermagem e setores administrativos.
+* **Empresas:** separar tráfego de diferentes departamentos para segurança e desempenho.
+* **Provedores de internet:** usar VLANs para entregar conexões separadas a diferentes clientes.
 
 
-## 7. Atividade Extra (opcional)
-- Criar uma terceira VLAN chamada **Professores** (VLAN 30).
-- Atribuir um PC a essa VLAN e verificar a comunicação.
+## 8. Atividade Extra
+
+1. Criar uma terceira VLAN chamada **Professores (30)**.
+2. Associar pelo menos 1 PC a essa VLAN.
+3. Configurar **subinterfaces no roteador** para permitir comunicação entre VLAN 10, 20 e 30.
+4. Testar o ping entre todos os dispositivos para verificar conectividade inter-VLAN.
 
 
 ## Referências
-- TANENBAUM, A. S.; FEAMSTER, N.; WETHERALL, D. J. *Redes de Computadores*, 6ª ed.  
-- KUROSE, J.; ROSS, K. *Redes de Computadores e a Internet: uma abordagem top-down*, 8ª ed.  
-- CISCO Networking Academy – CCNA Switching, Routing, and Wireless Essentials.
+
+* TANENBAUM, A. S.; FEAMSTER, N.; WETHERALL, D. J. *Redes de Computadores*, 6ª ed.
+* KUROSE, J.; ROSS, K. *Redes de Computadores e a Internet: uma abordagem top-down*, 8ª ed.
+* CISCO Networking Academy – CCNA Switching, Routing, and Wireless Essentials.
