@@ -1,115 +1,146 @@
-# 9. Camada 4
+# Camada de Transporte
 
-A **Camada de Transporte** é a quarta camada do **Modelo OSI**. Seu principal objetivo é fornecer uma **transferência de dados confiável** e eficiente entre dispositivos de origem e de destino em uma rede. Ela atua como ponte entre a **camada de rede (Camada 3)**, que entrega os pacotes, e a **camada de sessão (Camada 5)**, que organiza e gerencia os diálogos entre aplicações.
+## 1. Introdução
 
-![image.png](attachment:b8b43739-32d3-428e-9f10-f665443ef02a:image.png)
+A **Camada de Transporte** é a responsável por garantir que os dados cheguem corretamente à aplicação de destino. Ela atua como um “entregador confiável” entre a rede e as aplicações, cuidando da segmentação, ordenação, controle de erros e da identificação dos serviços por meio de **números de porta**.
 
-## Funções Principais da Camada de Transporte
 
-1. **Multiplexação e Demultiplexação**
-    - Permite que múltiplas aplicações compartilhem simultaneamente a rede por meio do uso de **números de porta**.
-    - Quando os dados chegam ao host de destino, a camada de transporte usa o número de porta para entregar os dados à aplicação correta.
-2. **Controle de Conexão**
-    - Pode estabelecer uma **conexão lógica entre os dispositivos** antes da transferência dos dados (como no TCP).
-    - Essa conexão é usada para garantir a integridade e ordem dos dados transmitidos.
-3. **Segmentação e Reagrupamento de Dados**
-    - Divide os dados da camada superior em **segmentos menores** para transmissão.
-    - No destino, os segmentos são **reagrupados na ordem correta**.
-4. **Controle de Fluxo**
-    - Impede que o emissor envie dados mais rápido do que o receptor pode processar.
-    - Garante que os dispositivos se comuniquem em uma taxa adequada para ambos.
-5. **Detecção e Correção de Erros**
-    - Os segmentos incluem **checksums** para verificar a integridade dos dados.
-    - Em caso de erro, pode haver **retransmissão automática** do segmento perdido ou corrompido.
-6. **Entrega Ordenada dos Dados**
-    - Garante que os segmentos sejam entregues na ordem correta (propriedade exclusiva do TCP).
+## 2. Funções Principais da Camada de Transporte
 
-## O Handshake de Três Vias (Three-Way Handshake) – TCP
+### Multiplexação e Demultiplexação
 
-O **handshake de três vias** é um processo realizado pelo **TCP (Transmission Control Protocol)** para estabelecer uma conexão confiável entre dois dispositivos antes da transferência de dados.
+Permite que várias aplicações usem a rede simultaneamente. Isso é feito pelas **portas**:
 
-![image.png](attachment:fe902fe7-3eed-430f-be3f-661b7b8abb18:image.png)
+* Navegador Web → porta 80 (HTTP) ou 443 (HTTPS).
+* Cliente de e-mail → portas 25 (SMTP), 110 (POP3).
 
-### Etapas:
+### Segmentação e Reagrupamento
 
-1. **SYN (Synchronize)**
-    - O cliente envia um segmento TCP com o **bit SYN** ativado para o servidor.
-    - Isso informa que o cliente deseja iniciar uma conexão.
-2. **SYN-ACK (Synchronize-Acknowledge)**
-    - O servidor responde com um segmento que possui os bits **SYN e ACK** ativados.
-    - Isso indica que o servidor reconheceu o pedido e também deseja estabelecer a conexão.
-3. **ACK (Acknowledge)**
-    - O cliente envia um segmento com o bit **ACK** ativado.
-    - A conexão está agora estabelecida e pronta para troca de dados.
+Mensagens grandes são divididas em **segmentos** menores. No destino, esses segmentos são remontados na ordem correta.
 
-Este processo garante que ambos os lados estejam sincronizados e preparados para a comunicação.
+### Controle de Conexão
 
-## Principais Protocolos da Camada de Transporte
+O TCP estabelece uma conexão antes da troca de dados (handshake). O UDP envia diretamente, sem conexão.
 
-### TCP (Transmission Control Protocol)
+### Controle de Fluxo
 
-- **Orientado à conexão**: estabelece uma conexão lógica entre origem e destino antes da troca de dados.
-- **Confiável**: usa mecanismos como verificação de erro, retransmissão e controle de fluxo.
-- **Entrega garantida e ordenada** dos segmentos.
-- Utiliza o **three-way handshake** para iniciar a comunicação.
-- Indicado para aplicações onde a **precisão** e **integridade dos dados** são mais importantes que a velocidade.
-- Exemplo de aplicações: HTTP, HTTPS, FTP, SMTP, IMAP, POP3.
+Evita que o transmissor sobrecarregue o receptor.
 
-### UDP (User Datagram Protocol)
+### Detecção e Correção de Erros
 
-- **Não orientado à conexão**: não há handshake, nem garantia de entrega.
-- **Sem verificação de ordem ou correção de erros** (apenas um checksum básico).
-- **Mais rápido e eficiente** que o TCP, ideal para aplicações em tempo real.
-- Dados são enviados como **datagramas independentes**.
-- Indicado para aplicações onde a **velocidade** é mais crítica que a confiabilidade.
-- Exemplo de aplicações: DNS, VoIP, videoconferência, jogos online, streaming de vídeo ao vivo.
+* TCP verifica e retransmite segmentos perdidos.
+* UDP apenas verifica, mas não corrige.
 
-## Comparação entre TCP e UDP
+### Entrega Ordenada
 
-| Característica | TCP | UDP |
-| --- | --- | --- |
-| Tipo de conexão | Orientado à conexão | Não orientado à conexão |
-| Estabelecimento de conexão | Requer handshake de três vias | Não requer handshake |
-| Confiabilidade | Alta: entrega garantida | Baixa: não há garantia de entrega |
-| Ordem dos dados | Garante entrega na ordem correta | Não garante ordem |
-| Retransmissão de pacotes | Sim, em caso de perda ou erro | Não |
-| Controle de fluxo e congestionamento | Sim | Não |
-| Velocidade | Mais lento devido ao controle | Mais rápido |
-| Tamanho do cabeçalho | 20 bytes (mínimo) | 8 bytes |
-| Verificação de integridade | Checksum + confirmação e retransmissão | Checksum simples |
-| Uso típico | Web, e-mail, FTP | Streaming, VoIP, jogos em tempo real |
+* TCP garante ordem dos segmentos.
+* UDP não garante (pode chegar fora de ordem).
 
-## Estrutura dos Segmentos TCP e Datagramas UDP
+
+## 3. Handshake de Três Vias (TCP)
+
+1. Cliente envia **SYN** → pedindo conexão.
+2. Servidor responde **SYN-ACK** → aceita e confirma.
+3. Cliente envia **ACK** → conexão estabelecida.
+
+
+## 4. Comparação TCP vs UDP
+
+| Característica  | TCP                 | UDP                    |
+| --------------- | ------------------- | ---------------------- |
+| Conexão         | Orientado à conexão | Não orientado          |
+| Confiabilidade  | Alta                | Baixa                  |
+| Ordem dos dados | Garantida           | Não garantida          |
+| Velocidade      | Mais lento          | Mais rápido            |
+| Uso típico      | Web, e-mail, FTP    | Jogos, VoIP, streaming |
+
+
+## 5. Estrutura dos Protocolos
 
 ### Segmento TCP
 
-![image.png](attachment:8d2116a5-4bc9-4b4e-b8cf-c2e4b5bf5b93:image.png)
+Contém: portas, número de sequência, ACK, flags, checksum e dados.
 
-- Porta de origem
-- Porta de destino
-- Número de sequência
-- Número de confirmação (ACK)
-- Flags (SYN, ACK, FIN, RST, etc.)
-- Janela de recepção
-- Checksum
-- Dados
+### Datagrama UDP
 
-### Datagramas UDP
+Mais simples: portas, comprimento, checksum e dados.
 
-![image.png](attachment:84f5fd08-7460-48a4-93e6-2b5d7a7637a6:image.png)
 
-- Porta de origem
-- Porta de destino
-- Comprimento
-- Checksum
-- Dados
+## 6. Exemplos de Aplicações
 
-## Aplicações Típicas da Camada de Transporte
+* **TCP:** HTTP, HTTPS, FTP, SMTP, IMAP.
+* **UDP:** DNS, VoIP, jogos online, transmissões ao vivo.
 
-| Aplicação | Protocolo | Observação |
-| --- | --- | --- |
-| Navegação Web (HTTP) | TCP | Confiabilidade é essencial |
-| Vídeo em tempo real | UDP | Baixa latência é mais importante |
-| Transferência de arquivos | TCP | Integridade total dos dados é necessária |
-| DNS | UDP | Respostas rápidas; TCP usado em casos raros |
-| Jogos online | UDP | Prioridade à velocidade e resposta |
+
+## 7. Situações Práticas
+
+### 7.1 Visualização no Packet Tracer
+
+Ao configurar um servidor **HTTP** (TCP) e um servidor **DNS** (UDP) em uma rede simples, é possível usar o **Simulation Mode** para observar:
+
+* No **HTTP**, os pacotes são acompanhados por ACKs de confirmação.
+* No **DNS**, os pacotes são enviados sem confirmação de recebimento.
+
+Essa diferença mostra como TCP busca **confiabilidade** e UDP busca **rapidez**.
+
+
+### 7.2 Simulação em Excel – Controle de Fluxo
+
+**Exemplo preenchido de tabela:**
+
+| Segmento | Dados Enviados | ACK Recebido | Retransmissão   |
+| -------- | -------------- | ------------ | --------------- |
+| 1        | 100 bytes      | Sim          | Não             |
+| 2        | 100 bytes      | Sim          | Não             |
+| 3        | 100 bytes      | Não          | Sim (reenviado) |
+| 4        | 100 bytes      | Sim          | Não             |
+| 5        | 100 bytes      | Não          | Sim (reenviado) |
+
+> Interpretação: O TCP retransmitiu os segmentos 3 e 5 porque não recebeu confirmação.
+> Se fosse UDP, esses segmentos teriam simplesmente se perdido.
+
+
+### 7.3 Tabela de Portas e Serviços
+
+| Porta | Serviço | Protocolo |
+| ----- | ------- | --------- |
+| 20/21 | FTP     | TCP       |
+| 25    | SMTP    | TCP       |
+| 53    | DNS     | UDP/TCP   |
+| 80    | HTTP    | TCP       |
+| 443   | HTTPS   | TCP       |
+| 110   | POP3    | TCP       |
+
+> Essa tabela ajuda a relacionar **números de porta** com **serviços de rede**.
+
+
+## 8. Trabalho de Pesquisa – Protocolos da Camada de Transporte
+
+Além do TCP e do UDP, a Camada de Transporte possui outros protocolos que, embora menos conhecidos, são importantes em contextos específicos.
+
+**Atividade de Pesquisa:**
+Cada aluno (ou grupo) deverá escolher **um protocolo da Camada de Transporte** além do TCP/UDP, realizar pesquisa e elaborar um resumo (1 página) com:
+
+* Nome do protocolo.
+* Ano ou contexto em que foi criado.
+* Principais características.
+* Diferenças em relação ao TCP e UDP.
+* Exemplos de uso.
+
+**Sugestões de protocolos para pesquisa:**
+
+* **SCTP (Stream Control Transmission Protocol)** – usado em telefonia IP e transmissão multimídia.
+* **DCCP (Datagram Congestion Control Protocol)** – combina a baixa latência do UDP com controle de congestionamento.
+* **RUDP (Reliable User Datagram Protocol)** – versão confiável do UDP.
+* **QUIC (Quick UDP Internet Connections)** – protocolo do Google usado em navegadores modernos, combina UDP com mecanismos de confiabilidade.
+
+> Essa atividade permite conhecer que a Camada de Transporte é mais rica do que apenas TCP e UDP, e como novas soluções surgem para atender a demandas de performance, segurança e confiabilidade.
+
+
+## 9. Conclusão
+
+A Camada de Transporte garante que as aplicações se comuniquem de forma organizada, segura e eficiente.
+
+* O **TCP** prioriza confiabilidade.
+* O **UDP** prioriza velocidade.
+* Outros protocolos (SCTP, QUIC, DCCP etc.) surgem para equilibrar essas necessidades em novos cenários.
