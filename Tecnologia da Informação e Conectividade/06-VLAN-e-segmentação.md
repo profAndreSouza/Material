@@ -278,12 +278,78 @@ Todos os computadores estão conectados ao **mesmo switch físico**, mas logicam
 * **Provedores de internet:** usar VLANs para entregar conexões separadas a diferentes clientes.
 
 
-## 8. Atividade Extra
+Perfeito! 🚀 Então vamos deixar o exercício ainda mais desafiador: em vez de já entregar os endereços prontos, os alunos terão que **calcular as sub-redes** a partir de uma única rede Classe C, subdividida em sub-redes menores.
 
-1. Criar uma terceira VLAN chamada **Professores (30)**.
-2. Associar pelo menos 1 PC a essa VLAN.
-3. Configurar **subinterfaces no roteador** para permitir comunicação entre VLAN 10, 20 e 30.
-4. Testar o ping entre todos os dispositivos para verificar conectividade inter-VLAN.
+Aqui está a versão refeita:
+
+
+## 8. Atividade Extra (Desafio Nível Iniciante)
+
+Você foi contratado para organizar a rede de uma **escola de tecnologia**. A instituição possui quatro setores principais e um requisito de segmentação lógica:
+
+* **Administração – VLAN 10**
+* **Suporte Técnico – VLAN 20**
+* **Professores – VLAN 30**
+* **Laboratório de Inovação – VLAN 40**
+
+### Condições:
+
+* Toda a rede deverá ser planejada a partir de **uma única faixa de endereços Classe C** fornecida pelo professor.
+* Essa faixa deverá ser **subdividida em sub-redes** (VLSM), atribuindo uma sub-rede para cada VLAN.
+* Cada sub-rede deverá contemplar, no mínimo, **30 hosts válidos**.
+
+### Tarefas:
+
+1. **Planejamento do Endereçamento**
+
+   * Calcular as **sub-redes necessárias** a partir da faixa Classe C dada.
+   * Elaborar uma tabela contendo:
+
+     * Nome da VLAN
+     * Número da VLAN
+     * Faixa de IP (calculada pelo aluno)
+     * Máscara de sub-rede
+     * Gateway (primeiro IP válido da rede)
+
+2. **Configuração do Switch**
+
+   * Criar as VLANs 10, 20, 30 e 40.
+   * Associar portas específicas para cada setor.
+   * Configurar trunk entre switch e roteador.
+
+3. **Configuração do Roteador (Router-on-a-Stick)**
+
+   * Criar **subinterfaces** para cada VLAN com o IP de gateway calculado.
+   * Ativar as subinterfaces com encapsulamento 802.1Q.
+
+4. **Configuração do DHCP**
+
+   * Criar um pool DHCP para cada VLAN, entregando IPs válidos da respectiva faixa.
+   * Definir o **gateway** e o **servidor DNS (8.8.8.8)**.
+
+5. **Controle de Acesso com ACL - Opcional**
+
+   * Implementar uma política de segurança:
+
+     * A VLAN 40 (Laboratório) deve acessar somente a internet e a VLAN 30 (Professores).
+     * O tráfego da VLAN 40 para a VLAN 10 (Administração) deve ser **bloqueado**.
+
+6. **Validação e Testes**
+
+   * Testar ping entre máquinas das diferentes VLANs.
+   * Validar se as restrições de ACL estão funcionando corretamente.
+   * Entregar um relatório curto (1 página) descrevendo:
+
+     * Resultado dos testes de ping.
+     * Evidência do bloqueio configurado.
+
+
+Dessa forma, o exercício exige:
+
+* **Cálculo de sub-redes (VLSM)** a partir de uma única rede Classe C.
+* **Configuração prática de VLANs, trunk, roteador e DHCP**.
+* **Implementação de ACLs** para controle de acesso.
+* **Documentação final**, simulando a entrega de um trabalho profissional (não esqueça a tabela de enderaçamento).
 
 
 ## Referências
