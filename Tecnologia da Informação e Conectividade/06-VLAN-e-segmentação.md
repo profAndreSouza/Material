@@ -277,12 +277,6 @@ Todos os computadores estão conectados ao **mesmo switch físico**, mas logicam
 * **Empresas:** separar tráfego de diferentes departamentos para segurança e desempenho.
 * **Provedores de internet:** usar VLANs para entregar conexões separadas a diferentes clientes.
 
-
-Perfeito! 🚀 Então vamos deixar o exercício ainda mais desafiador: em vez de já entregar os endereços prontos, os alunos terão que **calcular as sub-redes** a partir de uma única rede Classe C, subdividida em sub-redes menores.
-
-Aqui está a versão refeita:
-
-
 ## 8. Atividade Extra (Desafio Nível Iniciante)
 
 Você foi contratado para organizar a rede de uma **escola de tecnologia**. A instituição possui quatro setores principais e um requisito de segmentação lógica:
