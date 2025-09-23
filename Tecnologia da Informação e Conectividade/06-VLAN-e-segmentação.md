@@ -148,38 +148,6 @@ Todos os computadores estão conectados ao **mesmo switch físico**, mas logicam
 
 ```
 
-### Configuração do Roteador
-
-```bash
-
-> enable
-# configure terminal
-
-(config)# hostname R0
-
-(config)# interface gig0/0/0
-(config-if)# no shutdown
-(config-if)# exit
-
-(config)# interface gig0/0/0.10
-(config-subif)# encapsulation dot1Q 10
-(config-subif)# ip address 192.168.10.1 255.255.255.0
-(config-subif)# exit
-
-(config)# interface gig0/0/0.20
-(config-subif)# encapsulation dot1Q 20
-(config-subif)# ip address 192.168.20.1 255.255.255.0
-(config-subif)# exit
-
-(config)# interface gig0/0/0.30
-(config-subif)# encapsulation dot1Q 30
-(config-subif)# ip address 192.168.30.1 255.255.255.0
-(config-subif)# exit
-
-
-```
-
-
 ## 6. Roteamento entre VLANs (Inter-VLAN Routing)
 
 * VLANs criam redes independentes.
@@ -193,12 +161,6 @@ Todos os computadores estão conectados ao **mesmo switch físico**, mas logicam
    * A porta do roteador conecta-se ao **switch trunk** que transporta várias VLANs.
    * Cada subinterface recebe um **IP da respectiva VLAN**, permitindo roteamento entre elas.
 
-   **Exemplo de configuração:**
-
-   ```bash
-
-   
-   ```
 
    * **Observações importantes:**
 
@@ -211,6 +173,94 @@ Todos os computadores estão conectados ao **mesmo switch físico**, mas logicam
    * Switch gerenciável que suporta **SVIs (Switch Virtual Interfaces)**.
    * Permite roteamento interno entre VLANs sem precisar de roteador externo.
 
+
+
+### Configuração do Roteador
+
+```bash
+
+! Entrar no modo privilegiado
+> enable
+! Entrar no modo de configuração global
+# configure terminal
+
+! Define o nome do dispositivo como R0
+(config)# hostname R0
+
+! Acessa a interface física gig0/0/0
+(config)# interface gig0/0/0
+! Ativa a interface (tira do estado administrativamente desligado)
+(config-if)# no shutdown
+! Sai do modo de configuração da interface física
+(config-if)# exit
+
+! Cria a subinterface para a VLAN 10
+(config)# interface gig0/0/0.10
+! Define encapsulamento 802.1Q para VLAN 10
+(config-subif)# encapsulation dot1Q 10
+! Configura o endereço IP da subinterface VLAN 10
+(config-subif)# ip address 192.168.10.1 255.255.255.0
+! Sai do modo de configuração da subinterface
+(config-subif)# exit
+
+! Cria a subinterface para a VLAN 20
+(config)# interface gig0/0/0.20
+! Define encapsulamento 802.1Q para VLAN 20
+(config-subif)# encapsulation dot1Q 20
+! Configura o endereço IP da subinterface VLAN 20
+(config-subif)# ip address 192.168.20.1 255.255.255.0
+! Sai do modo de configuração da subinterface
+(config-subif)# exit
+
+! Cria a subinterface para a VLAN 30
+(config)# interface gig0/0/0.30
+! Define encapsulamento 802.1Q para VLAN 30
+(config-subif)# encapsulation dot1Q 30
+! Configura o endereço IP da subinterface VLAN 30
+(config-subif)# ip address 192.168.30.1 255.255.255.0
+! Sai do modo de configuração da subinterface
+(config-subif)# exit
+
+! Cria o pool DHCP para a VLAN 10 (Administração)
+(config)# ip dhcp pool ADM
+! Define a rede atendida pelo pool ADM
+(dhcp-config)# network 192.168.10.0 255.255.255.0
+! Define o gateway padrão para os clientes DHCP da VLAN 10
+(dhcp-config)# default-router 192.168.10.1
+! Define o servidor DNS para os clientes DHCP da VLAN 10
+(dhcp-config)# dns-server 8.8.8.8
+! Sai do modo de configuração do pool
+(dhcp-config)# exit
+
+! Cria o pool DHCP para a VLAN 20 (Suporte Técnico)
+(config)# ip dhcp pool ST
+! Define a rede atendida pelo pool ST
+(dhcp-config)# network 192.168.20.0 255.255.255.0
+! Define o gateway padrão para os clientes DHCP da VLAN 20
+(dhcp-config)# default-router 192.168.20.1
+! Define o servidor DNS para os clientes DHCP da VLAN 20
+(dhcp-config)# dns-server 8.8.8.8
+! Sai do modo de configuração do pool
+(dhcp-config)# exit
+
+! Cria o pool DHCP para a VLAN 30 (Professores)
+(config)# ip dhcp pool PROF
+! Define a rede atendida pelo pool PROF
+(dhcp-config)# network 192.168.30.0 255.255.255.0
+! Define o gateway padrão para os clientes DHCP da VLAN 30
+(dhcp-config)# default-router 192.168.30.1
+! Define o servidor DNS para os clientes DHCP da VLAN 30
+(dhcp-config)# dns-server 8.8.8.8
+! Sai do modo de configuração do pool
+(dhcp-config)# exit
+
+! Sai do modo de configuração global
+(config)# exit
+
+! Salva a configuração no dispositivo
+# write
+
+```
 
 ## 6.1 Diferença entre Interface Física e Subinterface
 
