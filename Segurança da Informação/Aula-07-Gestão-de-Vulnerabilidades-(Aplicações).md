@@ -138,19 +138,23 @@ SELECT * FROM usuarios WHERE usuario = '' OR '1'='1' AND senha = '';
 * **WAF (Web Application Firewall):** camada extra de defesa.
 
 
-
 ## 7. Atividade em Grupo
 
-**Desafio:** aplicar o ciclo de gestão de vulnerabilidades em um **sistema de e-commerce** com falhas conhecidas.
+Cenário: API REST desenvolvida por um dev júnior
+ - Usa bibliotecas pouco conhecidas e um framework desatualizado
+ - Endpoints públicos sem autenticação/validação adequada
+ - Dependências sem versionamento ou auditoria
 
 ### Tarefas:
 
-1. Identificar vulnerabilidades possíveis (SQL Injection, sessão não expira, senhas em texto puro).
-2. Avaliar impacto no negócio (roubo de dados, indisponibilidade, fraude).
-3. Propor medidas de mitigação (uso de hashing, timeout de sessão, prepared statements).
-4. Criar um **checklist mínimo de segurança** para aplicações web.
+1. Identificar pelo menos 4 vulnerabilidades específicas (ex.: falta de autenticação, input validation insuficiente, dependências vulneráveis, exposição de dados sensíveis).
+2. Sugerir ferramentas e métodos para descoberta (ex.: OWASP ZAP contra APIs, Postman + testes automatizados, Dependency-Check, Snyk).
+3. Propor plano de mitigação (atualizar framework, substituir bibliotecas inseguras, aplicar scanners em CI, implementar autenticação e rate-limiting, revisar permissões).
+4. Criar checklist de segurança para APIs (policy de dependências, CI/CD com SCA, contrato de API, autenticação forte, logging e monitoramento).
 
+### Entregável: 
 
+Documento curto (1 página) com vulnerabilidades encontradas, evidências simples e ações priorizadas.
 
 ## 8. Checklist de Segurança em Aplicações
 
