@@ -78,15 +78,7 @@ Todos os computadores estão conectados ao **mesmo switch físico**, mas logicam
 * Para comunicação entre setores → precisa de um **roteador ou switch de camada 3**.
 
 
-## 5. Configuração de VLANs no Switch 
-
-### Etapas
-
-1. Criar as VLANs no switch.
-2. Nomear cada VLAN.
-3. Atribuir portas específicas a cada VLAN.
-4. Configurar IPs nos PCs para cada rede.
-5. Testar conectividade dentro da mesma VLAN e entre VLANs.
+## 5. Configuração de VLANs no Switch e SubInterfaces no Router 
 
 ### Configuração do Switch:
 
@@ -153,6 +145,37 @@ Todos os computadores estão conectados ao **mesmo switch físico**, mas logicam
 (config)# exit
 ! Salva a configuração no dispositivo
 # write
+
+```
+
+### Configuração do Roteador
+
+```bash
+
+> enable
+# configure terminal
+
+(config)# hostname R0
+
+(config)# interface gig0/0/0
+(config-if)# no shutdown
+(config-if)# exit
+
+(config)# interface gig0/0/0.10
+(config-subif)# encapsulation dot1Q 10
+(config-subif)# ip address 192.168.10.1 255.255.255.0
+(config-subif)# exit
+
+(config)# interface gig0/0/0.20
+(config-subif)# encapsulation dot1Q 20
+(config-subif)# ip address 192.168.20.1 255.255.255.0
+(config-subif)# exit
+
+(config)# interface gig0/0/0.30
+(config-subif)# encapsulation dot1Q 30
+(config-subif)# ip address 192.168.30.1 255.255.255.0
+(config-subif)# exit
+
 
 ```
 
