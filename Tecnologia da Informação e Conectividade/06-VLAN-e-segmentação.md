@@ -88,42 +88,71 @@ Todos os computadores estão conectados ao **mesmo switch físico**, mas logicam
 4. Configurar IPs nos PCs para cada rede.
 5. Testar conectividade dentro da mesma VLAN e entre VLANs.
 
-### Estrutura de comandos (preencher em sala):
+### Configuração do Switch:
 
 ```bash
+! Entrar no modo privilegiado
 > enable
+! Entrar no modo de configuração global
 # configure terminal
 
+! Define o nome do dispositivo como S0
+(config)# hostname S0
+
+! Cria a VLAN 10 e nomeia como ADMINISTRACAO
 (config)# vlan 10
-(config-vlan) # name ADMINISTRACAO
-(config-vlan) # exit
+(config-vlan)# name ADMINISTRACAO
+! Sai do modo de configuração da VLAN 10
+(config-vlan)# exit
 
+! Cria a VLAN 20 e nomeia como SUPORTE
 (config)# vlan 20
-(config-vlan) # name SUPORTE
-(config-vlan) # exit
+(config-vlan)# name SUPORTE
+! Sai do modo de configuração da VLAN 20
+(config-vlan)# exit
 
+! Cria a VLAN 30 e nomeia como PROFESSORES
 (config)# vlan 30
-(config-vlan) # name PROFESSORES
-(config-vlan) # exit
+(config-vlan)# name PROFESSORES
+! Sai do modo de configuração da VLAN 30
+(config-vlan)# exit
 
+! Define as portas fa0/1 a fa0/8 como portas de acesso
 (config)# interface range fa0/1-8
+! Associa as portas fa0/1 a fa0/8 à VLAN 10 (ADMINISTRACAO)
 (config-if-range)# switchport mode access
 (config-if-range)# switchport access vlan 10
+! Sai do modo de configuração das portas fa0/1-8
 (config-if-range)# exit
 
+! Define as portas fa0/9 a fa0/16 como portas de acesso
 (config)# interface range fa0/9-16
+! Associa as portas fa0/9 a fa0/16 à VLAN 20 (SUPORTE)
 (config-if-range)# switchport mode access
 (config-if-range)# switchport access vlan 20
+! Sai do modo de configuração das portas fa0/9-16
 (config-if-range)# exit
 
+! Define as portas fa0/17 a fa0/24 como portas de acesso
 (config)# interface range fa0/17-24
+! Associa as portas fa0/17 a fa0/24 à VLAN 30 (PROFESSORES)
 (config-if-range)# switchport mode access
 (config-if-range)# switchport access vlan 30
+! Sai do modo de configuração das portas fa0/17-24
 (config-if-range)# exit
 
-(config)# exit
+! Define as portas gig0/1 e gig0/2 como trunks
+(config)# interface range gig0/1-2
+! Permite que as VLANs 10, 20 e 30 passem pelos trunks
+(config-if-range)# switchport mode trunk
+(config-if-range)# switchport trunk allowed vlan 10,20,30
+! Sai do modo de configuração das portas gig0/1-2
+(config-if-range)# exit
 
-# wr
+! Sai do modo de configuração global
+(config)# exit
+! Salva a configuração no dispositivo
+# write
 
 ```
 
