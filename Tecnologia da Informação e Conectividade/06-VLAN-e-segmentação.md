@@ -78,7 +78,7 @@ Todos os computadores estão conectados ao **mesmo switch físico**, mas logicam
 * Para comunicação entre setores → precisa de um **roteador ou switch de camada 3**.
 
 
-## 5. Configuração de VLANs no Switch e SubInterfaces no Router 
+## 5. Configuração de VLANs no Switch  
 
 ### Configuração do Switch:
 
