@@ -78,7 +78,7 @@ Todos os computadores estão conectados ao **mesmo switch físico**, mas logicam
 * Para comunicação entre setores → precisa de um **roteador ou switch de camada 3**.
 
 
-## 5. Configuração de VLANs no Switch (roteiro de prática)
+## 5. Configuração de VLANs no Switch 
 
 ### Etapas
 
@@ -91,6 +91,39 @@ Todos os computadores estão conectados ao **mesmo switch físico**, mas logicam
 ### Estrutura de comandos (preencher em sala):
 
 ```bash
+> enable
+# configure terminal
+
+(config)# vlan 10
+(config-vlan) # name ADMINISTRACAO
+(config-vlan) # exit
+
+(config)# vlan 20
+(config-vlan) # name SUPORTE
+(config-vlan) # exit
+
+(config)# vlan 30
+(config-vlan) # name PROFESSORES
+(config-vlan) # exit
+
+(config)# interface range fa0/1-8
+(config-if-range)# switchport mode access
+(config-if-range)# switchport access vlan 10
+(config-if-range)# exit
+
+(config)# interface range fa0/9-16
+(config-if-range)# switchport mode access
+(config-if-range)# switchport access vlan 20
+(config-if-range)# exit
+
+(config)# interface range fa0/17-24
+(config-if-range)# switchport mode access
+(config-if-range)# switchport access vlan 30
+(config-if-range)# exit
+
+(config)# exit
+
+# wr
 
 ```
 
