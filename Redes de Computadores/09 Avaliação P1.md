@@ -1,5 +1,3 @@
-Com certeza! Aqui está um resumo em tópicos dos conteúdos abordados nos arquivos, ideal para os alunos se prepararem para a prova:
-
 # Resumo Aulas 01 a 08
 
 ## 1. Camada Física (Camada 1 do Modelo OSI)
