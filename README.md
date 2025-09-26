@@ -4,19 +4,7 @@ Este repositório contém **materiais complementares** às disciplinas ministrad
 
 ⚠️ **É imprescindível assistir às aulas para o entendimento completo dos materiais.**
 
-## Disciplinas Contidas
-
-O repositório está organizado por áreas temáticas:
-
-- **Banco de Dados**
-- **Ciência de Dados**
-- **Engenharia de Software**
-- **Inteligência Artificial e Aprendizagem de Máquina**
-- **Programação Multiplataforma**
-- **Redes de Computadores**
-- **Técnicas Avançadas de Programação**
-
-Cada pasta contém códigos-fonte, exercícios, links e outros materiais utilizados como apoio durante o semestre.
+Cada pasta contém códigos-fonte, exercícios, links e outros materiais utilizados como **apoio** durante o semestre.
 
 ## Importante
 

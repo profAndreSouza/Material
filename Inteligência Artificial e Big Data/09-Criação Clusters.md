@@ -44,20 +44,6 @@ Ou seja, **a média de cada dimensão**.
 > **Analogia simples:** imagine que você quer organizar pessoas em grupos de amigos com interesses parecidos. Cada grupo terá um “ponto central” que representa o perfil médio do grupo — esse é o **centroide**.
 
 
-#### Exemplos
-
-1. **Clientes de um supermercado**
-
-   * Variáveis: idade e gasto mensal.
-   * Um cluster de jovens com gasto baixo terá um centroide em torno de 22 anos e R\$150 de gasto.
-   * Outro cluster de adultos com alto gasto terá um centroide em torno de 45 anos e R\$1.200 de gasto.
-
-2. **Geolocalização**
-
-   * Variáveis: latitude e longitude.
-   * Um centroide representa o **ponto médio** de todas as localizações em um cluster, podendo ser usado, por exemplo, para posicionar um depósito mais próximo dos clientes.
-
-
 ## 2. Importância da Normalização
 
 Quando trabalhamos com variáveis em **escalas diferentes**, a magnitude de uma variável pode dominar o cálculo de distância, distorcendo os clusters.
