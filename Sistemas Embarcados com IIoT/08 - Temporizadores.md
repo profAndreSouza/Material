@@ -180,31 +180,52 @@ Um uso clássico dos contadores é medir a **velocidade de rotação (RPM)** de 
 
 ### 5.2 Ligações
 
-* Saída de pulsos do encoder → GPIO 34 (entrada somente leitura no ESP32)
+* Saída de pulsos do encoder
 
 ### 5.3 Código – Contador de Pulsos
 
 ```cpp
-#define ENCODER_PIN 34
+const int stepPin = 2;   // pino que gera os pulsos
+const int dirPin = 3;    // pino de direção
+const int stepsPerRevolution = 200;
+
+#define ENCODER_PIN 2    // no UNO, interrupções estão nos pinos 2 e 3
 
 volatile unsigned long pulsos = 0;
 
-void IRAM_ATTR contarPulso() {
+void contarPulso() {
   pulsos++;
 }
 
 void setup() {
+  pinMode(dirPin, OUTPUT);
+  pinMode(stepPin, OUTPUT);
+
   pinMode(ENCODER_PIN, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(ENCODER_PIN), contarPulso, RISING);
-  Serial.begin(115200);
+
+  Serial.begin(9600);
 }
 
 void loop() {
+  // faz o motor girar uma volta
+  digitalWrite(dirPin, LOW);
+
+  for (int x = 0; x < stepsPerRevolution; x++) {
+    digitalWrite(stepPin, HIGH);
+    delayMicroseconds(2000);
+    digitalWrite(stepPin, LOW);
+    delayMicroseconds(2000);
+  }
+
   delay(1000);
-  Serial.print("Pulsos por segundo: ");
+
+  // mostra quantos pulsos foram detectados
+  Serial.print("Pulsos contados: ");
   Serial.println(pulsos);
   pulsos = 0;
 }
+
 ```
 
 ### 5.4 Funcionamento
