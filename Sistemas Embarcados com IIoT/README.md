@@ -118,25 +118,25 @@ Este repositório reúne conteúdos e materiais didáticos relacionados à disci
 
 
 ## Cronograma 
-| Aula | Teoria                                        | Prática/Atividade (Wokwi/Tinkercad/Arduino físico)                    | Entregáveis                 |
-| ---- | --------------------------------------------- | --------------------------------------------------------------------- | --------------------------- |
-| 1    | GPIO (tipos de conexão, I2C)                  | Simulação no **Wokwi** de leitura de dispositivos I2C                 | Pesquisa sobre interrupções |
-| 2    | Interrupções                                  | Botão físico ou em **Wokwi** acionando LED via interrupção            | Resumo em duplas            |
-| 3    | Mapeamento de periféricos                     | Identificação de motores/sensores da empilhadeira (protótipo físico)  | Levantamento de componentes |
-| 4    | Microprocessador, oscilador e memória         | Planejamento da pinagem no ESP32 (**tabela em planilha**)             | Tabela de pinagem           |
-| 5    | Interfaceamento eletrônico                    | Teste de motores no **ESP32 físico** ou **Wokwi**                     | Registro em diário de bordo |
-| 6    | **Projeto Integrador**                      |                     |                     |
-| 7    | Conversores AD/DA, PWM, PCM                   | Controle de velocidade de motor DC via PWM (**Wokwi**)                | Código inicial              |
-| 8    | Temporizadores e contadores                   | LED piscante e controle de motor usando **Timers no ESP32**           | Exercício prático           |
-| 9    | **Projeto Integrador**                       |                     |                     |
-| 10   | IIoT: definição e aplicações                  | Comunicação Serial/WiFi no **ESP32 (Wokwi + broker online)**          | Relatório parcial           |
-| 11   | Protocolos de comunicação IIoT (MQTT/HTTP)    | Publicar dados em **broker MQTT público**                             | Teste em laboratório        |
-| 12   | Interfaces Bluetooth/WiFi                     | Integração **ESP32 ↔ Telegram bot**                                   | Protótipo inicial           |
-| 13   | **Projeto Integrador**                      |                     |                     |
-| 14   | Plataforma de desenvolvimento e simulação     | Controle de motor via Telegram (**ESP32 + bot**)                      | Demonstração em aula        |
-| 15   | Serviços em nuvem (ThingSpeak/Firebase)       | Envio de dados de sensor para dashboard na nuvem                      | Código revisado             |
-| 16   | **Projeto Integrador**                       |                     |                     |
-| 17   | Segurança em IIoT (autenticação/criptografia) | Autenticação em conexão MQTT (**broker com usuário/senha**)           | Exercício aplicado          |
-| 18   | Protocolos industriais (Modbus/CoAP)          | Simulação de rede Modbus/CoAP (**Tinkercad/Wokwi**)                   | Exercício prático           |
-| 19   | **Projeto Integrador**                      |                     |                     |
-| 20   | Encerramento                                  | Apresentação dos protótipos (**demonstração prática**)                | Avaliação final             |
+| Aula | Data  |  Teoria                                        | Prática/Atividade (Wokwi/Tinkercad/Arduino físico)                    | Entregáveis                 |
+| ---- | ----- | --------------------------------------------- | --------------------------------------------------------------------- | --------------------------- |
+| 1    | 01/08 | GPIO (tipos de conexão, I2C)                  | Simulação no **Wokwi** de leitura de dispositivos I2C                 | Pesquisa sobre interrupções |
+| 2    | 08/08 | Interrupções                                  | Botão físico ou em **Wokwi** acionando LED via interrupção            | Resumo em duplas            |
+| 3    | 22/08 | Mapeamento de periféricos                     | Identificação de motores/sensores da empilhadeira (protótipo físico)  | Levantamento de componentes |
+| 4    | 29/08 | Microprocessador, oscilador e memória         | Planejamento da pinagem no ESP32 (**tabela em planilha**)             | Tabela de pinagem           |
+| 5    | 05/09 | Interfaceamento eletrônico                    | Teste de motores no **ESP32 físico** ou **Wokwi**                     | Registro em diário de bordo |
+| 6    | 12/09 | **Projeto Integrador**                      |                     |                     |
+| 7    | 19/09 | Conversores AD/DA, PWM, PCM                   | Controle de velocidade de motor DC via PWM (**Wokwi**)                | Código inicial              |
+| 8    | 26/09 | Temporizadores e contadores                   | LED piscante e controle de motor usando **Timers no ESP32**           | Exercício prático           |
+| 9    | 03/10 | **Projeto Integrador**                       |                     |                     |
+| 10   | 10/10 | IIoT: definição e aplicações                  | Comunicação Serial/WiFi no **ESP32 (Wokwi + broker online)**          | Relatório parcial           |
+| 11   | 17/10 | Protocolos de comunicação IIoT (MQTT/HTTP)    | Publicar dados em **broker MQTT público**                             | Teste em laboratório        |
+| 12   | 24/10 | Interfaces Bluetooth/WiFi                     | Integração **ESP32 ↔ Telegram bot**                                   | Protótipo inicial           |
+| 13   | 31/10 | **Projeto Integrador**                      |                     |                     |
+| 14   | 07/11 | Plataforma de desenvolvimento e simulação     | Controle de motor via Telegram (**ESP32 + bot**)                      | Demonstração em aula        |
+| 15   | 14/11 | Serviços em nuvem (ThingSpeak/Firebase)       | Envio de dados de sensor para dashboard na nuvem                      | Código revisado             |
+| 16   | 28/11 | **Projeto Integrador**                       |                     |                     |
+| 17   | 05/12 | Segurança em IIoT (autenticação/criptografia) | Autenticação em conexão MQTT (**broker com usuário/senha**)           | Exercício aplicado          |
+| 18   | 12/12 | Protocolos industriais (Modbus/CoAP)          | Simulação de rede Modbus/CoAP (**Tinkercad/Wokwi**)                   | Exercício prático           |
+| 19   | 19/12 | **Projeto Integrador**                      |                     |                     |
+| 20   | 22/12 | Encerramento                                  | Apresentação dos protótipos (**demonstração prática**)                | Avaliação final             |
