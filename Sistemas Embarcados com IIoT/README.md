@@ -85,21 +85,6 @@ Este repositório reúne conteúdos e materiais didáticos relacionados à disci
 * Atividades práticas em laboratório (eletrônica e informática)
 * Desenvolvimento de projeto prático em duplas
 * Estudo de casos reais relacionados a IIoT
-* Aprendizagem baseada em problemas (PBL)
-
-
-## Instrumentos de Avaliação
-
-**Avaliação Formativa:**
-
-* Participação nas aulas e atividades em duplas
-* Entregas parciais do projeto prático
-* Exercícios e simulações
-
-**Avaliação Somativa:**
-
-* Prova teórica e prática
-* Desenvolvimento e apresentação do projeto prático (empilhadeira com ESP32 e bot do Telegram)
 
 
 ## Bibliografia Básica
@@ -140,3 +125,15 @@ Este repositório reúne conteúdos e materiais didáticos relacionados à disci
 | 18   | 12/12 | Protocolos industriais (Modbus/CoAP)          | Simulação de rede Modbus/CoAP (**Tinkercad/Wokwi**)                 | 
 | 19   | 19/12 | **Projeto Integrador**                        | Apresentação dos protótipos (**demonstração prática**)              | 
 | 20   | 22/12 | Encerramento                                  |                                                                     | 
+
+## Avaliação
+
+A avaliação somativa será composta por uma prova e um projeto integrador, distribuídos da seguinte forma:
+
+* **35%** – Prova
+* **35%** – Projeto Integrador
+* **20%** – Avaliação Integradora
+* **10%** – Autoavaliação
+
+
+
