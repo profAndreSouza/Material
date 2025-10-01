@@ -62,16 +62,65 @@ Sem VLANs: todos recebem o tráfego de todos os setores.
 Com VLANs: cada setor tem sua rede isolada.
 Para comunicação entre setores, é necessário um roteador ou um switch de camada 3.
 
-## 5. Configuração de VLANs no Switch (Script em branco para prática)
+## 5. Configuração de VLANs no Switch
 
 ```bash
+! Entrar no modo EXEC
+> enable
+
 ! Entrar no modo privilegiado
-> 
+# show vlan
 
 ! Entrar no modo de configuração global
-# 
+# configure terminal
 
+! Criar a VLAN 10 com nome "Administracao"
+(config) # vlan 10
+(config-vlan) # name Administracao
+(config-vlan) # exit
 
+! Criar a VLAN 20 com nome "Suporte_Tecnico"
+(config) # vlan 20
+(config-vlan) # name Suporte_Tecnico
+(config-vlan) # exit
+
+! Criar a VLAN 30 com nome "Professores"
+(config) # vlan 30
+(config-vlan) # name Professores
+(config-vlan) # exit
+
+! Exibir as VLANs criadas
+(config) # do show vlan
+
+! Associar as portas Fa0/1 a Fa0/6 à VLAN 10
+(config) # interface range Fa0/1-6
+(config-if-range)# switchport mode access
+(config-if-range)# switchport access vlan 10
+(config-if-range)# exit
+
+! Associar as portas Fa0/7 a Fa0/12 à VLAN 20
+(config) # interface range Fa0/7-12
+(config-if-range)# switchport mode access
+(config-if-range)# switchport access vlan 20
+(config-if-range)# exit
+
+! Associar as portas Fa0/13 a Fa0/24 à VLAN 30
+(config) # interface range Fa0/13-24
+(config-if-range)# switchport mode access
+(config-if-range)# switchport access vlan 30
+(config-if-range)# exit
+
+! Configurar as portas Gig0/1 e Gig0/2 como trunk e permitir VLANs 10,20,30
+(config) # interface range Gig0/1-2
+(config-if-range)# switchport mode trunk
+(config-if-range)# switchport trunk allowed vlan 10,20,30
+(config-if-range)# exit
+
+! Sair do modo de configuração
+(config)# exit
+
+! Salvar a configuração no switch
+# wr
 ```
 
 ## 6. Roteamento entre VLANs (Inter-VLAN Routing)
@@ -83,9 +132,67 @@ Opções:
 1. Router-on-a-Stick – roteador com subinterfaces, conectado ao switch por um link trunk.
 2. Switch Layer 3 – o próprio switch faz o roteamento entre VLANs.
 
-## 6.1 Configuração do Roteador (Script em branco)
+## 6.1 Configuração do Roteador
 
 ```bash
+! Entrar no modo EXEC privilegiado
+> enable
+
+! Entrar no modo de configuração global
+# configure terminal
+
+! Ativar a interface física Gig0/0/0
+(config)# interface gig0/0/0
+(config-if)# no shutdown
+(config-if)# exit
+
+! Criar subinterface para VLAN 10 e configurar IP
+(config)# interface gig0/0/0.10
+(config-subif)# encapsulation dot1Q 10
+(config-subif)# ip address 192.168.10.1 255.255.255.0
+(config-subif)# exit
+
+! Criar subinterface para VLAN 20 e configurar IP
+(config)# interface gig0/0/0.20
+(config-subif)# encapsulation dot1Q 20
+(config-subif)# ip address 192.168.20.1 255.255.255.0
+(config-subif)# exit
+
+! Criar subinterface para VLAN 30 e configurar IP
+(config)# interface gig0/0/0.30
+(config-subif)# encapsulation dot1Q 30
+(config-subif)# ip address 192.168.30.1 255.255.255.0
+(config-subif)# exit
+
+! Criar pool DHCP para VLAN 10 (Administracao)
+(config)# ip dhcp pool adm
+(dhcp-config)# network 192.168.10.0 255.255.255.0
+(dhcp-config)# default-router 192.168.10.1
+(dhcp-config)# dns-server 8.8.8.8
+(dhcp-config)# exit
+
+! Criar pool DHCP para VLAN 20 (Suporte Tecnico)
+(config)# ip dhcp pool st
+(dhcp-config)# network 192.168.20.0 255.255.255.0
+(dhcp-config)# default-router 192.168.20.1
+(dhcp-config)# dns-server 8.8.8.8
+(dhcp-config)# exit
+
+! Criar pool DHCP para VLAN 30 (Professores)
+(config)# ip dhcp pool prof
+(dhcp-config)# network 192.168.30.0 255.255.255.0
+(dhcp-config)# default-router 192.168.30.1
+(dhcp-config)# dns-server 8.8.8.8
+(dhcp-config)# exit
+
+! Sair do modo de configuração global
+(config)# exit
+
+! Salvar as configurações no roteador
+# wr
+
+! Mostrar a configuração em execução
+# show run
 
 ```
 
