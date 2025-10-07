@@ -61,7 +61,7 @@ O objetivo é planejar, configurar e justificar tecnicamente cada camada envolvi
 
 ## **Entrega do Projeto**
 
-* Cada grupo deverá produzir um **arquivo Word** contendo:
+* Cada integrante deverá produzir um **arquivo Word** contendo:
 
   * Todas as perguntas respondidas **com justificativas técnicas**.
   * Explicações detalhadas dos cálculos de sub-redes e das escolhas feitas.
