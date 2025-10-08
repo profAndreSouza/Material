@@ -1,6 +1,5 @@
 # Detecção de Anomalias em Dados Reais de Rede com Inteligência Artificial
 
-## Enunciado
 
 Uma empresa de tecnologia deseja desenvolver um sistema inteligente para identificar **comportamentos anômalos** em sua rede corporativa, como tráfego suspeito, acessos irregulares e possíveis falhas de segurança.
 O desafio é **aplicar técnicas de Inteligência Artificial (IA)** para detectar automaticamente esses comportamentos fora do padrão, reduzindo riscos e tempo de resposta.
