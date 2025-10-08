@@ -217,7 +217,6 @@ plt.show()
 | **PCA** | **Análise de Componentes Principais (Principal Component Analysis).** É uma técnica estatística fundamental para **reduzir a dimensionalidade** de um conjunto de dados, preservando a maior parte da **variância** (informação). Em poucas palavras, o PCA transforma um dataset com muitas *features* (colunas) em um novo conjunto com poucas *features* (componentes principais), mantendo a essência dos dados. |
 | **`n_components`** | Parâmetro usado ao inicializar o PCA (ex: `n_components=2`). Define o número de novas dimensões desejadas. Usamos `2` para que os dados possam ser facilmente plotados em um gráfico 2D. |
 
----
 
 ### Parâmetros Técnicos dos Algoritmos de Detecção de Anomalias
 
