@@ -87,27 +87,109 @@ X_scaled = scaler.fit_transform(X)
 
 ### Passo 3 – Aplicar algoritmos de detecção
 
-#### Isolation Forest
+#### **Isolation Forest**
+
+O **Isolation Forest** (ou “Floresta de Isolamento”) é um algoritmo baseado na ideia de que **anomalias são mais fáceis de isolar** do que pontos normais.
+Ele cria múltiplas **árvores de decisão aleatórias** (isolation trees) e mede o número médio de divisões necessárias para isolar um ponto.
+Pontos anômalos são isolados rapidamente, com menos divisões — logo, têm **caminhos curtos** na floresta.
+
+**Principais características:**
+
+* Baseado em particionamento aleatório (não requer labels).
+* Extremamente eficiente em grandes volumes de dados.
+* Adequado para datasets mistos (numéricos e categóricos transformados).
+
+**Parâmetros utilizados:**
+
+* `contamination=0.05`: define a fração esperada de anomalias (5%).
+  Usamos esse valor por ser um bom ponto de partida para ambientes de rede, onde ataques representam uma pequena fração dos eventos.
+  Esse parâmetro afeta o threshold interno que define o que é “anômalo”.
+* `random_state=42`: garante reprodutibilidade das execuções (mesma sequência aleatória).
 
 ```python
+# Isolation Forest - Detecta anomalias isolando amostras em árvores aleatórias
 # contamination = 0.05 significa que estimamos 5% de anomalias
+
 iso = IsolationForest(contamination=0.05, random_state=42)
 pred_iso = iso.fit_predict(X_scaled)
 ```
 
-#### One-Class SVM
+> **Interpretação:**
+> O método `fit_predict()` retorna `1` para valores normais e `-1` para anomalias.
+> O modelo estima automaticamente o limiar de isolamento baseado na proporção `contamination`.
+
+
+#### **One-Class SVM**
+
+O **One-Class Support Vector Machine** (SVM) é uma variação do algoritmo SVM tradicional, adaptado para detectar **padrões de normalidade**.
+Ele aprende a delimitar uma região no espaço de características que engloba a maior parte dos dados de treinamento (os considerados “normais”).
+Tudo que cair fora dessa região é classificado como anômalo.
+
+**Principais características:**
+
+* Baseia-se em **kernel functions** (funções de transformação), o que permite detectar fronteiras **não lineares**.
+* Mais sensível à escala das variáveis (por isso usamos `StandardScaler` no pré-processamento).
+* Ideal para conjuntos com **poucos outliers** e **fronteiras complexas**.
+
+**Parâmetros utilizados:**
+
+* `kernel='rbf'`: o kernel RBF (Radial Basis Function) cria fronteiras suaves e não lineares — ideal para dados com múltiplas variáveis correlacionadas.
+* `gamma=0.001`: controla a influência de cada ponto na formação da fronteira.
+
+  * Valores baixos (como 0.001) geram fronteiras **mais suaves** e generalistas.
+  * Valores altos geram fronteiras muito locais, que podem **overfitar** o treino.
+* `nu=0.05`: controla a fração máxima de outliers esperada (semelhante a `contamination` do Isolation Forest).
 
 ```python
-svm = OneClassSVM(kernel='rbf', gamma=0.001, nu=0.05) # nu = 0.05 é a proporção de anomalias
+# One-Class SVM - Define uma fronteira de normalidade no espaço de características
+# kernel='rbf' permite fronteiras não lineares
+# gamma=0.001 controla a suavidade da fronteira (baixo = fronteira ampla)
+# nu=0.05 define que até 5% dos dados podem ser considerados anômalos
+
+svm = OneClassSVM(kernel='rbf', gamma=0.001, nu=0.05)
 pred_svm = svm.fit_predict(X_scaled)
 ```
 
-#### Autoencoder
+> **Interpretação:**
+> O SVM retorna `1` para instâncias dentro da fronteira (normais) e `-1` para fora (anômalas).
+> A escolha de `nu` e `gamma` influencia fortemente o equilíbrio entre falsos positivos e falsos negativos.
+
+
+
+#### **Autoencoder**
+
+O **Autoencoder** é uma **rede neural artificial** composta por duas partes:
+
+1. **Encoder** — comprime os dados originais em uma representação reduzida (bottleneck).
+2. **Decoder** — tenta reconstruir os dados originais a partir dessa representação comprimida.
+
+A ideia é que, ao aprender apenas os padrões “normais”, a rede **falhará em reconstruir dados anômalos**, resultando em um **erro de reconstrução elevado**.
+
+**Por que é útil?**
+
+* Captura **relações complexas e não lineares** entre variáveis.
+* Aprende automaticamente a estrutura subjacente dos dados.
+* Indicado para detectar **anomalias sutis** que outros modelos podem não perceber.
+
+**Arquitetura e parâmetros utilizados:**
+
+* Camadas: `[32 → 8 → 32 → input_dim]`
+
+  * Camadas de 32 neurônios para captura de padrões gerais.
+  * Gargalo (bottleneck) de 8 neurônios para forçar compressão e aprendizado das estruturas principais.
+* `activation='relu'`: função de ativação eficiente, evita saturação dos neurônios.
+* `loss='mse'`: usa o **erro quadrático médio (Mean Squared Error)** entre entrada e saída para medir a qualidade da reconstrução.
+* `epochs=10`: número de passagens completas sobre o dataset.
+* `batch_size=64`: número de amostras processadas antes da atualização dos pesos.
+* `threshold = mean + 2*std`: define como anomalia todo ponto cujo erro de reconstrução está **duas vezes acima do desvio padrão da média** — uma heurística comum para detectar desvios estatisticamente significativos.
 
 ```python
 input_dim = X_scaled.shape[1]
 
-# Modelo com gargalo de 8 neurônios
+# Autoencoder - Rede neural de reconstrução
+# O gargalo (camada de 8 neurônios) força o modelo a aprender apenas padrões principais (dados normais)
+# Dados anômalos geram erros de reconstrução maiores
+
 autoencoder = models.Sequential([
     layers.Dense(32, activation='relu', input_shape=(input_dim,)),
     layers.Dense(8, activation='relu'),
@@ -116,6 +198,7 @@ autoencoder = models.Sequential([
 ])
 
 autoencoder.compile(optimizer='adam', loss='mse')
+
 print("Treinando Autoencoder...")
 autoencoder.fit(X_scaled, X_scaled, epochs=10, batch_size=64, shuffle=True, verbose=0)
 
@@ -125,8 +208,15 @@ reconstruction_error = ((X_scaled - recon) ** 2).mean(axis=1)
 
 # Determinar anomalias: erro acima da Média + 2 * Desvio Padrão
 threshold = reconstruction_error.mean() + 2 * reconstruction_error.std()
-pred_ae = np.where(reconstruction_error > threshold, -1, 1) # -1 é anomalia
+pred_ae = np.where(reconstruction_error > threshold, -1, 1)  # -1 é anomalia
 ```
+
+> **Interpretação:**
+>
+> * Se o erro de reconstrução for alto, o ponto é considerado **anômalo**.
+> * O threshold pode ser ajustado manualmente ou com base em percentis (ex.: 95º).
+> * Para reduzir falsos positivos, é possível usar **threshold dinâmico** ou **ensemble de modelos** (votação entre iForest, SVM e Autoencoder).
+
 
 ### Passo 4 – Avaliar resultados e Análise
 
