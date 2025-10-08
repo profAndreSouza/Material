@@ -322,3 +322,102 @@ plt.show()
 | | `batch_size` | O número de amostras de treino processadas antes que os parâmetros internos do modelo sejam atualizados (o número de amostras usadas para calcular o gradiente). Usamos `64`. |
 | | **Erro de Reconstrução** | A métrica real de detecção. Calculamos a diferença entre o input ($X_{scaled}$) e a saída do Autoencoder ($recon$). Anomalias terão um erro significativamente mais alto. |
 
+
+## **Exercício Prático – Detecção de Anomalias em Transações Financeiras (Credit Card Fraud Detection)**
+
+Uma fintech deseja desenvolver um sistema de monitoramento em tempo real capaz de detectar **transações financeiras potencialmente fraudulentas**.
+O conjunto de dados fornecido contém **transações de cartão de crédito reais**, sendo a grande maioria legítima e uma pequena fração classificadas como fraudes.
+
+Seu objetivo é utilizar **técnicas de detecção de anomalias** para identificar automaticamente as transações suspeitas.
+
+O desafio é lidar com um **forte desbalanceamento de classes** — apenas cerca de **0,17% das transações** são fraudes — o que torna inviável o uso direto de modelos supervisionados convencionais.
+
+
+### **Contexto do Dataset**
+
+* Nome: **Credit Card Fraud Detection Dataset (Kaggle)**
+* Fonte: [https://www.kaggle.com/mlg-ulb/creditcardfraud](https://www.kaggle.com/mlg-ulb/creditcardfraud)
+* Características:
+
+  * 284.807 transações registradas em 2 dias.
+  * 492 fraudes (0,172%).
+  * Variáveis de entrada resultam de uma transformação por **PCA**, mantendo o sigilo dos dados originais.
+  * Coluna **`Class`**:
+
+    * `0` = Transação normal
+    * `1` = Fraude
+
+### **Objetivos de Aprendizado**
+
+1. Aplicar técnicas de detecção de anomalias em um contexto financeiro.
+2. Entender os desafios de datasets **extremamente desbalanceados**.
+3. Comparar o comportamento dos modelos em relação ao caso de rede corporativa (KDDCup99).
+4. Analisar as implicações práticas da escolha de thresholds e métricas.
+
+
+### **Questões**
+
+#### **Parte 1 — Análise Exploratória**
+
+1. Quantas transações existem no dataset? Quantas são fraudes?
+2. Qual é o percentual de transações fraudulentas no total?
+3. Quais variáveis parecem mais relevantes para diferenciar uma fraude de uma transação normal?
+4. Há correlação entre as variáveis PCA e a variável alvo `Class`?
+
+#### **Parte 2 — Modelagem**
+
+5. Qual modelo você escolheria inicialmente para este problema: **Isolation Forest**, **One-Class SVM** ou **Autoencoder**?
+   Justifique sua escolha com base no tipo e na distribuição dos dados.
+6. Após treinar o modelo, quantas anomalias foram detectadas?
+7. O modelo conseguiu detectar todas as fraudes (alta taxa de recall)?
+8. Houve falsos positivos em excesso? Como isso afetaria a operação de uma empresa real?
+
+#### **Parte 3 — Avaliação**
+
+9. Quais métricas melhor representam o sucesso do modelo neste caso (Accuracy, Precision, Recall, F1-Score, AUC)?
+10. Quais ajustes poderiam ser feitos nos parâmetros para melhorar a detecção sem aumentar falsos positivos?
+
+
+### **Código Inicial (Importação e Preparação de Dados)**
+
+```python
+# Exercício: Detecção de Anomalias em Transações Financeiras
+
+# Passo 1 - Importar bibliotecas
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Passo 2 - Carregar o dataset (após download no Kaggle)
+# Certifique-se de enviar o arquivo 'creditcard.csv' ao ambiente do Colab
+df = pd.read_csv("creditcard.csv")
+
+# Passo 3 - Visualização inicial
+print("Dimensões do dataset:", df.shape)
+print(df.head())
+
+# Passo 4 - Separar variáveis e alvo
+X = df.drop(columns=['Class'])
+y = df['Class']
+
+# Normalizar os dados (a maioria das colunas já está em escala PCA)
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Passo 5 - Análise exploratória básica
+print("Distribuição da variável alvo:")
+print(y.value_counts(normalize=True))
+
+sns.countplot(x=y)
+plt.title("Distribuição de Classes (0 = Normal, 1 = Fraude)")
+plt.show()
+```
+
+
+### **Desafio Extra (para alunos avançados)**
+
+* Crie um **gráfico de dispersão PCA 2D** colorindo fraudes e transações normais para visualizar separabilidade.
+* Compare o desempenho de pelo menos **dois modelos de detecção de anomalias** (por exemplo, Isolation Forest e Autoencoder).
+* Elabore um **gráfico Precision-Recall Curve** e discuta qual limiar (threshold) seria mais adequado em um sistema real, considerando que falsos negativos (fraudes não detectadas) têm custo muito maior.
