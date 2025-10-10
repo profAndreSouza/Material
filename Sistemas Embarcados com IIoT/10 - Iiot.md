@@ -119,8 +119,117 @@ Durante a simulação, o ESP32:
 3. **Envia os dados pela rede WiFi** para um **broker MQTT online**, como o **HiveMQ Cloud**, que funciona como servidor central;
 4. **Distribui as informações** para painéis de visualização (dashboards) ou outras aplicações conectadas.
 
-Essa arquitetura ilustra um fluxo típico de um sistema IIoT:
-**coleta → transmissão → processamento → visualização**.
+Essa arquitetura ilustra um fluxo típico de um sistema IIoT: **coleta → transmissão → processamento → visualização**.
 
-Os alunos poderão observar como a comunicação entre diferentes camadas (Serial e WiFi) reproduz o funcionamento de redes industriais reais, onde sensores locais interagem com sistemas globais em nuvem.
+
+## **6. Projeto IIoT Distribuído com ESP32 e MQTT (Wokwi + HiveMQ)**
+
+Desenvolver um sistema distribuído de Internet das Coisas (IIoT) utilizando o ESP32 e o protocolo MQTT em um broker público (HiveMQ).
+O projeto será dividido entre três alunos: dois responsáveis por publicar dados e um responsável por receber e exibir informações em um display LCD I2C.
+
+A proposta integra conceitos de comunicação entre dispositivos IoT, sensoriamento e atuação, protocolos de rede e integração em nuvem.
+
+
+### Contexto
+
+O projeto representa um ambiente inteligente no qual diferentes dispositivos monitoram variáveis e enviam dados para um servidor MQTT.
+Outro dispositivo central coleta e exibe as informações recebidas, podendo ainda reagir a determinados valores ou enviar comandos de controle.
+
+
+### Estrutura do Projeto
+
+#### Aluno 1 – Aplicação Publicadora A (Sensores Ambientais)
+
+Função: medir e publicar dados ambientais.
+
+Sugestões de componentes:
+
+* Sensor de umidade e temperatura (DHT22 ou DHT11)
+* Sensor de luminosidade (LDR com divisor resistivo)
+* Conversor ADC para leitura dos sinais analógicos
+* PWM para controlar a intensidade de um LED conforme a luminosidade
+
+Publicação MQTT:
+
+* Tópico: `iiot/sala1/sensores`
+* Exemplo de mensagem JSON:
+
+  ```json
+  {
+    "temperatura": 25.4,
+    "umidade": 61,
+    "luminosidade": 480
+  }
+  ```
+
+
+#### Aluno 2 – Aplicação Publicadora B (Controle e Movimento)
+
+Função: representar um sistema de controle mecânico ou industrial.
+
+Sugestões de componentes:
+
+* Motor de passo (28BYJ-48) ou servo motor
+* Conversor DAC/PCM (ou PWM) para controle de intensidade
+* Simular parâmetros como velocidade, posição ou nível de tensão de saída
+
+Publicação MQTT:
+
+* Tópico: `iiot/sala2/atuadores`
+* Exemplo de mensagem JSON:
+
+  ```json
+  {
+    "motor_posicao": 180,
+    "velocidade": 120,
+    "tensao_saida": 3.3
+  }
+  ```
+
+
+#### Aluno 3 – Aplicação Receptora (Central de Monitoramento)
+
+Função: receber e exibir as informações publicadas pelos outros ESP32.
+
+Componentes:
+
+* LCD I2C 16x2
+* Conexão Wi-Fi e cliente MQTT
+* Pode incluir buzzer ou LED indicador para alertas
+
+Assinaturas MQTT:
+
+* `iiot/sala1/sensores`
+* `iiot/sala2/atuadores`
+
+Exemplo de exibição no LCD:
+
+```
+Temp:25°C  Umid:61%
+Luz:480  Vel:120
+```
+
+
+### Conexão com o Broker MQTT (HiveMQ)
+
+* Broker: `broker.hivemq.com`
+* Porta: `1883`
+* Tópicos conforme definidos acima
+* Clientes MQTT: `PubSala1`, `PubSala2`, `CentralLCD`
+
+
+### Desafios e Extensões
+
+* Inserir alertas visuais ou sonoros quando alguma variável ultrapassar limites.
+* Fazer com que a central envie comandos MQTT de volta aos publicadores.
+* Registrar os dados recebidos no Serial Monitor ou enviar para um serviço web.
+
+
+### Conceitos Envolvidos
+
+* Protocolo MQTT (publish/subscribe)
+* IIoT e comunicação M2M (Machine-to-Machine)
+* Wi-Fi, ADC, DAC, PWM e I2C no ESP32
+* Integração de sensores e atuadores
+* Estrutura e troca de dados em JSON
 
