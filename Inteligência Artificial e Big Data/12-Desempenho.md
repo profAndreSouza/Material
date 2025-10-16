@@ -120,8 +120,8 @@ flowchart TD
 
     SparkJob --> Parse[Leitura e parsing do CSV]
     SparkJob --> DataFrame[Conversão para DataFrame Spark]
-    SparkJob --> Rules[Aplicação de regras de detecção (ex: src_bytes > 50k)]
-    SparkJob --> AlertCol[Criação coluna "alerta" (Normal/Anomalia)]
+    SparkJob --> Rules[Aplicação de regras de detecção ex: src_bytes > 50k]
+    SparkJob --> AlertCol[Criação coluna "alerta" - Normal/Anomalia]
     
     AlertCol --> Output[Output: Console / Log / Dashboard]
 
