@@ -27,12 +27,6 @@ Opção 1 — Usando 7-Zip:
 O arquivo descompactado será:
 
 ```
-kddcup.data_10_percent
-```
-
-Renomeie o arquivo para:
-
-```
 kddcup.data_10_percent_corrected
 ```
 
