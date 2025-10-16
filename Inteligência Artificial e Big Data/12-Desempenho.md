@@ -1,7 +1,5 @@
 # Escalabilidade e Arquitetura Big Data para Detecção em Tempo Real
 
-## Enunciado
-
 Uma empresa de cibersegurança deseja processar grandes volumes de dados de rede em tempo real para detectar anomalias e ataques. O desafio é entender, simular e executar uma arquitetura Big Data que suporte **análise contínua** com alta escalabilidade e desempenho.
 
 
@@ -68,8 +66,8 @@ Entre as tecnologias mais usadas estão:
 
 ```mermaid
 flowchart LR
-    A[Ingestão de Dados (CSV) KDDCUP99] --> B[Armazenamento HDFS]
-    B --> C[Processamento Spark (Batch/Streaming)]
+    A[Ingestão de Dados - CSV KDDCUP99] --> B[Armazenamento HDFS]
+    B --> C[Processamento Spark - Batch/Streaming]
     C --> D[Visualização / Dashboards / Alertas]
 
 ```
