@@ -29,15 +29,17 @@ Entre as tecnologias mais usadas estão:
 
 ### Componentes de uma Arquitetura Big Data
 
-| Camada            | Função                           | Tecnologias                       |
-| ----------------- | -------------------------------- | --------------------------------- |
-| **Ingestão**      | Coleta e transporte de dados     | Kafka, Flume, MQTT                |
-| **Processamento** | Transformação e análise de dados | Spark Streaming, Flink, MapReduce |
-| **Armazenamento** | Persistência e replicação        | HDFS, Cassandra, MongoDB          |
-| **Visualização**  | Monitoramento e dashboards       | Grafana, Power BI, Kibana         |
+| Camada                                               | Função                                                                               | Tecnologias / Exemplos                        |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------- |
+| **Ingestão (Data Ingestion)**                        | Coleta, integração e transporte de dados de múltiplas fontes, em batch ou streaming. | Kafka, Flume, NiFi, MQTT                      |
+| **Armazenamento (Data Storage)**                     | Persistência, replicação e organização dos dados em sistemas distribuídos.           | HDFS, Cassandra, MongoDB, Amazon S3           |
+| **Processamento (Data Processing)**                  | Transformação, análise e enriquecimento dos dados, em batch ou streaming.            | Spark Core, Spark Streaming, Flink, MapReduce |
+| **Consulta e Serviço (Data Serving)**                | Disponibilização de dados processados para aplicações, dashboards e APIs.            | Hive, Presto, HBase, Elasticsearch            |
+| **Apresentação / Visualização (Data Visualization)** | Exploração, monitoramento e visualização dos insights extraídos.                     | Grafana, Kibana, Power BI, Tableau            |
 
 
-### Batch vs Streaming
+
+### Batch vs  
 
 * **Batch**: processamento periódico de grandes volumes de dados (ex: MapReduce no Hadoop).
 * **Streaming**: processamento contínuo, quase em tempo real (ex: Spark Streaming).
@@ -121,7 +123,7 @@ flowchart TD
     SparkJob --> Parse[Leitura e parsing do CSV]
     SparkJob --> DataFrame[Conversão para DataFrame Spark]
     SparkJob --> Rules[Aplicação de regras de detecção ex: src_bytes > 50k]
-    SparkJob --> AlertCol[Criação coluna "alerta" - Normal/Anomalia]
+    SparkJob --> AlertCol[Criação coluna 'alerta' - Normal/Anomalia]
     
     AlertCol --> Output[Output: Console / Log / Dashboard]
 
