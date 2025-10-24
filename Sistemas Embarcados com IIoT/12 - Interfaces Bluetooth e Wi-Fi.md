@@ -254,3 +254,61 @@ Esse exercício permitirá compreender a interação simultânea entre diferente
 
 As interfaces Bluetooth e Wi-Fi são fundamentais para a conectividade de sistemas embarcados modernos. Enquanto o Bluetooth é ideal para comunicações locais e simples, o Wi-Fi permite a integração com redes e serviços na Internet.
 O ESP32 representa uma solução completa e acessível para o desenvolvimento de sistemas embarcados conectados, combinando as duas tecnologias em uma única plataforma, tornando-o indispensável em projetos IoT e de automação.
+
+## 11. Exercício Prático: Comunicação Distribuída via MQTT e Telegram com ESP32
+
+Neste exercício, desenvolveremos em conjunto um projeto composto por **dois ESP32** simulados no **Wokwi**, explorando **comunicação em rede via MQTT**, **integração com serviços externos (Telegram)** e **exibição de mensagens em um display OLED**.
+Além disso, a **interface UART** será utilizada para depuração e acompanhamento das mensagens trocadas entre os dispositivos.
+
+
+### Contexto
+
+Imagine um sistema de notificação IoT, onde mensagens enviadas por um usuário no **Telegram** são automaticamente distribuídas a outros dispositivos conectados à rede.
+Neste cenário, o **ESP32 nº 1** será responsável por receber a mensagem do Telegram e publicá-la em um **tópico MQTT** hospedado no **broker HiveMQ**.
+O **ESP32 nº 2**, por sua vez, ficará inscrito (subscriber) nesse mesmo tópico e exibirá o conteúdo recebido em um **display OLED**.
+A **UART** será usada para registrar logs de depuração, permitindo observar o fluxo completo de comunicação.
+
+
+### Objetivos de Aprendizagem
+
+Ao final do exercício, o aluno deverá ser capaz de:
+
+* Configurar e conectar dois ESP32 ao mesmo **broker MQTT (HiveMQ)**.
+* Utilizar a **biblioteca do Telegram Bot API** para receber mensagens em um microcontrolador.
+* Publicar e assinar mensagens MQTT.
+* Exibir dados recebidos em um **display OLED (I2C)**.
+* Usar a **UART (Serial Monitor)** para depuração e visualização de logs.
+* Compreender o fluxo de comunicação **Telegram → MQTT → ESP32 → OLED**.
+
+
+### Arquitetura do Sistema
+
+* **ESP32 #1 (Publicador)**
+
+  * Conecta ao Wi-Fi.
+  * Recebe mensagens de um **bot Telegram**.
+  * Publica as mensagens recebidas no tópico MQTT `"iot/telegram"`.
+  * Exibe logs de status e mensagens via **Serial Monitor (UART)**.
+
+* **ESP32 #2 (Assinante)**
+
+  * Conecta ao mesmo broker MQTT (HiveMQ).
+  * Subscreve o tópico `"iot/telegram"`.
+  * Exibe as mensagens recebidas no **display OLED (SSD1306)**.
+  * Mostra logs de depuração no **Serial Monitor (UART)**.
+
+
+### Componentes Simulados no Wokwi
+
+* 2 × **ESP32 DevKit v1**
+* 1 × **Display OLED 0.96” (I2C – SSD1306)**
+* Conexão **Wi-Fi virtual** (Wokwi)
+* Broker **HiveMQ Cloud**
+* **Bot Telegram** (criado com BotFather)
+
+
+### Observações para Execução
+
+* O professor guiará a montagem e o código passo a passo.
+* As credenciais de rede Wi-Fi, tokens do Telegram e informações do broker MQTT serão configuradas em tempo real.
+* O monitor serial será usado para acompanhar o envio e recebimento de mensagens, permitindo observar eventuais erros de conexão ou autenticação.
