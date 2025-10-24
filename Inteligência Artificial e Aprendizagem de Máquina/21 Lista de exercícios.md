@@ -5,18 +5,20 @@
 
 **1. (Múltipla escolha)**
 O que representa o **peso sináptico** em um neurônio artificial?
-a) O valor de ativação da camada de saída
-b) O grau de importância de uma entrada para o neurônio
-c) O valor de bias aplicado ao modelo
-d) A função de ativação utilizada
+
+* a) O valor de ativação da camada de saída
+* b) O grau de importância de uma entrada para o neurônio
+* c) O valor de bias aplicado ao modelo
+* d) A função de ativação utilizada
 
 
 **2. (Múltipla escolha)**
 O **bias** em uma rede neural serve para:
-a) Ajustar o tamanho do conjunto de dados
-b) Reduzir o overfitting
-c) Deslocar a função de ativação, aumentando a flexibilidade do modelo
-d) Corrigir erros da retropropagação
+
+* a) Ajustar o tamanho do conjunto de dados
+* b) Reduzir o overfitting
+* c) Deslocar a função de ativação, aumentando a flexibilidade do modelo
+* d) Corrigir erros da retropropagação
 
 
 **3. (Dissertativa curta)**
@@ -39,10 +41,11 @@ Associe cada **função de ativação** à sua **característica principal**:
 
 **6. (Múltipla escolha)**
 Qual função de ativação é **mais comum em camadas ocultas de redes profundas** (DNN)?
-a) Sigmoid
-b) ReLU
-c) Softmax
-d) Linear
+
+* a) Sigmoid
+* b) ReLU
+* c) Softmax
+* d) Linear
 
 
 **7. (Dissertativa)**
@@ -51,10 +54,11 @@ Descreva o impacto da **taxa de aprendizado (learning rate)** no processo de tre
 
 **8. (Múltipla escolha)**
 Em uma rede neural, **overfitting** ocorre quando:
-a) O modelo se ajusta excessivamente aos dados de treino e perde generalização
-b) O modelo é simples demais para capturar padrões
-c) Há dados de treinamento insuficientes
-d) A taxa de aprendizado é muito alta
+
+* a) O modelo se ajusta excessivamente aos dados de treino e perde generalização
+* b) O modelo é simples demais para capturar padrões
+* c) Há dados de treinamento insuficientes
+* d) A taxa de aprendizado é muito alta
 
 
 **9. (Dissertativa curta)**
@@ -63,10 +67,11 @@ Explique a diferença entre **gradiente descendente batch**, **stochastic** e **
 
 **10. (Múltipla escolha)**
 A principal diferença entre **regressão, classificação e clusterização** é:
-a) O tipo de função de ativação
-b) O tipo de variável de saída (numérica, categórica, ou inexistente)
-c) O número de camadas ocultas
-d) O algoritmo de otimização
+
+* a) O tipo de função de ativação
+* b) O tipo de variável de saída (numérica, categórica, ou inexistente)
+* c) O número de camadas ocultas
+* d) O algoritmo de otimização
 
 
 ## **Parte 2 – Modelos Supervisionados e Não Supervisionados (Questões 11–20)**
@@ -85,10 +90,11 @@ Defina o que é **clusterização** e explique como ela difere dos modelos super
 
 **14. (Múltipla escolha)**
 O algoritmo **SVM (Máquinas de Vetores de Suporte)** busca:
-a) Maximizar a distância entre classes (margem)
-b) Minimizar a soma dos erros quadráticos
-c) Aumentar o número de clusters
-d) Reduzir o número de neurônios ocultos
+
+* a) Maximizar a distância entre classes (margem)
+* b) Minimizar a soma dos erros quadráticos
+* c) Aumentar o número de clusters
+* d) Reduzir o número de neurônios ocultos
 
 
 **15. (Análise de Código)**
@@ -116,10 +122,11 @@ Associe cada **tarefa de ML** ao **modelo mais adequado**:
 
 **17. (Múltipla escolha)**
 A principal diferença entre **MLP e DNN** é:
-a) DNN possui mais de uma camada oculta (profunda)
-b) MLP não usa funções de ativação
-c) DNN é usada apenas em regressão
-d) MLP é uma rede não supervisionada
+
+* a) DNN possui mais de uma camada oculta (profunda)
+* b) MLP não usa funções de ativação
+* c) DNN é usada apenas em regressão
+* d) MLP é uma rede não supervisionada
 
 
 **18. (Análise de Código)**
@@ -172,10 +179,11 @@ Compare as vantagens e desvantagens entre **ReLU** e **Sigmoid** em redes profun
 
 **24. (Múltipla escolha)**
 O modelo mais indicado para **reconhecimento de voz** é:
-a) CNN
-b) RNN
-c) SVM
-d) Regressão Linear
+
+* a) CNN
+* b) RNN
+* c) SVM
+* d) Regressão Linear
 
 
 **25. (Análise de Código)**
@@ -194,10 +202,11 @@ Quantas camadas ocultas existem e qual é a função de ativação da camada de 
 
 **26. (Múltipla escolha)**
 A função **Softmax** é mais usada em:
-a) Problemas de regressão
-b) Problemas de classificação multiclasse
-c) Clusterização
-d) Aprendizado não supervisionado
+
+* a) Problemas de regressão
+* b) Problemas de classificação multiclasse
+* c) Clusterização
+* d) Aprendizado não supervisionado
 
 
 **27. (Correlação)**
@@ -229,4 +238,3 @@ Explique o que ocorre internamente durante a execução de `fit()`.
 
 **30. (Dissertativa final)**
 Cite **duas limitações** das redes neurais profundas e **duas vantagens** do uso de SVM em comparação.
-
