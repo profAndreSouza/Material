@@ -312,3 +312,355 @@ Ao final do exercício, o aluno deverá ser capaz de:
 * O professor guiará a montagem e o código passo a passo.
 * As credenciais de rede Wi-Fi, tokens do Telegram e informações do broker MQTT serão configuradas em tempo real.
 * O monitor serial será usado para acompanhar o envio e recebimento de mensagens, permitindo observar eventuais erros de conexão ou autenticação.
+
+
+## 12. Exercício Prático: Códigos
+
+### Código do ESP32 #1 – Publicador (Telegram → MQTT)
+
+Este código conecta o ESP32 a uma rede Wi-Fi, ao bot do Telegram e ao broker MQTT.
+Quando o bot recebe uma mensagem no Telegram, o ESP publica essa mensagem no tópico MQTT “iot/telegram”, que será lido pelo segundo ESP.
+
+#### Inclusão de bibliotecas
+
+```cpp
+#include <WiFi.h>
+#include <WiFiClientSecure.h>
+#include <PubSubClient.h>
+#include <UniversalTelegramBot.h>
+```
+
+Essas bibliotecas permitem que o ESP32 conecte-se ao Wi-Fi, acesse conexões seguras (HTTPS), se comunique via MQTT e interaja com o bot do Telegram.
+
+
+#### Configuração do Wi-Fi
+
+```cpp
+const char* ssid = "Wokwi-GUEST";
+const char* password = "";
+```
+
+Define o nome e senha da rede Wi-Fi à qual o ESP32 irá se conectar.
+No Wokwi, a rede “Wokwi-GUEST” é simulada automaticamente.
+
+
+#### Configuração do Telegram
+
+```cpp
+#define BOT_TOKEN "SEU_TOKEN_AQUI"
+#define CHAT_ID "SEU_CHAT_ID_AQUI"
+```
+
+O token é o código gerado pelo BotFather ao criar o bot.
+O chat ID é o identificador do usuário ou grupo que se comunica com o bot.
+Eles são usados para autenticar o acesso e identificar de onde vêm as mensagens.
+
+```cpp
+WiFiClientSecure secured_client;
+UniversalTelegramBot bot(BOT_TOKEN, secured_client);
+```
+
+Cria um cliente seguro (HTTPS) para conectar-se à API do Telegram e inicializa o objeto do bot.
+
+
+#### Configuração do MQTT (HiveMQ)
+
+```cpp
+const char* mqtt_server = "broker.hivemq.com";
+const int mqtt_port = 1883;
+const char* mqtt_topic = "iot/telegram";
+```
+
+Define o endereço do broker MQTT público (HiveMQ), a porta padrão (1883) e o nome do tópico no qual as mensagens serão publicadas.
+
+```cpp
+WiFiClient espClient;
+PubSubClient client(espClient);
+```
+
+Cria o cliente MQTT responsável por enviar dados ao broker.
+
+
+#### Conexão ao Wi-Fi
+
+```cpp
+void setupWiFi() {
+  Serial.println("Conectando ao Wi-Fi...");
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nWi-Fi conectado!");
+  Serial.print("IP: ");
+  Serial.println(WiFi.localIP());
+}
+```
+
+Essa função tenta conectar o ESP32 à rede Wi-Fi, imprimindo pontos no terminal até obter sucesso.
+Quando a conexão é estabelecida, o IP local é exibido no monitor serial.
+
+
+#### Conexão ao broker MQTT
+
+```cpp
+void reconnectMQTT() {
+  while (!client.connected()) {
+    Serial.print("Conectando ao broker MQTT...");
+    if (client.connect("ESP32_TelegramPublisher")) {
+      Serial.println("conectado!");
+    } else {
+      Serial.print("falhou (rc=");
+      Serial.print(client.state());
+      Serial.println(") tentando novamente em 5s...");
+      delay(5000);
+    }
+  }
+}
+```
+
+Essa função tenta continuamente conectar o ESP32 ao broker MQTT.
+Caso a conexão falhe, o programa espera 5 segundos antes de tentar novamente.
+
+
+#### Recebimento e publicação de mensagens
+
+```cpp
+void handleNewMessages(int numNewMessages) {
+  Serial.println("Nova mensagem recebida:");
+  for (int i = 0; i < numNewMessages; i++) {
+    String text = bot.messages[i].text;
+    String sender = bot.messages[i].from_name;
+```
+
+O código percorre todas as mensagens recebidas pelo bot e extrai o texto e o nome do remetente.
+
+```cpp
+    Serial.print("De: ");
+    Serial.println(sender);
+    Serial.print("Mensagem: ");
+    Serial.println(text);
+```
+
+Essas linhas exibem no monitor serial quem enviou a mensagem e qual foi o conteúdo.
+
+```cpp
+    if (client.connected()) {
+      client.publish(mqtt_topic, text.c_str());
+      Serial.println("Mensagem publicada no HiveMQ!");
+    } else {
+      Serial.println("Erro: não conectado ao broker MQTT.");
+    }
+```
+
+Se o ESP estiver conectado ao broker, publica a mensagem recebida no tópico MQTT.
+Caso contrário, informa que não conseguiu enviar.
+
+```cpp
+    String reply = "Mensagem publicada no MQTT: " + text;
+    bot.sendMessage(bot.messages[i].chat_id, reply, "");
+  }
+}
+```
+
+O bot responde automaticamente ao usuário no Telegram, confirmando que a mensagem foi publicada com sucesso.
+
+
+#### Função setup
+
+```cpp
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+  Serial.println("Inicializando ESP32 Publicador...");
+```
+
+Inicializa a UART para exibir logs no monitor serial.
+
+```cpp
+  setupWiFi();
+  secured_client.setInsecure();
+```
+
+Conecta ao Wi-Fi e desativa a verificação de certificado SSL (necessário no ambiente simulado).
+
+```cpp
+  client.setServer(mqtt_server, mqtt_port);
+  reconnectMQTT();
+}
+```
+
+Configura o endereço do broker MQTT e tenta a primeira conexão.
+
+
+#### Função loop
+
+```cpp
+void loop() {
+  client.loop();
+  if (millis() - lastTimeBotRan > botRequestDelay) {
+    int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+```
+
+A cada intervalo definido por `botRequestDelay`, o código consulta a API do Telegram em busca de novas mensagens.
+
+```cpp
+    while (numNewMessages) {
+      handleNewMessages(numNewMessages);
+      numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+    }
+    lastTimeBotRan = millis();
+  }
+}
+```
+
+Caso existam mensagens novas, elas são processadas, publicadas no MQTT e confirmadas no Telegram.
+
+
+### Código do ESP32 #2 – Assinante (MQTT → OLED)
+
+Este código se conecta ao mesmo broker MQTT, escuta o tópico “iot/telegram” e mostra no display OLED a última mensagem publicada.
+
+#### Inclusão de bibliotecas
+
+```cpp
+#include <WiFi.h>
+#include <PubSubClient.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+```
+
+Permitem conectar ao Wi-Fi, usar o protocolo MQTT, comunicar-se via barramento I2C e controlar o display OLED.
+
+
+### Configuração de Wi-Fi e MQTT
+
+```cpp
+const char* ssid = "Wokwi-GUEST";
+const char* password = "";
+const char* mqtt_server = "broker.hivemq.com";
+const int mqtt_port = 1883;
+const char* mqtt_topic = "iot/telegram";
+```
+
+Mesmas definições usadas no primeiro ESP.
+O tópico deve ser idêntico para que o assinante receba as mensagens publicadas pelo publicador.
+
+
+#### Inicialização do display OLED
+
+```cpp
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET -1
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+```
+
+Define a resolução do display e inicializa a comunicação I2C nas portas padrão (GPIO 21 e 22).
+
+
+#### Conexão ao Wi-Fi
+
+A função `setupWiFi()` é idêntica à usada no primeiro ESP.
+Ela conecta o microcontrolador à rede e mostra o IP local.
+
+
+#### Conexão ao broker MQTT
+
+```cpp
+void reconnectMQTT() {
+  while (!client.connected()) {
+    Serial.print("Conectando ao broker MQTT...");
+    if (client.connect("ESP32_DisplaySubscriber")) {
+      Serial.println("conectado!");
+      client.subscribe(mqtt_topic);
+      Serial.print("Inscrito no tópico: ");
+      Serial.println(mqtt_topic);
+    } else {
+      Serial.print("falhou (rc=");
+      Serial.print(client.state());
+      Serial.println(") tentando novamente em 5s...");
+      delay(5000);
+    }
+  }
+}
+```
+
+Essa função garante que o ESP32 permaneça conectado ao broker.
+Quando a conexão é bem-sucedida, o código se inscreve no tópico MQTT para começar a receber mensagens.
+
+
+#### Callback de mensagens
+
+```cpp
+void callback(char* topic, byte* message, unsigned int length)
+```
+
+Essa função é chamada automaticamente sempre que chega uma mensagem no tópico inscrito.
+
+```cpp
+  String msg;
+  for (int i = 0; i < length; i++) {
+    msg += (char)message[i];
+  }
+```
+
+O conteúdo da mensagem recebida é convertido de bytes para texto.
+
+```cpp
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 10);
+  display.println("Mensagem MQTT:");
+  display.setTextSize(2);
+  display.setCursor(0, 30);
+  display.println(msg);
+  display.display();
+```
+
+O texto é exibido no display OLED, com o título “Mensagem MQTT:” seguido da mensagem recebida.
+
+
+#### Função setup
+
+```cpp
+void setup() {
+  Serial.begin(115200);
+  Serial.println("Inicializando ESP32 Assinante...");
+```
+
+Inicializa a comunicação serial para logs de depuração.
+
+```cpp
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println("Falha ao inicializar o display OLED!");
+    while (true);
+  }
+```
+
+Inicia o display OLED e verifica se está funcionando corretamente.
+
+```cpp
+  setupWiFi();
+  client.setServer(mqtt_server, mqtt_port);
+  client.setCallback(callback);
+  reconnectMQTT();
+```
+
+Conecta ao Wi-Fi, configura o broker MQTT e define a função de callback para tratar mensagens recebidas.
+
+
+#### Função loop
+
+```cpp
+void loop() {
+  if (!client.connected()) {
+    reconnectMQTT();
+  }
+  client.loop();
+}
+```
+
+Garante que a conexão MQTT permaneça ativa e processa as mensagens conforme chegam.
