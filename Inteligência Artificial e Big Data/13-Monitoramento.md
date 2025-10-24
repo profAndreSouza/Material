@@ -46,8 +46,6 @@ Essas métricas, quando monitoradas em conjunto, formam a base para **identifica
 
 ## Atividade Prática — Power BI
 
-### Tema
-
 **Análise de Indicadores de Saúde e Risco Cardíaco**
 
 ### Objetivo
