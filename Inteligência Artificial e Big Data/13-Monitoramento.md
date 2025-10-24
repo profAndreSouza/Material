@@ -56,7 +56,7 @@ Aplicar o processo de **ETL (Extração, Transformação e Carga)** e desenvolve
 ### Dataset
 
 * **Nome:** *Heart Disease UCI*
-* **Fonte:** [Kaggle - Heart Disease UCI](https://archive.ics.uci.edu/dataset/45/heart+disease)
+* **Fonte:** Kaggle - Heart Disease UCI
 * **Descrição:** Contém informações clínicas de pacientes (idade, sexo, colesterol, pressão arterial, frequência cardíaca, entre outros) e um atributo de saída indicando a presença ou ausência de doença cardíaca. Ideal para explorar padrões de risco e correlações entre variáveis de saúde.
 
 
