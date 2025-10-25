@@ -289,6 +289,7 @@ Ao final do exercício, o aluno deverá ser capaz de:
   * Recebe mensagens de um **bot Telegram**.
   * Publica as mensagens recebidas no tópico MQTT `"iot/telegram"`.
   * Exibe logs de status e mensagens via **Serial Monitor (UART)**.
+  * https://wokwi.com/projects/445726194419252225
 
 * **ESP32 #2 (Assinante)**
 
@@ -296,6 +297,7 @@ Ao final do exercício, o aluno deverá ser capaz de:
   * Subscreve o tópico `"iot/telegram"`.
   * Exibe as mensagens recebidas no **display OLED (SSD1306)**.
   * Mostra logs de depuração no **Serial Monitor (UART)**.
+  * https://wokwi.com/projects/445726224532261889
 
 
 ### Componentes Simulados no Wokwi
