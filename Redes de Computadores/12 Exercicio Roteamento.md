@@ -51,8 +51,6 @@ graph TD
 
 Cada roteador possui uma LAN local com um switch e um PC conectado.
 
-Cada roteador possui uma LAN local com um switch e um PC conectado.
-
 
 ## Endereçamento IP
 
