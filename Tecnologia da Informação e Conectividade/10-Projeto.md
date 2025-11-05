@@ -4,9 +4,11 @@
 
 ### **Formato:** Relatório técnico (ABNT resumido) + Implementação em Cisco Packet Tracer
 
-### **Número de integrantes:** 1 a 5 alunos
+### **Número de integrantes:** 1 a 8 alunos
 
 ### **Entrega:** Arquivo `.pdf` (relatório) + arquivo `.pkt` (simulação)
+
+### **Prazo de MÁXIMO Entrega:** 09 de dezembro de 2025
 
 
 ## **1. Estrutura do Trabalho (formato ABNT resumido)**
@@ -106,7 +108,7 @@ Listagem das seções e subseções com numeração e páginas.
 | **2 integrantes** | Pequena empresa com dois setores (Administração e Produção). Duas sub-redes, roteamento estático, NAT obrigatório e DHCP/DNS simulados.                                                                 |
 | **3 integrantes** | Empresa de médio porte com três setores (Produção, TI e Escritório). VLANs, roteamento dinâmico (RIPv2 ou OSPFv2) e ACL básica.                                                                         |
 | **4 integrantes** | Empresa com quatro setores (Produção, TI, Escritório e Convidados). Roteamento dinâmico (EIGRP), DHCP centralizado, NAT/PAT, ACLs e redundância de switches (STP).                                      |
-| **5 integrantes** | Indústria de grande porte com cinco ou mais setores. Roteamento dinâmico (OSPFv2 ou EIGRP), VLANs com trunk, STP ativo, NAT/PAT, ACLs, DHCP e DNS simulados. Incluir link redundante e firewall básico. |
+| **5 a 8 integrantes** | Indústria de grande porte com cinco ou mais setores. Roteamento dinâmico (OSPFv2 ou EIGRP), VLANs com trunk, STP ativo, NAT/PAT, ACLs, DHCP e DNS simulados. Incluir link redundante e firewall básico. |
 
 
 ## **4. Orientações Finais**
