@@ -1,4 +1,4 @@
-# Trabalho Prático — Projeto de Rede Corporativa com Análise de Desempenho
+# Projeto de Rede Corporativa com Análise de Desempenho
 
 ### **Disciplina:** Redes de Computadores
 
@@ -7,6 +7,8 @@
 ### **Número de integrantes:** 1 a 5 alunos
 
 ### **Entrega:** Arquivo `.pdf` (relatório) + arquivo `.pkt` (simulação)
+
+### **Data de Entrega:** 03/12/2025
 
 
 ## **1. Estrutura do Trabalho (formato ABNT resumido)**
