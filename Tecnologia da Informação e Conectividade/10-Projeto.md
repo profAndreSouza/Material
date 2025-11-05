@@ -8,7 +8,7 @@
 
 ### **Entrega:** Arquivo `.pdf` (relatório) + arquivo `.pkt` (simulação)
 
-### **Prazo de MÁXIMO para Entrega:** 09 de dezembro de 2025
+### **Prazo MÁXIMO de Entrega:** 09 de dezembro de 2025
 
 
 ## **1. Estrutura do Trabalho (formato ABNT resumido)**
