@@ -1,4 +1,4 @@
-# Trabalho Prático — Projeto de Infraestrutura de Rede Local em Ambiente Empresarial
+# Projeto de Infraestrutura de Rede Local em Ambiente Empresarial
 
 ### **Disciplina:** Tecnologia da Informação e Conectividade
 
