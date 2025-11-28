@@ -1,10 +1,10 @@
 # Projeto – [Nome do Projeto]
 
 ## Integrantes do Grupo
-- Nome 1 – RA: XXXXXXX – Email:
-- Nome 2 – RA: XXXXXXX – Email:
-- Nome 3 – RA: XXXXXXX – Email:
-- Nome 4 – RA: XXXXXXX – Email:
+- Nome 1 – Email:
+- Nome 2 – Email:
+- Nome 3 – Email:
+- Nome 4 – Email:
 
 
 # Visão Geral do Projeto
@@ -13,7 +13,7 @@
 > Explique aqui em 3–4 linhas qual é o propósito da aplicação, o problema resolvido e os principais usuários.
 
 **Objetivo principal:**  
-- [Exemplo] Desenvolver um sistema para ...
+- [Exemplo] Desenvolver um sistema para ...git
 
 **Tecnologias utilizadas:**
 - Linguagens:
