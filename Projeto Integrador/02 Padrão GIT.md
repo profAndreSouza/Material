@@ -31,7 +31,7 @@
 - Módulos auxiliares
 
 
-# Como Executar o Projeto
+# Como Executar o Projeto  (somente se não tiver no README.md da aplicação)
 
 ## 1. Pré-requisitos
 - Node / Java / Python / etc.
