@@ -119,11 +119,11 @@ Este repositório reúne conteúdos e materiais didáticos relacionados à disci
 | 12   | 24/10 | Interfaces Bluetooth/WiFi                     | Integração **ESP32 ↔ Telegram bot**                                 | 
 | 13   | 31/10 | **Projeto Integrador**                        |                                                                     | 
 | 14   | 07/11 | Plataforma de desenvolvimento e simulação     | Controle de motor via Telegram (**ESP32 + bot**)                    | 
-| 15   | 14/11 | Serviços em nuvem (ThingSpeak/Firebase)       | Envio de dados de sensor para dashboard na nuvem                    | 
-| 16   | 28/11 | **Projeto Integrador**                        |                                                                     | 
+| 15   | 14/11 | **Projeto Integrador**                        |                                                                     | 
+| 16   | 28/11 | Serviços em nuvem  e Protocolos Industriais   | Envio de dados de sensor para dashboard na nuvem e Modbus/CoAP      | 
 | 17   | 05/12 | Avaliação Teórica                             |                                                                     | 
-| 18   | 12/12 | Protocolos industriais (Modbus/CoAP)          | Simulação de rede Modbus/CoAP (**Tinkercad/Wokwi**)                 | 
-| 19   | 19/12 | **Projeto Integrador**                        | Apresentação dos protótipos (**demonstração prática**)              | 
+| 18   | 12/12 | **Projeto Integrador**                        | Apresentação dos protótipos (**demonstração prática**)              | 
+| 19   | 19/12 | **Reavaliação**                               |                                                                     | 
 | 20   | 22/12 | Encerramento                                  |                                                                     | 
 
 ## Avaliação
