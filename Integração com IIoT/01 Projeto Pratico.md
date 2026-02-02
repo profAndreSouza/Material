@@ -1,4 +1,4 @@
-# **Projeto Integrador da Disciplina – IoT e IIoT**
+# **Projeto Prático – IoT e IIoT**
 
 ## **Objetivo Geral**
 
@@ -123,4 +123,5 @@ O artigo deverá seguir estrutura acadêmica simplificada, contendo:
 
 7. **Referências**
    Fontes técnicas, artigos, normas ou documentações utilizadas
+
 
