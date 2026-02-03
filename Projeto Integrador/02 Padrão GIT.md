@@ -13,7 +13,7 @@
 > Explique aqui em 3–4 linhas qual é o propósito da aplicação, o problema resolvido e os principais usuários.
 
 **Objetivo principal:**  
-- [Exemplo] Desenvolver um sistema para ...git
+- [Exemplo] Desenvolver um sistema para ...
 
 **Tecnologias utilizadas:**
 - Linguagens:
