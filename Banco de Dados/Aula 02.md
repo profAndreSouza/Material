@@ -1,11 +1,11 @@
-# Aula 2: Introdução a Banco de Dados Relacional (do problema ao SQL)
+## Aula 2: Introdução a Banco de Dados Relacional (do problema ao SQL)
 
 Este material foi elaborado para **acompanhar a explicação do professor em sala**. Utilize-o como um **guia passo a passo**, fazendo anotações e observando os exemplos apresentados na lousa.
 
 O objetivo desta aula **não é decorar comandos SQL**, mas entender como um **problema real** se transforma em um **banco de dados organizado**.
 
 
-## 1. Por que usar Banco de Dados?
+### 1. Por que usar Banco de Dados?
 
 Em sistemas reais, precisamos armazenar informações de forma:
 
@@ -22,7 +22,7 @@ Pense em uma tabela como uma **planilha**, onde:
 * Cada coluna é uma informação específica
 
 
-## 2. Enunciado do Problema (Ponto de Partida)
+### 2. Enunciado do Problema (Ponto de Partida)
 
 > Uma empresa precisa de um sistema simples de controle de estoque.
 >
@@ -36,7 +36,7 @@ Pense em uma tabela como uma **planilha**, onde:
 **Tudo em banco de dados começa com um problema real.**
 
 
-## 3. Identificando Entidades
+### 3. Identificando Entidades
 
 A primeira pergunta que fazemos é:
 
@@ -44,7 +44,7 @@ A primeira pergunta que fazemos é:
 
 Normalmente, elas aparecem como **substantivos** no texto.
 
-### Entidades encontradas:
+#### Entidades encontradas:
 
 * Categoria
 * Produto
@@ -52,17 +52,17 @@ Normalmente, elas aparecem como **substantivos** no texto.
 Essas entidades futuramente se tornarão **tabelas** no banco de dados.
 
 
-## 4. Definindo Atributos das Entidades
+### 4. Definindo Atributos das Entidades
 
 Agora listamos as informações que cada entidade precisa guardar.
 
-### Entidade: Categoria
+#### Entidade: Categoria
 
 * Identificador da categoria
 * Nome da categoria
 * Descrição
 
-### Entidade: Produto
+#### Entidade: Produto
 
 * Identificador do produto
 * Código (SKU)
@@ -75,14 +75,14 @@ Agora listamos as informações que cada entidade precisa guardar.
 Cada item dessa lista se tornará uma **coluna** na tabela.
 
 
-## 5. Relacionamento entre Entidades
+### 5. Relacionamento entre Entidades
 
 Perguntas importantes:
 
 * Uma categoria pode ter vários produtos? → **Sim**
 * Um produto pode pertencer a várias categorias? → **Não**
 
-### Tipo de relacionamento:
+#### Tipo de relacionamento:
 
 * **1 para N (1:N)**
 
@@ -96,15 +96,15 @@ Isso significa que:
 * Cada produto pertence a apenas uma categoria
 
 
-## 6. Conceitos Essenciais
+### 6. Conceitos Essenciais
 
-### Chave Primária (Primary Key – PK)
+#### Chave Primária (Primary Key – PK)
 
 * Identifica um registro de forma única
 * Não pode se repetir
 * Exemplo: id_categoria, id_produto
 
-### Chave Estrangeira (Foreign Key – FK)
+#### Chave Estrangeira (Foreign Key – FK)
 
 * Cria o relacionamento entre tabelas
 * Aponta para a chave primária de outra tabela
@@ -112,7 +112,7 @@ Isso significa que:
 No nosso caso, o produto guarda o **id da categoria**.
 
 
-## 7. Tipos de Dados Mais Usados
+### 7. Tipos de Dados Mais Usados
 
 | Tipo      | Uso                 |
 | --------- | ------------------- |
@@ -125,11 +125,11 @@ No nosso caso, o produto guarda o **id da categoria**.
 O tipo de dado deve representar corretamente a informação armazenada.
 
 
-## 8. Preparando o Ambiente com Docker
+### 8. Preparando o Ambiente com Docker
 
 Para garantir que todos utilizem o mesmo banco de dados, usaremos **Docker com PostgreSQL 15**.
 
-### Arquivo: docker-compose.yml
+#### Arquivo: docker-compose.yml
 
 ```yaml
 services:
@@ -151,7 +151,7 @@ volumes:
 ```
 
 
-### Comandos Básicos
+#### Comandos Básicos
 
 Subir o banco de dados:
 
@@ -166,11 +166,11 @@ docker exec -it postgres_pbl psql -U admin -d sistema_estoque
 ```
 
 
-## 9. Criando as Tabelas (DDL)
+### 9. Criando as Tabelas (DDL)
 
 DDL (Data Definition Language) é usada para **criar a estrutura** do banco.
 
-### Tabela Categorias
+#### Tabela Categorias
 
 ```sql
 CREATE TABLE categorias (
@@ -180,7 +180,7 @@ CREATE TABLE categorias (
 );
 ```
 
-### Tabela Produtos
+#### Tabela Produtos
 
 ```sql
 CREATE TABLE produtos (
@@ -199,7 +199,7 @@ CREATE TABLE produtos (
 ```
 
 
-## 10. Inserindo Dados (INSERT)
+### 10. Inserindo Dados (INSERT)
 
 ```sql
 INSERT INTO categorias (nome_categoria, descricao)
@@ -214,7 +214,7 @@ VALUES ('NOTE001', 'Notebook Dell', 4500.00, 1);
 Primeiro insira a categoria, depois o produto.
 
 
-## 11. Consultando Dados (SELECT)
+### 11. Consultando Dados (SELECT)
 
 ```sql
 SELECT * FROM categorias;
@@ -228,7 +228,7 @@ FROM produtos;
 Esses comandos permitem visualizar os dados armazenados.
 
 
-## 12. Exercício Proposto
+### 12. Exercício Proposto
 
 Utilizando o cenário do seu grupo:
 
@@ -243,7 +243,7 @@ Utilizando o cenário do seu grupo:
 Este exercício será a base para as próximas aulas.
 
 
-## 13. Dica Final
+### 13. Dica Final
 
 Se algo não fizer sentido agora, **não se preocupe**.
 Banco de dados é aprendizado por repetição e prática.
