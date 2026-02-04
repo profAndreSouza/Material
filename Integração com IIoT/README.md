@@ -122,87 +122,107 @@ Desenvolver competências técnicas e socioemocionais para a **criação de solu
 
 # Cronograma — Metodologia PBL
 
-## Bloco 1: Fundamentação e Definição da Solução
 
-**Aula 1: Apresentação do componente curricular e do problema PBL**
-* Contextualização de IoT e IIoT em cenários reais
-* Análise inicial do problema
-* Ideação e definição preliminar do projeto
+## Bloco 1 — Contextualização, Problema e Arquitetura da Solução
 
-**Aula 2: Aplicações de IoT e IIoT**
-* Análise de domínios de aplicação
-* Delimitação do contexto e do problema a ser resolvido
-* Definição do escopo do projeto
+**Aula 1: Apresentação da UC e Introdução ao PBL em IoT/IIoT**
+
+* Apresentação do componente curricular, objetivos e metodologia
+* Conceitos fundamentais de IoT e IIoT
+* Apresentação do problema/desafio PBL
+
+**Aula 2: Análise de Domínios de Aplicação e Definição do Problema**
+
+* Estudo de casos de IoT e IIoT (indústria, cidades, saúde, agro etc.)
+* Delimitação do contexto e requisitos do projeto
+* Definição do problema e objetivos da solução
 
 **Aula 3: Arquitetura de Sistemas IoT/IIoT**
+
 * Componentes de uma solução IoT/IIoT
-* Fluxo de dados entre dispositivos, edge e nuvem
-* Desenho da arquitetura da solução
+* Fluxo de dados: dispositivos → edge → plataformas
+* Desenho da arquitetura lógica e física do projeto
 
 
-## Bloco 2: Dispositivos, Hardware e Comunicação
+## Bloco 2 — Dispositivos, Sensores e Programação
 
-**Aula 4: Hardware IIoT**
-* Estudo dos dispositivos ESP8266, ESP32 e PC Single Board
-* Critérios de escolha do hardware
+**Aula 4: Hardware IIoT e Infraestrutura de Dispositivos**
+
+* Estudo de ESP8266, ESP32, SBCs e gateways
+* Critérios técnicos de seleção de hardware
 * Planejamento da infraestrutura do projeto
 
-**Aula 5: Sensores, Atuadores e Dispositivos Rastreados**
-* Tipos de sensores e atuadores
-* Tecnologias de rastreamento
-* Definição dos dados a serem coletados
+**Aula 5: Sensores, Atuadores e Dispositivos de Rastreamento**
+
+* Tipos e funcionamento de sensores e atuadores
+* RFID, QR Code e códigos de barras
+* Definição das variáveis e dados a serem coletados
 
 **Aula 6: Programação de Dispositivos IIoT**
-* Estrutura básica de firmware
-* Leitura de sensores e acionamento de atuadores
-* Preparação dos dados para envio
+
+* Estrutura de firmware e leitura de sensores
+* Controle de atuadores
+* Preparação e formatação dos dados para transmissão
 
 
-## Bloco 3: Protocolos, Conectividade e Edge Computing
+## Bloco 3 — Comunicação, Conectividade e Edge Computing
 
 **Aula 7: Protocolos de Comunicação IIoT**
-* Funcionamento do MQTT, AMQP, XMPP e DDS
-* Definição do protocolo do projeto
-* Testes de publicação e consumo de dados
+
+* MQTT, AMQP, XMPP e DDS
+* Escolha do protocolo para o projeto
+* Testes de publicação e assinatura de dados
 
 **Aula 8: Tecnologias de Conectividade**
-* Análise de redes sem fio e móveis
-* Escolha da conectividade adequada
-* Simulação ou implementação da comunicação
 
-**Aula 9: Edge Computing**
-* Conceitos de processamento em borda
-* Regras, filtros e pré-processamento
-* Integração do edge com os dispositivos
+* Wi-Fi, BLE, LoRa/SigFox, redes móveis e sensores
+* Análise de alcance, consumo, latência e confiabilidade
+* Implementação ou simulação da conectividade
+
+**Aula 9: Edge Computing e Processamento Local**
+
+* Conceitos e arquiteturas de edge computing
+* Filtragem, agregação e pré-processamento de dados
+* Integração entre dispositivos, edge e plataformas
 
 
-## Bloco 4: Plataformas, Visualização e Documentação
+## Bloco 4 — Plataformas, Visualização, Integração e Validação
 
-**Aula 10: Plataformas e Brokers**
-* Plataformas MQTT e Web Servers
-* Configuração de brokers
-* Integração com dispositivos e edge
+**Aula 10: Plataformas IoT, Brokers e Servidores**
+
+* Brokers MQTT e servidores web
+* Integração entre edge, dispositivos e backend
+* Testes de comunicação fim a fim
 
 **Aula 11: Dashboards e Visualização de Dados**
-* Conceitos de visualização da informação
+
+* Princípios de visualização da informação
 * Criação de dashboards locais ou em nuvem
-* Análise dos dados coletados
+* Interpretação e análise dos dados coletados
 
 **Aula 12: Integração Completa da Solução**
-* Integração ponta a ponta
-* Validação do fluxo de dados
-* Ajustes e melhorias
 
-**Aula 13: Testes e Validação da Solução**
-* Análise do funcionamento do sistema
-* Identificação de limitações
+* Integração ponta a ponta do sistema
+* Validação do fluxo de dados
+* Ajustes técnicos na arquitetura e implementação
+
+
+## Bloco 5 — Testes, Documentação e Comunicação Científica
+
+**Aula 13: Testes, Avaliação e Otimização da Solução**
+
+* Testes funcionais e de desempenho
+* Identificação de falhas, riscos e limitações
 * Propostas de melhorias
 
-**Aula 14: Estruturação do Artigo Técnico**
-* Organização do artigo
-* Escrita orientada da fundamentação, metodologia e desenvolvimento
+**Aula 14: Documentação Técnica e Estruturação do Artigo**
 
-**Aula 15: Consolidação e Apresentação do Projeto**
+* Organização do artigo técnico
+* Escrita orientada de introdução, fundamentação, metodologia e resultados
+* Normalização e boas práticas acadêmicas
+
+**Aula 15: Consolidação e Apresentação Final do Projeto**
+
 * Revisão técnica da solução
-* Consolidação do artigo
-* Apresentação técnica do projeto desenvolvido
+* Entrega do artigo e do projeto funcional
+* Apresentação técnica e feedback final
