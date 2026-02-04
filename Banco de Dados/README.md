@@ -94,109 +94,103 @@ Desenvolver competências técnicas e socioemocionais para a **programação e g
 
 # Cronograma — Metodologia PBL 
 
-> **Projeto Integrador (PBL):**
-> Desenvolvimento de uma **solução completa de banco de dados para um sistema industrial ou corporativo**, contemplando modelagem, implementação, integração e documentação.
 
-### Aula 1
+### Bloco 1: Infraestrutura e Modelagem Relacional
 
-**Apresentação do componente curricular e do problema PBL**
-
+* **Aula 1: Apresentação do componente curricular e do problema PBL**
 * Contextualização do cenário industrial/corporativo
 * Análise inicial do problema e levantamento de requisitos
+* Ideação e Requisitos
 
-### Aula 2
+* **Aula 2: Containerização e DDL Inicial**
+* Configuração de ambiente: `docker-compose.yml` para PostgreSQL.
+* Comandos de definição de dados: `CREATE DATABASE` e `CREATE TABLE`.
+* Aplicação: Criação da estrutura básica da tabela de `produtos` (tipos de dados, `NOT NULL`).
 
-**Fundamentos de banco de dados aplicados ao problema**
 
-* Conceitos estruturais
-* Identificação das entidades e dados relevantes
+* **Aula 3: Modelagem Conceitual e Lógica**
+* Levantamento de Requisitos Informacionais.
+* Construção do Diagrama Entidade-Relacionamento (DER).
+* Definição de atributos e tipos (Integer, Varchar, Decimal, Timestamp).
 
-### Aula 3
 
-**Relacionamentos, chaves e integridade**
+* **Aula 4: Integridade Referencial e Constraints**
+* Implementação de `PRIMARY KEY` e `FOREIGN KEY`.
+* Restrições de integridade: `UNIQUE`, `CHECK` e `DEFAULT`.
+* Aplicação: Relacionar `estoque` com `categorias` e `fornecedores`.
 
-* Cardinalidade e restrições
-* Discussão sobre integridade referencial
 
-### Aula 4
+* **Aula 5: Manipulação de Dados (DML)**
+* Operações CRUD: `INSERT INTO`, `UPDATE` e `DELETE`.
+* Carga inicial de dados para testes de consistência.
+* Uso do `RETURNING` no Postgres para captura de IDs gerados.
 
-**SGBDs e critérios de escolha tecnológica**
 
-* Comparação entre SGBDs relacionais
-* Definição da tecnologia do projeto
 
-### Aula 5
+### Bloco 2: Linguagem de Consulta e Normalização
 
-**Modelagem conceitual e lógica de dados**
+* **Aula 6: Data Query Language (DQL) — Filtros**
+* Consultas com `SELECT`, `WHERE`.
+* Operadores lógicos, aritméticos e de comparação.
+* Filtragem de strings com `LIKE` e `ILIKE`.
 
-* Diagrama Entidade-Relacionamento
-* Construção do Modelo Lógico de Dados
 
-### Aula 6
+* **Aula 7: Álgebra Relacional — Joins**
+* Junções de tabelas: `INNER JOIN`, `LEFT/RIGHT JOIN` e `FULL OUTER JOIN`.
+* Resolução de ambiguidades e uso de Aliases.
+* Consultas multi-tabelas no cenário de movimentação de estoque.
 
-**Normalização e otimização do modelo**
 
-* Análise crítica do modelo
-* Ajustes e refinamentos
+* **Aula 8: Agregação e Sumarização de Dados**
+* Funções: `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`.
+* Cláusulas `GROUP BY` e `HAVING`.
+* Extração de métricas técnicas (ex: saldo total por armazém).
 
-### Aula 7
 
-**Modelo físico e preparação do ambiente**
+* **Aula 9: Teoria da Normalização**
+* Aplicação da 1ª, 2ª e 3ª Formas Normais (FN).
+* Identificação e correção de dependências parciais e transitivas.
+* Refatoração do esquema físico (Script de migração/alteração).
 
-* Tipos de dados
-* Planejamento da implementação
 
-### Aula 8
 
-**Implementação do banco de dados (DDL)**
+### Bloco 3: Objetos de Banco de Dados e Desempenho
 
-* Criação de estruturas físicas
-* Padronização e boas práticas
+* **Aula 10: Estruturas de Otimização (Views e Índices)**
+* Criação de `VIEWS` para abstração de consultas complexas.
+* Arquitetura de Índices: `B-Tree`, `Hash` e `Unique`.
+* Análise de impacto na performance de leitura vs escrita.
 
-### Aula 9
 
-**Manipulação de dados (DML)**
+* **Aula 11: Programação em Banco de Dados (Stored Procedures)**
+* Introdução à linguagem PL/pgSQL.
+* Criação de `FUNCTIONS` e `PROCEDURES`.
+* Lógica de transação e tratamento de erros.
 
-* Inserção, atualização e exclusão
-* Simulação de dados reais
 
-### Aula 10
+* **Aula 12: Triggers e Automação de Integridade**
+* Implementação de Gatilhos (`TRIGGERS`).
+* Automação de logs de auditoria ou atualização automática de saldo de estoque.
+* Diferença entre triggers `BEFORE` e `AFTER`.
 
-**Consultas e análise de informações (DQL)**
 
-* Consultas complexas
-* Apoio à tomada de decisão
 
-### Aula 11
+### Bloco 4: Integração, NoSQL e Governança
 
-**Views, functions e procedures**
+* **Aula 13: Integração com Camada de Aplicação**
+* Drivers de conexão (JDBC, psycopg2, PDO).
+* Mapeamento de tipos de dados entre banco e linguagem de programação.
+* Prevenção de SQL Injection (Prepared Statements).
 
-* Automatização e encapsulamento de regras de negócio
 
-### Aula 12
+* **Aula 14: Extensões e Alternativas (JSONB e NoSQL)**
+* Armazenamento de dados semi-estruturados no Postgres com `JSONB`.
+* Diferenças arquiteturais entre RDBMS e NoSQL (Documento/Chave-Valor).
+* Operações CRUD em campos JSON.
 
-**Integração do banco de dados com aplicações**
 
-* Conceitos e arquiteturas
-* Discussão de casos práticos
+* **Aula 15: Administração, Segurança e Entrega Final**
+* Gestão de Roles e Permissions (`GRANT`/`REVOKE`).
+* Rotinas de Backup e Restore via `pg_dump` em ambiente Docker.
+* Apresentação técnica da documentação final (Dicionário de Dados e MER atualizado).
 
-### Aula 13
-
-**Bancos de dados NoSQL e novos paradigmas**
-
-* Arquitetura NoSQL
-* Avaliação de cenários de uso
-
-### Aula 14
-
-**Manipulação de dados NoSQL**
-
-* CRUD em ambientes NoSQL
-* Comparação com a solução relacional
-
-### Aula 15
-
-**Documentação técnica e consolidação do projeto PBL**
-
-* Dicionário de dados e documentação final
-* Reflexão sobre decisões técnicas e trabalho colaborativo
