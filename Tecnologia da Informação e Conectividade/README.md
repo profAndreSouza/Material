@@ -112,18 +112,18 @@ A disciplina será desenvolvida por meio da **metodologia PBL (Problem-Based Lea
 
 ## Bloco 1: Análise do Problema e Topologia de Rede
 
-* **Aula 1: Apresentação do componente curricular e do problema PBL**
+**Aula 1: Apresentação do componente curricular e do problema PBL**
 * Contextualização do cenário industrial
 * Apresentação do Packet Tracer
 * Análise inicial do problema
 * Formação das equipes
 
-* **Aula 2: Desenho da Topologia de Rede**
+**Aula 2: Desenho da Topologia de Rede**
 * Definição da topologia lógica
 * Identificação de setores e domínios de broadcast
 * Diagrama inicial da rede
 
-* **Aula 3: Configuração Básica de Switches**
+**Aula 3: Configuração Básica de Switches**
 * Configuração inicial dos dispositivos
 * Endereçamento e testes de conectividade local
 * Validação da comunicação física e lógica
@@ -131,17 +131,17 @@ A disciplina será desenvolvida por meio da **metodologia PBL (Problem-Based Lea
 
 ## Bloco 2: Switching Avançado e Segmentação
 
-* **Aula 4: VLANs e Segmentação de Redes**
+**Aula 4: VLANs e Segmentação de Redes**
 * Criação e configuração de VLANs
 * Associação de portas
 * Comunicação intra-VLAN
 
-* **Aula 5: Trunking e Interligação entre Switches**
+**Aula 5: Trunking e Interligação entre Switches**
 * Configuração de enlaces trunk
 * Transporte de múltiplas VLANs
 * Testes de conectividade
 
-* **Aula 6: Redundância e Spanning Tree**
+**Aula 6: Redundância e Spanning Tree**
 * Implementação de enlaces redundantes
 * STP e RSTP
 * Análise de convergência e prevenção de loops
@@ -149,17 +149,17 @@ A disciplina será desenvolvida por meio da **metodologia PBL (Problem-Based Lea
 
 ## Bloco 3: Roteamento e Alta Disponibilidade
 
-* **Aula 7: Roteamento Inter-VLAN**
+**Aula 7: Roteamento Inter-VLAN**
 * Configuração de roteamento entre VLANs
 * Switch Layer 3 ou Router-on-a-Stick
 * Validação da comunicação entre redes
 
-* **Aula 8: Roteamento Estático**
+**Aula 8: Roteamento Estático**
 * Roteamento IPv4
 * Introdução ao IPv6
 * Testes e validação
 
-* **Aula 9: Alta Disponibilidade e Redundância**
+**Aula 9: Alta Disponibilidade e Redundância**
 * Estratégias de redundância
 * Simulação de falhas
 * Análise de impacto no serviço
@@ -167,17 +167,17 @@ A disciplina será desenvolvida por meio da **metodologia PBL (Problem-Based Lea
 
 ## Bloco 4: Segurança em Redes
 
-* **Aula 10: Segurança em Switches**
+**Aula 10: Segurança em Switches**
 * Port Security
 * DHCP Snooping
 * BPDU Guard
 
-* **Aula 11: Listas de Controle de Acesso (ACLs)**
+**Aula 11: Listas de Controle de Acesso (ACLs)**
 * ACLs padrão e estendidas
 * Controle de tráfego entre redes
 * Aplicação de políticas de segurança
 
-* **Aula 12: Firewall e VPN**
+**Aula 12: Firewall e VPN**
 * Conceitos de firewall por zona
 * Simulação básica de VPN
 * Análise de cenários seguros
@@ -185,17 +185,17 @@ A disciplina será desenvolvida por meio da **metodologia PBL (Problem-Based Lea
 
 ## Bloco 5: Monitoramento, Diagnóstico e Entrega
 
-* **Aula 13: Monitoramento e Diagnóstico**
+**Aula 13: Monitoramento e Diagnóstico**
 * Comandos de verificação
 * Testes de conectividade
 * Identificação de falhas
 
-* **Aula 14: Troubleshooting**
+**Aula 14: Troubleshooting**
 * Cenários com falhas simuladas
 * Correção de erros
 * Ajustes finais da topologia
 
-* **Aula 15: Apresentação e Entrega Final**
+**Aula 15: Apresentação e Entrega Final**
 * Demonstração da topologia simulada
 * Justificativa das decisões técnicas
 * Avaliação final do projeto PBL
