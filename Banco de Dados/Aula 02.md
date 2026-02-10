@@ -249,3 +249,49 @@ Se algo não fizer sentido agora, **não se preocupe**.
 Banco de dados é aprendizado por repetição e prática.
 
 Use este material para acompanhar a explicação e testar os comandos com calma.
+
+
+### Sistema de Estoque com Movimentação (mais avançado)
+
+A empresa deseja evoluir o sistema.
+
+Agora será necessário:
+
+#### **Novos requisitos**
+
+* Controlar **entradas e saídas de produtos**
+* Registrar:
+
+  * Tipo de movimentação (entrada ou saída)
+  * Data da movimentação
+  * Quantidade movimentada
+* Controlar o **estoque atual** automaticamente
+
+
+#### **Entidades adicionais**
+
+* **Movimentacao**
+
+  * `id_movimentacao` (PK)
+  * `tipo` (E = Entrada, S = Saída)
+  * `quantidade`
+  * `data_movimentacao`
+  * `id_produto` (FK)
+
+
+#### **Tarefas do desafio**
+
+1. Atualize o **DER**, incluindo a entidade Movimentação
+2. Crie o DDL completo com:
+
+   * PK e FK
+   * Restrições de domínio (`CHECK`)
+3. Insira movimentações de entrada e saída
+4. Crie consultas para:
+
+   * Calcular o estoque atual de cada produto
+   * Listar produtos abaixo da quantidade mínima
+5. Avançado
+
+   * Criar uma **VIEW** de estoque atual
+   * Criar uma **TRIGGER** para impedir saída maior que o estoque
