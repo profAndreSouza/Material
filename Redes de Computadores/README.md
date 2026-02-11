@@ -85,10 +85,10 @@ O docente definirá periodicamente, em seu plano de ensino semestral, os instrum
 ## Composição da Nota Final
 
 **Fórmula:**  
-`NF = P1 * 0.4 + T * 0.4 + EX * 0.2`
+`NF = P1 * 0.4 + P2 * 0.4 + TR * 0.2`
 
 | Componente                  | Peso  |
 |----------------------------|-------|
-| **P1** – Avaliação Teórica e Prática       | 40%   |
+| **P1** – Avaliação Teórica        | 40%   |
 | **P2** – Trabalho (Relatório ABNT + Simulação Packet Tracer)          | 40%   |
 | **TR** – Trabalhos em grupos feitos em sala de aula | 20%   |
