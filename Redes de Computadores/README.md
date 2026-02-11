@@ -92,3 +92,9 @@ O docente definirá periodicamente, em seu plano de ensino semestral, os instrum
 | **P1** – Avaliação Teórica        | 40%   |
 | **P2** – Trabalho (Relatório ABNT + Simulação Packet Tracer)          | 40%   |
 | **TR** – Trabalhos em grupos feitos em sala de aula | 20%   |
+
+    
+* Se a NF for menor que 6, o aluno fará a REAVA (Reavaliação), que substituirá a NF para fins de aprovação.
+O aluno que fizer a REAVA e for aprovado terá NF igual a 6.
+
+
