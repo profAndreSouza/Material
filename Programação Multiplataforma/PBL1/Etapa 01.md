@@ -1,5 +1,3 @@
-# PBL1 — Etapa 1
-
 # Documentação da Etapa de Compreensão do Problema e Definição de Requisitos
 
 A Etapa 1 estabelece o entendimento formal do domínio do problema e define os fundamentos conceituais do sistema de monitoramento ambiental. Nesta fase são descritos o contexto operacional, os objetivos do sistema, as variáveis monitoradas, os requisitos funcionais e não funcionais, bem como o modelo conceitual dos dados que serão coletados e armazenados.

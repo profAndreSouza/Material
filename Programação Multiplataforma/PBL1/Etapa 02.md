@@ -1,5 +1,3 @@
-# PBL1 — Etapa 2
-
 # Documentação da Etapa de Projeto da Arquitetura
 
 A Etapa 2 formaliza a estrutura arquitetural do sistema de monitoramento ambiental. Com base na compreensão do problema e nos requisitos definidos anteriormente, esta fase estabelece como os componentes do sistema serão organizados, como se comunicarão e como os dados percorrerão a infraestrutura.
