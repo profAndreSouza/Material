@@ -28,3 +28,45 @@
   "dependencies": {}
 }
 ```
+
+## libraries.txt
+```txt
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+
+DHT sensor library for ESPx
+
+```
+
+## sketch.ino
+```c
+#include <DHTesp.h>
+
+// mapeamento doa conexao dos dispositivos na GPIO (pinos)
+const int DHT_PIN = 15;
+
+DHTesp dhtSensor;
+
+void setup() {
+  Serial.begin(115200);
+
+  dhtSensor.setup(DHT_PIN, DHTesp::DHT22);
+  
+  Serial.println("Sistema de Monitoramento Iniciado");
+}
+
+void loop() {
+
+  TempAndHumidity data = dhtSensor.getTempAndHumidity();
+
+  if (isnan(data.temperature) || isnan(data.humidity)) {
+    Serial.println("Erro ao ler o sensor DHT22");
+  } else {
+    Serial.println("Temperatura: " + String(data.temperature, 2) + "°C");
+    Serial.println("Umidade: " + String(data.humidity, 2) + "%");
+  }
+
+  delay(1000);
+}
+
+```
