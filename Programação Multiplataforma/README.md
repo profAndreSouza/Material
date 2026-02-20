@@ -149,7 +149,6 @@ Camadas:
 * Visualização de dados em tempo real
 * Versionamento colaborativo
 
-Observação: este PBL não contempla TDD nem desenvolvimento mobile.
 
 
 ## PBL2 — Sistema de Gestão Inteligente de Consumo de Energia
@@ -187,6 +186,6 @@ Desenvolvimento de uma plataforma distribuída para rastrear ativos continuament
 
 ## Progressão Pedagógica
 
-PBL1 — Fundamentos de IoT, mensageria e ingestão de dados em tempo real
-PBL2 — Processamento contínuo e análise de eventos
-PBL3 — Integração de serviços distribuídos e interoperabilidade de sistemas
+- PBL1 — Fundamentos de IoT, mensageria e ingestão de dados em tempo real
+- PBL2 — Processamento contínuo e análise de eventos
+- PBL3 — Integração de serviços distribuídos e interoperabilidade de sistemas
