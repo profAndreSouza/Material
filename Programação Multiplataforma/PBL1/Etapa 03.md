@@ -276,5 +276,7 @@ Isso estabelece a base operacional do sistema de monitoramento inteligente.
 
 
 
-
-
+## Tarefas
+- Converter a leitura do sensor de gás de ADC para PPM
+- Converter a leitura do fotoresistor de ADC para LUX
+- Estruturar em um JSON para ser publicado no MQTT
