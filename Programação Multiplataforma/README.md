@@ -52,24 +52,23 @@ Provas, projetos, avaliação em pares, desafios de programação e trabalhos in
 
 ## Forma de Avaliação
 
-Avaliações conceituais – 40%
-P1 – Avaliação teórica 1º semestre: 2 pontos
-P2 – Avaliação teórica 2º semestre: 2 pontos
+Avaliações conceituais – 4 pontos
+- P1 – Avaliação teórica 1º semestre: 2 pontos
+- P2 – Avaliação teórica 2º semestre: 2 pontos
 
-Projetos (PBLs) – 60%
-PBL1 – 2 pontos
-PBL2 – 2 pontos
-PBL3 – 2 pontos
+Projetos (PBLs) – 6 pontos
+- PBL1 – 2 pontos
+- PBL2 – 2 pontos
+- PBL3 – 2 pontos
 
 Bonificações por participação efetiva
-Interfatec: + 0,5 ponto
-Semana de Tecnologia: + 0,5 ponto
+- Interfatec: + 0,5 ponto
+- Semana de Tecnologia: + 0,5 ponto
 
 Cálculo da Nota Final
-NF = P1 + P2 + PBL1 + PBL2 + PBL3 + Bonificações
-
-Se NF > 10 → NF = 10
-Se NF < 6 e REAVA ≥ 6 → NF = 6
+- NF = P1 + P2 + PBL1 + PBL2 + PBL3 + Bonificações
+- Se NF > 10 → NF = 10
+- Se NF < 6 e REAVA ≥ 6 → NF = 6
 
 
 ## Bibliografia Básica
