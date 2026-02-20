@@ -95,6 +95,7 @@ Entre cada leitura há um intervalo de aproximadamente 2 segundos, respeitando o
 
 ## Código Utilizado
 
+> https://wokwi.com/projects/455854375667540993
 
 ### sketch.ino
 ```cpp
