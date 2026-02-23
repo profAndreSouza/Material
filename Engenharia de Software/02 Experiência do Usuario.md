@@ -1,6 +1,6 @@
 # Engenharia de Software a partir da experiência do usuário
 
-A Engenharia de Software surge como uma resposta a um problema central da computação moderna: sistemas digitais tornaram-se indispensáveis para a vida social, econômica e organizacional, mas sua construção é complexa, arriscada e envolve múltiplos interesses humanos e técnicos. Desenvolver software deixou de ser apenas programar — passou a significar compreender problemas reais, estruturar soluções confiáveis e garantir que essas soluções permaneçam úteis ao longo do tempo.
+A Engenharia de Software surge como uma resposta a um problema central da computação moderna: sistemas digitais tornaram-se indispensáveis para a vida social, econômica e organizacional, mas sua construção é complexa, arriscada e envolve múltiplos interesses humanos e técnicos. Desenvolver software deixou de ser apenas programar, passou a significar compreender problemas reais, estruturar soluções confiáveis e garantir que essas soluções permaneçam úteis ao longo do tempo.
 
 O foco desta aula é compreender que **todo sistema de software existe para atender uma necessidade humana ou organizacional**, e que a qualidade de um sistema só pode ser entendida plenamente quando analisamos a experiência de quem o utiliza.
 
@@ -8,7 +8,7 @@ O foco desta aula é compreender que **todo sistema de software existe para aten
 
 ## 1. Sistemas de software como mediadores da vida cotidiana
 
-Hoje, praticamente todas as atividades sociais são mediadas por sistemas digitais: movimentações financeiras, comunicação, transporte, educação, saúde e consumo. Esses sistemas não são apenas programas isolados — eles são **sistemas de informação**, isto é, estruturas organizadas para coletar, processar, armazenar e distribuir dados que apoiam decisões e ações humanas.
+Hoje, praticamente todas as atividades sociais são mediadas por sistemas digitais: movimentações financeiras, comunicação, transporte, educação, saúde e consumo. Esses sistemas não são apenas programas isolados, eles são **sistemas de informação**, isto é, estruturas organizadas para coletar, processar, armazenar e distribuir dados que apoiam decisões e ações humanas.
 
 Quando uma pessoa consulta o saldo bancário pelo celular, por exemplo, não está apenas usando um aplicativo. Está interagindo com:
 
@@ -36,7 +36,7 @@ Por isso, a Engenharia de Software contemporânea considera três dimensões ins
 
 O usuário não interage com requisitos formais ou diagramas técnicos. Ele interage com respostas do sistema, tempos de espera, mensagens exibidas, facilidade de navegação e previsibilidade do comportamento do software.
 
-Assim, problemas percebidos pelo usuário — lentidão, incerteza de resultados, excesso de etapas ou falta de transparência — são indicadores diretos da qualidade do sistema.
+Assim, problemas percebidos pelo usuário (lentidão, incerteza de resultados, excesso de etapas ou falta de transparência) são indicadores diretos da qualidade do sistema.
 
 
 
@@ -95,11 +95,11 @@ Essa decisão depende principalmente de:
 * necessidade de validação frequente com o usuário;
 * urgência de entrega de valor.
 
-Diferentes formas de organizar o trabalho — conhecidas como modelos de processo de software — representam diferentes estratégias para lidar com esses fatores.
+Diferentes formas de organizar o trabalho (conhecidas como modelos de processo de software) representam diferentes estratégias para lidar com esses fatores.
 
 Alguns modelos pressupõem requisitos bem definidos desde o início. Outros partem da ideia de que o sistema precisa evoluir continuamente com base na experiência real de uso.
 
-Portanto, a experiência do usuário não é apenas um resultado do software — ela influencia diretamente **como o software deve ser desenvolvido**.
+Portanto, a experiência do usuário não é apenas um resultado do software, ela influencia diretamente **como o software deve ser desenvolvido**.
 
 
 
@@ -123,7 +123,7 @@ Podemos compreender a Engenharia de Software como uma cadeia lógica:
 
 necessidade humana → sistema de informação → solução tecnológica → processo de desenvolvimento → experiência do usuário
 
-Cada elemento influencia o outro. Quando a experiência do usuário revela problemas, todo o processo precisa ser reavaliado — desde requisitos até a forma como o sistema foi desenvolvido.
+Cada elemento influencia o outro. Quando a experiência do usuário revela problemas, todo o processo precisa ser reavaliado, desde requisitos até a forma como o sistema foi desenvolvido.
 
 
 
@@ -166,7 +166,7 @@ Apesar de utilizar o aplicativo com frequência, Carlos enfrenta alguns problema
 * em certos momentos o sistema fica indisponível sem explicação clara;
 * ele tem receio sobre segurança, mas não entende como o sistema protege seus dados.
 
-Mesmo assim, Carlos depende totalmente do sistema — ele não possui alternativa prática.
+Mesmo assim, Carlos depende totalmente do sistema, ele não possui alternativa prática.
 
 
 
