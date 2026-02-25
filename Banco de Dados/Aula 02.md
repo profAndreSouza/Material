@@ -139,7 +139,7 @@ O tipo de dado deve representar corretamente a informação armazenada.
 erDiagram
     CATEGORIA {
         int codigo pk
-        string nome
+        pk string nome
     }
 
     PRODUTO {
