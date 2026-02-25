@@ -138,18 +138,18 @@ O tipo de dado deve representar corretamente a informação armazenada.
 ```mermaid
 erDiagram
     CATEGORIA {
-        int codigo pk
-        string nome
+        serial codigo pk
+        varchar(20) nome
     }
 
     PRODUTO {
-        int codigo pk
-        int cod_categoria fk
-        int cod_sku
-        string nome
-        decimal preco
-        int quant_minima
-        datetime dt_cadastro
+        serial codigo pk
+        integer cod_categoria fk
+        integer cod_sku
+        varchar(200) nome
+        numeric(10,2) preco
+        integer quant_minima
+        timestamp dt_cadastro
     }
 
     CATEGORIA ||--o{ PRODUTO : possui
