@@ -138,8 +138,8 @@ O tipo de dado deve representar corretamente a informação armazenada.
 ```mermaid
 erDiagram
     CATEGORIA {
-        pk codigo int
-          nome texto
+        int codigo pk
+        string nome
     }
 
     PRODUTO {
@@ -152,7 +152,7 @@ erDiagram
     }
 
     CATEGORIA ||--o{ PRODUTO : possui
-
+    
 ```
 ### 8. Preparando o Ambiente com Docker
 
