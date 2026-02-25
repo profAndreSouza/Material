@@ -147,7 +147,7 @@ erDiagram
         integer cod_categoria fk
         integer cod_sku
         varchar(200) nome
-        numeric(10,2) preco
+        float preco
         integer quant_minima
         timestamp dt_cadastro
     }
