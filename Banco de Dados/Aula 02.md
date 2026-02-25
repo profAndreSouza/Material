@@ -95,6 +95,17 @@ Isso significa que:
 * Uma categoria pode estar ligada a vários produtos
 * Cada produto pertence a apenas uma categoria
 
+```mermaid
+erDiagram
+    CATEGORIA {
+    }
+
+    PRODUTO {
+    }
+
+    CATEGORIA ||--o{ PRODUTO : possui
+```
+
 
 ### 6. Conceitos Essenciais
 
@@ -166,69 +177,7 @@ docker exec -it postgres_pbl psql -U admin -d sistema_estoque
 ```
 
 
-### 9. Criando as Tabelas (DDL)
-
-DDL (Data Definition Language) é usada para **criar a estrutura** do banco.
-
-#### Tabela Categorias
-
-```sql
-CREATE TABLE categorias (
-    id_categoria SERIAL PRIMARY KEY,
-    nome_categoria VARCHAR(50) NOT NULL UNIQUE,
-    descricao TEXT
-);
-```
-
-#### Tabela Produtos
-
-```sql
-CREATE TABLE produtos (
-    id_produto SERIAL PRIMARY KEY,
-    sku VARCHAR(20) NOT NULL UNIQUE,
-    nome_produto VARCHAR(100) NOT NULL,
-    quantidade_minima INT DEFAULT 0,
-    preco_unitario DECIMAL(10,2),
-    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    fk_categoria INT,
-
-    CONSTRAINT fk_categoria_prod
-      FOREIGN KEY (fk_categoria)
-      REFERENCES categorias(id_categoria)
-);
-```
-
-
-### 10. Inserindo Dados (INSERT)
-
-```sql
-INSERT INTO categorias (nome_categoria, descricao)
-VALUES ('Informática', 'Produtos de tecnologia');
-```
-
-```sql
-INSERT INTO produtos (sku, nome_produto, preco_unitario, fk_categoria)
-VALUES ('NOTE001', 'Notebook Dell', 4500.00, 1);
-```
-
-Primeiro insira a categoria, depois o produto.
-
-
-### 11. Consultando Dados (SELECT)
-
-```sql
-SELECT * FROM categorias;
-```
-
-```sql
-SELECT nome_produto, preco_unitario
-FROM produtos;
-```
-
-Esses comandos permitem visualizar os dados armazenados.
-
-
-### 12. Exercício Proposto
+### 9. Exercício Proposto
 
 Utilizando o cenário do seu grupo:
 
@@ -243,15 +192,7 @@ Utilizando o cenário do seu grupo:
 Este exercício será a base para as próximas aulas.
 
 
-### 13. Dica Final
-
-Se algo não fizer sentido agora, **não se preocupe**.
-Banco de dados é aprendizado por repetição e prática.
-
-Use este material para acompanhar a explicação e testar os comandos com calma.
-
-
-### Sistema de Estoque com Movimentação (mais avançado)
+### 10. Sistema de Estoque com Movimentação (mais avançado)
 
 A empresa deseja evoluir o sistema.
 
