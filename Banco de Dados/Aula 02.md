@@ -135,7 +135,25 @@ No nosso caso, o produto guarda o **id da categoria**.
 
 O tipo de dado deve representar corretamente a informação armazenada.
 
+```mermaid
+erDiagram
+    CATEGORIA {
+        int codigo
+        string nome
+    }
 
+    PRODUTO {
+        int codigo
+        int cod_sku
+        string nome
+        decimal preco
+        int quant_minima
+        datetime dt_cadastro
+    }
+
+    CATEGORIA ||--o{ PRODUTO : possui
+    
+```
 ### 8. Preparando o Ambiente com Docker
 
 Para garantir que todos utilizem o mesmo banco de dados, usaremos **Docker com PostgreSQL 15**.
