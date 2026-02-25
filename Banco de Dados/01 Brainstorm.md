@@ -1,7 +1,4 @@
-
-## Aula 1: Atividade em Grupo
-
-### Pesquisa Inicial e Ideação do Tipo de Documento e Banco de Dados
+## Pesquisa Inicial e Ideação do Tipo de Documento e Banco de Dados
 
 ### Contexto
 

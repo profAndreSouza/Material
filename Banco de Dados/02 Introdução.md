@@ -1,4 +1,4 @@
-## Aula 2: Introdução a Banco de Dados Relacional (do problema ao SQL)
+## Introdução a Banco de Dados Relacional (do problema ao SQL)
 
 Este material foi elaborado para **acompanhar a explicação do professor em sala**. Utilize-o como um **guia passo a passo**, fazendo anotações e observando os exemplos apresentados na lousa.
 
