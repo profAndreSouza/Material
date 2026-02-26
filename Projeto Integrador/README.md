@@ -125,7 +125,7 @@ Função:
 
 Documentação detalhada:
 
-* 01 - IoT - wokwi.md
+* 01 - IoT - Wokwi.md
 * 02 - IoT - Broker.md
 * 03 - IoT - NodeRed.md
 * 04 - IoT - InfluxDB.md
@@ -168,7 +168,7 @@ Função:
 
 Documentação detalhada:
 
-* 06 - IA Recomendacao.md
+* 06 - Recomendacao IA.md
 
 
 ### Camada de Aplicação

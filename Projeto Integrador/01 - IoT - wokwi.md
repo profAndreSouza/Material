@@ -285,93 +285,75 @@ Sem esse arquivo, o simulador não saberia como montar o circuito virtualmente.
     { "type": "wokwi-led", "id": "led4", "top": -13.2, "left": 263, "attrs": { "color": "red" } },
     { "type": "wokwi-led", "id": "led5", "top": -13.2, "left": 311, "attrs": { "color": "red" } },
     { "type": "wokwi-led", "id": "led6", "top": -13.2, "left": 359, "attrs": { "color": "red" } },
-    { "type": "wokwi-pushbutton-6mm", "id": "btn1", "top": 87.9, "left": 138.9, "rotate": 90, "attrs": { "color": "green", "xray": "1" }},
+    { 
+      "type": "wokwi-pushbutton-6mm", 
+      "id": "btn1", 
+      "top": 87.9, "left": 138.9, "rotate": 90, 
+      "attrs": { "color": "green", "xray": "1" }},
     {
       "type": "wokwi-pushbutton-6mm",
       "id": "btn2",
-      "top": 87.9,
-      "left": 186.9,
-      "rotate": 90,
+      "top": 87.9, "left": 186.9, "rotate": 90,
       "attrs": { "color": "green", "xray": "1" }
     },
     {
       "type": "wokwi-pushbutton-6mm",
       "id": "btn3",
-      "top": 87.9,
-      "left": 234.9,
-      "rotate": 90,
+      "top": 87.9, "left": 234.9, "rotate": 90,
       "attrs": { "color": "green", "xray": "1" }
     },
     {
       "type": "wokwi-pushbutton-6mm",
       "id": "btn4",
-      "top": 87.9,
-      "left": 282.9,
-      "rotate": 90,
+      "top": 87.9, "left": 282.9, "rotate": 90,
       "attrs": { "color": "green", "xray": "1" }
     },
     {
       "type": "wokwi-pushbutton-6mm",
       "id": "btn5",
-      "top": 87.9,
-      "left": 330.9,
-      "rotate": 90,
+      "top": 87.9, "left": 330.9, "rotate": 90,
       "attrs": { "color": "green", "xray": "1" }
     },
     {
       "type": "wokwi-pushbutton-6mm",
       "id": "btn6",
-      "top": 87.9,
-      "left": 378.9,
-      "rotate": 90,
+      "top": 87.9, "left": 378.9, "rotate": 90,
       "attrs": { "color": "green", "xray": "1" }
     },
     {
       "type": "wokwi-resistor",
       "id": "r1",
-      "top": 72,
-      "left": 105.05,
-      "rotate": 90,
+      "top": 72, "left": 105.05, "rotate": 90,
       "attrs": { "value": "150" }
     },
     {
       "type": "wokwi-resistor",
       "id": "r2",
-      "top": 72,
-      "left": 153.05,
-      "rotate": 90,
+      "top": 72, "left": 153.05, "rotate": 90,
       "attrs": { "value": "150" }
     },
     {
       "type": "wokwi-resistor",
       "id": "r3",
-      "top": 72,
-      "left": 201.05,
-      "rotate": 90,
+      "top": 72, "left": 201.05, "rotate": 90,
       "attrs": { "value": "150" }
     },
     {
       "type": "wokwi-resistor",
       "id": "r4",
-      "top": 72,
-      "left": 249.05,
-      "rotate": 90,
+      "top": 72, "left": 249.05, "rotate": 90,
       "attrs": { "value": "150" }
     },
     {
       "type": "wokwi-resistor",
       "id": "r5",
-      "top": 72,
-      "left": 297.05,
-      "rotate": 90,
+      "top": 72, "left": 297.05, "rotate": 90,
       "attrs": { "value": "150" }
     },
     {
       "type": "wokwi-resistor",
       "id": "r6",
-      "top": 72,
-      "left": 345.05,
-      "rotate": 90,
+      "top": 72, "left": 345.05, "rotate": 90,
       "attrs": { "value": "150" }
     }
   ],
