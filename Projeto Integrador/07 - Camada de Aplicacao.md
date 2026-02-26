@@ -34,13 +34,14 @@ Listar TODAS as telas existentes.
 
 Modelo:
 
-| Tela                    | Implementada | Integrada ao Backend | Observações                |
-| -- |  | -- | -- |
-| Login                   | Sim          | Sim                  | JWT funcionando            |
-| Cadastro Cliente        | Sim          | Sim                  |                            |
-| Pedido                  | Sim          | Parcial              | Não mostra status produção |
-| Acompanhamento Produção | Não          | —                    | Necessário criar           |
-| Manutenção              | Não          | —                    | Necessário criar           |
+| Tela                    | Implementada | Integrada ao Backend | Observações                   |
+| ----------------------- | ------------ | -------------------- | ----------------------------- |
+| Login                   | Sim          | Sim                  | JWT funcionando               |
+| Cadastro Cliente        | Sim          | Sim                  | —                             |
+| Pedido                  | Sim          | Parcial              | Não mostra status de produção |
+| Acompanhamento Produção | Não          | —                    | Necessário criar              |
+| Manutenção              | Não          | —                    | Necessário criar              |
+
 
 
 
