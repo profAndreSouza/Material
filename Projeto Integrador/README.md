@@ -40,13 +40,18 @@ O projeto prepara o ambiente para futura migração para cloud (ex: AWS IoT Core
 
 Fluxo proposto:
 
-ESP32 (Wokwi)
-→ MQTT (HiveMQ → futuro AWS IoT Core)
-→ Node-RED (Docker)
-→ InfluxDB (dados brutos time-series)
-→ Backend (Java / .NET)
-→ Banco Relacional
-→ Web e Mobile
+```mermaid
+
+flowchart LR
+    A[ESP32<br/>(Wokwi)] --> B[MQTT Broker<br/>(HiveMQ → futuro AWS IoT Core)]
+    B --> C[Node-RED<br/>(Docker)]
+    C --> D[InfluxDB<br/>(Time-Series - Dados Brutos)]
+    D --> E[Backend<br/>(Java / .NET)]
+    E --> F[Banco Relacional]
+    F --> G[Aplicações Web]
+    F --> H[Aplicações Mobile]
+
+```
 
 Estamos tratando de:
 
