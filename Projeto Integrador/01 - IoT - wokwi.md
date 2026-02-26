@@ -166,8 +166,8 @@ O firmware deve:
 ```mermaid
 flowchart LR
 
-ESP32[ESP32 - Wokwi]
-MQTT[Broker MQTT\nHiveMQ]
+ESP32[ESP32<br\>Wokwi]
+MQTT[Broker MQTT<br\>HiveMQ]
 NodeRed[Node-RED]
 Influx[(InfluxDB)]
 
