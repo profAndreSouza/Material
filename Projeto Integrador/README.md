@@ -44,12 +44,13 @@ Fluxo proposto:
 
 flowchart LR
     A[ESP32<br/>Wokwi] --> B[MQTT Broker<br/>HiveMQ]
-    B --> C[Node-RED<br/>Docker]
+    B <--> C[Node-RED]
     C --> D[InfluxDB<br/>Time-Series - Dados Brutos]
-    D --> E[Backend<br/>Java / .NET]
+    D <--> E[Backend<br/>Java / .NET]
     E --> F[Banco Relacional]
     E --> G[Aplicações Web]
     E --> H[Aplicações Mobile]
+    E --> I[API Recomendação<br/>Python]
 
 ```
 
