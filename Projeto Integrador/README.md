@@ -47,10 +47,10 @@ flowchart LR
     B <--> C[Node-RED]
     C --> D[InfluxDB<br/>Time-Series - Dados Brutos]
     D <--> E[Backend<br/>Java / .NET]
-    E --> F[Banco Relacional]
-    E --> G[Aplicações Web]
-    E --> H[Aplicações Mobile]
-    E --> I[API Recomendação<br/>Python]
+    E <--> F[Banco Relacional]
+    E <--> G[Aplicações Web]
+    E <--> H[Aplicações Mobile]
+    E <--> I[API Recomendação<br/>Python]
 
 ```
 
