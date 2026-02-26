@@ -48,8 +48,8 @@ flowchart
     C --> D[InfluxDB<br/>Time-Series - Dados Brutos]
     D <--> E[Backend<br/>Java / .NET]
     E <--> F[Banco Relacional]
-    E <--> G[Aplicações Web]
-    E <--> H[Aplicações Mobile]
+    E <--> G[Aplicação Web]
+    E <--> H[Aplicação Mobile]
     E <--> I[API Recomendação<br/>Python]
 
 ```
@@ -63,7 +63,7 @@ Estamos tratando de:
 
 Trata-se de um sistema essencialmente:
 
-Event-Driven + Time-Series Oriented
+Event-Driven + Time-Series Oriented 
 
 
 ## 4. Princípio Arquitetural Enterprise
@@ -198,15 +198,15 @@ flowchart LR
 
 subgraph Camada_IoT
     ESP32[ESP32 - Wokwi]
-    MQTT[Broker MQTT\nHiveMQ / AWS IoT Core]
-    NodeRed[Node-RED\nDocker]
-    Influx[(InfluxDB\nTime-Series)]
+    MQTT[Broker MQTT<br/>HiveMQ / AWS IoT Core]
+    NodeRed[Node-RED<br/>Docker]
+    Influx[(InfluxDB<br/>Time-Series)]
 end
 
 subgraph Camada_Negocio
-    Backend[Backend\nJava / .NET]
-    RelDB[(Banco Relacional\nPostgres / SQL Server)]
-    AI[Serviço de IA\nPython - Recomendação]
+    Backend[Backend<br/>Java / .NET]
+    RelDB[(Banco Relacional<br/>Postgres / SQL Server)]
+    AI[Serviço de IA<br/>Python - Recomendação]
 end
 
 subgraph Camada_Aplicacao
