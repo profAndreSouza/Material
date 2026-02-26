@@ -43,10 +43,10 @@ Fluxo proposto:
 ```mermaid
 
 flowchart LR
-    A[ESP32<br/>(Wokwi)] --> B[MQTT Broker<br/>(HiveMQ → futuro AWS IoT Core)]
-    B --> C[Node-RED<br/>(Docker)]
-    C --> D[InfluxDB<br/>(Time-Series - Dados Brutos)]
-    D --> E[Backend<br/>(Java / .NET)]
+    A[ESP32<br/>Wokwi] --> B[MQTT Broker<br/>HiveMQ]
+    B --> C[Node-RED<br/>Docker]
+    C --> D[InfluxDB<br/>Time-Series - Dados Brutos]
+    D --> E[Backend<br/>Java / .NET]
     E --> F[Banco Relacional]
     F --> G[Aplicações Web]
     F --> H[Aplicações Mobile]
