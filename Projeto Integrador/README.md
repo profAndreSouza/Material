@@ -42,7 +42,7 @@ Fluxo proposto:
 
 ```mermaid
 
-flowchart LR
+flowchart 
     A[ESP32<br/>Wokwi] --> B[MQTT Broker<br/>HiveMQ]
     B <--> C[Node-RED]
     C --> D[InfluxDB<br/>Time-Series - Dados Brutos]
