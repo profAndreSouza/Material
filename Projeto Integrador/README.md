@@ -48,8 +48,8 @@ flowchart LR
     C --> D[InfluxDB<br/>Time-Series - Dados Brutos]
     D --> E[Backend<br/>Java / .NET]
     E --> F[Banco Relacional]
-    F --> G[Aplicações Web]
-    F --> H[Aplicações Mobile]
+    E --> G[Aplicações Web]
+    E --> H[Aplicações Mobile]
 
 ```
 
