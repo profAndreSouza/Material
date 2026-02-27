@@ -97,6 +97,10 @@ Entre cada leitura há um intervalo de aproximadamente 2 segundos, respeitando o
 
 > https://wokwi.com/projects/455854375667540993
 
+Novo link
+
+> https://wokwi.com/projects/456502684570619905
+
 ### sketch.ino
 ```cpp
 #include <DHTesp.h>
