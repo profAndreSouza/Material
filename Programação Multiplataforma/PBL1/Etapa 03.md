@@ -95,75 +95,133 @@ Entre cada leitura há um intervalo de aproximadamente 2 segundos, respeitando o
 
 ## Código Utilizado
 
-> https://wokwi.com/projects/455854375667540993
 
-Novo link
 
-> https://wokwi.com/projects/456502684570619905
+### 1️ ESP32 Publisher (Sensores → MQTT)
 
-### sketch.ino
+> [https://wokwi.com/projects/456502684570619905](https://wokwi.com/projects/456502684570619905)
+
+Responsável por:
+
+* Ler sensores
+* Montar JSON
+* Publicar no broker MQTT
+
+
+#### sketch.ino (Publisher)
+
 ```cpp
 #include <DHTesp.h>
+#include <WiFi.h>
+#include <PubSubClient.h>
+#include <time.h>
 
-// mapeamento doa conexao dos dispositivos na GPIO (pinos)
-const int DHT_PIN = 15;
-const int PIR_PIN = 18;
-const int LDR_PIN = 2;
-const int GAS_PIN = 4;
+#define DHT_PIN 15
+#define PIR_PIN 18
+#define LDR_PIN 2
+#define GAS_PIN 4
 
-DHTesp dhtSensor;
+// WiFi
+const char* ssid = "Wokwi-GUEST";
+const char* password = "";
+
+// MQTT
+const char* mqtt_server = "broker.hivemq.com";
+const int mqtt_port = 1883;
+const char* mqtt_topic = "fatec/p11/lab2";
+
+// NTP
+const char* ntpServer = "pool.ntp.org";
+const long gmtOffset_sec = -3 * 3600;
+const int daylightOffset_sec = 0;
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+DHTesp dht;
+
+void connectWiFi() {
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) delay(500);
+}
+
+void connectMQTT() {
+  while (!client.connected()) {
+    client.connect("ESP32_Publisher");
+    delay(500);
+  }
+}
+
+String getTimestamp() {
+  struct tm timeinfo;
+  if (!getLocalTime(&timeinfo)) return "0";
+  char buffer[20];
+  strftime(buffer, sizeof(buffer), "%Y%m%d%H%M%S", &timeinfo);
+  return String(buffer);
+}
+
+float adcToLux(int adc) {
+  return (adc / 4095.0) * 100000.0;
+}
+
+String buildJson(float t, float h, float lux, int gas) {
+  String json = "{";
+  json += "\"temperatura\":" + String(t,2) + ",";
+  json += "\"umidade\":" + String(h,2) + ",";
+  json += "\"luminosidade\":" + String(lux,2) + ",";
+  json += "\"qualidade_ar\":" + String(gas) + ",";
+  json += "\"timestamp\":\"" + getTimestamp() + "\"";
+  json += "}";
+  return json;
+}
+
+void publishData() {
+  TempAndHumidity data = dht.getTempAndHumidity();
+
+  float lux = adcToLux(analogRead(LDR_PIN));
+  int gas = analogRead(GAS_PIN);
+
+  String json = buildJson(data.temperature, data.humidity, lux, gas);
+  client.publish(mqtt_topic, json.c_str());
+  Serial.println(json);
+}
 
 void setup() {
   Serial.begin(115200);
 
-  dhtSensor.setup(DHT_PIN, DHTesp::DHT22);
+  dht.setup(DHT_PIN, DHTesp::DHT22);
   pinMode(PIR_PIN, INPUT);
 
-  Serial.println("Sistema de Monitoramento Iniciado");
+  connectWiFi();
+  client.setServer(mqtt_server, mqtt_port);
+  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
 }
 
 void loop() {
+  if (!client.connected()) connectMQTT();
+  client.loop();
 
-  // DHT22
-  TempAndHumidity data = dhtSensor.getTempAndHumidity();
-  // ===== Outros sensores =====
-  int presenca = digitalRead(PIR_PIN);
-  int luminosidade = analogRead(LDR_PIN);
-  int qualidadeAr = analogRead(GAS_PIN);
-
-  Serial.println("-------- LEITURA DOS SENSORES --------");
-
-  if (isnan(data.temperature) || isnan(data.humidity)) {
-    Serial.println("Erro ao ler o sensor DHT22");
-  } else {
-    Serial.println("Temperatura: " + String(data.temperature, 2) + "°C");
-    Serial.println("Umidade: " + String(data.humidity, 2) + "%");
-  }
-
-  Serial.println("Presenca: " + String(presenca ? "Detectada" : "Nao detectada"));
-  Serial.println("Luminosidade (ADC): " + String(luminosidade));
-  Serial.println("Qualidade do Ar (ADC): " + String(qualidadeAr));
-
-  Serial.println("--------------------------------------\n");
-
-
-  delay(1000);
+  publishData();
+  delay(5000);
 }
-
 ```
 
-### libraries.txt
+
+#### libraries.txt (Publisher)
+
 ```txt
 # Wokwi Library List
 # See https://docs.wokwi.com/guides/libraries
 
 DHT sensor library for ESPx
+PubSubClient
 
 ```
 
 
-### diagram.json
+#### diagram.json (Publisher)
+
 ```json
+
 {
   "version": 1,
   "author": "André Souza",
@@ -218,6 +276,7 @@ DHT sensor library for ESPx
     [ "bb1:20b.j", "bb1:bn.16", "black", [ "v0" ] ],
     [ "bb1:25b.j", "bb1:bp.20", "red", [ "v0" ] ],
     [ "bb1:21b.j", "bb1:bp.17", "red", [ "v0" ] ],
+    [ "bb1:11b.j", "bb1:bp.9", "red", [ "v0" ] ],
     [ "dht1:VCC", "bb1:25b.f", "", [ "$bb" ] ],
     [ "dht1:SDA", "bb1:26b.f", "", [ "$bb" ] ],
     [ "dht1:NC", "bb1:27b.f", "", [ "$bb" ] ],
@@ -225,7 +284,6 @@ DHT sensor library for ESPx
     [ "pir1:VCC", "bb1:3b.f", "", [ "$bb" ] ],
     [ "pir1:OUT", "bb1:4b.f", "", [ "$bb" ] ],
     [ "pir1:GND", "bb1:5b.f", "", [ "$bb" ] ],
-    [ "bb1:11b.j", "bb1:bp.9", "red", [ "v0" ] ],
     [ "gas1:AOUT", "bb1:14b.f", "", [ "$bb" ] ],
     [ "gas1:DOUT", "bb1:13b.f", "", [ "$bb" ] ],
     [ "gas1:GND", "bb1:12b.f", "", [ "$bb" ] ],
@@ -237,50 +295,152 @@ DHT sensor library for ESPx
   ],
   "dependencies": {}
 }
+
+```
+
+
+### 2️ ESP32 Subscriber (MQTT → Monitor Serial)
+
+
+> [https://wokwi.com/projects/457141698675045377](https://wokwi.com/projects/457141698675045377)
+
+Responsável por:
+
+* Conectar ao mesmo broker
+* Inscrever-se no tópico
+* Exibir o JSON recebido
+
+
+#### sketch.ino (Subscriber)
+
+```cpp
+#include <WiFi.h>
+#include <PubSubClient.h>
+
+// WiFi
+const char* ssid = "Wokwi-GUEST";
+const char* password = "";
+
+// MQTT
+const char* mqtt_server = "broker.hivemq.com";
+const int mqtt_port = 1883;
+const char* mqtt_topic = "fatec/p11/lab2";
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+void connectWiFi() {
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) delay(500);
+}
+
+void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Topico: ");
+  Serial.println(topic);
+
+  Serial.print("Mensagem: ");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println("\n");
+}
+
+void connectMQTT() {
+  while (!client.connected()) {
+    if (client.connect("ESP32_Subscriber")) {
+      client.subscribe(mqtt_topic);
+    }
+    delay(500);
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  connectWiFi();
+  client.setServer(mqtt_server, mqtt_port);
+  client.setCallback(callback);
+}
+
+void loop() {
+  if (!client.connected()) connectMQTT();
+  client.loop();
+}
+```
+
+
+#### libraries.txt (Subscriber)
+
+```txt
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+
+PubSubClient
+```
+
+
+#### diagram.json (Subscriber)
+
+```json
+
+{
+  "version": 1,
+  "author": "André Souza",
+  "editor": "wokwi",
+  "parts": [ { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} } ],
+  "connections": [ [ "esp:TX", "$serialMonitor:RX", "", [] ], [ "esp:RX", "$serialMonitor:TX", "", [] ] ],
+  "dependencies": {}
+}
+
 ```
 
 
 ## Resultado Esperado
 
-Após iniciar a simulação, o monitor serial apresenta leituras contínuas contendo:
+Após iniciar as simulações:
 
-* temperatura
-* umidade
-* presença detectada ou não
-* nível de luminosidade
-* nível de qualidade do ar
+### No Publisher:
 
-Essas leituras representam o fluxo de dados bruto do sistema IoT.
+* Leitura contínua dos sensores
+* Geração de JSON estruturado
+* Publicação periódica no tópico MQTT
+
+### No Subscriber:
+
+* Recebimento automático das mensagens
+* Exibição do JSON no monitor serial
+
+Fluxo esperado:
+
+```
+Sensores → ESP32 Publisher → Broker MQTT → ESP32 Subscriber
+```
 
 
 ## Papel da Etapa no Sistema Completo
 
-Esta etapa fornece a camada de geração de dados da arquitetura.
+Esta etapa representa a **camada de comunicação da arquitetura IoT**.
+
+Ela conecta:
+
+* Dispositivo físico (sensores)
+* Middleware (broker MQTT)
+* Consumidor de dados (subscriber)
 
 Nas próximas etapas:
 
-* os dados serão publicados em um broker MQTT
-* o backend consumirá os dados
-* as medições serão armazenadas no InfluxDB
-* o dashboard exibirá as informações em tempo real
-
-Ou seja, esta etapa cria a origem do fluxo de dados que alimentará toda a plataforma.
+* O backend consumirá os dados MQTT
+* As medições serão persistidas em banco (InfluxDB)
+* O dashboard exibirá dados em tempo real
 
 
 ## Resultado Conceitual
 
-Ao final desta etapa existe um dispositivo IoT funcional (simulado) capaz de:
+Ao final desta etapa o sistema passa a ter:
 
-* monitorar um ambiente
-* gerar dados continuamente
-* disponibilizar medições estruturadas
-* servir como fonte para integração com sistemas distribuídos
+* Um dispositivo IoT produtor de dados
+* Comunicação assíncrona via MQTT
+* Estrutura JSON padronizada
+* Separação clara entre produtor e consumidor
 
-Isso estabelece a base operacional do sistema de monitoramento inteligente.
-
-
-
-## Tarefas
-- Converter a leitura do sensor de gás de ADC para PPM
-- Converter a leitura do fotoresistor de ADC para LUX
-- Estruturar em um JSON para ser publicado no MQTT
+Isso estabelece a base da arquitetura distribuída que será expandida nas próximas fases do projeto.
