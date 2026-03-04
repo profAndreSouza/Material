@@ -48,14 +48,14 @@ CREATE TABLE movimentacao (
 
 ## INSERÇÕES
 
-1. Inserção de categorias
+1. Inserção de categorias: Insira ao menos 5 categorias
 
 ```sql
 INSERT INTO categoria (nome)
-VALUES ('Eletrônicos'), ('Informática'), ('Periféricos'), ('Escritório');
+VALUES ('Eletrônicos');
 ```
 
-2. Inserção de produtos
+2. Inserção de produtos: Insira ao menos 4 produtos por categoria;
 
 ```sql
 INSERT INTO produto 
@@ -65,7 +65,7 @@ VALUES
 (2, 2001, 'Notebook', 4500.00, 3, NOW());
 ```
 
-3. Inserção de movimentações
+3. Inserção de movimentações: Insira ao menos 20 movimentações diversas
 
 ```sql
 INSERT INTO movimentacao
