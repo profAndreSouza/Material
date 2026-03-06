@@ -179,6 +179,14 @@ Executar o container:
 sudo docker run -d --name nodered -p 1880:1880 nodered/node-red
 ```
 
+Como a rede da Fatec bloqueia a porta 1880, vamos mapear o node-red na porta 80 (http)
+
+
+Executar o container:
+```bash
+sudo docker run -d --name nodered -p 80:1880 nodered/node-red
+```
+
 # 12. Acessar o Node-RED
 
 Abrir o navegador e acessar:
