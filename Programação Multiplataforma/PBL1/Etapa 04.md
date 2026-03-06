@@ -12,32 +12,32 @@ Console AWS → EC2 → Instances → Launch Instance
 
 Defina o nome da instância:
 
-Servidor IoT
+* Servidor IoT
 
 ## 1.2 Escolha da Imagem do Sistema Operacional (AMI)
 
 Selecione:
 
-Ubuntu Server 24.04 LTS (HVM), SSD Volume Type
+* Ubuntu Server 24.04 LTS (HVM), SSD Volume Type
 
 Características:
 
-Arquitetura: 64 bits (x86)  
-Virtualização: HVM  
-Tipo de armazenamento: EBS  
-Usuário padrão: ubuntu
+* Arquitetura: 64 bits (x86)  
+* Virtualização: HVM  
+* Tipo de armazenamento: EBS  
+* Usuário padrão: ubuntu
 
 ## 1.3 Tipo de Instância
 
 Selecione:
 
-t3.micro
+* t3.micro
 
 Características:
 
-2 vCPU  
-1 GiB de memória  
-Elegível para o Free Tier
+* 2 vCPU  
+* 1 GiB de memória  
+* Elegível para o Free Tier
 
 ## 1.4 Par de Chaves (Key Pair)
 
@@ -45,11 +45,11 @@ Criar ou selecionar um par de chaves para acesso SSH.
 
 Nome do par de chaves:
 
-servidoriot
+* servidoriot
 
 Baixe o arquivo:
 
-servidoriot.pem
+* servidoriot.pem
 
 Este arquivo será utilizado para acesso remoto via SSH.
 
@@ -59,9 +59,9 @@ Utilizar a VPC padrão criada automaticamente pela AWS.
 
 Configuração:
 
-VPC: padrão  
-Sub-rede: padrão  
-Atribuir IP público automaticamente: habilitado
+* VPC: padrão  
+* Sub-rede: padrão  
+* Atribuir IP público automaticamente: habilitado
 
 # 3. Configuração do Grupo de Segurança (Firewall)
 
@@ -69,7 +69,7 @@ Criar um novo grupo de segurança.
 
 Nome:
 
-launch-wizard-1
+* launch-wizard-1
 
 Adicionar as seguintes regras de entrada.
 
@@ -92,14 +92,14 @@ Portas utilizadas:
 
 Manter o padrão:
 
-Volume raiz: 8 GB  
-Tipo: gp3
+* Volume raiz: 8 GB  
+* Tipo: gp3
 
 # 5. Execução da Instância
 
 Revisar as configurações e clicar em:
 
-Launch Instance
+* Launch Instance
 
 Após alguns segundos a instância será iniciada.
 
@@ -123,19 +123,19 @@ Exemplo:
 
 Selecionar a instância e clicar em:
 
-Connect
+> Connect
 
 Escolher a opção:
 
-EC2 Instance Connect
+> EC2 Instance Connect
 
 Usuário:
 
-ubuntu
+> ubuntu
 
 Clique em:
 
-Connect
+> Connect
 
 O terminal Linux abrirá diretamente no navegador.
 
