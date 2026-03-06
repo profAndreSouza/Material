@@ -168,7 +168,7 @@ Utilizar o Mosquitto através de container Docker.
 
 Executar:
 ```bash
-docker run -d --name mqtt -p 1883:1883 eclipse-mosquitto
+sudo docker run -d --name mqtt -p 1883:1883 eclipse-mosquitto
 ```
 O broker MQTT ficará disponível na porta 1883.
 
@@ -176,7 +176,7 @@ O broker MQTT ficará disponível na porta 1883.
 
 Executar o container:
 ```bash
-docker run -d --name nodered -p 1880:1880 nodered/node-red
+sudo docker run -d --name nodered -p 1880:1880 nodered/node-red
 ```
 
 # 12. Acessar o Node-RED
