@@ -107,17 +107,17 @@ Após alguns segundos a instância será iniciada.
 
 Acesse:
 
-EC2 → Instances
+> EC2 → Instances
 
 Selecione a instância criada.
 
 Copie o endereço:
 
-Public IPv4 Address
+> Public IPv4 Address
 
 Exemplo:
 
-18.116.165.101
+> 18.116.165.101
 
 # 7. Conectar ao Servidor pelo Terminal da AWS
 
@@ -143,55 +143,51 @@ O terminal Linux abrirá diretamente no navegador.
 
 No terminal execute:
 
+```bash
 sudo apt update
 sudo apt upgrade -y
-
+```
 # 9. Instalar o Docker
 
 Instalar o Docker:
-
+```bash
 sudo apt install docker.io -y
-
+```
 Ativar o serviço:
-
+```bash
 sudo systemctl enable docker
 sudo systemctl start docker
-
+```
 Verificar instalação:
-
+```bash
 docker --version
-
+```
 # 10. Instalar o Broker MQTT
 
 Utilizar o Mosquitto através de container Docker.
 
 Executar:
-
-docker run -d \
---name mqtt \
--p 1883:1883 \
-eclipse-mosquitto
-
+```bash
+docker run -d --name mqtt -p 1883:1883 eclipse-mosquitto
+```
 O broker MQTT ficará disponível na porta 1883.
 
 # 11. Instalar o Node-RED
 
 Executar o container:
-
-docker run -d \
---name nodered \
--p 1880:1880 \
-nodered/node-red
+```bash
+docker run -d --name nodered -p 1880:1880 nodered/node-red
+```
 
 # 12. Acessar o Node-RED
 
 Abrir o navegador e acessar:
 
-http://SEU_IP_PUBLICO:1880
+> http://SEU_IP_PUBLICO:1880
 
 Exemplo:
 
-http://18.116.165.101:1880
+> http://18.116.165.101:1880
 
 A interface de edição de fluxos do Node-RED será exibida.
 
@@ -200,14 +196,21 @@ A interface de edição de fluxos do Node-RED será exibida.
 A infraestrutura criada permite a comunicação entre dispositivos IoT e a aplicação de fluxo de dados.
 
 Arquitetura básica:
+```mermaid
+flowchart TD
+    A[ESP32 
+    Simulação IoT - Wokwi]
+    B[MQTT Broker 
+    AWS EC2 - Mosquitto]
+    C[Node-RED
+    AWS EC2]
+    D[Processamento de dados 
+    APIs / Dashboards]
 
-ESP32 / Simulação IoT  
-        ↓  
-MQTT Broker (Mosquitto)  
-        ↓  
-Node-RED  
-        ↓  
-Processamento de dados / APIs / Dashboards
+    A --> B
+    B --> C
+    C --> D
+```
 
 # 14. Observações
 
