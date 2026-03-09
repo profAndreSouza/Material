@@ -425,6 +425,21 @@ Um projeto pode seguir as etapas:
 
 ## Estudo de Caso
 
+Considere o desenvolvimento de um **Sistema de Biblioteca Digital**.
+
+O sistema deve permitir:
+
+* cadastro de livros
+* controle de empréstimos
+* busca por títulos ou autores
+* geração de relatórios de utilização
+
+Descreva como cada fase do **modelo cascata** poderia ser aplicada no desenvolvimento desse sistema.
+
+
+
+## Exercício
+
 Uma instituição educacional deseja desenvolver um **Sistema de Agendamento de Laboratórios de Informática**.
 
 Atualmente, os horários são controlados manualmente por planilhas, o que gera conflitos entre turmas e dificuldade de organização.
@@ -437,17 +452,3 @@ O novo sistema deve permitir:
 * geração de relatórios de utilização
 
 Analise como o desenvolvimento desse sistema poderia seguir o **modelo cascata**, identificando as atividades realizadas em cada etapa.
-
-## Exercício
-
-Considere o desenvolvimento de um **Sistema de Biblioteca Digital**.
-
-O sistema deve permitir:
-
-* cadastro de livros
-* controle de empréstimos
-* busca por títulos ou autores
-* geração de relatórios de utilização
-
-Descreva como cada fase do **modelo cascata** poderia ser aplicada no desenvolvimento desse sistema.
-
