@@ -70,9 +70,7 @@ A nota de cada semestre é composta por duas avaliações formais e atividades p
 
 A **nota semestral (NS)** é calculada pela seguinte expressão:
 
-[
-NS = (A1 \times 0,4) + (A2 \times 0,4) + (EX \times 0,2)
-]
+$ NS = (A1 \times 0,4) + (A2 \times 0,4) + (EX \times 0,2) $
 
 onde:
 
@@ -92,7 +90,7 @@ Se a **nota da REAVA for maior ou igual a 6,0**, a **nota semestral será ajusta
 
 A **nota final (NF)** da disciplina é calculada pela **média aritmética simples entre as notas dos dois semestres**.
 
-$$ NF = \frac{NS1 + NS2}{2} $$
+$ NF = \frac{NS1 + NS2}{2} $
 
 onde:
 
