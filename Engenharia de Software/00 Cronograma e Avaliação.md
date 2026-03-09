@@ -4,10 +4,10 @@
 
 | Aula | Data | Tema                                    | Conteúdo                                                                                                                  | Atividade prática                                                            | Artefato produzido                                             |
 | ---- | ---- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| 01   |      | Introdução à Engenharia de Software     | O que é Engenharia de Software<br>Crise do software<br>Tipos de Sistemas de Informação<br>Papel do engenheiro de software | Discussão em grupo sobre sistemas utilizados no cotidiano e seus problemas   | Lista inicial de sistemas analisados e problemas identificados |
-| 02   |      | Sistemas de Informação e Viabilidade    | Componentes de um sistema<br>Tipos de SI (TPS, MIS, DSS, ERP etc.)<br>Viabilidade técnica, econômica e operacional        | Análise de um sistema real e discussão sobre sua viabilidade                 | Registro inicial do estudo de caso do projeto                  |
-| 03   |      | Qualidade da Informação e do Software   | Custo, valor e qualidade da informação<br>Atributos de qualidade de software (ISO/IEC 25010)                              | Identificação de atributos de qualidade relevantes para o sistema do projeto | Lista de atributos de qualidade do sistema                     |
-| 04   |      | Ciclo de Vida de Software               | Conceito de ciclo de vida<br>Modelo Cascata<br>Vantagens e limitações                                                     | Analisar como o projeto poderia seguir o modelo cascata                      | Esboço do ciclo de desenvolvimento do projeto                  |
+| 01   | 09/fev | Introdução à Engenharia de Software     | O que é Engenharia de Software<br>Crise do software<br>Tipos de Sistemas de Informação<br>Papel do engenheiro de software | Discussão em grupo sobre sistemas utilizados no cotidiano e seus problemas   | Lista inicial de sistemas analisados e problemas identificados |
+| 02   | 23/fev | Sistemas de Informação e Viabilidade    | Componentes de um sistema<br>Tipos de SI (TPS, MIS, DSS, ERP etc.)<br>Viabilidade técnica, econômica e operacional        | Análise de um sistema real e discussão sobre sua viabilidade                 | Registro inicial do estudo de caso do projeto                  |
+| 03   | 02/mar | Qualidade da Informação e do Software   | Custo, valor e qualidade da informação<br>Atributos de qualidade de software (ISO/IEC 25010)                              | Identificação de atributos de qualidade relevantes para o sistema do projeto | Lista de atributos de qualidade do sistema                     |
+| 04   | 09/mar | Ciclo de Vida de Software               | Conceito de ciclo de vida<br>Modelo Cascata<br>Vantagens e limitações                                                     | Analisar como o projeto poderia seguir o modelo cascata                      | Esboço do ciclo de desenvolvimento do projeto                  |
 | 05   |      | Modelos de Processo de Software         | Modelo Espiral<br>Prototipação<br>Comparação entre modelos                                                                | Comparação entre modelos de processo aplicados ao projeto                    | Tabela comparativa de modelos de processo                      |
 | 06   |      | Introdução às Metodologias Ágeis        | Manifesto Ágil<br>Valores e princípios<br>Comparação Ágil x Tradicional                                                   | Discussão sobre cenários adequados para uso de métodos ágeis                 | Registro comparativo entre métodos tradicionais e ágeis        |
 | 07   |      | Scrum aplicado à Engenharia de Software | Papéis do Scrum<br>Eventos<br>Artefatos                                                                                   | Definição de papéis e criação do backlog inicial do projeto                  | Product Backlog inicial                                        |
@@ -92,9 +92,7 @@ Se a **nota da REAVA for maior ou igual a 6,0**, a **nota semestral será ajusta
 
 A **nota final (NF)** da disciplina é calculada pela **média aritmética simples entre as notas dos dois semestres**.
 
-[
-NF = \frac{NS1 + NS2}{2}
-]
+$$ NF = \frac{NS1 + NS2}{2} $$
 
 onde:
 
