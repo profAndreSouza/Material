@@ -42,14 +42,14 @@
 | 27   |      | Sistemas Distribuídos                   | Conceitos de distribuição e comunicação                                                                                   | Identificar partes distribuídas do sistema                                   | Descrição de arquitetura distribuída                           |
 | 28   |      | Arquitetura Orientada a Serviços        | APIs e integração                                                                                                         | Propor serviços do sistema                                                   | Lista de serviços/APIs                                         |
 | 29   |      | Cloud Computing e Escalabilidade        | Conceitos de cloud<br>Escalabilidade<br>Redundância                                                                       | Propor arquitetura em nuvem                                                  | Diagrama de arquitetura cloud                                  |
-| 30   |      | Avaliação 03                            | Avaliação sobre arquitetura, sistemas distribuídos e cloud                                                                | Prova teórica/prática                                                        | Avaliação aplicada                                             |
+| 30   |      | Avaliação 01                            | Avaliação sobre arquitetura, sistemas distribuídos e cloud                                                                | Prova teórica/prática                                                        | Avaliação aplicada                                             |
 | 31   |      | Git Avançado                            | Branches e merge                                                                                                          | Simular fluxo de trabalho em equipe                                          | Estrutura de branches                                          |
 | 32   |      | Trabalho Colaborativo com GitHub        | Pull requests<br>Code review                                                                                              | Revisão de código entre equipes                                              | Pull request criado                                            |
 | 33   |      | Gestão Ágil de Projetos                 | Kanban<br>Métricas ágeis                                                                                                  | Organizar tarefas do projeto em Kanban                                       | Quadro de tarefas do projeto                                   |
 | 34   |      | Documentação de Software                | Documentação técnica e do usuário                                                                                         | Estruturar documentação do sistema                                           | README e documentação                                          |
 | 35   |      | Manutenção de Software                  | Tipos de manutenção                                                                                                       | Identificar melhorias e correções                                            | Lista de melhorias do sistema                                  |
 | 36   |      | Estudo de Viabilidade do Projeto        | Custos, riscos e benefícios                                                                                               | Avaliação crítica do sistema desenvolvido                                    | Relatório de viabilidade                                       |
-| 37   |      | Avaliação 04                            | Avaliação final da disciplina                                                                                             | Prova final                                                                  | Avaliação aplicada                                             |
+| 37   |      | Avaliação 02                            | Avaliação final da disciplina                                                                                             | Prova final                                                                  | Avaliação aplicada                                             |
 | 38   |      | REAVA                                   | Reavaliação final                                                                                                         | Nova avaliação                                                               | Avaliação de recuperação                                       |
 | 39   |      | Encerramento                            | Discussão final sobre o projeto e aprendizados                                                                            | Apresentação final dos grupos                                                | Apresentação do projeto                                        |
 | 40   |      | Revisão de notas                        | Revisão de avaliações e notas finais                                                                                      | Conferência e ajustes administrativos                                        | Registro final de notas                                        |
@@ -70,7 +70,7 @@ A nota de cada semestre é composta por duas avaliações formais e atividades p
 
 A **nota semestral (NS)** é calculada pela seguinte expressão:
 
-$ NS = (A1 \times 0,4) + (A2 \times 0,4) + (EX \times 0,2) $
+$$ NS = (A1 \times 0,4) + (A2 \times 0,4) + (EX \times 0,2) $$
 
 onde:
 
@@ -90,7 +90,7 @@ Se a **nota da REAVA for maior ou igual a 6,0**, a **nota semestral será ajusta
 
 A **nota final (NF)** da disciplina é calculada pela **média aritmética simples entre as notas dos dois semestres**.
 
-$ NF = \frac{NS1 + NS2}{2} $
+$$ NF = \frac{NS1 + NS2}{2} $$
 
 onde:
 
