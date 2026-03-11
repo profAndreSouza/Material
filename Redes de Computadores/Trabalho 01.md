@@ -18,9 +18,9 @@ preparação da apresentação
 exemplos práticos ou estudos de caso
 
 
-## Temas disponíveis
+## Temas
 
-Cada grupo deverá escolher um dos temas abaixo. Os temas abordam mecanismos importantes da Camada de Enlace que não foram discutidos em profundidade no material da disciplina.
+Os temas abordam mecanismos importantes da Camada de Enlace que não foram discutidos em profundidade no material da disciplina.
 
 ### Tema 1 – CSMA/CD e Detecção de Colisões em Redes Ethernet (Grupo 01 e 06)
 
