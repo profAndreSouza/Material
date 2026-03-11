@@ -60,11 +60,11 @@ O docente definirá periodicamente, em seu plano de ensino semestral, os instrum
 
 | Aula | Data      | Conteúdo                                                                 |
 |------|-----------|--------------------------------------------------------------------------|
-| 1    | 11-fev    | Apresentação da Ementa e Avaliações                                      |
-| 2    |           | Introdução ao modelo OSI                                                 |
-| 3    |           | Meios de Transmissão - Camada Física                                     |
-| 4    |           | Modelo OSI - Camada de Enlace                                            |
-| 5    |           | Modelo OSI - Camada de Rede                                              |
+| 1    | 11-fev | Apresentação da Ementa e Avaliações                                      |
+| 2    | 25-fev | Introdução ao modelo OSI                                                 |
+| 3    | 04-mar | Meios de Transmissão - Camada Física                                     |
+| 4    | 11-mar | Modelo OSI - Camada de Enlace                                            |
+| 5    | 25-mar | Modelo OSI - Camada de Rede                                              |
 | 6    |           | Endereçamento IPV4 e Subredes                                            |
 | 7    |           | Endereçamento IPv6                                                       |
 | 8    |           | Modelo OSI - Camada de Transporte                                        |
