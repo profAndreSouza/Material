@@ -88,3 +88,5 @@ Uma apresentação com slides consolidada com a pesquisa dos dois grupos para a 
 
 Durante a apresentação, devem utilizar exemplos claros que ajudem a relacionar o tema com o funcionamento real das redes de computadores.
 
+* Data: 25/03/2026
+* Tempo: mínimo 10 e máximo 20 minutos
