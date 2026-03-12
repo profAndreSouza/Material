@@ -101,27 +101,152 @@ A equipe deverá apresentar:
 
 ### **2. Artigo Técnico (Entrega Final)**
 
-O artigo deverá seguir estrutura acadêmica simplificada, contendo:
+O artigo deverá seguir uma **estrutura acadêmica simplificada**, documentando o projeto desenvolvido pela equipe.
+
+#### **Formatação do Artigo**
+
+O artigo científico deverá seguir os seguintes critérios de formatação:
+
+* **Extensão:** entre **13 e 25 páginas**, **incluindo as referências**
+* **Tamanho do papel:** **A4**
+* **Margens:**
+
+  * Superior: **3 cm**
+  * Esquerda: **3 cm**
+  * Direita: **2 cm**
+  * Inferior: **2 cm**
+* **Espaçamento entre linhas:** **simples**
+
+Recomenda-se também:
+
+* Fonte **Times New Roman** ou **Arial**
+* Tamanho **12 para o texto**
+* Títulos de seções em **negrito**
+* Figuras, tabelas e diagramas devidamente **identificados e referenciados no texto**
+
+[Demais Orientações](https://periodicos.sp.senai.br/index.php/rcsenaisp/about/submissions)
+
+
+#### **Estrutura do Artigo**
+
+O artigo deverá conter as seguintes seções:
 
 1. **Introdução**
-   Contextualização do problema e motivação do projeto
+   Contextualização do problema, motivação do projeto e objetivos da solução proposta.
 
 2. **Fundamentação Teórica**
-   Conceitos de IoT/IIoT, protocolos, conectividade, hardware e edge computing utilizados
+   Apresentação dos conceitos relacionados ao projeto, como IoT/IIoT, protocolos de comunicação, conectividade, hardware utilizado, edge computing e plataformas de monitoramento.
 
 3. **Metodologia**
-   Descrição da solução proposta, arquitetura do sistema, ferramentas e tecnologias empregadas
+   Descrição da solução proposta, arquitetura do sistema, tecnologias utilizadas e etapas de desenvolvimento.
 
 4. **Desenvolvimento da Aplicação**
-   Implementação prática ou simulação, configuração dos dispositivos, comunicação e dashboards
+   Detalhamento da implementação prática ou simulação, incluindo configuração dos dispositivos, comunicação entre componentes e dashboards de monitoramento.
 
 5. **Resultados e Discussão**
-   Análise do funcionamento da solução, benefícios, limitações e possíveis melhorias
+   Análise do funcionamento da solução desenvolvida, avaliação dos resultados obtidos, benefícios, limitações e possíveis melhorias.
 
 6. **Conclusão**
-   Considerações finais e perspectivas futuras
+   Considerações finais sobre o projeto e perspectivas futuras de evolução da solução.
 
 7. **Referências**
-   Fontes técnicas, artigos, normas ou documentações utilizadas
+   Lista das fontes técnicas, artigos científicos, normas e documentações utilizadas no desenvolvimento do projeto.
 
 
+## **Cronograma de Desenvolvimento**
+
+### **Entrega 1 – Definição do Projeto**
+
+📅 **Prazo:** 18 de março
+
+A equipe deverá apresentar:
+
+* Tema escolhido e domínio de aplicação (Smart City, Saúde, Indústria, etc.)
+* Problema que será resolvido
+* Objetivos do projeto
+* Descrição inicial da solução proposta
+* Tecnologias previstas (hardware, sensores, protocolos e plataforma)
+
+**Entregável:**
+Documento curto (1 a 2 páginas) contendo a proposta do projeto.
+
+
+### **Entrega 2 – Fundamentação e Arquitetura**
+
+📅 **Prazo:** 08 de abril
+
+A equipe deverá apresentar:
+
+* Referências iniciais sobre o tema (IoT/IIoT, tecnologias utilizadas, aplicações similares)
+* Arquitetura preliminar do sistema
+
+  * Dispositivos
+  * Sensores/atuadores
+  * Comunicação
+  * Edge computing
+  * Plataforma de visualização
+* Diagrama da arquitetura da solução
+
+**Entregável:**
+Versão inicial do artigo contendo:
+
+* Introdução (versão preliminar)
+* Fundamentação teórica (parcial)
+* Arquitetura da solução proposta
+
+
+### **Entrega 3 – Desenvolvimento da Solução**
+
+📅 **Prazo:** 06 de maio
+
+A equipe deverá apresentar:
+
+* Implementação parcial do projeto
+* Configuração dos dispositivos ou ambiente de simulação
+* Fluxo de comunicação entre sensores, broker e aplicação
+* Evidências de funcionamento (prints, dashboards ou demonstrações)
+
+**Entregável:**
+
+Versão intermediária do artigo contendo:
+
+* Metodologia
+* Desenvolvimento da aplicação
+* Descrição técnica das tecnologias utilizadas
+
+
+### **Entrega 4 – Resultados e Consolidação**
+
+📅 **Prazo:** 20 de maio
+
+A equipe deverá apresentar:
+
+* Sistema funcionando ou simulação completa
+* Dashboard ou interface de visualização
+* Testes realizados
+* Análise preliminar dos resultados
+
+**Entregável:**
+
+Versão quase final do artigo contendo:
+
+* Resultados e discussão
+* Ajustes na metodologia e desenvolvimento
+* Inclusão de figuras, diagramas e tabelas
+
+
+### **Entrega Final – Artigo Completo e Apresentação**
+
+📅 **Prazo:** 30 de maio
+
+Entrega do **artigo técnico completo**, contendo:
+
+* Introdução
+* Fundamentação teórica
+* Metodologia
+* Desenvolvimento da aplicação
+* Resultados e discussão
+* Conclusão
+* Referências
+
+Além do artigo, a equipe deverá realizar a **apresentação da solução desenvolvida**, demonstrando o funcionamento do protótipo ou da simulação.
