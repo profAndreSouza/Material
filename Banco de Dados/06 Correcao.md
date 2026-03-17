@@ -115,39 +115,48 @@ Definições adotadas:
 ## 4 — Implementação SQL
 
  
-### 4.1 Criação das tabelas
+### 4.1 Criação do banco e das tabelas
 
 ```sql
+CREATE DATABASE smartcampus;
+
 CREATE TABLE local (
-    id_local SERIAL PRIMARY KEY,
+    codigo SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    bloco VARCHAR(50) NOT NULL,
-    tipo VARCHAR(50) NOT NULL
+    tipo VARCHAR(100) NOT NULL,
+    bloco VARCHAR(100),
+    descricao VARCHAR(500)
 );
 
 CREATE TABLE responsavel (
-    id_responsavel SERIAL PRIMARY KEY,
+    codigo SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     cargo VARCHAR(100) NOT NULL
 );
 
+
 CREATE TABLE sensor (
-    id_sensor SERIAL PRIMARY KEY,
-    identificador VARCHAR(50) UNIQUE NOT NULL,
-    tipo_medicao VARCHAR(50) NOT NULL,
-    status VARCHAR(20) NOT NULL CHECK (status IN ('ativo', 'manutencao')),
-    id_local INT NOT NULL,
-    id_responsavel INT NOT NULL,
-    FOREIGN KEY (id_local) REFERENCES local(id_local),
-    FOREIGN KEY (id_responsavel) REFERENCES responsavel(id_responsavel)
+    codigo SERIAL PRIMARY KEY,
+    cod_local INTEGER,
+    cod_responsavel INTEGER,
+    nome VARCHAR(100) NOT NULL,
+    modelo VARCHAR(100) NOT NULL,
+    estado INTEGER NOT NULL,
+    FOREIGN KEY(cod_local) REFERENCES local(codigo)
 );
 
+ALTER TABLE sensor ADD FOREIGN KEY (cod_responsavel) 
+                       REFERENCES responsavel(codigo);
+
+ALTER TABLE sensor ALTER COLUMN estado TYPE INTEGER USING estado::integer;
+
+
 CREATE TABLE leitura (
-    id_leitura SERIAL PRIMARY KEY,
-    data_hora TIMESTAMP NOT NULL,
-    valor NUMERIC(10,2) NOT NULL,
-    id_sensor INT NOT NULL,
-    FOREIGN KEY (id_sensor) REFERENCES sensor(id_sensor)
+    codigo SERIAL PRIMARY KEY,
+    cod_sensor INTEGER,
+    valor DECIMAL(10,2) NOT NULL,
+    horario TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY(cod_sensor) REFERENCES sensor(codigo)
 );
 ```
 
@@ -169,82 +178,98 @@ A segunda amplia o tamanho do campo de status.
 #### Locais
 
 ```sql
-INSERT INTO local (nome, bloco, tipo) VALUES
-('Laboratório IoT', 'A', 'Laboratório'),
-('Sala 101', 'B', 'Sala'),
-('Auditório', 'C', 'Administrativo'),
-('Biblioteca', 'D', 'Estudo');
+INSERT INTO local (nome, tipo, bloco, descricao) VALUES
+	('Laboratório IoT', 'Laboratório', 'A', 'Espaço para experimentos'),
+	('Laboratório Redes', 'Laboratório', 'A', 'Computadores e Industriais'),
+	('Sala 01', 'Sala de Aula', 'B', 'Sala de aula geral'),
+	('Sala 02', 'Sala de Aula', 'B', 'Sala de aula geral'),
+	('Biblioteca', 'Estudo', 'C', 'Espaço para leitura e pesquisa');
+
 ```
 
  
 #### Responsáveis
 
 ```sql
+
 INSERT INTO responsavel (nome, cargo) VALUES
-('Carlos Silva', 'Técnico de Laboratório'),
-('Ana Souza', 'Engenheira de Automação'),
-('Pedro Lima', 'Analista de IoT');
+	('Ronaldo de Assis', 'Técnico de Redes'),
+	('Fábio Júnior', 'Mecânico Geral'),
+	('Guilherme Arantes', 'Mecânico Geral'),
+	('Leandro Guimarães', 'Técnico Eletrônica'),
+	('Edilaine Pires', 'Técnico IoT');
 ```
 
  
 #### Sensores
 
 ```sql
-INSERT INTO sensor (identificador, tipo_medicao, status, id_local, id_responsavel) VALUES
-('SEN-001', 'temperatura', 'ativo', 1, 1),
-('SEN-002', 'umidade', 'ativo', 1, 1),
-('SEN-003', 'luminosidade', 'manutencao', 2, 2),
-('SEN-004', 'temperatura', 'ativo', 2, 2),
-('SEN-005', 'umidade', 'ativo', 3, 3),
-('SEN-006', 'temperatura', 'ativo', 4, 3);
+INSERT INTO sensor 
+	(nome, modelo, estado, cod_local, cod_responsavel)
+VALUES
+
+-- Genérico
+('Sensor Capacitivo', 'XT132B1FAL2', 1,
+ (SELECT codigo FROM local WHERE nome = 'Laboratório IoT'),
+ (SELECT codigo FROM responsavel WHERE nome = 'Fábio Júnior')),
+
+-- Temperatura
+('Sensor Temperatura Lab IoT', 'DHT22', 1,
+ (SELECT codigo FROM local WHERE nome = 'Laboratório IoT'),
+ (SELECT codigo FROM responsavel WHERE nome = 'Edilaine Pires')),
+
+('Sensor Temperatura Sala 01', 'DHT11', 1,
+ (SELECT codigo FROM local WHERE nome = 'Sala 01'),
+ (SELECT codigo FROM responsavel WHERE nome = 'Leandro Guimarães')),
+
+-- Umidade
+('Sensor Umidade Lab Redes', 'DHT22', 1,
+ (SELECT codigo FROM local WHERE nome = 'Laboratório Redes'),
+ (SELECT codigo FROM responsavel WHERE nome = 'Ronaldo de Assis')),
+
+('Sensor Umidade Biblioteca', 'DHT11', 1,
+ (SELECT codigo FROM local WHERE nome = 'Biblioteca'),
+ (SELECT codigo FROM responsavel WHERE nome = 'Edilaine Pires')),
+
+-- Luminosidade
+('Sensor Luminosidade Sala 02', 'LDR', 1,
+ (SELECT codigo FROM local WHERE nome = 'Sala 02'),
+ (SELECT codigo FROM responsavel WHERE nome = 'Leandro Guimarães')),
+
+('Sensor Luminosidade Biblioteca', 'LDR', 1,
+ (SELECT codigo FROM local WHERE nome = 'Biblioteca'),
+ (SELECT codigo FROM responsavel WHERE nome = 'Guilherme Arantes')),
+
+-- Mistos
+('Sensor Temperatura Lab Redes', 'DHT22', 1,
+ (SELECT codigo FROM local WHERE nome = 'Laboratório Redes'),
+ (SELECT codigo FROM responsavel WHERE nome = 'Fábio Júnior')),
+
+('Sensor Umidade Sala 01', 'DHT11', 1,
+ (SELECT codigo FROM local WHERE nome = 'Sala 01'),
+ (SELECT codigo FROM responsavel WHERE nome = 'Guilherme Arantes'));
+
 ```
 
  
 #### Leituras
 
 ```sql
-INSERT INTO leitura (data_hora, valor, id_sensor) VALUES
-(NOW(), 25.5, 1),
-(NOW(), 26.0, 1),
-(NOW(), 60.0, 2),
-(NOW(), 58.0, 2),
-(NOW(), 300.0, 3),
-(NOW(), 320.0, 3),
-(NOW(), 24.0, 4),
-(NOW(), 23.5, 4),
-(NOW(), 55.0, 5),
-(NOW(), 57.0, 5),
-(NOW(), 28.0, 6),
-(NOW(), 29.0, 6),
-(NOW(), 25.0, 1),
-(NOW(), 59.0, 2),
-(NOW(), 310.0, 3),
-(NOW(), 22.0, 4),
-(NOW(), 56.0, 5),
-(NOW(), 30.0, 6),
-(NOW(), 26.5, 1),
-(NOW(), 61.0, 2);
+
 ```
 
  
 ### 4.4 Atualização de dados
 
 ```sql
-UPDATE sensor
-SET status = 'manutencao'
-WHERE id_sensor = 2;
 
-UPDATE responsavel
-SET cargo = 'Coordenador de IoT'
-WHERE id_responsavel = 1;
 ```
 
  
 ### 4.5 Remoção de dados
 
 ```sql
-DELETE FROM leitura
-WHERE id_leitura = 1;
+
 ```
 
  
@@ -253,67 +278,33 @@ WHERE id_leitura = 1;
 ### Quantidade de leituras por sensor
 
 ```sql
-SELECT id_sensor, COUNT(*) AS total_leituras
-FROM leitura
-GROUP BY id_sensor;
+
 ```
 
  
 ### Média de valores por local
 
 ```sql
-SELECT l.nome, AVG(le.valor) AS media_valor
-FROM leitura le
-JOIN sensor s ON le.id_sensor = s.id_sensor
-JOIN local l ON s.id_local = l.id_local
-GROUP BY l.nome;
+
 ```
 
  
 ### Sensor com maior valor registrado
 
 ```sql
-SELECT id_sensor, MAX(valor) AS maior_valor
-FROM leitura
-GROUP BY id_sensor
-ORDER BY maior_valor DESC
-LIMIT 1;
+
 ```
 
  
 ### Quantidade de sensores por local
 
 ```sql
-SELECT l.nome, COUNT(s.id_sensor) AS total_sensores
-FROM local l
-LEFT JOIN sensor s ON l.id_local = s.id_local
-GROUP BY l.nome;
+
 ```
 
  
 ## 6 — Desafio Extra
 
 ```sql
-SELECT 
-    l.nome,
-    COUNT(DISTINCT s.id_sensor) AS qtd_sensores,
-    AVG(le.valor) AS media_valor
-FROM local l
-LEFT JOIN sensor s ON l.id_local = s.id_local
-LEFT JOIN leitura le ON s.id_sensor = le.id_sensor
-GROUP BY l.nome
-ORDER BY media_valor DESC;
+
 ```
-
- 
-## Encadeamento conceitual do modelo
-
-Neste modelo, o tipo de dado coletado não está armazenado na leitura, mas sim no sensor. Isso permite:
-
-* reutilizar a estrutura de leitura para qualquer tipo de sensor
-* evitar redundância de dados
-* manter flexibilidade para expansão do sistema
-
-Cada leitura armazena apenas um valor numérico, e a interpretação desse valor depende do tipo de medição definido no sensor.
-
-Esse padrão é bastante comum em sistemas IoT reais, onde diferentes sensores compartilham a mesma estrutura de armazenamento de dados.
