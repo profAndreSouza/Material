@@ -58,28 +58,28 @@ O docente definirá periodicamente, em seu plano de ensino semestral, os instrum
 
 ## Cronograma de Aulas
 
-| Aula | Data      | Conteúdo                                                                 |
-|------|-----------|--------------------------------------------------------------------------|
-| 1    | 11-fev | Apresentação da Ementa e Avaliações                                      |
-| 2    | 25-fev | Introdução ao modelo OSI                                                 |
-| 3    | 04-mar | Meios de Transmissão - Camada Física                                     |
-| 4    | 11-mar | Modelo OSI - Camada de Enlace                                            |
-| 5    | 25-mar | Modelo OSI - Camada de Rede                                              |
-| 6    |           | Endereçamento IPV4 e Subredes                                            |
-| 7    |           | Endereçamento IPv6                                                       |
-| 8    |           | Modelo OSI - Camada de Transporte                                        |
-| 9    |           | Avaliação P1                                                             |
-| 10   |           | Atividades da Semana de Tecnologia                                       |
-| 11   |           | Modelo OSI - Camada de Aplicação                                         |
-| 12   |           | Redes Locais (LANs) e Redes de Longa Distância (WANs)                    |
-| 13   |           | Protocolos de Roteamento - Estático e Dinâmico                           |
-| 14   |           | Segurança em Redes - Firewalls, VPNs e controle de acesso                |
-| 15   |           | Projeto Prático: Configuração de uma Rede Corporativa no Packet Tracer   |
-| 16   |           | Wi-Fi e Redes sem Fio - Padrões IEEE 802.11                              |
-| 17   |           | Monitoramento e Análise de Redes e Projeto Prático (P2)                  |
-| 18   |           | Apresentação do Projeto Prático                                          |
-| 19   |           | REAVA                                                                    |
-| 20   |           | Encerramento do primeiro semestre                                        |
+| Aula | Data   | Conteúdo                                                                 |
+|------|--------|--------------------------------------------------------------------------|
+|  01  | 11-fev | Apresentação da Ementa e Avaliações                                      |
+|  02  | 25-fev | Introdução ao modelo OSI                                                 |
+|  03  | 04-mar | Meios de Transmissão - Camada Física                                     |
+|  04  | 11-mar | Modelo OSI - Camada de Enlace                                            |
+|  05  | 18-mar | Modelo OSI - Camada de Rede e VLANs                                      |
+|  06  | 25-mar | Endereçamento IPV4 e Subredes                                            |
+|  07  | 01-abr | Endereçamento IPv6                                                       |
+|  08  | 08-abr | Modelo OSI - Camada de Transporte                                        |
+|  09  | 15-abr | Avaliação P1                                                             |
+|  10  |        | Modelo OSI - Camada de Apresentação e Sessão                             |
+|  11  |        | Modelo OSI - Camada de Aplicação                                         |
+|  12  |        | Redes Locais (LANs) e Redes de Longa Distância (WANs)                    |
+|  13  |        | Protocolos de Roteamento - Estático e Dinâmico                           |
+|  14  |        | Segurança em Redes - Firewalls, VPNs e controle de acesso                |
+|  15  |        | Projeto Prático: Configuração de uma Rede Corporativa no Packet Tracer   |
+|  16  |        | Wi-Fi e Redes sem Fio - Padrões IEEE 802.11                              |
+|  17  |        | Monitoramento e Análise de Redes e Projeto Prático (P2)                  |
+|  18  |        | Apresentação do Projeto Prático                                          |
+|  19  |        | REAVA                                                                    |
+|  20  |        | Encerramento do primeiro semestre                                        |
 
 
 ## Composição da Nota Final
