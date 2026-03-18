@@ -255,6 +255,54 @@ VALUES
 #### Leituras
 
 ```sql
+INSERT INTO leitura (cod_sensor, valor) VALUES
+
+-- Sensor Capacitivo
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Capacitivo'), 1.0),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Capacitivo'), 0.0),
+
+-- Temperatura Lab IoT
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Temperatura Lab IoT'), 25.5),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Temperatura Lab IoT'), 26.1),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Temperatura Lab IoT'), 25.8),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Temperatura Lab IoT'), 26.3),
+
+-- Temperatura Sala 01
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Temperatura Sala 01'), 24.0),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Temperatura Sala 01'), 23.7),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Temperatura Sala 01'), 24.2),
+
+-- Umidade Lab Redes
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Umidade Lab Redes'), 60.0),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Umidade Lab Redes'), 58.5),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Umidade Lab Redes'), 59.2),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Umidade Lab Redes'), 61.0),
+
+-- Umidade Biblioteca
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Umidade Biblioteca'), 55.0),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Umidade Biblioteca'), 57.3),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Umidade Biblioteca'), 56.1),
+
+-- Luminosidade Sala 02
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Luminosidade Sala 02'), 300.0),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Luminosidade Sala 02'), 320.0),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Luminosidade Sala 02'), 310.0),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Luminosidade Sala 02'), 305.0),
+
+-- Luminosidade Biblioteca
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Luminosidade Biblioteca'), 280.0),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Luminosidade Biblioteca'), 275.0),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Luminosidade Biblioteca'), 290.0),
+
+-- Temperatura Lab Redes
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Temperatura Lab Redes'), 27.5),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Temperatura Lab Redes'), 28.0),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Temperatura Lab Redes'), 27.8),
+
+-- Umidade Sala 01
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Umidade Sala 01'), 62.0),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Umidade Sala 01'), 61.5),
+((SELECT codigo FROM sensor WHERE nome = 'Sensor Umidade Sala 01'), 63.0);
 
 ```
 
