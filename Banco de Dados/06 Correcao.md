@@ -383,7 +383,7 @@ Consulta mais completa que relaciona leitura, sensor e local, exibindo a quantid
 ```sql
 SELECT local.nome, sensor.nome,
   COUNT(*) as quantidade,
-  ROUND(AVG(valor),1) as valor_medio
+  CONCAT(ROUND(AVG(valor),1), 'ºC') AS valor_medio
 FROM leitura
   INNER JOIN sensor ON leitura.cod_sensor = sensor.codigo
   INNER JOIN local ON sensor.cod_local = local.codigo
