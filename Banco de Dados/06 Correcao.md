@@ -308,16 +308,18 @@ INSERT INTO leitura (cod_sensor, valor) VALUES
 
  
 ### 4.4 Atualização de dados
-
 ```sql
-
+UPDATE responsavel SET
+  nome = 'Gabriel Braga',
+  cargo = 'Técnico em Automação'
+WHERE nome = 'Fábio Júnior'; 
 ```
-
  
 ### 4.5 Remoção de dados
 
 ```sql
-
+DELETE FROM responsavel
+WHERE nome = 'Fábio Júnior';
 ```
 
  
