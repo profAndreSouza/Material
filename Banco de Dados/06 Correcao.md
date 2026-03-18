@@ -326,9 +326,7 @@ WHERE nome = 'Fábio Júnior';
 ## 5 — Consultas com Funções de Agregação
 
 ### Quantidade de leituras por sensor
-
 ```sql
-
 ```
 
  
@@ -355,6 +353,41 @@ WHERE nome = 'Fábio Júnior';
  
 ## 6 — Desafio Extra
 
-```sql
+### Quantidade de leituras por sensor
 
+Consulta que retorna o total de registros de leitura agrupados por cada sensor.
+
+```sql
+SELECT cod_sensor, COUNT(*) AS quantidade 
+  FROM leitura GROUP BY cod_sensor;
 ```
+
+### Quantidade e média de valores para sensores de temperatura
+
+Consulta que relaciona leituras com sensores, filtrando apenas sensores cujo nome contém “Temperatura”, exibindo a quantidade de leituras e a média dos valores.
+
+```sql
+SELECT cod_sensor, nome, 
+  COUNT(*) as quantidade,
+  AVG(valor) as valor_medio
+FROM leitura INNER JOIN sensor 
+  ON leitura.cod_sensor = sensor.codigo
+WHERE nome LIKE '%Temperatura%'
+GROUP BY cod_sensor, nome
+```
+
+### Quantidade e média de valores por local e sensor
+
+Consulta mais completa que relaciona leitura, sensor e local, exibindo a quantidade de leituras e a média dos valores (arredondada), agrupando por local e sensor, também filtrando sensores de temperatura.
+
+```sql
+SELECT local.nome, sensor.nome,
+  COUNT(*) as quantidade,
+  ROUND(AVG(valor),1) as valor_medio
+FROM leitura
+  INNER JOIN sensor ON leitura.cod_sensor = sensor.codigo
+  INNER JOIN local ON sensor.cod_local = local.codigo
+WHERE sensor.nome LIKE '%Temperatura%'
+GROUP BY local.nome, sensor.nome
+```
+
