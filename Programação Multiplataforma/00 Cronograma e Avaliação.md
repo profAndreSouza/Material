@@ -1,13 +1,8 @@
-# Programação Multiplataforma
+# PBL's (Aprendizagem Baseada em Projetos)
 
-> Este material está em desenvolvimento e pode sofrer atualizações contínuas conforme o conteúdo é aprimorado.
+## **PBL1 — Sistema Inteligente de Monitoramento de Ambientes Educacionais**
 
-
-## PBL's (Aprendizagem Baseada em Projetos)
-
-### **PBL1 — Sistema Inteligente de Monitoramento de Ambientes Educacionais**
-
-#### Contexto do Problema
+### Contexto do Problema
 
 Após a pandemia e com o aumento da preocupação com qualidade do ar, conforto térmico e uso eficiente de espaços, instituições educacionais precisam monitorar salas em tempo real.
 
@@ -20,7 +15,7 @@ A instituição contratou a equipe para desenvolver um sistema capaz de:
 * Disponibilizar dashboard web
 * Permitir versionamento colaborativo
 
-#### Tecnologias
+### Tecnologias
 
 * IoT: Wokwi
 * Broker MQTT: HiveMQ
@@ -29,7 +24,7 @@ A instituição contratou a equipe para desenvolver um sistema capaz de:
 * Dashboard: Web (React / Grafana)
 * Arquitetura: Publish/Subscribe
 
-#### Arquitetura
+### Arquitetura
 
 1. Device / Edge
 2. Messaging (MQTT)
@@ -38,7 +33,7 @@ A instituição contratou a equipe para desenvolver um sistema capaz de:
 5. Presentation
 
 
-### **PBL2 — Sistema de Gestão Inteligente de Consumo de Energia**
+## **PBL2 — Sistema de Gestão Inteligente de Consumo de Energia**
 
 Sistema para análise contínua de consumo energético com:
 
@@ -48,7 +43,7 @@ Sistema para análise contínua de consumo energético com:
 * Arquitetura distribuída
 
 
-### **PBL3 — Plataforma de Rastreamento e Monitoramento de Ativos**
+## **PBL3 — Plataforma de Rastreamento e Monitoramento de Ativos**
 
 Plataforma distribuída com:
 
@@ -58,95 +53,43 @@ Plataforma distribuída com:
 * APIs e mensageria
 
 
-### **Progressão Pedagógica**
+## **Progressão Pedagógica**
 
 * **PBL1** → IoT + ingestão + mensageria
 * **PBL2** → processamento contínuo + análise
 * **PBL3** → sistemas distribuídos completos
 
 
+# Cronograma
 
-## Programação Multiplataforma
+## **1º Semestre (Aulas 01–20)**
 
-> Este material está em desenvolvimento e pode sofrer atualizações contínuas conforme o conteúdo é aprimorado.
-
-
-## PBL's (Aprendizagem Baseada em Projetos)
-
-### **PBL1 — Sistema Inteligente de Monitoramento de Ambientes Educacionais**
-
-Sistema IoT para monitoramento em tempo real com:
-
-* Sensores (simulados ou reais)
-* Comunicação via MQTT
-* Backend para ingestão de dados
-* Armazenamento em séries temporais
-* Dashboard de visualização
-
-**Foco:**
-Fundamentos de IoT, mensageria e ingestão de dados.
-
-
-### **PBL2 — Sistema de Gestão Inteligente de Consumo de Energia**
-
-Sistema para análise contínua de dados com:
-
-* Streaming de dados
-* Processamento em tempo real
-* Detecção de padrões e anomalias
-
-**Foco:**
-Processamento contínuo e análise de eventos.
+| Aula | Data   | Tema                               | Conteúdo                                        | Atividade prática            | Artefato produzido   |
+| ---- | ------ | ---------------------------------- | ----------------------------------------------- | ---------------------------- | -------------------- |
+| 01   | 13/fev | Boas-vindas e visão geral          | Introdução à disciplina e ao PBL                | Discussão de problemas reais | Ideias iniciais      |
+| 02   | 20/fev | PBL1 - Arquitetura e Simulação     | Arquitetura IoT + Wokwi                         | Modelagem da solução         | Arquitetura inicial  |
+| 03   | 27/fev | PBL1 - IoT e MQTT                  | Dispositivos + protocolo MQTT                   | Configuração de sensores     | Fluxo IoT            |
+| 04   | 06/mar | PBL1 - Cloud e Node-RED            | EC2 + Node-RED                                  | Deploy em nuvem              | Ambiente configurado |
+| 05   | 13/mar | PBL1 - Node-RED + InfluxDB         | Pipeline de dados                               | Integração                   | Pipeline             |
+| 06   | 20/mar | PBL1 - Revisão                     | Consolidação                                    | Ajustes                      | Versão refinada      |
+| 07   | 27/mar | PBL1 - Backend                     | APIs REST                                       | Implementação                | API                  |
+| 08   | 10/abr | PBL1 - Dashboard                   | Visualização de dados                           | Criação de dashboard         | Interface            |
+| 09   | 11/abr | **Revisão Geral PBL1 (Reposição)** | Revisão completa (IoT, MQTT, Node-RED, DB, API) | Correções e testes finais    | Sistema ajustado     |
+| 10   | 17/abr | **Entrega PBL1 + P1**              | Integração final                                | Apresentação                 | Sistema completo     |
+| 11   | 18/abr | Revisão Pós-PBL1 (Reposição)       | Feedback geral + boas práticas                  | Ajustes orientados           | Versão refinada      |
+| 12   | 24/abr | Introdução ao PBL2                 | Streaming de dados + arquitetura distribuída    | Planejamento                 | Escopo PBL2          |
+| 13   | 25/abr | Revisão Conceitos PBL2 (Reposição) | Revisão de mensageria, pipeline e arquitetura   | Exercícios guiados           | Ajustes conceituais  |
+| 14   | 08/mai | Pipeline de dados                  | Ingestão contínua                               | Implementação                | Pipeline             |
+| 15   | 15/mai | Processamento de eventos           | Regras e análise em tempo real                  | Implementação                | Processador          |
+| 16   | 22/mai | Armazenamento                      | Persistência de dados                           | Integração                   | Base de dados        |
+| 17   | 29/mai | Alertas e análise                  | Detecção de anomalias                           | Implementação                | Sistema de alertas   |
+| 18   | 12/jun | Integração PBL2                    | Consolidação do sistema                         | Ajustes                      | Sistema integrado    |
+| 19   | 19/jun | **Entrega PBL2 + P2**              | Apresentação                                    | Entrega                      | Sistema funcional    |
+| 20   | 26/jun | Encerramento                       | Retrospectiva + consolidação                    | Debate                       | Lições aprendidas    |
 
 
-### **PBL3 — Plataforma de Rastreamento e Monitoramento de Ativos**
 
-Plataforma distribuída com:
-
-* Integração entre múltiplos serviços
-* APIs e mensageria
-* Rastreamento em tempo real
-
-**Foco:**
-Sistemas distribuídos completos e interoperabilidade.
-
-
-### **Progressão Pedagógica**
-
-* **PBL1 →** IoT + MQTT + ingestão
-* **PBL2 →** streaming + processamento
-* **PBL3 →** integração distribuída
-
-
-## Cronograma
-
-### **1º Semestre (Aulas 01–20)**
-
-| Aula | Data   | Tema                           | Conteúdo                         | Atividade prática            | Artefato produzido   |
-| ---- | ------ | ------------------------------ | -------------------------------- | ---------------------------- | -------------------- |
-| 01   | 13/fev | Boas-vindas e visão geral      | Introdução à disciplina e ao PBL | Discussão de problemas reais | Ideias iniciais      |
-| 02   | 20/fev | PBL1 - Arquitetura e Simulação | Arquitetura IoT + Wokwi          | Modelagem da solução         | Arquitetura inicial  |
-| 03   | 27/fev | PBL1 - IoT e MQTT              | Dispositivos + protocolo MQTT    | Configuração de sensores     | Fluxo IoT            |
-| 04   | 06/mar | PBL1 - Cloud e Node-RED        | EC2 + Node-RED                   | Deploy em nuvem              | Ambiente configurado |
-| 05   | 13/mar | PBL1 - Node-RED + InfluxDB     | Pipeline de dados                | Integração                   | Pipeline             |
-| 06   | 20/mar | PBL1 - Revisão                 | Consolidação                     | Ajustes                      | Versão refinada      |
-| 07   | 27/mar | PBL1 - Backend                 | APIs REST                        | Implementação                | API                  |
-| 08   | 03/abr | PBL1 - Dashboard               | Visualização                     | Dashboard                    | Interface            |
-| 09   | 13/abr | **Entrega PBL1 + P1**          | Integração final                 | Apresentação                 | Sistema completo     |
-| 10   | 20/abr | Introdução ao PBL2             | Streaming de dados               | Planejamento                 | Escopo PBL2          |
-| 11   | 27/abr | Pipeline de dados              | Ingestão contínua                | Implementação                | Pipeline             |
-| 12   | 04/mai | Processamento de eventos       | Regras e análise                 | Implementação                | Processador          |
-| 13   | 11/mai | Armazenamento                  | Persistência                     | Integração                   | Base de dados        |
-| 14   | 18/mai | Alertas                        | Detecção de anomalias            | Implementação                | Sistema de alertas   |
-| 15   | 25/mai | Integração PBL2                | Integração geral                 | Ajustes                      | Sistema integrado    |
-| 16   | 01/jun | Testes e validação             | Introdução a TDD                 | Testes                       | Casos de teste       |
-| 17   | 08/jun | Refinamento PBL2               | Melhorias                        | Ajustes                      | Versão final         |
-| 18   | 13/jun | Revisão geral                  | Preparação                       | Revisão                      | Ajustes finais       |
-| 19   | 15/jun | **Entrega PBL2 + P2**          | Apresentação                     | Entrega                      | Sistema funcional    |
-| 20   | 22/jun | Encerramento                   | Retrospectiva                    | Debate                       | Lições aprendidas    |
-
-
-### **2º Semestre (Aulas 21–40)**
+## **2º Semestre (Aulas 21–40)**
 
 | Aula | Tema                     | Conteúdo                   | Atividade prática | Artefato produzido      |
 | ---- | ------------------------ | -------------------------- | ----------------- | ----------------------- |
@@ -172,17 +115,17 @@ Sistemas distribuídos completos e interoperabilidade.
 | 40   | Revisão de notas         | Fechamento                 | Conferência       | Registro final          |
 
 
-## Avaliação
+# Avaliação
 
-### **Composição da Nota**
+## **Composição da Nota**
 
-#### Avaliações (4 pontos)
+### Avaliações (4 pontos)
 
 * **P1** – 2,0 (junto ao PBL1)
 * **P2** – 2,0 (junto ao PBL2)
 
 
-#### Projetos PBL (6 pontos)
+### Projetos PBL (6 pontos)
 
 * **PBL1** – 2,0
 * **PBL2** – 2,0
@@ -190,7 +133,7 @@ Sistemas distribuídos completos e interoperabilidade.
 
 
 
-### **Cálculo da Nota Final**
+## **Cálculo da Nota Final**
 
 [
 NF = P1 + P2 + PBL1 + PBL2 + PBL3
