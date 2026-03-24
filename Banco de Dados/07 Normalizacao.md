@@ -88,7 +88,9 @@ A área de gestão solicita a seguinte análise:
 
 > “Desejamos saber quanto cada cliente gastou em cada categoria de produto.”
 
-Essa é uma pergunta comum em empresas, usada para tomada de decisão, como campanhas de marketing e análise de consumo.
+> “Qual o valor total vendido em cada categoria de produto.”
+
+Essas são perguntas comum em empresas, usada para tomada de decisão, como campanhas de marketing e análise de consumo.
 
 
 ## 4. A Consulta Inicial
