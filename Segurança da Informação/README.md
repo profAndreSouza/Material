@@ -32,7 +32,7 @@ $$ \text{NF} = \frac{P1 + P2}{2} * 0.8 + \text{EX} $$
 - **P1:** 1ª Avaliação – 14/abril (cobre aulas 1 a 8)  
 - **P2:** 2ª Avaliação – 09/junho (cobre aulas 11 a 17) 
 - **EX:** Exercícios feitos em aula (2 pontos proporcional a quantidade entregue)  
-- Se **NF < 6**, o aluno fará a **REAVA** (Reavaliação) em xx/xx, que substituirá a NF para fins de aprovação.
+- Se **NF < 6**, o aluno fará a **REAVA** (Reavaliação) em 16/junho, que substituirá a NF para fins de aprovação.
 
 ## Cronograma de Aulas
 
