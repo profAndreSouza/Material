@@ -51,9 +51,9 @@ $$ \text{NF} = \frac{P1 + P2}{2} * 0.8 + \text{EX} $$
 | 11   | 05/05/2026 | Segurança em Recursos Humanos                                            | A.6                                       |
 | 12   | 12/05/2026 | Operações e Comunicações Seguras                                         | A.8.1, A.8.15, A.8.16                     |
 | 13   | 19/05/2026 | Controle de Acessos                                                      | A.5.15 a A.5.18                           |
-| 14   | 23/05/2026 | Revisão e Exercícios (PBL – foco em acesso e operações)                  | Revisão prática                           |
+| 14   | 23/05/2026 (reposição) | Revisão e Exercícios (PBL – foco em acesso e operações)                  | Revisão prática                           |
 | 15   | 26/05/2026 | Restrições de Redes e Telecomunicações                                   | A.8.20, A.8.22                            |
-| 16   | 30/05/2026 | Revisão e Exercícios (PBL – redes, vulnerabilidades e criptografia)      | Revisão prática                           |
+| 16   | 30/05/2026 (reposição) | Revisão e Exercícios (PBL – redes, vulnerabilidades e criptografia)      | Revisão prática                           |
 | 17   | 02/06/2026 | Gestão de Incidentes e Conformidade                                      | A.5.24 a A.5.28                           |
 | 18   | 09/06/2026 | 2ª Avaliação (P2)                                                        | Conteúdo das aulas 10 a 17               |
 | 19   | 16/06/2026 | Reavaliação (REAVA)                                                      | Conteúdo geral                           |
