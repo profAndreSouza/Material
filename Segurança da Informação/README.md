@@ -29,28 +29,12 @@ A nota final (**NF**) é calculada da seguinte forma:
 
 $$ \text{NF} = \frac{P1 + P2}{2} * 0.8 + \text{EX} $$
 
-- **P1:** 1ª Avaliação – xx/xx (cobre aulas 1 a 8)  
-- **P2:** 2ª Avaliação – xx/xx (cobre aulas 11 a 16) 
+- **P1:** 1ª Avaliação – 14/abril (cobre aulas 1 a 8)  
+- **P2:** 2ª Avaliação – 09/junho (cobre aulas 11 a 17) 
 - **EX:** Exercícios feitos em aula (2 pontos proporcional a quantidade entregue)  
 - Se **NF < 6**, o aluno fará a **REAVA** (Reavaliação) em xx/xx, que substituirá a NF para fins de aprovação.
 
 ## Cronograma de Aulas
-
-
-## Bibliografia
-
-### Básica
-- FERREIRA, F. N.; ARAUJO, M. *Política de Segurança da Informação*. Ciência Moderna, 2008.  
-- FONTES, E. *Praticando a Segurança da Informação*. Brasport, 2008.  
-- STALLINGS, W. *Criptografia e Segurança de Redes*. 4ª ed. São Paulo: Pearson, 2008.
-
-### Complementar
-- **NBR/ISSO/IEC 17799**. *Tecnologia da Informação: Código de prática para a gestão da segurança da informação*. Associação Brasileira de Normas Técnicas (ABNT), 2002.  
-- PEIXOTO, M. C. P. *Engenharia Social e Segurança da Informação*. Brasport, 2006.
-
-
-## Cronograma – Segurança da Informação (Alinhado à ISO 27001)
-
 
 | Aula | Data       | Conteúdo                                                                 | Controles ISO 27001:2022 (Anexo A)         |
 |------|------------|--------------------------------------------------------------------------|-------------------------------------------|
@@ -76,18 +60,14 @@ $$ \text{NF} = \frac{P1 + P2}{2} * 0.8 + \text{EX} $$
 | 20   | 23/06/2026 | Encerramento                                                             | Fechamento da disciplina                 |
 
 
-## Critérios de Avaliação
+## Bibliografia
 
-A nota final (**NF**) é calculada da seguinte forma:
+### Básica
+- FERREIRA, F. N.; ARAUJO, M. *Política de Segurança da Informação*. Ciência Moderna, 2008.  
+- FONTES, E. *Praticando a Segurança da Informação*. Brasport, 2008.  
+- STALLINGS, W. *Criptografia e Segurança de Redes*. 4ª ed. São Paulo: Pearson, 2008.
 
-NF = ((P1 + P2) / 2) * 0.8 + EX
+### Complementar
+- **NBR/ISSO/IEC 17799**. *Tecnologia da Informação: Código de prática para a gestão da segurança da informação*. Associação Brasileira de Normas Técnicas (ABNT), 2002.  
+- PEIXOTO, M. C. P. *Engenharia Social e Segurança da Informação*. Brasport, 2006.
 
-- **P1:** Avaliação 1 (aulas 1 a 8)  
-- **P2:** Avaliação 2 (aulas 10 a 17)  
-- **EX:** Exercícios realizados em aula (até 2 pontos proporcionais à entrega)  
-
-### Regras
-
-- Caso **NF < 6**, o aluno deverá realizar a **REAVA**.  
-- A **REAVA substitui a nota final** para fins de aprovação.  
-- Exercícios seguem metodologia **PBL (Aprendizado Baseado em Problemas)**.  
