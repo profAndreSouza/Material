@@ -45,6 +45,42 @@ Uma empresa do setor de vendas armazena todas as informações em uma única tab
 
 Essa mistura é a origem dos problemas que veremos a seguir.
 
+### SQL
+```sql
+
+CREATE TABLE dados (
+	PedidoID SERIAL PRIMARY KEY,
+	ClienteNome VARCHAR(200) NOT NULL,
+	Email VARCHAR(100) NOT NULL,
+	Produto VARCHAR(100) NOT NULL,
+	Categoria VARCHAR(100) NOT NULL,
+	Preco VARCHAR(100) NOT NULL,
+	Quantidade VARCHAR(100) NOT NULL
+);
+
+INSERT INTO dados (ClienteNome, Email, Produto, Categoria, Preco, Quantidade) VALUES 
+('João Silva','joao@gmail.com','Notebook','Eletrônicos','3500','1'),
+('Maria Souza','maria@gmail.com','Celular','Eletrônicos','2000','1'),
+('João Silva','joao@gmail.com; joao@outlook.com','Mouse; Teclado','Periféricos','50; 120','2; 1'),
+('Ana Lima','ana@gmail.com','Cadeira Gamer','Móveis','900','1'),
+('Carlos Pereira','carlos@gmail.com','Mesa Escritório','Móveis','700','1'),
+('Maria Souza','maria@gmail.com','Notebook','Eletrônicos','3500','1'),
+('João Silva','joao@gmail.com','Monitor','Eletrônicos','1200','2'),
+('Fernanda Alves','fernanda@gmail.com','Impressora','Eletrônicos','800','1'),
+('Lucas Rocha','lucas@gmail.com','Mouse','Periféricos','50','3'),
+('Ana Lima','ana@gmail.com; ana@empresa.com','Teclado; Mouse','Periféricos','120; 50','1; 2'),
+('Bruno Costa','bruno@gmail.com','Celular','Eletrônicos','2000','2'),
+('Carla Mendes','carla@gmail.com','Notebook','Eletrônicos','3500','1'),
+('Carlos Pereira','carlos@gmail.com','Monitor; Teclado','Eletrônicos; Periféricos','1200; 120','1; 1'),
+('João Silva','joao@outlook.com','Mouse','Periféricos','50','1'),
+('Fernanda Alves','fernanda@gmail.com','Cadeira Gamer','Móveis','900','1'),
+('Lucas Rocha','lucas@gmail.com','Mesa Escritório','Móveis','700','1'),
+('Bruno Costa','bruno@gmail.com','Impressora','Eletrônicos','800','1'),
+('Carla Mendes','carla@gmail.com','Teclado','Periféricos','120','2'),
+('Ana Lima','ana@gmail.com','Notebook; Mouse','Eletrônicos; Periféricos','3500; 50','1; 1'),
+('João Silva','joao@gmail.com','Celular','Eletrônicos','2000','1');
+
+```
 
 ## 3. A Dor do Negócio
 
