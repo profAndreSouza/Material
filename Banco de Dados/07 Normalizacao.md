@@ -310,6 +310,197 @@ CREATE TABLE itempedido (
 );
 ```
 
+### Inserções
+
+```sql
+
+INSERT INTO cliente (nome) VALUES
+('João Silva'),
+('Maria Souza'),
+('Ana Lima'),
+('Carlos Pereira'),
+('Fernanda Alves'),
+('Lucas Rocha'),
+('Bruno Costa'),
+('Carla Mendes');
+
+INSERT INTO email (cod_cliente, email)
+SELECT codigo, 'joao@gmail.com' FROM cliente WHERE nome = 'João Silva';
+
+INSERT INTO email (cod_cliente, email)
+SELECT codigo, 'joao@outlook.com' FROM cliente WHERE nome = 'João Silva';
+
+INSERT INTO email (cod_cliente, email)
+SELECT codigo, 'maria@gmail.com' FROM cliente WHERE nome = 'Maria Souza';
+
+INSERT INTO email (cod_cliente, email)
+SELECT codigo, 'ana@gmail.com' FROM cliente WHERE nome = 'Ana Lima';
+
+INSERT INTO email (cod_cliente, email)
+SELECT codigo, 'ana@empresa.com' FROM cliente WHERE nome = 'Ana Lima';
+
+INSERT INTO email (cod_cliente, email)
+SELECT codigo, 'carlos@gmail.com' FROM cliente WHERE nome = 'Carlos Pereira';
+
+INSERT INTO email (cod_cliente, email)
+SELECT codigo, 'fernanda@gmail.com' FROM cliente WHERE nome = 'Fernanda Alves';
+
+INSERT INTO email (cod_cliente, email)
+SELECT codigo, 'lucas@gmail.com' FROM cliente WHERE nome = 'Lucas Rocha';
+
+INSERT INTO email (cod_cliente, email)
+SELECT codigo, 'bruno@gmail.com' FROM cliente WHERE nome = 'Bruno Costa';
+
+INSERT INTO email (cod_cliente, email)
+SELECT codigo, 'carla@gmail.com' FROM cliente WHERE nome = 'Carla Mendes';
+
+
+INSERT INTO categoria (descricao) VALUES
+('Eletrônicos'),
+('Periféricos'),
+('Móveis');
+
+
+INSERT INTO produto (cod_categoria, descricao, preco)
+SELECT codigo, 'Notebook', 3500 FROM categoria WHERE descricao = 'Eletrônicos';
+
+INSERT INTO produto (cod_categoria, descricao, preco)
+SELECT codigo, 'Celular', 2000 FROM categoria WHERE descricao = 'Eletrônicos';
+
+INSERT INTO produto (cod_categoria, descricao, preco)
+SELECT codigo, 'Mouse', 50 FROM categoria WHERE descricao = 'Periféricos';
+
+INSERT INTO produto (cod_categoria, descricao, preco)
+SELECT codigo, 'Teclado', 120 FROM categoria WHERE descricao = 'Periféricos';
+
+INSERT INTO produto (cod_categoria, descricao, preco)
+SELECT codigo, 'Monitor', 1200 FROM categoria WHERE descricao = 'Eletrônicos';
+
+INSERT INTO produto (cod_categoria, descricao, preco)
+SELECT codigo, 'Impressora', 800 FROM categoria WHERE descricao = 'Eletrônicos';
+
+INSERT INTO produto (cod_categoria, descricao, preco)
+SELECT codigo, 'Cadeira Gamer', 900 FROM categoria WHERE descricao = 'Móveis';
+
+INSERT INTO produto (cod_categoria, descricao, preco)
+SELECT codigo, 'Mesa Escritório', 700 FROM categoria WHERE descricao = 'Móveis';
+
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'João Silva';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Maria Souza';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'João Silva';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Ana Lima';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Carlos Pereira';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Maria Souza';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'João Silva';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Fernanda Alves';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Lucas Rocha';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Ana Lima';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Bruno Costa';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Carla Mendes';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Carlos Pereira';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'João Silva';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Fernanda Alves';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Lucas Rocha';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Bruno Costa';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Carla Mendes';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'Ana Lima';
+
+INSERT INTO pedido (cod_cliente)
+SELECT codigo FROM cliente WHERE nome = 'João Silva';
+
+
+-- João Silva (Notebook)
+INSERT INTO itempedido (cod_pedido, cod_produto, quantidade)
+SELECT p.codigo, pr.codigo, 1
+FROM pedido p, cliente c, produto pr
+WHERE p.cod_cliente = c.codigo
+AND c.nome = 'João Silva'
+AND pr.descricao = 'Notebook'
+LIMIT 1;
+
+-- João Silva (Mouse e Teclado)
+INSERT INTO itempedido (cod_pedido, cod_produto, quantidade)
+SELECT p.codigo, pr.codigo, 2
+FROM pedido p, cliente c, produto pr
+WHERE p.cod_cliente = c.codigo
+AND c.nome = 'João Silva'
+AND pr.descricao = 'Mouse'
+LIMIT 1;
+
+INSERT INTO itempedido (cod_pedido, cod_produto, quantidade)
+SELECT p.codigo, pr.codigo, 1
+FROM pedido p, cliente c, produto pr
+WHERE p.cod_cliente = c.codigo
+AND c.nome = 'João Silva'
+AND pr.descricao = 'Teclado'
+LIMIT 1;
+
+-- Maria Souza (Celular)
+INSERT INTO itempedido (cod_pedido, cod_produto, quantidade)
+SELECT p.codigo, pr.codigo, 1
+FROM pedido p, cliente c, produto pr
+WHERE p.cod_cliente = c.codigo
+AND c.nome = 'Maria Souza'
+AND pr.descricao = 'Celular'
+LIMIT 1;
+
+-- Ana Lima (Teclado + Mouse)
+INSERT INTO itempedido (cod_pedido, cod_produto, quantidade)
+SELECT p.codigo, pr.codigo, 1
+FROM pedido p, cliente c, produto pr
+WHERE p.cod_cliente = c.codigo
+AND c.nome = 'Ana Lima'
+AND pr.descricao = 'Teclado'
+LIMIT 1;
+
+INSERT INTO itempedido (cod_pedido, cod_produto, quantidade)
+SELECT p.codigo, pr.codigo, 2
+FROM pedido p, cliente c, produto pr
+WHERE p.cod_cliente = c.codigo
+AND c.nome = 'Ana Lima'
+AND pr.descricao = 'Mouse'
+LIMIT 1;
+
+```
+
 
 
 ## 10. Revisitando a Dor do Negócio
