@@ -267,6 +267,8 @@ Como resultado, o banco de dados torna-se mais consistente, escalável e adequad
 ## 9. Implementação em SQL
 
 ```sql
+DROP TABLE IF EXISTS dados;
+
 CREATE TABLE cliente (
     codigo SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL
