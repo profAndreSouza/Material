@@ -98,9 +98,14 @@ Essas são perguntas comum em empresas, usada para tomada de decisão, como camp
 Uma tentativa direta de responder a essa pergunta seria:
 
 ```sql
+SELECT clientenome, categoria, SUM(preco * quantidade) AS total
+FROM dados
+GROUP BY clientenome, categoria
 ```
 
+Do ponto de vista técnico, a consulta está correta e será executada pelo banco de dados.
 
+No entanto, o grande problema aqui não é a consulta — é a qualidade dos dados.
 
 ## 5. Por que o Resultado Não é Confiável?
 
@@ -108,63 +113,195 @@ Mesmo com uma consulta correta, os resultados podem estar errados. Isso acontece
 
 ### 5.1 Redundância de Dados
 
+Os dados do cliente se repetem em várias linhas.
+Se um cliente fizer vários pedidos, seu nome e email aparecerão diversas vezes.
+
+O mesmo ocorre com produtos e categorias.
+
 
 ### 5.2 Inconsistência
 
 
+Como os dados são repetidos, podem surgir variações:
+
+* “Ana Silva” vs “Ana S.”
+* “Informática” vs “Informatica”
+* preços diferentes para o mesmo produto
+
+Essas pequenas diferenças quebram completamente análises agregadas.
+
 
 ### 5.3 Anomalias
+
+A estrutura atual permite três tipos clássicos de problemas:
+
+**Anomalia de inserção**
+Não é possível cadastrar um produto sem vinculá-lo a um pedido.
+
+**Anomalia de atualização**
+Se o preço de um produto mudar, é necessário atualizar várias linhas.
+
+**Anomalia de exclusão**
+Ao remover um pedido, pode-se perder informações importantes, como o único registro de um cliente.
 
 
 
 ## 6. A Causa Raiz
 
 
+O problema central é que a tabela não respeita princípios básicos de organização de dados.
+
+Ela mistura diferentes entidades em um único lugar, quando o ideal seria separar:
+
+* Cliente
+* Pedido
+* Produto
+* Categoria
+
+A normalização surge exatamente como uma forma sistemática de resolver esse tipo de problema.
+
+Segue a reescrita com linguagem mais formal e com os conceitos técnicos explicitados.
+
 
 ## 7. Processo de Normalização
 
-A normalização é um conjunto de regras que tem como objetivo organizar os dados para reduzir redundância e evitar inconsistências.
+A normalização consiste em um processo sistemático de organização de dados em um banco relacional, fundamentado na teoria das dependências funcionais. Seu principal objetivo é minimizar redundâncias, eliminar anomalias (de inserção, atualização e exclusão) e garantir a integridade lógica dos dados.
 
-Vamos aplicar as três primeiras formas normais passo a passo.
+Esse processo é conduzido por meio da aplicação sucessiva das formas normais. Nesta etapa, serão abordadas a Primeira, Segunda e Terceira Formas Normais (1FN, 2FN e 3FN), aplicadas progressivamente sobre a estrutura inicial.
 
 
 ## 7.1 Primeira Forma Normal (1FN)
 
-A Primeira Forma Normal estabelece que:
+A Primeira Forma Normal estabelece que uma relação deve atender aos seguintes requisitos:
 
-* os atributos devem ser atômicos (não divisíveis)
-* não devem existir grupos repetidos
+* todos os atributos devem ser **atômicos**, ou seja, indivisíveis;
+* não devem existir **atributos multivalorados** (um único campo contendo múltiplos valores);
+* não devem existir **atributos compostos**, que possam ser decompostos em subatributos semanticamente independentes;
+* não devem existir **grupos repetitivos** ou colunas que armazenem listas.
+
+Embora a tabela original não apresente explicitamente atributos multivalorados (como listas em uma única célula), ela ainda viola princípios conceituais importantes. Observa-se que diferentes entidades (Cliente, Produto, Pedido e Categoria) estão representadas em uma única relação, o que caracteriza uma estrutura não normalizada do ponto de vista semântico.
+
+Assim, a aplicação da 1FN neste contexto não se limita apenas à atomicidade dos atributos, mas também implica na reorganização da estrutura de dados, de modo a separar corretamente as entidades envolvidas.
 
 
 ## 7.2 Segunda Forma Normal (2FN)
 
-A Segunda Forma Normal trata da dependência dos dados em relação à chave primária.
+A Segunda Forma Normal é aplicável a relações que possuem **chave primária composta** e estabelece que:
 
-Ela determina que:
+> todo atributo não-chave deve ser funcionalmente dependente da chave primária em sua totalidade, e não apenas de parte dela.
 
-> todo atributo deve depender completamente da chave primária.
+Considerando a tabela original, pode-se assumir uma chave composta formada por `(PedidoID, Produto)`, uma vez que um pedido pode conter múltiplos produtos.
+
+Entretanto, ao analisar as dependências funcionais, observa-se a existência de **dependências parciais**, tais como:
+
+* `PedidoID → ClienteNome, Email`
+* `Produto → Preço, Categoria`
+
+Isso evidencia que determinados atributos não dependem da totalidade da chave primária, mas apenas de parte dela, caracterizando uma violação da 2FN.
+
+### Reorganização Estrutural
+
+Para eliminar essas dependências parciais, a relação deve ser decomposta em múltiplas tabelas, cada uma representando uma entidade específica:
+
+* **Cliente**: armazena atributos exclusivamente relacionados ao cliente
+* **Pedido**: estabelece a associação entre cliente e pedido
+* **Produto**: contém atributos próprios do produto
+* **ItemPedido**: representa a relação entre pedidos e produtos, incluindo atributos como quantidade
+
+Essa decomposição assegura que todos os atributos não-chave passem a depender integralmente de suas respectivas chaves primárias, eliminando redundâncias associadas às dependências parciais.
 
 
 ## 7.3 Terceira Forma Normal (3FN)
 
-A Terceira Forma Normal elimina dependências transitivas.
+A Terceira Forma Normal tem como objetivo eliminar as chamadas **dependências transitivas**.
 
-Uma dependência transitiva ocorre quando um atributo depende de outro atributo que não é chave.
+Uma dependência transitiva ocorre quando:
+
+> um atributo não-chave depende funcionalmente de outro atributo não-chave, em vez de depender diretamente da chave primária.
+
+Formalmente, se:
+
+* A → B (chave determina atributo)
+* B → C (atributo determina outro atributo)
+
+então existe uma dependência transitiva A → C por meio de B.
+
+No contexto analisado, observa-se que:
+
+* `ProdutoID → Categoria`
+* portanto, a categoria é determinada indiretamente por meio do produto
+
+Isso indica que o atributo **Categoria** não deve estar armazenado na mesma relação que depende da chave primária de forma indireta, sob pena de redundância e inconsistência.
+
+### Ajuste Estrutural
+
+Para eliminar essa dependência transitiva, realiza-se a seguinte decomposição:
+
+* criação da entidade **Categoria**, com chave primária própria
+* modificação da entidade **Produto**, que passa a conter uma chave estrangeira (`CategoriaID`) referenciando a tabela Categoria
+
+Essa reorganização garante que cada atributo não-chave dependa exclusivamente da chave primária de sua própria relação, atendendo plenamente aos requisitos da 3FN.
 
 
+## 8. Estrutura Final do Banco de Dados
 
-## 8. Estrutura Final do Banco
+Após a aplicação das três formas normais, a estrutura do banco de dados passa a ser composta pelas seguintes relações:
 
-Após a normalização, o banco passa a ter as seguintes tabelas:
+* **Cliente**
+* **Pedido**
+* **ItemPedido**
+* **Produto**
+* **Categoria**
 
+Essa modelagem apresenta as seguintes características:
+
+* eliminação de redundâncias estruturais
+* ausência de dependências parciais e transitivas
+* separação adequada das entidades do domínio
+* integridade referencial garantida por meio de chaves estrangeiras
+
+Como resultado, o banco de dados torna-se mais consistente, escalável e adequado para consultas analíticas confiáveis.
 
 
 
 ## 9. Implementação em SQL
 
 ```sql
+CREATE TABLE Cliente (
+    ClienteID INT PRIMARY KEY,
+    Nome VARCHAR(100),
+    Email VARCHAR(100)
+);
 
+CREATE TABLE Categoria (
+    CategoriaID INT PRIMARY KEY,
+    Nome VARCHAR(100)
+);
+
+CREATE TABLE Produto (
+    ProdutoID INT PRIMARY KEY,
+    Nome VARCHAR(100),
+    CategoriaID INT,
+    Preco DECIMAL(10,2),
+    FOREIGN KEY (CategoriaID) REFERENCES Categoria(CategoriaID)
+);
+
+CREATE TABLE Pedido (
+    PedidoID INT PRIMARY KEY,
+    ClienteID INT,
+    FOREIGN KEY (ClienteID) REFERENCES Cliente(ClienteID)
+);
+
+CREATE TABLE ItemPedido (
+    PedidoID INT,
+    ProdutoID INT,
+    Quantidade INT,
+    PRIMARY KEY (PedidoID, ProdutoID),
+    FOREIGN KEY (PedidoID) REFERENCES Pedido(PedidoID),
+    FOREIGN KEY (ProdutoID) REFERENCES Produto(ProdutoID)
+);
 ```
+
 
 
 ## 10. Revisitando a Dor do Negócio
