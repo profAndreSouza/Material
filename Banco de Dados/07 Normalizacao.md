@@ -267,38 +267,44 @@ Como resultado, o banco de dados torna-se mais consistente, escalável e adequad
 ## 9. Implementação em SQL
 
 ```sql
-CREATE TABLE Cliente (
-    ClienteID INT PRIMARY KEY,
-    Nome VARCHAR(100),
-    Email VARCHAR(100)
+CREATE TABLE cliente (
+    codigo SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Categoria (
-    CategoriaID INT PRIMARY KEY,
-    Nome VARCHAR(100)
+CREATE TABLE email (
+    codigo SERIAL PRIMARY KEY,
+    cod_cliente INTEGER NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    FOREIGN KEY (cod_cliente) REFERENCES cliente (codigo)
 );
 
-CREATE TABLE Produto (
-    ProdutoID INT PRIMARY KEY,
-    Nome VARCHAR(100),
-    CategoriaID INT,
-    Preco DECIMAL(10,2),
-    FOREIGN KEY (CategoriaID) REFERENCES Categoria(CategoriaID)
+CREATE TABLE categoria (
+    codigo SERIAL PRIMARY KEY,
+    descricao VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Pedido (
-    PedidoID INT PRIMARY KEY,
-    ClienteID INT,
-    FOREIGN KEY (ClienteID) REFERENCES Cliente(ClienteID)
+CREATE TABLE produto (
+    codigo SERIAL PRIMARY KEY,
+    cod_categoria INTEGER NOT NULL,
+    descricao VARCHAR(100) NOT NULL,
+    preco DECIMAL(10,2),
+    FOREIGN KEY (cod_categoria) REFERENCES categoria(codigo)
 );
 
-CREATE TABLE ItemPedido (
-    PedidoID INT,
-    ProdutoID INT,
-    Quantidade INT,
-    PRIMARY KEY (PedidoID, ProdutoID),
-    FOREIGN KEY (PedidoID) REFERENCES Pedido(PedidoID),
-    FOREIGN KEY (ProdutoID) REFERENCES Produto(ProdutoID)
+CREATE TABLE pedido (
+    codigo SERIAL PRIMARY KEY,
+    cod_cliente INTEGER NOT NULL,
+    FOREIGN KEY (cod_cliente) REFERENCES cliente(codigo)
+);
+
+CREATE TABLE itempedido (
+    cod_pedido INTEGER,
+    cod_produto INTEGER,
+    quantidade INTEGER,
+    PRIMARY KEY (cod_pedido, cod_produto),
+    FOREIGN KEY (cod_pedido) REFERENCES pedido(codigo),
+    FOREIGN KEY (cod_produto) REFERENCES produto(codigo)
 );
 ```
 
