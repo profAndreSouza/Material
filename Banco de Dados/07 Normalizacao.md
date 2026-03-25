@@ -505,5 +505,42 @@ LIMIT 1;
 
 ## 10. Revisitando a Dor do Negócio
 
+> “Desejamos saber quanto cada cliente gastou em cada categoria de produto.”
+```sql
+SELECT cl.nome, ct.descricao, SUM(pr.preco * ip.quantidade) AS valor
+FROM cliente cl
+INNER JOIN pedido pd ON cl.codigo = pd.cod_cliente
+INNER JOIN itempedido ip ON pd.codigo = ip.cod_pedido
+INNER JOIN produto pr ON pr.codigo = ip.cod_produto
+INNER JOIN categoria ct ON ct.codigo = pr.cod_categoria
+GROUP BY cl.nome, ct.descricao
+ORDER BY cl.nome;
+
+```
+
+
+
+> “Qual o valor total vendido em cada categoria de produto.”
+
+```sql
+
+SELECT c.descricao, SUM(i.quantidade * p.preco) AS total
+FROM categoria c
+INNER JOIN produto p ON c.codigo = p.cod_categoria
+INNER JOIN itempedido i ON p.codigo = i.cod_produto
+GROUP BY c.descricao
+ORDER BY c.descricao;
+
+```
 
 ## 11. Por que Agora Funciona?
+
+
+Diferente da situação inicial:
+
+* cada informação existe em apenas um lugar
+* não há duplicidade de dados críticos
+* relacionamentos estão bem definidos
+* a integridade dos dados é garantida
+
+Isso permite que consultas analíticas sejam confiáveis.
