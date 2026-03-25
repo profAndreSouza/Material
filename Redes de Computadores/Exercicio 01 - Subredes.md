@@ -133,4 +133,4 @@ Uma empresa recebeu o bloco **10.10.0.0/16** e precisa dividir em subredes com *
 * Qual o intervalo da subrede número 10?
 
 
-### Enviar HOJE os calculos (foto do caderno, planilha, ou outros) para andre.souza@cps.sp.gov.br
+### Enviar até 01/abr os calculos (foto do caderno, planilha, ou outros) para andre.souza@cps.sp.gov.br
