@@ -88,15 +88,13 @@ flowchart LR
     end
     subgraph Stack WEB
         B[Backend API]
-        C[Processamento]
         D[MySQL - Dados Consolidados]
         E[Frontend]
     end
 
     A --> B
-    B -->|Regras de negócio| C
-    C --> D
-    D --> E
+    B -->|Regras de negócio| D
+    B --> E
 ```
 
 ### Regras de negócio (exemplos)
