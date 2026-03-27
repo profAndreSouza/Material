@@ -75,9 +75,9 @@ Adicionar uma camada de aplicação com backend, frontend e banco relacional, ap
 
 ### Stack sugerida (flexível)
 
-Backend: **Node.js**
-Frontend: **React**
-Banco relacional: **MySQL**
+* Backend: **Node.js**
+* Frontend: **React**
+* Banco relacional: **MySQL**
 
 ### Fluxo de dados
 
