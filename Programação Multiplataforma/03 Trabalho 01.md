@@ -67,7 +67,7 @@ flowchart LR
   * Métrica em tempo real
   * (Opcional) alerta simples
 
-## ETAPA 02 — Camada de Aplicação e Persistência
+## ETAPA 02 — Stack Web
 
 ### Objetivo
 
@@ -75,29 +75,28 @@ Adicionar uma camada de aplicação com backend, frontend e banco relacional, ap
 
 ### Stack sugerida (flexível)
 
-Backend:
+Backend: **Node.js**
+Frontend: **React**
+Banco relacional: **MySQL**
 
-* Node.js
-* FastAPI
-* Spring Boot
-
-Frontend:
-
-* React
-* Vue.js
-
-Banco relacional:
-
-* MySQL
-
-### Novo fluxo de dados
+### Fluxo de dados
 
 ```mermaid
 flowchart LR
-    A[InfluxDB - Dados Brutos] --> B[Backend API]
-    B -->|Regras de negócio| C[Processamento]
-    C --> D[MySQL - Dados Consolidados]
-    D --> E[Frontend]
+    subgraph Stack MING
+        A[InfluxDB - Dados Brutos]
+    end
+    subgraph Stack WEB
+        B[Backend API]
+        C[Processamento]
+        D[MySQL - Dados Consolidados]
+        E[Frontend]
+    end
+
+    A --> B
+    B -->|Regras de negócio| C
+    C --> D
+    D --> E
 ```
 
 ### Regras de negócio (exemplos)
@@ -125,7 +124,6 @@ Sugestões:
 
 * EC2 para hospedar backend, Node-RED e MQTT
 * Docker para containerização (opcional, recomendado)
-* RDS (opcional) para MySQL gerenciado
 
 ## 4. ORGANIZAÇÃO DO GRUPO
 
