@@ -38,10 +38,19 @@ Criar um fluxo funcional de dados do dispositivo até a visualização.
 
 ```mermaid
 flowchart LR
-    A[ESP32 - Wokwi] -->|MQTT| B[Broker MQTT]
-    B --> C[Node-RED]
-    C --> D[InfluxDB]
-    D --> E[Grafana]
+    A[ESP32 - Wokwi]
+    
+    subgraph STACK MING
+        B[Broker MQTT]
+        C[Node-RED]
+        D[InfluxDB]
+        E[Grafana]
+    end
+
+    A -->|MQTT| B
+    B --> C
+    C --> D
+    D -->E
 ```
 
 ### Dispositivo (simulado)
