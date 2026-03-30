@@ -48,38 +48,6 @@ Essa mistura é a origem dos problemas que veremos a seguir.
 ### SQL
 ```sql
 
-CREATE TABLE dados (
-	PedidoID SERIAL PRIMARY KEY,
-	ClienteNome VARCHAR(200) NOT NULL,
-	Email VARCHAR(100) NOT NULL,
-	Produto VARCHAR(100) NOT NULL,
-	Categoria VARCHAR(100) NOT NULL,
-	Preco VARCHAR(100) NOT NULL,
-	Quantidade VARCHAR(100) NOT NULL
-);
-
-INSERT INTO dados (ClienteNome, Email, Produto, Categoria, Preco, Quantidade) VALUES 
-('João Silva','joao@gmail.com','Notebook','Eletrônicos','3500','1'),
-('Maria Souza','maria@gmail.com','Celular','Eletrônicos','2000','1'),
-('João Silva','joao@gmail.com; joao@outlook.com','Mouse; Teclado','Periféricos','50; 120','2; 1'),
-('Ana Lima','ana@gmail.com','Cadeira Gamer','Móveis','900','1'),
-('Carlos Pereira','carlos@gmail.com','Mesa Escritório','Móveis','700','1'),
-('Maria Souza','maria@gmail.com','Notebook','Eletrônicos','3500','1'),
-('João Silva','joao@gmail.com','Monitor','Eletrônicos','1200','2'),
-('Fernanda Alves','fernanda@gmail.com','Impressora','Eletrônicos','800','1'),
-('Lucas Rocha','lucas@gmail.com','Mouse','Periféricos','50','3'),
-('Ana Lima','ana@gmail.com; ana@empresa.com','Teclado; Mouse','Periféricos','120; 50','1; 2'),
-('Bruno Costa','bruno@gmail.com','Celular','Eletrônicos','2000','2'),
-('Carla Mendes','carla@gmail.com','Notebook','Eletrônicos','3500','1'),
-('Carlos Pereira','carlos@gmail.com','Monitor; Teclado','Eletrônicos; Periféricos','1200; 120','1; 1'),
-('João Silva','joao@outlook.com','Mouse','Periféricos','50','1'),
-('Fernanda Alves','fernanda@gmail.com','Cadeira Gamer','Móveis','900','1'),
-('Lucas Rocha','lucas@gmail.com','Mesa Escritório','Móveis','700','1'),
-('Bruno Costa','bruno@gmail.com','Impressora','Eletrônicos','800','1'),
-('Carla Mendes','carla@gmail.com','Teclado','Periféricos','120','2'),
-('Ana Lima','ana@gmail.com','Notebook; Mouse','Eletrônicos; Periféricos','3500; 50','1; 1'),
-('João Silva','joao@gmail.com','Celular','Eletrônicos','2000','1');
-
 ```
 
 ## 3. A Dor do Negócio
@@ -98,9 +66,7 @@ Essas são perguntas comum em empresas, usada para tomada de decisão, como camp
 Uma tentativa direta de responder a essa pergunta seria:
 
 ```sql
-SELECT clientenome, categoria, SUM(preco * quantidade) AS total
-FROM dados
-GROUP BY clientenome, categoria
+
 ```
 
 Do ponto de vista técnico, a consulta está correta e será executada pelo banco de dados.
@@ -266,272 +232,20 @@ Como resultado, o banco de dados torna-se mais consistente, escalável e adequad
 
 ## 9. Implementação em SQL
 
-```sql
-DROP TABLE IF EXISTS dados;
 
-CREATE TABLE cliente (
-    codigo SERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL
-);
-
-CREATE TABLE email (
-    codigo SERIAL PRIMARY KEY,
-    cod_cliente INTEGER NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    FOREIGN KEY (cod_cliente) REFERENCES cliente (codigo)
-);
-
-CREATE TABLE categoria (
-    codigo SERIAL PRIMARY KEY,
-    descricao VARCHAR(100) NOT NULL
-);
-
-CREATE TABLE produto (
-    codigo SERIAL PRIMARY KEY,
-    cod_categoria INTEGER NOT NULL,
-    descricao VARCHAR(100) NOT NULL,
-    preco DECIMAL(10,2),
-    FOREIGN KEY (cod_categoria) REFERENCES categoria(codigo)
-);
-
-CREATE TABLE pedido (
-    codigo SERIAL PRIMARY KEY,
-    cod_cliente INTEGER NOT NULL,
-    FOREIGN KEY (cod_cliente) REFERENCES cliente(codigo)
-);
-
-CREATE TABLE itempedido (
-    cod_pedido INTEGER,
-    cod_produto INTEGER,
-    quantidade INTEGER,
-    PRIMARY KEY (cod_pedido, cod_produto),
-    FOREIGN KEY (cod_pedido) REFERENCES pedido(codigo),
-    FOREIGN KEY (cod_produto) REFERENCES produto(codigo)
-);
-```
-
-### Inserções
-
-```sql
-
-INSERT INTO cliente (nome) VALUES
-('João Silva'),
-('Maria Souza'),
-('Ana Lima'),
-('Carlos Pereira'),
-('Fernanda Alves'),
-('Lucas Rocha'),
-('Bruno Costa'),
-('Carla Mendes');
-
-INSERT INTO email (cod_cliente, email)
-SELECT codigo, 'joao@gmail.com' FROM cliente WHERE nome = 'João Silva';
-
-INSERT INTO email (cod_cliente, email)
-SELECT codigo, 'joao@outlook.com' FROM cliente WHERE nome = 'João Silva';
-
-INSERT INTO email (cod_cliente, email)
-SELECT codigo, 'maria@gmail.com' FROM cliente WHERE nome = 'Maria Souza';
-
-INSERT INTO email (cod_cliente, email)
-SELECT codigo, 'ana@gmail.com' FROM cliente WHERE nome = 'Ana Lima';
-
-INSERT INTO email (cod_cliente, email)
-SELECT codigo, 'ana@empresa.com' FROM cliente WHERE nome = 'Ana Lima';
-
-INSERT INTO email (cod_cliente, email)
-SELECT codigo, 'carlos@gmail.com' FROM cliente WHERE nome = 'Carlos Pereira';
-
-INSERT INTO email (cod_cliente, email)
-SELECT codigo, 'fernanda@gmail.com' FROM cliente WHERE nome = 'Fernanda Alves';
-
-INSERT INTO email (cod_cliente, email)
-SELECT codigo, 'lucas@gmail.com' FROM cliente WHERE nome = 'Lucas Rocha';
-
-INSERT INTO email (cod_cliente, email)
-SELECT codigo, 'bruno@gmail.com' FROM cliente WHERE nome = 'Bruno Costa';
-
-INSERT INTO email (cod_cliente, email)
-SELECT codigo, 'carla@gmail.com' FROM cliente WHERE nome = 'Carla Mendes';
-
-
-INSERT INTO categoria (descricao) VALUES
-('Eletrônicos'),
-('Periféricos'),
-('Móveis');
-
-
-INSERT INTO produto (cod_categoria, descricao, preco)
-SELECT codigo, 'Notebook', 3500 FROM categoria WHERE descricao = 'Eletrônicos';
-
-INSERT INTO produto (cod_categoria, descricao, preco)
-SELECT codigo, 'Celular', 2000 FROM categoria WHERE descricao = 'Eletrônicos';
-
-INSERT INTO produto (cod_categoria, descricao, preco)
-SELECT codigo, 'Mouse', 50 FROM categoria WHERE descricao = 'Periféricos';
-
-INSERT INTO produto (cod_categoria, descricao, preco)
-SELECT codigo, 'Teclado', 120 FROM categoria WHERE descricao = 'Periféricos';
-
-INSERT INTO produto (cod_categoria, descricao, preco)
-SELECT codigo, 'Monitor', 1200 FROM categoria WHERE descricao = 'Eletrônicos';
-
-INSERT INTO produto (cod_categoria, descricao, preco)
-SELECT codigo, 'Impressora', 800 FROM categoria WHERE descricao = 'Eletrônicos';
-
-INSERT INTO produto (cod_categoria, descricao, preco)
-SELECT codigo, 'Cadeira Gamer', 900 FROM categoria WHERE descricao = 'Móveis';
-
-INSERT INTO produto (cod_categoria, descricao, preco)
-SELECT codigo, 'Mesa Escritório', 700 FROM categoria WHERE descricao = 'Móveis';
-
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'João Silva';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Maria Souza';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'João Silva';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Ana Lima';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Carlos Pereira';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Maria Souza';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'João Silva';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Fernanda Alves';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Lucas Rocha';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Ana Lima';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Bruno Costa';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Carla Mendes';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Carlos Pereira';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'João Silva';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Fernanda Alves';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Lucas Rocha';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Bruno Costa';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Carla Mendes';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'Ana Lima';
-
-INSERT INTO pedido (cod_cliente)
-SELECT codigo FROM cliente WHERE nome = 'João Silva';
-
-
--- João Silva (Notebook)
-INSERT INTO itempedido (cod_pedido, cod_produto, quantidade)
-SELECT p.codigo, pr.codigo, 1
-FROM pedido p, cliente c, produto pr
-WHERE p.cod_cliente = c.codigo
-AND c.nome = 'João Silva'
-AND pr.descricao = 'Notebook'
-LIMIT 1;
-
--- João Silva (Mouse e Teclado)
-INSERT INTO itempedido (cod_pedido, cod_produto, quantidade)
-SELECT p.codigo, pr.codigo, 2
-FROM pedido p, cliente c, produto pr
-WHERE p.cod_cliente = c.codigo
-AND c.nome = 'João Silva'
-AND pr.descricao = 'Mouse'
-LIMIT 1;
-
-INSERT INTO itempedido (cod_pedido, cod_produto, quantidade)
-SELECT p.codigo, pr.codigo, 1
-FROM pedido p, cliente c, produto pr
-WHERE p.cod_cliente = c.codigo
-AND c.nome = 'João Silva'
-AND pr.descricao = 'Teclado'
-LIMIT 1;
-
--- Maria Souza (Celular)
-INSERT INTO itempedido (cod_pedido, cod_produto, quantidade)
-SELECT p.codigo, pr.codigo, 1
-FROM pedido p, cliente c, produto pr
-WHERE p.cod_cliente = c.codigo
-AND c.nome = 'Maria Souza'
-AND pr.descricao = 'Celular'
-LIMIT 1;
-
--- Ana Lima (Teclado + Mouse)
-INSERT INTO itempedido (cod_pedido, cod_produto, quantidade)
-SELECT p.codigo, pr.codigo, 1
-FROM pedido p, cliente c, produto pr
-WHERE p.cod_cliente = c.codigo
-AND c.nome = 'Ana Lima'
-AND pr.descricao = 'Teclado'
-LIMIT 1;
-
-INSERT INTO itempedido (cod_pedido, cod_produto, quantidade)
-SELECT p.codigo, pr.codigo, 2
-FROM pedido p, cliente c, produto pr
-WHERE p.cod_cliente = c.codigo
-AND c.nome = 'Ana Lima'
-AND pr.descricao = 'Mouse'
-LIMIT 1;
-
-```
 
 
 
 ## 10. Revisitando a Dor do Negócio
 
 > “Desejamos saber quanto cada cliente gastou em cada categoria de produto.”
-```sql
-SELECT cl.nome, ct.descricao, SUM(pr.preco * ip.quantidade) AS valor
-FROM cliente cl
-INNER JOIN pedido pd ON cl.codigo = pd.cod_cliente
-INNER JOIN itempedido ip ON pd.codigo = ip.cod_pedido
-INNER JOIN produto pr ON pr.codigo = ip.cod_produto
-INNER JOIN categoria ct ON ct.codigo = pr.cod_categoria
-GROUP BY cl.nome, ct.descricao
-ORDER BY cl.nome;
 
-```
 
 
 
 > “Qual o valor total vendido em cada categoria de produto.”
 
-```sql
 
-SELECT c.descricao, SUM(i.quantidade * p.preco) AS total
-FROM categoria c
-INNER JOIN produto p ON c.codigo = p.cod_categoria
-INNER JOIN itempedido i ON p.codigo = i.cod_produto
-GROUP BY c.descricao
-ORDER BY c.descricao;
-
-```
 
 ## 11. Por que Agora Funciona?
 
