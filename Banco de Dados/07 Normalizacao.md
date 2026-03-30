@@ -48,7 +48,7 @@ Essa mistura é a origem dos problemas que veremos a seguir.
 ### SQL
 ```sql
 
-CREATE DATABASE mercadinho;
+CREATE DATABASE mercadinho_ribas;
 
 
 CREATE TABLE dados (
