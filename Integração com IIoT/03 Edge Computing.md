@@ -104,171 +104,71 @@ Essa integração forma o que muitas vezes é chamado de **arquitetura híbrida 
 
 # Atividade prática: Simulação de arquitetura edge com IoT
 
-Demonstrar, de forma prática, como o processamento no próprio dispositivo (edge puro) reduz:
 
-* latência percebida
-* volume de dados transmitidos
-* dependência da nuvem
+## **Atividade Prática – Comparação entre Edge e Sem Edge Computing**
 
+### **Objetivo**
 
-## Ideia central da prática
+Implementar e analisar o envio de dados de um dispositivo IoT em dois cenários:
 
-Comparar dois comportamentos do mesmo dispositivo:
+* **Sem Edge Computing**: envio de dados brutos diretamente ao servidor
+* **Com Edge Computing**: envio de dados previamente processados (consolidados)
 
-1. **Modo tradicional (sem edge)**
-   O dispositivo envia todos os dados brutos
+O objetivo é comparar **volume de dados transmitidos** e **latência** entre os dois modelos.
 
-2. **Modo edge (no dispositivo)**
-   O dispositivo processa localmente e envia apenas eventos relevantes
 
-## Arquitetura (única, mudando apenas o comportamento do ESP32)
+### **Descrição da Atividade**
 
-```text
-ESP32 (Wokwi) → MQTT → Cloud (AWS ou broker + banco)
-```
+Os dados gerados por um dispositivo simulado deverão ser enviados para um broker MQTT na nuvem, utilizando o serviço AWS IoT Core ou uma instância EC2.
 
-A diferença está **dentro do ESP32**, não na arquitetura.
+O processamento e armazenamento seguirão o fluxo abaixo:
 
+* Um serviço equivalente ao Node-RED será responsável por consumir os dados do MQTT
+* Os dados serão armazenados em um banco de séries temporais como o InfluxDB
+* Um dashboard será construído no Grafana para visualização dos resultados
 
-## Tecnologias
 
-* Wokwi (simulação do ESP32)
-* MQTT (broker local ou na Amazon Web Services)
-* Backend simples ou armazenamento (opcional)
-* Google Colab (opcional para análise)
+### **Resultados Esperados**
 
+O dashboard deverá apresentar, em formato de **cards comparativos**:
 
-## Parte 1 — Modo sem edge (baseline)
+* Volume de dados trafegados (Edge vs Sem Edge)
+* Latência de envio/processamento
+* (Opcional) Taxa de mensagens por segundo
 
-### Comportamento do ESP32
 
-* Gera temperatura aleatória (ex: 20°C a 100°C)
-* Envia dados a cada 1 segundo
-* Não toma nenhuma decisão
+### **Etapas do Desenvolvimento**
 
-### Exemplo de mensagem
+1. **Simulação do Dispositivo IoT**
 
-```json
-{
-  "temp": 72,
-  "timestamp": 1710000000
-}
-```
+   * Utilizar Wokwi ou Google Colab
+   * Gerar dados em dois modos:
 
-### Resultado esperado
+     * Dados brutos (sem processamento)
+     * Dados consolidados (com Edge Computing)
 
-* Alto volume de mensagens
-* Todos os dados chegam na nuvem
+2. **Comunicação MQTT**
 
+   * Configurar envio para o AWS IoT Core ou broker MQTT em EC2
 
-## Parte 2 — Edge no dispositivo (versão principal)
+3. **Processamento dos Dados**
 
-Agora o ESP32 passa a **pensar antes de enviar**.
+   * Configurar o Node-RED em uma instância EC2
+   * Consumir os tópicos MQTT e preparar os dados para armazenamento
 
-### Regra simples (obrigatória)
+4. **Armazenamento**
 
-Enviar dados **apenas se temperatura > 50°C**
+   * Persistir os dados no InfluxDB (EC2 ou serviço gerenciado)
 
+5. **Visualização**
 
-### Possíveis variações (cada grupo pode escolher uma)
+   * Criar dashboards no Grafana
+   * Exibir métricas comparativas entre os dois cenários
 
-#### 1. Filtro por evento
 
-* Só envia quando condição é atendida
+### **Entrega Esperada**
 
-#### 2. Redução de frequência
+* Arquitetura implementada
+* Dashboard funcional com comparação
+* Breve análise dos resultados obtidos
 
-* Envia 1 a cada 10 leituras
-
-#### 3. Agregação
-
-* Calcula média de 10 leituras e envia
-
-#### 4. Detecção simples
-
-* Envia apenas quando houver mudança brusca (ex: +10°C)
-
-
-## Parte 3 — Medição de latência
-
-### Estratégia simples (funciona bem em aula)
-
-1. Inserir timestamp no ESP32:
-
-```json
-{
-  "temp": 72,
-  "ts_device": 1710000000
-}
-```
-
-2. No receptor (backend ou script):
-
-* Capturar tempo de chegada (`ts_cloud`)
-* Calcular:
-
-```text
-latência = ts_cloud - ts_device
-```
-
-## Parte 4 — Medição de volume de dados
-
-Cada grupo deve coletar:
-
-* Total de mensagens enviadas (sem edge)
-* Total de mensagens enviadas (com edge)
-
-Calcular:
-
-```text
-redução (%) = (1 - (mensagens_edge / mensagens_total)) * 100
-```
-
-
-## Parte 5 — Experimento de rede
-
-Simular:
-
-* atraso na rede
-* perda de conexão
-
-Observar:
-
-* Sem edge: dados se acumulam ou perdem valor
-* Com edge: apenas eventos importantes são enviados
-
-
-## Entregáveis
-
-Cada grupo deve apresentar:
-
-1. Código do ESP32 (Wokwi)
-2. Lógica de edge implementada
-3. Métricas:
-
-   * Latência média
-   * Quantidade de mensagens
-4. Comparação entre:
-
-   * Sem edge
-   * Com edge
-5. Conclusão:
-
-   * Quando vale a pena usar edge no dispositivo?
-
-
-## Resultado esperado
-
-Ao final, deve perceber que:
-
-* O dispositivo deixa de ser apenas sensor e vira **agente inteligente**
-* Nem todo dado precisa ir para a nuvem
-* Edge reduz drasticamente o volume de dados
-* Há um trade-off:
-
-  * Mais eficiência
-  * Mais complexidade no dispositivo
-
-## Insight final da atividade
-
-> Edge computing no dispositivo não é só otimização — é mudança de paradigma: o sistema passa a decidir localmente o que é relevante.
