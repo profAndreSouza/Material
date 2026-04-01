@@ -102,6 +102,10 @@ Uma tentativa direta de responder a essa pergunta seria:
 
 ```sql
 
+SELECT ClienteNome, Categoria, SUM(Preço * Quantidade) AS Total
+FROM Vendas
+GROUP BY ClienteNome, Categoria;
+
 ```
 
 Do ponto de vista técnico, a consulta está correta e será executada pelo banco de dados.
@@ -267,7 +271,48 @@ Como resultado, o banco de dados torna-se mais consistente, escalável e adequad
 
 ## 9. Implementação em SQL
 
+```sql
+CREATE TABLE cliente (
+    codigo SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL
+);
 
+CREATE TABLE email (
+    codigo SERIAL PRIMARY KEY,
+    codCliente INTEGER NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    FOREIGN KEY (codCliente) REFERENCES cliente(codigo)
+);
+
+CREATE TABLE categoria (
+    codigo SERIAL PRIMARY KEY,
+    categoria VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE produto (
+    codigo SERIAL PRIMARY KEY,
+    codCategoria INTEGER NOT NULL,
+    descricao VARCHAR(100) NOT NULL,
+    preco DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (codCategoria) REFERENCES categoria(codigo)
+);
+
+CREATE TABLE pedido (
+    codigo SERIAL PRIMARY KEY,
+    codCliente INTEGER NOT NULL,
+    FOREIGN KEY (codCliente) REFERENCES cliente(codigo)
+);
+
+CREATE TABLE itensPedido (
+    codPedido INTEGER NOT NULL,
+    codProduto INTEGER NOT NULL,
+    quantidade INTEGER NOT NULL,
+    PRIMARY KEY (codPedido, codProduto),
+    FOREIGN KEY (codPedido) REFERENCES pedido(codigo),
+    FOREIGN KEY (codProduto) REFERENCES produto(codigo)
+);
+
+```
 
 
 
