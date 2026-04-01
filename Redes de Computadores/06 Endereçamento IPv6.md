@@ -136,7 +136,7 @@ flowchart LR
 
 ## 7. DHCPv6 vs SLAAC
 
-* **SLAAC**: estateless, o host constrói seu endereço com o prefixo do RA + interface ID.
+* **SLAAC**: stateless, o host constrói seu endereço com o prefixo do RA + interface ID.
 * **DHCPv6**: pode operar em modo **stateful** (atribui endereços e mantém estado) ou **stateless** (fornece apenas parâmetros adicionais como DNS, sem atribuir endereços).
 * RAs têm flags M (Managed) e O (Other) para indicar o papel do DHCPv6.
 
