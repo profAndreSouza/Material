@@ -141,6 +141,8 @@ Esses custos recorrentes podem representar parcela significativa do investimento
 Portanto, a análise econômica deve abranger todo o ciclo de vida do sistema — desde sua concepção até sua eventual substituição ou desativação. Avaliar apenas o custo inicial conduz a decisões incompletas e potencialmente equivocadas.
 
 A viabilidade econômica, assim, não busca apenas reduzir gastos, mas equilibrar investimento e benefício. Ela permite decidir de maneira racional e fundamentada, priorizando soluções que entreguem valor real dentro das possibilidades financeiras existentes.
+
+
 ## 3. Viabilidade Operacional
 
 A viabilidade operacional examina se o sistema, uma vez desenvolvido e implantado, será efetivamente utilizado de forma adequada no ambiente para o qual foi projetado. Trata-se de analisar a compatibilidade entre a solução tecnológica e a realidade organizacional, considerando pessoas, processos, cultura e rotinas de trabalho.
