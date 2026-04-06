@@ -174,8 +174,6 @@ Essas abordagens não são excludentes, mas complementares. Compreender suas car
 
 Assim, o desenvolvimento de software deixa de ser apenas uma atividade técnica e passa a ser um processo de **tomada de decisão contínua em ambientes incertos**, no qual a capacidade de adaptação é tão importante quanto o domínio tecnológico.
 
-Aqui está a versão **mais detalhada, aprofundada e ainda no formato PBL**, mantendo o material como apoio direto ao aluno, mas enriquecendo o contexto, orientações e qualidade das entregas:
-
 
 ## Problema (Contexto + Storytelling)
 
