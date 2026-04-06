@@ -144,115 +144,110 @@ Um requisito pode ser detalhado de forma mais completa para eliminar ambiguidade
 **Prioridade:** Alta
 **Critério de Aceitação:** O cliente deve ser salvo e exibido na listagem
 
-
 # Requisitos Funcionais nos Modelos de Processo de Software
 
-Os requisitos funcionais não existem de forma isolada dentro de um projeto. Eles são **identificados, documentados, refinados e implementados ao longo de um processo de desenvolvimento**, que pode variar conforme o modelo adotado.
+Os requisitos funcionais, por definirem o comportamento do sistema, estão presentes em todos os modelos de desenvolvimento de software. No entanto, a forma como são **levantados, documentados, validados e evoluem** varia significativamente de acordo com o modelo adotado.
 
-Segundo Ian Sommerville, diferentes modelos de processo organizam as atividades de engenharia de software de maneiras distintas, influenciando diretamente **como e quando os requisitos são tratados**.
-
-Da mesma forma, Roger Pressman destaca que a escolha do modelo impacta a forma como os requisitos evoluem ao longo do projeto, especialmente em cenários de mudança.
-
-A seguir, são apresentados três modelos clássicos — cascata, espiral e ágil — com foco no tratamento dos requisitos funcionais.
+Segundo Ian Sommerville, não existe um único processo ideal; cada modelo organiza as atividades de engenharia de requisitos de maneira distinta, influenciando diretamente a qualidade e a estabilidade dos requisitos funcionais ao longo do projeto.
 
 
-##  Requisitos Funcionais no Modelo Cascata
+## Requisitos Funcionais no Modelo Cascata
 
-O modelo cascata é um dos mais tradicionais da Engenharia de Software. Ele organiza o desenvolvimento em etapas sequenciais, nas quais cada fase deve ser concluída antes da próxima.
+O modelo cascata é um dos mais tradicionais da Engenharia de Software, caracterizado por uma sequência linear de etapas.
 
-Nesse modelo, os requisitos funcionais são tratados de forma **extensiva e antecipada**, logo no início do projeto, na fase de levantamento e análise de requisitos.
+Nesse modelo, os requisitos funcionais são definidos logo no início do projeto, durante a fase de levantamento e análise de requisitos. Após essa etapa, espera-se que os requisitos estejam **completos, claros e estáveis**, pois mudanças posteriores são difíceis e custosas.
 
-Isso significa que há uma forte ênfase na **documentação completa e detalhada** antes de qualquer implementação.
+**Exemplo:**
 
- **Exemplo:**
-
-Em um sistema de vendas, ainda na fase inicial, seriam definidos requisitos como:
+Durante a fase inicial de um sistema de vendas:
 
 * O sistema deve permitir cadastro de clientes
 * O sistema deve registrar vendas
-* O sistema deve emitir relatórios de vendas
+* O sistema deve emitir relatórios
 
-Esses requisitos seriam documentados formalmente e aprovados antes do início do desenvolvimento.
+Esses requisitos são documentados de forma detalhada antes de qualquer implementação.
 
+Uma vez aprovados, passam a orientar todas as fases seguintes, como projeto, implementação e testes. Isso significa que qualquer falha na definição inicial pode impactar todo o sistema.
 
-### Características no Cascata
-
-* Requisitos são definidos no início do projeto
-* Baixa flexibilidade para mudanças
-* Forte documentação
-* Validação ocorre apenas em fases posteriores
-
-Esse modelo é mais adequado quando os requisitos são bem compreendidos e estáveis. No entanto, pode apresentar dificuldades quando há mudanças frequentes nas necessidades do cliente.
+Esse modelo é mais adequado quando os requisitos são bem conhecidos e pouco sujeitos a mudanças.
 
 
-##  Requisitos Funcionais no Modelo Espiral
+## Requisitos Funcionais no Modelo de Prototipação
 
-O modelo espiral, proposto por Barry Boehm, combina características do modelo cascata com abordagens iterativas, incorporando a análise de riscos como elemento central.
+O modelo de prototipação surge como uma alternativa quando os requisitos não estão totalmente claros no início do projeto.
 
-Nesse modelo, os requisitos funcionais não são definidos de forma completa logo no início. Em vez disso, eles são **refinados progressivamente ao longo de ciclos (espirais)**.
+Nesse contexto, os requisitos funcionais são descobertos e refinados por meio da construção de protótipos — versões simplificadas do sistema que permitem ao usuário visualizar e interagir com a solução.
 
-Cada ciclo envolve:
+**Exemplo:**
 
-* Identificação de objetivos
-* Análise de riscos
-* Desenvolvimento e validação
-* Planejamento da próxima iteração
+Inicialmente, o cliente afirma:
 
- **Exemplo:**
+* “Preciso de um sistema para registrar vendas”
 
-No primeiro ciclo, pode-se definir apenas:
+A partir disso, um protótipo de tela é desenvolvido. Ao utilizá-lo, o cliente percebe novas necessidades:
 
-* O sistema deve registrar vendas
+* Inclusão de desconto na venda
+* Seleção de forma de pagamento
+* Visualização de histórico
 
-Em ciclos posteriores, esse requisito pode ser refinado:
+Esses novos elementos passam a compor os requisitos funcionais.
 
-* O sistema deve registrar vendas com múltiplos itens
-* O sistema deve aplicar descontos
-* O sistema deve integrar formas de pagamento
+Nesse modelo, os requisitos não são totalmente definidos no início, mas evoluem iterativamente conforme o usuário interage com o sistema.
 
 
-### Características no Espiral
+## Requisitos Funcionais no Modelo Espiral
 
-* Requisitos evoluem ao longo do projeto
-* Forte foco em análise de riscos
-* Iterações permitem refinamento contínuo
-* Validação ocorre em cada ciclo
+O modelo espiral combina características do modelo cascata com abordagens iterativas, incorporando análise de riscos em cada ciclo.
 
-Esse modelo é especialmente útil em projetos complexos ou inovadores, nos quais os requisitos não são totalmente conhecidos desde o início.
+Nesse modelo, os requisitos funcionais são tratados de forma incremental. A cada volta da espiral, novos requisitos podem ser identificados, refinados e validados.
 
+**Exemplo:**
 
-##  Requisitos Funcionais no Modelo Ágil (Scrum)
+**Primeira iteração:**
 
-Nos métodos ágeis, como o Scrum, os requisitos funcionais são tratados de forma incremental e adaptativa.
+* Cadastro de clientes
 
-Ao invés de serem documentados completamente no início, os requisitos são organizados em uma lista chamada **Product Backlog**, geralmente representados como **histórias de usuário**.
+**Segunda iteração:**
 
-Essas histórias são continuamente refinadas ao longo do projeto, com base no feedback dos stakeholders.
+* Registro de vendas
 
- **Exemplo:**
+**Terceira iteração:**
 
-Uma história de usuário pode ser descrita como:
+* Relatórios e análises
 
-* “Como vendedor, quero registrar uma venda para controlar meu faturamento”
+A cada ciclo, há validação com o cliente, permitindo ajustes antes de avançar.
 
-Esse requisito funcional é então detalhado e implementado em uma Sprint.
+Uma característica importante é que os requisitos funcionais são avaliados também sob a perspectiva de risco, o que ajuda a priorizar funcionalidades críticas.
 
 
-### Características no Scrum
+## Requisitos Funcionais no Modelo Ágil (Scrum)
 
-* Requisitos são incrementais e evolutivos
-* Uso de histórias de usuário
-* Alta flexibilidade para mudanças
-* Validação contínua com o cliente
+Nos modelos ágeis, como o Scrum, os requisitos funcionais são tratados de forma dinâmica e incremental.
 
-A cada Sprint, um conjunto de requisitos funcionais é implementado, testado e validado, permitindo ajustes rápidos e alinhamento constante com as necessidades do cliente.
+Em vez de um documento extenso no início do projeto, os requisitos são organizados em forma de **histórias de usuário**, que representam funcionalidades sob a perspectiva do usuário final.
+
+**Exemplo:**
+
+* “Como vendedor, quero cadastrar clientes para manter controle dos meus contatos”
+* “Como gerente, quero visualizar o total de vendas do dia para acompanhar o desempenho”
+
+Essas histórias são priorizadas em um backlog e implementadas em ciclos curtos chamados sprints.
+
+Diferentemente do modelo cascata, os requisitos podem mudar ao longo do projeto, sendo continuamente refinados com base no feedback do cliente.
 
 
+## Comparação entre os Modelos
 
-##  Considerações Finais
+A forma como os requisitos funcionais são tratados varia principalmente em relação à flexibilidade e ao momento de definição.
 
-A forma de tratar requisitos funcionais depende diretamente do modelo de desenvolvimento adotado. Modelos mais tradicionais, como o cascata, priorizam a previsibilidade e a documentação, enquanto modelos iterativos e ágeis favorecem a adaptação e o aprendizado contínuo.
+* No modelo cascata, os requisitos são definidos de forma completa no início e tendem a ser estáveis.
+* No modelo de prototipação, os requisitos emergem a partir da interação com protótipos.
+* No modelo espiral, os requisitos evoluem em ciclos controlados com análise de risco.
+* No modelo ágil, os requisitos são continuamente refinados e priorizados ao longo do desenvolvimento.
 
-Não existe um modelo único ideal para todos os contextos. A escolha deve considerar fatores como a estabilidade dos requisitos, o nível de incerteza do projeto e a necessidade de interação com o cliente.
 
-Compreender essa relação entre requisitos e processo é essencial para desenvolver sistemas mais alinhados às necessidades reais dos usuários e do negócio.
+## Considerações Finais
+
+Independentemente do modelo adotado, os requisitos funcionais continuam sendo o elemento central que orienta o desenvolvimento do sistema. O que muda é a forma como eles são tratados: rígida e antecipada em modelos tradicionais, ou adaptativa e evolutiva em modelos modernos.
+
+A escolha do modelo de processo deve considerar o nível de clareza dos requisitos, a necessidade de flexibilidade e o grau de envolvimento do cliente ao longo do projeto.
