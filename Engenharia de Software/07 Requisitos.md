@@ -135,13 +135,13 @@ Esse processo de transformação de informações informais em requisitos estrut
 
 Um requisito pode ser detalhado de forma mais completa para eliminar ambiguidades.
 
-**Identificador:** RF01
-**Nome:** Cadastro de Cliente
-**Descrição:** O sistema deve permitir o registro de novos clientes
-**Entradas:** Nome, CPF, telefone
-**Processamento:** Validação dos dados informados
-**Saídas:** Armazenamento dos dados no sistema
-**Prioridade:** Alta
+**Identificador:** RF01 <br />
+**Nome:** Cadastro de Cliente <br />
+**Descrição:** O sistema deve permitir o registro de novos clientes <br />
+**Entradas:** Nome, CPF, telefone <br />
+**Processamento:** Validação dos dados informados <br />
+**Saídas:** Armazenamento dos dados no sistema <br />
+**Prioridade:** Alta <br />
 **Critério de Aceitação:** O cliente deve ser salvo e exibido na listagem
 
 # Requisitos Funcionais nos Modelos de Processo de Software
