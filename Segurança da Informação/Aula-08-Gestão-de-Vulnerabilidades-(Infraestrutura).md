@@ -1,170 +1,159 @@
 # Aula 08 — Gestão de Vulnerabilidades em Infraestrutura
 
-
-
 ## 1. Conceito de Vulnerabilidade em Infraestrutura
 
-A **infraestrutura de TI** é composta por servidores, redes, sistemas operacionais, dispositivos de rede (switches, roteadores, firewalls), serviços básicos (DNS, DHCP, e-mail, etc.) e ambientes físicos de suporte.
+A **infraestrutura de TI** é o conjunto de componentes que sustentam os sistemas de informação de uma organização, incluindo servidores, redes, sistemas operacionais, dispositivos de rede (switches, roteadores, firewalls), serviços essenciais (DNS, DHCP, e-mail) e até o ambiente físico.
 
-Uma **vulnerabilidade em infraestrutura** é qualquer fraqueza — técnica ou de configuração — que pode ser explorada para:
+Uma **vulnerabilidade em infraestrutura** corresponde a qualquer falha, fraqueza ou configuração inadequada que possa ser explorada por um agente malicioso para comprometer a segurança do ambiente.
 
-* Obter acesso não autorizado.
-* Interromper serviços (DoS/DDoS).
-* Escalar privilégios em sistemas críticos.
-* Roubar ou corromper informações.
+Essas vulnerabilidades podem permitir:
 
-**Exemplos:**
+* Acesso não autorizado a sistemas e dados
+* Interrupção de serviços (DoS/DDoS)
+* Escalonamento de privilégios
+* Vazamento, alteração ou destruição de informações
 
-* Servidor SSH exposto com senha fraca. → Ataque de força bruta. → Acesso administrativo ao servidor.
-* Switch configurado com senha padrão. → Invasor obtém acesso e altera VLANs. → Tráfego sensível exposto.
+**Exemplos práticos:**
 
+* Servidor SSH exposto com senha fraca → suscetível a ataque de força bruta → invasor obtém acesso administrativo
+* Equipamento de rede com senha padrão → invasor altera configurações → tráfego sensível pode ser interceptado
 
 
 ## 2. Ciclo de Gestão de Vulnerabilidades
 
-1. **Identificação:** varredura de rede, inventário de ativos, descoberta de serviços.
-2. **Avaliação:** análise de criticidade (quais sistemas são mais sensíveis ao negócio).
-3. **Correção:** aplicação de patches, reconfiguração ou substituição de hardware vulnerável.
-4. **Monitoramento:** scans periódicos, relatórios, auditorias e acompanhamento de CVEs.
+A gestão de vulnerabilidades é um processo contínuo e estruturado, composto por quatro etapas principais:
 
-Esse ciclo deve ser **contínuo**: a infraestrutura muda, e novas vulnerabilidades surgem a cada dia.
+1. **Identificação**
+   Levantamento de ativos, varredura de rede e descoberta de serviços ativos.
 
+2. **Avaliação**
+   Análise da criticidade das vulnerabilidades com base no impacto para o negócio.
+
+3. **Correção (Remediação)**
+   Aplicação de patches, ajustes de configuração ou substituição de sistemas vulneráveis.
+
+4. **Monitoramento**
+   Execução de varreduras periódicas, auditorias e acompanhamento de novas vulnerabilidades (CVEs).
+
+Esse ciclo deve ser contínuo, pois novos riscos surgem constantemente e a infraestrutura está em constante mudança.
 
 
 ## 3. Ferramentas de Apoio
 
+Algumas ferramentas amplamente utilizadas na gestão de vulnerabilidades incluem:
+
 * **Nmap**
-  Scanner de portas/serviços. Útil para mapear dispositivos ativos.
-  *Exemplo:*
+  Scanner de rede utilizado para identificar hosts ativos, portas abertas e serviços em execução.
+  Exemplo:
 
   ```
   nmap -sV 192.168.0.0/24
   ```
 
-  → Lista serviços e versões em toda a sub-rede.
-
 * **Nessus**
-  Identifica falhas conhecidas e gera relatórios de risco (versão paga + community).
+  Ferramenta comercial de análise de vulnerabilidades com relatórios detalhados de risco.
 
 * **OpenVAS (Greenbone)**
-  Alternativa open-source ao Nessus, também gera relatórios completos.
+  Alternativa open source ao Nessus, com recursos robustos de varredura e análise.
 
 * **Wireshark**
-  Captura/análise de pacotes, útil para identificar tráfego suspeito ou protocolos inseguros.
+  Ferramenta de captura e análise de pacotes, útil para identificar tráfego suspeito e protocolos inseguros.
 
-* **SIEM/IDS/IPS**
-  Consolidação de logs e alertas para identificar anomalias em tempo real.
-
+* **SIEM / IDS / IPS**
+  Soluções para centralização de logs, detecção de intrusões e resposta a incidentes em tempo real.
 
 
 ## 4. Tipos Comuns de Vulnerabilidades
 
-* **Serviços desatualizados** (Windows Server sem patch, Apache antigo).
-* **Portas desnecessárias abertas** (FTP, Telnet, RDP expostos).
-* **Configurações fracas em firewalls ou roteadores.**
-* **Senhas padrão não alteradas** em equipamentos de rede.
-* **Protocolos inseguros** (Telnet, FTP, SNMPv1).
-* **Falta de segmentação**: todos os dispositivos na mesma VLAN.
-* **Backups não criptografados** armazenados sem proteção.
+Entre as falhas mais recorrentes em ambientes corporativos, destacam-se:
 
+* Sistemas e serviços desatualizados
+* Portas desnecessárias abertas
+* Configurações inseguras em dispositivos de rede
+* Uso de senhas padrão ou fracas
+* Protocolos inseguros (Telnet, FTP, SNMPv1)
+* Falta de segmentação de rede
+* Backups sem criptografia ou proteção adequada
 
 
 ## 5. Práticas de Mitigação
 
-* **Inventário de ativos** atualizado.
-* **Patch Management** com cronograma definido.
-* **Hardening de sistemas** (desabilitar serviços desnecessários, trocar protocolos inseguros).
-* **Segmentação de rede (VLANs)** para separar usuários, servidores e convidados.
-* **Monitoramento contínuo** com alertas centralizados (SIEM).
-* **Backups regulares e testados**.
-* **Políticas de controle físico** (sala de servidores, cofres de backup).
+Para reduzir riscos e fortalecer a segurança da infraestrutura, recomenda-se:
 
+* Manter um **inventário atualizado de ativos**
+* Implementar **gestão de patches (Patch Management)**
+* Aplicar **hardening de sistemas**
+* Utilizar **segmentação de rede (VLANs)**
+* Adotar **monitoramento contínuo (SIEM)**
+* Realizar **backups periódicos e testes de restauração**
+* Garantir **controle de acesso físico** aos equipamentos
 
 
 ## 6. Estudo de Caso Técnico
 
 ### Cenário
 
-Uma empresa percebe lentidão na rede. O administrador executa:
+Uma empresa detecta lentidão na rede e realiza a seguinte varredura:
 
 ```
 nmap -sV -O 192.168.10.0/24
 ```
 
-### Descobertas
+### Principais descobertas
 
-* Servidor com **FTP sem autenticação**.
-* Servidor com **Windows Server 2012 sem patch**.
+* Servidor com **FTP sem autenticação**
+* Servidor com **Windows Server 2012 sem atualizações**
 
-### Riscos
+### Riscos identificados
 
-* FTP público → vazamento de arquivos internos.
-* Windows desatualizado → vulnerável ao exploit **EternalBlue (WannaCry)**.
+* FTP aberto → possível vazamento de dados
+* Sistema desatualizado → vulnerável a exploits como o **EternalBlue (WannaCry)**
 
-### Mitigações
+### Medidas corretivas
 
-* Desativar FTP e migrar para SFTP.
-* Atualizar o Windows com patches recentes.
-* Restringir acesso via firewall e segmentar a rede.
-
-
-
-## 7. Casos Reais — Falhas Físicas
-
-1. **Stuxnet (2010):** malware chegou via pen drives → sabotagem em usinas nucleares.
-2. **Boston Children’s Hospital (2012):** laptop perdido sem criptografia → dados de pacientes expostos.
-3. **Fitas de backup roubadas:** transporte sem segurança → vazamento massivo.
-4. **Dispositivos governamentais perdidos (Reino Unido, 2025):** milhares de laptops/telefones sem proteção.
-5. **USB-drop (engenharia social):** pendrives maliciosos deixados em áreas públicas.
-6. **Multnomah County (2024):** ex-funcionário não devolveu laptop com dados de clientes.
-
-**Lições:** criptografia obrigatória, gestão de ativos, controle de mídias removíveis, processos de desligamento bem definidos.
+* Substituir FTP por **SFTP**
+* Aplicar atualizações de segurança no sistema operacional
+* Restringir acessos via firewall
+* Implementar segmentação de rede
 
 
+## 7. Exercício em Grupo — Falhas Físicas
 
-## 8. Casos Reais — Falhas Lógicas
+Analise os casos reais abaixo e discuta em grupo:
 
-1. **Equifax (2017):** falta de patch + WAF ineficaz → 147M registros vazados.
-2. **SolarWinds (2020):** backdoor em atualização legítima → espionagem global.
-3. **Target (2013):** antivírus alertou, mas ninguém respondeu → 40M cartões roubados.
-4. **Colonial Pipeline (2021):** VPN sem MFA → ransomware paralisa abastecimento.
-5. **Exchange Server (2021):** falhas ProxyLogon → e-mails corporativos comprometidos.
-6. **Okta (2022-23):** provedor de identidade comprometido → risco a centenas de clientes.
+1. **Stuxnet (2010)**
+2. **Laptop perdido (Boston Children’s Hospital)**
+3. **Roubo de fitas de backup**
+4. **Dispositivos governamentais perdidos (Reino Unido, 2025)**
+5. **Ataques com USB malicioso (USB-drop)**
+6. **Multnomah County (2024)**
 
-**Lições:** não confiar apenas em firewalls/antivírus, aplicar Zero Trust, garantir resposta ativa a alertas, exigir MFA, monitorar cadeia de suprimentos.
+### Tarefas do grupo:
 
+* Identificar a vulnerabilidade principal em cada caso
+* Classificar o impacto (alto, médio ou baixo)
+* Propor controles preventivos e corretivos
+* Relacionar o caso com boas práticas de segurança física
 
-
-## 9. Atividade em Grupo (Infraestrutura Simulada)
-
-### Cenário
-
-Rede fictícia com:
-
-* 1 servidor de banco de dados.
-* 1 servidor web.
-* 10 estações de trabalho.
-* Switch e roteador com configurações padrão.
-
-### Tarefas
-
-1. Identificar vulnerabilidades possíveis.
-2. Classificar por criticidade (alta, média, baixa).
-3. Propor medidas corretivas.
-4. Criar checklist de manutenção preventiva.
+**Dica:** Considere aspectos como criptografia, controle de acesso físico, políticas organizacionais e gestão de ativos.
 
 
+## 8. Exercício em Grupo — Falhas Lógicas
 
-## 10. Exercícios de Estudo de Casos
+Analise os incidentes abaixo:
 
-**Falhas Físicas**
+1. **Equifax (2017)**
+2. **SolarWinds (2020)**
+3. **Target (2013)**
+4. **Colonial Pipeline (2021)**
+5. **Exchange Server (2021)**
+6. **Okta (2022–2023)**
 
-1. No caso do **Stuxnet**, qual controle físico poderia ter impedido a entrada do malware?
-2. O que faltou no caso do **laptop do hospital** para proteger os dados?
-3. Como políticas de offboarding teriam evitado o problema em Multnomah County?
+### Tarefas do grupo:
 
-**Falhas Lógicas**
-4. O que a Equifax confiou em excesso no caso de 2017?
-5. Por que o antivírus não foi suficiente no caso do Target?
-6. O que o incidente da SolarWinds ensina sobre riscos na cadeia de suprimentos?
-7. Que controles lógicos simples poderiam ter evitado o ataque à Colonial Pipeline?
+* Identificar a causa raiz de cada incidente
+* Explicar por que os controles existentes falharam
+* Sugerir melhorias baseadas em boas práticas (Zero Trust, MFA, monitoramento, etc.)
+* Discutir como a detecção e resposta poderiam ter sido mais eficazes
+
+**Objetivo:** Desenvolver pensamento crítico sobre falhas reais e fortalecer a capacidade de análise de riscos em ambientes corporativos.
