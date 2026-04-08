@@ -157,38 +157,6 @@ A 6FN separa completamente os fatos para permitir:
 
 O custo é um número muito alto de tabelas e necessidade intensa de junções.
 
-
-# Exercício Guiado (passo a passo)
-
-Considere a tabela inicial:
-
-AgendamentoGeral(Sala, Horario, Professor, Disciplina)
-
-Passo 1: Identificar dependências
-Os alunos devem perceber relações como Professor–Disciplina e Sala–Horário.
-
-Passo 2: Avaliar 1FN
-Verificar se há atributos multivalorados.
-
-Passo 3: Avaliar 2FN
-Identificar dependências parciais caso a chave seja composta.
-
-Passo 4: Avaliar 3FN
-Verificar dependências transitivas.
-
-Passo 5: Avaliar BCNF
-Perguntar: todo determinante é chave?
-
-Passo 6: Evoluir para relações N:N
-Criar tabelas associativas como ProfessorDisciplina e AgendamentoDisciplina.
-
-Passo 7: Discutir possibilidade de 5FN
-Existe dependência de junção? Há risco de gerar combinações inválidas?
-
-Passo 8: Introduzir 6FN (conceitual)
-Como modelar histórico de alterações?
-
-
 # Exercício PBL
 
 Contexto:
@@ -227,3 +195,59 @@ Entregáveis:
 * Modelo lógico normalizado
 * Justificativa das decomposições
 * Discussão de trade-offs (desempenho vs consistência)
+
+
+## Exemplo de Dados
+
+| Código | Docente       | Disciplina               | Sala      | Data     | Semestre |
+| ------ | ------------- | ------------------------ | --------- | -------- | -------- |
+| 1      |   João Silva  |  Banco de Dados          |  Sala 101 |  Seg 19h |  2024-1  |
+| 2      |   João Silva  |  Banco de Dados          |  Sala 102 |  Seg 19h |  2024-1  |
+| 3      |   João Silva  |  BD                      |  Sala 101 |  Seg 19h |  2024-1  |
+| 4      |   Maria Souza |  Algoritmos              |  Sala 201 |  Ter 19h |  2024-1  |
+| 5      |   Maria Souza |  Algoritmos              |  Sala 201 |  Ter 21h |  2024-1  |
+| 6      |   Maria Souza |  Algoritmo               |  Sala 202 |  Ter 19h |  2024-1  |
+| 7      |   Carlos Lima |  Engenharia Software     |  Sala 301 |  Qua 19h |  2024-1  |
+| 8      |   Carlos Lima |  Eng. Software           |  Sala 301 |  Qua 19h |  2024-1  |
+| 9      |   Carlos Lima |  Engenharia Software     |  Sala 302 |  Qua 19h |  2024-1  |
+| 10     |  Ana Paula    |  IA                      |  Sala 401 |  Qui 19h |  2024-1  |
+| 11     |  Ana Paula    |  Inteligência Artificial |  Sala 401 |  Qui 19h |  2024-1  |
+| 12     |  Ana Paula    |  IA                      |  Sala 402 |  Qui 19h |  2024-1  |
+| 13     |  João Silva   |  Big Data                |  Sala 101 |  Sex 19h |  2024-1  |
+| 14     |  João Silva   |  Big Data                |  Sala 101 |  Sex 21h |  2024-1  |
+| 15     |  João Silva   |  BigData                 |  Sala 102 |  Sex 19h |  2024-1  |
+| 16     |  Maria Souza  |  Estrutura Dados         |  Sala 201 |  Seg 19h |  2024-2  |
+| 17     |  Maria Souza  |  Estrutura de Dados      |  Sala 201 |  Seg 19h |  2024-2  |
+| 18     |  Maria Souza  |  Estrutura Dados         |  Sala 202 |  Seg 19h |  2024-2  |
+| 19     |  Carlos Lima  |  Redes                   |  Sala 301 |  Ter 19h |  2024-2  |
+| 20     |  Carlos Lima  |  Redes de Computadores   |  Sala 301 |  Ter 19h |  2024-2  |
+| 21     |  Carlos Lima  |  Redes                   |  Sala 302 |  Ter 19h |  2024-2  |
+| 22     |  Ana Paula    |  Machine Learning        |  Sala 401 |  Qua 19h |  2024-2  |
+| 23     |  Ana Paula    |  ML                      |  Sala 401 |  Qua 19h |  2024-2  |
+| 24     |  Ana Paula    |  Machine Learning        |  Sala 402 |  Qua 19h |  2024-2  |
+| 25     |  João Silva   |  Banco de Dados          |  Sala 101 |  Qui 19h |  2024-2  |
+| 26     |  João Silva   |  Banco de Dados          |  Sala 101 |  Qui 21h |  2024-2  |
+| 27     |  João Silva   |  BD                      |  Sala 102 |  Qui 19h |  2024-2  |
+| 28     |  Maria Souza  |  Algoritmos              |  Sala 201 |  Sex 19h |  2024-2  |
+| 29     |  Maria Souza  |  Algoritmos              |  Sala 202 |  Sex 19h |  2024-2  |
+| 30     |  Maria Souza  |  Algoritmo               |  Sala 201 |  Sex 21h |  2024-2  |
+| 31     |  Carlos Lima  |  Engenharia Software     |  Sala 301 |  Seg 19h |  2025-1  |
+| 32     |  Carlos Lima  |  Eng Software            |  Sala 301 |  Seg 19h |  2025-1  |
+| 33     |  Carlos Lima  |  Engenharia Software     |  Sala 302 |  Seg 19h |  2025-1  |
+| 34     |  Ana Paula    |  IA                      |  Sala 401 |  Ter 19h |  2025-1  |
+| 35     |  Ana Paula    |  Inteligência Artificial |  Sala 401 |  Ter 19h |  2025-1  |
+| 36     |  Ana Paula    |  IA                      |  Sala 402 |  Ter 19h |  2025-1  |
+| 37     |  João Silva   |  Big Data                |  Sala 101 |  Qua 19h |  2025-1  |
+| 38     |  João Silva   |  Big Data                |  Sala 101 |  Qua 21h |  2025-1  |
+| 39     |  João Silva   |  BigData                 |  Sala 102 |  Qua 19h |  2025-1  |
+| 40     |  Maria Souza  |  Estrutura Dados         |  Sala 201 |  Qui 19h |  2025-1  |
+| 41     |  Maria Souza  |  Estrutura de Dados      |  Sala 201 |  Qui 19h |  2025-1  |
+| 42     |  Maria Souza  |  Estrutura Dados         |  Sala 202 |  Qui 19h |  2025-1  |
+| 43     |  Carlos Lima  |  Redes                   |  Sala 301 |  Sex 19h |  2025-1  |
+| 44     |  Carlos Lima  |  Redes de Computadores   |  Sala 301 |  Sex 19h |  2025-1  |
+| 45     |  Carlos Lima  |  Redes                   |  Sala 302 |  Sex 19h |  2025-1  |
+| 46     |  Ana Paula    |  Machine Learning        |  Sala 401 |  Seg 19h |  2025-1  |
+| 47     |  Ana Paula    |  ML                      |  Sala 401 |  Seg 19h |  2025-1  |
+| 48     |  Ana Paula    |  Machine Learning        |  Sala 402 |  Seg 19h |  2025-1  |
+| 49     |  João Silva   |  Banco de Dados          |  Sala 101 |  Ter 19h |  2025-1  |
+| 50     |  João Silva   |  BD                      |  Sala 102 |  Ter 19h |  2025-1  |
