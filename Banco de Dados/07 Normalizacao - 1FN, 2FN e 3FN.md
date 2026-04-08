@@ -271,6 +271,7 @@ Como resultado, o banco de dados torna-se mais consistente, escalável e adequad
 
 ## 9. Implementação em SQL
 
+### DDL
 ```sql
 CREATE TABLE cliente (
     codigo SERIAL PRIMARY KEY,
@@ -314,6 +315,33 @@ CREATE TABLE itensPedido (
 
 ```
 
+
+### DML
+```sql
+
+INSERT INTO cliente (nome) VALUES
+    ('João Silva'),
+    ('Maria Souza'),
+    ('Ana Lima'),
+    ('Carlos Pereira'),
+    ('Fernanda Alves'),
+    ('Lucas Rocha'),
+    ('Bruno Costa'),
+    ('Carla Mendes');
+
+INSERT INTO email (codCliente, email) SELECT codigo, 'joao@gmail.com' FROM cliente WHERE nome = 'João Silva';
+INSERT INTO email (codCliente, email) SELECT codigo, 'maria@gmail.com' FROM cliente WHERE nome = 'Maria Souza';
+INSERT INTO email (codCliente, email) SELECT codigo, 'joao@outlook.com' FROM cliente WHERE nome = 'João Silva';
+INSERT INTO email (codCliente, email) SELECT codigo, 'ana@gmail.com' FROM cliente WHERE nome = 'Ana Lima';
+INSERT INTO email (codCliente, email) SELECT codigo, 'carlos@gmail.com' FROM cliente WHERE nome = 'Carlos Pereira';
+INSERT INTO email (codCliente, email) SELECT codigo, 'fernanda@gmail.com' FROM cliente WHERE nome = 'Fernanda Alves';
+INSERT INTO email (codCliente, email) SELECT codigo, 'lucas@gmail.com' FROM cliente WHERE nome = 'Lucas Rocha';
+INSERT INTO email (codCliente, email) SELECT codigo, 'ana@empresa.com' FROM cliente WHERE nome = 'Ana Lima';
+INSERT INTO email (codCliente, email) SELECT codigo, 'bruno@gmail.com' FROM cliente WHERE nome = 'Bruno Costa';
+INSERT INTO email (codCliente, email) SELECT codigo, 'carla@gmail.com' FROM cliente WHERE nome = 'Carla Mendes';
+
+
+```
 
 
 ## 10. Revisitando a Dor do Negócio
