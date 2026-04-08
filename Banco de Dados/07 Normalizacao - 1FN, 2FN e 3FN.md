@@ -423,7 +423,16 @@ ORDER BY c.nome, ct.categoria;
 
 
 > “Qual o valor total vendido em cada categoria de produto.”
+```sql
+SELECT ct.categoria AS Categoria,
+	   SUM(pd.preco * i.quantidade) AS Valor_Total
+FROM itensPedido i
+	INNER JOIN produto pd ON i.codProduto = pd.codigo
+	INNER JOIN categoria ct ON pd.codCategoria = ct.codigo
+GROUP BY ct.categoria
+ORDER BY ct.categoria;
 
+```
 
 
 ## 11. Por que Agora Funciona?
