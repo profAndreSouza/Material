@@ -406,7 +406,19 @@ INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 20, codigo, 1
 ## 10. Revisitando a Dor do Negócio
 
 > “Desejamos saber quanto cada cliente gastou em cada categoria de produto.”
+```sql
+SELECT c.nome AS ClienteNome,
+	   ct.categoria AS Categoria,
+	   SUM(pd.preco * i.quantidade) AS Valor_Total
+FROM pedido p
+	INNER JOIN cliente c ON p.codCliente = c.codigo
+	INNER JOIN itensPedido i ON p.codigo = i.codPedido
+	INNER JOIN produto pd ON i.codProduto = pd.codigo
+	INNER JOIN categoria ct ON pd.codCategoria = ct.codigo
+GROUP BY c.nome, ct.categoria
+ORDER BY c.nome, ct.categoria;
 
+```
 
 
 
