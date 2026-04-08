@@ -340,6 +340,44 @@ INSERT INTO email (codCliente, email) SELECT codigo, 'ana@empresa.com' FROM clie
 INSERT INTO email (codCliente, email) SELECT codigo, 'bruno@gmail.com' FROM cliente WHERE nome = 'Bruno Costa';
 INSERT INTO email (codCliente, email) SELECT codigo, 'carla@gmail.com' FROM cliente WHERE nome = 'Carla Mendes';
 
+INSERT INTO categoria (categoria) VALUES
+    ('Eletrônicos'),
+    ('Periféricos'),
+    ('Móveis');
+
+
+INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Notebook', 3500 FROM categoria WHERE categoria = 'Eletrônicos';
+INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Celular', 2000 FROM categoria WHERE categoria = 'Eletrônicos';
+INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Mouse', 50 FROM categoria WHERE categoria = 'Periféricos';
+INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Teclado', 120 FROM categoria WHERE categoria = 'Periféricos';
+INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Cadeira Gamer', 900 FROM categoria WHERE categoria = 'Móveis';
+INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Mesa Escritório', 700 FROM categoria WHERE categoria = 'Móveis';
+INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Monitor', 1200 FROM categoria WHERE categoria = 'Eletrônicos';
+INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Impressora', 800 FROM categoria WHERE categoria = 'Eletrônicos';
+
+
+INSERT INTO pedido (codigo, codCliente) SELECT 1, codigo FROM cliente WHERE nome = 'João Silva';
+INSERT INTO pedido (codigo, codCliente) SELECT 2, codigo FROM cliente WHERE nome = 'Maria Souza';
+INSERT INTO pedido (codigo, codCliente) SELECT 3, codigo FROM cliente WHERE nome = 'João Silva';
+INSERT INTO pedido (codigo, codCliente) SELECT 4, codigo FROM cliente WHERE nome = 'Ana Lima';
+INSERT INTO pedido (codigo, codCliente) SELECT 5, codigo FROM cliente WHERE nome = 'Carlos Pereira';
+INSERT INTO pedido (codigo, codCliente) SELECT 6, codigo FROM cliente WHERE nome = 'Maria Souza';
+INSERT INTO pedido (codigo, codCliente) SELECT 7, codigo FROM cliente WHERE nome = 'João Silva';
+INSERT INTO pedido (codigo, codCliente) SELECT 8, codigo FROM cliente WHERE nome = 'Fernanda Alves';
+INSERT INTO pedido (codigo, codCliente) SELECT 9, codigo FROM cliente WHERE nome = 'Lucas Rocha';
+INSERT INTO pedido (codigo, codCliente) SELECT 10, codigo FROM cliente WHERE nome = 'Ana Lima';
+INSERT INTO pedido (codigo, codCliente) SELECT 11, codigo FROM cliente WHERE nome = 'Bruno Costa';
+INSERT INTO pedido (codigo, codCliente) SELECT 12, codigo FROM cliente WHERE nome = 'Carla Mendes';
+INSERT INTO pedido (codigo, codCliente) SELECT 13, codigo FROM cliente WHERE nome = 'Carlos Pereira';
+INSERT INTO pedido (codigo, codCliente) SELECT 14, codigo FROM cliente WHERE nome = 'João Silva';
+INSERT INTO pedido (codigo, codCliente) SELECT 15, codigo FROM cliente WHERE nome = 'Fernanda Alves';
+INSERT INTO pedido (codigo, codCliente) SELECT 16, codigo FROM cliente WHERE nome = 'Lucas Rocha';
+INSERT INTO pedido (codigo, codCliente) SELECT 17, codigo FROM cliente WHERE nome = 'Bruno Costa';
+INSERT INTO pedido (codigo, codCliente) SELECT 18, codigo FROM cliente WHERE nome = 'Carla Mendes';
+INSERT INTO pedido (codigo, codCliente) SELECT 19, codigo FROM cliente WHERE nome = 'Ana Lima';
+INSERT INTO pedido (codigo, codCliente) SELECT 20, codigo FROM cliente WHERE nome = 'João Silva';
+
+
 
 ```
 
