@@ -345,7 +345,6 @@ INSERT INTO categoria (categoria) VALUES
     ('Periféricos'),
     ('Móveis');
 
-
 INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Notebook', 3500 FROM categoria WHERE categoria = 'Eletrônicos';
 INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Celular', 2000 FROM categoria WHERE categoria = 'Eletrônicos';
 INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Mouse', 50 FROM categoria WHERE categoria = 'Periféricos';
@@ -354,7 +353,6 @@ INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Cadeira Gam
 INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Mesa Escritório', 700 FROM categoria WHERE categoria = 'Móveis';
 INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Monitor', 1200 FROM categoria WHERE categoria = 'Eletrônicos';
 INSERT INTO produto (codCategoria, descricao, preco) SELECT codigo, 'Impressora', 800 FROM categoria WHERE categoria = 'Eletrônicos';
-
 
 INSERT INTO pedido (codigo, codCliente) SELECT 1, codigo FROM cliente WHERE nome = 'João Silva';
 INSERT INTO pedido (codigo, codCliente) SELECT 2, codigo FROM cliente WHERE nome = 'Maria Souza';
@@ -377,7 +375,30 @@ INSERT INTO pedido (codigo, codCliente) SELECT 18, codigo FROM cliente WHERE nom
 INSERT INTO pedido (codigo, codCliente) SELECT 19, codigo FROM cliente WHERE nome = 'Ana Lima';
 INSERT INTO pedido (codigo, codCliente) SELECT 20, codigo FROM cliente WHERE nome = 'João Silva';
 
-
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 1, codigo, 1 FROM produto WHERE descricao = 'Notebook';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 2, codigo, 1 FROM produto WHERE descricao = 'Celular';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 3, codigo, 2 FROM produto WHERE descricao = 'Mouse';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 3, codigo, 1 FROM produto WHERE descricao = 'Teclado';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 4, codigo, 1 FROM produto WHERE descricao = 'Cadeira Gamer';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 5, codigo, 1 FROM produto WHERE descricao = 'Mesa Escritório';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 6, codigo, 1 FROM produto WHERE descricao = 'Notebook';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 7, codigo, 2 FROM produto WHERE descricao = 'Monitor';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 8, codigo, 1 FROM produto WHERE descricao = 'Impressora';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 9, codigo, 3 FROM produto WHERE descricao = 'Mouse';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 10, codigo, 1 FROM produto WHERE descricao = 'Teclado';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 10, codigo, 2 FROM produto WHERE descricao = 'Mouse';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 11, codigo, 2 FROM produto WHERE descricao = 'Celular';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 12, codigo, 1 FROM produto WHERE descricao = 'Notebook';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 13, codigo, 1 FROM produto WHERE descricao = 'Monitor';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 13, codigo, 1 FROM produto WHERE descricao = 'Teclado';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 14, codigo, 1 FROM produto WHERE descricao = 'Mouse';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 15, codigo, 1 FROM produto WHERE descricao = 'Cadeira Gamer';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 16, codigo, 1 FROM produto WHERE descricao = 'Mesa Escritório';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 17, codigo, 1 FROM produto WHERE descricao = 'Impressora';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 18, codigo, 2 FROM produto WHERE descricao = 'Teclado';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 19, codigo, 1 FROM produto WHERE descricao = 'Notebook';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 19, codigo, 1 FROM produto WHERE descricao = 'Mouse';
+INSERT INTO itensPedido (codPedido, codProduto, quantidade) SELECT 20, codigo, 1 FROM produto WHERE descricao = 'Celular';
 
 ```
 
