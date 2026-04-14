@@ -1,4 +1,4 @@
-# JOINS EM POSTGRESQL – MATERIAL COMPLEMENTAR (CENÁRIO AVANÇADO)
+# JOINS
 
 Este material explora os principais tipos de JOIN no PostgreSQL a partir de um único cenário que combina autorelacionamento (funcionário e seu chefe) e relacionamento muitos-para-muitos (funcionários e projetos). A proposta é manter a mesma base de dados e variar apenas as junções, aproximando o conteúdo de situações reais como folha de pagamento e alocação de horas.
 
