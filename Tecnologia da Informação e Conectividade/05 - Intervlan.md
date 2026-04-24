@@ -26,14 +26,14 @@ Estrutura:
 
 ## Endereçamento IP
 
-| Dispositivo | Interface | IP              |
-| ----------- | --------- | --------------- |
-| R1          | G0/0.10   | 192.168.10.1/24 |
-| R1          | G0/0.20   | 192.168.20.1/24 |
-| PC1         | -         | 192.168.10.10   |
-| PC2         | -         | 192.168.10.20   |
-| PC3         | -         | 192.168.20.10   |
-| PC4         | -         | 192.168.20.20   |
+| Dispositivo | Interface     | IP              |
+| ----------- | ------------- | --------------- |
+| R1          | Gig0/0/0.10   | 192.168.10.1/24 |
+| R1          | Gig0/0/0.20   | 192.168.20.1/24 |
+| PC1         | -             | 192.168.10.10   |
+| PC2         | -             | 192.168.10.20   |
+| PC3         | -             | 192.168.20.10   |
+| PC4         | -             | 192.168.20.20   |
 
 Gateway:
 
@@ -42,7 +42,7 @@ Gateway:
 
 ---
 
-## Parte 1: Configuração das VLANs no Switch S1
+## Parte 1: Configuração das VLANs nos Switch S1 e S2
 
 ```bash
 enable
@@ -54,55 +54,35 @@ name ADMINISTRATIVO
 vlan 20
 name FINANCEIRO
 
-interface range fa0/1 - 2
+interface range fa0/1 - 12
 switchport mode access
 switchport access vlan 10
 
-interface range fa0/3 - 4
+interface range fa0/13 - 24
 switchport mode access
 switchport access vlan 20
 
-interface fa0/24
+interface range gig0/1-2
 switchport mode trunk
 
 end
 write
 ```
 
----
-
-## Parte 2: Configuração do Switch S2
+## Parte 2: Configuração do Roteador (Router-on-a-Stick)
 
 ```bash
 enable
 configure terminal
 
-vlan 10
-vlan 20
-
-interface fa0/24
-switchport mode trunk
-
-end
-write
-```
-
----
-
-## Parte 3: Configuração do Roteador (Router-on-a-Stick)
-
-```bash
-enable
-configure terminal
-
-interface g0/0
+interface g0/0/0
 no shutdown
 
-interface g0/0.10
+interface g0/0/0.10
 encapsulation dot1Q 10
 ip address 192.168.10.1 255.255.255.0
 
-interface g0/0.20
+interface g0/0/0.20
 encapsulation dot1Q 20
 ip address 192.168.20.1 255.255.255.0
 
@@ -112,7 +92,7 @@ write
 
 ---
 
-## Parte 4: Roteamento Estático (Cenário com segundo roteador)
+## Parte 3: Roteamento Estático (Cenário com segundo roteador)
 
 Adicionar um segundo roteador (R2) com a rede 192.168.30.0/24.
 
@@ -151,7 +131,7 @@ ip route 192.168.20.0 255.255.255.0 10.0.0.1
 
 ---
 
-## Parte 5: Testes
+## Parte 4: Testes
 
 Nos PCs:
 
