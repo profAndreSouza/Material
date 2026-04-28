@@ -170,11 +170,13 @@ Dessa forma, a disciplina tem como objetivo desenvolver a capacidade de pesquisa
 
 **Total: 100 pontos**
 
-
 ## Entrega e Apresentação
 
 A entrega final do Projeto Integrador ocorrerá na semana de **08 a 12 de junho**, no formato de **exposição (feira)**, aberta a familiares e demais convidados. Os convidados deverão ser cadastrados previamente para liberação na portaria como visitantes e deverão seguir as normas institucionais (não é permitido o uso de chinelo, sandália, shorts, bonés, entre outros).
 
 A apresentação dos projetos será realizada por meio de **banner**, sendo obrigatória para todos os grupos. Além disso, tanto o banner quanto o artigo científico deverão estar disponíveis no repositório do projeto no GitHub, conforme as orientações das disciplinas.
 
+Para a elaboração do banner e da apresentação oral, deverão ser utilizados obrigatoriamente os **templates disponibilizados neste repositório**, garantindo padronização visual e organização das informações.
+
 Haverá também a possibilidade de **apresentação oral**, com número limitado de vagas, mediante inscrição e validação do docente responsável pelo Projeto Integrador. A apresentação oral não terá impacto na nota final, sendo uma oportunidade adicional para os alunos darem maior visibilidade ao trabalho desenvolvido ao longo do semestre para colegas, familiares e visitantes.
+
