@@ -1,287 +1,122 @@
-# Portal Automotivo Inteligente - Arquitetura IoT + Event-Driven + Backend + IA
+# Projeto Integrador - 1º semestre
 
+O Projeto Integrador Interdisciplinar I constitui um eixo central do processo formativo, no qual os estudantes, organizados em grupos, desenvolvem soluções a partir de problemas reais previamente selecionados e validados na plataforma SAGA do SENAI. Nesta etapa, os projetos já definidos passam a ser aprofundados sob a perspectiva das diferentes disciplinas do semestre, promovendo a aplicação prática e integrada dos conhecimentos adquiridos.
 
-## 1. Visão Geral
+Cada componente curricular contribui com critérios específicos de avaliação e desenvolvimento, alinhados às suas competências e habilidades, garantindo que o projeto evolua de forma consistente, interdisciplinar e orientada à resolução efetiva do problema proposto. Dessa forma, o Projeto Integrador fortalece a articulação entre teoria e prática, estimula o pensamento crítico, o trabalho colaborativo e a construção de soluções tecnológicas relevantes para contextos reais.
 
-Este repositório documenta a arquitetura de um **Portal Automotivo Inteligente**, projetado para acompanhar toda a jornada do cliente:
 
-* Simulação e orçamento na concessionária
-* Geração do pedido
-* Acompanhamento da produção na fábrica
-* Entrega do veículo
-* Pós-venda e manutenção
-* Financiamento
-* Sistema de Recomendação Inteligente de Opcionais
+A seguir, serão apresentados os critérios de avaliação organizados por disciplina, os quais orientarão o desenvolvimento e a análise dos projetos ao longo do semestre
 
-O projeto foi concebido como um **ecossistema distribuído**, utilizando:
+## Banco de Dados Relacional
 
-* Arquitetura orientada a eventos (Event-Driven)
-* Processamento de dados de série temporal
-* Separação entre dados brutos e dados consolidados
-* Microserviços desacoplados
-* Neutralidade tecnológica (Java e .NET)
+Na disciplina de Banco de Dados, os critérios de avaliação são organizados em diferentes contextos, de acordo com a abordagem tecnológica adotada pelo grupo no desenvolvimento do projeto. Considerando a natureza do problema e as decisões de arquitetura, os estudantes poderão utilizar banco de dados relacional, não relacional (NoSQL) ou uma solução híbrida que combine ambos. Dessa forma, cada contexto apresenta critérios específicos que visam avaliar não apenas a implementação técnica, mas também a coerência da escolha, a qualidade da modelagem e a adequação da solução ao cenário proposto.
 
+### Cenário Relacional
 
-## 2. Objetivo Arquitetural
+O projeto deve utilizar um banco de dados relacional para estruturar informações com forte consistência e integridade. Espera-se que o estudante desenvolva desde a modelagem conceitual até a implementação física, aplicando normalização e boas práticas de SQL.
 
-A proposta simula um cenário real de indústria 4.0, no qual:
+#### Critérios de Avaliação
 
-* Sensores enviam eventos de produção
-* Eventos são processados em pipeline IoT
-* Dados brutos são armazenados em banco time-series
-* Eventos consolidados são persistidos em banco relacional
-* Um serviço de IA gera recomendações inteligentes
-* Web e Mobile consomem APIs unificadas
+1. **Levantamento e análise de requisitos**
+   O grupo identifica corretamente quais informações precisam ser armazenadas, descrevendo entidades, atributos e relações de forma clara e coerente com o problema proposto.
 
-O projeto prepara o ambiente para futura migração para cloud (ex: AWS IoT Core), mantendo os princípios de arquitetura enterprise.
+2. **Modelagem conceitual (DER)**
+   O Diagrama Entidade-Relacionamento apresenta todas as entidades relevantes, com relacionamentos bem definidos, sem redundâncias ou inconsistências.
 
+3. **Definição de chaves e integridade**
+   As chaves primárias e estrangeiras são corretamente definidas, garantindo unicidade e integridade referencial entre as tabelas.
 
-## 3. Contexto Arquitetural Atual
+4. **Cardinalidade e restrições**
+   As relações (1:1, 1:N, N:N) estão corretamente representadas e coerentes com o contexto do sistema.
 
-Fluxo proposto:
+5. **Transformação para modelo lógico (MLD)**
+   O DER é convertido adequadamente para tabelas relacionais, respeitando boas práticas de modelagem.
 
-```mermaid
+6. **Aplicação de normalização**
+   O banco é normalizado até pelo menos a 3FN, com explicação das decisões tomadas e eliminação de redundâncias e dependências indevidas.
 
-flowchart 
-    A[ESP32<br/>Wokwi] --> B[MQTT Broker<br/>HiveMQ]
-    B <--> C[Node-RED]
-    C --> D[InfluxDB<br/>Time-Series - Dados Brutos]
-    D <--> E[Backend<br/>Java / .NET]
-    E <--> F[Banco Relacional]
-    E <--> G[Aplicação Web]
-    E <--> H[Aplicação Mobile]
-    E <--> I[API Recomendação<br/>Python]
+7. **Implementação física (DDL)**
+   O script de criação do banco apresenta tipos de dados adequados, restrições bem definidas e organização consistente.
 
-```
+8. **Manipulação de dados (DML e DQL)**
+   O projeto demonstra uso correto de SQL para inserção, atualização, exclusão e consulta de dados, com queries coerentes e funcionais.
 
-Estamos tratando de:
+9. **Uso de recursos avançados**
+   Inclusão de views, procedures ou functions que agreguem valor ao sistema, demonstrando domínio além do básico.
 
-* Telemetria de produção
-* Eventos de mudança de etapa
-* Dados orientados a tempo
-* Processamento assíncrono
+10. **Documentação técnica**
+    O projeto inclui documentação clara com DER, modelo lógico, scripts SQL e dicionário de dados, permitindo entendimento e manutenção por terceiros.
 
-Trata-se de um sistema essencialmente:
 
-Event-Driven + Time-Series Oriented 
+### Cenário Não Relacional (NoSQL)
 
+O projeto deve utilizar um banco de dados não relacional, priorizando flexibilidade, escalabilidade ou armazenamento de dados semi-estruturados. O estudante deve justificar tecnicamente essa escolha e demonstrar domínio das operações básicas.
 
-## 4. Princípio Arquitetural Enterprise
+### Critérios de Avaliação
 
-A arquitetura adota separação clara entre:
+1. **Justificativa da escolha do NoSQL**
+   O grupo explica claramente por que um banco não relacional é mais adequado que um relacional para o problema proposto.
 
-### Dados Brutos
+2. **Escolha do tipo de banco**
+   A seleção (documento, chave-valor, coluna, grafo) é coerente com a natureza dos dados e do sistema.
 
-Armazenados no InfluxDB
-Contêm:
+3. **Modelagem dos dados**
+   A estrutura dos dados (documentos, coleções, etc.) é bem organizada, facilitando leitura e manutenção.
 
-* Timestamp
-* ID do veículo
-* Etapa de produção
-* Métricas industriais
+4. **Representação dos dados**
+   Os dados são armazenados de forma consistente, evitando duplicações desnecessárias ou estruturas confusas.
 
-### Dados Consolidados
+5. **Operações CRUD**
+   O sistema realiza corretamente operações de criação, leitura, atualização e remoção de dados.
 
-Armazenados no banco relacional
-Contêm:
+6. **Eficiência de acesso aos dados**
+   As consultas são pensadas para o modelo NoSQL, explorando suas vantagens (ex: leitura rápida, estrutura embutida).
 
-* Entrada do veículo na etapa
-* Tempo consolidado
-* Status atual
-* Informações de negócio
+7. **Escalabilidade e flexibilidade**
+   O projeto demonstra entendimento de como o modelo pode crescer ou se adaptar a mudanças.
 
-Node-RED:
+8. **Integração com aplicação**
+   O banco é utilizado por uma aplicação (backend, API, simulador, etc.), mostrando uso real.
 
-* Salva dados brutos no InfluxDB
-* Publica evento interno para o Backend
+9. **Comparação com modelo relacional**
+   O grupo apresenta uma análise crítica destacando vantagens e limitações do NoSQL no contexto escolhido.
 
-Backend:
+10. **Documentação técnica**
+    A estrutura dos dados, exemplos de documentos e decisões de modelagem estão bem documentadas.
 
-* Aplica regras de negócio
-* Consolida eventos relevantes
-* Persiste estado oficial no relacional
 
-Esse padrão é comum em arquiteturas industriais modernas.
+### Cenário Integrado (Relacional + Não Relacional)
 
+O projeto deve combinar banco de dados relacional e não relacional, utilizando cada abordagem de forma complementar. Espera-se que o estudante saiba decidir qual tipo de banco usar em cada parte do sistema.
 
-## 5. Divisão Conceitual do Projeto
+#### Critérios de Avaliação
 
-### Camada IoT
+1. **Definição clara de responsabilidades dos bancos**
+   O projeto explicita quais dados são armazenados no banco relacional e quais no não relacional, com justificativa técnica.
 
-Responsável pela geração e ingestão de eventos industriais.
+2. **Modelagem relacional completa (DER)**
+   O banco relacional possui DER bem estruturado, com entidades, relacionamentos e integridade corretamente definidos.
 
-Componentes:
+3. **Normalização do modelo relacional**
+   Aplicação adequada de normalização (mínimo 3FN), com explicação das decisões.
 
-* ESP32 (simulado no Wokwi)
-* Broker MQTT (HiveMQ)
-* Node-RED
-* InfluxDB
+4. **Modelagem do banco NoSQL**
+   Estrutura não relacional organizada, adequada ao tipo de dado (ex: logs, eventos, dados dinâmicos).
 
-Função:
+5. **Coerência entre os dois modelos**
+   Não há inconsistências ou conflitos entre os dados armazenados nos dois bancos.
 
-* Capturar telemetria
-* Persistir dados brutos
-* Encaminhar eventos ao backend
+6. **Integração entre os bancos**
+   O sistema demonstra como os dados transitam ou se relacionam entre os dois modelos (mesmo que de forma indireta).
 
-Documentação detalhada:
+7. **Implementação de operações CRUD**
+   Ambos os bancos são efetivamente utilizados para operações reais dentro do sistema.
 
-* 01 - IoT - Wokwi.md
-* 02 - IoT - Broker.md
-* 03 - IoT - NodeRed.md
-* 04 - IoT - InfluxDB.md
+8. **Uso adequado de cada tecnologia**
+   O relacional é usado para dados estruturados e críticos; o NoSQL para dados flexíveis ou volumosos.
 
+9. **Análise crítica da arquitetura adotada**
+   O grupo avalia vantagens, limitações e possíveis melhorias da solução híbrida.
 
-### Camada de Negócio
-
-Responsável por regras empresariais e consolidação de eventos.
-
-Componentes:
-
-* Backend Java ou .NET
-* Banco relacional (PostgreSQL ou SQL Server)
-
-Função:
-
-* Gerenciar pedidos
-* Gerenciar clientes
-* Consolidar eventos de produção
-* Integrar com serviço de IA
-
-Documentação detalhada:
-
-* 05 - Backend.md
-
-
-### Camada de Inteligência Artificial
-
-Responsável por recomendações inteligentes de opcionais.
-
-Componente:
-
-* Microserviço Python (API REST)
-
-Função:
-
-* Treinar modelo
-* Expor endpoint de recomendação
-* Retornar ranking de opcionais
-
-Documentação detalhada:
-
-* 06 - Recomendacao IA.md
-
-
-### Camada de Aplicação
-
-Responsável pela experiência do usuário.
-
-Componentes:
-
-* Portal Web
-* Aplicativo Mobile
-
-Função:
-
-* Exibir status da produção
-* Permitir seleção de opcionais
-* Exibir recomendações inteligentes
-
-Documentação detalhada:
-
-* 07 - Camada de Aplicacao.md
-
-
-## 6. Arquitetura Lógica Completa
-
-```mermaid
-flowchart LR
-
-subgraph Camada_IoT
-    ESP32[ESP32 - Wokwi]
-    MQTT[Broker MQTT<br/>HiveMQ / AWS IoT Core]
-    NodeRed[Node-RED<br/>Docker]
-    Influx[(InfluxDB<br/>Time-Series)]
-end
-
-subgraph Camada_Negocio
-    Backend[Backend<br/>Java / .NET]
-    RelDB[(Banco Relacional<br/>Postgres / SQL Server)]
-    AI[Serviço de IA<br/>Python - Recomendação]
-end
-
-subgraph Camada_Aplicacao
-    Web[Portal Web]
-    Mobile[App Mobile]
-end
-
-ESP32 --> MQTT
-MQTT --> NodeRed
-NodeRed --> Influx
-NodeRed -->|Evento Interno HTTP/MQTT| Backend
-Backend --> RelDB
-Backend --> AI
-AI --> Backend
-Backend --> Web
-Backend --> Mobile
-```
-
-
-## 7. Justificativas Técnicas
-
-#### 7.1 Por que Time-Series (InfluxDB)?
-
-Dados de produção:
-
-* São eventos frequentes
-* São orientados a timestamp
-* Podem crescer rapidamente
-
-Time-series DB é otimizado para:
-
-* Escrita massiva
-* Consultas por intervalo de tempo
-* Agregações temporais
-
-
-#### 7.2 Por que Separar Dados Brutos e Consolidados?
-
-Permite:
-
-* Alta performance de ingestão
-* Resiliência
-* Independência entre camadas
-* Melhor organização de responsabilidades
-
-
-#### 7.3 Por que IA como Microserviço?
-
-* Neutralidade entre Java e .NET
-* Escalabilidade independente
-* Evolução futura para cloud
-* Atualização de modelo sem impactar backend
-
-
-## 8. Preparação para Cloud
-
-Arquitetura preparada para futura migração:
-
-* MQTT → AWS IoT Core
-* InfluxDB → AWS Timestream
-* Backend → Containers em ECS
-* IA → SageMaker
-* Banco relacional → RDS
-
-A estrutura já nasce compatível com padrões modernos de arquitetura distribuída.
-
-
-## 9. Objetivo Acadêmico
-
-O projeto permite trabalhar de forma integrada:
-
-* IoT
-* Event-driven architecture
-* Banco NoSQL e relacional
-* Microserviços
-* Machine Learning aplicado
-* Integração entre linguagens
-* Arquitetura enterprise realista
+10. **Documentação técnica integrada**
+    O projeto apresenta documentação completa dos dois bancos, incluindo DER, estrutura NoSQL e explicação da arquitetura geral.
