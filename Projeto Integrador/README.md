@@ -135,7 +135,6 @@ Na disciplina de Tecnologias da Informação e Conectividade, os critérios de a
 
 Dessa forma, os estudantes deverão apresentar uma visão conceitual de como o projeto se insere em um contexto real de redes, utilizando os conhecimentos estudados na disciplina.
 
-### Critérios de Avaliação
 
 | Critério                                 | Descrição                                                                                                       | Peso |
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ---- |
@@ -151,33 +150,25 @@ Dessa forma, os estudantes deverão apresentar uma visão conceitual de como o p
 **Total: 100 pontos**
 
 
-
 ## Metodologia Científica Aplicada
 
-Na disciplina de Metodologia Científica Aplicada, os critérios de avaliação são organizados com foco na elaboração de um **artigo científico** e de um **banner acadêmico**, que representem o projeto integrador como um todo. Espera-se que os estudantes sejam capazes de estruturar e documentar sua solução de forma acadêmica, utilizando normas técnicas, linguagem científica e fundamentação teórica adequada.
+Na disciplina de Metodologia Científica Aplicada, os critérios de avaliação são organizados com foco na elaboração de um **banner acadêmico**, que represente o projeto integrador como um todo. Espera-se que os estudantes sejam capazes de sintetizar e comunicar sua solução de forma clara, estruturada e com base em conceitos científicos, utilizando linguagem adequada e organização coerente.
 
-O artigo deverá contemplar não apenas a descrição do sistema desenvolvido, mas também a contextualização do problema, revisão de literatura dos principais conceitos envolvidos e a apresentação dos artefatos produzidos ao longo das demais disciplinas, como modelagem de banco de dados, diagramas UML, fluxogramas, protótipos de interface e diagramas de rede.
+O banner deverá apresentar de forma objetiva os principais elementos do projeto, como problema, objetivos, fundamentação teórica, metodologia, resultados e conclusões, podendo incluir também artefatos produzidos ao longo das demais disciplinas, como modelagem de banco de dados, diagramas UML, fluxogramas, protótipos de interface e diagramas de rede.
 
-O banner deverá sintetizar visualmente o projeto, destacando os principais pontos do artigo, como problema, objetivos, metodologia, resultados e conclusões, sendo utilizado como suporte para a apresentação na feira.
+Dessa forma, a disciplina tem como objetivo desenvolver a capacidade de pesquisa, síntese de informações e comunicação técnica em formato visual e acadêmico.
 
-Dessa forma, a disciplina tem como objetivo consolidar o projeto em formatos científicos e de divulgação, desenvolvendo a capacidade de pesquisa, organização do conhecimento e comunicação técnica.
 
-### Critérios de Avaliação
-
-| Critério                            | Descrição                                                                                            | Peso |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------- | ---- |
-| *1. Estrutura do Artigo*            | Organização correta conforme template (elementos pré, textuais e pós-textuais).                      | 15%  |
-| *2. Introdução e Contextualização*  | Apresentação clara do problema, objetivos e justificativa do projeto.                                | 10%  |
-| *3. Revisão de Literatura*          | Fundamentação teórica com conceitos relevantes das disciplinas envolvidas.                           | 20%  |
-| *4. Metodologia*                    | Descrição de como o projeto foi desenvolvido (processos, técnicas, ferramentas).                     | 15%  |
-| *5. Apresentação dos Resultados*    | Descrição do sistema desenvolvido, incluindo artefatos (DER, UML, fluxogramas, protótipos, etc.).    | 15%  |
-| *6. Discussão*                      | Análise crítica da solução proposta, limitações e possíveis melhorias.                               | 10%  |
-| *7. Normas e Formatação (ABNT)*     | Aplicação correta de citações, referências e formatação conforme normas.                             | 10%  |
-| *8. Clareza e Qualidade da Escrita* | Texto coeso, claro, com linguagem adequada ao contexto científico.                                   | 3%   |
-| *9. Banner Científico*              | Organização visual, clareza das informações e capacidade de síntese do projeto no formato de banner. | 2%   |
+| Critério                         | Descrição                                                                                   | Peso |
+| -------------------------------- | ------------------------------------------------------------------------------------------- | ---- |
+| *1. Estrutura do Banner*         | Organização adequada das seções (problema, objetivos, metodologia, resultados, conclusões). | 20%  |
+| *2. Fundamentação Teórica*       | Apresentação de conceitos relevantes que sustentam o projeto.                               | 15%  |
+| *3. Metodologia do Projeto*      | Clareza na descrição de como o projeto foi desenvolvido.                                    | 15%  |
+| *4. Apresentação dos Resultados* | Clareza e qualidade na apresentação da solução desenvolvida.                                | 20%  |
+| *5. Organização Visual*          | Layout, legibilidade, uso adequado de elementos gráficos e equilíbrio visual.               | 15%  |
+| *6. Clareza e Síntese*           | Capacidade de resumir o projeto de forma objetiva e compreensível.                          | 15%  |
 
 **Total: 100 pontos**
-
 
 
 ## Entrega e Apresentação
