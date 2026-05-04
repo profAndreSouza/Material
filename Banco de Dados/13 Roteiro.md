@@ -5,8 +5,6 @@
 * **Conceitos Básicos:** Entenda profundamente o que são **registros (linhas)**, **campos (colunas)**, **chaves primárias (PK)** e **chaves estrangeiras (FK)**. Saiba como os **índices** melhoram a performance de consultas.
 * **SGBD (Sistema Gerenciador de Banco de Dados):** Compreenda o papel de sistemas como MySQL e PostgreSQL: gerenciar armazenamento, segurança, integridade e acesso aos dados.
 * **Entidades e Relacionamentos:** Entidades representam objetos do mundo real (Cliente, Produto), enquanto relacionamentos definem como esses objetos se conectam.
-* **Integração com Aplicações:** Bancos de dados não funcionam isolados — são acessados por sistemas (web, mobile, APIs), geralmente via SQL ou ORMs.
-
 ---
 
 ## 2. Modelagem de Dados
