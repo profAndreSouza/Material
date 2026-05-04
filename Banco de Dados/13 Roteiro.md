@@ -5,7 +5,7 @@
 * **Conceitos Básicos:** Entenda profundamente o que são **registros (linhas)**, **campos (colunas)**, **chaves primárias (PK)** e **chaves estrangeiras (FK)**. Saiba como os **índices** melhoram a performance de consultas.
 * **SGBD (Sistema Gerenciador de Banco de Dados):** Compreenda o papel de sistemas como MySQL e PostgreSQL: gerenciar armazenamento, segurança, integridade e acesso aos dados.
 * **Entidades e Relacionamentos:** Entidades representam objetos do mundo real (Cliente, Produto), enquanto relacionamentos definem como esses objetos se conectam.
----
+
 
 ## 2. Modelagem de Dados
 
@@ -31,7 +31,7 @@
   * 2FN: eliminar dependência parcial
   * 3FN: eliminar dependência transitiva
 
----
+
 
 ## 3. Modelo Físico de Dados (MFD)
 
@@ -44,7 +44,6 @@
   * FLOAT/DECIMAL (valores numéricos com precisão)
 * **Criação de Estruturas:** Definição de tabelas, chaves, constraints e índices.
 
----
 
 ## 4. Bancos de Dados Relacionais
 
@@ -52,7 +51,6 @@
 * **Tabelas:** Unidade principal de armazenamento, compostas por linhas e colunas.
 * **Integridade Referencial:** Garantia de consistência entre tabelas através de chaves estrangeiras.
 
----
 
 ## 5. Linguagem SQL (Structured Query Language)
 
@@ -77,5 +75,4 @@
   * INNER JOIN (interseção)
   * LEFT JOIN (todos da esquerda + correspondências)
   * RIGHT JOIN (todos da direita)
-
----
+  
