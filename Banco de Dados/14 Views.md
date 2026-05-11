@@ -201,7 +201,14 @@ INNER JOIN pedidos ped ON cli.id_cliente = ped.id_cliente
 ## Procedure para atualizar estoque
 
 ```sql
+CREATE OR REPLACE PROCEDURE ()
+LANGUAGE plpgsql
+AS
+$$
+BEGIN
 
+END;
+$$;
 ```
 
 ## Executando a Procedure
