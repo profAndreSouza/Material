@@ -176,7 +176,7 @@ $$
 	BEGIN
 		SELECT SUM(i.quantidade * i.valor_unitario)
 		INTO valor_total
-		FROM pedido p INNER JOIN itens_pedido i
+		FROM pedidos p INNER JOIN itens_pedido i
 		ON p.id_pedido = i.id_pedido
 		WHERE p.id_pedido = p_id_pedido;
 		
@@ -188,7 +188,10 @@ $$;
 ## Executando a Function
 
 ```sql
-
+SELECT cli.nome, ped.id_pedido AS num_pedido, 
+	   fn_total_pedido(ped.id_pedido) AS valor_total
+FROM clientes cli 
+INNER JOIN pedidos ped ON cli.id_cliente = ped.id_cliente
 ```
 
 ---
