@@ -201,11 +201,18 @@ INNER JOIN pedidos ped ON cli.id_cliente = ped.id_cliente
 ## Procedure para atualizar estoque
 
 ```sql
-CREATE OR REPLACE PROCEDURE ()
+CREATE OR REPLACE PROCEDURE pr_baixar_estoque(
+    p_id_produto INTEGER,
+    p_quantidade INTEGER
+)
 LANGUAGE plpgsql
 AS
 $$
 BEGIN
+
+    UPDATE produtos
+    SET estoque = estoque - p_quantidade
+    WHERE id_produto = p_id_produto;
 
 END;
 $$;
@@ -214,13 +221,13 @@ $$;
 ## Executando a Procedure
 
 ```sql
-
+CALL pr_baixar_estoque(1, 2);
 ```
 
 ## Conferindo resultado
 
 ```sql
-
+SELECT * FROM produtos;
 ```
 
 ---
