@@ -142,13 +142,19 @@ Objetivo:
 Visualizar pedidos com nome do cliente e valor total.
 
 ```sql
-
+CREATE VIEW vw_pedidos AS
+SELECT cli.nome, ped.id_pedido AS num_pedido, 
+	   SUM(item.quantidade * item.valor_unitario) AS valor_total
+FROM clientes cli 
+INNER JOIN pedidos ped ON cli.id_cliente = ped.id_cliente
+INNER JOIN itens_pedido item ON ped.id_pedido = item.id_pedido
+GROUP BY cli.nome, ped.id_pedido
 ```
 
 ## Consultando a VIEW
 
 ```sql
-
+SELECT * FROM vw_pedidos;
 ```
 
 ---
@@ -158,7 +164,25 @@ Visualizar pedidos com nome do cliente e valor total.
 ## Function para calcular total de um pedido
 
 ```sql
-
+CREATE OR REPLACE FUNCTION fn_total_pedido(
+     p_id_pedido INTEGER
+)
+RETURNS NUMERIC
+LANGUAGE plpgsql
+AS
+$$
+	DECLARE
+	    valor_total NUMERIC;
+	BEGIN
+		SELECT SUM(i.quantidade * i.valor_unitario)
+		INTO valor_total
+		FROM pedido p INNER JOIN itens_pedido i
+		ON p.id_pedido = i.id_pedido
+		WHERE p.id_pedido = p_id_pedido;
+		
+	    RETURN valor_total;
+	END;
+$$;
 ```
 
 ## Executando a Function
