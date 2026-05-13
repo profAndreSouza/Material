@@ -235,7 +235,7 @@ CALL pr_baixar_estoque(1, 2);
 ## Conferindo resultado
 
 ```sql
-SELECT * FROM produtos;
+SELECT * FROM produtos ORDER BY id_produto;
 ```
 
 ---
