@@ -240,6 +240,55 @@ SELECT * FROM produtos ORDER BY id_produto;
 
 ---
 
+## Exemplo de inserção de itens_pedido somente se tiver estoque e com atualização automática do estoque
+
+```sql
+CREATE OR REPLACE PROCEDURE pr_add_item_pedido(
+	p_id_pedido INTEGER,
+    p_id_produto INTEGER,
+    p_quantidade INTEGER
+)
+LANGUAGE plpgsql
+AS
+$$
+	DECLARE
+		v_estoque INTEGER;
+		v_preco NUMERIC(10,2);
+	BEGIN
+		SELECT
+			estoque, preco INTO v_estoque, v_preco
+		FROM produtos
+		WHERE id_produto = p_id_produto;
+
+		IF NOT FOUND THEN
+			RAISE EXCEPTION 'Produto não encontrado!';
+		END IF;
+
+		IF (v_estoque < p_quantidade) THEN
+			RAISE EXCEPTION 'Estoque insuficiente!';
+		END IF;
+
+		INSERT INTO itens_pedido 
+			(id_pedido, id_produto, quantidade, valor_unitario)
+		VALUES
+			(p_id_pedido, p_id_produto, p_quantidade, v_preco);
+
+		UPDATE produtos
+			SET estoque = estoque - p_quantidade
+			WHERE id_produto = p_id_produto;
+
+	END;
+$$;
+```
+
+## Executando a Procedure
+
+```sql
+CALL pr_add_item_pedido(1, 1, 10);
+```
+
+---
+
 # 7. Diferença Prática
 
 | Recurso   | Objetivo         | Retorna valor?  | Pode usar em SELECT? |
