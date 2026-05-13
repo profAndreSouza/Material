@@ -208,7 +208,16 @@ LANGUAGE plpgsql
 AS
 $$
 BEGIN
+	IF (
+        SELECT estoque
+        FROM produtos
+        WHERE id_produto = p_id_produto
+    ) < p_quantidade THEN
 
+        RAISE EXCEPTION 'Estoque insuficiente para o produto %', p_id_produto;
+
+    END IF;
+	
     UPDATE produtos
     SET estoque = estoque - p_quantidade
     WHERE id_produto = p_id_produto;
