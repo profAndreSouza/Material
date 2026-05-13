@@ -165,7 +165,7 @@ SELECT * FROM vw_pedidos;
 
 ```sql
 CREATE OR REPLACE FUNCTION fn_total_pedido(
-     p_id_pedido INTEGER
+	p_id_pedido NUMERIC
 )
 RETURNS NUMERIC
 LANGUAGE plpgsql
@@ -174,13 +174,12 @@ $$
 	DECLARE
 	    valor_total NUMERIC;
 	BEGIN
-		SELECT SUM(i.quantidade * i.valor_unitario)
-		INTO valor_total
-		FROM pedidos p INNER JOIN itens_pedido i
-		ON p.id_pedido = i.id_pedido
-		WHERE p.id_pedido = p_id_pedido;
-		
-	    RETURN valor_total;
+		SELECT 
+		    SUM(quantidade * valor_unitario) INTO valor_total
+		FROM itens_pedido
+		WHERE id_pedido = p_id_pedido;
+
+		RETURN valor_total;
 	END;
 $$;
 ```
