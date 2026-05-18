@@ -209,7 +209,7 @@ Em vez de tabelas ou listas, utilizam estruturas de grafos constituídas por **V
 
 O **MongoDB** é o banco de dados NoSQL mais utilizado no mercado de tecnologia mundial. Ele armazena dados em documentos no formato **BSON (Binary JSON)**, uma extensão binária do JSON que suporta mais tipos de dados (como datas nativas, números decimais precisos e dados binários).
 
-# 9. Equivalência de Conceitos: SQL vs. MongoDB
+## 8.1 Equivalência de Conceitos: SQL vs. MongoDB
 
 Para quem está migrando do modelo relacional, esta tabela funciona como um tradutor mental imediato de termos:
 
@@ -222,7 +222,7 @@ Para quem está migrando do modelo relacional, esta tabela funciona como um trad
 | **Index** (Índice) | **Index** | Estrutura para acelerar as consultas. |
 | **Table JOIN** | **$lookup** ou **Embedded Docs** | Mecanismo para cruzar ou aninhar dados. |
 
-# 10. Anatomia de um Documento MongoDB
+## 8.2 Anatomia de um Documento MongoDB
 
 Todo documento inserido no MongoDB possui, obrigatoriamente, um campo exclusivo chamado `_id`. Se você não o definir explicitamente, o MongoDB gerará automaticamente um identificador único global chamado `ObjectId`.
 
@@ -240,13 +240,13 @@ Todo documento inserido no MongoDB possui, obrigatoriamente, um campo exclusivo 
 
 
 
-# 11. Guia Prático de Manipulação de Dados (CRUD)
+## 8.3 Guia Prático de Manipulação de Dados (CRUD)
 
 Abaixo, encontram-se os comandos fundamentais do MongoDB Shell para a realização das operações de **C**reate, **R**ead, **U**pdate e **D**elete.
 
-## 11.1 CREATE (Inserção)
+### 8.3.1 CREATE (Inserção)
 
-### Inserir apenas um documento (`insertOne`)
+#### Inserir apenas um documento (`insertOne`)
 
 ```javascript
 // Acessa a coleção 'clientes' e insere o objeto passado por parâmetro
@@ -258,7 +258,7 @@ db.clientes.insertOne({
 
 ```
 
-### Inserir múltiplos documentos em lote (`insertMany`)
+#### Inserir múltiplos documentos em lote (`insertMany`)
 
 ```javascript
 // Passamos um array [] contendo vários objetos JSON
@@ -271,16 +271,16 @@ db.clientes.insertMany([
 
 
 
-## 11.2 READ (Consulta e Filtros)
+### 8.3.2 READ (Consulta e Filtros)
 
-### Buscar todos os documentos de uma coleção
+#### Buscar todos os documentos de uma coleção
 
 ```javascript
 db.clientes.find();
 
 ```
 
-### Buscar filtrando por igualdade simples
+#### Buscar filtrando por igualdade simples
 
 ```javascript
 // Retorna todos os clientes cuja idade seja exatamente igual a 28
@@ -288,7 +288,7 @@ db.clientes.find({ idade: 28 });
 
 ```
 
-### Operadores de Comparação Avançados
+#### Operadores de Comparação Avançados
 
 Para fazer filtros avançados, o MongoDB utiliza operadores especiais prefixados com o caractere `$`:
 
@@ -313,11 +313,11 @@ db.clientes.find({
 
 
 
-## 11.3 UPDATE (Atualização)
+### 8.3.3 UPDATE (Atualização)
 
 > ⚠️ **Atenção:** Em operações de alteração no MongoDB, você deve utilizar operadores como `$set`. Caso passe apenas as propriedades sem o `$set`, o documento antigo será totalmente **substituído** pelo novo objeto.
 
-### Atualizar o primeiro documento encontrado (`updateOne`)
+#### Atualizar o primeiro documento encontrado (`updateOne`)
 
 ```javascript
 db.clientes.updateOne(
@@ -327,7 +327,7 @@ db.clientes.updateOne(
 
 ```
 
-### Atualizar múltiplos documentos em massa (`updateMany`)
+#### Atualizar múltiplos documentos em massa (`updateMany`)
 
 ```javascript
 db.clientes.updateMany(
@@ -339,16 +339,16 @@ db.clientes.updateMany(
 
 
 
-## 11.4 DELETE (Remoção)
+### 8.3.4 DELETE (Remoção)
 
-### Remover o primeiro documento correspondente (`deleteOne`)
+#### Remover o primeiro documento correspondente (`deleteOne`)
 
 ```javascript
 db.clientes.deleteOne({ nome: "Carlos" });
 
 ```
 
-### Remover múltiplos documentos correspondentes (`deleteMany`)
+#### Remover múltiplos documentos correspondentes (`deleteMany`)
 
 ```javascript
 // Remove todos os registros cujo campo 'ativo' seja falso
@@ -358,7 +358,7 @@ db.clientes.deleteMany({ ativo: false });
 
 
 
-# 12. Arquitetura Avançada em NoSQL
+# 9. Arquitetura Avançada em NoSQL
 
 ## Índices (*Indexes*)
 
@@ -370,17 +370,17 @@ db.clientes.createIndex({ nome: 1 });
 
 ```
 
-# 13. Replicação e Alta Disponibilidade (*Replica Sets*)
+# 10. Replicação e Alta Disponibilidade (*Replica Sets*)
 
 O MongoDB gerencia alta disponibilidade através de **Replica Sets**. Trata-se de um cluster composto por uma instância **Primária** (responsável por receber todas as escritas) e diversas instâncias **Secundárias** (que copiam os dados do nó primário continuamente). Se o nó Primário sofrer uma pane, os nós Secundários realizam uma votação automatizada e elegem um novo líder em frações de segundo.
 
-# 14. Distribuição de Dados com Sharding
+# 11. Distribuição de Dados com Sharding
 
 Quando o volume de dados ultrapassa a capacidade de armazenamento de um único servidor físico de grande porte, entra em jogo o **Sharding**. Ele quebra os dados da coleção em fatias (*shards*) baseando-se em uma chave escolhida e distribui essas fatias de forma transparente entre servidores independentes.
 
 
 
-# 15. Tomada de Decisão: Quando Usar e Quando Evitar NoSQL
+# 12. Tomada de Decisão: Quando Usar e Quando Evitar NoSQL
 
 A escolha de um banco de dados deve ser pragmática, pautada nos requisitos de negócio e técnicos do sistema.
 
@@ -399,7 +399,7 @@ A escolha de um banco de dados deve ser pragmática, pautada nos requisitos de n
 
 
 
-# 16. Casos de Uso no Mundo Real
+# 13. Casos de Uso no Mundo Real
 
 | Empresa | Tecnologia Adotada | Cenário de Aplicação |
 |  |  |  |
