@@ -244,7 +244,7 @@ Todo documento inserido no MongoDB possui, obrigatoriamente, um campo exclusivo 
 
 Abaixo, encontram-se os comandos fundamentais do MongoDB Shell para a realização das operações de **C**reate, **R**ead, **U**pdate e **D**elete.
 
-## A. CREATE (Inserção)
+## 11.1 CREATE (Inserção)
 
 ### Inserir apenas um documento (`insertOne`)
 
@@ -271,7 +271,7 @@ db.clientes.insertMany([
 
 
 
-## B. READ (Consulta e Filtros)
+## 11.2 READ (Consulta e Filtros)
 
 ### Buscar todos os documentos de uma coleção
 
@@ -313,7 +313,7 @@ db.clientes.find({
 
 
 
-## C. UPDATE (Atualização)
+## 11.3 UPDATE (Atualização)
 
 > ⚠️ **Atenção:** Em operações de alteração no MongoDB, você deve utilizar operadores como `$set`. Caso passe apenas as propriedades sem o `$set`, o documento antigo será totalmente **substituído** pelo novo objeto.
 
@@ -339,7 +339,7 @@ db.clientes.updateMany(
 
 
 
-## D. DELETE (Remoção)
+## 11.4 DELETE (Remoção)
 
 ### Remover o primeiro documento correspondente (`deleteOne`)
 
