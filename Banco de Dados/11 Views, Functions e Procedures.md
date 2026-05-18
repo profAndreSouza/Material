@@ -1,302 +1,403 @@
-## Cenário Base
+# Views, Functions e Procedures no PostgreSQL
 
-Considere o mesmo sistema de **gestão acadêmica**, agora com foco em operações mais avançadas no banco de dados. Teremos as seguintes tabelas principais:
+## 1. Conceitos Fundamentais
 
-* aluno
-* professor
-* disciplina
-* turma
-* matricula
-* aluno_disciplina (com nota)
+### Views
 
+Uma **VIEW** é uma “tabela virtual” baseada em uma consulta SQL.
 
-## Estrutura base para os exemplos
+Serve para:
 
-```sql id="base01"
-CREATE TABLE aluno (
-    id_aluno SERIAL PRIMARY KEY,
-    nome TEXT
+* simplificar consultas complexas;
+* aumentar segurança;
+* reutilizar consultas;
+* abstrair regras de negócio.
+
+### Functions
+
+Uma **FUNCTION**:
+
+* recebe parâmetros;
+* executa lógica;
+* retorna um valor ou tabela;
+* pode ser usada dentro de SELECT.
+
+### Procedures
+
+Uma **PROCEDURE**:
+
+* executa rotinas completas;
+* pode realizar transações;
+* normalmente usada para automações e processos.
+
+No PostgreSQL:
+
+* FUNCTION → retorna algo;
+* PROCEDURE → executa ações.
+
+---
+
+# Cenário da Aula
+
+Vamos criar um mini sistema de vendas.
+
+Teremos:
+
+* clientes;
+* produtos;
+* pedidos;
+* itens do pedido.
+
+---
+
+# 2. DDL — Estrutura do Banco
+
+```sql
+-- =========================
+-- CRIAÇÃO DAS TABELAS
+-- =========================
+
+CREATE TABLE clientes (
+    id_cliente SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    cidade VARCHAR(80)
 );
 
-CREATE TABLE professor (
-    id_professor SERIAL PRIMARY KEY,
-    nome TEXT
+CREATE TABLE produtos (
+    id_produto SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    preco NUMERIC(10,2) NOT NULL,
+    estoque INTEGER NOT NULL
 );
 
-CREATE TABLE disciplina (
-    id_disciplina SERIAL PRIMARY KEY,
-    nome TEXT,
-    id_professor INT REFERENCES professor(id_professor)
+CREATE TABLE pedidos (
+    id_pedido SERIAL PRIMARY KEY,
+    id_cliente INTEGER REFERENCES clientes(id_cliente),
+    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE turma (
-    id_turma SERIAL PRIMARY KEY,
-    nome TEXT
+CREATE TABLE itens_pedido (
+    id_item SERIAL PRIMARY KEY,
+    id_pedido INTEGER REFERENCES pedidos(id_pedido),
+    id_produto INTEGER REFERENCES produtos(id_produto),
+    quantidade INTEGER NOT NULL,
+    valor_unitario NUMERIC(10,2) NOT NULL
 );
-
-CREATE TABLE matricula (
-    id_aluno INT REFERENCES aluno(id_aluno),
-    id_turma INT REFERENCES turma(id_turma),
-    PRIMARY KEY (id_aluno, id_turma)
-);
-
-CREATE TABLE aluno_disciplina (
-    id_aluno INT REFERENCES aluno(id_aluno),
-    id_disciplina INT REFERENCES disciplina(id_disciplina),
-    nota NUMERIC,
-    PRIMARY KEY (id_aluno, id_disciplina)
-);
-
-INSERT INTO aluno (nome) VALUES ('Ana'), ('Bruno');
-INSERT INTO professor (nome) VALUES ('João'), ('Maria');
-INSERT INTO disciplina (nome, id_professor) VALUES 
-('Banco de Dados', 1),
-('Algoritmos', 2);
-
-INSERT INTO aluno_disciplina VALUES
-(1, 1, 8.5),
-(1, 2, 7.0),
-(2, 1, 9.0);
 ```
 
+---
 
-# 1. VIEWS
+# 3. DML — Carga Inicial (LOAD)
 
-Views são **consultas salvas** que se comportam como tabelas virtuais.
+```sql
+-- =========================
+-- CLIENTES
+-- =========================
 
-## 1.1 Criando uma View
+INSERT INTO clientes (nome, email, cidade) VALUES
+('Ana Souza', 'ana@email.com', 'Sorocaba'),
+('Carlos Lima', 'carlos@email.com', 'Votorantim'),
+('Fernanda Alves', 'fernanda@email.com', 'Itu');
 
-### Exemplo: notas dos alunos com disciplinas
+-- =========================
+-- PRODUTOS
+-- =========================
 
-```sql id="view01"
-CREATE VIEW vw_notas_alunos AS
-SELECT a.nome AS aluno,
-       d.nome AS disciplina,
-       ad.nota
-FROM aluno_disciplina ad
-JOIN aluno a ON a.id_aluno = ad.id_aluno
-JOIN disciplina d ON d.id_disciplina = ad.id_disciplina;
+INSERT INTO produtos (nome, preco, estoque) VALUES
+('Notebook', 3500.00, 10),
+('Mouse Gamer', 150.00, 50),
+('Teclado Mecânico', 320.00, 30),
+('Monitor 24', 900.00, 15);
+
+-- =========================
+-- PEDIDOS
+-- =========================
+
+INSERT INTO pedidos (id_cliente) VALUES
+(1),
+(2),
+(1);
+
+-- =========================
+-- ITENS DOS PEDIDOS
+-- =========================
+
+INSERT INTO itens_pedido
+(id_pedido, id_produto, quantidade, valor_unitario)
+VALUES
+(1, 1, 1, 3500.00),
+(1, 2, 2, 150.00),
+(2, 3, 1, 320.00),
+(3, 4, 2, 900.00);
 ```
 
+---
 
-## Consulta na View
+# 4. Trabalhando com VIEW
 
-```sql id="view02"
-SELECT * FROM vw_notas_alunos;
+## Criando uma VIEW
+
+Objetivo:
+Visualizar pedidos com nome do cliente e valor total.
+
+```sql
+CREATE VIEW vw_pedidos AS
+SELECT cli.nome, ped.id_pedido AS num_pedido, 
+	   SUM(item.quantidade * item.valor_unitario) AS valor_total
+FROM clientes cli 
+INNER JOIN pedidos ped ON cli.id_cliente = ped.id_cliente
+INNER JOIN itens_pedido item ON ped.id_pedido = item.id_pedido
+GROUP BY cli.nome, ped.id_pedido
 ```
 
-### Resultado esperado
+## Consultando a VIEW
 
-| aluno | disciplina     | nota |
-| ----- | -------------- | ---- |
-| Ana   | Banco de Dados | 8.5  |
-| Ana   | Algoritmos     | 7.0  |
-| Bruno | Banco de Dados | 9.0  |
-
-
-## 1.2 View com agregação
-
-```sql id="view03"
-CREATE VIEW vw_media_aluno AS
-SELECT a.nome,
-       AVG(ad.nota) AS media
-FROM aluno a
-JOIN aluno_disciplina ad ON ad.id_aluno = a.id_aluno
-GROUP BY a.nome;
+```sql
+SELECT * FROM vw_pedidos;
 ```
 
-### Consulta
+---
 
-```sql id="view04"
-SELECT * FROM vw_media_aluno;
+# 5. Trabalhando com FUNCTION
+
+## Function para calcular total de um pedido
+
+```sql
+CREATE OR REPLACE FUNCTION fn_total_pedido(
+	p_id_pedido NUMERIC
+)
+RETURNS NUMERIC
+LANGUAGE plpgsql
+AS
+$$
+	DECLARE
+	    valor_total NUMERIC;
+	BEGIN
+		SELECT 
+		    SUM(quantidade * valor_unitario) INTO valor_total
+		FROM itens_pedido
+		WHERE id_pedido = p_id_pedido;
+
+		RETURN valor_total;
+	END;
+$$;
 ```
 
-### Resultado esperado
+## Executando a Function
 
-| nome  | media |
-| ----- | ----- |
-| Ana   | 7.75  |
-| Bruno | 9.0   |
-
-
-# 2. FUNCTIONS
-
-Functions retornam valores e podem ser usadas em consultas.
-
-## 2.1 Function escalar
-
-### Exemplo: calcular média de um aluno
-
-```sql id="fn01"
-CREATE OR REPLACE FUNCTION fn_media_aluno(p_id_aluno INT)
-RETURNS NUMERIC AS $$
-DECLARE
-    v_media NUMERIC;
-BEGIN
-    SELECT AVG(nota)
-    INTO v_media
-    FROM aluno_disciplina
-    WHERE id_aluno = p_id_aluno;
-
-    RETURN v_media;
-END;
-$$ LANGUAGE plpgsql;
+```sql
+SELECT cli.nome, ped.id_pedido AS num_pedido, 
+	   fn_total_pedido(ped.id_pedido) AS valor_total
+FROM clientes cli 
+INNER JOIN pedidos ped ON cli.id_cliente = ped.id_cliente
 ```
 
+---
 
-## Uso da Function
+# 6. Trabalhando com PROCEDURE
 
-```sql id="fn02"
-SELECT nome,
-       fn_media_aluno(id_aluno) AS media
-FROM aluno;
-```
+## Procedure para atualizar estoque
 
-### Resultado esperado
-
-| nome  | media |
-| ----- | ----- |
-| Ana   | 7.75  |
-| Bruno | 9.0   |
-
-
-## 2.2 Function retornando tabela
-
-```sql id="fn03"
-CREATE OR REPLACE FUNCTION fn_notas_aluno(p_id_aluno INT)
-RETURNS TABLE (
-    disciplina TEXT,
-    nota NUMERIC
-) AS $$
-BEGIN
-    RETURN QUERY
-    SELECT d.nome, ad.nota
-    FROM aluno_disciplina ad
-    JOIN disciplina d ON d.id_disciplina = ad.id_disciplina
-    WHERE ad.id_aluno = p_id_aluno;
-END;
-$$ LANGUAGE plpgsql;
-```
-
-
-## Uso
-
-```sql id="fn04"
-SELECT * FROM fn_notas_aluno(1);
-```
-
-### Resultado esperado
-
-| disciplina     | nota |
-| -------------- | ---- |
-| Banco de Dados | 8.5  |
-| Algoritmos     | 7.0  |
-
-
-# 3. PROCEDURES
-
-Procedures executam ações (não retornam valor diretamente como SELECT).
-
-## 3.1 Criando Procedure
-
-### Exemplo: atualizar nota
-
-```sql id="proc01"
-CREATE OR REPLACE PROCEDURE pr_atualizar_nota(
-    p_id_aluno INT,
-    p_id_disciplina INT,
-    p_nota NUMERIC
+```sql
+CREATE OR REPLACE PROCEDURE pr_baixar_estoque(
+    p_id_produto INTEGER,
+    p_quantidade INTEGER
 )
 LANGUAGE plpgsql
-AS $$
+AS
+$$
 BEGIN
-    UPDATE aluno_disciplina
-    SET nota = p_nota
-    WHERE id_aluno = p_id_aluno
-      AND id_disciplina = p_id_disciplina;
+	IF (
+        SELECT estoque
+        FROM produtos
+        WHERE id_produto = p_id_produto
+    ) < p_quantidade THEN
+
+        RAISE EXCEPTION 'Estoque insuficiente para o produto %', p_id_produto;
+
+    END IF;
+	
+    UPDATE produtos
+    SET estoque = estoque - p_quantidade
+    WHERE id_produto = p_id_produto;
+
 END;
 $$;
 ```
 
+## Executando a Procedure
 
-## Execução da Procedure
-
-```sql id="proc02"
-CALL pr_atualizar_nota(1, 1, 9.5);
+```sql
+CALL pr_baixar_estoque(1, 2);
 ```
 
+## Conferindo resultado
 
-## Verificando resultado
-
-```sql id="proc03"
-SELECT * FROM aluno_disciplina
-WHERE id_aluno = 1 AND id_disciplina = 1;
+```sql
+SELECT * FROM produtos ORDER BY id_produto;
 ```
 
-### Resultado esperado
+---
 
-| id_aluno | id_disciplina | nota |
-| -------- | ------------- | ---- |
-| 1        | 1             | 9.5  |
+## Exemplo de inserção de itens_pedido somente se tiver estoque e com atualização automática do estoque
 
+```sql
+CREATE OR REPLACE PROCEDURE pr_add_item_pedido(
+	p_id_pedido INTEGER,
+    p_id_produto INTEGER,
+    p_quantidade INTEGER
+)
+LANGUAGE plpgsql
+AS
+$$
+	DECLARE
+		v_estoque INTEGER;
+		v_preco NUMERIC(10,2);
+	BEGIN
+		SELECT
+			estoque, preco INTO v_estoque, v_preco
+		FROM produtos
+		WHERE id_produto = p_id_produto;
 
-# 4. Diferença prática entre VIEW, FUNCTION e PROCEDURE
+		IF NOT FOUND THEN
+			RAISE EXCEPTION 'Produto não encontrado!';
+		END IF;
 
-## View
+		IF (v_estoque < p_quantidade) THEN
+			RAISE EXCEPTION 'Estoque insuficiente!';
+		END IF;
 
-* Foco em consulta
-* Não recebe parâmetros diretamente
-* Simplifica SELECT complexos
+		INSERT INTO itens_pedido 
+			(id_pedido, id_produto, quantidade, valor_unitario)
+		VALUES
+			(p_id_pedido, p_id_produto, p_quantidade, v_preco);
 
-```sql id="cmp01"
-SELECT * FROM vw_media_aluno;
+		UPDATE produtos
+			SET estoque = estoque - p_quantidade
+			WHERE id_produto = p_id_produto;
+
+	END;
+$$;
 ```
 
+## Executando a Procedure
 
-## Function
-
-* Retorna valor ou tabela
-* Pode ser usada dentro de SELECT
-
-```sql id="cmp02"
-SELECT fn_media_aluno(1);
+```sql
+CALL pr_add_item_pedido(1, 1, 10);
 ```
 
+---
 
-## Procedure
+# 7. Diferença Prática
 
-* Executa ação (UPDATE, INSERT, DELETE)
-* Chamada com `CALL`
+| Recurso   | Objetivo         | Retorna valor?  | Pode usar em SELECT? |
+| --------- | ---------------- | --------------- | -------------------- |
+| VIEW      | Consulta virtual | Sim             | Sim                  |
+| FUNCTION  | Regra/cálculo    | Sim             | Sim                  |
+| PROCEDURE | Processo/rotina  | Não obrigatório | Não                  |
 
-```sql id="cmp03"
-CALL pr_atualizar_nota(1, 2, 8.0);
+---
+
+# 8. Exercícios
+
+---
+
+## Exercício 1 — VIEW
+
+Crie uma VIEW chamada:
+
+```sql
+vw_produtos_estoque
 ```
 
+Mostrando:
 
-# 5. Exemplo Integrado (uso conjunto)
+* nome do produto;
+* preço;
+* estoque.
 
-```sql id="full01"
--- Atualiza nota
-CALL pr_atualizar_nota(1, 2, 8.0);
+---
 
--- Consulta via function
-SELECT fn_media_aluno(1);
+## Exercício 2 — FUNCTION
 
--- Consulta via view
-SELECT * FROM vw_notas_alunos;
+Crie uma FUNCTION que receba:
+
+* preço;
+* quantidade.
+
+E retorne:
+
+* valor total.
+
+Nome:
+
+```sql
+fn_calcular_total
 ```
 
+Teste:
 
-### Resultado esperado combinado
+```sql
+SELECT fn_calcular_total(100, 3);
+```
 
-| aluno | disciplina     | nota |
-| ----- | -------------- | ---- |
-| Ana   | Banco de Dados | 9.5  |
-| Ana   | Algoritmos     | 8.0  |
+---
 
-Média atualizada:
+## Exercício 3 — PROCEDURE
 
-| media |
-| ----- |
-| 8.75  |
+Crie uma PROCEDURE chamada:
 
+```sql
+pr_repor_estoque
+```
+
+Que:
+
+* receba id do produto;
+* quantidade;
+* aumente o estoque.
+
+---
+
+## Exercício 4 — Desafio
+
+Crie uma VIEW que mostre:
+
+* cliente;
+* quantidade de pedidos realizados;
+* valor total gasto.
+
+---
+
+# 9. Respostas dos Exercícios
+
+## Exercício 1
+
+```sql
+
+```
+
+---
+
+## Exercício 2
+
+```sql
+
+```
+
+---
+
+## Exercício 3
+
+```sql
+
+```
+
+---
+
+## Exercício 4
+
+```sql
+
+```
