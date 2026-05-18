@@ -45,7 +45,8 @@ Em ambientes ágeis, os requisitos do software mudam a cada semana. Em um banco 
 
 # 3. Comparativo Técnico: Relacional vs. NoSQL
 
-A tabela abaixo resume as principais diferenças arquiteturais que você deve dominar:
+A tabela abaixo resume as principais diferenças arquiteturais que você deve dominar:formate como tabela
+
 
 | Característica | Banco de Dados Relacional (SQL) | Banco de Dados Não-Relacional (NoSQL) |
 | -------------------------  | ------------------------- | ------------------------- |
@@ -212,14 +213,15 @@ O **MongoDB** é o banco de dados NoSQL mais utilizado no mercado de tecnologia 
 
 Para quem está migrando do modelo relacional, esta tabela funciona como um tradutor mental imediato de termos:
 
-| Conceito no SQL Tradicional | Equivalente no MongoDB | Descrição |
-| -------------------------  | ------------------------- | ------------------------- |
-| **Database** (Banco de dados) | **Database** | Agrupamento lógico de armazenamento. |
-| **Table** (Tabela) | **Collection** (Coleção) | Agrupamento de registros similares. |
-| **Row / Record** (Linha / Registro) | **Document** (Documento) | O registro individual contendo os dados. |
-| **Column** (Coluna) | **Field** (Campo) | Par de chave-valor dentro do documento. |
-| **Index** (Índice) | **Index** | Estrutura para acelerar as consultas. |
-| **Table JOIN** | **$lookup** ou **Embedded Docs** | Mecanismo para cruzar ou aninhar dados. |
+| Conceito no SQL Tradicional         | Equivalente no MongoDB                  | Descrição                                   |
+| ----------------------------------- | --------------------------------------- | ------------------------------------------- |
+| **Database** (Banco de Dados)       | **Database**                            | Agrupamento lógico de armazenamento         |
+| **Table** (Tabela)                  | **Collection** (Coleção)                | Agrupamento de registros similares          |
+| **Row / Record** (Linha / Registro) | **Document** (Documento)                | Registro individual contendo os dados       |
+| **Column** (Coluna)                 | **Field** (Campo)                       | Par chave-valor dentro do documento         |
+| **Index** (Índice)                  | **Index**                               | Estrutura utilizada para acelerar consultas |
+| **Table JOIN**                      | **`$lookup`** ou **Embedded Documents** | Mecanismo para cruzar ou aninhar dados      |
+
 
 ## 8.2 Anatomia de um Documento MongoDB
 
@@ -399,13 +401,13 @@ A escolha de um banco de dados deve ser pragmática, pautada nos requisitos de n
 
 
 # 13. Casos de Uso no Mundo Real
+| Empresa      | Tecnologia Adotada               | Cenário de Aplicação                                                                                                       |
+| ------------ | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Netflix**  | Cassandra / DynamoDB             | Armazenamento do histórico de visualizações de vídeos e logs de comportamento de milhões de usuários globais em tempo real |
+| **Amazon**   | DynamoDB                         | Catálogo flexível de produtos, onde diferentes itens possuem estruturas de dados distintas                                 |
+| **Facebook** | Motores customizados / Grafos    | Mapeamento instantâneo das conexões entre usuários, páginas, curtidas e publicações                                        |
+| **Uber**     | Schemaless / NoSQL proprietários | Processamento massivo e instantâneo de coordenadas de geolocalização e rotas de motoristas em tempo real                   |
 
-| Empresa | Tecnologia Adotada | Cenário de Aplicação |
-| -------------------------  | ------------------------- | ------------------------- |
-| **Netflix** | Cassandra / DynamoDB | Armazenamento do histórico de visualizações de vídeos e logs de comportamento de milhões de usuários globais em tempo real. |
-| **Amazon** | DynamoDB | Catálogo flexível de produtos (onde uma camiseta tem campos como 'tamanho' e 'cor', enquanto um notebook tem 'processador' e 'RAM'). |
-| **Facebook** | Motores customizados / Grafos | Mapeamento instantâneo da imensa teia de conexões entre usuários, páginas, curtidas e posts associados. |
-| **Uber** | Schemaless / NoSQL proprietários | Processamento massivo e instantâneo de coordenadas de geolocalização e rotas de motoristas por segundo. |
 
 
 
