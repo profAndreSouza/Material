@@ -154,18 +154,17 @@ Típico de sistemas NoSQL distribuídos de alta performance.
 
 O termo NoSQL abriga quatro subcategorias principais de bancos de dados, cada uma projetada para um tipo específico de problema técnico:
 
-```
-                  ┌───────────────────────────────┐
-                  │      Famílias de NoSQL        │
-                  └───────────────┬───────────────┘
-         ┌────────────────────────┼────────────────────────┬────────────────────────┐
-         ▼                        ▼                        ▼                        ▼
-┌─────────────────┐      ┌─────────────────┐      ┌─────────────────┐      ┌─────────────────┐
-│   Documento     │      │   Chave-Valor   │      │   Colunares     │      │     Grafos      │
-│ (JSON / BSON)   │      │  (Cache/Sessão) │      │  (Big Data/Anl) │      │ (Relacionamentos│
-└─────────────────┘      └─────────────────┘      └─────────────────┘      └─────────────────┘
+```mermaid
+flowchart TB
 
+    A["Famílias de NoSQL"]
+
+    A --> B["Documento<br>(JSON / BSON)"]
+    A --> C["Chave-Valor<br>(Cache / Sessão)"]
+    A --> D["Colunares<br>(Big Data / Analytics)"]
+    A --> E["Grafos<br>(Relacionamentos)"]
 ```
+
 
 ## 7.1 Bancos Orientados a Documentos
 
