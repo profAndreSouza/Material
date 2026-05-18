@@ -48,7 +48,7 @@ Em ambientes ágeis, os requisitos do software mudam a cada semana. Em um banco 
 A tabela abaixo resume as principais diferenças arquiteturais que você deve dominar:
 
 | Característica | Banco de Dados Relacional (SQL) | Banco de Dados Não-Relacional (NoSQL) |
-|  |  |  |
+| -------------------------  | ------------------------- | ------------------------- |
 | **Estrutura de Dados** | Tabelas estritas com linhas (registros) e colunas. | Flexível (Documentos, Chave-Valor, Grafos, Colunas). |
 | **Esquema (*Schema*)** | Rígido, definido estaticamente antes da inserção. | Dinâmico, flexível em tempo de execução. |
 | **Linguagem de Consulta** | Padrão SQL (`SELECT`, `JOIN`, `WHERE`). | Variada (JSON queries, APIs específicas, CQL). |
@@ -213,7 +213,7 @@ O **MongoDB** é o banco de dados NoSQL mais utilizado no mercado de tecnologia 
 Para quem está migrando do modelo relacional, esta tabela funciona como um tradutor mental imediato de termos:
 
 | Conceito no SQL Tradicional | Equivalente no MongoDB | Descrição |
-|  |  |  |
+| -------------------------  | ------------------------- | ------------------------- |
 | **Database** (Banco de dados) | **Database** | Agrupamento lógico de armazenamento. |
 | **Table** (Tabela) | **Collection** (Coleção) | Agrupamento de registros similares. |
 | **Row / Record** (Linha / Registro) | **Document** (Documento) | O registro individual contendo os dados. |
@@ -292,7 +292,7 @@ db.clientes.find({ idade: 28 });
 Para fazer filtros avançados, o MongoDB utiliza operadores especiais prefixados com o caractere `$`:
 
 | Operador | Significado | Exemplo Prático |
-|  |  |  |
+| -------------------------  | ------------------------- | ------------------------- |
 | `$gt` | *Greater Than* (Maior que) | `{ idade: { $gt: 25 } }` |
 | `$lt` | *Less Than* (Menor que) | `{ idade: { $lt: 40 } }` |
 | `$gte` | *Greater Than or Equal* (Maior ou igual) | `{ idade: { $gte: 18 } }` |
@@ -401,7 +401,7 @@ A escolha de um banco de dados deve ser pragmática, pautada nos requisitos de n
 # 13. Casos de Uso no Mundo Real
 
 | Empresa | Tecnologia Adotada | Cenário de Aplicação |
-|  |  |  |
+| -------------------------  | ------------------------- | ------------------------- |
 | **Netflix** | Cassandra / DynamoDB | Armazenamento do histórico de visualizações de vídeos e logs de comportamento de milhões de usuários globais em tempo real. |
 | **Amazon** | DynamoDB | Catálogo flexível de produtos (onde uma camiseta tem campos como 'tamanho' e 'cor', enquanto um notebook tem 'processador' e 'RAM'). |
 | **Facebook** | Motores customizados / Grafos | Mapeamento instantâneo da imensa teia de conexões entre usuários, páginas, curtidas e posts associados. |
