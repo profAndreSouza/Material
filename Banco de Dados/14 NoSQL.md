@@ -205,7 +205,7 @@ Em vez de tabelas ou listas, utilizam estruturas de grafos constituídas por **V
 
 
 
-# 8. Imersão em MongoDB
+# 8. Exemplificação em MongoDB
 
 O **MongoDB** é o banco de dados NoSQL mais utilizado no mercado de tecnologia mundial. Ele armazena dados em documentos no formato **BSON (Binary JSON)**, uma extensão binária do JSON que suporta mais tipos de dados (como datas nativas, números decimais precisos e dados binários).
 
@@ -221,6 +221,7 @@ Para quem está migrando do modelo relacional, esta tabela funciona como um trad
 | **Column** (Coluna)                 | **Field** (Campo)                       | Par chave-valor dentro do documento         |
 | **Index** (Índice)                  | **Index**                               | Estrutura utilizada para acelerar consultas |
 | **Table JOIN**                      | **`$lookup`** ou **Embedded Documents** | Mecanismo para cruzar ou aninhar dados      |
+
 
 
 ## 8.2 Anatomia de um Documento MongoDB
