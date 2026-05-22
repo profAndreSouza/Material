@@ -85,6 +85,30 @@ No switch principal:
 
 3. Configurar o link entre switch e roteador como trunk.
 
+```
+enable
+conf terminal
+
+vlan 10
+name Adm
+vlan 20
+name TI
+
+int range fa0/1-12
+switchport mode access
+switchport access vlan 10
+
+int range fa0/13-24
+switchport mode access
+switchport access vlan 20
+
+int range gig0/1-2
+switchport mode trunk
+
+end
+write
+```
+
 ---
 
 ## Parte 2 – Router-on-a-Stick
