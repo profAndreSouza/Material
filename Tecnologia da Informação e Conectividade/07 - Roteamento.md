@@ -122,6 +122,24 @@ No roteador da rede interna:
    * `192.168.10.1`
    * `192.168.20.1`
 
+```
+enable
+conf terminal
+
+int gig0/0/0
+no shutdown
+
+int gig0/0/0.10
+encapsulation dot1q 10
+ip address 192.168.10.1 255.255.255.0
+
+int gig0/0/0.20
+encapsulation dot1q 20
+ip address 192.168.20.1 255.255.255.0
+
+end
+write
+```
 ---
 
 ## Parte 3 – DHCP no Roteador
