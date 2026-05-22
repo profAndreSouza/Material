@@ -155,7 +155,26 @@ Os computadores deverão receber automaticamente:
 * Máscara;
 * Gateway padrão.
 
+```
+enable
+conf terminal
+
+ip dhcp excluded-address 192.168.10.1
+ip dhcp excluded-address 192.168.20.1
+
+ip dhcp pool VLAN10
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+
+ip dhcp pool VLAN20
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+
+end
+write
+```
 ---
+
 
 ## Parte 4 – Roteamento Estático
 
