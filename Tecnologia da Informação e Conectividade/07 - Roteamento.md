@@ -1,13 +1,19 @@
-# Roteamento Estático e NAT no Packet Tracer
+# VLAN, DHCP, Roteamento Estático e NAT no Packet Tracer
 
 ## Objetivo
 
-Configurar uma topologia de rede utilizando roteamento estático e NAT no Packet Tracer, garantindo comunicação entre redes internas e externas.
+Configurar uma infraestrutura de rede utilizando:
+
+* VLANs;
+* DHCP no roteador;
+* Roteamento estático;
+* NAT;
+* Expansão de redes.
 
 O exercício será dividido em duas etapas:
 
-* **Etapa 1:** configuração inicial junto com o professor;
-* **Etapa 2:** expansão da topologia com uma nova rede externa.
+* **Etapa 1:** configuração inicial realizada junto com o professor;
+* **Etapa 2:** expansão da topologia pelo aluno.
 
 ---
 
@@ -15,81 +21,131 @@ O exercício será dividido em duas etapas:
 
 ## Cenário
 
-Uma empresa possui duas redes distintas conectadas por roteadores.
+Uma empresa possui dois setores separados por VLANs:
 
-* A **Rede A** utiliza endereçamento privado e deverá acessar a rede externa utilizando NAT.
-* A **Rede B** utiliza endereçamento público válido e NÃO deverá utilizar NAT.
-* A comunicação entre as redes deve ocorrer por meio de roteamento estático.
+* Administrativo;
+* TI.
+
+Os dispositivos deverão receber IP automaticamente via DHCP configurado no roteador.
+
+A empresa também possui uma rede externa utilizando IPs públicos.
+A comunicação entre as redes será realizada através de roteamento estático.
+
+Além disso:
+
+* Apenas a rede privada deverá utilizar NAT;
+* A rede pública NÃO deverá utilizar NAT.
 
 ---
 
-## Topologia Sugerida
+# Topologia Proposta
 
-### Rede A (Rede Privada com NAT)
+## VLANs Internas
 
-* LAN A: `192.168.10.0/24`
-* Gateway: `192.168.10.1`
+| VLAN | Nome           | Rede              |
+| ---- | -------------- | ----------------- |
+| 10   | Administrativo | `192.168.10.0/24` |
+| 20   | TI             | `192.168.20.0/24` |
 
-### Rede B (Rede Pública sem NAT)
+---
 
-* LAN B: `200.10.10.0/24`
-* Gateway: `200.10.10.1`
+## Rede Pública Externa
 
-### Rede entre roteadores
+* `200.10.10.0/24`
+
+---
+
+## Link entre roteadores
 
 * `10.0.0.0/30`
 
 ---
 
-## Equipamentos
+# Equipamentos
 
 * 2 roteadores;
 * 2 switches;
-* 4 computadores (2 em cada rede).
+* 4 computadores;
+* Cabos adequados.
 
 ---
 
-## Requisitos
+# Requisitos
 
-### Parte 1 – Endereçamento
+## Parte 1 – VLANs
 
-Configure:
+No switch principal:
 
-* IP dos computadores;
-* Interfaces dos roteadores;
-* Gateways padrão.
+1. Criar as VLANs:
 
----
+   * VLAN 10;
+   * VLAN 20.
 
-### Parte 2 – Roteamento Estático
+2. Associar as portas corretamente aos setores.
 
-Configure rotas estáticas para permitir:
-
-* Comunicação entre as duas LANs;
-* Testes de conectividade utilizando `ping`.
+3. Configurar o link entre switch e roteador como trunk.
 
 ---
 
-### Parte 3 – NAT
+## Parte 2 – Router-on-a-Stick
 
-Configure NAT apenas no roteador da Rede A:
+No roteador da rede interna:
 
-* Os dispositivos da rede `192.168.10.0/24` devem sair para a rede externa utilizando o IP da interface WAN do roteador;
-* Utilize PAT (NAT Overload).
+1. Criar subinterfaces para as VLANs;
+2. Configurar encapsulamento 802.1Q;
+3. Definir os gateways:
+
+   * `192.168.10.1`
+   * `192.168.20.1`
 
 ---
 
-## Testes Esperados
+## Parte 3 – DHCP no Roteador
+
+Configurar DHCP no roteador para:
+
+* VLAN 10;
+* VLAN 20.
+
+Os computadores deverão receber automaticamente:
+
+* IP;
+* Máscara;
+* Gateway padrão.
+
+---
+
+## Parte 4 – Roteamento Estático
+
+Configurar rotas estáticas para permitir comunicação entre:
+
+* Redes internas;
+* Rede pública externa.
+
+---
+
+## Parte 5 – NAT
+
+Configurar NAT/PAT apenas para as redes privadas:
+
+* VLAN 10;
+* VLAN 20.
+
+As redes deverão acessar a rede externa utilizando o IP da interface WAN do roteador.
+
+A rede pública não deverá sofrer tradução NAT.
+
+---
+
+# Testes Esperados
 
 Ao final da etapa:
 
-* PCs da Rede A devem acessar a Rede B;
-* PCs da Rede B devem responder aos testes de conectividade;
-* A tradução NAT deve ser verificada utilizando:
-
-```bash
-show ip nat translations
-```
+* PCs das VLANs devem receber IP automaticamente;
+* PCs de VLANs diferentes devem se comunicar;
+* As redes internas devem acessar a rede externa;
+* O NAT deve funcionar corretamente;
+* As rotas devem aparecer corretamente na tabela de roteamento.
 
 ---
 
@@ -97,51 +153,71 @@ show ip nat translations
 
 ## Novo Cenário
 
-A empresa contratou uma nova conexão externa e será necessário anexar uma terceira rede ao ambiente.
+Uma nova filial foi adicionada à infraestrutura da empresa.
+
+O aluno deverá integrar essa nova rede ao ambiente existente.
 
 ---
 
-## Nova Rede Externa
+# Nova Rede
 
-### Rede C
+## Rede C
 
-* `172.16.20.0/24`
-* Gateway: `172.16.20.1`
+* `172.16.30.0/24`
 
 ---
 
-## Novos Requisitos
+# Requisitos da Etapa 2
 
 O aluno deverá:
 
-1. Adicionar um novo roteador à topologia;
+1. Adicionar um novo roteador;
 2. Configurar a nova rede;
 3. Implementar o roteamento estático necessário;
 4. Garantir comunicação entre:
 
-   * Rede A;
-   * Rede B;
-   * Rede C.
-5. Ajustar o NAT caso necessário para manter acesso externo da Rede A.
+   * VLAN 10;
+   * VLAN 20;
+   * Rede pública;
+   * Nova rede da filial.
+5. Ajustar as rotas e NAT caso necessário.
 
 ---
 
-## Comandos Úteis
+# Comandos Úteis
 
-### Verificação de Rotas
+## VLANs
+
+```bash
+show vlan brief
+```
+
+## Interfaces trunk
+
+```bash
+show interfaces trunk
+```
+
+## DHCP
+
+```bash
+show ip dhcp binding
+```
+
+## Roteamento
 
 ```bash
 show ip route
 ```
 
-### Verificação do NAT
+## NAT
 
 ```bash
 show ip nat translations
 show ip nat statistics
 ```
 
-### Testes
+## Testes
 
 ```bash
 ping
