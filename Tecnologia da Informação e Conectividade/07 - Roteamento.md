@@ -260,6 +260,28 @@ As redes deverão acessar a rede externa utilizando o IP da interface WAN do rot
 
 A rede pública não deverá sofrer tradução NAT.
 
+
+```
+enable
+conf terminal
+
+access-list 1 permit 192.168.10.0 0.0.0.255
+access-list 1 permit 192.168.20.0 0.0.0.255
+
+int gig 0/0/0.10
+ip nat inside
+int gig 0/0/0.20
+ip nat inside
+int gig 0/0/1
+ip nat outside
+
+ip nat inside source list 1 interface g0/0/1 overload
+
+
+end
+write
+```
+
 ---
 
 # Testes Esperados
