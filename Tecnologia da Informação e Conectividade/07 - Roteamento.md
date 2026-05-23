@@ -55,12 +55,6 @@ Além disso:
 
 ---
 
-## Link entre roteadores
-
-* `10.0.0.0/30`
-
----
-
 # Equipamentos
 
 * 2 roteadores;
@@ -70,7 +64,7 @@ Além disso:
 
 ---
 
-# Requisitos
+# Configurações
 
 ## Parte 1 – VLANs
 
@@ -175,8 +169,55 @@ write
 ```
 ---
 
+## Parte 4 - Configurar o link entre os roteadores
 
-## Parte 4 – Roteamento Estático
+### Roteador 1
+```
+enable
+conf terminal
+
+int gig0/0/1
+no shutdown
+ip address 200.10.10.1 255.255.255.0
+
+end
+write
+```
+
+### Roteador 2
+```
+enable
+conf terminal
+
+int gig0/0/1
+no shutdown
+ip address 200.10.10.2 255.255.255.0
+
+end
+write
+```
+
+## Parte 5 - Configurar a rede interna do Roteador 2
+
+```
+enable
+conf terminal
+
+int gig0/0/0
+no shutdown
+ip address 10.0.0.1 255.255.255.0
+
+end
+write
+```
+
+## Parte 6 - Configurar o IP Estático do Servidor WEB da rede interna do Roteador 2
+
+   * IP `10.0.0.2`
+   * Mascara `255.255.255.0`
+   * Gateway `10.0.0.1`
+
+## Parte 7 – Roteamento Estático
 
 Configurar rotas estáticas para permitir comunicação entre:
 
