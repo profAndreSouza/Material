@@ -224,9 +224,32 @@ Configurar rotas estáticas para permitir comunicação entre:
 * Redes internas;
 * Rede pública externa.
 
+
+### Roteador 1
+```
+enable
+conf terminal
+
+ip route 0.0.0.0 0.0.0.0 200.10.10.2
+
+end
+write
+```
+
+### Roteador 2
+```
+enable
+conf terminal
+
+ip route 0.0.0.0 0.0.0.0 200.10.10.1
+
+end
+write
+```
+
 ---
 
-## Parte 5 – NAT
+## Parte 8 – NAT
 
 Configurar NAT/PAT apenas para as redes privadas:
 
