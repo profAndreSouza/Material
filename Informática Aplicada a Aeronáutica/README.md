@@ -9,7 +9,7 @@
 | **Componente Curricular** | Informática Aplicada a Aeronáutica |
 | **Código** | INF-117 |
 | **Modalidade** | Presencial em Laboratório de Informática |
-| **Carga Horária Total** | 40 Aulas (20 Semanas | 2 Aulas por Semana) |
+| **Carga Horária Total** | 40 Aulas (20 Semanas - 2 Aulas por Semana) |
 | **Período Letivo** | 07/08/2026 a 11/12/2026 |
 | **Perfil da Turma** | Estudantes ingressantes do 1º Semestre, desenvolvendo familiarização tecnológica. A disciplina fundamenta a literacia digital e o uso de ferramentas de software para suporte às disciplinas paralelas do 1º Semestre (Familiarização Aeronáutica EAA-003 e Desenho Técnico DET-002) e semestres futuros (Informação Técnica EAA-009 e Gerenciamento da Manutenção EAM-007). |
 
