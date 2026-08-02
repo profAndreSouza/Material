@@ -1,13 +1,14 @@
 # Repositório de Materiais Complementares & Plataforma FactoryHub
 ## Ecossistema Integrado de Aprendizagem (Smart N1)
 
-Este repositório contém os **materiais complementares** e a plataforma integradora **FactoryHub** para as disciplinas do semestre:
+Este repositório contém os **materiais complementares** e a plataforma integradora **FactoryHub** para as 4 disciplinas do semestre:
 
-- **Automação Industrial**
-- **Ciência de Dados**
-- **DevOps & Computação em Nuvem**
+- **Ciência de Dados (80h)**
+- **Automação Industrial (80h)**
+- **Integração e Entrega Contínua — DevOps (40h)**
+- **Computação em Nuvem (60h)**
 
-No modelo do **Ecossistema Integrado de Aprendizagem**, as disciplinas atuam de forma conectada utilizando a célula fabril **Smart N1** como fonte oficial de dados e telemetria industrial em tempo real.
+No modelo do **Ecossistema Integrado de Aprendizagem**, as 4 disciplinas atuam de forma conectada utilizando a célula fabril **Smart N1** como fonte oficial de dados e telemetria industrial em tempo real.
 
 ---
 
@@ -29,9 +30,11 @@ No modelo do **Ecossistema Integrado de Aprendizagem**, as disciplinas atuam de 
 │   ├── static/                     # CSS e scripts JS
 │   ├── exercicios/                 # Scripts Python stubs para aulas práticas
 │   └── data/                       # Datasets industriais sintéticos e exportações CSV
-├── Ciência de Dados.md             # Ementa oficial completa e matriz bibliográfica
-├── Automacão Industrial.md         # Ementa oficial completa e matriz bibliográfica
-└── Devops e Computação em Nuvem.md # Ementa oficial completa e matriz bibliográfica
+├── Ciência de Dados.md             # Ementa oficial completa e matriz bibliográfica (80h)
+├── Automacão Industrial.md         # Ementa oficial completa e matriz bibliográfica (80h)
+├── DevOps.md                       # Ementa oficial completa e matriz bibliográfica (40h)
+├── Computação em Nuvem.md          # Ementa oficial completa e matriz bibliográfica (60h)
+└── Ementas.pdf                     # PDF com ementas originais
 ```
 
 ---
@@ -94,6 +97,6 @@ No modelo do **Ecossistema Integrado de Aprendizagem**, as disciplinas atuam de 
 
 ## Objetivo Pedagógico
 
-Oferecer aos estudantes acesso facilitado aos materiais discutidos em aula e uma plataforma unificada de baixa complexidade arquitetural para vivenciar todo o ciclo de vida dos dados industriais:
+Oferecer aos estudantes acesso facilitado aos materiais discutidos em aula e uma plataforma unificada para vivenciar todo o ciclo de vida dos dados industriais:
 
-**Aquisição (Automação) → Armazenamento & Análise (Ciência de Dados) → Automação & Deploy em Nuvem (DevOps)**
+**Aquisição (Automação) → Armazenamento & Análise (Ciência de Dados) → Automação de Entregas (DevOps) → Deploy em Nuvem (Computação em Nuvem)**

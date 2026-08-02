@@ -16,6 +16,10 @@ class Config:
     MQTT_KEEPALIVE = 60
     MQTT_TOPICS = [('smartn1/#', 0)]
     
-    # Diretório de Datasets e Exercícios
+    # Diretórios de Datasets e Exercícios por Disciplina
     DATA_DIR = os.path.join(BASE_DIR, 'data')
-    EXERCICIOS_DIR = os.path.join(BASE_DIR, 'exercicios')
+    EXERCICIOS_DIR = os.path.join(BASE_DIR, 'exercicios_ciencia_dados')
+    EXERCICIOS_CIENCIA_DADOS_DIR = os.path.join(BASE_DIR, 'exercicios_ciencia_dados')
+    EXERCICIOS_AUTOMACAO_DIR = os.path.join(BASE_DIR, 'exercicios_automacao')
+    EXERCICIOS_DEVOPS_DIR = os.path.join(BASE_DIR, 'exercicios_devops')
+    EXERCICIOS_NUVEM_DIR = os.path.join(BASE_DIR, 'exercicios_nuvem')

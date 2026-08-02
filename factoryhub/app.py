@@ -9,7 +9,11 @@ if PARENT_DIR not in sys.path:
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
-from factoryhub import create_app
+try:
+    from factoryhub import create_app
+except ModuleNotFoundError:
+    # Quando o contêiner Docker copia os arquivos diretamente para /app
+    from __init__ import create_app
 
 app = create_app()
 

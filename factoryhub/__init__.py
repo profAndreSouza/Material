@@ -7,9 +7,15 @@ if PACKAGE_DIR not in sys.path:
 
 from flask import Flask
 from config import Config
-from database.models import db
-from mqtt.client import mqtt_service
-from routes import main_bp, ementas_bp, analytics_bp, api_bp
+
+try:
+    from database.models import db
+    from mqtt.client import mqtt_service
+    from routes import main_bp, ementas_bp, analytics_bp, api_bp
+except ModuleNotFoundError:
+    from factoryhub.database.models import db
+    from factoryhub.mqtt.client import mqtt_service
+    from factoryhub.routes import main_bp, ementas_bp, analytics_bp, api_bp
 
 def create_app(config_class=Config):
     app = Flask(

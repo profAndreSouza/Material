@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Central de Análise &amp; Exportação CSV &middot; FactoryHub{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+        <div>
+            <span class="text-uppercase font-monospace text-success fs-7 tracking-wider">Ciência de Dados &amp; Análise de Processos</span>
+            <h1 class="h2 font-serif text-dark fw-bold mb-0">Central de Análise &amp; Exportação CSV</h1>
+        </div>
+        <div class="font-monospace fs-7 text-muted">
+            Formatos: CSV / Pandas Compatible
+        </div>
+    </div>
+
+    <!-- Seção de Exportação de Datasets -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-6">
+            <div class="card border shadow-sm h-100">
+                <div class="card-body p-4">
+                    <span class="badge bg-success font-monospace mb-2">Dataset Telemetria</span>
+                    <h4 class="font-serif fw-bold text-dark">Telemetria de Eventos MQTT (`smartn1/#`)</h4>
+                    <p class="text-secondary fs-7">Contém a série temporal completa de eventos capturados de todos os sensores, leitores RFID e atuadores da célula Smart N1. Recomendado para aulas de Séries Temporais, Limpeza de Dados e EDA.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                        <span class="font-monospace fs-7 text-muted">Registros em banco: {{ kpis.total_telemetry }}</span>
+                        <a href="{{ url_for('analytics.export_csv', data_type='telemetry') }}" class="btn btn-dark btn-sm font-monospace">Baixar telemetry.csv</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border shadow-sm h-100">
+                <div class="card-body p-4">
+                    <span class="badge bg-primary font-monospace mb-2">Dataset Peças</span>
+                    <h4 class="font-serif fw-bold text-dark">Rastreabilidade de Peças e Qualidade</h4>
+                    <p class="text-secondary fs-7">Contém os registros individuais de peças produzidas na esteira, com atributos de Cor, Tag RFID e Status de qualidade. Ideal para análises de Frequência Categórica, Qui-Quadrado e Testes de Hipóteses.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                        <span class="font-monospace fs-7 text-muted">Total de Peças: {{ kpis.total_pieces }}</span>
+                        <a href="{{ url_for('analytics.export_csv', data_type='pieces') }}" class="btn btn-outline-dark btn-sm font-monospace">Baixar pieces.csv</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Instruções para Uso nos Notebooks Jupyter -->
+    <div class="card border shadow-sm bg-light">
+        <div class="card-body p-4">
+            <h5 class="font-serif fw-bold text-dark mb-3">Como utilizar os dados na disciplina de Ciência de Dados</h5>
+            <ol class="font-monospace fs-7 text-secondary mb-0">
+                <li class="mb-2">Baixe os arquivos CSV utilizando os botões acima ou importe diretamente via linha de comando no Jupyter Notebook.</li>
+                <li class="mb-2">Utilize os cadernos Jupyter disponíveis na pasta <code>notebooks/</code> para realizar análises descritivas, gráficos de dispersão e testes estatísticos.</li>
+                <li>Exemplo de código em Python para carregar o dataset:
+                    <pre class="bg-dark text-light p-3 rounded mt-2"><code>import pandas as pd
+
+# Carrega a telemetria industrial do FactoryHub
+df = pd.read_csv('telemetry_smartn1.csv')
+print(df.head())
+print(df.info())</code></pre>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+{% endblock %}

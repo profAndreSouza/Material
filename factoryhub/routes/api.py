@@ -2,7 +2,7 @@ import os
 import glob
 import sys
 import subprocess
-from flask import Blueprint, jsonify, current_app
+from flask import Blueprint, jsonify, request, current_app
 
 try:
     from database.models import Telemetry, Piece, Alarm
@@ -32,15 +32,30 @@ def get_kpis():
 
 @api_bp.route('/api/exercicio/<int:aula_num>')
 def get_exercicio(aula_num):
-    exercicios_dir = current_app.config.get('EXERCICIOS_DIR')
-    if not exercicios_dir or not os.path.exists(exercicios_dir):
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        exercicios_dir = os.path.join(base_dir, 'exercicios')
+    disc = request.args.get('disc', 'dados')
+    base_dir = current_app.config.get('BASE_DIR', os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    
+    disc_folder_map = {
+        'dados': 'exercicios_ciencia_dados',
+        'automacao': 'exercicios_automacao',
+        'devops': 'exercicios_devops',
+        'nuvem': 'exercicios_nuvem'
+    }
+    
+    target_folder = disc_folder_map.get(disc, 'exercicios_ciencia_dados')
+    exercicios_dir = os.path.join(base_dir, target_folder)
+
+    if not os.path.exists(exercicios_dir):
+        exercicios_dir = os.path.join(base_dir, 'exercicios_ciencia_dados')
 
     prefix = f"aula_{aula_num:02d}_"
     files = glob.glob(os.path.join(exercicios_dir, f"{prefix}*.py"))
     if not files:
-        return jsonify({'error': 'Arquivo de exercício não encontrado'}), 404
+        # Fallback
+        files = glob.glob(os.path.join(base_dir, 'exercicios_ciencia_dados', f"{prefix}*.py"))
+
+    if not files:
+        return jsonify({'error': f'Arquivo de exercício da Aula {aula_num:02d} ({disc}) não encontrado'}), 404
     
     file_path = files[0]
     filename = os.path.basename(file_path)
@@ -71,6 +86,7 @@ def get_exercicio(aula_num):
         
     return jsonify({
         'aula': aula_num,
+        'discipline': disc,
         'filename': filename,
         'output': output_text,
         'plotly_html': plotly_html

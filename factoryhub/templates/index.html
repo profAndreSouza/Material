@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard Operacional &middot; FactoryHub{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+        <div>
+            <span class="text-uppercase font-monospace text-success fs-7 tracking-wider">Supervisão em Tempo Real</span>
+            <h1 class="h2 font-serif text-dark fw-bold mb-0">Dashboard Operacional Smart N1</h1>
+        </div>
+        <div class="text-end font-monospace fs-7">
+            <span class="d-block text-secondary">Status MQTT Broker</span>
+            <span class="badge {% if mqtt_status == 'Conectado' %}bg-success{% else %}bg-warning text-dark{% endif %} px-3 py-2 fs-7">
+                {{ mqtt_status }}
+            </span>
+        </div>
+    </div>
+
+    <!-- Cards de Métricas Rápidas -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm bg-body-tertiary">
+                <div class="card-body">
+                    <span class="font-monospace text-muted fs-7 text-uppercase">Total Telemetrias</span>
+                    <h3 class="display-6 fw-bold text-dark mb-0">{{ total_telemetry }}</h3>
+                    <span class="font-monospace fs-7 text-secondary">Eventos industriais recebidos</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm bg-body-tertiary">
+                <div class="card-body">
+                    <span class="font-monospace text-muted fs-7 text-uppercase">Peças Processadas</span>
+                    <h3 class="display-6 fw-bold text-success mb-0">{{ total_pieces }}</h3>
+                    <span class="font-monospace fs-7 text-secondary">Registros com RFID/Cor</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm bg-body-tertiary">
+                <div class="card-body">
+                    <span class="font-monospace text-muted fs-7 text-uppercase">Alarmes Detectados</span>
+                    <h3 class="display-6 fw-bold text-danger mb-0">{{ total_alarms }}</h3>
+                    <span class="font-monospace fs-7 text-secondary">Ocorrências operacionais</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção de Tabelas de Telemetria e Eventos -->
+    <div class="row g-4 mb-4">
+        <div class="col-lg-8">
+            <div class="card border shadow-sm">
+                <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0 font-serif fs-6 fw-bold">Últimas Telemetrias do Broker MQTT</h5>
+                    <span class="font-monospace fs-7 text-muted">Tópicos: smartn1/#</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0 font-monospace fs-7">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Timestamp</th>
+                                <th>Estação</th>
+                                <th>Peça</th>
+                                <th>Evento</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for t in recent_telemetries %}
+                            <tr>
+                                <td>{{ t.id }}</td>
+                                <td>{{ t.timestamp.strftime('%H:%M:%S') if t.timestamp else '-' }}</td>
+                                <td><span class="badge bg-light text-dark border">{{ t.station }}</span></td>
+                                <td>{{ t.piece_id or '-' }}</td>
+                                <td>{{ t.event }}</td>
+                                <td><span class="badge bg-success-subtle text-success">{{ t.status }}</span></td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="6" class="text-center text-muted py-4">Nenhum evento registrado ainda. Conecte o simulador MQTT para enviar dados.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border shadow-sm mb-4">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0 font-serif fs-6 fw-bold">Últimas Peças Identificadas</h5>
+                </div>
+                <ul class="list-group list-group-flush font-monospace fs-7">
+                    {% for p in recent_pieces %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>{{ p.piece_id }}</strong>
+                            <div class="text-muted fs-8">Cor: {{ p.color or 'Indefinida' }}</div>
+                        </div>
+                        <span class="badge bg-dark">{{ p.rfid_uid or 'Sem Tag' }}</span>
+                    </li>
+                    {% else %}
+                    <li class="list-group-item text-center text-muted py-3">Nenhuma peça registrada.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="card border shadow-sm">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0 font-serif fs-6 fw-bold">Registro de Alarmes</h5>
+                </div>
+                <ul class="list-group list-group-flush font-monospace fs-7">
+                    {% for a in recent_alarms %}
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <strong class="text-danger">{{ a.station }}</strong>
+                            <span class="badge bg-danger">{{ a.severity }}</span>
+                        </div>
+                        <div class="text-secondary fs-8 mt-1">{{ a.message }}</div>
+                    </li>
+                    {% else %}
+                    <li class="list-group-item text-center text-muted py-3">Nenhum alarme detectado.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

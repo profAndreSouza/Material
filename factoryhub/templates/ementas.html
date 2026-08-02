@@ -1,0 +1,631 @@
+{% extends 'base.html' %}
+
+{% block title %}Ementas &amp; Caderno de Bordo &middot; FactoryHub{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+        <div>
+            <span class="text-uppercase font-monospace text-success fs-7 tracking-wider">Unidades Curriculares Integradas</span>
+            <h1 class="h2 font-serif text-dark fw-bold mb-0">Ementas &amp; Caderno de Bordo do Ecossistema</h1>
+        </div>
+        <div class="font-monospace fs-7 text-muted">
+            20 Semanas &middot; Carga Horária Total: 260h (4 Disciplinas)
+        </div>
+    </div>
+
+    <!-- Navegação de Abas por Disciplina (4 Disciplinas) -->
+    <ul class="nav nav-tabs font-monospace mb-4" id="ementasTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active fw-bold" id="tab-btn-dados" onclick="switchTab('dados')" type="button">Ciência de Dados (80h)</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link fw-bold" id="tab-btn-automacao" onclick="switchTab('automacao')" type="button">Automação Industrial (80h)</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link fw-bold" id="tab-btn-devops" onclick="switchTab('devops')" type="button">DevOps (40h)</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link fw-bold" id="tab-btn-nuvem" onclick="switchTab('nuvem')" type="button">Computação em Nuvem (60h)</button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="ementasTabContent">
+        <!-- ABA 1: CIÊNCIA DE DADOS -->
+        <div class="tab-pane fade show active" id="pane-dados">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h3 class="h4 font-serif text-dark fw-bold border-bottom pb-2 mb-3">Ementa Oficial: Ciência de Dados</h3>
+                    
+                    <p class="lead fs-6 text-secondary"><strong>Descrição:</strong> Ao final dessa unidade curricular o estudante será capaz de desenvolver sistemas para manipulação de dados para aplicação em ambientes de produção industrial. Para tanto serão abordados os seguintes conteúdos: Matemática e estatística descritiva; Data Science.</p>
+                    
+                    <h5 class="font-monospace fs-6 text-success fw-bold mt-4">Objetivo Geral</h5>
+                    <p class="text-secondary">Desenvolver capacidades técnicas e socioemocionais relacionadas à sistemas de manipulação de dados para aplicação em ambientes de produção industrial.</p>
+
+                    <div class="row g-4 my-2">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded border h-100">
+                                <h6 class="font-monospace fw-bold text-dark mb-2">Capacidades Técnicas</h6>
+                                <ul class="text-secondary fs-7 mb-0">
+                                    <li>Transformar dados obtidos através de cálculos matemáticos em informações pertinentes ao processo.</li>
+                                    <li>Extrair informações de dados obtidos para o gerenciamento de processos industriais através de análises estatísticas.</li>
+                                    <li>Processar dados para a geração de relatórios analíticos tendo em vista a visualização da informação.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded border h-100">
+                                <h6 class="font-monospace fw-bold text-dark mb-2">Capacidades Socioemocionais</h6>
+                                <ul class="text-secondary fs-7 mb-0">
+                                    <li><strong>Aprendizagem Ativa:</strong> Postura proativa e atitude inovadora frente a novos contextos.</li>
+                                    <li><strong>Ética:</strong> Conduta profissional ética, respeitando inclusão e meio ambiente.</li>
+                                    <li><strong>Pensamento Crítico:</strong> Expressão crítica baseada em evidências claras e dados objetivos.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="font-monospace fs-6 text-success fw-bold mt-4">Matriz de Mapeamento Bibliográfico por Encontro Prático</h5>
+                    <div class="table-responsive my-3">
+                        <table class="table table-bordered table-striped font-monospace fs-7 align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Encontro</th>
+                                    <th>Tema Central</th>
+                                    <th>Referências Básicas</th>
+                                    <th>Referências Complementares</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>01</td><td>Introdução à Ciência de Dados, CRISP-DM e Exploração Inicial</td><td>McKinney Cap. 5; Bussab &amp; Morettin Cap. 1</td><td>Grus Cap. 1; Menezes Cap. 1-3</td></tr>
+                                <tr><td>02</td><td>Qualidade dos Dados e Amostragem (Limpeza e Imputação)</td><td>Bussab &amp; Morettin Cap. 1, 11; McKinney Cap. 7</td><td>Fávero &amp; Belfiore Cap. 2; Bonora Jr Cap. 1</td></tr>
+                                <tr><td>03</td><td>Estatística Descritiva (Tendência Central e Dispersão)</td><td>Bussab &amp; Morettin Cap. 2; McKinney Cap. 5</td><td>Grus Cap. 4, 5; Fávero &amp; Belfiore Cap. 3</td></tr>
+                                <tr><td>04</td><td>Distribuições Estatísticas e Visualização (Normal, Assimetria, Q-Q)</td><td>Bussab &amp; Morettin Cap. 6; McKinney Cap. 9</td><td>Grus Cap. 3, 6; Fávero &amp; Belfiore Cap. 3</td></tr>
+                                <tr><td>05</td><td>Inferência Estatística e Intervalos de Confiança (SciPy)</td><td>Bussab &amp; Morettin Cap. 10; McKinney Cap. 7</td><td>Grus Cap. 6, 7; Fávero &amp; Belfiore Cap. 4</td></tr>
+                                <tr><td>06</td><td>Testes de Hipóteses Formais (Shapiro-Wilk, KS, Qui-Quadrado)</td><td>Bussab &amp; Morettin Cap. 12, 14; McKinney Cap. 7, 13</td><td>Grus Cap. 7; Fávero &amp; Belfiore Cap. 5</td></tr>
+                                <tr><td>07</td><td>Correlação e Associação entre Variáveis Industriais</td><td>Bussab &amp; Morettin Cap. 4; McKinney Cap. 7, 10</td><td>Grus Cap. 5; Fávero &amp; Belfiore Cap. 4</td></tr>
+                                <tr><td>08</td><td>Séries Temporais (Tendência, Sazonalidade, Média Móvel)</td><td>Bussab &amp; Morettin Cap. 15; McKinney Cap. 11</td><td>Fávero &amp; Belfiore Cap. 16; Grus Cap. 10</td></tr>
+                                <tr><td>09</td><td>Análise Exploratória de Dados (EDA) Pipeline Completo</td><td>McKinney Cap. 10, 12; Bussab &amp; Morettin Cap. 2, 4</td><td>Grus Cap. 10; Guilhon et al. Cap. 4</td></tr>
+                                <tr><td>10</td><td>Storytelling com Dados, KPIs Industriais (OEE) &amp; Dashboards</td><td>McKinney Cap. 9; Bussab &amp; Morettin Cap. 2</td><td>Grus Cap. 3; Guilhon et al. Cap. 5</td></tr>
+                                <tr><td>11</td><td>Projeto Capstone Final (Resolução Integrada Smart N1)</td><td>Bussab &amp; Morettin Cap. 1-15; McKinney Cap. 1-12</td><td>Grus Cap. 1-10; Fávero &amp; Belfiore Cap. 1-16</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- CADERNO DE BORDO INTERATIVO: CIÊNCIA DE DADOS -->
+                    <div class="mt-5 pt-4 border-top">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="badge bg-success font-monospace mb-1">Caderno de Bordo Interativo</span>
+                                <h4 class="font-serif fw-bold text-dark mb-0">Fundamentação Teórica &amp; Exercícios Práticos</h4>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="aula-select-dados" class="form-label font-monospace fs-7 text-muted mb-1">Selecione o Encontro Prático:</label>
+                                <select id="aula-select-dados" class="form-select font-monospace" onchange="loadAulaTheory('dados', this.value)">
+                                    <option value="1">Aula 01 - Introdução &amp; CRISP-DM</option>
+                                    <option value="2">Aula 02 - Qualidade &amp; Amostragem</option>
+                                    <option value="3">Aula 03 - Estatística Descritiva</option>
+                                    <option value="4">Aula 04 - Distribuição Normal &amp; Assimetria</option>
+                                    <option value="5">Aula 05 - Inferência &amp; Intervalos de Confiança</option>
+                                    <option value="6">Aula 06 - Testes de Hipóteses</option>
+                                    <option value="7">Aula 07 - Correlação &amp; Associação</option>
+                                    <option value="8">Aula 08 - Séries Temporais</option>
+                                    <option value="9">Aula 09 - Análise Exploratória (EDA)</option>
+                                    <option value="10">Aula 10 - Storytelling &amp; KPIs</option>
+                                    <option value="11">Aula 11 - Projeto Capstone Final</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Container Teórico -->
+                        <div id="theory-container-dados" class="my-4"></div>
+
+                        <!-- Painel de Execução Python -->
+                        <div class="card border shadow-sm mt-4 bg-light">
+                            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center font-monospace">
+                                <span>Ambiente de Execução Python (exercicios_ciencia_dados/aula_<span id="exercicio-num-dados">01</span>.py)</span>
+                                <button onclick="executarExercicio('dados')" class="btn btn-success btn-sm font-monospace fw-bold">Executar Script em Python</button>
+                            </div>
+                            <div class="card-body">
+                                <div id="exec-spinner-dados" class="d-none text-center py-3">
+                                    <div class="spinner-border text-success" role="status"><span class="visually-hidden">Executando...</span></div>
+                                    <p class="font-monospace fs-7 text-muted mt-2 mb-0">Executando script Python de Ciência de Dados...</p>
+                                </div>
+                                <pre id="exec-output-dados" class="bg-dark text-light p-3 rounded font-monospace fs-7 mb-0" style="max-height: 400px; overflow-y: auto;">Clique em "Executar Script em Python" para testar o código da aula ao vivo.</pre>
+                                <div id="plotly-container-dados" class="mt-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABA 2: AUTOMAÇÃO INDUSTRIAL -->
+        <div class="tab-pane fade d-none" id="pane-automacao">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h3 class="h4 font-serif text-dark fw-bold border-bottom pb-2 mb-3">Ementa Oficial: Automação Industrial</h3>
+                    
+                    <p class="lead fs-6 text-secondary"><strong>Descrição:</strong> Ao final dessa unidade curricular o estudante será capaz de desenvolver sistemas de automação para coleta e processamento de dados em plantas industriais. Para tanto serão abordados os seguintes conteúdos: Dispositivos Industriais; Controladores Industriais.</p>
+                    
+                    <h5 class="font-monospace fs-6 text-success fw-bold mt-4">Objetivo Geral</h5>
+                    <p class="text-secondary">Desenvolver capacidades técnicas e socioemocionais relacionadas à sistemas de automação para coleta e processamento de dados em plantas industriais.</p>
+
+                    <div class="row g-4 my-2">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded border h-100">
+                                <h6 class="font-monospace fw-bold text-dark mb-2">Capacidades Técnicas</h6>
+                                <ul class="text-secondary fs-7 mb-0">
+                                    <li>Analisar o funcionamento de sensores, atuadores e controladores de acordo com as aplicações industriais.</li>
+                                    <li>Programar softwares de tecnologia de automação para integração de sistemas TI/TA.</li>
+                                    <li>Coletar dados de controladores industriais para tomada de decisões.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded border h-100">
+                                <h6 class="font-monospace fw-bold text-dark mb-2">Capacidades Socioemocionais</h6>
+                                <ul class="text-secondary fs-7 mb-0">
+                                    <li><strong>Ética:</strong> Conduta profissional ética, respeitando o meio ambiente.</li>
+                                    <li><strong>Pensamento Crítico:</strong> Expressão crítica baseada em evidências claras.</li>
+                                    <li><strong>Resolução de Problemas:</strong> Postura proativa na resolução de problemas.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="font-monospace fs-6 text-success fw-bold mt-4">Matriz de Mapeamento Bibliográfico por Encontro Prático (11 Aulas)</h5>
+                    <div class="table-responsive my-3">
+                        <table class="table table-bordered table-striped font-monospace fs-7 align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Encontro</th>
+                                    <th>Tema Central</th>
+                                    <th>Referências Básicas</th>
+                                    <th>Referências Complementares</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>01</td><td>Introdução à Automação Industrial e Arquitetura TI/TA (ISA-95)</td><td>Aguirre Cap. 1; Franchi &amp; Camargo Cap. 1</td><td>Groover Cap. 1, 2; Moraes &amp; Castrucci Cap. 1</td></tr>
+                                <tr><td>02</td><td>Dispositivos Industriais I: Sensores Eletromecânicos, Indutivos, Magnéticos</td><td>Aguirre Cap. 2; Lira et al. Cap. 1</td><td>Groover Cap. 6; Prudente (2010) Cap. 2</td></tr>
+                                <tr><td>03</td><td>Dispositivos Industriais II: Sensores Ultrassônicos, Ópticos e RFID</td><td>Aguirre Cap. 3, 4; Lira et al. Cap. 1</td><td>Groover Cap. 6; Moraes &amp; Castrucci Cap. 3</td></tr>
+                                <tr><td>04</td><td>Atuadores Industriais: Pneumáticos, Hidráulicos, Motores e Inversores</td><td>Lira et al. Cap. 2, 3</td><td>Fialho Cap. 1-3; Groover Cap. 3</td></tr>
+                                <tr><td>05</td><td>Robótica Industrial: Células de manipulação e segurança fabril (NR-12)</td><td>Aguirre Cap. 5</td><td>Groover Cap. 7, 8; Moraes &amp; Castrucci Cap. 9</td></tr>
+                                <tr><td>06</td><td>Controladores Industriais I: Arquitetura de Hardware de CLPs e PCs</td><td>Franchi &amp; Camargo Cap. 1, 2</td><td>Silva Cap. 1; SENAI-SP Cap. 1</td></tr>
+                                <tr><td>07</td><td>Controladores Industriais II: Ciclo de Scan, Endereçamento e Texto Estruturado</td><td>Franchi &amp; Camargo Cap. 3, 4</td><td>Silva Cap. 2, 4; Prudente (2014) Cap. 3</td></tr>
+                                <tr><td>08</td><td>Protocolos de Comunicação Industrial (Modbus TCP, OPC UA, MQTT)</td><td>Tanenbaum et al. Cap. 1, 5</td><td>Groover Cap. 9; Moraes &amp; Castrucci Cap. 7</td></tr>
+                                <tr><td>09</td><td>Prática TI/TA I: Ingestão de Dados via Node-RED e Broker MQTT</td><td>Tanenbaum et al. Cap. 6; Franchi &amp; Camargo Cap. 8</td><td>Groover Cap. 9, 10</td></tr>
+                                <tr><td>10</td><td>Prática TI/TA II: Armazenamento de Telemetria em Banco de Dados</td><td>Franchi &amp; Camargo Cap. 9; Tanenbaum et al. Cap. 7</td><td>Moraes &amp; Castrucci Cap. 10</td></tr>
+                                <tr><td>11</td><td>Prática TI/TA III: Dashboards Operacionais em Tempo Real &amp; Projeto Integrador</td><td>Franchi &amp; Camargo Cap. 9</td><td>Groover Cap. 10; Moraes &amp; Castrucci Cap. 11</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- CADERNO DE BORDO INTERATIVO: AUTOMAÇÃO INDUSTRIAL -->
+                    <div class="mt-5 pt-4 border-top">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="badge bg-primary font-monospace mb-1">Caderno de Bordo Interativo</span>
+                                <h4 class="font-serif fw-bold text-dark mb-0">Fundamentação Teórica &amp; Prática de Automação</h4>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="aula-select-automacao" class="form-label font-monospace fs-7 text-muted mb-1">Selecione o Encontro Prático:</label>
+                                <select id="aula-select-automacao" class="form-select font-monospace" onchange="loadAulaTheory('automacao', this.value)">
+                                    <option value="1">Aula 01 - Arquitetura TI/TA &amp; ISA-95</option>
+                                    <option value="2">Aula 02 - Sensores Indutivos &amp; Proximidade</option>
+                                    <option value="3">Aula 03 - Fotoelétricos &amp; Rastreabilidade RFID</option>
+                                    <option value="4">Aula 04 - Pneumática &amp; Inversores V/f</option>
+                                    <option value="5">Aula 05 - Robótica &amp; Segurança NR-12</option>
+                                    <option value="6">Aula 06 - Hardware de CLP &amp; I/O</option>
+                                    <option value="7">Aula 07 - Ciclo de Scan &amp; Linguagem ST</option>
+                                    <option value="8">Aula 08 - Modbus TCP &amp; MQTT</option>
+                                    <option value="9">Aula 09 - Node-RED &amp; Ingestão MQTT</option>
+                                    <option value="10">Aula 10 - Persistência em Banco de Dados</option>
+                                    <option value="11">Aula 11 - Dashboards &amp; Indicador OEE</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Container Teórico -->
+                        <div id="theory-container-automacao" class="my-4"></div>
+
+                        <!-- Painel de Execução Python -->
+                        <div class="card border shadow-sm mt-4 bg-light">
+                            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center font-monospace">
+                                <span>Ambiente de Execução Python (exercicios_automacao/aula_<span id="exercicio-num-automacao">01</span>.py)</span>
+                                <button onclick="executarExercicio('automacao')" class="btn btn-primary btn-sm font-monospace fw-bold">Executar Script de Automação</button>
+                            </div>
+                            <div class="card-body">
+                                <div id="exec-spinner-automacao" class="d-none text-center py-3">
+                                    <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Executando...</span></div>
+                                    <p class="font-monospace fs-7 text-muted mt-2 mb-0">Executando script Python de Automação Industrial...</p>
+                                </div>
+                                <pre id="exec-output-automacao" class="bg-dark text-light p-3 rounded font-monospace fs-7 mb-0" style="max-height: 400px; overflow-y: auto;">Clique em "Executar Script de Automação" para testar o código da aula ao vivo.</pre>
+                                <div id="plotly-container-automacao" class="mt-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABA 3: DEVOPS -->
+        <div class="tab-pane fade d-none" id="pane-devops">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h3 class="h4 font-serif text-dark fw-bold border-bottom pb-2 mb-3">Ementa Oficial: Integração e Entrega Contínua — DevOps (40h)</h3>
+                    <p class="lead fs-6 text-secondary"><strong>Descrição:</strong> Ao final dessa unidade curricular, o estudante será capaz de aplicar práticas de integração e entrega contínua (CI/CD) no desenvolvimento de software, utilizando ferramentas de automação, versionamento e monitoramento para garantir qualidade e agilidade nos ciclos de entrega.</p>
+
+                    <h5 class="font-monospace fs-6 text-success fw-bold mt-4">Objetivo Geral</h5>
+                    <p class="text-secondary">Desenvolver capacidades técnicas e socioemocionais relacionadas à implementação de práticas de Integração e Entrega Contínua (CI/CD), promovendo a automação de processos de desenvolvimento, testes e deploy, a colaboração entre equipes e a melhoria contínua na qualidade do software.</p>
+
+                    <div class="row g-4 my-2">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded border h-100">
+                                <h6 class="font-monospace fw-bold text-dark mb-2">Capacidades Técnicas</h6>
+                                <ul class="text-secondary fs-7 mb-0">
+                                    <li>Aplicar conceitos de CI/CD em projetos de software.</li>
+                                    <li>Utilizar controle de versão Git para rastreabilidade de código.</li>
+                                    <li>Configurar pipelines de automação para build, teste e deploy.</li>
+                                    <li>Empregar ferramentas de contêineres e orquestração.</li>
+                                    <li>Implementar automação de testes nas etapas do ciclo de vida.</li>
+                                    <li>Integrar práticas de monitoramento e observabilidade contínua.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded border h-100">
+                                <h6 class="font-monospace fw-bold text-dark mb-2">Capacidades Socioemocionais</h6>
+                                <ul class="text-secondary fs-7 mb-0">
+                                    <li>Trabalhar em equipe multidisciplinar para entender requisitos de negócio.</li>
+                                    <li>Comunicar insights de forma clara e visualmente atrativa.</li>
+                                    <li>Demonstrar pensamento analítico e foco em resultados.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="font-monospace fs-6 text-success fw-bold mt-4">Matriz de Mapeamento Bibliográfico por Encontro Prático</h5>
+                    <div class="table-responsive my-3">
+                        <table class="table table-bordered table-striped font-monospace fs-7 align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Encontro</th>
+                                    <th>Tema Central</th>
+                                    <th>Referências Básicas</th>
+                                    <th>Referências Complementares</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>01</td><td>Fundamentos de DevOps &amp; Cultura de Colaboração Dev/Ops</td><td>Sato Cap. 1</td><td>Kaminski Cap. 1</td></tr>
+                                <tr><td>02</td><td>Controle de Versão com Git (Commits, Branches e Pull Requests)</td><td>Sato Cap. 2</td><td>Kaminski Cap. 2</td></tr>
+                                <tr><td>03</td><td>Automação de Builds &amp; Integração Contínua (CI) com GitHub Actions</td><td>Sato Cap. 3</td><td>Boaglio Cap. 1, 2</td></tr>
+                                <tr><td>04</td><td>Containerização de Aplicações I (Dockerfile &amp; Imagens)</td><td>Romero Cap. 1, 2; Vitalino &amp; Castro Cap. 1, 2</td><td>Santos Cap. 1</td></tr>
+                                <tr><td>05</td><td>Containerização de Aplicações II (Docker Compose &amp; Registries)</td><td>Romero Cap. 3, 4; Vitalino &amp; Castro Cap. 3, 4</td><td>Santos Cap. 2</td></tr>
+                                <tr><td>06</td><td>Introdução à Orquestração de Containers (Kubernetes / Cloud Run)</td><td>Vitalino &amp; Castro Cap. 5</td><td>Santos Cap. 3</td></tr>
+                                <tr><td>07</td><td>Construção de Pipelines CI/CD com GitHub Actions</td><td>Sato Cap. 4</td><td>Boaglio Cap. 3</td></tr>
+                                <tr><td>08</td><td>Automação de Releases &amp; Deploy em Ambientes de Homologação</td><td>Sato Cap. 5</td><td>Boaglio Cap. 4</td></tr>
+                                <tr><td>09</td><td>Estratégias de Deploy Avançadas (Blue-Green &amp; Rollback Automatizado)</td><td>Sato Cap. 6; Romero Cap. 5</td><td>Santos Cap. 4</td></tr>
+                                <tr><td>10</td><td>Monitoramento de Logs, Métricas e Alerta Contínuo</td><td>Vitalino &amp; Castro Cap. 6</td><td>Boaglio Cap. 5</td></tr>
+                                <tr><td>11</td><td>Observabilidade e Feedback Contínuo (Prometheus, Grafana &amp; DORA)</td><td>Sato Cap. 7</td><td>Boaglio Cap. 6</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- CADERNO DE BORDO INTERATIVO: DEVOPS -->
+                    <div class="mt-5 pt-4 border-top">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="badge bg-info font-monospace mb-1">Caderno de Bordo Interativo</span>
+                                <h4 class="font-serif fw-bold text-dark mb-0">Fundamentação Teórica &amp; Prática de DevOps</h4>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="aula-select-devops" class="form-label font-monospace fs-7 text-muted mb-1">Selecione o Encontro Prático:</label>
+                                <select id="aula-select-devops" class="form-select font-monospace" onchange="loadAulaTheory('devops', this.value)">
+                                    <option value="1">Aula 01 - Fundamentos &amp; Cultura DevOps</option>
+                                    <option value="2">Aula 02 - Versionamento Git &amp; Pull Requests</option>
+                                    <option value="3">Aula 03 - Integração Contínua (CI) GitHub Actions</option>
+                                    <option value="4">Aula 04 - Dockerfile &amp; Imagens OCI</option>
+                                    <option value="5">Aula 05 - Multi-Contêineres Docker Compose</option>
+                                    <option value="6">Aula 06 - Orquestração (Kubernetes / Cloud Run)</option>
+                                    <option value="7">Aula 07 - Pipelines CI/CD &amp; Caching</option>
+                                    <option value="8">Aula 08 - Automação de Releases (SemVer)</option>
+                                    <option value="9">Aula 09 - Deploy Blue-Green &amp; Rollback</option>
+                                    <option value="10">Aula 10 - Centralização de Logs &amp; Alertas</option>
+                                    <option value="11">Aula 11 - Observabilidade &amp; Métricas DORA</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Container Teórico -->
+                        <div id="theory-container-devops" class="my-4"></div>
+
+                        <!-- Painel de Execução Python -->
+                        <div class="card border shadow-sm mt-4 bg-light">
+                            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center font-monospace">
+                                <span>Ambiente de Execução Python (exercicios_devops/aula_<span id="exercicio-num-devops">01</span>.py)</span>
+                                <button onclick="executarExercicio('devops')" class="btn btn-info text-white btn-sm font-monospace fw-bold">Executar Script de DevOps</button>
+                            </div>
+                            <div class="card-body">
+                                <div id="exec-spinner-devops" class="d-none text-center py-3">
+                                    <div class="spinner-border text-info" role="status"><span class="visually-hidden">Executando...</span></div>
+                                    <p class="font-monospace fs-7 text-muted mt-2 mb-0">Executando script Python de DevOps...</p>
+                                </div>
+                                <pre id="exec-output-devops" class="bg-dark text-light p-3 rounded font-monospace fs-7 mb-0" style="max-height: 400px; overflow-y: auto;">Clique em "Executar Script de DevOps" para testar o código da aula ao vivo.</pre>
+                                <div id="plotly-container-devops" class="mt-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABA 4: COMPUTAÇÃO EM NUVEM -->
+        <div class="tab-pane fade d-none" id="pane-nuvem">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h3 class="h4 font-serif text-dark fw-bold border-bottom pb-2 mb-3">Ementa Oficial: Computação em Nuvem (60h)</h3>
+                    <p class="lead fs-6 text-secondary"><strong>Descrição:</strong> Ao final dessa unidade curricular o estudante será capaz de desenvolver aplicações de arquitetura de computação em nuvem, visando a aplicação em ambientes de produção industrial. Para tanto serão abordados os seguintes conteúdos: Computação em Nuvem; Modelos de Serviço; Virtualização de recursos; Segurança de dados em nuvem; Contratos de serviços na nuvem.</p>
+
+                    <h5 class="font-monospace fs-6 text-success fw-bold mt-4">Objetivo Geral</h5>
+                    <p class="text-secondary">Desenvolver capacidades técnicas e socioemocionais relacionadas à aplicações de arquitetura de computação em nuvem, visando a aplicação em ambientes de produção industrial.</p>
+
+                    <div class="row g-4 my-2">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded border h-100">
+                                <h6 class="font-monospace fw-bold text-dark mb-2">Capacidades Técnicas</h6>
+                                <ul class="text-secondary fs-7 mb-0">
+                                    <li>Avaliar as plataformas para publicação/hospedagem em relação ao desempenho.</li>
+                                    <li>Definir requisitos de hospedagem de acordo com os serviços utilizados.</li>
+                                    <li>Criar infraestrutura na nuvem para virtualização de recursos.</li>
+                                    <li>Utilizar técnicas de segurança em computação na nuvem.</li>
+                                    <li>Utilizar serverless computing e microserviços na nuvem.</li>
+                                    <li>Publicar/hospedar aplicações com alta disponibilidade e escalabilidade.</li>
+                                    <li>Publicar bancos de dados na nuvem com alto desempenho.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded border h-100">
+                                <h6 class="font-monospace fw-bold text-dark mb-2">Capacidades Socioemocionais</h6>
+                                <ul class="text-secondary fs-7 mb-0">
+                                    <li><strong>Criatividade e Iniciativa:</strong> Escolhas profissionais orientadas a objetivos com autonomia.</li>
+                                    <li><strong>Ética:</strong> Comportamento ético, inclusão social e respeito ao meio ambiente.</li>
+                                    <li><strong>Pensamento Crítico:</strong> Expressão crítica baseada em evidências claras.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="font-monospace fs-6 text-success fw-bold mt-4">Matriz de Mapeamento Bibliográfico por Encontro Prático</h5>
+                    <div class="table-responsive my-3">
+                        <table class="table table-bordered table-striped font-monospace fs-7 align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Encontro</th>
+                                    <th>Tema Central</th>
+                                    <th>Referências Básicas</th>
+                                    <th>Referências Complementares</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>01</td><td>Histórico, Conceitos &amp; Fundamentos de Nuvem (Elasticidade e Resiliência)</td><td>Veras (2015) Cap. 1; Rose Cap. 1</td><td>Molinari Cap. 1; Sacomano et al. Cap. 1</td></tr>
+                                <tr><td>02</td><td>Arquitetura Cloud &amp; Os 5 Pilares da Computação em Nuvem</td><td>Kolbe Jr Cap. 2; Rose Cap. 2</td><td>Veras (2013) Cap. 1</td></tr>
+                                <tr><td>03</td><td>Nuvens Públicas, Privadas e Híbridas (Regiões, Zonas e Edge)</td><td>Veras (2015) Cap. 2, 3</td><td>Tanenbaum et al. Cap. 1</td></tr>
+                                <tr><td>04</td><td>Modelos de Serviço em Nuvem: IaaS, PaaS e SaaS</td><td>Kolbe Jr Cap. 3; Rose Cap. 3</td><td>Molinari Cap. 2; Muniz et al. Cap. 1</td></tr>
+                                <tr><td>05</td><td>Virtualização de Recursos de Computação (Serverless e Microserviços)</td><td>Rose Cap. 3; Veras (2015) Cap. 4</td><td>Muniz et al. Cap. 2</td></tr>
+                                <tr><td>06</td><td>Redes em Nuvem (VPCs, Subredes, Firewalls, Gateways e Rotas)</td><td>Kolbe Jr Cap. 4; Veras (2015) Cap. 4</td><td>Tanenbaum et al. Cap. 4, 5</td></tr>
+                                <tr><td>07</td><td>Armazenamento na Nuvem (Cloud Storage, Buckets e Clusters)</td><td>Veras (2015) Cap. 4</td><td>Molinari Cap. 3</td></tr>
+                                <tr><td>08</td><td>Bancos de Dados Gerenciados na Nuvem (Cloud SQL PostgreSQL)</td><td>Rose Cap. 4; Veras (2015) Cap. 5</td><td>Muniz et al. Cap. 4; Veras (2013) Cap. 4</td></tr>
+                                <tr><td>09</td><td>Alta Disponibilidade, Escalonamento &amp; Balanceadores de Carga</td><td>Kolbe Jr Cap. 4; Rose Cap. 4</td><td>Muniz et al. Cap. 4</td></tr>
+                                <tr><td>10</td><td>Segurança de Dados em Nuvem (IAM, Roles, ACLs e Criptografia)</td><td>Kolbe Jr Cap. 5; Veras (2015) Cap. 6</td><td>Muniz et al. Cap. 5; Veras (2013) Cap. 5</td></tr>
+                                <tr><td>11</td><td>Aspectos Econômicos, Contratos de Serviços e Cloud Operations</td><td>Veras (2015) Cap. 7</td><td>Molinari Cap. 5</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- CADERNO DE BORDO INTERATIVO: COMPUTAÇÃO EM NUVEM -->
+                    <div class="mt-5 pt-4 border-top">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="badge bg-warning text-dark font-monospace mb-1">Caderno de Bordo Interativo</span>
+                                <h4 class="font-serif fw-bold text-dark mb-0">Fundamentação Teórica &amp; Prática Cloud</h4>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="aula-select-nuvem" class="form-label font-monospace fs-7 text-muted mb-1">Selecione o Encontro Prático:</label>
+                                <select id="aula-select-nuvem" class="form-select font-monospace" onchange="loadAulaTheory('nuvem', this.value)">
+                                    <option value="1">Aula 01 - Fundamentos &amp; Escalabilidade Cloud</option>
+                                    <option value="2">Aula 02 - Os 5 Pilares da Arquitetura</option>
+                                    <option value="3">Aula 03 - Regiões GCP &amp; Zonas (AZs)</option>
+                                    <option value="4">Aula 04 - Modelos de Serviço (IaaS, PaaS, SaaS)</option>
+                                    <option value="5">Aula 05 - Virtualização &amp; Serverless Cloud Run</option>
+                                    <option value="6">Aula 06 - Redes VPC &amp; Regras de Firewall</option>
+                                    <option value="7">Aula 07 - Cloud Storage Buckets &amp; Lifecycle</option>
+                                    <option value="8">Aula 08 - Bancos Gerenciados Cloud SQL</option>
+                                    <option value="9">Aula 09 - Escalabilidade &amp; Load Balancer</option>
+                                    <option value="10">Aula 10 - Segurança IAM &amp; Service Accounts</option>
+                                    <option value="11">Aula 11 - FinOps &amp; Governança de Custos</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Container Teórico -->
+                        <div id="theory-container-nuvem" class="my-4"></div>
+
+                        <!-- Painel de Execução Python -->
+                        <div class="card border shadow-sm mt-4 bg-light">
+                            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center font-monospace">
+                                <span>Ambiente de Execução Python (exercicios_nuvem/aula_<span id="exercicio-num-nuvem">01</span>.py)</span>
+                                <button onclick="executarExercicio('nuvem')" class="btn btn-warning text-dark btn-sm font-monospace fw-bold">Executar Script de Nuvem</button>
+                            </div>
+                            <div class="card-body">
+                                <div id="exec-spinner-nuvem" class="d-none text-center py-3">
+                                    <div class="spinner-border text-warning" role="status"><span class="visually-hidden">Executando...</span></div>
+                                    <p class="font-monospace fs-7 text-muted mt-2 mb-0">Executando script Python de Computação em Nuvem...</p>
+                                </div>
+                                <pre id="exec-output-nuvem" class="bg-dark text-light p-3 rounded font-monospace fs-7 mb-0" style="max-height: 400px; overflow-y: auto;">Clique em "Executar Script de Nuvem" para testar o código da aula ao vivo.</pre>
+                                <div id="plotly-container-nuvem" class="mt-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/theories_ciencia_dados.js') }}"></script>
+<script src="{{ url_for('static', filename='js/theories_automacao.js') }}"></script>
+<script src="{{ url_for('static', filename='js/theories_devops.js') }}"></script>
+<script src="{{ url_for('static', filename='js/theories_nuvem.js') }}"></script>
+
+<script>
+    let currentAulaDados = 1;
+    let currentAulaAutomacao = 1;
+    let currentAulaDevops = 1;
+    let currentAulaNuvem = 1;
+
+    function switchTab(tabName) {
+        const tabs = ['dados', 'automacao', 'devops', 'nuvem'];
+        tabs.forEach(t => {
+            const btn = document.getElementById(`tab-btn-${t}`);
+            const pane = document.getElementById(`pane-${t}`);
+            if (t === tabName) {
+                btn.classList.add('active');
+                pane.classList.remove('d-none');
+                pane.classList.add('show', 'active');
+            } else {
+                btn.classList.remove('active');
+                pane.classList.add('d-none');
+                pane.classList.remove('show', 'active');
+            }
+        });
+    }
+
+    function loadAulaTheory(disc, aulaNum) {
+        const num = parseInt(aulaNum);
+        let theoriesSource = null;
+        let containerId = '';
+        let labelId = '';
+
+        if (disc === 'dados') {
+            currentAulaDados = num;
+            theoriesSource = (window.lessonTheoriesCienciaDados || window.lessonTheories) ? (window.lessonTheoriesCienciaDados || window.lessonTheories)[num] : null;
+            containerId = 'theory-container-dados';
+            labelId = 'exercicio-num-dados';
+        } else if (disc === 'automacao') {
+            currentAulaAutomacao = num;
+            theoriesSource = window.lessonTheoriesAutomacao ? window.lessonTheoriesAutomacao[num] : null;
+            containerId = 'theory-container-automacao';
+            labelId = 'exercicio-num-automacao';
+        } else if (disc === 'devops') {
+            currentAulaDevops = num;
+            theoriesSource = window.lessonTheoriesDevops ? window.lessonTheoriesDevops[num] : null;
+            containerId = 'theory-container-devops';
+            labelId = 'exercicio-num-devops';
+        } else if (disc === 'nuvem') {
+            currentAulaNuvem = num;
+            theoriesSource = window.lessonTheoriesNuvem ? window.lessonTheoriesNuvem[num] : null;
+            containerId = 'theory-container-nuvem';
+            labelId = 'exercicio-num-nuvem';
+        }
+
+        const labelElem = document.getElementById(labelId);
+        if (labelElem) labelElem.innerText = String(num).padStart(2, '0');
+
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+
+        if (!theoriesSource || theoriesSource.length === 0) {
+            container.innerHTML = '<div class="alert alert-info font-monospace">Fundamentação teórica em estruturação para este encontro.</div>';
+            return;
+        }
+
+        theoriesSource.forEach((item) => {
+            const card = document.createElement('div');
+            card.className = 'card border shadow-sm mb-4';
+            card.innerHTML = `
+                <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                    <h5 class="card-title font-serif text-dark fw-bold mb-0">${item.title}</h5>
+                    <span class="badge bg-secondary font-monospace fs-8">${item.biblio || ''}</span>
+                </div>
+                <div class="card-body">
+                    <div class="text-secondary fs-7 mb-3">${item.theory}</div>
+                    ${item.code ? `
+                        <div class="mb-3">
+                            <span class="font-monospace fs-8 text-muted d-block mb-1">Demonstração Computacional:</span>
+                            <pre class="bg-dark text-light p-3 rounded font-monospace fs-7 mb-0"><code>${escapeHtml(item.code)}</code></pre>
+                        </div>
+                    ` : ''}
+                    ${item.output ? `
+                        <div class="mb-3">
+                            <span class="font-monospace fs-8 text-muted d-block mb-1">Resultado Computacional Esperado:</span>
+                            <pre class="bg-secondary-subtle text-dark p-3 rounded font-monospace fs-7 border mb-0"><code>${escapeHtml(item.output)}</code></pre>
+                        </div>
+                    ` : ''}
+                    ${item.interpretation ? `
+                        <div class="p-3 bg-success-subtle border-start border-success border-4 rounded fs-7 text-dark">
+                            <strong>Interpretação Prática:</strong> ${item.interpretation}
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            window.MathJax.typesetPromise();
+        }
+    }
+
+    function executarExercicio(disc) {
+        let num = currentAulaDados;
+        if (disc === 'automacao') num = currentAulaAutomacao;
+        if (disc === 'devops') num = currentAulaDevops;
+        if (disc === 'nuvem') num = currentAulaNuvem;
+
+        const spinner = document.getElementById(`exec-spinner-${disc}`);
+        const outputPre = document.getElementById(`exec-output-${disc}`);
+        const plotlyContainer = document.getElementById(`plotly-container-${disc}`);
+        
+        if (spinner) spinner.classList.remove('d-none');
+        if (plotlyContainer) plotlyContainer.innerHTML = '';
+
+        fetch(`/api/exercicio/${num}?disc=${disc}`)
+            .then(response => response.json())
+            .then(data => {
+                if (spinner) spinner.classList.add('d-none');
+                if (data.error) {
+                    outputPre.innerText = `Erro: ${data.error}`;
+                } else {
+                    outputPre.innerText = data.output || 'Script executado com sucesso sem saída de texto.';
+                    if (data.plotly_html && plotlyContainer) {
+                        plotlyContainer.innerHTML = data.plotly_html;
+                    }
+                }
+            })
+            .catch(err => {
+                if (spinner) spinner.classList.add('d-none');
+                outputPre.innerText = `Erro ao comunicar com a API: ${err}`;
+            });
+    }
+
+    function escapeHtml(str) {
+        return str
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&#039;");
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadAulaTheory('dados', 1);
+        loadAulaTheory('automacao', 1);
+        loadAulaTheory('devops', 1);
+        loadAulaTheory('nuvem', 1);
+    });
+</script>
+{% endblock %}
