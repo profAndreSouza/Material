@@ -1,0 +1,601 @@
+data_venda,id_pedido,categoria_produto,valor_venda_rs,canal_venda,tempo_entrega_dias,avaliacao_cliente
+2026-01-01,PED-10001,Eletrônicos,802.22,App Mobile,9,1
+2026-01-02,PED-10002,Móveis,60.73,Loja Parceira,6,2
+2026-01-03,PED-10003,Eletrodomésticos,760.92,App Mobile,10,5
+2026-01-04,PED-10004,Moda,360.47,App Mobile,10,2
+2026-01-05,PED-10005,Móveis,283.68,App Mobile,10,1
+2026-01-06,PED-10006,Informática,289.11,Website,4,4
+2026-01-07,PED-10007,Eletrodomésticos,468.22,App Mobile,13,5
+2026-01-08,PED-10008,Móveis,58.27,App Mobile,1,4
+2026-01-09,PED-10009,Informática,205.68,App Mobile,1,4
+2026-01-10,PED-10010,Moda,328.58,Loja Parceira,14,4
+2026-01-11,PED-10011,Eletrônicos,250.97,Website,10,1
+2026-01-12,PED-10012,Eletrodomésticos,477.11,Website,5,5
+2026-01-13,PED-10013,Eletrônicos,48.75,Website,13,4
+2026-01-14,PED-10014,Moda,323.36,App Mobile,14,4
+2026-01-15,PED-10015,Móveis,220.91,App Mobile,3,5
+2026-01-16,PED-10016,Móveis,149.17,Loja Parceira,5,5
+2026-01-17,PED-10017,Moda,133.98,App Mobile,5,4
+2026-01-18,PED-10018,Moda,272.44,App Mobile,1,3
+2026-01-19,PED-10019,Eletrodomésticos,584.09,App Mobile,14,5
+2026-01-20,PED-10020,Informática,201.38,App Mobile,8,4
+2026-01-21,PED-10021,Eletrônicos,465.35,App Mobile,5,5
+2026-01-22,PED-10022,Eletrônicos,158.61,Website,5,5
+2026-01-23,PED-10023,Móveis,57.01,App Mobile,9,2
+2026-01-24,PED-10024,Móveis,45.87,Website,8,5
+2026-01-25,PED-10025,Eletrodomésticos,43.17,App Mobile,13,4
+2026-01-26,PED-10026,Moda,149.57,App Mobile,1,4
+2026-01-27,PED-10027,Eletrônicos,132.83,App Mobile,3,1
+2026-01-28,PED-10028,Eletrodomésticos,346.41,Website,12,5
+2026-01-29,PED-10029,Móveis,369.5,App Mobile,7,4
+2026-01-30,PED-10030,Móveis,43.05,Website,1,4
+2026-01-31,PED-10031,Eletrônicos,92.48,Website,1,5
+2026-02-01,PED-10032,Móveis,110.14,Website,5,4
+2026-02-02,PED-10033,Móveis,228.3,App Mobile,9,4
+2026-02-03,PED-10034,Informática,69.02,App Mobile,6,5
+2026-02-04,PED-10035,Moda,65.95,App Mobile,10,5
+2026-02-05,PED-10036,Móveis,749.66,Website,2,5
+2026-02-06,PED-10037,Informática,437.67,App Mobile,11,5
+2026-02-07,PED-10038,Eletrodomésticos,79.81,Website,9,4
+2026-02-08,PED-10039,Móveis,160.46,Loja Parceira,6,4
+2026-02-09,PED-10040,Eletrodomésticos,139.87,App Mobile,5,3
+2026-02-10,PED-10041,Móveis,421.36,App Mobile,5,5
+2026-02-11,PED-10042,Eletrônicos,208.45,Website,12,4
+2026-02-12,PED-10043,Informática,64.2,App Mobile,3,5
+2026-02-13,PED-10044,Informática,365.8,App Mobile,14,2
+2026-02-14,PED-10045,Eletrônicos,156.41,Loja Parceira,6,2
+2026-02-15,PED-10046,Moda,106.27,App Mobile,13,3
+2026-02-16,PED-10047,Informática,147.7,Loja Parceira,4,2
+2026-02-17,PED-10048,Eletrodomésticos,202.17,Website,13,4
+2026-02-18,PED-10049,Informática,135.06,Website,12,2
+2026-02-19,PED-10050,Moda,99.24,App Mobile,10,3
+2026-02-20,PED-10051,Eletrodomésticos,157.08,App Mobile,14,1
+2026-02-21,PED-10052,Eletrodomésticos,34.84,Website,2,5
+2026-02-22,PED-10053,Eletrônicos,400.15,App Mobile,13,5
+2026-02-23,PED-10054,Móveis,76.87,App Mobile,3,3
+2026-02-24,PED-10055,Eletrônicos,41.22,App Mobile,9,5
+2026-02-25,PED-10056,Móveis,295.11,App Mobile,11,4
+2026-02-26,PED-10057,Eletrônicos,401.73,App Mobile,11,3
+2026-02-27,PED-10058,Móveis,450.27,Website,9,4
+2026-02-28,PED-10059,Informática,200.06,App Mobile,6,3
+2026-03-01,PED-10060,Eletrodomésticos,87.47,App Mobile,10,5
+2026-03-02,PED-10061,Móveis,364.12,Website,10,1
+2026-03-03,PED-10062,Informática,330.75,Loja Parceira,14,5
+2026-03-04,PED-10063,Moda,100.68,App Mobile,9,2
+2026-03-05,PED-10064,Eletrônicos,614.31,App Mobile,4,4
+2026-03-06,PED-10065,Moda,57.56,Website,11,5
+2026-03-07,PED-10066,Informática,1044.09,Loja Parceira,5,1
+2026-03-08,PED-10067,Moda,521.97,Website,10,4
+2026-03-09,PED-10068,Moda,321.11,Website,6,4
+2026-03-10,PED-10069,Informática,728.2,App Mobile,13,4
+2026-03-11,PED-10070,Eletrodomésticos,350.31,Website,9,3
+2026-03-12,PED-10071,Móveis,82.82,App Mobile,13,2
+2026-03-13,PED-10072,Eletrônicos,175.92,Website,5,4
+2026-03-14,PED-10073,Móveis,48.55,Website,8,4
+2026-03-15,PED-10074,Eletrônicos,153.43,Loja Parceira,11,4
+2026-03-16,PED-10075,Móveis,368.31,App Mobile,1,3
+2026-03-17,PED-10076,Moda,152.12,App Mobile,5,4
+2026-03-18,PED-10077,Eletrodomésticos,130.23,Website,10,4
+2026-03-19,PED-10078,Moda,256.19,Website,1,4
+2026-03-20,PED-10079,Eletrodomésticos,544.33,Website,10,4
+2026-03-21,PED-10080,Informática,42.19,App Mobile,14,3
+2026-03-22,PED-10081,Eletrônicos,151.72,App Mobile,6,3
+2026-03-23,PED-10082,Eletrônicos,73.07,Website,7,3
+2026-03-24,PED-10083,Informática,327.15,App Mobile,12,4
+2026-03-25,PED-10084,Móveis,57.94,Loja Parceira,14,3
+2026-03-26,PED-10085,Informática,303.26,App Mobile,5,4
+2026-03-27,PED-10086,Informática,114.28,Website,1,4
+2026-03-28,PED-10087,Eletrodomésticos,85.45,Website,6,4
+2026-03-29,PED-10088,Informática,718.6,Website,10,4
+2026-03-30,PED-10089,Eletrônicos,34.67,App Mobile,5,3
+2026-03-31,PED-10090,Moda,173.96,Website,6,4
+2026-04-01,PED-10091,Eletrodomésticos,35.47,App Mobile,11,5
+2026-04-02,PED-10092,Eletrodomésticos,195.22,Website,10,5
+2026-04-03,PED-10093,Móveis,203.81,App Mobile,7,5
+2026-04-04,PED-10094,Moda,127.03,App Mobile,7,5
+2026-04-05,PED-10095,Eletrodomésticos,65.44,App Mobile,2,4
+2026-04-06,PED-10096,Informática,148.06,App Mobile,12,2
+2026-04-07,PED-10097,Eletrodomésticos,308.89,Loja Parceira,3,4
+2026-04-08,PED-10098,Eletrodomésticos,411.27,App Mobile,12,3
+2026-04-09,PED-10099,Eletrodomésticos,219.16,Website,6,4
+2026-04-10,PED-10100,Móveis,252.8,Loja Parceira,3,5
+2026-04-11,PED-10101,Eletrodomésticos,85.98,App Mobile,2,5
+2026-04-12,PED-10102,Eletrodomésticos,114.68,Website,4,4
+2026-04-13,PED-10103,Móveis,74.15,App Mobile,5,4
+2026-04-14,PED-10104,Moda,101.69,App Mobile,11,4
+2026-04-15,PED-10105,Eletrônicos,93.69,App Mobile,10,5
+2026-04-16,PED-10106,Móveis,213.21,Loja Parceira,9,5
+2026-04-17,PED-10107,Móveis,236.78,App Mobile,3,5
+2026-04-18,PED-10108,Eletrodomésticos,754.87,Website,3,1
+2026-04-19,PED-10109,Eletrodomésticos,84.41,Website,6,4
+2026-04-20,PED-10110,Eletrônicos,286.58,Loja Parceira,5,3
+2026-04-21,PED-10111,Eletrodomésticos,454.92,App Mobile,6,2
+2026-04-22,PED-10112,Informática,235.38,Website,7,5
+2026-04-23,PED-10113,Eletrodomésticos,103.59,Website,11,5
+2026-04-24,PED-10114,Eletrodomésticos,106.14,Website,3,3
+2026-04-25,PED-10115,Informática,40.01,Loja Parceira,13,1
+2026-04-26,PED-10116,Eletrônicos,121.12,Website,5,3
+2026-04-27,PED-10117,Informática,371.23,App Mobile,8,5
+2026-04-28,PED-10118,Móveis,42.17,App Mobile,4,3
+2026-04-29,PED-10119,Informática,91.89,App Mobile,10,2
+2026-04-30,PED-10120,Moda,336.24,App Mobile,2,2
+2026-05-01,PED-10121,Móveis,411.56,App Mobile,4,4
+2026-05-02,PED-10122,Eletrodomésticos,181.89,App Mobile,2,5
+2026-05-03,PED-10123,Móveis,329.39,App Mobile,3,3
+2026-05-04,PED-10124,Eletrônicos,152.74,Loja Parceira,4,4
+2026-05-05,PED-10125,Eletrônicos,73.56,App Mobile,4,2
+2026-05-06,PED-10126,Informática,156.94,Loja Parceira,10,4
+2026-05-07,PED-10127,Móveis,246.86,App Mobile,9,5
+2026-05-08,PED-10128,Eletrodomésticos,769.38,Website,10,3
+2026-05-09,PED-10129,Eletrônicos,47.81,Website,6,3
+2026-05-10,PED-10130,Eletrodomésticos,207.01,App Mobile,9,5
+2026-05-11,PED-10131,Moda,129.72,App Mobile,4,1
+2026-05-12,PED-10132,Eletrônicos,207.48,App Mobile,9,4
+2026-05-13,PED-10133,Informática,36.07,App Mobile,11,4
+2026-05-14,PED-10134,Moda,123.86,Loja Parceira,13,3
+2026-05-15,PED-10135,Móveis,458.52,Website,9,5
+2026-05-16,PED-10136,Eletrodomésticos,231.83,App Mobile,6,5
+2026-05-17,PED-10137,Eletrônicos,179.72,App Mobile,5,4
+2026-05-18,PED-10138,Moda,114.05,App Mobile,3,1
+2026-05-19,PED-10139,Moda,118.47,App Mobile,14,4
+2026-05-20,PED-10140,Eletrônicos,150.76,Website,5,4
+2026-05-21,PED-10141,Móveis,481.32,App Mobile,3,4
+2026-05-22,PED-10142,Móveis,884.43,Website,5,5
+2026-05-23,PED-10143,Informática,174.36,App Mobile,5,1
+2026-05-24,PED-10144,Móveis,154.95,App Mobile,2,4
+2026-05-25,PED-10145,Informática,498.6,Website,14,4
+2026-05-26,PED-10146,Moda,169.18,App Mobile,14,4
+2026-05-27,PED-10147,Eletrônicos,230.75,Loja Parceira,9,5
+2026-05-28,PED-10148,Móveis,95.65,Loja Parceira,7,3
+2026-05-29,PED-10149,Informática,370.16,App Mobile,14,4
+2026-05-30,PED-10150,Moda,219.82,App Mobile,6,5
+2026-05-31,PED-10151,Móveis,443.92,Website,5,4
+2026-06-01,PED-10152,Eletrodomésticos,409.37,Loja Parceira,4,4
+2026-06-02,PED-10153,Moda,90.52,Website,8,4
+2026-06-03,PED-10154,Móveis,344.37,App Mobile,2,5
+2026-06-04,PED-10155,Moda,432.43,Loja Parceira,8,5
+2026-06-05,PED-10156,Eletrônicos,136.2,App Mobile,1,4
+2026-06-06,PED-10157,Eletrônicos,77.37,Website,10,1
+2026-06-07,PED-10158,Eletrônicos,30.66,Loja Parceira,1,5
+2026-06-08,PED-10159,Eletrodomésticos,179.87,App Mobile,3,4
+2026-06-09,PED-10160,Eletrônicos,138.63,Loja Parceira,5,4
+2026-06-10,PED-10161,Eletrodomésticos,232.37,App Mobile,14,5
+2026-06-11,PED-10162,Eletrônicos,82.08,Loja Parceira,6,4
+2026-06-12,PED-10163,Moda,520.93,App Mobile,4,1
+2026-06-13,PED-10164,Móveis,104.52,Loja Parceira,7,5
+2026-06-14,PED-10165,Móveis,94.18,App Mobile,7,4
+2026-06-15,PED-10166,Eletrônicos,193.83,Website,2,4
+2026-06-16,PED-10167,Móveis,202.71,Website,2,3
+2026-06-17,PED-10168,Eletrônicos,90.55,App Mobile,2,4
+2026-06-18,PED-10169,Eletrônicos,109.32,App Mobile,14,3
+2026-06-19,PED-10170,Informática,76.49,Website,2,4
+2026-06-20,PED-10171,Informática,346.87,App Mobile,13,4
+2026-06-21,PED-10172,Informática,397.52,Website,9,5
+2026-06-22,PED-10173,Eletrodomésticos,185.13,App Mobile,14,4
+2026-06-23,PED-10174,Informática,343.02,Loja Parceira,5,5
+2026-06-24,PED-10175,Eletrônicos,362.89,App Mobile,11,5
+2026-06-25,PED-10176,Moda,67.2,App Mobile,8,5
+2026-06-26,PED-10177,Informática,876.66,App Mobile,5,3
+2026-06-27,PED-10178,Informática,460.14,App Mobile,13,5
+2026-06-28,PED-10179,Moda,87.19,App Mobile,11,4
+2026-06-29,PED-10180,Eletrônicos,81.5,App Mobile,5,1
+2026-06-30,PED-10181,Eletrodomésticos,63.57,Loja Parceira,1,3
+2026-07-01,PED-10182,Informática,67.23,Website,6,5
+2026-07-02,PED-10183,Moda,374.74,Website,4,2
+2026-07-03,PED-10184,Eletrônicos,188.56,App Mobile,3,2
+2026-07-04,PED-10185,Móveis,411.89,Website,6,5
+2026-07-05,PED-10186,Eletrodomésticos,372.86,App Mobile,2,5
+2026-07-06,PED-10187,Moda,261.97,Website,8,4
+2026-07-07,PED-10188,Moda,319.88,App Mobile,1,3
+2026-07-08,PED-10189,Moda,34.63,App Mobile,12,2
+2026-07-09,PED-10190,Informática,123.41,App Mobile,9,4
+2026-07-10,PED-10191,Móveis,283.9,Loja Parceira,8,1
+2026-07-11,PED-10192,Eletrodomésticos,32.35,App Mobile,1,4
+2026-07-12,PED-10193,Eletrônicos,38.38,Website,10,3
+2026-07-13,PED-10194,Eletrônicos,507.45,App Mobile,12,5
+2026-07-14,PED-10195,Móveis,318.02,Website,9,4
+2026-07-15,PED-10196,Moda,107.1,Loja Parceira,2,3
+2026-07-16,PED-10197,Moda,321.16,App Mobile,3,5
+2026-07-17,PED-10198,Moda,423.1,App Mobile,2,3
+2026-07-18,PED-10199,Moda,121.61,Loja Parceira,13,4
+2026-07-19,PED-10200,Moda,39.18,Website,14,5
+2026-07-20,PED-10201,Móveis,704.94,App Mobile,8,4
+2026-07-21,PED-10202,Informática,135.85,Website,2,4
+2026-07-22,PED-10203,Eletrodomésticos,58.15,Website,10,4
+2026-07-23,PED-10204,Moda,199.25,App Mobile,2,2
+2026-07-24,PED-10205,Informática,395.76,Website,1,1
+2026-07-25,PED-10206,Eletrônicos,92.64,App Mobile,7,5
+2026-07-26,PED-10207,Móveis,108.5,App Mobile,12,4
+2026-07-27,PED-10208,Informática,99.5,Website,2,3
+2026-07-28,PED-10209,Moda,1227.06,App Mobile,10,3
+2026-07-29,PED-10210,Moda,84.98,App Mobile,5,5
+2026-07-30,PED-10211,Moda,244.22,Website,5,5
+2026-07-31,PED-10212,Informática,678.45,Loja Parceira,3,4
+2026-08-01,PED-10213,Moda,69.72,Loja Parceira,3,5
+2026-08-02,PED-10214,Informática,913.86,Loja Parceira,13,5
+2026-08-03,PED-10215,Moda,766.63,Loja Parceira,12,3
+2026-08-04,PED-10216,Eletrônicos,569.78,App Mobile,3,2
+2026-08-05,PED-10217,Eletrônicos,90.38,App Mobile,6,2
+2026-08-06,PED-10218,Eletrodomésticos,281.32,Website,14,5
+2026-08-07,PED-10219,Moda,387.71,App Mobile,4,5
+2026-08-08,PED-10220,Moda,1097.67,Website,13,5
+2026-08-09,PED-10221,Informática,79.74,Website,3,2
+2026-08-10,PED-10222,Informática,393.14,App Mobile,2,4
+2026-08-11,PED-10223,Moda,133.43,Loja Parceira,13,5
+2026-08-12,PED-10224,Eletrodomésticos,78.28,Website,3,5
+2026-08-13,PED-10225,Moda,166.78,App Mobile,4,1
+2026-08-14,PED-10226,Informática,424.77,Loja Parceira,6,5
+2026-08-15,PED-10227,Moda,186.3,App Mobile,4,1
+2026-08-16,PED-10228,Informática,222.79,App Mobile,8,5
+2026-08-17,PED-10229,Moda,1362.68,Website,3,4
+2026-08-18,PED-10230,Móveis,157.34,Website,12,2
+2026-08-19,PED-10231,Informática,268.89,Website,3,5
+2026-08-20,PED-10232,Eletrodomésticos,143.63,Website,3,2
+2026-08-21,PED-10233,Móveis,154.72,Website,8,5
+2026-08-22,PED-10234,Moda,327.39,App Mobile,4,3
+2026-08-23,PED-10235,Informática,724.7,Loja Parceira,1,5
+2026-08-24,PED-10236,Móveis,225.42,Loja Parceira,2,5
+2026-08-25,PED-10237,Eletrodomésticos,395.69,App Mobile,13,4
+2026-08-26,PED-10238,Informática,53.36,App Mobile,14,4
+2026-08-27,PED-10239,Móveis,89.3,Loja Parceira,10,4
+2026-08-28,PED-10240,Móveis,204.35,Loja Parceira,13,3
+2026-08-29,PED-10241,Móveis,35.05,Loja Parceira,13,4
+2026-08-30,PED-10242,Eletrônicos,102.87,Loja Parceira,14,5
+2026-08-31,PED-10243,Moda,212.14,Website,2,5
+2026-09-01,PED-10244,Informática,33.77,Website,14,5
+2026-09-02,PED-10245,Informática,106.82,Website,3,4
+2026-09-03,PED-10246,Informática,210.4,App Mobile,6,5
+2026-09-04,PED-10247,Móveis,242.83,Website,8,5
+2026-09-05,PED-10248,Moda,680.09,Website,12,4
+2026-09-06,PED-10249,Eletrodomésticos,289.15,Website,1,2
+2026-09-07,PED-10250,Informática,163.92,Website,9,4
+2026-09-08,PED-10251,Moda,696.07,App Mobile,1,5
+2026-09-09,PED-10252,Moda,414.14,App Mobile,10,4
+2026-09-10,PED-10253,Eletrônicos,85.79,App Mobile,2,5
+2026-09-11,PED-10254,Informática,65.06,App Mobile,3,3
+2026-09-12,PED-10255,Móveis,311.61,App Mobile,7,5
+2026-09-13,PED-10256,Moda,235.18,Loja Parceira,9,4
+2026-09-14,PED-10257,Moda,419.77,App Mobile,3,5
+2026-09-15,PED-10258,Eletrodomésticos,365.62,App Mobile,8,1
+2026-09-16,PED-10259,Eletrônicos,275.35,Website,9,2
+2026-09-17,PED-10260,Moda,1104.09,Website,10,5
+2026-09-18,PED-10261,Moda,220.67,App Mobile,7,5
+2026-09-19,PED-10262,Móveis,60.01,Website,4,4
+2026-09-20,PED-10263,Móveis,470.46,Website,4,1
+2026-09-21,PED-10264,Eletrodomésticos,102.54,App Mobile,4,4
+2026-09-22,PED-10265,Eletrodomésticos,405.48,App Mobile,6,1
+2026-09-23,PED-10266,Eletrodomésticos,817.26,Loja Parceira,4,3
+2026-09-24,PED-10267,Móveis,328.34,Website,5,5
+2026-09-25,PED-10268,Móveis,256.6,Website,9,5
+2026-09-26,PED-10269,Eletrônicos,184.23,App Mobile,12,2
+2026-09-27,PED-10270,Informática,143.3,App Mobile,7,4
+2026-09-28,PED-10271,Informática,138.85,Website,8,3
+2026-09-29,PED-10272,Eletrônicos,282.91,App Mobile,5,2
+2026-09-30,PED-10273,Informática,377.85,App Mobile,5,3
+2026-10-01,PED-10274,Móveis,313.7,Website,13,4
+2026-10-02,PED-10275,Informática,85.29,App Mobile,11,2
+2026-10-03,PED-10276,Móveis,200.3,Website,7,4
+2026-10-04,PED-10277,Eletrônicos,422.12,Website,11,2
+2026-10-05,PED-10278,Eletrodomésticos,191.42,App Mobile,13,3
+2026-10-06,PED-10279,Eletrônicos,222.3,Website,14,3
+2026-10-07,PED-10280,Informática,398.66,App Mobile,12,5
+2026-10-08,PED-10281,Móveis,300.63,Website,8,5
+2026-10-09,PED-10282,Informática,161.63,App Mobile,9,5
+2026-10-10,PED-10283,Informática,594.43,App Mobile,14,4
+2026-10-11,PED-10284,Eletrodomésticos,74.35,Website,2,4
+2026-10-12,PED-10285,Informática,1381.83,App Mobile,3,4
+2026-10-13,PED-10286,Eletrodomésticos,61.63,Loja Parceira,12,1
+2026-10-14,PED-10287,Móveis,33.77,App Mobile,12,5
+2026-10-15,PED-10288,Móveis,581.86,App Mobile,2,4
+2026-10-16,PED-10289,Eletrodomésticos,100.24,Website,10,4
+2026-10-17,PED-10290,Eletrônicos,357.06,App Mobile,7,4
+2026-10-18,PED-10291,Móveis,446.52,App Mobile,12,4
+2026-10-19,PED-10292,Eletrônicos,519.72,Website,2,5
+2026-10-20,PED-10293,Móveis,1224.71,Website,12,4
+2026-10-21,PED-10294,Móveis,117.05,Loja Parceira,14,4
+2026-10-22,PED-10295,Moda,339.68,Loja Parceira,2,4
+2026-10-23,PED-10296,Informática,60.65,App Mobile,14,5
+2026-10-24,PED-10297,Informática,160.56,Website,14,4
+2026-10-25,PED-10298,Eletrônicos,500.92,App Mobile,2,4
+2026-10-26,PED-10299,Informática,144.58,Website,12,2
+2026-10-27,PED-10300,Eletrônicos,253.57,App Mobile,13,5
+2026-10-28,PED-10301,Móveis,205.18,Loja Parceira,4,3
+2026-10-29,PED-10302,Moda,289.58,Website,1,4
+2026-10-30,PED-10303,Moda,932.0,Loja Parceira,2,5
+2026-10-31,PED-10304,Móveis,44.34,Website,3,5
+2026-11-01,PED-10305,Eletrodomésticos,243.31,Loja Parceira,7,4
+2026-11-02,PED-10306,Eletrodomésticos,527.0,Website,10,5
+2026-11-03,PED-10307,Informática,194.15,App Mobile,1,2
+2026-11-04,PED-10308,Eletrônicos,50.45,App Mobile,6,5
+2026-11-05,PED-10309,Moda,235.55,App Mobile,3,4
+2026-11-06,PED-10310,Informática,130.89,App Mobile,3,4
+2026-11-07,PED-10311,Móveis,72.09,Website,4,5
+2026-11-08,PED-10312,Moda,502.68,Website,13,5
+2026-11-09,PED-10313,Eletrônicos,214.33,Website,4,3
+2026-11-10,PED-10314,Eletrônicos,706.8,Loja Parceira,7,5
+2026-11-11,PED-10315,Eletrodomésticos,440.0,Loja Parceira,3,2
+2026-11-12,PED-10316,Informática,325.2,App Mobile,8,5
+2026-11-13,PED-10317,Móveis,31.26,App Mobile,8,5
+2026-11-14,PED-10318,Moda,169.58,App Mobile,11,2
+2026-11-15,PED-10319,Eletrônicos,85.0,App Mobile,13,5
+2026-11-16,PED-10320,Moda,634.21,Website,7,4
+2026-11-17,PED-10321,Móveis,77.97,Website,2,4
+2026-11-18,PED-10322,Moda,114.24,Website,5,3
+2026-11-19,PED-10323,Informática,211.85,Loja Parceira,6,3
+2026-11-20,PED-10324,Eletrodomésticos,106.42,Website,12,5
+2026-11-21,PED-10325,Moda,88.89,App Mobile,10,3
+2026-11-22,PED-10326,Eletrodomésticos,258.51,Website,4,4
+2026-11-23,PED-10327,Móveis,53.28,App Mobile,13,5
+2026-11-24,PED-10328,Eletrodomésticos,44.98,App Mobile,10,2
+2026-11-25,PED-10329,Moda,146.4,App Mobile,5,4
+2026-11-26,PED-10330,Moda,348.84,App Mobile,14,4
+2026-11-27,PED-10331,Eletrônicos,232.31,App Mobile,9,5
+2026-11-28,PED-10332,Moda,167.42,App Mobile,11,4
+2026-11-29,PED-10333,Eletrodomésticos,238.53,Website,7,4
+2026-11-30,PED-10334,Eletrônicos,143.71,Website,2,4
+2026-12-01,PED-10335,Moda,717.79,App Mobile,11,5
+2026-12-02,PED-10336,Moda,44.12,App Mobile,1,2
+2026-12-03,PED-10337,Móveis,309.75,Website,2,5
+2026-12-04,PED-10338,Eletrônicos,584.75,App Mobile,3,4
+2026-12-05,PED-10339,Móveis,437.26,Loja Parceira,11,5
+2026-12-06,PED-10340,Móveis,80.85,Website,2,4
+2026-12-07,PED-10341,Móveis,117.72,App Mobile,11,4
+2026-12-08,PED-10342,Informática,345.62,App Mobile,3,5
+2026-12-09,PED-10343,Móveis,52.01,App Mobile,10,2
+2026-12-10,PED-10344,Eletrodomésticos,447.64,App Mobile,11,2
+2026-12-11,PED-10345,Moda,347.27,App Mobile,11,3
+2026-12-12,PED-10346,Informática,356.97,Website,12,5
+2026-12-13,PED-10347,Móveis,56.41,App Mobile,14,4
+2026-12-14,PED-10348,Moda,346.25,Website,12,4
+2026-12-15,PED-10349,Eletrônicos,314.72,Website,9,5
+2026-12-16,PED-10350,Eletrônicos,474.35,App Mobile,4,4
+2026-12-17,PED-10351,Moda,40.62,App Mobile,12,5
+2026-12-18,PED-10352,Eletrodomésticos,35.85,App Mobile,9,4
+2026-12-19,PED-10353,Moda,146.71,App Mobile,11,5
+2026-12-20,PED-10354,Moda,70.27,Website,3,3
+2026-12-21,PED-10355,Informática,234.33,App Mobile,12,3
+2026-12-22,PED-10356,Eletrônicos,653.28,Website,1,4
+2026-12-23,PED-10357,Eletrônicos,154.18,App Mobile,11,4
+2026-12-24,PED-10358,Móveis,496.0,App Mobile,5,4
+2026-12-25,PED-10359,Moda,30.06,Website,10,4
+2026-12-26,PED-10360,Moda,76.14,Website,10,3
+2026-12-27,PED-10361,Eletrodomésticos,37.72,App Mobile,14,4
+2026-12-28,PED-10362,Eletrônicos,129.43,App Mobile,2,4
+2026-12-29,PED-10363,Eletrodomésticos,627.01,Website,4,2
+2026-12-30,PED-10364,Informática,55.49,App Mobile,2,4
+2026-12-31,PED-10365,Móveis,263.11,App Mobile,2,4
+2027-01-01,PED-10366,Eletrodomésticos,180.14,Website,13,4
+2027-01-02,PED-10367,Eletrônicos,727.05,App Mobile,3,3
+2027-01-03,PED-10368,Informática,62.68,Website,5,5
+2027-01-04,PED-10369,Moda,89.57,Website,4,5
+2027-01-05,PED-10370,Informática,37.5,Website,2,3
+2027-01-06,PED-10371,Eletrodomésticos,172.26,Website,11,4
+2027-01-07,PED-10372,Eletrônicos,111.37,Website,14,5
+2027-01-08,PED-10373,Eletrodomésticos,539.87,Website,14,4
+2027-01-09,PED-10374,Moda,262.18,Loja Parceira,10,5
+2027-01-10,PED-10375,Moda,268.04,App Mobile,2,3
+2027-01-11,PED-10376,Eletrônicos,219.77,App Mobile,14,5
+2027-01-12,PED-10377,Móveis,54.09,Website,6,4
+2027-01-13,PED-10378,Informática,177.21,Website,7,3
+2027-01-14,PED-10379,Informática,1932.83,App Mobile,12,4
+2027-01-15,PED-10380,Moda,480.8,Loja Parceira,10,5
+2027-01-16,PED-10381,Eletrodomésticos,589.81,App Mobile,6,5
+2027-01-17,PED-10382,Eletrodomésticos,463.22,Website,7,4
+2027-01-18,PED-10383,Móveis,57.19,Website,1,2
+2027-01-19,PED-10384,Eletrodomésticos,94.51,Loja Parceira,6,4
+2027-01-20,PED-10385,Informática,30.78,App Mobile,11,3
+2027-01-21,PED-10386,Eletrodomésticos,120.43,Website,3,2
+2027-01-22,PED-10387,Móveis,58.74,App Mobile,1,4
+2027-01-23,PED-10388,Informática,190.04,App Mobile,8,5
+2027-01-24,PED-10389,Eletrodomésticos,312.62,App Mobile,4,5
+2027-01-25,PED-10390,Informática,548.87,Website,10,3
+2027-01-26,PED-10391,Moda,375.79,App Mobile,8,4
+2027-01-27,PED-10392,Moda,727.53,App Mobile,10,5
+2027-01-28,PED-10393,Moda,43.85,Website,14,5
+2027-01-29,PED-10394,Eletrodomésticos,33.06,Website,11,5
+2027-01-30,PED-10395,Móveis,300.69,Website,4,5
+2027-01-31,PED-10396,Informática,115.39,Loja Parceira,4,5
+2027-02-01,PED-10397,Eletrônicos,103.09,App Mobile,12,2
+2027-02-02,PED-10398,Moda,130.45,Loja Parceira,14,4
+2027-02-03,PED-10399,Moda,108.61,Loja Parceira,10,5
+2027-02-04,PED-10400,Eletrônicos,209.07,App Mobile,4,4
+2027-02-05,PED-10401,Eletrônicos,175.02,App Mobile,6,2
+2027-02-06,PED-10402,Eletrodomésticos,209.58,App Mobile,14,4
+2027-02-07,PED-10403,Informática,309.23,App Mobile,9,5
+2027-02-08,PED-10404,Moda,152.4,Website,5,5
+2027-02-09,PED-10405,Móveis,102.36,Website,12,4
+2027-02-10,PED-10406,Eletrodomésticos,75.44,Website,13,4
+2027-02-11,PED-10407,Eletrodomésticos,137.49,Website,10,5
+2027-02-12,PED-10408,Móveis,368.51,App Mobile,14,4
+2027-02-13,PED-10409,Móveis,383.37,Loja Parceira,8,2
+2027-02-14,PED-10410,Móveis,304.83,App Mobile,8,5
+2027-02-15,PED-10411,Eletrônicos,96.65,Loja Parceira,4,4
+2027-02-16,PED-10412,Moda,251.74,App Mobile,11,4
+2027-02-17,PED-10413,Eletrônicos,241.39,Loja Parceira,10,4
+2027-02-18,PED-10414,Moda,195.54,App Mobile,9,1
+2027-02-19,PED-10415,Eletrônicos,229.62,App Mobile,9,5
+2027-02-20,PED-10416,Informática,199.22,App Mobile,5,4
+2027-02-21,PED-10417,Moda,238.36,Website,6,4
+2027-02-22,PED-10418,Eletrodomésticos,344.26,Loja Parceira,5,3
+2027-02-23,PED-10419,Moda,59.03,App Mobile,3,4
+2027-02-24,PED-10420,Moda,376.2,Loja Parceira,11,5
+2027-02-25,PED-10421,Moda,66.51,Website,8,5
+2027-02-26,PED-10422,Informática,47.24,Website,9,5
+2027-02-27,PED-10423,Eletrônicos,963.26,Website,4,4
+2027-02-28,PED-10424,Eletrodomésticos,816.59,App Mobile,9,5
+2027-03-01,PED-10425,Eletrônicos,45.58,App Mobile,9,4
+2027-03-02,PED-10426,Eletrônicos,176.41,Loja Parceira,7,5
+2027-03-03,PED-10427,Móveis,81.52,Loja Parceira,8,5
+2027-03-04,PED-10428,Informática,196.06,Loja Parceira,3,4
+2027-03-05,PED-10429,Móveis,473.25,Loja Parceira,5,4
+2027-03-06,PED-10430,Informática,782.01,App Mobile,3,3
+2027-03-07,PED-10431,Eletrônicos,281.45,Website,7,4
+2027-03-08,PED-10432,Eletrônicos,139.2,App Mobile,6,5
+2027-03-09,PED-10433,Informática,261.16,Loja Parceira,11,3
+2027-03-10,PED-10434,Eletrônicos,123.49,App Mobile,3,2
+2027-03-11,PED-10435,Eletrônicos,631.5,Website,9,2
+2027-03-12,PED-10436,Eletrodomésticos,540.83,Website,12,5
+2027-03-13,PED-10437,Móveis,234.24,App Mobile,1,4
+2027-03-14,PED-10438,Móveis,128.19,App Mobile,10,3
+2027-03-15,PED-10439,Móveis,116.82,Loja Parceira,3,4
+2027-03-16,PED-10440,Moda,38.5,Website,11,4
+2027-03-17,PED-10441,Eletrodomésticos,452.96,App Mobile,10,4
+2027-03-18,PED-10442,Móveis,179.63,Website,11,5
+2027-03-19,PED-10443,Móveis,128.31,Website,7,4
+2027-03-20,PED-10444,Eletrodomésticos,189.24,App Mobile,3,4
+2027-03-21,PED-10445,Eletrônicos,456.95,App Mobile,14,2
+2027-03-22,PED-10446,Móveis,63.27,Loja Parceira,3,2
+2027-03-23,PED-10447,Eletrônicos,517.38,Website,2,4
+2027-03-24,PED-10448,Móveis,599.49,Website,9,4
+2027-03-25,PED-10449,Informática,762.99,Website,11,4
+2027-03-26,PED-10450,Moda,156.66,App Mobile,4,1
+2027-03-27,PED-10451,Móveis,91.2,App Mobile,10,2
+2027-03-28,PED-10452,Informática,146.96,App Mobile,13,5
+2027-03-29,PED-10453,Eletrodomésticos,131.21,App Mobile,6,4
+2027-03-30,PED-10454,Informática,78.44,Website,2,5
+2027-03-31,PED-10455,Eletrodomésticos,263.66,Loja Parceira,9,5
+2027-04-01,PED-10456,Móveis,191.86,App Mobile,7,4
+2027-04-02,PED-10457,Eletrodomésticos,531.92,App Mobile,10,5
+2027-04-03,PED-10458,Informática,38.16,Website,5,4
+2027-04-04,PED-10459,Moda,288.11,Loja Parceira,7,3
+2027-04-05,PED-10460,Eletrônicos,389.87,Website,14,4
+2027-04-06,PED-10461,Eletrônicos,386.24,Loja Parceira,4,4
+2027-04-07,PED-10462,Moda,573.05,Website,13,4
+2027-04-08,PED-10463,Eletrônicos,356.44,Website,10,4
+2027-04-09,PED-10464,Móveis,687.11,App Mobile,13,4
+2027-04-10,PED-10465,Móveis,131.11,App Mobile,7,2
+2027-04-11,PED-10466,Informática,204.9,App Mobile,2,2
+2027-04-12,PED-10467,Informática,33.54,Website,7,1
+2027-04-13,PED-10468,Eletrodomésticos,31.75,Loja Parceira,4,2
+2027-04-14,PED-10469,Informática,98.65,Loja Parceira,4,4
+2027-04-15,PED-10470,Móveis,56.56,App Mobile,1,4
+2027-04-16,PED-10471,Informática,105.35,App Mobile,12,3
+2027-04-17,PED-10472,Eletrônicos,78.71,App Mobile,3,5
+2027-04-18,PED-10473,Eletrodomésticos,37.23,App Mobile,5,5
+2027-04-19,PED-10474,Eletrodomésticos,630.06,Website,5,4
+2027-04-20,PED-10475,Móveis,32.06,Loja Parceira,2,5
+2027-04-21,PED-10476,Informática,363.03,Loja Parceira,4,4
+2027-04-22,PED-10477,Eletrônicos,71.26,Website,1,1
+2027-04-23,PED-10478,Informática,638.26,Website,9,5
+2027-04-24,PED-10479,Moda,588.26,Website,1,2
+2027-04-25,PED-10480,Informática,295.26,App Mobile,6,5
+2027-04-26,PED-10481,Móveis,308.86,Website,7,4
+2027-04-27,PED-10482,Informática,31.34,Website,3,4
+2027-04-28,PED-10483,Eletrodomésticos,1077.79,Website,12,4
+2027-04-29,PED-10484,Eletrônicos,555.59,App Mobile,1,4
+2027-04-30,PED-10485,Móveis,593.7,App Mobile,7,1
+2027-05-01,PED-10486,Moda,299.15,App Mobile,3,4
+2027-05-02,PED-10487,Eletrônicos,135.7,Loja Parceira,13,5
+2027-05-03,PED-10488,Eletrônicos,590.25,App Mobile,10,4
+2027-05-04,PED-10489,Eletrodomésticos,116.16,Website,12,3
+2027-05-05,PED-10490,Eletrodomésticos,236.79,Website,12,4
+2027-05-06,PED-10491,Eletrodomésticos,56.27,App Mobile,6,5
+2027-05-07,PED-10492,Móveis,667.62,Website,13,4
+2027-05-08,PED-10493,Informática,67.93,Loja Parceira,12,4
+2027-05-09,PED-10494,Eletrônicos,93.69,App Mobile,14,5
+2027-05-10,PED-10495,Informática,234.19,Loja Parceira,6,4
+2027-05-11,PED-10496,Informática,391.08,App Mobile,14,4
+2027-05-12,PED-10497,Eletrodomésticos,271.47,App Mobile,12,5
+2027-05-13,PED-10498,Informática,96.03,Loja Parceira,4,5
+2027-05-14,PED-10499,Eletrônicos,30.24,Website,12,3
+2027-05-15,PED-10500,Eletrônicos,383.83,Loja Parceira,11,3
+2027-05-16,PED-10501,Moda,1083.41,Website,6,5
+2027-05-17,PED-10502,Móveis,445.07,Loja Parceira,11,3
+2027-05-18,PED-10503,Informática,184.14,Website,10,5
+2027-05-19,PED-10504,Móveis,615.25,Website,4,2
+2027-05-20,PED-10505,Móveis,161.84,Website,13,4
+2027-05-21,PED-10506,Móveis,216.08,App Mobile,8,2
+2027-05-22,PED-10507,Móveis,192.11,Loja Parceira,9,5
+2027-05-23,PED-10508,Eletrônicos,178.38,App Mobile,2,5
+2027-05-24,PED-10509,Informática,403.13,Website,7,4
+2027-05-25,PED-10510,Moda,217.04,App Mobile,9,5
+2027-05-26,PED-10511,Móveis,125.21,Website,9,2
+2027-05-27,PED-10512,Moda,104.65,App Mobile,12,2
+2027-05-28,PED-10513,Eletrônicos,39.62,App Mobile,5,5
+2027-05-29,PED-10514,Eletrônicos,248.78,Loja Parceira,1,5
+2027-05-30,PED-10515,Eletrodomésticos,95.33,App Mobile,6,5
+2027-05-31,PED-10516,Móveis,70.08,Website,8,5
+2027-06-01,PED-10517,Eletrodomésticos,295.21,App Mobile,1,4
+2027-06-02,PED-10518,Moda,315.81,App Mobile,2,3
+2027-06-03,PED-10519,Informática,378.74,App Mobile,13,5
+2027-06-04,PED-10520,Eletrodomésticos,205.08,Website,13,4
+2027-06-05,PED-10521,Eletrônicos,591.21,App Mobile,1,4
+2027-06-06,PED-10522,Móveis,718.56,Loja Parceira,5,5
+2027-06-07,PED-10523,Moda,441.75,App Mobile,2,3
+2027-06-08,PED-10524,Eletrônicos,282.37,App Mobile,10,5
+2027-06-09,PED-10525,Informática,120.5,App Mobile,10,2
+2027-06-10,PED-10526,Móveis,1047.83,App Mobile,14,5
+2027-06-11,PED-10527,Informática,110.1,Website,4,4
+2027-06-12,PED-10528,Informática,86.62,Loja Parceira,1,4
+2027-06-13,PED-10529,Móveis,175.92,Website,7,4
+2027-06-14,PED-10530,Móveis,44.63,App Mobile,8,3
+2027-06-15,PED-10531,Informática,989.86,App Mobile,5,4
+2027-06-16,PED-10532,Moda,251.95,App Mobile,2,4
+2027-06-17,PED-10533,Móveis,233.52,Loja Parceira,8,4
+2027-06-18,PED-10534,Eletrônicos,296.63,App Mobile,1,3
+2027-06-19,PED-10535,Eletrodomésticos,201.8,Website,7,2
+2027-06-20,PED-10536,Moda,38.15,App Mobile,1,2
+2027-06-21,PED-10537,Móveis,266.89,App Mobile,12,5
+2027-06-22,PED-10538,Móveis,344.85,App Mobile,6,1
+2027-06-23,PED-10539,Moda,164.78,App Mobile,13,5
+2027-06-24,PED-10540,Eletrodomésticos,383.98,Website,6,5
+2027-06-25,PED-10541,Informática,94.37,App Mobile,5,5
+2027-06-26,PED-10542,Eletrônicos,92.52,Website,2,5
+2027-06-27,PED-10543,Móveis,74.01,App Mobile,2,2
+2027-06-28,PED-10544,Eletrodomésticos,146.3,Loja Parceira,9,5
+2027-06-29,PED-10545,Eletrônicos,499.35,App Mobile,5,4
+2027-06-30,PED-10546,Moda,469.94,Loja Parceira,5,5
+2027-07-01,PED-10547,Móveis,150.65,Website,7,5
+2027-07-02,PED-10548,Informática,252.36,Loja Parceira,6,1
+2027-07-03,PED-10549,Moda,348.97,App Mobile,2,4
+2027-07-04,PED-10550,Móveis,99.01,Website,11,4
+2027-07-05,PED-10551,Eletrodomésticos,76.02,App Mobile,1,5
+2027-07-06,PED-10552,Eletrônicos,924.75,App Mobile,5,3
+2027-07-07,PED-10553,Eletrônicos,270.29,App Mobile,4,3
+2027-07-08,PED-10554,Móveis,1026.36,App Mobile,12,4
+2027-07-09,PED-10555,Moda,133.03,Loja Parceira,3,4
+2027-07-10,PED-10556,Informática,333.53,App Mobile,2,5
+2027-07-11,PED-10557,Eletrodomésticos,92.95,Website,10,5
+2027-07-12,PED-10558,Móveis,105.68,Website,2,4
+2027-07-13,PED-10559,Eletrodomésticos,209.31,Website,14,2
+2027-07-14,PED-10560,Eletrônicos,126.28,Website,4,3
+2027-07-15,PED-10561,Informática,75.87,App Mobile,2,4
+2027-07-16,PED-10562,Eletrodomésticos,106.25,Website,4,5
+2027-07-17,PED-10563,Móveis,39.1,App Mobile,3,4
+2027-07-18,PED-10564,Informática,334.71,Loja Parceira,9,4
+2027-07-19,PED-10565,Moda,199.38,Website,7,5
+2027-07-20,PED-10566,Móveis,54.75,Loja Parceira,14,5
+2027-07-21,PED-10567,Eletrodomésticos,77.09,App Mobile,13,3
+2027-07-22,PED-10568,Informática,57.05,App Mobile,11,1
+2027-07-23,PED-10569,Móveis,267.07,App Mobile,12,4
+2027-07-24,PED-10570,Informática,54.74,App Mobile,3,5
+2027-07-25,PED-10571,Informática,380.89,App Mobile,13,5
+2027-07-26,PED-10572,Informática,35.18,Website,14,2
+2027-07-27,PED-10573,Eletrodomésticos,101.71,App Mobile,8,1
+2027-07-28,PED-10574,Móveis,583.34,Website,9,5
+2027-07-29,PED-10575,Eletrônicos,346.93,Loja Parceira,13,5
+2027-07-30,PED-10576,Eletrônicos,48.94,Website,7,5
+2027-07-31,PED-10577,Eletrodomésticos,460.27,App Mobile,6,4
+2027-08-01,PED-10578,Eletrodomésticos,199.83,App Mobile,4,4
+2027-08-02,PED-10579,Informática,498.98,App Mobile,5,3
+2027-08-03,PED-10580,Móveis,259.54,App Mobile,8,2
+2027-08-04,PED-10581,Móveis,316.29,Website,3,4
+2027-08-05,PED-10582,Moda,1289.05,App Mobile,2,4
+2027-08-06,PED-10583,Moda,96.1,Loja Parceira,3,2
+2027-08-07,PED-10584,Eletrônicos,274.51,Website,12,5
+2027-08-08,PED-10585,Moda,184.2,Website,7,3
+2027-08-09,PED-10586,Moda,40.06,App Mobile,8,5
+2027-08-10,PED-10587,Eletrônicos,33.64,App Mobile,1,3
+2027-08-11,PED-10588,Eletrônicos,61.74,Website,13,5
+2027-08-12,PED-10589,Moda,291.81,App Mobile,7,2
+2027-08-13,PED-10590,Móveis,239.35,App Mobile,9,5
+2027-08-14,PED-10591,Moda,231.54,App Mobile,12,2
+2027-08-15,PED-10592,Informática,38.09,App Mobile,13,4
+2027-08-16,PED-10593,Informática,188.39,Website,14,5
+2027-08-17,PED-10594,Informática,676.31,App Mobile,14,3
+2027-08-18,PED-10595,Eletrodomésticos,156.71,Website,3,3
+2027-08-19,PED-10596,Informática,275.16,App Mobile,3,5
+2027-08-20,PED-10597,Móveis,408.33,Website,8,5
+2027-08-21,PED-10598,Eletrodomésticos,413.03,Loja Parceira,4,1
+2027-08-22,PED-10599,Eletrodomésticos,213.12,Loja Parceira,14,3
+2027-08-23,PED-10600,Informática,517.9,App Mobile,8,2

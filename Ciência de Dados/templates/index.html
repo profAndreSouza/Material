@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciência de Dados com Python &middot; Caderno de Bordo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <style>
+        :root {
+            --paper: #F3ECDD;
+            --paper-deep: #EBE1CB;
+            --grid-line: rgba(46, 43, 82, 0.07);
+            --ink: #2B2850;
+            --ink-soft: #5E5A8C;
+            --ink-faint: #8B87AE;
+            --green: #33513F;
+            --green-bright: #5C8C6E;
+            --ochre: #B3843C;
+            --rust: #9C5B3C;
+            --card: #FFFCF4;
+            --border: #DCCFAE;
+            --shadow: 0 6px 20px rgba(43, 40, 80, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            min-height: 100vh;
+        }
+
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ---------- SIDEBAR ---------- */
+        .sidebar {
+            width: 310px;
+            flex-shrink: 0;
+            background:
+                repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 28px),
+                repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 28px),
+                var(--paper-deep);
+            border-right: 1px solid var(--border);
+            padding: 28px 20px 20px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .brand {
+            margin-bottom: 24px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand-eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            color: var(--green-bright);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .brand-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 1.15;
+            color: var(--ink);
+        }
+
+        .brand-title em {
+            font-style: italic;
+            color: var(--green);
+        }
+
+        .nav-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.1em;
+            color: var(--ink-faint);
+            text-transform: uppercase;
+            margin: 12px 4px 8px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            text-align: left;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 10px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 13.5px;
+            color: var(--ink-soft);
+            position: relative;
+            transition: background .15s ease, color .15s ease;
+        }
+
+        .nav-item:hover {
+            background: rgba(92, 140, 110, 0.10);
+            color: var(--ink);
+        }
+
+        .nav-num {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--ink-faint);
+            width: 20px;
+            flex-shrink: 0;
+        }
+
+        .nav-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: var(--dot, var(--ink-faint));
+        }
+
+        .nav-item.active {
+            background: var(--card);
+            color: var(--ink);
+            font-weight: 600;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-item.active .nav-num {
+            color: var(--green);
+        }
+
+        .nav-item.active::after {
+            content: "";
+            position: absolute;
+            left: 36px;
+            right: 12px;
+            bottom: 2px;
+            height: 6px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='10' viewBox='0 0 120 10'%3E%3Cpath d='M2 5 Q 16 1, 30 5 T 60 5 T 90 5 T 118 4' stroke='%235C8C6E' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            opacity: .9;
+        }
+
+        .sidebar-foot {
+            margin-top: 22px;
+            padding-top: 16px;
+            border-top: 1px dashed var(--border);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--ink-faint);
+        }
+
+        /* ---------- MOBILE TOPBAR ---------- */
+        .topbar {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            background: var(--paper-deep);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+
+        .topbar-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 17px;
+        }
+
+        .burger {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .burger span {
+            width: 16px;
+            height: 2px;
+            background: var(--ink);
+            display: block;
+        }
+
+        /* ---------- MAIN ---------- */
+        main {
+            flex: 1;
+            padding: 44px 48px 80px;
+            background:
+                repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+                repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px);
+            min-width: 0;
+        }
+
+        .content {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--green-bright);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        h1.page-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 42px;
+            line-height: 1.1;
+            color: var(--ink);
+            margin-bottom: 14px;
+        }
+
+        .lede {
+            font-size: 16px;
+            color: var(--ink-soft);
+            max-width: 720px;
+            line-height: 1.6;
+            margin-bottom: 34px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 26px 28px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .card.ementa {
+            border-left: 5px solid var(--green);
+        }
+
+        .card h2 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 22px;
+            margin-bottom: 14px;
+            color: var(--ink);
+        }
+
+        .card h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 18px 0 8px;
+            color: var(--green);
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 4px;
+        }
+
+        .card p,
+        .card ul {
+            color: var(--ink-soft);
+            line-height: 1.65;
+            font-size: 14.5px;
+            margin-bottom: 10px;
+        }
+
+        .card ul {
+            padding-left: 20px;
+        }
+
+        .card li {
+            margin-bottom: 4px;
+        }
+
+        /* ---------- TEORIA & MUNDO REAL STYLES ---------- */
+        .card.teoria {
+            border-left: 5px solid var(--ochre);
+            background: #FFFDF9;
+        }
+
+        .teoria-section {
+            margin-bottom: 22px;
+        }
+
+        .teoria-h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 18px 0 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .teoria-h3:first-child {
+            margin-top: 0;
+        }
+
+        .teoria-p {
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: var(--ink-soft);
+            margin-bottom: 12px;
+        }
+
+        .teoria-ul {
+            padding-left: 22px;
+            margin-bottom: 14px;
+        }
+
+        .teoria-li {
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--ink-soft);
+            margin-bottom: 8px;
+        }
+
+        .formula-card {
+            background: var(--paper-deep);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-size: 15px;
+            color: var(--ink);
+            overflow-x: auto;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .realworld-box {
+            background: rgba(51, 81, 63, 0.06);
+            border-left: 4px solid var(--green);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin: 20px 0;
+        }
+
+        .realworld-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--green);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .biblio-box {
+            margin-top: 22px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--border);
+            font-size: 13px;
+            color: var(--ink-faint);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .biblio-tag {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            background: rgba(179, 132, 60, 0.14);
+            color: var(--ochre);
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .section-heading {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 24px;
+            margin: 32px 0 16px;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .turmas-badge {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            background: var(--paper-deep);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            color: var(--ink-soft);
+        }
+
+        table.cronograma {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        table.cronograma thead th {
+            text-align: left;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            padding: 13px 16px;
+            border-bottom: 1px solid var(--border);
+            background: var(--paper-deep);
+        }
+
+        table.cronograma td {
+            padding: 13px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--ink);
+            vertical-align: middle;
+        }
+
+        table.cronograma tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.cronograma tbody tr.clickable {
+            cursor: pointer;
+            transition: background .15s ease;
+        }
+
+        table.cronograma tbody tr.clickable:hover {
+            background: rgba(92, 140, 110, 0.09);
+        }
+
+        table.cronograma tbody tr.evento-row {
+            background: rgba(179, 132, 60, 0.05);
+        }
+
+        .row-num {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--ink-faint);
+            font-weight: 600;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            padding: 4px 9px;
+            border-radius: 20px;
+            background: var(--tag-bg);
+            color: var(--tag-fg);
+            white-space: nowrap;
+        }
+
+        .tag .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--tag-fg);
+        }
+
+        .date-col {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12.5px;
+            color: var(--ink-soft);
+            white-space: nowrap;
+        }
+
+        .date-col strong {
+            color: var(--green);
+        }
+
+        /* ---------- LESSON PAGE ---------- */
+        .breadcrumb {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--ink-faint);
+            margin-bottom: 18px;
+        }
+
+        .breadcrumb button {
+            background: none;
+            border: none;
+            color: var(--green-bright);
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            padding: 0;
+            text-decoration: underline;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 22px;
+            margin-bottom: 24px;
+        }
+
+        .lesson-num {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 64px;
+            line-height: 1;
+            color: var(--ink-faint);
+            opacity: .35;
+        }
+
+        .lesson-titlewrap h1 {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 34px;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .dates-box {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            background: var(--card);
+            padding: 14px 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+        }
+
+        .code-box {
+            background: #1E1C38;
+            color: #E2E0F0;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-x: auto;
+            border: 1px solid var(--ink);
+            box-shadow: var(--shadow);
+            margin-top: 18px;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--green-bright);
+            font-size: 12px;
+        }
+
+        /* ---------- BIBLIOGRAPHIC CARDS & MAPPING MATRIX ---------- */
+        .biblio-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(156, 91, 60, 0.10);
+            border: 1px solid rgba(156, 91, 60, 0.28);
+            color: var(--rust);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .biblio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin: 20px 0 28px;
+        }
+
+        .biblio-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .biblio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--card-accent, var(--green));
+        }
+
+        .biblio-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .biblio-badge-type {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .biblio-badge-basica {
+            background: rgba(51, 81, 63, 0.12);
+            color: var(--green);
+        }
+
+        .biblio-badge-complementar {
+            background: rgba(179, 132, 60, 0.14);
+            color: var(--ochre);
+        }
+
+        .biblio-card-icon {
+            font-size: 26px;
+        }
+
+        .biblio-card-title {
+            font-family: 'Fraunces', serif;
+            font-size: 16.5px;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+
+        .biblio-card-author {
+            font-size: 13px;
+            color: var(--ink-soft);
+            font-weight: 500;
+        }
+
+        .biblio-card-details {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--ink-faint);
+        }
+
+        .biblio-card-topics {
+            font-size: 12.5px;
+            color: var(--ink-soft);
+            line-height: 1.5;
+            background: var(--paper);
+            padding: 10px 12px;
+            border-radius: 6px;
+            margin-top: 4px;
+        }
+
+        .matrix-table-container {
+            overflow-x: auto;
+            margin: 20px 0 32px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        .matrix-table th, .matrix-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .matrix-table th {
+            background: var(--paper-deep);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--ink);
+            letter-spacing: 0.05em;
+        }
+
+        .matrix-table tbody tr:hover {
+            background: rgba(92, 140, 110, 0.05);
+        }
+
+        .matrix-code {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11.5px;
+            color: var(--rust);
+            background: rgba(156, 91, 60, 0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* ---------- CONCEPT BLOCKS (Teoria + Exemplo Code + Saída + Explicação) ---------- */
+        .concept-block {
+            margin-top: 38px;
+        }
+            margin-top: 38px;
+        }
+
+        .concept-block:first-of-type {
+            margin-top: 26px;
+        }
+
+        .concept-eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--green-bright);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .concept-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 22px;
+            color: var(--ink);
+            margin-bottom: 11px;
+        }
+
+        .concept-theory {
+            font-size: 15px;
+            line-height: 1.72;
+            color: var(--ink-soft);
+            max-width: 800px;
+            margin-bottom: 18px;
+        }
+
+        .code-cell {
+            border-radius: 10px 10px 0 0;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-bottom: none;
+        }
+
+        .code-cell-head {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 14px;
+            background: #211D3B;
+        }
+
+        .code-cell-head .cdot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .code-cell-head .cdot.r {
+            background: #C96A5A;
+        }
+
+        .code-cell-head .cdot.y {
+            background: #D8B25C;
+        }
+
+        .code-cell-head .cdot.g {
+            background: #5C8C6E;
+        }
+
+        .code-cell-head .lang {
+            margin-left: auto;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: #9C97C4;
+        }
+
+        .code-cell pre {
+            margin: 0;
+            padding: 18px 20px;
+            background: #1B1832;
+            color: #EDE9F7;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            line-height: 1.65;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .code-output {
+            background: var(--paper-deep);
+            border: 1px solid var(--border);
+            border-top: 1px dashed var(--border);
+            border-radius: 0 0 10px 10px;
+            padding: 14px 20px 16px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            color: var(--green);
+            margin-bottom: 16px;
+            white-space: pre-wrap;
+        }
+
+        .code-output .label {
+            display: block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 5px;
+        }
+
+        .concept-interpretation {
+            background: rgba(92, 140, 110, 0.09);
+            border-left: 3px solid var(--green);
+            border-radius: 0 8px 8px 0;
+            padding: 14px 18px;
+            font-size: 14.5px;
+            line-height: 1.62;
+            color: var(--ink);
+            margin-bottom: 24px;
+        }
+
+        .concept-interpretation .label {
+            display: block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 6px;
+        }
+
+        /* ---------- EXERCISE BOX (Exercício Prático Cumulativo) ---------- */
+        .exercise-box {
+            background: #FFFDF8;
+            border: 2px solid var(--ochre);
+            border-radius: 12px;
+            padding: 26px 28px;
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .exercise-badge {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ochre);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .exercise-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 22px;
+            color: var(--ink);
+            margin-bottom: 12px;
+        }
+
+        .exercise-desc {
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--ink-soft);
+            margin-bottom: 16px;
+        }
+
+        .exercise-requirements {
+            background: rgba(179, 132, 60, 0.08);
+            border-left: 3px solid var(--ochre);
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 18px;
+        }
+
+        .exercise-requirements strong {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--ochre);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .exercise-requirements ul {
+            list-style: disc;
+            padding-left: 20px;
+            font-size: 14px;
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        /* ---------- CHART BOX (Visualização Gráfica Interativa) ---------- */
+        .chart-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px 26px;
+            margin-top: 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .chart-title {
+            font-family: 'Fraunces', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .chart-badge {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--green-bright);
+            background: rgba(92, 140, 110, 0.12);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .chart-canvas-container {
+            position: relative;
+            max-height: 380px;
+            width: 100%;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 880px) {
+            .sidebar {
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100vh;
+                z-index: 30;
+                transform: translateX(-100%);
+                transition: transform .2s ease;
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .topbar {
+                display: flex;
+            }
+
+            main {
+                padding: 24px 16px 60px;
+            }
+
+            h1.page-title {
+                font-size: 30px;
+            }
+
+            .lesson-num {
+                font-size: 44px;
+            }
+
+            table.cronograma {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(43, 40, 80, 0.35);
+                z-index: 25;
+            }
+
+            .overlay.open {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <div class="overlay" id="overlay"></div>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <span class="brand-eyebrow">Python &middot; Ciência de Dados</span>
+                <div class="brand-title">Caderno de <em>Bordo</em></div>
+            </div>
+            <div class="nav-label">Visão Geral &amp; Guias</div>
+            <ul class="nav-list" style="margin-bottom:12px;">
+                <li>
+                    <button class="nav-item active" data-target="home">
+                        <span class="nav-num">＃</span>
+                        <span>Ementa &amp; Cronograma (20 sem)</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-item" data-target="python-guide">
+                        <span class="nav-num">🐍</span>
+                        <span>Guia Python, Bibliotecas &amp; Flask</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="nav-label">Conteúdos Práticos</div>
+            <ul class="nav-list" id="navList"></ul>
+            <div class="sidebar-foot">20 Semanas &middot; 80 Horas &middot; 2026</div>
+        </aside>
+
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column;">
+            <div class="topbar">
+                <div class="topbar-title">Ciência de Dados &middot; Caderno de Bordo</div>
+                <button class="burger" id="burgerBtn"><span></span><span></span><span></span></button>
+            </div>
+
+            <main>
+                <div class="content" id="content"></div>
+            </main>
+        </div>
+
+    </div>
+
+    <script src="/static/js/theories.js"></script>
+    <script>
+        const categories = {
+            aula: { label: 'Encontro Prático', fg: '#33513F', bg: 'rgba(51,81,63,0.12)' },
+            pii: { label: 'Projeto Integrador', fg: '#9C5B3C', bg: 'rgba(156,91,60,0.14)' },
+            evento: { label: 'Evento Especial', fg: '#B3843C', bg: 'rgba(179,132,60,0.16)' },
+            avaliacao: { label: 'Avaliação Regimental', fg: '#C94A29', bg: 'rgba(201,74,41,0.15)' },
+            recuperacao: { label: 'Recuperação', fg: '#7A3B46', bg: 'rgba(122,59,70,0.14)' },
+            fechamento: { label: 'Encerramento', fg: '#2B2850', bg: 'rgba(43,40,80,0.12)' }
+        };
+
+        const lessons = [
+            { n: 1, title: 'Introdução à Ciência de Dados, CRISP-DM & Exploração Inicial', mod: 'fundamentos', seg: '03/Ago', sex: '07/Ago', file: 'aula_01_introducao.py', desc: 'Conceitos de Ciência de Dados, ciclo de vida CRISP-DM, tipos de dados (qualitativos vs quantitativos) e inspeção exploratória inicial (read_csv, head, info, describe, shape, value_counts) no Dataset 1.' },
+            { n: 2, title: 'Qualidade dos Dados & Amostragem (Limpeza e Imputação)', mod: 'estatistica', seg: '10/Ago', sex: '14/Ago', file: 'aula_02_amostragem_limpeza.py', desc: 'Escalas de medição, amostragem simples e estratificada, detecção e imputação de valores ausentes (isnull, fillna), remoção de duplicados e diagnóstico de outliers no Dataset 1.' },
+            { n: 3, title: 'Estatística Descritiva (Tendência Central e Dispersão)', mod: 'estatistica', seg: '17/Ago', sex: '21/Ago', file: 'aula_03_estatistica_descritiva.py', desc: 'Sumarização estatística completa: Média, Mediana, Moda, Quartis, Percentis, Variância, Desvio Padrão e Coeficiente de Variação (CV%) no Dataset 1.' },
+            { n: 4, title: 'Distribuições Estatísticas & Visualização (Normal, Assimetria e Q-Q)', mod: 'estatistica', seg: '24/Ago (Sáb 22/Ago)', sex: '28/Ago', file: 'aula_04_distribuicoes_visualizacao.py', desc: 'Distribuição Normal, coeficientes de Assimetria (Skewness) e Curtose (Kurtosis), visualizações com Violin Plots e diagnóstico de normalidade no Dataset 1.' },
+            { n: 5, title: 'Inferência Estatística & Intervalos de Confiança (SciPy)', mod: 'estatistica', seg: '31/Ago', sex: '04/Set', file: 'aula_05_inferencia_estatistica.py', desc: 'Conceitos de inferência, distribuição amostral, Erro Padrão da Média (SEM), margem de erro e construção de Intervalos de Confiança (95% IC com SciPy) no Dataset 2.' },
+            { n: 6, title: 'Testes de Hipóteses Formais (Shapiro-Wilk, KS, Qui-Quadrado)', mod: 'ferramentas', seg: '14/Set', sex: '18/Set', file: 'aula_06_testes_hipoteses.py', desc: 'Formulação de hipóteses H0 vs H1, interpretação de p-valor, testes de normalidade (Shapiro-Wilk, Kolmogorov-Smirnov, Anderson-Darling) e teste Qui-Quadrado de Independência no Dataset 2.' },
+            { n: 7, title: 'Correlação & Associação entre Variáveis (Pearson, Spearman, Crosstab)', mod: 'ferramentas', seg: '21/Set', sex: '25/Set', file: 'aula_07_correlacao_assoc.py', desc: 'Análise de correlação linear (Pearson) vs monotônica (Spearman), matrizes de correlação, distinção de causalidade e tabelas cruzadas (crosstab) no Dataset 2.' },
+            { n: 8, title: 'Análise de Séries Temporais (Tendência, Sazonalidade & Média Móvel)', mod: 'avancado', seg: '19/Out (Sáb 24/Out)', sex: '23/Out', file: 'aula_08_series_temporais.py', desc: 'Análise de dados ao longo do tempo, decomposição de tendência e sazonalidade, médias móveis (rolling) e resample diário no Dataset 2.' },
+            { n: 9, title: 'Análise Exploratória de Dados (EDA) Pipeline Completo', mod: 'avancado', seg: '26/Out', sex: '30/Out', file: 'aula_09_eda_completa.py', desc: 'Condução de uma EDA completa de ponta a ponta sobre a fábrica inteligente (Smart Factory Analytics): formulação de hipóteses, seleção de atributos e extração de insights no Dataset 3.' },
+            { n: 10, title: 'Storytelling com Dados & Comunicação Executiva', mod: 'avancado', seg: '09/Nov', sex: '13/Nov', file: 'aula_10_storytelling_dashboards.py', desc: 'Técnicas de Storytelling com dados, construção de dashboards analíticos executivos, apresentação de KPIs e redação de pareceres gerenciais no Dataset 3.' },
+            { n: 11, title: 'PROJETO CAPSTONE FINAL (Resolução Completa de Ponta a Ponta)', mod: 'avancado', seg: '16/Nov', sex: '20/Nov', file: 'aula_11_projeto_capstone.py', desc: 'Resolução de um problema industrial completo com dataset inédito: ingestão, limpeza, descritiva, inferência, testes de hipóteses, correlação e relatório executivo no Dataset 4.' }
+        ];
+
+        const schedule20Weeks = [
+            { sem: 1, cat: 'aula', aulaNum: 1, tema: 'Introdução à Ciência de Dados, CRISP-DM e Exploração Inicial (Dataset 1)', seg: '03/Ago', sex: '07/Ago' },
+            { sem: 2, cat: 'aula', aulaNum: 2, tema: 'Qualidade dos Dados e Amostragem (Limpeza e Imputação) (Dataset 1)', seg: '10/Ago', sex: '14/Ago' },
+            { sem: 3, cat: 'aula', aulaNum: 3, tema: 'Estatística Descritiva (Tendência Central e Dispersão) (Dataset 1)', seg: '17/Ago', sex: '21/Ago' },
+            { sem: 4, cat: 'aula', aulaNum: 4, tema: 'Distribuições Estatísticas e Visualização (Normal, Assimetria, Q-Q) (Dataset 1)', seg: '24/Ago (Sáb 22/Ago)', sex: '28/Ago' },
+            { sem: 5, cat: 'aula', aulaNum: 5, tema: 'Inferência Estatística e Intervalos de Confiança (SciPy) (Dataset 2)', seg: '31/Ago', sex: '04/Set' },
+            { sem: 6, cat: 'pii', tema: 'Semana de PII 1 — Acompanhamento do Projeto Integrador', seg: '08–11/Set', sex: '11/Set' },
+            { sem: 7, cat: 'aula', aulaNum: 6, tema: 'Testes de Hipóteses (Shapiro-Wilk, KS, Anderson, Qui-Quadrado) (Dataset 2)', seg: '14/Set', sex: '18/Set' },
+            { sem: 8, cat: 'aula', aulaNum: 7, tema: 'Correlação e Associação entre Variáveis (Pearson / Spearman) (Dataset 2)', seg: '21/Set', sex: '25/Set' },
+            { sem: 9, cat: 'pii', tema: 'Semana de PII 2 — Avaliação da 2ª Etapa do PII', seg: '28/Set–02/Out', sex: '02/Out' },
+            { sem: 10, cat: 'avaliacao', tema: 'Primeira Avaliação Regimental (N1) — Teórico-Prática', seg: '05/Out', sex: '09/Out' },
+            { sem: 11, cat: 'evento', tema: 'Semana de Tecnologia — Palestras, Workshops e Atividades', seg: '14–16/Out', sex: '16/Out' },
+            { sem: 12, cat: 'aula', aulaNum: 8, tema: 'Séries Temporais (Tendência, Sazonalidade, Média Móvel) (Dataset 2)', seg: '19/Out (Sáb 24/Out)', sex: '23/Out' },
+            { sem: 13, cat: 'aula', aulaNum: 9, tema: 'Análise Exploratória de Dados (EDA) Pipeline Completo (Dataset 3)', seg: '26/Out', sex: '30/Out' },
+            { sem: 14, cat: 'pii', tema: 'Semana de PII 3 — Avaliação da 3ª Etapa do PII', seg: '03–06/Nov', sex: '06/Nov (Sáb 07/Nov)' },
+            { sem: 15, cat: 'aula', aulaNum: 10, tema: 'Storytelling com Dados e Comunicação Executiva (Dataset 3)', seg: '09/Nov', sex: '13/Nov' },
+            { sem: 16, cat: 'aula', aulaNum: 11, tema: 'Projeto Capstone Final (Dataset Inédito Industrial) (Dataset 4)', seg: '16/Nov', sex: '20/Nov' },
+            { sem: 17, cat: 'avaliacao', tema: 'Segunda Avaliação Regimental (N2) — Teórico-Prática', seg: '23/Nov', sex: '27/Nov' },
+            { sem: 18, cat: 'pii', tema: 'Semana de PII 4 — Entrega Final e Banca do PII', seg: '30/Nov–04/Dez (Sáb 05/Dez)', sex: '04/Dez' },
+            { sem: 19, cat: 'recuperacao', tema: 'Semana de Recuperação — Avaliações de Recuperação', seg: '07–11/Dez', sex: '11/Dez' },
+            { sem: 20, cat: 'fechamento', tema: 'Fechamento do Semestre e Lançamento de Notas', seg: '14–18/Dez', sex: '18/Dez' }
+        ];
+
+        // Populate Sidebar Navigation
+        const navList = document.getElementById('navList');
+        lessons.forEach(l => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <button class="nav-item" data-target="lesson-${l.n}">
+                  <span class="nav-num">${l.n}.</span>
+                  <span class="nav-dot" style="background:var(--green)"></span>
+                  <span>${l.title.split(' (')[0]}</span>
+                </button>`;
+            navList.appendChild(li);
+        });
+
+        const content = document.getElementById('content');
+
+        function renderHome() {
+            const rows = schedule20Weeks.map(item => {
+                const c = categories[item.cat];
+                const isClickable = item.aulaNum ? `class="clickable" data-target="lesson-${item.aulaNum}"` : `class="evento-row"`;
+                const aulaLabel = item.aulaNum ? `Encontro ${String(item.aulaNum).padStart(2, '0')}` : `Semana ${String(item.sem).padStart(2, '0')}`;
+
+                return `
+                <tr ${isClickable}>
+                    <td class="row-num">${String(item.sem).padStart(2, '0')}</td>
+                    <td><span class="tag" style="--tag-bg:${c.bg}; --tag-fg:${c.fg}"><span class="dot"></span>${c.label}</span></td>
+                    <td><strong>${aulaLabel}</strong> &middot; ${item.tema}</td>
+                    <td class="date-col"><strong>Seg:</strong> ${item.seg}</td>
+                    <td class="date-col"><strong>Sex:</strong> ${item.sex}</td>
+                </tr>`;
+            }).join('');
+
+            content.innerHTML = `
+                <span class="eyebrow">Plano de Curso &middot; 80 Horas</span>
+                <h1 class="page-title">Ciência de Dados com Python</h1>
+                <p class="lede">Desenvolvimento de sistemas para manipulação e análise de dados aplicados a ambientes industriais — integrando estatística descritiva, inferencial e as principais bibliotecas do ecossistema Python.</p>
+
+                <div class="card ementa">
+                    <h2>Ementa da Disciplina</h2>
+                    <p><strong>Descrição:</strong> Ao final dessa unidade curricular o estudante será capaz de desenvolver sistemas para manipulação de dados para aplicação em ambientes de produção industrial. Para tanto serão abordados os seguintes conteúdos: Matemática e estatística descritiva; Data Science.</p>
+                    <p><strong>Objetivo Geral:</strong> Desenvolver capacidades técnicas e socioemocionais relacionadas à sistemas de manipulação de dados para aplicação em ambientes de produção industrial.</p>
+                    
+                    <h3>Capacidades Técnicas</h3>
+                    <ul>
+                        <li>Transformar dados obtidos através de cálculos matemáticos em informações pertinentes ao processo industrial.</li>
+                        <li>Extrair informações de dados obtidos para o gerenciamento de processos industriais através de análises estatísticas.</li>
+                        <li>Processar dados para a geração de relatórios analíticos tendo em vista a visualização da informação.</li>
+                    </ul>
+
+                    <h3>Capacidades Socioemocionais</h3>
+                    <ul>
+                        <li><strong>Aprendizagem Ativa:</strong> Postura proativa e atitude inovadora, adaptando-se a novos contextos tecnológicos.</li>
+                        <li><strong>Ética:</strong> Conduta profissional ética, respeitando princípios, diversidade e o meio ambiente.</li>
+                        <li><strong>Pensamento Crítico:</strong> Expressão crítica baseada em evidências estatísticas e dados objetivos.</li>
+                    </ul>
+
+                    <h3>Principais Conhecimentos Abordados</h3>
+                    <p>Processo CRISP-DM, Amostragem estatística, Escalas de medição, Medidas de tendência central e dispersão, Distribuições de probabilidade, Inferência estatística e intervalos de confiança, Testes de hipóteses (Shapiro-Wilk, KS, Anderson, Qui-Quadrado), Correlação (Pearson/Spearman), Séries temporais em sensores, Análise Exploratória de Dados (EDA) e Storytelling com Dashboards.</p>
+
+                    <h3>Obras Bibliográficas de Referência</h3>
+                    <div class="biblio-grid">
+                        <div class="biblio-card" style="--card-accent: #33513F;">
+                            <div class="biblio-card-header">
+                                <span class="biblio-card-icon">📊</span>
+                                <span class="biblio-badge-type biblio-badge-basica">Básica</span>
+                            </div>
+                            <div class="biblio-card-title">Estatística Básica</div>
+                            <div class="biblio-card-author">Wilton O. Bussab &amp; Pedro A. Morettin</div>
+                            <div class="biblio-card-details">8ª Edição &middot; Editora Saraiva (2013)</div>
+                            <div class="biblio-card-topics">
+                                <strong>Tópicos:</strong> Taxonomia de Variáveis (Cap. 1), Estatística Descritiva &amp; Bessel (Cap. 2), Associações Quantitativas (Cap. 4), Distribuição Normal Gaussiana (Cap. 6), TLC &amp; Inferência (Cap. 10), Testes de Hipóteses (Cap. 12, 14) e Séries Temporais (Cap. 15).
+                            </div>
+                        </div>
+
+                        <div class="biblio-card" style="--card-accent: #5C8C6E;">
+                            <div class="biblio-card-header">
+                                <span class="biblio-card-icon">🐍</span>
+                                <span class="biblio-badge-type biblio-badge-basica">Básica</span>
+                            </div>
+                            <div class="biblio-card-title">Python para Análise de Dados</div>
+                            <div class="biblio-card-author">Wes McKinney</div>
+                            <div class="biblio-card-details">3ª Edição &middot; Editora Novatec (2023)</div>
+                            <div class="biblio-card-topics">
+                                <strong>Tópicos:</strong> Pandas &amp; DataFrames (Cap. 5), Limpeza &amp; Imputação MCAR/MAR (Cap. 7), Plotly &amp; Data Viz (Cap. 9), Wrangling &amp; GroupBy (Cap. 10), Séries Temporais em Python (Cap. 11), Análise Exploratória (Cap. 12).
+                            </div>
+                        </div>
+
+                        <div class="biblio-card" style="--card-accent: #B3843C;">
+                            <div class="biblio-card-header">
+                                <span class="biblio-card-icon">💡</span>
+                                <span class="biblio-badge-type biblio-badge-complementar">Complementar</span>
+                            </div>
+                            <div class="biblio-card-title">Data Science do Zero</div>
+                            <div class="biblio-card-author">Joel Grus</div>
+                            <div class="biblio-card-details">2ª Edição &middot; Editora Alta Books (2021)</div>
+                            <div class="biblio-card-topics">
+                                <strong>Tópicos:</strong> Introdução &amp; Filosofia de Dados (Cap. 1), Visualização (Cap. 3), Álgebra Linear (Cap. 4), Estatística Fundamental (Cap. 5), Probabilidade &amp; TLC (Cap. 6), Testes &amp; P-valor (Cap. 7), EDA (Cap. 10).
+                            </div>
+                        </div>
+
+                        <div class="biblio-card" style="--card-accent: #9C5B3C;">
+                            <div class="biblio-card-header">
+                                <span class="biblio-card-icon">📘</span>
+                                <span class="biblio-badge-type biblio-badge-complementar">Complementar</span>
+                            </div>
+                            <div class="biblio-card-title">Manual de Análise de Dados</div>
+                            <div class="biblio-card-author">Luiz Paulo Fávero &amp; Patrícia Belfiore</div>
+                            <div class="biblio-card-details">1ª Edição &middot; Editora Elsevier (2017)</div>
+                            <div class="biblio-card-topics">
+                                <strong>Tópicos:</strong> Métodos de Amostragem &amp; Dados Ausentes MCAR/MAR/MNAR (Cap. 2), Assimetria &amp; Curtose (Cap. 3), Correlação (Cap. 4), Qui-Quadrado (Cap. 5), Séries Temporais &amp; Estacionariedade (Cap. 16).
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Matriz de Mapeamento Bibliográfico por Encontro Prático</h3>
+                    <p style="margin-bottom: 12px; font-size:14px; color:var(--ink-soft);">Alinhamento de cada encontro prático com os capítulos correspondentes das obras de referência:</p>
+                    <div class="matrix-table-container">
+                        <table class="matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>Encontro</th>
+                                    <th>Tema Central</th>
+                                    <th>Bussab &amp; Morettin</th>
+                                    <th>McKinney</th>
+                                    <th>Grus</th>
+                                    <th>Fávero &amp; Belfiore</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>01</strong></td>
+                                    <td>CRISP-DM &amp; Tipos de Dados</td>
+                                    <td><span class="matrix-code">Cap. 1</span></td>
+                                    <td><span class="matrix-code">Cap. 5</span></td>
+                                    <td><span class="matrix-code">Cap. 1</span></td>
+                                    <td><span class="matrix-code">Cap. 1</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>02</strong></td>
+                                    <td>Amostragem &amp; Limpeza (MCAR/MAR)</td>
+                                    <td><span class="matrix-code">Cap. 1, 11</span></td>
+                                    <td><span class="matrix-code">Cap. 7</span></td>
+                                    <td><span class="matrix-code">Cap. 10</span></td>
+                                    <td><span class="matrix-code">Cap. 2</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>03</strong></td>
+                                    <td>Estatística Descritiva &amp; Bessel</td>
+                                    <td><span class="matrix-code">Cap. 2</span></td>
+                                    <td><span class="matrix-code">Cap. 5</span></td>
+                                    <td><span class="matrix-code">Cap. 4, 5</span></td>
+                                    <td><span class="matrix-code">Cap. 3</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>04</strong></td>
+                                    <td>Distribuição Normal &amp; Assimetria</td>
+                                    <td><span class="matrix-code">Cap. 6</span></td>
+                                    <td><span class="matrix-code">Cap. 9</span></td>
+                                    <td><span class="matrix-code">Cap. 3, 6</span></td>
+                                    <td><span class="matrix-code">Cap. 3</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>05</strong></td>
+                                    <td>Inferência, TLC &amp; IC (SEM)</td>
+                                    <td><span class="matrix-code">Cap. 10</span></td>
+                                    <td><span class="matrix-code">Cap. 7</span></td>
+                                    <td><span class="matrix-code">Cap. 6, 7</span></td>
+                                    <td><span class="matrix-code">Cap. 4</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>06</strong></td>
+                                    <td>Testes Hipóteses &amp; Qui-Quadrado</td>
+                                    <td><span class="matrix-code">Cap. 12, 14</span></td>
+                                    <td><span class="matrix-code">Cap. 7, 13</span></td>
+                                    <td><span class="matrix-code">Cap. 7</span></td>
+                                    <td><span class="matrix-code">Cap. 5</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>07</strong></td>
+                                    <td>Correlação Pearson vs Spearman</td>
+                                    <td><span class="matrix-code">Cap. 4</span></td>
+                                    <td><span class="matrix-code">Cap. 7, 10</span></td>
+                                    <td><span class="matrix-code">Cap. 5</span></td>
+                                    <td><span class="matrix-code">Cap. 4</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>08</strong></td>
+                                    <td>Séries Temporais &amp; Decomposição</td>
+                                    <td><span class="matrix-code">Cap. 15</span></td>
+                                    <td><span class="matrix-code">Cap. 11</span></td>
+                                    <td><span class="matrix-code">Cap. 10</span></td>
+                                    <td><span class="matrix-code">Cap. 16</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>09</strong></td>
+                                    <td>Pipeline Metodológico EDA</td>
+                                    <td><span class="matrix-code">Cap. 2, 4</span></td>
+                                    <td><span class="matrix-code">Cap. 10, 12</span></td>
+                                    <td><span class="matrix-code">Cap. 10</span></td>
+                                    <td><span class="matrix-code">Cap. 2, 3</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>10</strong></td>
+                                    <td>Storytelling Executivo &amp; Dashboards</td>
+                                    <td><span class="matrix-code">Cap. 2</span></td>
+                                    <td><span class="matrix-code">Cap. 9</span></td>
+                                    <td><span class="matrix-code">Cap. 3</span></td>
+                                    <td><span class="matrix-code">Cap. 1</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>11</strong></td>
+                                    <td>Projeto Capstone Industrial</td>
+                                    <td><span class="matrix-code">Cap. 1-15</span></td>
+                                    <td><span class="matrix-code">Cap. 1-12</span></td>
+                                    <td><span class="matrix-code">Cap. 1-10</span></td>
+                                    <td><span class="matrix-code">Cap. 1-16</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="section-heading">
+                    <span>Cronograma Unificado (20 Semanas)</span>
+                    <span class="turmas-badge">Turmas: Segunda (N2) &amp; Sexta (N2-S)</span>
+                </div>
+
+                <table class="cronograma">
+                    <thead>
+                        <tr>
+                            <th>Sem.</th>
+                            <th>Tipo</th>
+                            <th>Conteúdo / Evento</th>
+                            <th>Turma Segunda</th>
+                            <th>Turma Sexta</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            `;
+
+            content.querySelectorAll('tr[data-target]').forEach(row => {
+                row.addEventListener('click', () => navigateTo(row.dataset.target));
+            });
+        }
+
+        function renderConceptBlock(block) {
+            const biblioBadge = block.biblio ? `
+                <div class="biblio-box">
+                    <span>📚 <strong>Fundamentação Bibliográfica:</strong> ${block.biblio}</span>
+                </div>
+            ` : '';
+            return `
+                <div class="concept-block">
+                    ${biblioBadge}
+                    <span class="concept-eyebrow">Conceito Teórico Formal</span>
+                    <h2 class="concept-title">${block.title}</h2>
+                    <div class="concept-theory">${block.theory}</div>
+                    <div class="code-cell">
+                        <div class="code-cell-head">
+                            <span class="cdot r"></span><span class="cdot y"></span><span class="cdot g"></span>
+                            <span class="lang">python</span>
+                        </div>
+                        <pre><code>${block.code}</code></pre>
+                    </div>
+                    <div class="code-output"><span class="label">Saída</span>${block.output}</div>
+                    <div class="concept-interpretation"><span class="label">O que isso significa</span>${block.interpretation}</div>
+                </div>
+            `;
+        }
+
+        function renderExerciseBlock(ex) {
+            if (!ex) return '';
+            const reqs = ex.requirements ? ex.requirements.map(r => `<li>${r}</li>`).join('') : '';
+            return `
+                <div class="exercise-box">
+                    <div class="exercise-badge">🎯 Exercício Prático Cumulativo &middot; Desafio do Aluno</div>
+                    <h3 class="exercise-title">${ex.title}</h3>
+                    <p class="exercise-desc">${ex.problem}</p>
+                    <div class="exercise-requirements">
+                        <strong>Requisitos &amp; Competências Cumulativas:</strong>
+                        <ul>${reqs}</ul>
+                    </div>
+                    <div class="code-cell" style="margin-top:16px;">
+                        <div class="code-cell-head">
+                            <span class="cdot r"></span><span class="cdot y"></span><span class="cdot g"></span>
+                            <span class="lang">python (código inicial para o aluno)</span>
+                        </div>
+                        <pre><code>${ex.starter_code}</code></pre>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function renderLesson(n) {
+            const l = lessons.find(x => x.n === n);
+            const theoryData = (window.lessonTheories && window.lessonTheories[n]) ? window.lessonTheories[n] : [];
+            const exData = (window.lessonExercises && window.lessonExercises[n]) ? window.lessonExercises[n] : null;
+
+            let blocksHtml = '';
+            if (Array.isArray(theoryData)) {
+                blocksHtml = theoryData.map(renderConceptBlock).join('');
+            } else if (typeof theoryData === 'string') {
+                blocksHtml = theoryData;
+            }
+
+            const exerciseHtml = renderExerciseBlock(exData);
+
+            content.innerHTML = `
+                <div class="breadcrumb"><button data-target="home">&larr; Voltar para Ementa &amp; Cronograma</button> &nbsp;/&nbsp; ${l.n}. ${l.title.split(' (')[0]}</div>
+                <div class="lesson-header">
+                    <div class="lesson-num">${String(l.n).padStart(2, '0')}</div>
+                    <div class="lesson-titlewrap">
+                        <span class="tag" style="--tag-bg:rgba(51,81,63,0.12); --tag-fg:#33513F; margin-bottom:10px;"><span class="dot"></span>Encontro Prático ${l.n} de 11</span>
+                        <h1>${l.n}. ${l.title}</h1>
+                    </div>
+                </div>
+
+                <div class="dates-box">
+                    <div><strong>Turma Segunda (N2):</strong> ${l.seg}</div>
+                    <div>&bull;</div>
+                    <div><strong>Turma Sexta (N2-S):</strong> ${l.sex}</div>
+                </div>
+
+                <div class="card">
+                    <h2>Objetivo</h2>
+                    <p>${l.desc}</p>
+                    <p><strong>Arquivo de Exercício Prático:</strong> <code>exercicios/${l.file}</code></p>
+                </div>
+
+                ${blocksHtml}
+
+                <div class="chart-box">
+                    <div class="chart-header">
+                        <div class="chart-title">📊 Visualização Gráfica Interativa em Python (Plotly) &middot; ${l.n}. ${l.title.split(' (')[0]}</div>
+                        <span class="chart-badge">Plotly Python Dynamic Canvas</span>
+                    </div>
+                    
+                    <!-- Plot Estatístico Dinâmico em Tempo Real Gerado pelo Python via Plotly -->
+                    <div id="plotlyChartDynamic" style="min-height: 420px; width: 100%; border-radius: 8px; overflow: hidden; background: var(--card); border: 1px solid var(--border);">
+                        <p style="color: var(--ink-soft); font-family: 'IBM Plex Mono', monospace; font-size: 13px; text-align: center; padding: 50px 0;">Gerando gráfico dinâmico em Python via Plotly...</p>
+                    </div>
+                </div>
+
+                ${exerciseHtml}
+
+                <div class="section-heading" style="margin-top:40px;">Resultado Completo da Execução dos Exemplos (${l.file})</div>
+                <div class="code-box" id="codeContainer">
+                    <div class="code-header">
+                        <span>📊 Terminal Output &middot; ${l.file}</span>
+                        <span>Status: Executado com Sucesso</span>
+                    </div>
+                    <pre><code id="codeText">Executando script e carregando resultado...</code></pre>
+                </div>
+            `;
+
+            content.querySelector('.breadcrumb button').addEventListener('click', () => navigateTo('home'));
+
+            if (window.renderMathInElement) {
+                renderMathInElement(content, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false }
+                    ],
+                    throwOnError: false
+                });
+            }
+
+            try {
+                const res = await fetch(`/api/exercicio/${n}`);
+                const data = await res.json();
+                if (data.output) {
+                    document.getElementById('codeText').textContent = data.output;
+                } else if (data.code) {
+                    document.getElementById('codeText').textContent = data.code;
+                } else {
+                    document.getElementById('codeText').textContent = '# Resultado de execução indisponível no momento.';
+                }
+
+                if (data.plotly_html) {
+                    const container = document.getElementById('plotlyChartDynamic');
+                    container.innerHTML = data.plotly_html;
+                    Array.from(container.querySelectorAll("script")).forEach(oldScript => {
+                        const newScript = document.createElement("script");
+                        Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                        newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                        oldScript.parentNode.replaceChild(newScript, oldScript);
+                    });
+                }
+            } catch (err) {
+                document.getElementById('codeText').textContent = '# Erro ao carregar o resultado de execução.';
+            }
+        }
+
+        function renderPythonGuide() {
+            content.innerHTML = `
+                <div class="breadcrumb"><button data-target="home">&larr; Voltar para Ementa &amp; Cronograma</button> &nbsp;/&nbsp; Guia Python &amp; Web</div>
+                <span class="eyebrow">Material de Apoio Didático</span>
+                <h1 class="page-title">Guia Completo: Python, Bibliotecas &amp; Flask</h1>
+                <p class="lede">Este guia explica em detalhes os conceitos de programação Python, as bibliotecas de Ciência de Dados e a arquitetura Web com Flask utilizadas no decorrer do curso.</p>
+
+                <div class="card">
+                    <h2>1. Sintaxe Básica &amp; Estrutura de Código em Python</h2>
+                    <p>Em cada arquivo de exercício da pasta <code>exercicios/</code>, utilizamos convenções modernas de Python para ensinar boa prática de código:</p>
+                    <ul>
+                        <li><strong>Funções (<code>def</code>):</strong> Bloco reutilizável de código. Ex: <code>def calcular_media(dados: list) -> float:</code></li>
+                        <li><strong>Dicas de Tipo (Type Hints):</strong> Indicam o tipo de dado esperado nos parâmetros e no retorno (ex: <code>pd.DataFrame</code>, <code>int</code>, <code>dict</code>).</li>
+                        <li><strong>Docstrings (<code>""" ... """</code>):</strong> Texto de documentação logo abaixo da assinatura da função, explicando o objetivo, parâmetros e o retorno.</li>
+                        <li><strong>Stubs &amp; Exceção (<code>raise NotImplementedError</code>):</strong> Sinaliza que o corpo da função deve ser preenchido pelos estudantes durante a aula.</li>
+                        <li><strong>Bloco de Teste (<code>if __name__ == '__main__':</code>):</strong> Permite executar o arquivo individualmente no terminal/IDE para testar o código escrito sem afetar outros módulos.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>2. Bibliotecas de Ciência de Dados</h2>
+                    <p>Abaixo estão os pilares do ecossistema Python utilizados no material:</p>
+                    
+                    <h3>NumPy (<code>import numpy as np</code>)</h3>
+                    <p>Biblioteca de alta performance para cálculo numérico e vetorial. Oferece o objeto <code>ndarray</code> e funções matemáticas rápidas como <code>np.mean()</code>, <code>np.std()</code>, <code>np.var()</code> e <code>np.quantile()</code>.</p>
+
+                    <h3>Pandas (<code>import pandas as pd</code>)</h3>
+                    <p>Biblioteca fundamental para manipulação e análise de dados tabulares.</p>
+                    <ul>
+                        <li><code>pd.DataFrame</code>: Tabela bidimensional com linhas e colunas rotuladas.</li>
+                        <li><code>pd.Series</code>: Uma única coluna ou vetor de dados rotulado.</li>
+                        <li><code>pd.read_csv('arquivo.csv')</code>: Carrega arquivos CSV para a memória.</li>
+                        <li><code>df.sample(n=10)</code>: Amostragem aleatória de linhas.</li>
+                        <li><code>df.describe()</code>: Resumo das métricas estatísticas principais.</li>
+                        <li><code>df.groupby('coluna').mean()</code>: Agrupamento e agregação por categoria.</li>
+                        <li><code>pd.crosstab(df['cat1'], df['cat2'])</code>: Tabela de contingência cruzada.</li>
+                    </ul>
+
+                    <h3>Matplotlib &amp; Seaborn (<code>import matplotlib.pyplot as plt</code>, <code>import seaborn as sns</code>)</h3>
+                    <p>Ferramentas para visualização gráfica e geração de relatórios analíticos:</p>
+                    <ul>
+                        <li><code>sns.histplot(df['sensor'], kde=True)</code>: Histograma com curva de densidade.</li>
+                        <li><code>sns.boxplot(x='linha', y='temp', data=df)</code>: Boxplot comparativo para identificação de variabilidade e outliers.</li>
+                        <li><code>sns.heatmap(matriz_corr, annot=True)</code>: Mapa de calor para matrizes de correlação.</li>
+                    </ul>
+
+                    <h3>SciPy (<code>from scipy import stats</code>)</h3>
+                    <p>Módulo estatístico avançado usado para inferência e validação de hipóteses:</p>
+                    <ul>
+                        <li><code>stats.chi2_contingency()</code>: Teste Qui-Quadrado de independência entre variáveis.</li>
+                        <li><code>stats.shapiro()</code> e <code>stats.kstest()</code>: Testes de avaliação de normalidade da distribuição.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>3. Como Funciona a Aplicação Web (Flask + HTML)</h2>
+                    <p>A plataforma deste <strong>Caderno de Bordo</strong> foi construída usando **Flask** (micro-framework web em Python):</p>
+                    
+                    <h3>Estrutura do Servidor (<code>app.py</code>)</h3>
+                    <ul>
+                        <li><code>app = Flask(__name__)</code>: Inicializa a aplicação web em Python.</li>
+                        <li><code>@app.route('/')</code>: Define uma <strong>Rota HTTP</strong>. Quando o aluno entra em <code>http://localhost:5000/</code>, o Flask executa a função <code>home()</code> e devolve o template <code>index.html</code>.</li>
+                        <li><code>@app.route('/api/exercicio/&lt;int:aula_num&gt;')</code>: Rota de <strong>API REST</strong>. Quando o navegador solicita o código de uma aula, o Flask lê o arquivo correspondente em <code>exercicios/aula_XX.py</code> e devolve uma resposta em formato <strong>JSON</strong>.</li>
+                    </ul>
+
+                    <h3>Integração Front-end (Navegador) &amp; Back-end (Flask)</h3>
+                    <p>No navegador, o JavaScript usa a função <code>fetch('/api/exercicio/N')</code> para pedir o código ao Flask sem recarregar a página, renderizando o código Python instantaneamente na tela.</p>
+                </div>
+            `;
+
+            content.querySelector('.breadcrumb button').addEventListener('click', () => navigateTo('home'));
+        }
+
+        function navigateTo(target) {
+            document.querySelectorAll('.nav-item').forEach(b => {
+                b.classList.toggle('active', b.dataset.target === target);
+            });
+            if (target === 'home') {
+                renderHome();
+            } else if (target === 'python-guide') {
+                renderPythonGuide();
+            } else {
+                const num = parseInt(target.split('-')[1], 10);
+                renderLesson(num);
+            }
+            closeSidebar();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('.nav-item').forEach(b => {
+            b.addEventListener('click', () => navigateTo(b.dataset.target));
+        });
+
+        // Mobile sidebar control
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        document.getElementById('burgerBtn').addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('open');
+        });
+        overlay.addEventListener('click', closeSidebar);
+        function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('open'); }
+
+        // Init
+        navigateTo('home');
+    </script>
+
+</body>
+
+</html>

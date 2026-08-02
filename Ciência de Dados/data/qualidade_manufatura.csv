@@ -1,0 +1,501 @@
+id_peca,linha_producao,turno,fornecedor_insumo,diametro_mm,espessura_mm,status_qualidade,tipo_defeito
+8001,Linha_Norte,Manhã,Fornecedor_A,50.85,7.564,Defeituoso,Desalinhamento
+8002,Linha_Norte,Manhã,Fornecedor_B,49.1,7.403,Defeituoso,Desalinhamento
+8003,Linha_Norte,Manhã,Fornecedor_B,50.92,7.631,Defeituoso,Desalinhamento
+8004,Linha_Sul,Tarde,Fornecedor_C,49.05,7.482,Defeituoso,Solda Fria
+8005,Linha_Norte,Manhã,Fornecedor_B,51.15,7.64,Defeituoso,Desalinhamento
+8006,Linha_Sul,Manhã,Fornecedor_B,49.892,7.458,Conforme,Nenhum
+8007,Linha_Norte,Noite,Fornecedor_C,49.847,7.493,Defeituoso,Solda Fria
+8008,Linha_Norte,Noite,Fornecedor_B,49.977,7.536,Conforme,Nenhum
+8009,Linha_Norte,Manhã,Fornecedor_A,50.054,7.473,Defeituoso,Risco Superficial
+8010,Linha_Sul,Manhã,Fornecedor_A,49.91,7.448,Conforme,Nenhum
+8011,Linha_Sul,Tarde,Fornecedor_B,50.178,7.504,Conforme,Nenhum
+8012,Linha_Norte,Manhã,Fornecedor_C,50.369,7.563,Defeituoso,Solda Fria
+8013,Linha_Norte,Manhã,Fornecedor_C,50.062,7.451,Defeituoso,Solda Fria
+8014,Linha_Norte,Manhã,Fornecedor_C,49.994,7.472,Defeituoso,Porosidade
+8015,Linha_Sul,Manhã,Fornecedor_C,49.863,7.497,Defeituoso,Solda Fria
+8016,Linha_Sul,Tarde,Fornecedor_B,50.056,7.549,Conforme,Nenhum
+8017,Linha_Norte,Noite,Fornecedor_C,50.222,7.534,Defeituoso,Solda Fria
+8018,Linha_Sul,Noite,Fornecedor_B,50.292,7.544,Conforme,Nenhum
+8019,Linha_Sul,Tarde,Fornecedor_B,50.209,7.561,Conforme,Nenhum
+8020,Linha_Sul,Tarde,Fornecedor_A,50.126,7.577,Conforme,Nenhum
+8021,Linha_Sul,Tarde,Fornecedor_A,50.062,7.566,Conforme,Nenhum
+8022,Linha_Norte,Tarde,Fornecedor_C,49.843,7.403,Defeituoso,Risco Superficial
+8023,Linha_Norte,Manhã,Fornecedor_B,49.985,7.502,Conforme,Nenhum
+8024,Linha_Sul,Tarde,Fornecedor_A,49.968,7.533,Conforme,Nenhum
+8025,Linha_Sul,Noite,Fornecedor_A,49.986,7.567,Conforme,Nenhum
+8026,Linha_Sul,Manhã,Fornecedor_C,49.892,7.515,Defeituoso,Solda Fria
+8027,Linha_Norte,Noite,Fornecedor_B,50.114,7.477,Conforme,Nenhum
+8028,Linha_Norte,Tarde,Fornecedor_B,49.959,7.467,Defeituoso,Risco Superficial
+8029,Linha_Sul,Tarde,Fornecedor_B,49.947,7.467,Conforme,Nenhum
+8030,Linha_Sul,Manhã,Fornecedor_B,49.893,7.502,Conforme,Nenhum
+8031,Linha_Sul,Tarde,Fornecedor_A,50.035,7.484,Conforme,Nenhum
+8032,Linha_Sul,Noite,Fornecedor_B,50.225,7.401,Conforme,Nenhum
+8033,Linha_Norte,Tarde,Fornecedor_C,49.998,7.453,Defeituoso,Risco Superficial
+8034,Linha_Norte,Manhã,Fornecedor_A,50.042,7.486,Conforme,Nenhum
+8035,Linha_Norte,Manhã,Fornecedor_A,50.29,7.475,Defeituoso,Risco Superficial
+8036,Linha_Norte,Tarde,Fornecedor_A,50.181,7.47,Conforme,Nenhum
+8037,Linha_Norte,Tarde,Fornecedor_B,50.088,7.591,Conforme,Nenhum
+8038,Linha_Norte,Tarde,Fornecedor_A,50.082,7.508,Conforme,Nenhum
+8039,Linha_Sul,Noite,Fornecedor_B,49.91,7.476,Conforme,Nenhum
+8040,Linha_Sul,Tarde,Fornecedor_B,49.895,7.516,Conforme,Nenhum
+8041,Linha_Norte,Tarde,Fornecedor_C,50.021,7.548,Defeituoso,Solda Fria
+8042,Linha_Norte,Manhã,Fornecedor_B,50.025,7.592,Conforme,Nenhum
+8043,Linha_Norte,Manhã,Fornecedor_A,49.873,7.555,Conforme,Nenhum
+8044,Linha_Sul,Tarde,Fornecedor_B,50.105,7.528,Conforme,Nenhum
+8045,Linha_Sul,Noite,Fornecedor_B,49.958,7.435,Conforme,Nenhum
+8046,Linha_Sul,Tarde,Fornecedor_A,50.169,7.477,Conforme,Nenhum
+8047,Linha_Sul,Tarde,Fornecedor_B,49.992,7.483,Conforme,Nenhum
+8048,Linha_Norte,Manhã,Fornecedor_C,49.978,7.518,Defeituoso,Solda Fria
+8049,Linha_Sul,Noite,Fornecedor_A,49.859,7.49,Conforme,Nenhum
+8050,Linha_Norte,Noite,Fornecedor_B,49.876,7.429,Conforme,Nenhum
+8051,Linha_Sul,Tarde,Fornecedor_C,50.198,7.454,Defeituoso,Solda Fria
+8052,Linha_Sul,Manhã,Fornecedor_B,50.04,7.514,Conforme,Nenhum
+8053,Linha_Sul,Tarde,Fornecedor_B,50.058,7.511,Conforme,Nenhum
+8054,Linha_Sul,Noite,Fornecedor_A,50.24,7.516,Conforme,Nenhum
+8055,Linha_Norte,Tarde,Fornecedor_A,49.802,7.5,Conforme,Nenhum
+8056,Linha_Norte,Tarde,Fornecedor_B,50.101,7.56,Conforme,Nenhum
+8057,Linha_Norte,Manhã,Fornecedor_B,49.762,7.489,Conforme,Nenhum
+8058,Linha_Norte,Manhã,Fornecedor_C,49.934,7.456,Defeituoso,Porosidade
+8059,Linha_Norte,Manhã,Fornecedor_A,49.828,7.559,Conforme,Nenhum
+8060,Linha_Norte,Noite,Fornecedor_B,50.129,7.506,Conforme,Nenhum
+8061,Linha_Norte,Tarde,Fornecedor_A,49.717,7.474,Conforme,Nenhum
+8062,Linha_Sul,Noite,Fornecedor_A,49.965,7.47,Conforme,Nenhum
+8063,Linha_Norte,Manhã,Fornecedor_B,49.826,7.44,Conforme,Nenhum
+8064,Linha_Sul,Noite,Fornecedor_A,49.872,7.447,Defeituoso,Risco Superficial
+8065,Linha_Norte,Noite,Fornecedor_A,49.895,7.441,Conforme,Nenhum
+8066,Linha_Sul,Manhã,Fornecedor_A,50.198,7.399,Conforme,Nenhum
+8067,Linha_Norte,Noite,Fornecedor_A,49.95,7.489,Conforme,Nenhum
+8068,Linha_Sul,Manhã,Fornecedor_C,50.259,7.57,Defeituoso,Porosidade
+8069,Linha_Norte,Manhã,Fornecedor_C,50.29,7.49,Defeituoso,Porosidade
+8070,Linha_Norte,Manhã,Fornecedor_A,50.317,7.634,Defeituoso,Desalinhamento
+8071,Linha_Norte,Noite,Fornecedor_C,49.991,7.555,Defeituoso,Solda Fria
+8072,Linha_Norte,Noite,Fornecedor_B,50.032,7.502,Conforme,Nenhum
+8073,Linha_Sul,Manhã,Fornecedor_C,50.057,7.461,Defeituoso,Porosidade
+8074,Linha_Norte,Tarde,Fornecedor_A,49.945,7.431,Conforme,Nenhum
+8075,Linha_Norte,Tarde,Fornecedor_B,50.064,7.502,Conforme,Nenhum
+8076,Linha_Sul,Noite,Fornecedor_C,49.86,7.489,Defeituoso,Solda Fria
+8077,Linha_Norte,Manhã,Fornecedor_A,49.719,7.464,Conforme,Nenhum
+8078,Linha_Sul,Tarde,Fornecedor_C,50.107,7.553,Defeituoso,Risco Superficial
+8079,Linha_Sul,Tarde,Fornecedor_C,49.948,7.555,Defeituoso,Risco Superficial
+8080,Linha_Norte,Manhã,Fornecedor_C,49.853,7.504,Defeituoso,Risco Superficial
+8081,Linha_Norte,Manhã,Fornecedor_A,49.872,7.508,Conforme,Nenhum
+8082,Linha_Sul,Tarde,Fornecedor_A,50.227,7.51,Conforme,Nenhum
+8083,Linha_Norte,Manhã,Fornecedor_A,50.07,7.507,Conforme,Nenhum
+8084,Linha_Sul,Noite,Fornecedor_C,49.772,7.494,Defeituoso,Risco Superficial
+8085,Linha_Norte,Manhã,Fornecedor_A,49.822,7.47,Conforme,Nenhum
+8086,Linha_Norte,Noite,Fornecedor_B,49.956,7.522,Conforme,Nenhum
+8087,Linha_Sul,Manhã,Fornecedor_B,50.071,7.465,Conforme,Nenhum
+8088,Linha_Norte,Manhã,Fornecedor_A,49.881,7.459,Conforme,Nenhum
+8089,Linha_Norte,Manhã,Fornecedor_A,49.974,7.456,Conforme,Nenhum
+8090,Linha_Norte,Noite,Fornecedor_B,50.017,7.475,Defeituoso,Risco Superficial
+8091,Linha_Sul,Noite,Fornecedor_C,50.02,7.491,Defeituoso,Porosidade
+8092,Linha_Norte,Manhã,Fornecedor_A,49.641,7.505,Defeituoso,Desalinhamento
+8093,Linha_Sul,Manhã,Fornecedor_C,50.033,7.505,Defeituoso,Risco Superficial
+8094,Linha_Norte,Tarde,Fornecedor_B,49.74,7.423,Conforme,Nenhum
+8095,Linha_Sul,Tarde,Fornecedor_B,49.957,7.44,Conforme,Nenhum
+8096,Linha_Norte,Noite,Fornecedor_B,49.925,7.476,Conforme,Nenhum
+8097,Linha_Norte,Manhã,Fornecedor_A,49.838,7.517,Conforme,Nenhum
+8098,Linha_Sul,Tarde,Fornecedor_B,50.126,7.569,Conforme,Nenhum
+8099,Linha_Norte,Tarde,Fornecedor_C,49.831,7.42,Defeituoso,Risco Superficial
+8100,Linha_Sul,Noite,Fornecedor_A,49.922,7.507,Conforme,Nenhum
+8101,Linha_Norte,Tarde,Fornecedor_B,50.132,7.497,Conforme,Nenhum
+8102,Linha_Sul,Manhã,Fornecedor_A,49.917,7.479,Conforme,Nenhum
+8103,Linha_Norte,Manhã,Fornecedor_B,49.886,7.446,Conforme,Nenhum
+8104,Linha_Sul,Tarde,Fornecedor_B,49.96,7.487,Conforme,Nenhum
+8105,Linha_Norte,Tarde,Fornecedor_B,50.081,7.464,Conforme,Nenhum
+8106,Linha_Sul,Noite,Fornecedor_A,50.217,7.511,Conforme,Nenhum
+8107,Linha_Sul,Tarde,Fornecedor_C,49.86,7.532,Defeituoso,Solda Fria
+8108,Linha_Norte,Tarde,Fornecedor_A,49.872,7.512,Conforme,Nenhum
+8109,Linha_Sul,Tarde,Fornecedor_B,49.959,7.572,Conforme,Nenhum
+8110,Linha_Sul,Tarde,Fornecedor_B,50.035,7.525,Conforme,Nenhum
+8111,Linha_Norte,Manhã,Fornecedor_C,49.884,7.495,Defeituoso,Risco Superficial
+8112,Linha_Norte,Manhã,Fornecedor_A,50.103,7.532,Conforme,Nenhum
+8113,Linha_Norte,Tarde,Fornecedor_C,49.862,7.455,Defeituoso,Porosidade
+8114,Linha_Norte,Manhã,Fornecedor_A,49.715,7.388,Conforme,Nenhum
+8115,Linha_Norte,Manhã,Fornecedor_B,50.08,7.54,Conforme,Nenhum
+8116,Linha_Norte,Manhã,Fornecedor_B,50.097,7.438,Conforme,Nenhum
+8117,Linha_Sul,Manhã,Fornecedor_C,50.157,7.561,Defeituoso,Risco Superficial
+8118,Linha_Sul,Manhã,Fornecedor_B,49.701,7.5,Conforme,Nenhum
+8119,Linha_Sul,Tarde,Fornecedor_C,49.9,7.456,Defeituoso,Porosidade
+8120,Linha_Norte,Tarde,Fornecedor_A,49.962,7.479,Defeituoso,Risco Superficial
+8121,Linha_Norte,Tarde,Fornecedor_C,50.264,7.526,Defeituoso,Solda Fria
+8122,Linha_Sul,Tarde,Fornecedor_A,49.976,7.461,Conforme,Nenhum
+8123,Linha_Sul,Noite,Fornecedor_B,49.798,7.501,Conforme,Nenhum
+8124,Linha_Norte,Manhã,Fornecedor_B,50.045,7.53,Conforme,Nenhum
+8125,Linha_Sul,Tarde,Fornecedor_B,50.196,7.462,Conforme,Nenhum
+8126,Linha_Norte,Manhã,Fornecedor_A,50.164,7.484,Conforme,Nenhum
+8127,Linha_Norte,Tarde,Fornecedor_B,50.084,7.507,Conforme,Nenhum
+8128,Linha_Sul,Noite,Fornecedor_A,50.039,7.55,Conforme,Nenhum
+8129,Linha_Norte,Tarde,Fornecedor_A,49.66,7.492,Defeituoso,Desalinhamento
+8130,Linha_Norte,Tarde,Fornecedor_A,50.004,7.407,Conforme,Nenhum
+8131,Linha_Norte,Tarde,Fornecedor_B,50.027,7.491,Conforme,Nenhum
+8132,Linha_Norte,Tarde,Fornecedor_A,49.976,7.517,Conforme,Nenhum
+8133,Linha_Sul,Manhã,Fornecedor_A,50.106,7.479,Conforme,Nenhum
+8134,Linha_Norte,Tarde,Fornecedor_A,49.974,7.462,Conforme,Nenhum
+8135,Linha_Norte,Tarde,Fornecedor_A,49.945,7.465,Conforme,Nenhum
+8136,Linha_Sul,Manhã,Fornecedor_C,50.156,7.503,Defeituoso,Porosidade
+8137,Linha_Norte,Manhã,Fornecedor_C,49.938,7.455,Defeituoso,Porosidade
+8138,Linha_Norte,Noite,Fornecedor_A,50.01,7.527,Conforme,Nenhum
+8139,Linha_Sul,Manhã,Fornecedor_B,50.135,7.479,Conforme,Nenhum
+8140,Linha_Sul,Manhã,Fornecedor_B,49.848,7.443,Conforme,Nenhum
+8141,Linha_Norte,Tarde,Fornecedor_B,49.832,7.467,Conforme,Nenhum
+8142,Linha_Norte,Manhã,Fornecedor_B,50.204,7.58,Conforme,Nenhum
+8143,Linha_Sul,Tarde,Fornecedor_A,49.911,7.512,Conforme,Nenhum
+8144,Linha_Norte,Tarde,Fornecedor_B,50.104,7.534,Conforme,Nenhum
+8145,Linha_Norte,Noite,Fornecedor_A,49.734,7.485,Conforme,Nenhum
+8146,Linha_Norte,Manhã,Fornecedor_A,49.625,7.425,Defeituoso,Desalinhamento
+8147,Linha_Sul,Tarde,Fornecedor_B,50.055,7.48,Conforme,Nenhum
+8148,Linha_Norte,Noite,Fornecedor_B,49.981,7.466,Conforme,Nenhum
+8149,Linha_Sul,Manhã,Fornecedor_A,50.056,7.549,Defeituoso,Risco Superficial
+8150,Linha_Sul,Manhã,Fornecedor_B,50.281,7.54,Conforme,Nenhum
+8151,Linha_Sul,Noite,Fornecedor_C,49.814,7.415,Defeituoso,Risco Superficial
+8152,Linha_Sul,Manhã,Fornecedor_C,50.006,7.559,Defeituoso,Solda Fria
+8153,Linha_Norte,Manhã,Fornecedor_B,50.222,7.509,Conforme,Nenhum
+8154,Linha_Sul,Manhã,Fornecedor_B,49.836,7.51,Conforme,Nenhum
+8155,Linha_Norte,Manhã,Fornecedor_B,49.912,7.533,Conforme,Nenhum
+8156,Linha_Sul,Manhã,Fornecedor_A,49.735,7.371,Conforme,Nenhum
+8157,Linha_Sul,Tarde,Fornecedor_A,50.336,7.552,Defeituoso,Desalinhamento
+8158,Linha_Norte,Tarde,Fornecedor_A,49.669,7.457,Defeituoso,Desalinhamento
+8159,Linha_Sul,Manhã,Fornecedor_B,50.12,7.415,Conforme,Nenhum
+8160,Linha_Sul,Noite,Fornecedor_B,49.802,7.435,Conforme,Nenhum
+8161,Linha_Norte,Tarde,Fornecedor_C,49.842,7.466,Defeituoso,Solda Fria
+8162,Linha_Sul,Noite,Fornecedor_C,50.16,7.55,Defeituoso,Risco Superficial
+8163,Linha_Sul,Noite,Fornecedor_A,49.889,7.482,Conforme,Nenhum
+8164,Linha_Sul,Noite,Fornecedor_A,50.098,7.516,Conforme,Nenhum
+8165,Linha_Norte,Noite,Fornecedor_A,50.207,7.506,Conforme,Nenhum
+8166,Linha_Sul,Tarde,Fornecedor_B,50.03,7.547,Conforme,Nenhum
+8167,Linha_Norte,Noite,Fornecedor_B,50.133,7.534,Conforme,Nenhum
+8168,Linha_Norte,Manhã,Fornecedor_C,50.012,7.508,Defeituoso,Solda Fria
+8169,Linha_Norte,Manhã,Fornecedor_B,50.019,7.456,Conforme,Nenhum
+8170,Linha_Sul,Noite,Fornecedor_C,49.905,7.495,Defeituoso,Solda Fria
+8171,Linha_Sul,Tarde,Fornecedor_B,50.289,7.64,Conforme,Nenhum
+8172,Linha_Sul,Noite,Fornecedor_C,50.111,7.543,Defeituoso,Risco Superficial
+8173,Linha_Sul,Noite,Fornecedor_B,50.078,7.478,Conforme,Nenhum
+8174,Linha_Norte,Manhã,Fornecedor_B,50.116,7.586,Conforme,Nenhum
+8175,Linha_Norte,Noite,Fornecedor_B,49.898,7.459,Conforme,Nenhum
+8176,Linha_Sul,Manhã,Fornecedor_B,50.14,7.543,Conforme,Nenhum
+8177,Linha_Sul,Manhã,Fornecedor_B,50.233,7.521,Conforme,Nenhum
+8178,Linha_Norte,Tarde,Fornecedor_A,49.793,7.487,Conforme,Nenhum
+8179,Linha_Sul,Manhã,Fornecedor_A,50.081,7.517,Conforme,Nenhum
+8180,Linha_Sul,Tarde,Fornecedor_B,50.009,7.491,Conforme,Nenhum
+8181,Linha_Sul,Tarde,Fornecedor_B,49.922,7.477,Conforme,Nenhum
+8182,Linha_Sul,Manhã,Fornecedor_A,49.836,7.431,Conforme,Nenhum
+8183,Linha_Sul,Noite,Fornecedor_A,50.158,7.471,Conforme,Nenhum
+8184,Linha_Sul,Tarde,Fornecedor_A,50.031,7.516,Conforme,Nenhum
+8185,Linha_Norte,Manhã,Fornecedor_B,49.969,7.47,Conforme,Nenhum
+8186,Linha_Norte,Manhã,Fornecedor_A,50.081,7.472,Conforme,Nenhum
+8187,Linha_Norte,Noite,Fornecedor_A,49.981,7.611,Conforme,Nenhum
+8188,Linha_Norte,Noite,Fornecedor_A,49.894,7.589,Conforme,Nenhum
+8189,Linha_Sul,Manhã,Fornecedor_A,50.019,7.525,Conforme,Nenhum
+8190,Linha_Sul,Manhã,Fornecedor_C,49.996,7.528,Defeituoso,Solda Fria
+8191,Linha_Norte,Noite,Fornecedor_A,49.734,7.441,Conforme,Nenhum
+8192,Linha_Norte,Tarde,Fornecedor_B,49.906,7.443,Conforme,Nenhum
+8193,Linha_Norte,Manhã,Fornecedor_B,49.81,7.467,Conforme,Nenhum
+8194,Linha_Norte,Tarde,Fornecedor_C,49.752,7.475,Defeituoso,Porosidade
+8195,Linha_Norte,Tarde,Fornecedor_A,50.07,7.536,Conforme,Nenhum
+8196,Linha_Sul,Noite,Fornecedor_A,49.9,7.417,Conforme,Nenhum
+8197,Linha_Sul,Manhã,Fornecedor_A,50.156,7.602,Conforme,Nenhum
+8198,Linha_Norte,Tarde,Fornecedor_A,49.726,7.482,Conforme,Nenhum
+8199,Linha_Norte,Manhã,Fornecedor_B,49.955,7.434,Defeituoso,Risco Superficial
+8200,Linha_Sul,Noite,Fornecedor_A,49.908,7.497,Conforme,Nenhum
+8201,Linha_Sul,Noite,Fornecedor_A,49.763,7.44,Defeituoso,Risco Superficial
+8202,Linha_Sul,Tarde,Fornecedor_C,50.001,7.461,Defeituoso,Solda Fria
+8203,Linha_Norte,Tarde,Fornecedor_B,49.776,7.435,Conforme,Nenhum
+8204,Linha_Sul,Tarde,Fornecedor_A,50.033,7.493,Conforme,Nenhum
+8205,Linha_Norte,Noite,Fornecedor_A,50.108,7.595,Conforme,Nenhum
+8206,Linha_Norte,Manhã,Fornecedor_A,50.04,7.508,Conforme,Nenhum
+8207,Linha_Sul,Noite,Fornecedor_C,50.059,7.534,Defeituoso,Porosidade
+8208,Linha_Sul,Manhã,Fornecedor_C,50.155,7.553,Defeituoso,Risco Superficial
+8209,Linha_Sul,Manhã,Fornecedor_C,49.996,7.494,Defeituoso,Solda Fria
+8210,Linha_Norte,Tarde,Fornecedor_C,49.876,7.441,Defeituoso,Risco Superficial
+8211,Linha_Sul,Noite,Fornecedor_B,49.909,7.427,Conforme,Nenhum
+8212,Linha_Sul,Noite,Fornecedor_A,49.912,7.476,Conforme,Nenhum
+8213,Linha_Norte,Tarde,Fornecedor_B,49.843,7.53,Defeituoso,Risco Superficial
+8214,Linha_Sul,Tarde,Fornecedor_B,50.118,7.549,Conforme,Nenhum
+8215,Linha_Sul,Noite,Fornecedor_C,50.079,7.518,Defeituoso,Solda Fria
+8216,Linha_Norte,Manhã,Fornecedor_B,49.75,7.491,Conforme,Nenhum
+8217,Linha_Norte,Noite,Fornecedor_B,49.876,7.482,Defeituoso,Risco Superficial
+8218,Linha_Norte,Tarde,Fornecedor_C,49.836,7.464,Defeituoso,Porosidade
+8219,Linha_Norte,Manhã,Fornecedor_A,50.048,7.475,Conforme,Nenhum
+8220,Linha_Norte,Manhã,Fornecedor_C,50.161,7.457,Defeituoso,Risco Superficial
+8221,Linha_Sul,Tarde,Fornecedor_A,50.067,7.579,Defeituoso,Risco Superficial
+8222,Linha_Sul,Manhã,Fornecedor_B,49.895,7.496,Conforme,Nenhum
+8223,Linha_Norte,Manhã,Fornecedor_A,49.952,7.478,Conforme,Nenhum
+8224,Linha_Sul,Manhã,Fornecedor_B,49.791,7.552,Conforme,Nenhum
+8225,Linha_Sul,Manhã,Fornecedor_B,49.803,7.561,Conforme,Nenhum
+8226,Linha_Norte,Tarde,Fornecedor_A,50.127,7.622,Conforme,Nenhum
+8227,Linha_Norte,Noite,Fornecedor_C,50.217,7.512,Defeituoso,Risco Superficial
+8228,Linha_Norte,Manhã,Fornecedor_B,49.893,7.493,Conforme,Nenhum
+8229,Linha_Sul,Tarde,Fornecedor_B,50.007,7.527,Conforme,Nenhum
+8230,Linha_Norte,Manhã,Fornecedor_A,50.108,7.577,Conforme,Nenhum
+8231,Linha_Sul,Tarde,Fornecedor_C,49.75,7.478,Defeituoso,Solda Fria
+8232,Linha_Sul,Noite,Fornecedor_A,49.843,7.445,Conforme,Nenhum
+8233,Linha_Sul,Tarde,Fornecedor_A,50.299,7.5,Conforme,Nenhum
+8234,Linha_Sul,Noite,Fornecedor_A,49.856,7.533,Conforme,Nenhum
+8235,Linha_Norte,Tarde,Fornecedor_B,49.946,7.519,Conforme,Nenhum
+8236,Linha_Sul,Tarde,Fornecedor_C,49.91,7.484,Defeituoso,Solda Fria
+8237,Linha_Norte,Tarde,Fornecedor_A,49.701,7.461,Conforme,Nenhum
+8238,Linha_Sul,Noite,Fornecedor_A,50.012,7.494,Defeituoso,Risco Superficial
+8239,Linha_Norte,Noite,Fornecedor_C,49.996,7.549,Defeituoso,Porosidade
+8240,Linha_Norte,Tarde,Fornecedor_B,50.027,7.471,Conforme,Nenhum
+8241,Linha_Norte,Noite,Fornecedor_C,49.987,7.45,Defeituoso,Solda Fria
+8242,Linha_Sul,Manhã,Fornecedor_A,49.931,7.566,Conforme,Nenhum
+8243,Linha_Sul,Noite,Fornecedor_B,49.922,7.493,Conforme,Nenhum
+8244,Linha_Sul,Manhã,Fornecedor_A,49.925,7.489,Conforme,Nenhum
+8245,Linha_Norte,Manhã,Fornecedor_C,49.852,7.512,Defeituoso,Solda Fria
+8246,Linha_Sul,Manhã,Fornecedor_B,49.875,7.448,Conforme,Nenhum
+8247,Linha_Sul,Noite,Fornecedor_B,49.854,7.515,Conforme,Nenhum
+8248,Linha_Sul,Noite,Fornecedor_A,50.086,7.493,Conforme,Nenhum
+8249,Linha_Norte,Noite,Fornecedor_A,50.046,7.55,Conforme,Nenhum
+8250,Linha_Sul,Noite,Fornecedor_A,50.004,7.439,Defeituoso,Risco Superficial
+8251,Linha_Sul,Tarde,Fornecedor_A,50.291,7.547,Conforme,Nenhum
+8252,Linha_Norte,Noite,Fornecedor_A,49.861,7.477,Conforme,Nenhum
+8253,Linha_Norte,Noite,Fornecedor_B,50.168,7.489,Conforme,Nenhum
+8254,Linha_Norte,Tarde,Fornecedor_A,49.961,7.527,Conforme,Nenhum
+8255,Linha_Norte,Manhã,Fornecedor_C,50.024,7.496,Defeituoso,Solda Fria
+8256,Linha_Norte,Tarde,Fornecedor_A,50.101,7.529,Conforme,Nenhum
+8257,Linha_Norte,Noite,Fornecedor_A,49.928,7.543,Conforme,Nenhum
+8258,Linha_Sul,Noite,Fornecedor_C,49.841,7.516,Defeituoso,Risco Superficial
+8259,Linha_Sul,Noite,Fornecedor_B,49.866,7.443,Defeituoso,Risco Superficial
+8260,Linha_Norte,Noite,Fornecedor_B,49.684,7.447,Defeituoso,Desalinhamento
+8261,Linha_Sul,Noite,Fornecedor_A,50.091,7.527,Defeituoso,Risco Superficial
+8262,Linha_Norte,Noite,Fornecedor_B,50.087,7.54,Conforme,Nenhum
+8263,Linha_Sul,Tarde,Fornecedor_B,50.238,7.508,Defeituoso,Risco Superficial
+8264,Linha_Norte,Manhã,Fornecedor_A,50.062,7.514,Conforme,Nenhum
+8265,Linha_Norte,Tarde,Fornecedor_B,50.098,7.517,Conforme,Nenhum
+8266,Linha_Sul,Tarde,Fornecedor_B,49.988,7.512,Conforme,Nenhum
+8267,Linha_Sul,Noite,Fornecedor_A,50.07,7.46,Conforme,Nenhum
+8268,Linha_Sul,Tarde,Fornecedor_C,50.163,7.46,Defeituoso,Solda Fria
+8269,Linha_Sul,Manhã,Fornecedor_C,50.027,7.412,Defeituoso,Porosidade
+8270,Linha_Sul,Manhã,Fornecedor_A,49.922,7.496,Conforme,Nenhum
+8271,Linha_Sul,Tarde,Fornecedor_B,49.967,7.442,Conforme,Nenhum
+8272,Linha_Sul,Tarde,Fornecedor_A,50.113,7.597,Defeituoso,Risco Superficial
+8273,Linha_Sul,Manhã,Fornecedor_C,49.926,7.519,Defeituoso,Porosidade
+8274,Linha_Norte,Manhã,Fornecedor_B,50.133,7.466,Conforme,Nenhum
+8275,Linha_Sul,Tarde,Fornecedor_A,50.286,7.574,Conforme,Nenhum
+8276,Linha_Sul,Manhã,Fornecedor_A,50.135,7.559,Conforme,Nenhum
+8277,Linha_Norte,Manhã,Fornecedor_A,50.112,7.56,Conforme,Nenhum
+8278,Linha_Norte,Manhã,Fornecedor_B,50.052,7.473,Conforme,Nenhum
+8279,Linha_Norte,Tarde,Fornecedor_B,49.883,7.517,Conforme,Nenhum
+8280,Linha_Norte,Tarde,Fornecedor_A,49.87,7.536,Conforme,Nenhum
+8281,Linha_Sul,Manhã,Fornecedor_A,49.868,7.55,Conforme,Nenhum
+8282,Linha_Sul,Noite,Fornecedor_A,50.083,7.447,Conforme,Nenhum
+8283,Linha_Norte,Manhã,Fornecedor_A,49.942,7.485,Conforme,Nenhum
+8284,Linha_Norte,Manhã,Fornecedor_A,49.996,7.466,Conforme,Nenhum
+8285,Linha_Sul,Manhã,Fornecedor_B,50.063,7.581,Conforme,Nenhum
+8286,Linha_Sul,Manhã,Fornecedor_B,49.874,7.507,Conforme,Nenhum
+8287,Linha_Sul,Manhã,Fornecedor_C,49.925,7.528,Defeituoso,Risco Superficial
+8288,Linha_Sul,Manhã,Fornecedor_C,50.048,7.524,Defeituoso,Risco Superficial
+8289,Linha_Norte,Tarde,Fornecedor_B,49.956,7.511,Conforme,Nenhum
+8290,Linha_Sul,Tarde,Fornecedor_B,49.97,7.463,Conforme,Nenhum
+8291,Linha_Norte,Tarde,Fornecedor_C,49.845,7.467,Defeituoso,Solda Fria
+8292,Linha_Norte,Noite,Fornecedor_A,49.972,7.5,Conforme,Nenhum
+8293,Linha_Norte,Manhã,Fornecedor_A,50.248,7.499,Conforme,Nenhum
+8294,Linha_Sul,Noite,Fornecedor_A,49.933,7.46,Defeituoso,Risco Superficial
+8295,Linha_Norte,Manhã,Fornecedor_B,49.828,7.475,Conforme,Nenhum
+8296,Linha_Sul,Tarde,Fornecedor_C,50.144,7.49,Defeituoso,Solda Fria
+8297,Linha_Norte,Manhã,Fornecedor_A,50.079,7.51,Conforme,Nenhum
+8298,Linha_Sul,Noite,Fornecedor_B,50.032,7.485,Conforme,Nenhum
+8299,Linha_Norte,Tarde,Fornecedor_B,49.802,7.453,Conforme,Nenhum
+8300,Linha_Norte,Manhã,Fornecedor_A,49.824,7.445,Conforme,Nenhum
+8301,Linha_Sul,Tarde,Fornecedor_A,49.769,7.477,Conforme,Nenhum
+8302,Linha_Sul,Manhã,Fornecedor_A,50.065,7.542,Conforme,Nenhum
+8303,Linha_Norte,Noite,Fornecedor_A,50.153,7.541,Conforme,Nenhum
+8304,Linha_Norte,Tarde,Fornecedor_C,50.07,7.446,Defeituoso,Risco Superficial
+8305,Linha_Sul,Manhã,Fornecedor_C,50.292,7.564,Defeituoso,Porosidade
+8306,Linha_Norte,Manhã,Fornecedor_C,49.934,7.519,Defeituoso,Porosidade
+8307,Linha_Sul,Manhã,Fornecedor_B,49.951,7.531,Conforme,Nenhum
+8308,Linha_Sul,Tarde,Fornecedor_C,50.016,7.545,Defeituoso,Porosidade
+8309,Linha_Norte,Manhã,Fornecedor_B,49.966,7.467,Conforme,Nenhum
+8310,Linha_Sul,Tarde,Fornecedor_B,50.075,7.495,Conforme,Nenhum
+8311,Linha_Norte,Noite,Fornecedor_B,49.904,7.562,Conforme,Nenhum
+8312,Linha_Sul,Manhã,Fornecedor_B,49.791,7.548,Conforme,Nenhum
+8313,Linha_Sul,Noite,Fornecedor_A,49.732,7.47,Conforme,Nenhum
+8314,Linha_Norte,Tarde,Fornecedor_B,50.072,7.531,Conforme,Nenhum
+8315,Linha_Sul,Manhã,Fornecedor_A,49.921,7.52,Conforme,Nenhum
+8316,Linha_Norte,Tarde,Fornecedor_B,49.825,7.553,Conforme,Nenhum
+8317,Linha_Sul,Tarde,Fornecedor_B,49.907,7.505,Conforme,Nenhum
+8318,Linha_Sul,Tarde,Fornecedor_A,50.293,7.481,Conforme,Nenhum
+8319,Linha_Sul,Manhã,Fornecedor_C,49.833,7.464,Defeituoso,Solda Fria
+8320,Linha_Sul,Manhã,Fornecedor_A,50.109,7.636,Conforme,Nenhum
+8321,Linha_Norte,Noite,Fornecedor_A,50.063,7.456,Conforme,Nenhum
+8322,Linha_Sul,Tarde,Fornecedor_A,50.201,7.522,Conforme,Nenhum
+8323,Linha_Sul,Tarde,Fornecedor_C,49.982,7.591,Defeituoso,Solda Fria
+8324,Linha_Sul,Manhã,Fornecedor_B,49.766,7.445,Conforme,Nenhum
+8325,Linha_Norte,Noite,Fornecedor_B,50.149,7.406,Conforme,Nenhum
+8326,Linha_Norte,Noite,Fornecedor_C,49.963,7.395,Defeituoso,Porosidade
+8327,Linha_Norte,Manhã,Fornecedor_A,50.191,7.487,Conforme,Nenhum
+8328,Linha_Norte,Manhã,Fornecedor_A,50.122,7.442,Conforme,Nenhum
+8329,Linha_Sul,Noite,Fornecedor_A,50.149,7.556,Conforme,Nenhum
+8330,Linha_Sul,Noite,Fornecedor_B,50.355,7.546,Defeituoso,Desalinhamento
+8331,Linha_Sul,Tarde,Fornecedor_B,50.042,7.419,Conforme,Nenhum
+8332,Linha_Norte,Noite,Fornecedor_A,50.216,7.458,Conforme,Nenhum
+8333,Linha_Norte,Tarde,Fornecedor_A,49.939,7.544,Conforme,Nenhum
+8334,Linha_Sul,Manhã,Fornecedor_A,50.081,7.516,Conforme,Nenhum
+8335,Linha_Sul,Tarde,Fornecedor_B,49.925,7.55,Conforme,Nenhum
+8336,Linha_Sul,Tarde,Fornecedor_A,50.072,7.552,Conforme,Nenhum
+8337,Linha_Norte,Noite,Fornecedor_A,50.056,7.46,Conforme,Nenhum
+8338,Linha_Sul,Manhã,Fornecedor_A,49.691,7.504,Defeituoso,Desalinhamento
+8339,Linha_Sul,Tarde,Fornecedor_B,49.908,7.513,Conforme,Nenhum
+8340,Linha_Norte,Noite,Fornecedor_B,50.035,7.425,Defeituoso,Risco Superficial
+8341,Linha_Norte,Manhã,Fornecedor_B,49.661,7.412,Defeituoso,Desalinhamento
+8342,Linha_Sul,Manhã,Fornecedor_B,49.986,7.596,Conforme,Nenhum
+8343,Linha_Norte,Noite,Fornecedor_B,50.151,7.478,Conforme,Nenhum
+8344,Linha_Sul,Tarde,Fornecedor_C,50.195,7.536,Defeituoso,Solda Fria
+8345,Linha_Sul,Tarde,Fornecedor_A,49.883,7.481,Conforme,Nenhum
+8346,Linha_Sul,Noite,Fornecedor_B,50.205,7.528,Conforme,Nenhum
+8347,Linha_Sul,Manhã,Fornecedor_B,50.181,7.513,Conforme,Nenhum
+8348,Linha_Norte,Noite,Fornecedor_A,49.678,7.506,Defeituoso,Desalinhamento
+8349,Linha_Norte,Tarde,Fornecedor_B,50.017,7.539,Conforme,Nenhum
+8350,Linha_Norte,Tarde,Fornecedor_A,50.034,7.508,Defeituoso,Risco Superficial
+8351,Linha_Sul,Tarde,Fornecedor_A,50.228,7.487,Conforme,Nenhum
+8352,Linha_Sul,Noite,Fornecedor_A,50.043,7.482,Conforme,Nenhum
+8353,Linha_Sul,Manhã,Fornecedor_A,50.209,7.458,Conforme,Nenhum
+8354,Linha_Norte,Manhã,Fornecedor_B,49.883,7.475,Conforme,Nenhum
+8355,Linha_Norte,Manhã,Fornecedor_B,49.76,7.405,Conforme,Nenhum
+8356,Linha_Sul,Manhã,Fornecedor_B,49.903,7.499,Conforme,Nenhum
+8357,Linha_Norte,Tarde,Fornecedor_C,50.237,7.535,Defeituoso,Solda Fria
+8358,Linha_Norte,Noite,Fornecedor_A,50.139,7.554,Conforme,Nenhum
+8359,Linha_Norte,Noite,Fornecedor_B,50.348,7.486,Defeituoso,Desalinhamento
+8360,Linha_Norte,Manhã,Fornecedor_C,49.784,7.432,Defeituoso,Solda Fria
+8361,Linha_Sul,Tarde,Fornecedor_A,50.156,7.577,Conforme,Nenhum
+8362,Linha_Norte,Tarde,Fornecedor_B,50.113,7.457,Conforme,Nenhum
+8363,Linha_Sul,Manhã,Fornecedor_C,49.957,7.578,Defeituoso,Solda Fria
+8364,Linha_Norte,Noite,Fornecedor_B,50.116,7.475,Conforme,Nenhum
+8365,Linha_Sul,Noite,Fornecedor_A,50.021,7.465,Conforme,Nenhum
+8366,Linha_Sul,Noite,Fornecedor_A,50.069,7.541,Conforme,Nenhum
+8367,Linha_Norte,Manhã,Fornecedor_B,50.102,7.532,Defeituoso,Risco Superficial
+8368,Linha_Sul,Tarde,Fornecedor_C,50.147,7.58,Defeituoso,Risco Superficial
+8369,Linha_Sul,Manhã,Fornecedor_A,50.013,7.426,Conforme,Nenhum
+8370,Linha_Norte,Manhã,Fornecedor_C,50.267,7.548,Defeituoso,Solda Fria
+8371,Linha_Sul,Tarde,Fornecedor_A,49.968,7.495,Conforme,Nenhum
+8372,Linha_Norte,Noite,Fornecedor_A,50.283,7.485,Conforme,Nenhum
+8373,Linha_Sul,Noite,Fornecedor_B,49.831,7.558,Conforme,Nenhum
+8374,Linha_Norte,Noite,Fornecedor_B,49.852,7.495,Conforme,Nenhum
+8375,Linha_Norte,Noite,Fornecedor_A,49.861,7.484,Conforme,Nenhum
+8376,Linha_Norte,Manhã,Fornecedor_A,50.144,7.533,Defeituoso,Risco Superficial
+8377,Linha_Norte,Tarde,Fornecedor_C,49.879,7.419,Defeituoso,Solda Fria
+8378,Linha_Norte,Manhã,Fornecedor_C,50.224,7.472,Defeituoso,Porosidade
+8379,Linha_Sul,Manhã,Fornecedor_A,49.921,7.479,Conforme,Nenhum
+8380,Linha_Sul,Tarde,Fornecedor_A,50.06,7.519,Conforme,Nenhum
+8381,Linha_Norte,Tarde,Fornecedor_C,50.096,7.561,Defeituoso,Risco Superficial
+8382,Linha_Sul,Tarde,Fornecedor_B,49.848,7.449,Conforme,Nenhum
+8383,Linha_Sul,Manhã,Fornecedor_A,49.791,7.435,Conforme,Nenhum
+8384,Linha_Sul,Manhã,Fornecedor_C,50.042,7.524,Defeituoso,Solda Fria
+8385,Linha_Norte,Manhã,Fornecedor_A,49.958,7.49,Conforme,Nenhum
+8386,Linha_Norte,Manhã,Fornecedor_B,50.075,7.431,Conforme,Nenhum
+8387,Linha_Sul,Manhã,Fornecedor_B,49.798,7.443,Conforme,Nenhum
+8388,Linha_Norte,Tarde,Fornecedor_B,49.946,7.487,Conforme,Nenhum
+8389,Linha_Norte,Noite,Fornecedor_A,49.973,7.491,Conforme,Nenhum
+8390,Linha_Sul,Tarde,Fornecedor_B,49.634,7.467,Defeituoso,Desalinhamento
+8391,Linha_Norte,Tarde,Fornecedor_C,50.149,7.463,Defeituoso,Solda Fria
+8392,Linha_Norte,Manhã,Fornecedor_B,49.886,7.483,Conforme,Nenhum
+8393,Linha_Norte,Noite,Fornecedor_B,50.225,7.56,Conforme,Nenhum
+8394,Linha_Norte,Manhã,Fornecedor_A,49.896,7.374,Conforme,Nenhum
+8395,Linha_Norte,Noite,Fornecedor_C,49.922,7.481,Defeituoso,Risco Superficial
+8396,Linha_Sul,Noite,Fornecedor_C,49.814,7.415,Defeituoso,Solda Fria
+8397,Linha_Norte,Noite,Fornecedor_C,50.172,7.516,Defeituoso,Porosidade
+8398,Linha_Norte,Manhã,Fornecedor_B,50.068,7.447,Conforme,Nenhum
+8399,Linha_Sul,Tarde,Fornecedor_C,50.21,7.526,Defeituoso,Solda Fria
+8400,Linha_Sul,Manhã,Fornecedor_A,49.969,7.562,Conforme,Nenhum
+8401,Linha_Norte,Manhã,Fornecedor_B,49.994,7.46,Conforme,Nenhum
+8402,Linha_Sul,Manhã,Fornecedor_B,49.748,7.441,Conforme,Nenhum
+8403,Linha_Norte,Noite,Fornecedor_B,49.906,7.472,Conforme,Nenhum
+8404,Linha_Sul,Noite,Fornecedor_C,50.026,7.515,Defeituoso,Porosidade
+8405,Linha_Norte,Manhã,Fornecedor_B,50.058,7.465,Defeituoso,Risco Superficial
+8406,Linha_Sul,Tarde,Fornecedor_A,50.274,7.512,Conforme,Nenhum
+8407,Linha_Norte,Noite,Fornecedor_A,49.722,7.445,Conforme,Nenhum
+8408,Linha_Sul,Tarde,Fornecedor_A,50.034,7.485,Conforme,Nenhum
+8409,Linha_Norte,Manhã,Fornecedor_B,49.944,7.508,Conforme,Nenhum
+8410,Linha_Norte,Tarde,Fornecedor_A,50.011,7.523,Conforme,Nenhum
+8411,Linha_Norte,Noite,Fornecedor_A,50.015,7.442,Defeituoso,Risco Superficial
+8412,Linha_Sul,Tarde,Fornecedor_B,49.971,7.51,Conforme,Nenhum
+8413,Linha_Sul,Noite,Fornecedor_C,49.83,7.609,Defeituoso,Solda Fria
+8414,Linha_Norte,Tarde,Fornecedor_C,49.802,7.542,Defeituoso,Porosidade
+8415,Linha_Norte,Manhã,Fornecedor_C,49.96,7.47,Defeituoso,Risco Superficial
+8416,Linha_Norte,Manhã,Fornecedor_C,49.787,7.484,Defeituoso,Solda Fria
+8417,Linha_Norte,Manhã,Fornecedor_A,49.983,7.497,Conforme,Nenhum
+8418,Linha_Sul,Tarde,Fornecedor_C,49.962,7.515,Defeituoso,Risco Superficial
+8419,Linha_Sul,Manhã,Fornecedor_A,49.632,7.446,Defeituoso,Desalinhamento
+8420,Linha_Sul,Noite,Fornecedor_B,50.29,7.518,Conforme,Nenhum
+8421,Linha_Norte,Tarde,Fornecedor_B,50.012,7.472,Conforme,Nenhum
+8422,Linha_Norte,Noite,Fornecedor_C,49.634,7.507,Defeituoso,Solda Fria
+8423,Linha_Sul,Noite,Fornecedor_B,50.037,7.516,Defeituoso,Risco Superficial
+8424,Linha_Sul,Noite,Fornecedor_A,49.969,7.51,Conforme,Nenhum
+8425,Linha_Sul,Noite,Fornecedor_B,49.802,7.529,Conforme,Nenhum
+8426,Linha_Sul,Tarde,Fornecedor_A,50.046,7.554,Conforme,Nenhum
+8427,Linha_Norte,Manhã,Fornecedor_C,49.859,7.528,Defeituoso,Solda Fria
+8428,Linha_Norte,Noite,Fornecedor_B,50.029,7.551,Conforme,Nenhum
+8429,Linha_Norte,Noite,Fornecedor_B,49.895,7.552,Defeituoso,Risco Superficial
+8430,Linha_Sul,Noite,Fornecedor_C,49.864,7.448,Defeituoso,Porosidade
+8431,Linha_Norte,Tarde,Fornecedor_B,49.998,7.488,Conforme,Nenhum
+8432,Linha_Sul,Tarde,Fornecedor_A,49.757,7.504,Conforme,Nenhum
+8433,Linha_Sul,Manhã,Fornecedor_A,49.988,7.463,Conforme,Nenhum
+8434,Linha_Sul,Tarde,Fornecedor_B,50.099,7.495,Conforme,Nenhum
+8435,Linha_Sul,Manhã,Fornecedor_C,50.191,7.527,Defeituoso,Solda Fria
+8436,Linha_Sul,Manhã,Fornecedor_C,50.163,7.507,Defeituoso,Porosidade
+8437,Linha_Norte,Tarde,Fornecedor_C,50.203,7.523,Defeituoso,Solda Fria
+8438,Linha_Norte,Tarde,Fornecedor_A,49.932,7.447,Conforme,Nenhum
+8439,Linha_Norte,Manhã,Fornecedor_A,49.846,7.483,Conforme,Nenhum
+8440,Linha_Sul,Noite,Fornecedor_A,50.122,7.518,Conforme,Nenhum
+8441,Linha_Norte,Noite,Fornecedor_C,49.922,7.557,Defeituoso,Solda Fria
+8442,Linha_Sul,Tarde,Fornecedor_A,50.001,7.489,Conforme,Nenhum
+8443,Linha_Norte,Tarde,Fornecedor_A,50.112,7.485,Conforme,Nenhum
+8444,Linha_Sul,Noite,Fornecedor_B,50.303,7.559,Defeituoso,Desalinhamento
+8445,Linha_Sul,Manhã,Fornecedor_B,50.079,7.381,Conforme,Nenhum
+8446,Linha_Norte,Tarde,Fornecedor_B,50.031,7.49,Conforme,Nenhum
+8447,Linha_Sul,Manhã,Fornecedor_B,49.832,7.463,Defeituoso,Risco Superficial
+8448,Linha_Norte,Manhã,Fornecedor_B,50.175,7.528,Conforme,Nenhum
+8449,Linha_Norte,Tarde,Fornecedor_B,50.061,7.556,Conforme,Nenhum
+8450,Linha_Norte,Tarde,Fornecedor_C,49.948,7.557,Defeituoso,Risco Superficial
+8451,Linha_Sul,Manhã,Fornecedor_A,49.932,7.503,Conforme,Nenhum
+8452,Linha_Sul,Manhã,Fornecedor_A,49.939,7.432,Defeituoso,Risco Superficial
+8453,Linha_Sul,Tarde,Fornecedor_A,50.007,7.48,Conforme,Nenhum
+8454,Linha_Sul,Tarde,Fornecedor_A,49.781,7.462,Conforme,Nenhum
+8455,Linha_Norte,Tarde,Fornecedor_C,50.183,7.533,Defeituoso,Porosidade
+8456,Linha_Sul,Manhã,Fornecedor_A,50.155,7.518,Conforme,Nenhum
+8457,Linha_Norte,Tarde,Fornecedor_C,49.975,7.47,Defeituoso,Risco Superficial
+8458,Linha_Norte,Manhã,Fornecedor_A,49.939,7.444,Conforme,Nenhum
+8459,Linha_Sul,Manhã,Fornecedor_C,49.997,7.465,Defeituoso,Solda Fria
+8460,Linha_Sul,Tarde,Fornecedor_C,50.022,7.466,Defeituoso,Solda Fria
+8461,Linha_Norte,Tarde,Fornecedor_B,49.955,7.56,Defeituoso,Risco Superficial
+8462,Linha_Sul,Manhã,Fornecedor_B,50.15,7.484,Conforme,Nenhum
+8463,Linha_Norte,Manhã,Fornecedor_A,49.786,7.481,Conforme,Nenhum
+8464,Linha_Sul,Tarde,Fornecedor_B,49.893,7.528,Conforme,Nenhum
+8465,Linha_Sul,Manhã,Fornecedor_A,50.116,7.519,Conforme,Nenhum
+8466,Linha_Norte,Manhã,Fornecedor_B,50.049,7.461,Conforme,Nenhum
+8467,Linha_Norte,Tarde,Fornecedor_C,49.898,7.529,Defeituoso,Risco Superficial
+8468,Linha_Norte,Manhã,Fornecedor_A,50.06,7.52,Conforme,Nenhum
+8469,Linha_Sul,Manhã,Fornecedor_C,49.881,7.401,Defeituoso,Solda Fria
+8470,Linha_Sul,Noite,Fornecedor_A,49.953,7.545,Conforme,Nenhum
+8471,Linha_Sul,Tarde,Fornecedor_B,50.157,7.551,Conforme,Nenhum
+8472,Linha_Norte,Tarde,Fornecedor_C,50.14,7.528,Defeituoso,Porosidade
+8473,Linha_Norte,Tarde,Fornecedor_B,50.043,7.57,Conforme,Nenhum
+8474,Linha_Sul,Tarde,Fornecedor_B,49.842,7.518,Conforme,Nenhum
+8475,Linha_Norte,Noite,Fornecedor_B,49.943,7.539,Conforme,Nenhum
+8476,Linha_Sul,Tarde,Fornecedor_C,50.014,7.543,Defeituoso,Risco Superficial
+8477,Linha_Norte,Manhã,Fornecedor_A,50.218,7.552,Defeituoso,Risco Superficial
+8478,Linha_Sul,Tarde,Fornecedor_B,49.733,7.402,Conforme,Nenhum
+8479,Linha_Sul,Tarde,Fornecedor_B,49.869,7.42,Conforme,Nenhum
+8480,Linha_Sul,Tarde,Fornecedor_A,50.169,7.551,Defeituoso,Risco Superficial
+8481,Linha_Norte,Tarde,Fornecedor_A,50.204,7.57,Conforme,Nenhum
+8482,Linha_Norte,Noite,Fornecedor_A,49.99,7.471,Conforme,Nenhum
+8483,Linha_Sul,Tarde,Fornecedor_B,50.231,7.479,Defeituoso,Risco Superficial
+8484,Linha_Sul,Manhã,Fornecedor_C,49.89,7.5,Defeituoso,Solda Fria
+8485,Linha_Sul,Manhã,Fornecedor_C,49.774,7.419,Defeituoso,Solda Fria
+8486,Linha_Sul,Tarde,Fornecedor_B,50.119,7.505,Conforme,Nenhum
+8487,Linha_Sul,Manhã,Fornecedor_A,50.194,7.505,Conforme,Nenhum
+8488,Linha_Sul,Manhã,Fornecedor_A,50.192,7.51,Conforme,Nenhum
+8489,Linha_Norte,Manhã,Fornecedor_A,49.87,7.562,Conforme,Nenhum
+8490,Linha_Norte,Manhã,Fornecedor_B,50.03,7.478,Conforme,Nenhum
+8491,Linha_Norte,Noite,Fornecedor_A,50.126,7.515,Conforme,Nenhum
+8492,Linha_Norte,Manhã,Fornecedor_B,50.045,7.452,Conforme,Nenhum
+8493,Linha_Sul,Manhã,Fornecedor_C,50.217,7.559,Defeituoso,Solda Fria
+8494,Linha_Sul,Manhã,Fornecedor_B,49.939,7.487,Defeituoso,Risco Superficial
+8495,Linha_Sul,Tarde,Fornecedor_C,49.989,7.546,Defeituoso,Risco Superficial
+8496,Linha_Norte,Manhã,Fornecedor_B,50.035,7.405,Conforme,Nenhum
+8497,Linha_Norte,Tarde,Fornecedor_A,50.125,7.51,Conforme,Nenhum
+8498,Linha_Sul,Manhã,Fornecedor_A,49.971,7.502,Conforme,Nenhum
+8499,Linha_Norte,Tarde,Fornecedor_C,50.139,7.55,Defeituoso,Risco Superficial
+8500,Linha_Norte,Noite,Fornecedor_B,50.241,7.498,Conforme,Nenhum
