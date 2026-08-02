@@ -1,3 +1,33 @@
+# Ambientes Virtuais Python
+venv/
+env/
+.venv/
+ENV/
+
+# Caches e Bytecode Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Banco de Dados de Desenvolvimento
+*.db
+*.sqlite
+*.sqlite3
+factoryhub/data/*.db
+
+# Arquivos de IDE e Sistema Operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Pastas Privadas e Legadas para Exclusão
+_arquivos_antigos_para_excluir/
 Privado/
 privado/
-_arquivos_antigos_para_excluir/
