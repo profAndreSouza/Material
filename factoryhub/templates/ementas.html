@@ -762,10 +762,10 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ url_for('static', filename='js/theories_ciencia_dados.js') }}"></script>
-<script src="{{ url_for('static', filename='js/theories_automacao.js') }}"></script>
-<script src="{{ url_for('static', filename='js/theories_devops.js') }}"></script>
-<script src="{{ url_for('static', filename='js/theories_nuvem.js') }}"></script>
+<script src="{{ url_for('static', filename='js/theories_ciencia_dados.js') }}?v=5"></script>
+<script src="{{ url_for('static', filename='js/theories_automacao.js') }}?v=5"></script>
+<script src="{{ url_for('static', filename='js/theories_devops.js') }}?v=5"></script>
+<script src="{{ url_for('static', filename='js/theories_nuvem.js') }}?v=5"></script>
 
 <script>
     let currentAulaDados = 1;
@@ -834,32 +834,144 @@
         theoriesSource.forEach((item) => {
             const card = document.createElement('div');
             card.className = 'card border shadow-sm mb-4';
-            card.innerHTML = `
+            
+            let formattedTheory = item.theory || '';
+            if (formattedTheory && !formattedTheory.includes('<p>') && !formattedTheory.includes('<br>') && !formattedTheory.includes('<ul>')) {
+                formattedTheory = formattedTheory.replace(/\n/g, '<br>');
+            }
+
+            let htmlContent = `
                 <div class="card-header bg-light d-flex justify-content-between align-items-center">
-                    <h5 class="card-title font-serif text-dark fw-bold mb-0">${item.title}</h5>
-                    <span class="badge bg-secondary font-monospace fs-8">${item.biblio || ''}</span>
+                    <h5 class="card-title font-serif text-dark fw-bold mb-0">${escapeHtml(item.title || '')}</h5>
+                    <span class="badge bg-secondary font-monospace fs-8">${escapeHtml(item.biblio || '')}</span>
                 </div>
                 <div class="card-body">
-                    <div class="text-secondary fs-7 mb-3">${item.theory}</div>
-                    ${item.code ? `
-                        <div class="mb-3">
-                            <span class="font-monospace fs-8 text-muted d-block mb-1">Demonstração Computacional:</span>
-                            <pre class="bg-dark text-light p-3 rounded font-monospace fs-7 mb-0"><code>${escapeHtml(item.code)}</code></pre>
-                        </div>
-                    ` : ''}
-                    ${item.output ? `
-                        <div class="mb-3">
-                            <span class="font-monospace fs-8 text-muted d-block mb-1">Resultado Computacional Esperado:</span>
-                            <pre class="bg-secondary-subtle text-dark p-3 rounded font-monospace fs-7 border mb-0"><code>${escapeHtml(item.output)}</code></pre>
-                        </div>
-                    ` : ''}
-                    ${item.interpretation ? `
-                        <div class="p-3 bg-success-subtle border-start border-success border-4 rounded fs-7 text-dark">
-                            <strong>Interpretação Prática:</strong> ${item.interpretation}
-                        </div>
-                    ` : ''}
-                </div>
             `;
+
+            // 1. Contexto da Aula
+            if (item.contexto) {
+                htmlContent += `
+                    <div class="alert alert-light border-start border-4 border-info text-dark fs-7 mb-3">
+                        <strong><i class="bi bi-info-circle me-1 text-info"></i>Contexto da Aula:</strong> ${escapeHtml(item.contexto)}
+                    </div>
+                `;
+            }
+
+            // 2. Objetivos de Aprendizagem
+            if (item.objetivos && Array.isArray(item.objetivos) && item.objetivos.length > 0) {
+                htmlContent += `
+                    <div class="mb-3 p-3 bg-light rounded border">
+                        <strong class="font-monospace fs-7 text-dark d-block mb-1"><i class="bi bi-bullseye me-1 text-primary"></i>Objetivos de Aprendizagem:</strong>
+                        <ul class="mb-0 fs-7 text-secondary ps-3">
+                            ${item.objetivos.map(o => `<li>${escapeHtml(o)}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // 3. Fundamentação Teórica
+            if (formattedTheory) {
+                htmlContent += `<div class="text-secondary fs-7 mb-3">${formattedTheory}</div>`;
+            }
+
+            // 4. Demonstração Computacional & Saída
+            if (item.code) {
+                htmlContent += `
+                    <div class="mb-3">
+                        <span class="font-monospace fs-8 text-muted d-block mb-1">Demonstração Computacional:</span>
+                        <pre class="bg-dark text-light p-3 rounded font-monospace fs-7 mb-0"><code>${escapeHtml(item.code)}</code></pre>
+                    </div>
+                `;
+            }
+            if (item.output) {
+                htmlContent += `
+                    <div class="mb-3">
+                        <span class="font-monospace fs-8 text-muted d-block mb-1">Resultado Computacional Esperado:</span>
+                        <pre class="bg-secondary-subtle text-dark p-3 rounded font-monospace fs-7 border mb-0"><code>${escapeHtml(item.output)}</code></pre>
+                    </div>
+                `;
+            }
+
+            // 5. Interpretação Prática
+            if (item.interpretation) {
+                htmlContent += `
+                    <div class="p-3 bg-success-subtle border-start border-success border-4 rounded fs-7 text-dark mb-3">
+                        <strong><i class="bi bi-check-circle me-1 text-success"></i>Interpretação Prática:</strong> ${escapeHtml(item.interpretation)}
+                    </div>
+                `;
+            }
+
+            // 6. Desafio Prático
+            if (item.desafio) {
+                htmlContent += `
+                    <div class="p-3 bg-warning-subtle border-start border-warning border-4 rounded fs-7 text-dark mb-3">
+                        <strong><i class="bi bi-trophy me-1 text-warning"></i>Desafio Prático:</strong> ${escapeHtml(item.desafio)}
+                    </div>
+                `;
+            }
+
+            // 6.5 Dicas Úteis
+            if (item.dicas) {
+                htmlContent += `
+                    <div class="p-3 bg-info-subtle border-start border-info border-4 rounded fs-7 text-dark mb-3">
+                        <strong><i class="bi bi-lightbulb me-1 text-info"></i>Dica Útil:</strong> ${escapeHtml(item.dicas)}
+                    </div>
+                `;
+            }
+
+            // 7. Google Cloud Skills Boost Lab (específico para Nuvem)
+            if (item.skillsboost) {
+                htmlContent += `
+                    <div class="p-3 bg-primary-subtle border border-primary rounded mb-3 font-monospace fs-7">
+                        <div class="d-flex align-items-center mb-1">
+                            <span class="badge bg-primary me-2"><i class="bi bi-cloud-check-fill me-1"></i>Google Cloud Skills Boost Lab</span>
+                            <strong class="text-dark">${escapeHtml(item.skillsboost.titulo || '')}</strong>
+                        </div>
+                        <p class="mb-0 text-secondary fs-7">${escapeHtml(item.skillsboost.observacao || '')}</p>
+                    </div>
+                `;
+            }
+
+            // 8. Aplicação no Projeto FactoryHub
+            if (item.projeto) {
+                htmlContent += `
+                    <div class="p-3 bg-dark text-white rounded mb-3 fs-7 font-monospace">
+                        <strong><i class="bi bi-diagram-3 me-1 text-success"></i>Aplicação no Projeto FactoryHub:</strong> ${escapeHtml(item.projeto)}
+                    </div>
+                `;
+            }
+
+            // 9. Linha do Tempo (Timeline)
+            if (item.timeline && (item.timeline.antes || item.timeline.durante || item.timeline.depois)) {
+                htmlContent += `
+                    <div class="p-3 bg-light rounded border mb-3 fs-7 font-monospace">
+                        <strong class="d-block mb-2 text-dark"><i class="bi bi-clock-history me-1 text-secondary"></i>Linha do Tempo da Aula:</strong>
+                        <div class="row text-center g-2">
+                            <div class="col-md-4"><span class="badge bg-secondary d-block mb-1">Antes</span><small class="text-muted">${escapeHtml(item.timeline.antes || '-')}</small></div>
+                            <div class="col-md-4"><span class="badge bg-primary d-block mb-1">Durante</span><small class="text-dark fw-bold">${escapeHtml(item.timeline.durante || '-')}</small></div>
+                            <div class="col-md-4"><span class="badge bg-success d-block mb-1">Depois</span><small class="text-muted">${escapeHtml(item.timeline.depois || '-')}</small></div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // 10. Sinergia com Outras Disciplinas
+            if (item.integracao && (item.integracao.cienciaDados || item.integracao.automacao || item.integracao.devops || item.integracao.nuvem)) {
+                htmlContent += `
+                    <div class="p-3 bg-light rounded border fs-7 font-monospace">
+                        <strong class="d-block mb-2 text-dark"><i class="bi bi-cpu me-1 text-info"></i>Sinergia no Ecossistema Integrado:</strong>
+                        <ul class="list-unstyled mb-0 text-secondary">
+                            ${item.integracao.cienciaDados ? `<li class="mb-1"><span class="badge bg-success me-1">Ciência de Dados</span> ${escapeHtml(item.integracao.cienciaDados)}</li>` : ''}
+                            ${item.integracao.automacao ? `<li class="mb-1"><span class="badge bg-primary me-1">Automação</span> ${escapeHtml(item.integracao.automacao)}</li>` : ''}
+                            ${item.integracao.devops ? `<li class="mb-1"><span class="badge bg-info text-white me-1">DevOps</span> ${escapeHtml(item.integracao.devops)}</li>` : ''}
+                            ${item.integracao.nuvem ? `<li class="mb-1"><span class="badge bg-warning text-dark me-1">Nuvem</span> ${escapeHtml(item.integracao.nuvem)}</li>` : ''}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            htmlContent += `</div>`;
+            card.innerHTML = htmlContent;
             container.appendChild(card);
         });
 
@@ -901,6 +1013,8 @@
     }
 
     function escapeHtml(str) {
+        if (str === null || str === undefined) return '';
+        if (typeof str !== 'string') str = String(str);
         return str
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
