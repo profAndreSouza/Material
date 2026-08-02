@@ -157,8 +157,8 @@ for metric, val in monitoring_metrics.items():
     "forecast_end_of_month": 88.0,
     "status": "DENTRO DO ORÇAMENTO"
 }
-print(f"Orçamento Mensal GCP: ${budget_alert['monthly_budget_usd']:.2f}")
-print(f"Gasto Atual: ${budget_alert['current_spend_usd']:.2f} | Status: {budget_alert['status']}")`,
+print(f"Orçamento Mensal GCP: USD {budget_alert['monthly_budget_usd']:.2f}")
+print(f"Gasto Atual: USD {budget_alert['current_spend_usd']:.2f} | Status: {budget_alert['status']}")`,
             output: `Orçamento Mensal GCP: $100.00
 Gasto Atual: $45.20 | Status: DENTRO DO ORÇAMENTO`,
             interpretation: 'A projeção de $88 garante que os custos do projeto permanecerão abaixo do teto orçamentário estipulado.'

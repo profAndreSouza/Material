@@ -6,8 +6,10 @@ from flask import Blueprint, jsonify, request, current_app
 
 try:
     from database.models import Telemetry, Piece, Alarm
+    from mqtt.client import mqtt_service
 except ImportError:
     from factoryhub.database.models import Telemetry, Piece, Alarm
+    from factoryhub.mqtt.client import mqtt_service
 
 api_bp = Blueprint('api', __name__)
 
@@ -28,6 +30,46 @@ def get_kpis():
         'total_pieces': total_pieces,
         'total_alarms': total_alarms,
         'colors': colors
+    })
+
+@api_bp.route('/api/mqtt/status', methods=['GET'])
+def get_mqtt_status():
+    return jsonify({
+        'connected': mqtt_service.connected,
+        'host': mqtt_service.host,
+        'port': mqtt_service.port,
+        'topic': mqtt_service.topic,
+        'username': mqtt_service.username,
+        'message_count': mqtt_service.message_count,
+        'last_error': mqtt_service.last_error
+    })
+
+@api_bp.route('/api/mqtt/connect', methods=['POST'])
+def connect_mqtt():
+    data = request.get_json() or {}
+    host = data.get('host', 'localhost')
+    port = data.get('port', 1883)
+    topic = data.get('topic', 'smartn1/#')
+    username = data.get('username', '')
+    password = data.get('password', '')
+
+    success, message = mqtt_service.reconnect(host, port, topic, username, password)
+    return jsonify({
+        'success': success,
+        'message': message,
+        'connected': mqtt_service.connected,
+        'host': mqtt_service.host,
+        'port': mqtt_service.port,
+        'topic': mqtt_service.topic
+    })
+
+@api_bp.route('/api/mqtt/disconnect', methods=['POST'])
+def disconnect_mqtt():
+    success, message = mqtt_service.disconnect_broker()
+    return jsonify({
+        'success': success,
+        'message': message,
+        'connected': False
     })
 
 @api_bp.route('/api/exercicio/<int:aula_num>')
@@ -51,7 +93,6 @@ def get_exercicio(aula_num):
     prefix = f"aula_{aula_num:02d}_"
     files = glob.glob(os.path.join(exercicios_dir, f"{prefix}*.py"))
     if not files:
-        # Fallback
         files = glob.glob(os.path.join(base_dir, 'exercicios_ciencia_dados', f"{prefix}*.py"))
 
     if not files:

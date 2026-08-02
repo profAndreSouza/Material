@@ -18,27 +18,30 @@
         <!-- Status MQTT Broker -->
         <div class="col-md-6">
             <div class="card border shadow-sm">
-                <div class="card-header bg-light">
-                    <h5 class="card-title mb-0 font-serif fs-6 fw-bold">Serviço de Mensageria (MQTT Broker)</h5>
+                <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0 font-serif fs-6 fw-bold">Serviço de Mensageria (Broker Central MQTT)</h5>
+                    <button type="button" class="btn btn-sm btn-success font-monospace" data-bs-toggle="modal" data-bs-target="#mqttBrokerModal">
+                        <i class="bi bi-gear-fill me-1"></i>Configurar Broker
+                    </button>
                 </div>
                 <div class="card-body font-monospace fs-7">
                     <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
                         <span class="text-muted">Estado da Conexão:</span>
-                        <span class="badge {% if mqtt_connected %}bg-success{% else %}bg-warning text-dark{% endif %} px-2 py-1">
+                        <span id="pageMqttStatusBadge" class="badge {% if mqtt_connected %}bg-success{% else %}bg-warning text-dark{% endif %} px-2 py-1">
                             {% if mqtt_connected %}Conectado ao Broker{% else %}Aguardando Conexão{% endif %}
                         </span>
                     </div>
                     <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
                         <span class="text-muted">Broker Host / Porta:</span>
-                        <span class="text-dark">{{ broker_host }}:{{ broker_port }}</span>
+                        <span id="pageMqttHostPort" class="text-dark">{{ broker_host }}:{{ broker_port }}</span>
                     </div>
                     <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
                         <span class="text-muted">Tópicos Inscritos:</span>
-                        <span class="text-dark">smartn1/#</span>
+                        <span id="pageMqttTopic" class="text-dark">smartn1/#</span>
                     </div>
                     <div class="d-flex justify-content-between">
                         <span class="text-muted">Mensagens Recebidas na Sessão:</span>
-                        <strong class="text-success">{{ mqtt_messages }}</strong>
+                        <strong id="pageMqttMsgCount" class="text-success">{{ mqtt_messages }}</strong>
                     </div>
                 </div>
             </div>
@@ -72,4 +75,31 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        function updatePageMqttStatus() {
+            fetch('/api/mqtt/status')
+                .then(res => res.json())
+                .then(data => {
+                    const badge = document.getElementById('pageMqttStatusBadge');
+                    const hostPort = document.getElementById('pageMqttHostPort');
+                    const topic = document.getElementById('pageMqttTopic');
+                    const count = document.getElementById('pageMqttMsgCount');
+
+                    if (badge) {
+                        badge.className = data.connected ? 'badge bg-success px-2 py-1' : 'badge bg-warning text-dark px-2 py-1';
+                        badge.innerText = data.connected ? 'Conectado ao Broker Central' : (data.last_error ? `Erro: ${data.last_error}` : 'Aguardando Conexão');
+                    }
+                    if (hostPort) hostPort.innerText = `${data.host}:${data.port}`;
+                    if (topic) topic.innerText = data.topic || 'smartn1/#';
+                    if (count) count.innerText = data.message_count || 0;
+                });
+        }
+        updatePageMqttStatus();
+        setInterval(updatePageMqttStatus, 4000);
+    });
+</script>
 {% endblock %}
