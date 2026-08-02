@@ -49,7 +49,7 @@ Visão geral sobre computadores, hardware e software, sistemas operacionais e os
 Não haverá um projeto integrador único extenso. A disciplina adota **4 Mini-PBLs (Desafios Práticos Contextualizados)** ao longo do semestre. Os alunos resolvem problemas reais da manutenção aeronáutica (ex: controle de horas de voo de frota, ordens de serviço, controle de estoque de peças e cronograma de revisão geral de motores).
 
 > [!IMPORTANT]
-> **Regra dos Sábados Letivos (10/10 e 17/10):** Os sábados letivos de compensação são destinados **exclusivamente a Oficinas Práticas de Exercícios e Plantão de Dúvidas OPCIONAIS**. Não haverá chamada obrigatória, matéria nova ou aplicação de provas nos sábados, garantindo equidade aos estudantes que possuem compromissos de trabalho.
+> **Regra dos Sábados Letivos (10/10 e 17/10):** Os sábados letivos de compensação são destinados a **Oficinas Práticas de Exercícios, Revisão e Plantão de Dúvidas**.
 
 ---
 
@@ -120,14 +120,14 @@ A avaliação combina o acompanhamento formativo diário no laboratório com ava
 - **Evento Acadêmico:** **Semana de Tecnologia (Setec)**. Palestras e oficinas sobre Inovação e Tecnologias Digitais na Aviação (Sem aula regular de conteúdo).
 
 #### Sábado Letivo 1 — 10/10 (Sábado) | Atividade de Compensação
-- **Regra do Sábado:** **Oficina Prática de Exercícios Complementares (OPCIONAL)**. Treinamento presencial/online de fixação de Excel e tira-dúvidas. *Sem chamada, sem conteúdo novo e sem prova.*
+- **Regra do Sábado:** **Oficina Prática de Exercícios & Revisão 1**. Exercícios de fixação de Excel e Word.
 
 #### Semana 11 — 16/10 (Sexta-feira) | Encontro 11
 - **Avaliação Somativa:** **PROVA PRÁTICA 1 (40% da Nota Final)**.
 - **Escopo:** Avaliação individual em laboratório cobrindo Hardware, SO, Word e Excel Essencial (Semanas 1 a 8).
 
 #### Sábado Letivo 2 — 17/10 (Sábado) | Atividade de Compensação
-- **Regra do Sábado:** **Oficina Prática de Exercícios e Feedback da Prova 1 (OPCIONAL)**. Resolução comentada da Prova Prática 1 e nivelamento individual. *Sem chamada, sem conteúdo novo e sem prova.*
+- **Regra do Sábado:** **Oficina Prática de Feedback & Revisão da Prova 1**. Resolução comentada da Prova Prática 1 e nivelamento individual.
 
 ---
 
