@@ -1,4 +1,4 @@
-# 📊 Plataforma & Material de Ciência de Dados com Python
+# Plataforma & Material de Ciência de Dados com Python
 ## Ecossistema Integrado de Aprendizagem (Smart N1)
 
 [![Python Version](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
@@ -11,7 +11,7 @@ No modelo do **Ecossistema Integrado de Aprendizagem**, Ciência de Dados atua d
 
 ---
 
-## 🏭 Papel no Ecossistema Integrado
+## Papel no Ecossistema Integrado
 
 ```text
 ┌──────────────────────┐      ┌────────────────────────┐      ┌────────────────────────┐
@@ -26,7 +26,7 @@ No modelo do **Ecossistema Integrado de Aprendizagem**, Ciência de Dados atua d
 
 ---
 
-## 📁 Estrutura do Repositório
+## Estrutura do Repositório
 
 ```text
 ├── app.py                     # Servidor Web Flask (Caderno de Bordo)
@@ -53,7 +53,7 @@ No modelo do **Ecossistema Integrado de Aprendizagem**, Ciência de Dados atua d
 
 ---
 
-## 🚀 Como Executar o Projeto
+## Como Executar o Projeto
 
 ### Opção 1: Via Docker Compose (Recomendado)
 
@@ -106,36 +106,36 @@ Se preferir rodar sem Docker:
 
 ---
 
-## 📅 Cronograma Unificado (20 Semanas)
+## Cronograma Unificado (20 Semanas)
 
-> ⚠️ **Nota sobre os Sábados de Reposição:** Os alunos não possuem aulas presenciais aos sábados. As semanas/datas de reposição (**22/Ago**, **19/Set**, **07/Nov**, **05/Dez**) indicadas na tabela referem-se a **Exercícios para Casa / Atividades Assíncronas (Estudo Dirigido)** disponibilizados no repositório.
+> **Nota sobre os Sábados de Reposição:** Os alunos não possuem aulas presenciais aos sábados. As semanas/datas de reposição (22/Ago, 19/Set, 07/Nov, 05/Dez) indicadas na tabela referem-se a **Exercícios para Casa / Atividades Assíncronas (Estudo Dirigido)** disponibilizados no repositório.
 
 | Sem. | Categoria | Conteúdo / Atividade Integrada | Turma Segunda (N2) | Turma Sexta (N2-S) | Atividade EAD / Casa (Sábados de Reposição) |
 | :---: | :--- | :--- | :---: | :---: | :--- |
 | **01** | **Encontro 01** | Introdução à Ciência de Dados, CRISP-DM e Exploração Inicial (Smart N1) | 03/Ago | 07/Ago | — |
 | **02** | **Encontro 02** | Qualidade dos Dados e Amostragem (Limpeza e Imputação) | 10/Ago | 14/Ago | — |
 | **03** | **Encontro 03** | Estatística Descritiva (Tendência Central e Dispersão em Telemetria) | 17/Ago | 21/Ago | — |
-| **04** | **Encontro 04** | Distribuições Estatísticas e Visualização (Normal, Assimetria, Q-Q) | 24/Ago | 28/Ago | 🏠 **Exercício para Casa 1** *(Ref. Sáb 22/Ago)* |
+| **04** | **Encontro 04** | Distribuições Estatísticas e Visualização (Normal, Assimetria, Q-Q) | 24/Ago | 28/Ago | Exercício para Casa 1 *(Ref. Sáb 22/Ago)* |
 | **05** | **Encontro 05** | Inferência Estatística e Intervalos de Confiança (SciPy) | 31/Ago | 04/Set | — |
 | **06** | **PII 1** | Semana de PII 1 — Acompanhamento da Arquitetura de Dados | 08/Set | 11/Set | — |
-| **07** | **Encontro 06** | Testes de Hipóteses (Shapiro-Wilk, KS, Qui-Quadrado em Sensores) | 14/Set | 18/Set | 🏠 **Exercício para Casa 2** *(Ref. Sáb 19/Set)* |
+| **07** | **Encontro 06** | Testes de Hipóteses (Shapiro-Wilk, KS, Qui-Quadrado em Sensores) | 14/Set | 18/Set | Exercício para Casa 2 *(Ref. Sáb 19/Set)* |
 | **08** | **Avaliação N1** | **Primeira Avaliação Regimental (N1) — Teórico-Prática** | **21/Set** | **25/Set** | — |
 | **09** | **PII 2** | Semana de PII 2 — Avaliação da 2ª Etapa do PII (Modelagem) | 28/Set | 02/Out | — |
 | **10** | **Encontro 07** | Correlação e Associação entre Variáveis Industriais (Pearson / Spearman) | 05/Out | 09/Out | — |
 | **11** | **Evento** | Semana de Tecnologia (Palestras e Workshops) | 14–16/Out | 16/Out | — |
 | **12** | **Encontro 08** | Séries Temporais (Tendência, Sazonalidade, Média Móvel de Produção) | 19/Out | 23/Out | — |
 | **13** | **Encontro 09** | Análise Exploratória de Dados (EDA) Pipeline Completo | 26/Out | 30/Out | — |
-| **14** | **PII 3** | Semana de PII 3 — Avaliação da 3ª Etapa do PII (Integração) | 03/Nov | 06/Nov | 🏠 **Exercício para Casa 3** *(Ref. Sáb 07/Nov)* |
+| **14** | **PII 3** | Semana de PII 3 — Avaliação da 3ª Etapa do PII (Integração) | 03/Nov | 06/Nov | Exercício para Casa 3 *(Ref. Sáb 07/Nov)* |
 | **15** | **Encontro 10** | Storytelling com Dados, KPIs Industriais (OEE) & Comunicação Executiva | 09/Nov | 13/Nov | — |
 | **16** | **Encontro 11** | Projeto Capstone Final (Análise de Dataset Inédito da Planta) | 16/Nov | 20/Nov | — |
 | **17** | **Avaliação N2** | **Segunda Avaliação Regimental (N2) — Teórico-Prática** | **23/Nov** | **27/Nov** | — |
-| **18** | **PII 4** | Semana de PII 4 — Entrega Final e Banca do PII | 30/Nov | 04/Dez | 🏠 **Exercício para Casa 4** *(Ref. Sáb 05/Dez)* |
+| **18** | **PII 4** | Semana de PII 4 — Entrega Final e Banca do PII | 30/Nov | 04/Dez | Exercício para Casa 4 *(Ref. Sáb 05/Dez)* |
 | **19** | **Recuperação**| Semana de Recuperação (Avaliações de Recuperação) | 07/Dez | 11/Dez | — |
 | **20** | **Fechamento** | Fechamento do Semestre e Lançamento de Notas | 14/Dez | 18/Dez | — |
 
 ---
 
-## 🎓 Metodologia de Ensino com a Pasta `exercicios/`
+## Metodologia de Ensino com a Pasta `exercicios/`
 
 Cada arquivo na pasta `exercicios/` contém a assinatura das funções, docstrings explicativas e a exceção `raise NotImplementedError("A ser implementado em aula com os alunos.")`.
 
@@ -147,7 +147,7 @@ Cada arquivo na pasta `exercicios/` contém a assinatura das funções, docstrin
 
 ---
 
-## 🐍 Guia de Aprendizagem: Python, Bibliotecas & Arquitetura Flask
+## Guia de Aprendizagem: Python, Bibliotecas & Arquitetura Flask
 
 Como os estudantes aprenderão Python em paralelo com os conceitos de Ciência de Dados, este material fornece uma visão clara da sintaxe e dos componentes utilizados no projeto:
 
@@ -215,14 +215,14 @@ A plataforma web do curso utiliza o **Flask** para servir o conteúdo estático 
 
 ---
 
-## 📜 Ementa da Disciplina
+## Ementa da Disciplina
 
 - **Objetivo:** Desenvolver capacidades técnicas e socioemocionais relacionadas a sistemas de manipulação de dados para aplicação em ambientes de produção industrial.
 - **Conteúdos:** Matemática e estatística descritiva, amostragem, escalas de medição, medidas de tendência central e dispersão, análise exploratória de dados, visualização gráfica, séries temporais, inferência estatística, testes de hipótese e detecção de anomalias em sensores da fábrica.
 
 ---
 
-## 📚 Referências Bibliográficas & Mapeamento por Encontro
+## Referências Bibliográficas & Mapeamento por Encontro
 
 ### Obras de Referência Integradas (Ementa Oficial)
 

@@ -1,4 +1,4 @@
-# ☁️ 🚀 DevOps & Computação em Nuvem
+# DevOps & Computação em Nuvem
 ## Ecossistema Integrado de Aprendizagem (Smart N1)
 
 [![Git](https://img.shields.io/badge/git-2.40+-F05032.svg)](https://git-scm.com/)
@@ -13,7 +13,7 @@ No modelo do **Ecossistema Integrado de Aprendizagem**, as matérias curriculare
 
 ---
 
-## 🏭 Papel no Ecossistema Integrado
+## Papel no Ecossistema Integrado
 
 ```text
 ┌──────────────────────────┐      ┌────────────────────────┐      ┌───────────────────────────┐
@@ -28,7 +28,7 @@ No modelo do **Ecossistema Integrado de Aprendizagem**, as matérias curriculare
 
 ---
 
-## 📐 Arquitetura de Implantação na Nuvem (GCP + GitHub + Vercel)
+## Arquitetura de Implantação na Nuvem (GCP + GitHub + Vercel)
 
 ```text
                       [ Desenvolvedor / Equipe ]
@@ -60,7 +60,7 @@ No modelo do **Ecossistema Integrado de Aprendizagem**, as matérias curriculare
 
 ---
 
-## 📁 Arquitetura Monorepo Padrão do Projeto
+## Arquitetura Monorepo Padrão do Projeto
 
 Todas as equipes organizam seus componentes seguindo a estrutura padronizada de diretórios:
 
@@ -82,40 +82,40 @@ smartfactory-project/
 
 ---
 
-## 📅 Cronograma Unificado (20 Semanas)
+## Cronograma Unificado (20 Semanas)
 
 A carga horária semanal é dividida harmonicamente entre conceitos de **DevOps (2h)** e **Computação em Nuvem (3h)**:
 - **Turma Quinta (N2)**: Bloco único integrando as 5 aulas na Quinta-feira (18h45 às 22h55).
 - **Turma N2-S**: Computação em Nuvem na Terça-feira (3h) e DevOps na Quarta-feira (2h).
 
-> ⚠️ **Nota sobre os Sábados de Reposição:** Os alunos não possuem aulas presenciais aos sábados. As semanas/datas de reposição (**22/Ago**, **19/Set**, **07/Nov**, **05/Dez**) indicadas na tabela referem-se a **Exercícios para Casa / Atividades Assíncronas (Estudo Dirigido)** disponibilizados no repositório.
+> **Nota sobre os Sábados de Reposição:** Os alunos não possuem aulas presenciais aos sábados. As semanas/datas de reposição (22/Ago, 19/Set, 07/Nov, 05/Dez) indicadas na tabela referem-se a **Exercícios para Casa / Atividades Assíncronas (Estudo Dirigido)** disponibilizados no repositório.
 
 | Sem. | Categoria | Tópico DevOps (2h) | Tópico Computação em Nuvem (3h) | Turma Quinta (N2) | Turma N2-S (Ter/Qua) | Atividade EAD / Casa (Sábados de Reposição) |
 | :---: | :--- | :--- | :--- | :---: | :---: | :--- |
 | **01** | **Encontro 01** | Fundamentos de DevOps & Cultura Dev/Ops | Histórico, Conceitos & Fundamentos de Nuvem | 06/Ago | 04/Set e 05/Set | — |
 | **02** | **Encontro 02** | Controle de Versão Avançado com Git (GitFlow) | Os 5 Pilares da Computação em Nuvem | 13/Ago | 11/Set e 12/Set | — |
 | **03** | **Encontro 03** | Integração Contínua (CI) & GitHub Actions | Modelos de Implantação, Regiões & Zonas GCP | 20/Ago | 18/Set e 19/Set | — |
-| **04** | **Encontro 04** | Containerização com Docker I (Dockerfile & Images) | Modelos de Serviço em Nuvem: IaaS, PaaS e SaaS | 27/Ago | 25/Set e 26/Set | 🏠 **Exercício para Casa 1** *(Ref. Sáb 22/Ago)* |
+| **04** | **Encontro 04** | Containerização com Docker I (Dockerfile & Images) | Modelos de Serviço em Nuvem: IaaS, PaaS e SaaS | 27/Ago | 25/Set e 26/Set | Exercício para Casa 1 *(Ref. Sáb 22/Ago)* |
 | **05** | **Encontro 05** | Containerização com Docker II (Docker Compose & Registry) | Virtualização de Computação & Serverless | 03/Set | 01/Set e 02/Set | — |
 | **06** | **PII 1** | Semana de PII 1 — Acompanhamento do Repositório | Semana de PII 1 — Arquitetura Cloud | 10/Set | 08/Set e 09/Set | — |
-| **07** | **Encontro 06** | Introdução à Orquestração de Containers (GKE / Cloud Run) | Redes em Nuvem (VPCs, Subredes, Firewalls & Rotas) | 17/Set | 15/Set e 16/Set | 🏠 **Exercício para Casa 2** *(Ref. Sáb 19/Set)* |
+| **07** | **Encontro 06** | Introdução à Orquestração de Containers (GKE / Cloud Run) | Redes em Nuvem (VPCs, Subredes, Firewalls & Rotas) | 17/Set | 15/Set e 16/Set | Exercício para Casa 2 *(Ref. Sáb 19/Set)* |
 | **08** | **Avaliação N1** | **Primeira Avaliação Regimental (N1) — Teórico-Prática** | **Primeira Avaliação Regimental (N1)** | **24/Set** | **22/Set e 23/Set** | — |
 | **09** | **PII 2** | Semana de PII 2 — Avaliação de Esteiras CI | Semana de PII 2 — Provisionamento de BD | 01/Out | 29/Set e 30/Set | — |
 | **10** | **Encontro 07** | Workflows Práticos de CI em `.github/workflows/` | Armazenamento na Nuvem (Cloud Storage Buckets) | 08/Out | 06/Out e 07/Out | — |
 | **11** | **Evento** | Semana de Tecnologia (Palestras e Workshops) | Semana de Tecnologia | 15/Out | 14/Out | — |
 | **12** | **Encontro 08** | Deploy Contínuo no Vercel via GitHub Actions | Bancos de Dados Gerenciados (Cloud SQL PostgreSQL) | 22/Out | 20/Out e 21/Out | — |
 | **13** | **Encontro 09** | Deploy de Docker no GCP Cloud Run via CI/CD | Alta Disponibilidade, Escalonamento & Load Balancer | 29/Out | 27/Out e 28/Out | — |
-| **14** | **PII 3** | Semana de PII 3 — Avaliação de Deploy Automatizado | Semana de PII 3 — Testes de Carga | 05/Nov | 03/Nov e 04/Nov | 🏠 **Exercício para Casa 3** *(Ref. Sáb 07/Nov)* |
+| **14** | **PII 3** | Semana de PII 3 — Avaliação de Deploy Automatizado | Semana de PII 3 — Testes de Carga | 05/Nov | 03/Nov e 04/Nov | Exercício para Casa 3 *(Ref. Sáb 07/Nov)* |
 | **15** | **Encontro 10** | Estratégias de Deploy (Blue-Green / Canary Deploy) | Segurança em Nuvem (IAM, Roles & Service Accounts) | 12/Nov | 10/Nov e 11/Nov | — |
 | **16** | **Encontro 11** | Observabilidade de Sistemas (Logs, Traces & Metrics) | Monitoramento e Auditoria (GCP Cloud Operations) | 19/Nov | 17/Nov e 18/Nov | — |
 | **17** | **Avaliação N2** | **Segunda Avaliação Regimental (N2) — Apresentação da Esteira CI/CD Completa** | **Segunda Avaliação Regimental (N2)** | **26/Nov** | **24/Nov e 25/Nov** | — |
-| **18** | **PII 4** | Semana de PII 4 — Entrega Final e Banca do PII | Semana de PII 4 — Apresentação da Solução Cloud | 03/Dez | 01/Dez e 02/Dez | 🏠 **Exercício para Casa 4** *(Ref. Sáb 05/Dez)* |
+| **18** | **PII 4** | Semana de PII 4 — Entrega Final e Banca do PII | Semana de PII 4 — Apresentação da Solução Cloud | 03/Dez | 01/Dez e 02/Dez | Exercício para Casa 4 *(Ref. Sáb 05/Dez)* |
 | **19** | **Recuperação**| Semana de Recuperação (Avaliações de Recuperação) | Semana de Recuperação | 10/Dez | 08/Dez e 09/Dez | — |
 | **20** | **Fechamento** | Fechamento do Semestre e Lançamento de Notas | Fechamento do Semestre | 17/Dez | 15/Dez e 16/Dez | — |
 
 ---
 
-## 🏅 Certificações Práticas: Google Cloud Skills Boost
+## Certificações Práticas: Google Cloud Skills Boost
 
 Como parte integrante do aprendizado de Computação em Nuvem, os alunos realizarão laboratórios práticos com emissão de *Skill Badges* oficiais no **Google Cloud Skills Boost**:
 
@@ -125,7 +125,7 @@ Como parte integrante do aprendizado de Computação em Nuvem, os alunos realiza
 
 ---
 
-## 📦 Entregáveis Finais de DevOps & Cloud
+## Entregáveis Finais de DevOps & Cloud
 
 Ao término do semestre, as equipes entregarão:
 1. **Repositório GitHub Configurado**: Branches protegidas com política de Pull Requests e suporte a GitFlow.
@@ -134,7 +134,7 @@ Ao término do semestre, as equipes entregarão:
 
 ---
 
-## 📚 Referências Bibliográficas
+## Referências Bibliográficas
 
 1. **HUMBLE, Jez; FARLEY, David.** *Entrega Contínua: Como Automatizar o Build, os Testes e a Implantação de Software*. 1. ed. Porto Alegre: Bookman, 2014.
 2. **KIM, Gene et al.** *Manual de DevOps: Como Obter Agilidade, Segurança e Confiabilidade em Nível Mundial*. 1. ed. São Paulo: Alta Books, 2018.
