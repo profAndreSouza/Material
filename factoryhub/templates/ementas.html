@@ -14,10 +14,15 @@
         </div>
     </div>
 
-    <!-- Navegação de Abas por Disciplina (4 Disciplinas) -->
+    <!-- Navegação de Abas (Roadmap Integrador + 4 Disciplinas) -->
     <ul class="nav nav-tabs font-monospace mb-4" id="ementasTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active fw-bold" id="tab-btn-dados" onclick="switchTab('dados')" type="button">Ciência de Dados (80h)</button>
+            <button class="nav-link active fw-bold text-dark" id="tab-btn-roadmap" onclick="switchTab('roadmap')" type="button">
+                <i class="bi bi-map me-1"></i>Roadmap Integrador (11 Semanas)
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link fw-bold" id="tab-btn-dados" onclick="switchTab('dados')" type="button">Ciência de Dados (80h)</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link fw-bold" id="tab-btn-automacao" onclick="switchTab('automacao')" type="button">Automação Industrial (80h)</button>
@@ -31,8 +36,166 @@
     </ul>
 
     <div class="tab-content" id="ementasTabContent">
+        <!-- ABA 0: ROADMAP INTEGRADOR -->
+        <div class="tab-pane fade show active" id="pane-roadmap">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
+                        <div>
+                            <span class="badge bg-dark font-monospace text-uppercase mb-1">Matriz Integradora do Semestre</span>
+                            <h3 class="h3 font-serif text-dark fw-bold mb-0">Roadmap Integrador do Ecossistema (11 Semanas)</h3>
+                        </div>
+                        <div class="text-end">
+                            <span class="badge bg-primary font-monospace fs-7 me-1">Automação (80h)</span>
+                            <span class="badge bg-success font-monospace fs-7 me-1">Ciência de Dados (80h)</span>
+                            <span class="badge bg-warning text-dark font-monospace fs-7 me-1">Nuvem (60h)</span>
+                            <span class="badge bg-info text-white font-monospace fs-7">DevOps (40h)</span>
+                        </div>
+                    </div>
+                    
+                    <p class="lead fs-6 text-secondary mb-4">
+                        O ecossistema integrador conecta as 4 Unidades Curriculares ao redor da planta didática <strong>Smart N1</strong>. A cada semana, os estudantes avançam síncronamente nos temas integradores, evoluindo desde a coleta física nos sensores até a entrega contínua em ambientes de produção na nuvem.
+                    </p>
+
+                    <!-- TABELA ROADMAP 11 SEMANAS -->
+                    <div class="table-responsive my-4">
+                        <table class="table table-bordered table-hover font-monospace fs-7 align-middle shadow-sm">
+                            <thead class="table-dark text-center">
+                                <tr>
+                                    <th style="width: 7%;">Semana</th>
+                                    <th style="width: 18%;">Tema Integrador</th>
+                                    <th style="width: 19%;" class="bg-primary text-white">Automação Industrial</th>
+                                    <th style="width: 19%;" class="bg-success text-white">Ciência de Dados</th>
+                                    <th style="width: 19%;" class="bg-warning text-dark">Computação em Nuvem</th>
+                                    <th style="width: 18%;" class="bg-info text-white">DevOps</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center fw-bold bg-light">1</td>
+                                    <td><span class="fw-bold text-dark">Conhecendo a fábrica digital</span></td>
+                                    <td>Arquitetura TI/TA e Smart N1</td>
+                                    <td>O que são dados industriais</td>
+                                    <td>O que é computação em nuvem</td>
+                                    <td>Cultura DevOps e GitFlow</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold bg-light">2</td>
+                                    <td><span class="fw-bold text-dark">Coleta de dados</span></td>
+                                    <td>Sensores e MQTT</td>
+                                    <td>Estrutura dos datasets</td>
+                                    <td>Projeto na GCP</td>
+                                    <td>Deploy Automatizado na Vercel</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold bg-light">3</td>
+                                    <td><span class="fw-bold text-dark">Eventos industriais</span></td>
+                                    <td>Node-RED e Broker</td>
+                                    <td>Limpeza e preparação</td>
+                                    <td>Cloud Storage</td>
+                                    <td>GitFlow e Pull Requests</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold bg-light">4</td>
+                                    <td><span class="fw-bold text-dark">Persistência</span></td>
+                                    <td>Banco de dados da planta</td>
+                                    <td>EDA</td>
+                                    <td>Cloud SQL</td>
+                                    <td>Registries e Docker Hub</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold bg-light">5</td>
+                                    <td><span class="fw-bold text-dark">Visualização</span></td>
+                                    <td>Dashboard operacional</td>
+                                    <td>Visualização em Python</td>
+                                    <td>Deploy da aplicação</td>
+                                    <td>Docker Compose</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold bg-light">6</td>
+                                    <td><span class="fw-bold text-dark">APIs e integração</span></td>
+                                    <td>Consumo dos dados</td>
+                                    <td>KPIs</td>
+                                    <td>Cloud Run</td>
+                                    <td>GitHub Actions</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold bg-light">7</td>
+                                    <td><span class="fw-bold text-dark">Qualidade dos dados</span></td>
+                                    <td>Alarmes e telemetria</td>
+                                    <td>Estatística</td>
+                                    <td>IAM e segurança</td>
+                                    <td>CI (Integração Contínua)</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold bg-light">8</td>
+                                    <td><span class="fw-bold text-dark">Monitoramento</span></td>
+                                    <td>Indicadores industriais</td>
+                                    <td>Séries temporais</td>
+                                    <td>Monitoramento na GCP</td>
+                                    <td>CD e Deploy Vercel/Cloud</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold bg-light">9</td>
+                                    <td><span class="fw-bold text-dark">Operação</span></td>
+                                    <td>Casos reais de manufatura</td>
+                                    <td>Storytelling</td>
+                                    <td>Custos e escalabilidade</td>
+                                    <td>Observabilidade e Logs</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold bg-light">10</td>
+                                    <td><span class="fw-bold text-dark">Integração completa</span></td>
+                                    <td>Integração TI/TA</td>
+                                    <td>Relatório analítico</td>
+                                    <td>Publicação final</td>
+                                    <td>Pipeline GCP (Skills Boost)</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center fw-bold bg-light">11</td>
+                                    <td><span class="fw-bold text-dark">Apresentação</span></td>
+                                    <td>Demonstração da integração</td>
+                                    <td>Insights obtidos</td>
+                                    <td>Ambiente em produção</td>
+                                    <td>Demonstração CI/CD (Vercel + GCP)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- FASES DO ECOSSISTEMA SMART N1 -->
+                    <div class="row g-3 mt-4">
+                        <div class="col-md-3">
+                            <div class="p-3 bg-light rounded border h-100">
+                                <h6 class="font-monospace fw-bold text-primary mb-2">Fase 1: Fundamentos &amp; Ingestão (S1-S3)</h6>
+                                <p class="fs-7 text-secondary mb-0">Pirâmide ISA-95, sensores de campo, broker Mosquitto/Node-RED, projeto GCP, GitFlow e primeira pipeline na Vercel.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-3 bg-light rounded border h-100">
+                                <h6 class="font-monospace fw-bold text-success mb-2">Fase 2: Persistência &amp; Containers (S4-S6)</h6>
+                                <p class="fs-7 text-secondary mb-0">Modelagem em SQL, análise exploratória (EDA), publicação no Docker Hub, Docker Compose, Cloud SQL, Cloud Run e GitHub Actions.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-3 bg-light rounded border h-100">
+                                <h6 class="font-monospace fw-bold text-warning mb-2">Fase 3: Qualidade &amp; Observabilidade (S7-S9)</h6>
+                                <p class="fs-7 text-secondary mb-0">Telemetria de alarmes, testes de hipóteses estatísticas, séries temporais, governança IAM na GCP e métricas DORA.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-3 bg-light rounded border h-100">
+                                <h6 class="font-monospace fw-bold text-info mb-2">Fase 4: Capstone &amp; Produção (S10-S11)</h6>
+                                <p class="fs-7 text-secondary mb-0">Esteira completa no GCP Cloud Skills Boost, relatório analítico e apresentação ao vivo com esteiras Vercel + GCP.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- ABA 1: CIÊNCIA DE DADOS -->
-        <div class="tab-pane fade show active" id="pane-dados">
+        <div class="tab-pane fade d-none" id="pane-dados">
             <div class="card border-0 shadow-sm mb-4">
                 <div class="card-body p-4">
                     <h3 class="h4 font-serif text-dark fw-bold border-bottom pb-2 mb-3">Ementa Oficial: Ciência de Dados</h3>
@@ -102,17 +265,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td>01</td><td>Introdução à Ciência de Dados, CRISP-DM e Exploração Inicial</td><td>McKinney Cap. 5; Bussab &amp; Morettin Cap. 1</td><td>Grus Cap. 1; Menezes Cap. 1-3</td></tr>
-                                <tr><td>02</td><td>Qualidade dos Dados e Amostragem (Limpeza e Imputação)</td><td>Bussab &amp; Morettin Cap. 1, 11; McKinney Cap. 7</td><td>Fávero &amp; Belfiore Cap. 2; Bonora Jr Cap. 1</td></tr>
-                                <tr><td>03</td><td>Estatística Descritiva (Tendência Central e Dispersão)</td><td>Bussab &amp; Morettin Cap. 2; McKinney Cap. 5</td><td>Grus Cap. 4, 5; Fávero &amp; Belfiore Cap. 3</td></tr>
-                                <tr><td>04</td><td>Distribuições Estatísticas e Visualização (Normal, Assimetria, Q-Q)</td><td>Bussab &amp; Morettin Cap. 6; McKinney Cap. 9</td><td>Grus Cap. 3, 6; Fávero &amp; Belfiore Cap. 3</td></tr>
-                                <tr><td>05</td><td>Inferência Estatística e Intervalos de Confiança (SciPy)</td><td>Bussab &amp; Morettin Cap. 10; McKinney Cap. 7</td><td>Grus Cap. 6, 7; Fávero &amp; Belfiore Cap. 4</td></tr>
-                                <tr><td>06</td><td>Testes de Hipóteses Formais (Shapiro-Wilk, KS, Qui-Quadrado)</td><td>Bussab &amp; Morettin Cap. 12, 14; McKinney Cap. 7, 13</td><td>Grus Cap. 7; Fávero &amp; Belfiore Cap. 5</td></tr>
-                                <tr><td>07</td><td>Correlação e Associação entre Variáveis Industriais</td><td>Bussab &amp; Morettin Cap. 4; McKinney Cap. 7, 10</td><td>Grus Cap. 5; Fávero &amp; Belfiore Cap. 4</td></tr>
-                                <tr><td>08</td><td>Séries Temporais (Tendência, Sazonalidade, Média Móvel)</td><td>Bussab &amp; Morettin Cap. 15; McKinney Cap. 11</td><td>Fávero &amp; Belfiore Cap. 16; Grus Cap. 10</td></tr>
-                                <tr><td>09</td><td>Análise Exploratória de Dados (EDA) Pipeline Completo</td><td>McKinney Cap. 10, 12; Bussab &amp; Morettin Cap. 2, 4</td><td>Grus Cap. 10; Guilhon et al. Cap. 4</td></tr>
-                                <tr><td>10</td><td>Storytelling com Dados, KPIs Industriais (OEE) &amp; Dashboards</td><td>McKinney Cap. 9; Bussab &amp; Morettin Cap. 2</td><td>Grus Cap. 3; Guilhon et al. Cap. 5</td></tr>
-                                <tr><td>11</td><td>Projeto Capstone Final (Resolução Integrada Smart N1)</td><td>Bussab &amp; Morettin Cap. 1-15; McKinney Cap. 1-12</td><td>Grus Cap. 1-10; Fávero &amp; Belfiore Cap. 1-16</td></tr>
+                                <tr><td>01</td><td>O que são dados industriais (CRISP-DM e Ingestão)</td><td>McKinney Cap. 5; Bussab &amp; Morettin Cap. 1</td><td>Grus Cap. 1; Menezes Cap. 1-3</td></tr>
+                                <tr><td>02</td><td>Estrutura dos datasets (Qualidade &amp; Amostragem)</td><td>Bussab &amp; Morettin Cap. 1, 11; McKinney Cap. 7</td><td>Fávero &amp; Belfiore Cap. 2; Bonora Jr Cap. 1</td></tr>
+                                <tr><td>03</td><td>Limpeza e preparação (Estatística Descritiva)</td><td>Bussab &amp; Morettin Cap. 2; McKinney Cap. 5</td><td>Grus Cap. 4, 5; Fávero &amp; Belfiore Cap. 3</td></tr>
+                                <tr><td>04</td><td>EDA (Análise Exploratória &amp; Distribuições)</td><td>Bussab &amp; Morettin Cap. 6; McKinney Cap. 9</td><td>Grus Cap. 3, 6; Fávero &amp; Belfiore Cap. 3</td></tr>
+                                <tr><td>05</td><td>Visualização em Python (Gráficos, Matplotlib &amp; Seaborn)</td><td>Bussab &amp; Morettin Cap. 10; McKinney Cap. 7</td><td>Grus Cap. 6, 7; Fávero &amp; Belfiore Cap. 4</td></tr>
+                                <tr><td>06</td><td>KPIs (Indicadores industriais &amp; OEE)</td><td>Bussab &amp; Morettin Cap. 12, 14; McKinney Cap. 7, 13</td><td>Grus Cap. 7; Fávero &amp; Belfiore Cap. 5</td></tr>
+                                <tr><td>07</td><td>Estatística (Inferência &amp; Testes de Hipóteses)</td><td>Bussab &amp; Morettin Cap. 4; McKinney Cap. 7, 10</td><td>Grus Cap. 5; Fávero &amp; Belfiore Cap. 4</td></tr>
+                                <tr><td>08</td><td>Séries temporais (Tendência, Sazonalidade, Média Móvel)</td><td>Bussab &amp; Morettin Cap. 15; McKinney Cap. 11</td><td>Fávero &amp; Belfiore Cap. 16; Grus Cap. 10</td></tr>
+                                <tr><td>09</td><td>Storytelling com dados &amp; Dashboards Analíticos</td><td>McKinney Cap. 10, 12; Bussab &amp; Morettin Cap. 2, 4</td><td>Grus Cap. 10; Guilhon et al. Cap. 4</td></tr>
+                                <tr><td>10</td><td>Relatório analítico completo do processo fabril</td><td>McKinney Cap. 9; Bussab &amp; Morettin Cap. 2</td><td>Grus Cap. 3; Guilhon et al. Cap. 5</td></tr>
+                                <tr><td>11</td><td>Insights obtidos &amp; Apresentação do Projeto Capstone</td><td>Bussab &amp; Morettin Cap. 1-15; McKinney Cap. 1-12</td><td>Grus Cap. 1-10; Fávero &amp; Belfiore Cap. 1-16</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -127,17 +290,17 @@
                             <div class="col-md-4">
                                 <label for="aula-select-dados" class="form-label font-monospace fs-7 text-muted mb-1">Selecione o Encontro Prático:</label>
                                 <select id="aula-select-dados" class="form-select font-monospace" onchange="loadAulaTheory('dados', this.value)">
-                                    <option value="1">Aula 01 - Introdução &amp; CRISP-DM</option>
-                                    <option value="2">Aula 02 - Qualidade &amp; Amostragem</option>
-                                    <option value="3">Aula 03 - Estatística Descritiva</option>
-                                    <option value="4">Aula 04 - Distribuição Normal &amp; Assimetria</option>
-                                    <option value="5">Aula 05 - Inferência &amp; Intervalos de Confiança</option>
-                                    <option value="6">Aula 06 - Testes de Hipóteses</option>
-                                    <option value="7">Aula 07 - Correlação &amp; Associação</option>
-                                    <option value="8">Aula 08 - Séries Temporais</option>
-                                    <option value="9">Aula 09 - Análise Exploratória (EDA)</option>
-                                    <option value="10">Aula 10 - Storytelling &amp; KPIs</option>
-                                    <option value="11">Aula 11 - Projeto Capstone Final</option>
+                                    <option value="1">Aula 01 - O que são dados industriais</option>
+                                    <option value="2">Aula 02 - Estrutura dos datasets</option>
+                                    <option value="3">Aula 03 - Limpeza e preparação</option>
+                                    <option value="4">Aula 04 - EDA (Análise Exploratória)</option>
+                                    <option value="5">Aula 05 - Visualização em Python</option>
+                                    <option value="6">Aula 06 - KPIs (Indicadores industriais)</option>
+                                    <option value="7">Aula 07 - Estatística (Inferência &amp; Testes)</option>
+                                    <option value="8">Aula 08 - Séries temporais</option>
+                                    <option value="9">Aula 09 - Storytelling com dados</option>
+                                    <option value="10">Aula 10 - Relatório analítico</option>
+                                    <option value="11">Aula 11 - Insights obtidos (Projeto Capstone)</option>
                                 </select>
                             </div>
                         </div>
@@ -241,17 +404,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td>01</td><td>Introdução à Automação Industrial e Arquitetura TI/TA (ISA-95)</td><td>Aguirre Cap. 1; Franchi &amp; Camargo Cap. 1</td><td>Groover Cap. 1, 2; Moraes &amp; Castrucci Cap. 1</td></tr>
-                                <tr><td>02</td><td>Dispositivos Industriais I: Sensores Eletromecânicos, Indutivos, Magnéticos</td><td>Aguirre Cap. 2; Lira et al. Cap. 1</td><td>Groover Cap. 6; Prudente (2010) Cap. 2</td></tr>
-                                <tr><td>03</td><td>Dispositivos Industriais II: Sensores Ultrassônicos, Ópticos e RFID</td><td>Aguirre Cap. 3, 4; Lira et al. Cap. 1</td><td>Groover Cap. 6; Moraes &amp; Castrucci Cap. 3</td></tr>
-                                <tr><td>04</td><td>Atuadores Industriais: Pneumáticos, Hidráulicos, Motores e Inversores</td><td>Lira et al. Cap. 2, 3</td><td>Fialho Cap. 1-3; Groover Cap. 3</td></tr>
-                                <tr><td>05</td><td>Robótica Industrial: Células de manipulação e segurança fabril (NR-12)</td><td>Aguirre Cap. 5</td><td>Groover Cap. 7, 8; Moraes &amp; Castrucci Cap. 9</td></tr>
-                                <tr><td>06</td><td>Controladores Industriais I: Arquitetura de Hardware de CLPs e PCs</td><td>Franchi &amp; Camargo Cap. 1, 2</td><td>Silva Cap. 1; SENAI-SP Cap. 1</td></tr>
-                                <tr><td>07</td><td>Controladores Industriais II: Ciclo de Scan, Endereçamento e Texto Estruturado</td><td>Franchi &amp; Camargo Cap. 3, 4</td><td>Silva Cap. 2, 4; Prudente (2014) Cap. 3</td></tr>
-                                <tr><td>08</td><td>Protocolos de Comunicação Industrial (Modbus TCP, OPC UA, MQTT)</td><td>Tanenbaum et al. Cap. 1, 5</td><td>Groover Cap. 9; Moraes &amp; Castrucci Cap. 7</td></tr>
-                                <tr><td>09</td><td>Prática TI/TA I: Ingestão de Dados via Node-RED e Broker MQTT</td><td>Tanenbaum et al. Cap. 6; Franchi &amp; Camargo Cap. 8</td><td>Groover Cap. 9, 10</td></tr>
-                                <tr><td>10</td><td>Prática TI/TA II: Armazenamento de Telemetria em Banco de Dados</td><td>Franchi &amp; Camargo Cap. 9; Tanenbaum et al. Cap. 7</td><td>Moraes &amp; Castrucci Cap. 10</td></tr>
-                                <tr><td>11</td><td>Prática TI/TA III: Dashboards Operacionais em Tempo Real &amp; Projeto Integrador</td><td>Franchi &amp; Camargo Cap. 9</td><td>Groover Cap. 10; Moraes &amp; Castrucci Cap. 11</td></tr>
+                                <tr><td>01</td><td>Arquitetura TI/TA e Smart N1 (Pirâmide ISA-95)</td><td>Aguirre Cap. 1; Franchi &amp; Camargo Cap. 1</td><td>Groover Cap. 1, 2; Moraes &amp; Castrucci Cap. 1</td></tr>
+                                <tr><td>02</td><td>Sensores e MQTT (Aquisição Discreta/Analógica)</td><td>Aguirre Cap. 2; Lira et al. Cap. 1</td><td>Groover Cap. 6; Prudente (2010) Cap. 2</td></tr>
+                                <tr><td>03</td><td>Node-RED e Broker (Ingestão e Roteamento de Eventos)</td><td>Aguirre Cap. 3, 4; Lira et al. Cap. 1</td><td>Groover Cap. 6; Moraes &amp; Castrucci Cap. 3</td></tr>
+                                <tr><td>04</td><td>Banco de dados da planta (Persistência de Telemetria)</td><td>Lira et al. Cap. 2, 3</td><td>Fialho Cap. 1-3; Groover Cap. 3</td></tr>
+                                <tr><td>05</td><td>Dashboard operacional (Supervisão Grafana em Tempo Real)</td><td>Aguirre Cap. 5</td><td>Groover Cap. 7, 8; Moraes &amp; Castrucci Cap. 9</td></tr>
+                                <tr><td>06</td><td>Consumo dos dados (APIs RESTful e Interoperabilidade)</td><td>Franchi &amp; Camargo Cap. 1, 2</td><td>Silva Cap. 1; SENAI-SP Cap. 1</td></tr>
+                                <tr><td>07</td><td>Alarmes e telemetria (Monitoramento de Limites Críticos)</td><td>Franchi &amp; Camargo Cap. 3, 4</td><td>Silva Cap. 2, 4; Prudente (2014) Cap. 3</td></tr>
+                                <tr><td>08</td><td>Indicadores industriais (OEE: Disponibilidade, Desempenho, Qualidade)</td><td>Tanenbaum et al. Cap. 1, 5</td><td>Groover Cap. 9; Moraes &amp; Castrucci Cap. 7</td></tr>
+                                <tr><td>09</td><td>Casos reais de manufatura (Diagnóstico e Causa Raiz)</td><td>Tanenbaum et al. Cap. 6; Franchi &amp; Camargo Cap. 8</td><td>Groover Cap. 9, 10</td></tr>
+                                <tr><td>10</td><td>Integração TI/TA (Fluxo Ponta a Ponta do Chão de Fábrica à Nuvem)</td><td>Franchi &amp; Camargo Cap. 9; Tanenbaum et al. Cap. 7</td><td>Moraes &amp; Castrucci Cap. 10</td></tr>
+                                <tr><td>11</td><td>Demonstração da integração (Operação do Capstone)</td><td>Franchi &amp; Camargo Cap. 9</td><td>Groover Cap. 10; Moraes &amp; Castrucci Cap. 11</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -266,17 +429,17 @@
                             <div class="col-md-4">
                                 <label for="aula-select-automacao" class="form-label font-monospace fs-7 text-muted mb-1">Selecione o Encontro Prático:</label>
                                 <select id="aula-select-automacao" class="form-select font-monospace" onchange="loadAulaTheory('automacao', this.value)">
-                                    <option value="1">Aula 01 - Arquitetura TI/TA &amp; ISA-95</option>
-                                    <option value="2">Aula 02 - Sensores Indutivos &amp; Proximidade</option>
-                                    <option value="3">Aula 03 - Fotoelétricos &amp; Rastreabilidade RFID</option>
-                                    <option value="4">Aula 04 - Pneumática &amp; Inversores V/f</option>
-                                    <option value="5">Aula 05 - Robótica &amp; Segurança NR-12</option>
-                                    <option value="6">Aula 06 - Hardware de CLP &amp; I/O</option>
-                                    <option value="7">Aula 07 - Ciclo de Scan &amp; Linguagem ST</option>
-                                    <option value="8">Aula 08 - Modbus TCP &amp; MQTT</option>
-                                    <option value="9">Aula 09 - Node-RED &amp; Ingestão MQTT</option>
-                                    <option value="10">Aula 10 - Persistência em Banco de Dados</option>
-                                    <option value="11">Aula 11 - Dashboards &amp; Indicador OEE</option>
+                                    <option value="1">Aula 01 - Arquitetura TI/TA e Smart N1</option>
+                                    <option value="2">Aula 02 - Sensores e MQTT</option>
+                                    <option value="3">Aula 03 - Node-RED e Broker</option>
+                                    <option value="4">Aula 04 - Banco de dados da planta</option>
+                                    <option value="5">Aula 05 - Dashboard operacional</option>
+                                    <option value="6">Aula 06 - Consumo dos dados</option>
+                                    <option value="7">Aula 07 - Alarmes e telemetria</option>
+                                    <option value="8">Aula 08 - Indicadores industriais</option>
+                                    <option value="9">Aula 09 - Casos reais de manufatura</option>
+                                    <option value="10">Aula 10 - Integração TI/TA</option>
+                                    <option value="11">Aula 11 - Demonstração da integração</option>
                                 </select>
                             </div>
                         </div>
@@ -321,9 +484,9 @@
                                 <h6 class="font-monospace fw-bold text-dark mb-2">Capacidades Técnicas</h6>
                                 <ul class="text-secondary fs-7 mb-0">
                                     <li>Aplicar conceitos de CI/CD em projetos de software.</li>
-                                    <li>Utilizar controle de versão Git para rastreabilidade de código.</li>
-                                    <li>Configurar pipelines de automação para build, teste e deploy.</li>
-                                    <li>Empregar ferramentas de contêineres e orquestração.</li>
+                                    <li>Utilizar controle de versão Git e modelos GitFlow para rastreabilidade de código.</li>
+                                    <li>Configurar pipelines de automação para build, teste e deploy na Vercel e GCP.</li>
+                                    <li>Empregar ferramentas de contêineres e registradores como Docker Hub.</li>
                                     <li>Implementar automação de testes nas etapas do ciclo de vida.</li>
                                     <li>Integrar práticas de monitoramento e observabilidade contínua.</li>
                                 </ul>
@@ -342,33 +505,29 @@
                             <div class="p-3 bg-light rounded border h-100" style="max-height: 420px; overflow-y: auto;">
                                 <h6 class="font-monospace fw-bold text-dark mb-2">Conteúdo Programático / Conhecimentos</h6>
                                 <ul class="text-secondary fs-7 mb-0 ps-3">
-                                    <li class="mb-2"><strong>1. Fundamentos de DevOps:</strong>
+                                    <li class="mb-2"><strong>1. Fundamentos de DevOps &amp; GitFlow:</strong>
                                         <ul>
-                                            <li>Conceitos, princípios e cultura colaborativa Dev/Ops.</li>
-                                            <li>Benefícios e desafios da adoção de DevOps.</li>
+                                            <li>Conceitos, princípios CAMS e modelo GitFlow.</li>
+                                            <li>Deploy automatizado contínuo com Vercel (Preview &amp; Production).</li>
                                         </ul>
                                     </li>
-                                    <li class="mb-2"><strong>2. Integração Contínua (CI):</strong>
+                                    <li class="mb-2"><strong>2. Registries &amp; Orquestração:</strong>
                                         <ul>
-                                            <li>Controle de versão com Git &amp; Branching strategies.</li>
-                                            <li>Automação de builds &amp; Testes automatizados (unitários, integração, regressão).</li>
+                                            <li>Contêineres OCI, tags semânticas e publicação no Docker Hub.</li>
+                                            <li>Multi-contêineres com Docker Compose.</li>
                                         </ul>
                                     </li>
-                                    <li class="mb-2"><strong>3. Entrega Contínua (CD):</strong>
+                                    <li class="mb-2"><strong>3. Integração e Entrega Contínua (CI/CD):</strong>
                                         <ul>
-                                            <li>Pipelines de deploy &amp; Automação de releases.</li>
-                                            <li>Deploy em homologação/produção, rollback e estratégias (Blue-Green, Canary).</li>
+                                            <li>GitHub Actions workflows em YAML.</li>
+                                            <li>Automação de testes unitários e de integração (CI).</li>
+                                            <li>Entrega contínua (CD) na Vercel e na infraestrutura GCP.</li>
                                         </ul>
                                     </li>
-                                    <li class="mb-2"><strong>4. Ferramentas de Automação e Orquestração:</strong>
+                                    <li><strong>4. Observabilidade &amp; Nuvem Corporativa:</strong>
                                         <ul>
-                                            <li>GitHub Actions, Jenkins, GitLab CI.</li>
-                                            <li>Docker (containers) &amp; Kubernetes (orquestração).</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>5. Monitoramento e Feedback Contínuo:</strong>
-                                        <ul>
-                                            <li>Logs, métricas, observabilidade (Prometheus, Grafana), alertas e métricas DORA.</li>
+                                            <li>Logs, métricas DORA e alertas.</li>
+                                            <li>Pipeline GCP completo via Google Cloud Skills Boost.</li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -388,17 +547,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td>01</td><td>Fundamentos de DevOps &amp; Cultura de Colaboração Dev/Ops</td><td>Sato Cap. 1</td><td>Kaminski Cap. 1</td></tr>
-                                <tr><td>02</td><td>Controle de Versão com Git (Commits, Branches e Pull Requests)</td><td>Sato Cap. 2</td><td>Kaminski Cap. 2</td></tr>
-                                <tr><td>03</td><td>Automação de Builds &amp; Integração Contínua (CI) com GitHub Actions</td><td>Sato Cap. 3</td><td>Boaglio Cap. 1, 2</td></tr>
-                                <tr><td>04</td><td>Containerização de Aplicações I (Dockerfile &amp; Imagens)</td><td>Romero Cap. 1, 2; Vitalino &amp; Castro Cap. 1, 2</td><td>Santos Cap. 1</td></tr>
-                                <tr><td>05</td><td>Containerização de Aplicações II (Docker Compose &amp; Registries)</td><td>Romero Cap. 3, 4; Vitalino &amp; Castro Cap. 3, 4</td><td>Santos Cap. 2</td></tr>
-                                <tr><td>06</td><td>Introdução à Orquestração de Containers (Kubernetes / Cloud Run)</td><td>Vitalino &amp; Castro Cap. 5</td><td>Santos Cap. 3</td></tr>
-                                <tr><td>07</td><td>Construção de Pipelines CI/CD com GitHub Actions</td><td>Sato Cap. 4</td><td>Boaglio Cap. 3</td></tr>
-                                <tr><td>08</td><td>Automação de Releases &amp; Deploy em Ambientes de Homologação</td><td>Sato Cap. 5</td><td>Boaglio Cap. 4</td></tr>
-                                <tr><td>09</td><td>Estratégias de Deploy Avançadas (Blue-Green &amp; Rollback Automatizado)</td><td>Sato Cap. 6; Romero Cap. 5</td><td>Santos Cap. 4</td></tr>
-                                <tr><td>10</td><td>Monitoramento de Logs, Métricas e Alerta Contínuo</td><td>Vitalino &amp; Castro Cap. 6</td><td>Boaglio Cap. 5</td></tr>
-                                <tr><td>11</td><td>Observabilidade e Feedback Contínuo (Prometheus, Grafana &amp; DORA)</td><td>Sato Cap. 7</td><td>Boaglio Cap. 6</td></tr>
+                                <tr><td>01</td><td>Cultura DevOps e GitFlow (Filosofia CAMS &amp; Ramificação)</td><td>Sato Cap. 1</td><td>Kaminski Cap. 1</td></tr>
+                                <tr><td>02</td><td>Deploy Automatizado na Vercel (Primeira Pipeline CD)</td><td>Vercel Docs; Sato Cap. 5</td><td>Kaminski Cap. 2</td></tr>
+                                <tr><td>03</td><td>GitFlow e Pull Requests (Feature Branches &amp; Code Review)</td><td>Sato Cap. 2</td><td>Boaglio Cap. 1, 2</td></tr>
+                                <tr><td>04</td><td>Registries e Docker Hub (Publicação de Imagens OCI)</td><td>Romero Cap. 1, 2; Vitalino &amp; Castro Cap. 1, 2</td><td>Santos Cap. 1</td></tr>
+                                <tr><td>05</td><td>Docker Compose (Orquestração Multi-Contêineres)</td><td>Romero Cap. 3, 4; Vitalino &amp; Castro Cap. 3, 4</td><td>Santos Cap. 2</td></tr>
+                                <tr><td>06</td><td>GitHub Actions (Workflows de Automação em YAML)</td><td>Vitalino &amp; Castro Cap. 5</td><td>Santos Cap. 3</td></tr>
+                                <tr><td>07</td><td>CI (Integração Contínua: Testes e Qualidade)</td><td>Sato Cap. 4</td><td>Boaglio Cap. 3</td></tr>
+                                <tr><td>08</td><td>CD e Deploy Vercel/Cloud (Ambientes de Preview e Produção)</td><td>Sato Cap. 5</td><td>Boaglio Cap. 4</td></tr>
+                                <tr><td>09</td><td>Observabilidade e Logs (Métricas DORA &amp; Alertas)</td><td>Sato Cap. 6; Romero Cap. 5</td><td>Santos Cap. 4</td></tr>
+                                <tr><td>10</td><td>Pipeline GCP (Google Cloud Skills Boost / Cloud Run)</td><td>Google Cloud Skills Boost; Vitalino &amp; Castro Cap. 6</td><td>Boaglio Cap. 5</td></tr>
+                                <tr><td>11</td><td>Demonstração CI/CD (Esteira Híbrida Vercel + GCP)</td><td>Sato Cap. 7</td><td>Boaglio Cap. 6</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -413,17 +572,17 @@
                             <div class="col-md-4">
                                 <label for="aula-select-devops" class="form-label font-monospace fs-7 text-muted mb-1">Selecione o Encontro Prático:</label>
                                 <select id="aula-select-devops" class="form-select font-monospace" onchange="loadAulaTheory('devops', this.value)">
-                                    <option value="1">Aula 01 - Fundamentos &amp; Cultura DevOps</option>
-                                    <option value="2">Aula 02 - Versionamento Git &amp; Pull Requests</option>
-                                    <option value="3">Aula 03 - Integração Contínua (CI) GitHub Actions</option>
-                                    <option value="4">Aula 04 - Dockerfile &amp; Imagens OCI</option>
-                                    <option value="5">Aula 05 - Multi-Contêineres Docker Compose</option>
-                                    <option value="6">Aula 06 - Orquestração (Kubernetes / Cloud Run)</option>
-                                    <option value="7">Aula 07 - Pipelines CI/CD &amp; Caching</option>
-                                    <option value="8">Aula 08 - Automação de Releases (SemVer)</option>
-                                    <option value="9">Aula 09 - Deploy Blue-Green &amp; Rollback</option>
-                                    <option value="10">Aula 10 - Centralização de Logs &amp; Alertas</option>
-                                    <option value="11">Aula 11 - Observabilidade &amp; Métricas DORA</option>
+                                    <option value="1">Aula 01 - Cultura DevOps e GitFlow</option>
+                                    <option value="2">Aula 02 - Deploy Automatizado na Vercel</option>
+                                    <option value="3">Aula 03 - GitFlow e Pull Requests</option>
+                                    <option value="4">Aula 04 - Registries e Docker Hub</option>
+                                    <option value="5">Aula 05 - Docker Compose</option>
+                                    <option value="6">Aula 06 - GitHub Actions</option>
+                                    <option value="7">Aula 07 - CI (Integração Contínua)</option>
+                                    <option value="8">Aula 08 - CD e Deploy Vercel/Cloud</option>
+                                    <option value="9">Aula 09 - Observabilidade e Logs</option>
+                                    <option value="10">Aula 10 - Pipeline GCP (Skills Boost)</option>
+                                    <option value="11">Aula 11 - Demonstração CI/CD (Vercel + GCP)</option>
                                 </select>
                             </div>
                         </div>
@@ -536,17 +695,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td>01</td><td>Histórico, Conceitos &amp; Fundamentos de Nuvem (Elasticidade e Resiliência)</td><td>Veras (2015) Cap. 1; Rose Cap. 1</td><td>Molinari Cap. 1; Sacomano et al. Cap. 1</td></tr>
-                                <tr><td>02</td><td>Arquitetura Cloud &amp; Os 5 Pilares da Computação em Nuvem</td><td>Kolbe Jr Cap. 2; Rose Cap. 2</td><td>Veras (2013) Cap. 1</td></tr>
-                                <tr><td>03</td><td>Nuvens Públicas, Privadas e Híbridas (Regiões, Zonas e Edge)</td><td>Veras (2015) Cap. 2, 3</td><td>Tanenbaum et al. Cap. 1</td></tr>
-                                <tr><td>04</td><td>Modelos de Serviço em Nuvem: IaaS, PaaS e SaaS</td><td>Kolbe Jr Cap. 3; Rose Cap. 3</td><td>Molinari Cap. 2; Muniz et al. Cap. 1</td></tr>
-                                <tr><td>05</td><td>Virtualização de Recursos de Computação (Serverless e Microserviços)</td><td>Rose Cap. 3; Veras (2015) Cap. 4</td><td>Muniz et al. Cap. 2</td></tr>
-                                <tr><td>06</td><td>Redes em Nuvem (VPCs, Subredes, Firewalls, Gateways e Rotas)</td><td>Kolbe Jr Cap. 4; Veras (2015) Cap. 4</td><td>Tanenbaum et al. Cap. 4, 5</td></tr>
-                                <tr><td>07</td><td>Armazenamento na Nuvem (Cloud Storage, Buckets e Clusters)</td><td>Veras (2015) Cap. 4</td><td>Molinari Cap. 3</td></tr>
-                                <tr><td>08</td><td>Bancos de Dados Gerenciados na Nuvem (Cloud SQL PostgreSQL)</td><td>Rose Cap. 4; Veras (2015) Cap. 5</td><td>Muniz et al. Cap. 4; Veras (2013) Cap. 4</td></tr>
-                                <tr><td>09</td><td>Alta Disponibilidade, Escalonamento &amp; Balanceadores de Carga</td><td>Kolbe Jr Cap. 4; Rose Cap. 4</td><td>Muniz et al. Cap. 4</td></tr>
-                                <tr><td>10</td><td>Segurança de Dados em Nuvem (IAM, Roles, ACLs e Criptografia)</td><td>Kolbe Jr Cap. 5; Veras (2015) Cap. 6</td><td>Muniz et al. Cap. 5; Veras (2013) Cap. 5</td></tr>
-                                <tr><td>11</td><td>Aspectos Econômicos, Contratos de Serviços e Cloud Operations</td><td>Veras (2015) Cap. 7</td><td>Molinari Cap. 5</td></tr>
+                                <tr><td>01</td><td>O que é computação em nuvem (Fundamentos e Elasticidade)</td><td>Veras (2015) Cap. 1; Rose Cap. 1</td><td>Molinari Cap. 1; Sacomano et al. Cap. 1</td></tr>
+                                <tr><td>02</td><td>Projeto na GCP (Configuração de Projetos e Regiões)</td><td>Kolbe Jr Cap. 2; Rose Cap. 2</td><td>Veras (2013) Cap. 1</td></tr>
+                                <tr><td>03</td><td>Cloud Storage (Armazenamento de Objetos &amp; Buckets)</td><td>Veras (2015) Cap. 2, 3</td><td>Tanenbaum et al. Cap. 1</td></tr>
+                                <tr><td>04</td><td>Cloud SQL (Banco de Dados Gerenciado PostgreSQL)</td><td>Kolbe Jr Cap. 3; Rose Cap. 3</td><td>Molinari Cap. 2; Muniz et al. Cap. 1</td></tr>
+                                <tr><td>05</td><td>Deploy da aplicação (Configuração de Instâncias e Variáveis)</td><td>Rose Cap. 3; Veras (2015) Cap. 4</td><td>Muniz et al. Cap. 2</td></tr>
+                                <tr><td>06</td><td>Cloud Run (Computação Serverless Scale-to-Zero)</td><td>Kolbe Jr Cap. 4; Veras (2015) Cap. 4</td><td>Tanenbaum et al. Cap. 4, 5</td></tr>
+                                <tr><td>07</td><td>IAM e segurança (Políticas de Acesso &amp; Service Accounts)</td><td>Veras (2015) Cap. 4</td><td>Molinari Cap. 3</td></tr>
+                                <tr><td>08</td><td>Monitoramento na GCP (Cloud Monitoring &amp; Alertas)</td><td>Rose Cap. 4; Veras (2015) Cap. 5</td><td>Muniz et al. Cap. 4; Veras (2013) Cap. 4</td></tr>
+                                <tr><td>09</td><td>Custos e escalabilidade (FinOps e Orçamentos)</td><td>Kolbe Jr Cap. 4; Rose Cap. 4</td><td>Muniz et al. Cap. 4</td></tr>
+                                <tr><td>10</td><td>Publicação final (Artifact Registry e Imagens de Produção)</td><td>Kolbe Jr Cap. 5; Veras (2015) Cap. 6</td><td>Muniz et al. Cap. 5; Veras (2013) Cap. 5</td></tr>
+                                <tr><td>11</td><td>Ambiente em produção (Operação e Alta Disponibilidade)</td><td>Veras (2015) Cap. 7</td><td>Molinari Cap. 5</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -561,17 +720,17 @@
                             <div class="col-md-4">
                                 <label for="aula-select-nuvem" class="form-label font-monospace fs-7 text-muted mb-1">Selecione o Encontro Prático:</label>
                                 <select id="aula-select-nuvem" class="form-select font-monospace" onchange="loadAulaTheory('nuvem', this.value)">
-                                    <option value="1">Aula 01 - Fundamentos &amp; Escalabilidade Cloud</option>
-                                    <option value="2">Aula 02 - Os 5 Pilares da Arquitetura</option>
-                                    <option value="3">Aula 03 - Regiões GCP &amp; Zonas (AZs)</option>
-                                    <option value="4">Aula 04 - Modelos de Serviço (IaaS, PaaS, SaaS)</option>
-                                    <option value="5">Aula 05 - Virtualização &amp; Serverless Cloud Run</option>
-                                    <option value="6">Aula 06 - Redes VPC &amp; Regras de Firewall</option>
-                                    <option value="7">Aula 07 - Cloud Storage Buckets &amp; Lifecycle</option>
-                                    <option value="8">Aula 08 - Bancos Gerenciados Cloud SQL</option>
-                                    <option value="9">Aula 09 - Escalabilidade &amp; Load Balancer</option>
-                                    <option value="10">Aula 10 - Segurança IAM &amp; Service Accounts</option>
-                                    <option value="11">Aula 11 - FinOps &amp; Governança de Custos</option>
+                                    <option value="1">Aula 01 - O que é computação em nuvem</option>
+                                    <option value="2">Aula 02 - Projeto na GCP</option>
+                                    <option value="3">Aula 03 - Cloud Storage</option>
+                                    <option value="4">Aula 04 - Cloud SQL</option>
+                                    <option value="5">Aula 05 - Deploy da aplicação</option>
+                                    <option value="6">Aula 06 - Cloud Run</option>
+                                    <option value="7">Aula 07 - IAM e segurança</option>
+                                    <option value="8">Aula 08 - Monitoramento na GCP</option>
+                                    <option value="9">Aula 09 - Custos e escalabilidade</option>
+                                    <option value="10">Aula 10 - Publicação final</option>
+                                    <option value="11">Aula 11 - Ambiente em produção</option>
                                 </select>
                             </div>
                         </div>
@@ -615,10 +774,11 @@
     let currentAulaNuvem = 1;
 
     function switchTab(tabName) {
-        const tabs = ['dados', 'automacao', 'devops', 'nuvem'];
+        const tabs = ['roadmap', 'dados', 'automacao', 'devops', 'nuvem'];
         tabs.forEach(t => {
             const btn = document.getElementById(`tab-btn-${t}`);
             const pane = document.getElementById(`pane-${t}`);
+            if (!btn || !pane) return;
             if (t === tabName) {
                 btn.classList.add('active');
                 pane.classList.remove('d-none');

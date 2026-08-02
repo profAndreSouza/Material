@@ -2,271 +2,301 @@ window.lessonTheoriesDevops = {
     1: [
         {
             biblio: 'Sato (2014), Cap. 1; Kaminski (2019), Cap. 1',
-            title: '1. Cultura DevOps, Integração Contínua & Métricas de Entrega',
-            theory: '<strong>DevOps</strong> é um movimento cultural e técnico que integra as equipes de Desenvolvimento (Dev) e Operações (Ops) para acelerar o tempo de entrega de software com alta qualidade e estabilidade. Os pilares essenciais incluem:<br><ul><li><strong>Cultura de Colaboração:</strong> Quebra de silos entre equipes.</li><li><strong>Automação de Pipelines:</strong> Eliminação de deploys manuais sucintos a falhas humanas.</li><li><strong>Métricas de Desempenho (DORA):</strong> Avaliação contínua da frequência de deploys e tempo de recuperação.</li></ul>',
-            code: `def calcular_mttr(tempos_indisponibilidade_minutos: list) -> float:
-    return sum(tempos_indisponibilidade_minutos) / len(tempos_indisponibilidade_minutos)
+            title: '1. Cultura DevOps, Filosofia CAMS & Introdução ao GitFlow',
+            theory: '<strong>DevOps</strong> é uma cultura e conjunto de práticas baseada nos quatro pilares do acrônimo <strong>CAMS</strong> (<em>Culture, Automation, Measurement, Sharing</em>). A cultura busca integrar times de desenvolvimento e operações para acelerar entregas com resiliência. Para organizar o trabalho em equipe sem conflitos, adota-se o modelo <strong>GitFlow</strong>, estabelecendo ramificações estruturadas para desenvolvimento e produção.',
+            code: `class GitFlowModel:
+    def __init__(self):
+        self.branches = {
+            "main": "Código estável em produção (v1.0.0)",
+            "develop": "Integração contínua de novas funcionalidades",
+            "feature/telemetria": "Desenvolvimento isolado do módulo de telemetria MQTT",
+            "release/v1.1.0": "Preparação para homologação e congelamento de código"
+        }
 
-falhas_min = [12.0, 45.0, 18.0, 5.0]
-mttr = calcular_mttr(falhas_min)
-print(f"Histórico de Falhas em Produção (min): {falhas_min}")
-print(f"Tempo Médio de Recuperação (MTTR): {mttr:.1f} minutos")`,
-            output: `Histórico de Falhas em Produção (min): [12.0, 45.0, 18.0, 5.0]
-Tempo Médio de Recuperação (MTTR): 20.0 minutos`,
-            interpretation: 'A automação da esteira CI/CD reduz o MTTR de horas para minutos ao permitir rollbacks automáticos.'
+    def listar_estrutura(self):
+        return [f"Branch [{name}]: {desc}" for name, desc in self.branches.items()]
+
+flow = GitFlowModel()
+for item in flow.listar_estrutura():
+    print(item)`,
+            output: `Branch [main]: Código estável em produção (v1.0.0)
+Branch [develop]: Integração contínua de novas funcionalidades
+Branch [feature/telemetria]: Desenvolvimento isolado do módulo de telemetria MQTT
+Branch [release/v1.1.0]: Preparação para homologação e congelamento de código`,
+            interpretation: 'O GitFlow cria isolamento perfeito: a branch main reflete o estado seguro da fábrica em produção, enquanto as features evoluem paralelamente em develop.'
         }
     ],
     2: [
         {
-            biblio: 'Sato (2014), Cap. 2; Kaminski (2019), Cap. 2',
-            title: '1. Controle de Versão com Git: Branches, Commits e Pull Requests',
-            theory: 'O <strong>Git</strong> é um sistema de controle de versão distribuído que garante a rastreabilidade e integridade do código fonte. As boas práticas de ramificação (<em>Branching Strategies</em>) baseiam-se em:<br><ul><li><code>main</code> / <code>master</code>: Código estável de produção.</li><li><code>feature/nome-da-funcionalidade</code>: Desenvolvimento isolado de novas capacidades.</li><li><strong>Pull Request (PR):</strong> Processo de revisão por pares e execução obrigatória de testes automatizados antes do merge.</li></ul>',
-            code: `git_commands = [
-    "git checkout -b feature/telemetria-mqtt",
-    "git add factoryhub/mqtt/",
-    "git commit -m 'feat(mqtt): adiciona suporte a reconexao automatica'",
-    "git push origin feature/telemetria-mqtt"
-]
-print("Fluxo de Trabalho Git (Feature Branch):")
-for cmd in git_commands:
-    print(f"$ {cmd}")`,
-            output: `Fluxo de Trabalho Git (Feature Branch):
-$ git checkout -b feature/telemetria-mqtt
-$ git add factoryhub/mqtt/
-$ git commit -m 'feat(mqtt): adiciona suporte a reconexao automatica'
-$ git push origin feature/telemetria-mqtt`,
-            interpretation: 'O envio da feature branch aciona a esteira CI no GitHub Actions para validação prévia ao Pull Request.'
+            biblio: 'Vercel Docs (2024); Sato (2014), Cap. 5',
+            title: '1. Deploy Automatizado no Início da Jornada: Plataforma Vercel',
+            theory: 'A <strong>Vercel</strong> proporciona a experiência de <em>Zero-Config Continuous Deployment</em> para aplicações web e APIs serverless. Ao conectar o repositório Git, cada commit dispara uma esteira de compilação com geração instantânea de URLs de <strong>Preview Deployment</strong> para testes em ambiente idêntico ao de produção.',
+            code: `def simular_vercel_deployment(commit_hash: str, branch: str):
+    is_main = branch == "main"
+    environment = "Production" if is_main else "Preview"
+    deploy_url = f"https://factoryhub-smartn1{'' if is_main else '-git-' + branch}.vercel.app"
+    return {
+        "commit": commit_hash[:7],
+        "environment": environment,
+        "status": "READY",
+        "url": deploy_url
+    }
+
+print("Deploy de Feature Branch na Vercel:")
+print(simular_vercel_deployment("a8f3b2c190", "feature-dashboard"))
+print("\\nDeploy em Produção na Vercel (após Merge):")
+print(simular_vercel_deployment("e9d2a4f881", "main"))`,
+            output: `Deploy de Feature Branch na Vercel:
+{'commit': 'a8f3b2c', 'environment': 'Preview', 'status': 'READY', 'url': 'https://factoryhub-smartn1-git-feature-dashboard.vercel.app'}
+
+Deploy em Produção na Vercel (após Merge):
+{'commit': 'e9d2a4f', 'environment': 'Production', 'status': 'READY', 'url': 'https://factoryhub-smartn1.vercel.app'}`,
+            interpretation: 'A pipeline da Vercel permite que a equipe homologue a interface visual e relatórios analíticos em URLs de Preview antes da publicação final.'
         }
     ],
     3: [
         {
-            biblio: 'Sato (2014), Cap. 3; Boaglio (2016), Cap. 1 & 2',
-            title: '1. Automação de Builds e Integração Contínua (CI) com GitHub Actions',
-            theory: 'A <strong>Integração Contínua (CI)</strong> é a prática de mesclar alterações de código frequentemente em um repositório centralizado onde são executados automaticamente builds e testes unitários. No GitHub Actions, os fluxos são descritos em arquivos YAML sob `.github/workflows/`.',
-            code: `yaml_ci_sample = """
-name: CI Pipeline (FactoryHub)
-on: [push, pull_request]
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      - name: Install dependencies
-        run: pip install -r factoryhub/requirements.txt
-      - name: Run pytest
-        run: pytest
-"""
-print("Configuração da Workflow de CI (.github/workflows/ci.yml):")
-print(yaml_ci_sample.strip())`,
-            output: `Configuração da Workflow de CI (.github/workflows/ci.yml):
-name: CI Pipeline (FactoryHub)
-on: [push, pull_request]
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      - name: Install dependencies
-        run: pip install -r factoryhub/requirements.txt
-      - name: Run pytest
-        run: pytest`,
-            interpretation: 'A esteira de CI garante que nenhum código com testes quebrados seja integrado ao ramo principal.'
+            biblio: 'Kaminski (2019), Cap. 2; Sato (2014), Cap. 2',
+            title: '1. Estratégias Avançadas com GitFlow e Pull Requests (PRs)',
+            theory: 'No fluxo **GitFlow**, todo o desenvolvimento de novas capacidades deve ocorrer em ramificações `feature/*`. A mesclagem com a branch `develop` ocorre exclusivamente via **Pull Request (PR)**, exigindo revisão por pares (*Peer Review*) e aprovação dos testes de integração da esteira.',
+            code: `git_flow_sequence = [
+    "git checkout develop",
+    "git pull origin develop",
+    "git checkout -b feature/sensor-alarmes",
+    "git commit -m 'feat(automacao): implementa limite critico de temperatura'",
+    "git push origin feature/sensor-alarmes",
+    "# Abertura de Pull Request: feature/sensor-alarmes -> develop",
+    "git checkout develop && git merge --no-ff feature/sensor-alarmes"
+]
+print("Passos Executados no GitFlow:")
+for step in git_flow_sequence:
+    print(f"$ {step}")`,
+            output: `Passos Executados no GitFlow:
+$ git checkout develop
+$ git pull origin develop
+$ git checkout -b feature/sensor-alarmes
+$ git commit -m 'feat(automacao): implementa limite critico de temperatura'
+$ git push origin feature/sensor-alarmes
+# Abertura de Pull Request: feature/sensor-alarmes -> develop
+$ git checkout develop && git merge --no-ff feature/sensor-alarmes`,
+            interpretation: 'O uso da opção `--no-ff` (no-fast-forward) preserva o histórico de mesclagem, permitindo auditorias e rollbacks limpos.'
         }
     ],
     4: [
         {
-            biblio: 'Romero (2015), Cap. 1 & 2; Vitalino & Castro (2018), Cap. 1 & 2',
-            title: '1. Containerização com Docker: Dockerfile & Imagens OCI',
-            theory: 'O **Docker** isola aplicações e suas dependências em **Contêineres** leves e portáveis baseados nos namespaces e cgroups do Kernel Linux. O arquivo `Dockerfile` define o processo de construção da imagem por camadas imutáveis.',
-            code: `dockerfile_sample = """
-FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-EXPOSE 5000
-CMD ["python", "app.py"]
-"""
-print("Dockerfile Otimizado para o FactoryHub:")
-print(dockerfile_sample.strip())`,
-            output: `Dockerfile Otimizado para o FactoryHub:
-FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-EXPOSE 5000
-CMD ["python", "app.py"]`,
-            interpretation: 'A separação da cópia do `requirements.txt` permite reaproveitar a camada de cache do Docker quando o código muda.'
+            biblio: 'Romero (2015), Cap. 2; Vitalino & Castro (2018), Cap. 3',
+            title: '1. Gerenciamento e Publicação de Imagens OCI no Docker Hub',
+            theory: 'O **Docker Hub** é o registrador central de imagens de contêineres OCI (Open Container Initiative). Após a compilação local da imagem da aplicação, adiciona-se uma tag com a versão semântica e realiza-se a publicação (`docker push`), disponibilizando o artefato para qualquer servidor de nuvem.',
+            code: `commands_docker_hub = [
+    "docker build -t factoryhub-app:latest .",
+    "docker tag factoryhub-app:latest usuario/factoryhub-app:v1.2.0",
+    "docker login -u usuario -p **********",
+    "docker push usuario/factoryhub-app:v1.2.0"
+]
+print("Comandos para Publicação de Artefato no Docker Hub:")
+for cmd in commands_docker_hub:
+    print(f"$ {cmd}")`,
+            output: `Comandos para Publicação de Artefato no Docker Hub:
+$ docker build -t factoryhub-app:latest .
+$ docker tag factoryhub-app:latest usuario/factoryhub-app:v1.2.0
+$ docker login -u usuario -p **********
+$ docker push usuario/factoryhub-app:v1.2.0`,
+            interpretation: 'A imagem imutável `v1.2.0` publicada no Docker Hub garante que o mesmo código testado em desenvolvimento seja implantado em produção.'
         }
     ],
     5: [
         {
-            biblio: 'Romero (2015), Cap. 3 & 4; Vitalino & Castro (2018), Cap. 3 & 4',
-            title: '1. Multi-Contêineres com Docker Compose',
-            theory: 'O **Docker Compose** orquestra múltiplos contêineres conectando a aplicação web, o broker MQTT Mosquitto e a base de dados através de redes virtuais isoladas e volumes persistentes.',
-            code: `compose_sample = """
+            biblio: 'Romero (2015), Cap. 3 & 4; Vitalino & Castro (2018), Cap. 4',
+            title: '1. Orquestração Multi-Contêiner com Docker Compose',
+            theory: 'O **Docker Compose** permite definir e rodar pilhas complexas de microsserviços declarativamente em arquivos YAML. Na Smart N1, o Compose conecta a aplicação web em Python, o broker MQTT Mosquitto e a base de dados PostgreSQL em uma rede privada compartilhada.',
+            code: `docker_compose_yaml = """
 version: '3.8'
 services:
-  factoryhub:
-    build: .
+  web:
+    image: usuario/factoryhub-app:v1.2.0
     ports:
       - "5000:5000"
     environment:
-      - MQTT_BROKER_HOST=mosquitto
-  mosquitto:
+      - DATABASE_URL=postgresql://admin:secret@db:5432/factory_db
+      - MQTT_HOST=broker
+    depends_on:
+      - db
+      - broker
+  broker:
     image: eclipse-mosquitto:latest
     ports:
       - "1883:1883"
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_PASSWORD=secret
 """
-print("Especificação docker-compose.yml:")
-print(compose_sample.strip())`,
-            output: `Especificação docker-compose.yml:
+print("Arquivo docker-compose.yml do Ecossistema:")
+print(docker_compose_yaml.strip())`,
+            output: `Arquivo docker-compose.yml do Ecossistema:
 version: '3.8'
 services:
-  factoryhub:
-    build: .
+  web:
+    image: usuario/factoryhub-app:v1.2.0
     ports:
       - "5000:5000"
     environment:
-      - MQTT_BROKER_HOST=mosquitto
-  mosquitto:
+      - DATABASE_URL=postgresql://admin:secret@db:5432/factory_db
+      - MQTT_HOST=broker
+    depends_on:
+      - db
+      - broker
+  broker:
     image: eclipse-mosquitto:latest
     ports:
-      - "1883:1883"`,
-            interpretation: 'Com uma única instrução `docker compose up`, todo o ecossistema fabril entra em execução localmente.'
+      - "1883:1883"
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_PASSWORD=secret`,
+            interpretation: 'Com a diretiva `depends_on`, os serviços sobem na ordem estrita de dependência tecnológica.'
         }
     ],
     6: [
         {
-            biblio: 'Santos (2019), Cap. 1 & 2; Vitalino & Castro (2018), Cap. 5',
-            title: '1. Orquestração de Containers (Kubernetes vs Serverless Cloud Run)',
-            theory: 'Em ambientes de alta escala, orquestradores como **Kubernetes** gerenciam a auto-recuperação (*self-healing*), balanceamento de carga e auto-escalonamento de Pods. Para baixa complexidade, serviços Serverless (como GCP Cloud Run) sobem contêineres sob demanda zerando custos inativos.',
-            code: `class ClusterOrchestrator:
-    def __init__(self, replicas_desejadas: int):
-        self.replicas = replicas_desejadas
-
-    def verificar_health_check(self, pods_ativos: int):
-        if pods_ativos < self.replicas:
-            diferenca = self.replicas - pods_ativos
-            return f"Self-Healing: Criando {diferenca} novo(s) Pod(s) para restaurar a meta de {self.replicas} réplicas."
-        return "Cluster Saudável: Todas as réplicas em execução."
-
-k8s = ClusterOrchestrator(replicas_desejadas=3)
-print(k8s.verificar_health_check(pods_ativos=2))`,
-            output: `Self-Healing: Criando 1 novo(s) Pod(s) para restaurar a meta de 3 réplicas.`,
-            interpretation: 'Caso um contêiner sofra falha, o orquestrador detecta a queda e instancia uma nova réplica automaticamente.'
+            biblio: 'Sato (2014), Cap. 3; Boaglio (2016), Cap. 1',
+            title: '1. Automação de Esteiras com GitHub Actions Workflows',
+            theory: 'O **GitHub Actions** automatiza o ciclo de vida do desenvolvimento de software executando Workflows declarativos acionados por eventos como `push` ou `pull_request`. Os agentes de execução (*Runners*) rodam os passos configurados em contêineres isolados.',
+            code: `yaml_workflow = """
+name: Workflows de Automação FactoryHub
+on:
+  push:
+    branches: [ develop, main ]
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Syntax Check
+        run: python -m py_compile factoryhub/app.py
+"""
+print("Fluxo GitHub Actions (.github/workflows/main.yml):")
+print(yaml_workflow.strip())`,
+            output: `Fluxo GitHub Actions (.github/workflows/main.yml):
+name: Workflows de Automação FactoryHub
+on:
+  push:
+    branches: [ develop, main ]
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Syntax Check
+        run: python -m py_compile factoryhub/app.py`,
+            interpretation: 'O acionamento automático do pipeline no push garante a validação contínua de sintaxe e dependências.'
         }
     ],
     7: [
         {
-            biblio: 'Sato (2014), Cap. 4; Boaglio (2016), Cap. 3',
-            title: '1. Esteiras Avançadas de CI/CD (Artifacts & Caching)',
-            theory: 'Pipelines avançadas de CI/CD utilizam estratégias de **Caching** de dependências para acelerar a execução do build e geram **Artefatos de Compilação** (como arquivos `.tar.gz` ou Imagens Docker publicadas em Registries) para garantir imutabilidade do artefato implantado.',
-            code: `def calcular_tempo_build(com_cache: bool) -> float:
-    tempo_base = 120.0 # segundos
-    if com_cache:
-        return tempo_base * 0.25 # 75% mais rápido
-    return tempo_base
+            biblio: 'Sato (2014), Cap. 3 & 4',
+            title: '1. Integração Contínua (CI): Testes Automatizados e Cobertura de Código',
+            theory: 'A **Integração Contínua (CI)** exige que todo código enviado passe por testes unitários e de integração antes de ser aceito no repositório principal. Ferramentas de análise estática e relatórios de cobertura (*Code Coverage*) verificam se o percentual de testes atende às métricas de qualidade.',
+            code: `def executar_bateria_testes(cobertura_pct: float, falhas_encontradas: int):
+    status = "APROVADO" if cobertura_pct >= 80.0 and falhas_encontradas == 0 else "REPROVADO"
+    return {
+        "coverage": f"{cobertura_pct}%",
+        "failures": falhas_encontradas,
+        "ci_result": status
+    }
 
-print(f"Tempo de Build Sem Cache: {calcular_tempo_build(False):.0f}s")
-print(f"Tempo de Build Com Cache: {calcular_tempo_build(True):.0f}s")`,
-            output: `Tempo de Build Sem Cache: 120s
-Tempo de Build Com Cache: 30s`,
-            interpretation: 'O uso de cache de dependências reduz o tempo de feedback da esteira de 2 minutos para 30 segundos.'
+print("Resultado do Job de CI no GitHub Actions:")
+print(executar_bateria_testes(cobertura_pct=88.5, falhas_encontradas=0))`,
+            output: `Resultado do Job de CI no GitHub Actions:
+{'coverage': '88.5%', 'failures': 0, 'ci_result': 'APROVADO'}`,
+            interpretation: 'Com 88.5% de cobertura de código e 0 falhas, o pipeline de CI autoriza a aprovação do Pull Request.'
         }
     ],
     8: [
         {
-            biblio: 'Sato (2014), Cap. 5; Boaglio (2016), Cap. 4',
-            title: '1. Gerenciamento de Releases & Versionamento Semântico (SemVer)',
-            theory: 'O **Versionamento Semântico (SemVer)** adota o formato `MAJOR.MINOR.PATCH` (ex: `v1.2.4`):<br><ul><li><strong>MAJOR:</strong> Alterações incompatíveis com versões anteriores (Breaking Changes).</li><li><strong>MINOR:</strong> Adição de novas funcionalidades mantendo compatibilidade.</li><li><strong>PATCH:</strong> Correção de bugs retrocompatíveis.</li></ul>',
-            code: `def incrementar_semver(atual: str, tipo: str) -> str:
-    major, minor, patch = map(int, atual.replace('v', '').split('.'))
-    if tipo == 'MAJOR':
-        major += 1; minor = 0; patch = 0
-    elif tipo == 'MINOR':
-        minor += 1; patch = 0
-    elif tipo == 'PATCH':
-        patch += 1
-    return f"v{major}.{minor}.{patch}"
+            biblio: 'Vercel Docs (2024); Sato (2014), Cap. 5',
+            title: '1. Entrega Contínua (CD) Automatizada via Vercel e Webhooks',
+            theory: 'A **Entrega Contínua (CD)** automatiza o processo de publicação. Quando o PR é aceito e mesclado na branch `main`, a integração com a Vercel realiza o *Promotion Deploy* automático para o ambiente oficial de produção sem interrupção de serviço.',
+            code: `def pipeline_cd_status(branch_destino: str):
+    if branch_destino == "main":
+        return "Vercel CD Trigger: Production Deployment Ativo -> https://factoryhub.vercel.app [HTTP 200 OK]"
+    return "Vercel CD Trigger: Preview Deployment Ativo -> Entregue em ambiente Staging"
 
-versao = "v1.0.0"
-print(f"Versão Atual: {versao}")
-print(f"Nova Feature -> {incrementar_semver(versao, 'MINOR')}")
-print(f"Bugfix -> {incrementar_semver(versao, 'PATCH')}")`,
-            output: `Versão Atual: v1.0.0
-Nova Feature -> v1.1.0
-Bugfix -> v1.0.1`,
-            interpretation: 'O padrão SemVer orienta a equipe e os clientes sobre a criticidade e o impacto das atualizações.'
+print(pipeline_cd_status("main"))`,
+            output: `Vercel CD Trigger: Production Deployment Ativo -> https://factoryhub.vercel.app [HTTP 200 OK]`,
+            interpretation: 'A automação CD elimina intervenções manuais via SSH, garantindo implantação ágil e confiável.'
         }
     ],
     9: [
         {
-            biblio: 'Sato (2014), Cap. 6; Santos (2019), Cap. 4',
-            title: '1. Estratégias de Implantação: Blue-Green & Rollback',
-            theory: 'No **Blue-Green Deployment**, mantêm-se dois ambientes idênticos em produção:<br><ul><li><strong>Blue (Ambiente Ativo):</strong> Atende 100% do tráfego real.</li><li><strong>Green (Ambiente Novo):</strong> Recebe a nova versão para testes de homologação.</li></ul>O roteador de tráfego alterna instantaneamente do Blue para o Green. Caso ocorram anomalias, o **Rollback** é realizado reavaliando a rota para o ambiente Blue.',
-            code: `class RouterDeploy:
-    def __init__(self):
-        self.ambiente_ativo = "BLUE (v1.0.0)"
-        self.ambiente_homologacao = "GREEN (v1.1.0)"
-
-    def switch_traffic(self):
-        self.ambiente_ativo, self.ambiente_homologacao = self.ambiente_homologacao, self.ambiente_ativo
-        return f"Tráfego Alternado! Novo Ambiente Ativo: {self.ambiente_ativo}"
-
-router = RouterDeploy()
-print(f"Estado Inicial: {router.ambiente_ativo}")
-print(router.switch_traffic())`,
-            output: `Estado Inicial: BLUE (v1.0.0)
-Tráfego Alternado! Novo Ambiente Ativo: GREEN (v1.1.0)`,
-            interpretation: 'A virada de chave no roteador do Blue-Green elimina o tempo de indisponibilidade (Downtime Zero).'
+            biblio: 'Vitalino & Castro (2018), Cap. 6; Sato (2014), Cap. 7',
+            title: '1. Observabilidade, Centralização de Logs e Métricas DORA',
+            theory: 'A **Observabilidade** monitora a saúde das esteiras e dos serviços através dos três pilares: Logs, Métricas e Traces. O desempenho da engenharia é acompanhado pelas 4 **Métricas DORA** (Deployment Frequency, Lead Time, Change Failure Rate, Time to Restore).',
+            code: `dora_kpis = {
+    "Deployment Frequency": "14 deploys / semana (Elite)",
+    "Lead Time for Changes": "42 minutos (Elite)",
+    "Change Failure Rate": "2.1% (Elite)",
+    "Mean Time to Recovery (MTTR)": "11 minutos (Elite)"
+}
+print("Métricas DORA da Equipe de Engenharia DevOps:")
+for k, v in dora_kpis.items():
+    print(f"-> {k:30s}: {v}")`,
+            output: `Métricas DORA da Equipe de Engenharia DevOps:
+-> Deployment Frequency          : 14 deploys / semana (Elite)
+-> Lead Time for Changes         : 42 minutos (Elite)
+-> Change Failure Rate           : 2.1% (Elite)
+-> Mean Time to Recovery (MTTR)  : 11 minutos (Elite)`,
+            interpretation: 'O alto desempenho em métricas DORA evidencia uma infraestrutura automatizada e com baixo risco de regressão.'
         }
     ],
     10: [
         {
-            biblio: 'Vitalino & Castro (2018), Cap. 6; Boaglio (2016), Cap. 5',
-            title: '1. Monitoramento de Logs, Métricas e Alertas',
-            theory: 'A gestão operacional centraliza **Logs** estruturados em formato JSON para busca rápida e agrega **Métricas** de infraestrutura (Uso de CPU, Memória, I/O) para disparo automático de alertas em canais de comunicação.',
-            code: `def analisar_log_producao(log_line: dict):
-    if log_line.get("level") == "ERROR":
-        return f"ALERTA DISPARADO: {log_line['message']} na estação {log_line.get('station', 'Geral')}"
-    return "Log Processado OK"
-
-log = {"level": "ERROR", "station": "DrillStation", "message": "Conexão perdida com o inversor", "timestamp": "2026-08-02T01:00:00Z"}
-print(analisar_log_producao(log))`,
-            output: `ALERTA DISPARADO: Conexão perdida com o inversor na estação DrillStation`,
-            interpretation: 'Logs com nível ERROR acionam Webhooks automáticos informando a equipe de plantão.'
+            biblio: 'Google Cloud Skills Boost (2024); Veras (2015), Cap. 6',
+            title: '1. Esteira Completa de Produção no GCP (Google Cloud Skills Boost)',
+            theory: 'Na etapa avançada, os estudantes constroem a pipeline corporativa completa no **Google Cloud Platform (GCP)** via **Google Cloud Skills Boost**. O fluxo inclui a publicação da imagem no **Artifact Registry**, provisionamento do **Cloud SQL PostgreSQL** e deploy Serverless no **Cloud Run** com conexão segura via IAM.',
+            code: `gcp_pipeline_steps = [
+    "gcloud builds submit --tag southamerica-east1-docker.pkg.dev/smartn1/apps/factoryhub:v1.0",
+    "gcloud sql instances create smartn1-db --database-version=POSTGRES_15 --cpu=2 --memory=7680MB --region=southamerica-east1",
+    "gcloud run deploy factoryhub-prod --image southamerica-east1-docker.pkg.dev/smartn1/apps/factoryhub:v1.0 --add-cloudsql-instances smartn1-db --allow-unauthenticated"
+]
+print("Pipeline Completo no GCP (Cloud Skills Boost):")
+for idx, cmd in enumerate(gcp_pipeline_steps, 1):
+    print(f"Etapa {idx}: {cmd}")`,
+            output: `Pipeline Completo no GCP (Cloud Skills Boost):
+Etapa 1: gcloud builds submit --tag southamerica-east1-docker.pkg.dev/smartn1/apps/factoryhub:v1.0
+Etapa 2: gcloud sql instances create smartn1-db --database-version=POSTGRES_15 --cpu=2 --memory=7680MB --region=southamerica-east1
+Etapa 3: gcloud run deploy factoryhub-prod --image southamerica-east1-docker.pkg.dev/smartn1/apps/factoryhub:v1.0 --add-cloudsql-instances smartn1-db --allow-unauthenticated`,
+            interpretation: 'O Cloud Run escala automaticamente de zero a dezenas de instâncias conectadas com o banco Cloud SQL gerenciado.'
         }
     ],
     11: [
         {
-            biblio: 'Sato (2014), Cap. 7; Boaglio (2016), Cap. 6',
-            title: '1. Observabilidade & Métricas DORA de Desempenho de Engenharia',
-            theory: 'A **Observabilidade** assenta-se em 3 pilares (Logs, Métricas e Traces de Execução). O desempenho da esteira DevOps é medido pelas 4 **Métricas DORA**:<br>1. *Deployment Frequency* (Frequência de Deploy)<br>2. *Lead Time for Changes* (Tempo de Mudança)<br>3. *Change Failure Rate* (Taxa de Falha em Mudanças)<br>4. *Time to Restore Service* (Tempo de Restauração)',
-            code: `metricas_dora = {
-    "deployment_frequency": "Várias vezes ao dia (Elite)",
-    "lead_time_changes": "< 1 hora (Elite)",
-    "change_failure_rate": "3.2% (Alto Desempenho)",
-    "time_to_restore": "< 15 minutos (Elite)"
+            biblio: 'Sato (2014), Cap. 7; Vercel & GCP Docs (2024)',
+            title: '1. Demonstração Integrada de CI/CD (Esteiras Vercel + GCP)',
+            theory: 'No encerramento do módulo, demonstra-se a arquitetura híbrida de entrega contínua: o frontend web e dashboards analíticos são implantados continuamente na **Vercel**, enquanto a API de telemetria e o banco relacional rodam na infraestrutura autogerenciada do **GCP (Cloud Run / Cloud SQL)**.',
+            code: `arquitetura_entrega = {
+    "Frontend & Dashboards": "Vercel Edge Network (Deploy Automático via GitHub Integration)",
+    "Backend Microservices": "GCP Cloud Run (Container Serverless em Docker OCI)",
+    "Database": "GCP Cloud SQL PostgreSQL (Alta Disponibilidade Multi-AZ)",
+    "CI/CD Orchestrator": "GitHub Actions + Google Cloud Artifact Registry"
 }
-print("Métricas DORA de Engenharia de Software:")
-for k, v in metricas_dora.items():
-    print(f"-> {k:22s}: {v}")`,
-            output: `Métricas DORA de Engenharia de Software:
--> deployment_frequency  : Várias vezes ao dia (Elite)
--> lead_time_changes     : < 1 hora (Elite)
--> change_failure_rate   : 3.2% (Alto Desempenho)
--> time_to_restore       : < 15 minutos (Elite)`,
-            interpretation: 'A organização atingiu o nível Elite em métricas DORA graças à maturidade da esteira de CI/CD.'
+print("Arquitetura Final de Entrega Contínua (Vercel + GCP):")
+for comp, desc in arquitetura_entrega.items():
+    print(f"[{comp:22s}]: {desc}")`,
+            output: `Arquitetura Final de Entrega Contínua (Vercel + GCP):
+[Frontend & Dashboards ]: Vercel Edge Network (Deploy Automático via GitHub Integration)
+[Backend Microservices]: GCP Cloud Run (Container Serverless em Docker OCI)
+[Database              ]: GCP Cloud SQL PostgreSQL (Alta Disponibilidade Multi-AZ)
+[CI/CD Orchestrator    ]: GitHub Actions + Google Cloud Artifact Registry`,
+            interpretation: 'A combinação Vercel + GCP oferece o melhor dos dois mundos: extrema agilidade no frontend e robustez corporativa no backend industrial.'
         }
     ]
 };
