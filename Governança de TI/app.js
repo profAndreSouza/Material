@@ -319,7 +319,6 @@ const scheduleData = [
       "Regulamento"
     ]
   },
-
   {
     week: 20,
     type: "Fechamento",
@@ -338,3982 +337,1031 @@ const scheduleData = [
 ];
 
 // --- TEORIA DE GOVERNANÇA ALINHADA AOS FRAMEWORKS E BIBLIOGRAFIA ---
-
-
 const theoreticalModulesData = [
   {
     id: "mod-01",
-    title: "Módulo 1 — Introdução à Governança de TI",
-    subtitle: "Compreendendo como a TI gera valor para o negócio",
+    weekRef: "Semana 1",
+    title: "Módulo 1 — Introdução à Governança de TI vs Gestão de TI",
+    subtitle: "Conceitos fundamentais, diferenças de papéis e agregação de valor para o negócio",
     icon: "fa-solid fa-scale-balanced",
     estimatedReading: "35 a 45 min",
     difficulty: "Fundamental",
     bibliography: [
-      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulo 1.",
-      "ISO/IEC 38500:2015 (Introdução)",
-      "COBIT 2019 Framework - Executive Overview"
+      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI: da estratégia à gestão de processos e serviços. 4. ed. Rio de Janeiro: Brasport, 2014. Capítulo 1.",
+      "ISO/IEC 38500:2015 - Governance of IT for the Organization.",
+      "ISACA. COBIT 2019 Framework: Governance and Management Objectives."
     ],
     learningObjectives: [
-      "Compreender o conceito de Governança de TI.",
-      "Diferenciar Governança de TI e Gestão de TI.",
-      "Entender porque as organizações investem em Governança.",
-      "Relacionar Governança de TI com geração de valor para o negócio."
+      "Compreender o conceito de Governança de TI e sua origem no alinhamento estratégico.",
+      "Diferenciar com clareza as responsabilidades de Governança de TI (EDM) e Gestão de TI (PBRM).",
+      "Entender os fatores motivadores que levam as organizações a investirem em Governança.",
+      "Relacionar os 5 pilares clássicos da Governança de TI com a geração de valor sustentável para o negócio."
     ],
     relatedPDGTI: [
-      "Definição da empresa",
-      "Entendimento do contexto organizacional",
-      "Visão estratégica da TI"
+      "Capítulo 1 - Caracterização da Organização e Visão Estratégica da TI",
+      "Definição do escopo, setor de atuação e papel desempenhado pela tecnologia no modelo de negócios."
     ],
     examTopics: [
-      "Diferença entre Governança e Gestão",
-      "Fatores motivadores",
-      "Componentes da Governança"
+      "Diferença entre Governança (EDM) e Gestão (PBRM)",
+      "5 Pilares da Governança de TI (Alinhamento, Valor, Riscos, Recursos, Desempenho)",
+      "Fatores motivadores organizacionais e regulatórios"
     ],
     sections: [
       {
         type: "intro",
         title: "Por que estudar Governança de TI?",
-        content: `
-Nos últimos anos a Tecnologia da Informação deixou de ser apenas um setor de apoio e passou a ocupar posição estratégica dentro das organizações.
+        content: `A Tecnologia da Informação deixou de ser apenas uma área operacional encarregada de consertar computadores para se transformar no verdadeiro motor estratégico das empresas modernas.
 
-Hoje praticamente todos os processos empresariais dependem de sistemas computacionais. Vendas, logística, produção, recursos humanos, financeiro e relacionamento com clientes são executados ou apoiados por soluções de TI.
+Atualmente, processos vitais de vendas, produção, logística, finanças e atendimento ao cliente são 100% dependentes de sistemas de informação.
 
-Entretanto, investir em tecnologia não garante automaticamente melhores resultados.
+Entretanto, investir milhões em tecnologia não garante automaticamente sucesso financeiro ou operacional. Muitas empresas falham porque a área de TI trabalha isolada dos objetivos estratégicos corporativos.
 
-Diversas organizações investem milhões em softwares, infraestrutura e serviços sem obter retorno esperado.
-
-O principal motivo é que muitas vezes a TI trabalha desconectada dos objetivos estratégicos da empresa.
-
-A Governança de TI surge justamente para resolver esse problema.
-
-Seu principal objetivo é garantir que a Tecnologia da Informação gere valor para o negócio, minimize riscos e utilize adequadamente os recursos disponíveis.
-`
+A Governança de TI surge exatamente para resolver essa desconexão, garantindo que o uso da tecnologia seja avaliado, direcionado e monitorado para agregar valor real ao negócio.`
       },
       {
         type: "callout",
         style: "info",
         icon: "fa-solid fa-lightbulb",
-        title: "Ideia principal",
-        content: `
-Governança de TI não significa administrar computadores.
-
-Governança significa garantir que todas as decisões relacionadas à tecnologia contribuam diretamente para o sucesso da organização.
-`
-      },
-      {
-        type: "heading",
-        title: "O que é Governança de TI?"
-      },
-      {
-        type: "paragraph",
-        content: `
-Segundo Fernandes e Abreu, Governança de TI consiste no conjunto de estruturas organizacionais, políticas, processos, responsabilidades e mecanismos utilizados para garantir que a tecnologia esteja alinhada aos objetivos estratégicos da organização.
-
-A ISO/IEC 38500 complementa essa definição afirmando que a Governança é responsabilidade da Alta Administração, responsável por avaliar, direcionar e monitorar o uso da tecnologia.
-`
-      },
-      {
-        type: "quote",
-        author: "ISO/IEC 38500",
-        content: "A governança de TI é o sistema pelo qual o uso atual e futuro da tecnologia é dirigido e controlado."
-      },
-      {
-        type: "table",
-        title: "Elementos presentes na Governança",
-        headers: [
-          "Elemento",
-          "Objetivo"
-        ],
-        rows: [
-
-          [
-            "Estratégia",
-            "Alinhar TI aos objetivos do negócio"
-          ],
-          [
-            "Políticas",
-            "Padronizar decisões"
-          ],
-          [
-            "Processos",
-            "Organizar atividades"
-          ],
-          [
-            "Papéis",
-            "Definir responsabilidades"
-          ],
-          [
-            "Indicadores",
-            "Medir resultados"
-          ],
-          [
-            "Gestão de riscos",
-            "Reduzir impactos negativos"
-          ]
-        ]
-      },
-      {
-        type: "heading",
-        title: "Governança x Gestão"
-      },
-      {
-        type: "paragraph",
-        content: `
-Um dos maiores erros cometidos por iniciantes é considerar Governança e Gestão como sinônimos.
-
-Embora estejam relacionadas, representam responsabilidades completamente diferentes.
-`
-      },
-      {
-        type: "table",
-        title: "Comparação",
-        headers: [
-          "Governança",
-          "Gestão"
-        ],
-        rows: [
-
-          [
-            "Define direção",
-            "Executa a direção"
-          ],
-          [
-            "Longo prazo",
-            "Curto e médio prazo"
-          ],
-          [
-            "Alta administração",
-            "Gerentes"
-          ],
-          [
-            "Decide prioridades",
-            "Executa projetos"
-          ],
-          [
-            "Avalia resultados",
-            "Produz resultados"
-          ]
-        ]
-      },
-      {
-        type: "callout",
-        style: "warning",
-        icon: "fa-solid fa-triangle-exclamation",
-        title: "Muito cobrado em provas",
-        content: `
-Governança decide.
-
-Gestão executa.
-
-Sempre que aparecer essa comparação em avaliações, lembre-se dessa frase.
-`
-      },
-      {
-        type: "heading",
-        title: "Por que surgiu a Governança de TI?"
-      },
-      {
-        type: "list",
-        items: [
-
-          "Crescimento da dependência dos sistemas de informação.",
-          "Aumento dos investimentos em tecnologia.",
-          "Necessidade de justificar o retorno financeiro da TI.",
-          "Escândalos corporativos que demonstraram falhas de controle.",
-          "Maior preocupação com segurança da informação.",
-          "Necessidade de atender requisitos legais e regulatórios.",
-          "Busca por maior competitividade."
-        ]
-      },
-      {
-        type: "case",
-        title: "Exemplo prático",
-        company: "Empresa fictícia Alpha",
-        content: `
-A empresa Alpha investiu R$ 3 milhões em um novo ERP.
-
-Após dois anos descobriu que diversos módulos nunca foram utilizados pelos usuários.
-
-O projeto foi entregue dentro do prazo, mas não gerou benefícios para o negócio.
-
-A Gestão de TI executou corretamente o projeto.
-
-A Governança falhou ao não validar se o investimento estava realmente alinhado às necessidades estratégicas da empresa.
-`
-      },
-      {
-        type: "heading",
-        title: "Os cinco pilares clássicos da Governança de TI"
-      },
-      {
-        type: "cards",
-        cards: [
-
-          {
-            title: "Alinhamento Estratégico",
-            icon: "fa-solid fa-bullseye",
-            content: "Garantir que a TI apoie os objetivos do negócio."
-          },
-          {
-            title: "Entrega de Valor",
-            icon: "fa-solid fa-chart-line",
-            content: "Transformar investimentos em benefícios."
-          },
-          {
-            title: "Gestão de Riscos",
-            icon: "fa-solid fa-shield-halved",
-            content: "Reduzir riscos tecnológicos."
-          },
-          {
-            title: "Gestão de Recursos",
-            icon: "fa-solid fa-server",
-            content: "Utilizar pessoas, orçamento e infraestrutura adequadamente."
-          },
-          {
-            title: "Medição de Desempenho",
-            icon: "fa-solid fa-chart-column",
-            content: "Avaliar continuamente os resultados da TI."
-          }
-
-        ]
-      },
-      {
-        type: "pdgti",
-        title: "Ligação com o PDGTI",
-        content: `
-Nesta semana iniciaremos a definição da organização que será utilizada durante todo o semestre.
-
-Antes de propor melhorias, é fundamental compreender:
-
-• Quem é a empresa?
-
-• Qual seu negócio?
-
-• Como a TI participa desse negócio?
-
-• Quais são seus principais desafios?
-
-Essas respostas serão utilizadas na elaboração do Capítulo 1 do PDGTI.
-`
-      },
-      {
-        type: "reflection",
-        title: "Perguntas para reflexão",
-        questions: [
-
-          "Uma empresa pode possuir excelente equipe de TI e mesmo assim não possuir Governança? Explique.",
-          "Quem deve decidir os investimentos em TI?",
-          "Toda decisão técnica precisa passar pela Governança?",
-          "Qual o risco de a TI trabalhar sem alinhamento estratégico?"
-        ]
-      },
-      {
-        type: "summary",
-        title: "Resumo da Aula",
-        bullets: [
-
-          "Governança e Gestão possuem responsabilidades diferentes.",
-          "A Governança busca gerar valor para o negócio.",
-          "A Alta Administração participa das decisões estratégicas.",
-          "A TI deve estar alinhada aos objetivos organizacionais.",
-          "O PDGTI nasce a partir do entendimento do negócio."
-        ]
-      },
-      {
-        type: "review",
-        title: "Checklist de Aprendizagem",
-        checklist: [
-
-          "Consigo explicar o conceito de Governança de TI.",
-          "Sei diferenciar Governança e Gestão.",
-          "Entendo por que surgiu a Governança.",
-          "Conheço os principais pilares da Governança.",
-          "Compreendo como este conteúdo será utilizado no PDGTI."
-        ]
-      }
-
-    ]
-  },
-  {
-    id: "mod-02",
-    title: "Módulo 2 — Governança Corporativa, Compliance e Ética",
-    subtitle: "Como a Governança de TI apoia a transparência, a conformidade e a geração de confiança nas organizações",
-    icon: "fa-solid fa-building-shield",
-    estimatedReading: "45 a 60 min",
-    difficulty: "Fundamental",
-    bibliography: [
-      "BITTENCOURT, Carlos Magno Andriolli. Governança Corporativa e Compliance. Capítulos 1 e 2.",
-      "MARTINS, Camila Saldanha. Governança e Compliance.",
-      "FERNANDES; ABREU. Implantando a Governança de TI. Capítulo 1.",
-      "Sarbanes-Oxley Act (2002)."
-    ],
-    learningObjectives: [
-      "Compreender a relação entre Governança Corporativa e Governança de TI.",
-      "Entender o conceito de Compliance.",
-      "Conhecer a Lei Sarbanes-Oxley.",
-      "Relacionar ética, controles internos e tecnologia."
-    ],
-    relatedPDGTI: [
-      "Caracterização da organização",
-      "Levantamento da estrutura organizacional",
-      "Identificação das áreas envolvidas",
-      "Mapeamento dos stakeholders"
-    ],
-    examTopics: [
-      "Governança Corporativa",
-      "Compliance",
-      "SOX",
-      "Controles Internos",
-      "Stakeholders"
-    ],
-    sections: [
-      {
-        type: "intro",
-        title: "Antes de falar de TI... precisamos falar da empresa.",
-        content: `
-
-Uma organização não existe apenas para produzir bens ou prestar serviços.
-
-Ela precisa tomar decisões continuamente, administrar riscos, atender leis, prestar contas aos investidores e manter sua reputação perante clientes, fornecedores e a sociedade.
-
-A Governança Corporativa surgiu justamente para organizar esse processo decisório.
-
-A Governança de TI nasce dentro desse contexto.
-
-Ou seja, a TI não cria suas próprias regras.
-
-Ela existe para apoiar a estratégia definida pela Governança Corporativa.
-
-`
-      },
-      {
-        type: "timeline",
-        title: "Como chegamos até aqui?",
-        events: [
-
-          {
-            year: "Década de 1980",
-            title: "Crescimento da informatização",
-            description: "A TI passa a controlar processos críticos das empresas."
-          },
-          {
-            year: "Década de 1990",
-            title: "Expansão da Internet",
-            description: "A dependência tecnológica aumenta rapidamente."
-          },
-          {
-            year: "2001",
-            title: "Escândalo Enron",
-            description: "Fraudes financeiras revelam graves falhas de controles corporativos."
-          },
-          {
-            year: "2002",
-            title: "Lei Sarbanes-Oxley",
-            description: "Maior marco regulatório para controles internos."
-          },
-          {
-            year: "Hoje",
-            title: "Governança Digital",
-            description: "Dados, IA, segurança, LGPD e transformação digital tornam a Governança ainda mais estratégica."
-          }
-
-        ]
-      },
-      {
-        type: "heading",
-        title: "O que é Governança Corporativa?"
-      },
-      {
-        type: "paragraph",
-        content: `
-
-Governança Corporativa é o conjunto de mecanismos utilizados para dirigir, monitorar e controlar uma organização.
-
-Ela busca equilibrar os interesses dos diversos participantes da empresa, garantindo transparência, responsabilidade e sustentabilidade.
-
-Segundo o Instituto Brasileiro de Governança Corporativa (IBGC), uma boa governança reduz conflitos de interesse e aumenta a confiança dos investidores.
-
-Enquanto a Governança Corporativa olha para toda a organização, a Governança de TI concentra-se especificamente no uso estratégico da tecnologia.
-
-`
+        title: "Conceito Chave de Prova",
+        content: "Governança DECIDE o direcionamento estratégico, estabelece limites e avalia resultados. Gestão EXECUTA as atividades operacionais diárias para entregar os serviços dentro dos limites estabelecidos."
       },
       {
         type: "comparison",
-        title: "Governança Corporativa x Governança de TI",
-        leftTitle: "Governança Corporativa",
-        rightTitle: "Governança de TI",
+        title: "Governança de TI x Gestão de TI",
+        leftTitle: "Governança de TI (EDM)",
+        rightTitle: "Gestão de TI (PBRM)",
         left: [
-          "Abrange toda a empresa",
-          "Define objetivos estratégicos",
-          "Relaciona-se ao Conselho",
-          "Protege investidores",
-          "Foca geração de valor"
+          "Definição de diretrizes, prioridades e limites organizacionais.",
+          "Foco em longo prazo e sustentabilidade do negócio.",
+          "Responsabilidade indelegável do Corpo Diretivo / Conselho / Alta Administração.",
+          "Modelo EDM: Avaliar (Evaluate), Dirigir (Direct) e Monitorar (Monitor).",
+          "Mede a entrega de valor global e conformidade."
         ],
         right: [
-          "Foca tecnologia",
-          "Alinha TI ao negócio",
-          "Relaciona-se ao CIO",
-          "Controla riscos tecnológicos",
-          "Garante retorno dos investimentos em TI"
-        ]
-      },
-      {
-        type: "highlight",
-        style: "primary",
-        title: "Importante",
-        content: `
-
-Toda Governança de TI faz parte da Governança Corporativa.
-
-Por outro lado, uma empresa pode possuir Governança Corporativa sem possuir uma Governança de TI estruturada.
-
-`
-      },
-      {
-        type: "heading",
-        title: "Quem são os Stakeholders?"
-      },
-      {
-        type: "paragraph",
-        content: `
-
-Stakeholders são todas as pessoas ou organizações que possuem interesse nos resultados da empresa.
-
-Cada decisão tomada pela organização afeta, direta ou indiretamente, algum stakeholder.
-
-A Governança existe justamente para equilibrar esses interesses.
-
-`
-      },
-      {
-        type: "table",
-        title: "Exemplos de Stakeholders",
-        headers: ["Stakeholder", "Interesse"],
-        rows: [
-
-          ["Acionistas", "Rentabilidade"],
-          ["Clientes", "Qualidade e atendimento"],
-          ["Funcionários", "Carreira e estabilidade"],
-          ["Fornecedores", "Relacionamento comercial"],
-          ["Governo", "Cumprimento das leis"],
-          ["Sociedade", "Impactos sociais e ambientais"]
-
+          "Planejamento, construção, execução e operação diária dos serviços.",
+          "Foco em curto e médio prazo (prazos, projetos e SLAs).",
+          "Responsabilidade dos Gerentes de TI, Coordenadores e Equipe Técnica.",
+          "Modelo PBRM: Planejar (Plan), Construir (Build), Executar (Run) e Monitorar (Monitor).",
+          "Mede eficiência operacional e metas técnicas."
         ]
       },
       {
         type: "heading",
-        title: "Compliance"
-      },
-      {
-        type: "paragraph",
-        content: `
-
-A palavra Compliance deriva do verbo inglês "to comply", que significa cumprir.
-
-Estar em Compliance significa atuar de acordo com leis, regulamentos, normas internas, contratos e princípios éticos.
-
-Não basta apenas obedecer à legislação.
-
-Uma organização madura desenvolve políticas internas, auditorias, treinamentos e controles para garantir que todos ajam corretamente.
-
-`
+        title: "Os 5 Pilares Clássicos da Governança de TI"
       },
       {
         type: "cards",
         cards: [
-
           {
-
-            title: "Leis",
-            icon: "fa-solid fa-scale-balanced",
-            content: "Cumprimento da legislação."
-
+            title: "1. Alinhamento Estratégico",
+            icon: "fa-solid fa-bullseye",
+            content: "Garantir a convergência entre o planejamento do negócio e os planos de TI."
           },
           {
-
-            title: "Normas",
-            icon: "fa-solid fa-book",
-            content: "ISO, COBIT, ITIL, políticas internas."
-
+            title: "2. Entrega de Valor",
+            icon: "fa-solid fa-chart-line",
+            content: "Assegurar que os investimentos tecnológicos entreguem os benefícios prometidos dentro do orçamento."
           },
           {
-
-            title: "Ética",
-            icon: "fa-solid fa-handshake",
-            content: "Fazer o correto mesmo quando ninguém está olhando."
-
+            title: "3. Gestão de Riscos",
+            icon: "fa-solid fa-shield-halved",
+            content: "Preservar os ativos da empresa identificando, avaliando e mitigando ameaças tecnológicas."
           },
           {
-
-            title: "Auditoria",
-            icon: "fa-solid fa-magnifying-glass",
-            content: "Verificar continuamente a conformidade."
-
+            title: "4. Gestão de Recursos",
+            icon: "fa-solid fa-server",
+            content: "Otimizar o uso de investimentos, infraestrutura, aplicações, dados e capital humano."
+          },
+          {
+            title: "5. Medição de Desempenho",
+            icon: "fa-solid fa-chart-column",
+            content: "Acompanhar a execução dos projetos e serviços através de indicadores quantitativos (KPIs)."
           }
-
-        ]
-
-      },
-      {
-        type: "heading",
-        title: "Sarbanes-Oxley (SOX)"
-      },
-      {
-        type: "paragraph",
-        content: `
-
-Após grandes escândalos corporativos, principalmente o caso Enron, o governo norte-americano criou em 2002 a Lei Sarbanes-Oxley.
-
-Seu objetivo foi aumentar a confiabilidade das demonstrações financeiras.
-
-Como praticamente todos os dados financeiros passam por sistemas informatizados, a TI tornou-se peça fundamental para atender essa legislação.
-
-Por esse motivo a SOX é considerada um dos principais fatores que impulsionaram a evolução da Governança de TI.
-
-`
-      },
-      {
-        type: "table",
-        title: "Principais requisitos da SOX",
-        headers: ["Seção", "Objetivo"],
-        rows: [
-
-          ["302", "Responsabilidade dos executivos pelas informações financeiras."],
-          ["404", "Avaliação dos controles internos."],
-          ["802", "Preservação de documentos e registros."]
-
-        ]
-      },
-      {
-        type: "callout",
-        style: "warning",
-        title: "Cai bastante em concursos",
-        icon: "fa-solid fa-triangle-exclamation",
-        content: `
-
-A Seção 404 da SOX exige que a empresa demonstre a eficácia dos seus controles internos.
-
-Como esses controles normalmente dependem da TI, sistemas, acessos, logs e bancos de dados passam a ser auditados.
-
-`
-      },
-      {
-        type: "heading",
-        title: "Ética na Governança de TI"
-      },
-      {
-        type: "list",
-        items: [
-
-          "Respeito às leis.",
-          "Proteção dos dados pessoais.",
-          "Uso responsável das informações.",
-          "Combate à fraude.",
-          "Transparência.",
-          "Responsabilidade social.",
-          "Sustentabilidade."
-
         ]
       },
       {
         type: "case",
-        title: "Caso para discussão",
-        company: "Empresa Beta",
-        content: `
+        title: "Estudo de Caso Prático",
+        company: "Varejista Alfa",
+        content: `A empresa Alfa investiu R$ 4 milhões na contratação de um ERP de última geração. O projeto técnico foi concluído dentro do prazo e do orçamento pela equipe de TI.
 
-Um gerente de TI possui privilégios para alterar dados financeiros do ERP.
+Contudo, após 1 ano, a diretoria comercial descobriu que 60% dos módulos do sistema não eram utilizados e a equipe de vendas continuava usando planilhas paralelas.
 
-Ao mesmo tempo, ele também é responsável por aprovar pagamentos.
-
-Essa situação viola um importante princípio da Governança Corporativa conhecido como Segregação de Funções (Segregation of Duties - SoD).
-
-Caso ocorra uma fraude, dificilmente será detectada.
-
-Como você resolveria esse problema?
-
-`
-
+Diagnóstico: A Gestão de TI cumpriu seu papel operacional (entregou o sistema), mas a Governança de TI falhou ao não validar se a solução realmente atendia às necessidades do negócio e se os usuários haviam sido capacitados.`
       },
       {
-        type: "exercise",
-        title: "Exercício",
-        statement: `
-
-Imagine que uma empresa está iniciando um programa de Governança de TI.
-
-Liste pelo menos cinco controles internos que deveriam existir para garantir conformidade.
-
-`
-
+        type: "pdgti",
+        title: "Ligação com o PDGTI (Capítulo 1)",
+        content: "No Capítulo 1 do PDGTI, a dupla ou estudante caracteriza a empresa escolhida, mapeia seu porte, setor econômico e define o papel que a TI desempenha (se a TI é um mero suporte operacional ou um vetor estratégico de inovação)."
       },
       {
         type: "glossary",
-        title: "Glossário",
+        title: "Glossário do Módulo 1",
         terms: [
-
-          {
-
-            term: "Stakeholder",
-            definition: "Pessoa ou organização interessada nos resultados da empresa."
-
-          },
-          {
-
-            term: "Compliance",
-            definition: "Conformidade com leis, normas e regulamentos."
-
-          },
-          {
-
-            term: "SOX",
-            definition: "Lei americana criada em 2002 para fortalecer controles internos."
-
-          },
-          {
-
-            term: "Controle Interno",
-            definition: "Procedimento criado para reduzir riscos."
-
-          }
-
+          { term: "EDM", definition: "Sigla para Evaluate, Direct e Monitor — as 3 tarefas de Governança na ISO 38500 e COBIT." },
+          { term: "PBRM", definition: "Sigla para Plan, Build, Run e Monitor — o ciclo fundamental de atividades de Gestão de TI." },
+          { term: "Agregação de Valor", definition: "Relação positiva entre os benefícios gerados pela tecnologia e os custos/riscos incorridos." }
         ]
-
-      },
-      {
-        type: "faq",
-        title: "Perguntas Frequentes",
-        questions: [
-
-          {
-
-            question: "SOX vale apenas para empresas americanas?",
-            answer: "Legalmente sim. Porém muitas empresas brasileiras listadas em bolsas americanas precisam cumprir seus requisitos. Além disso, seus princípios influenciaram boas práticas utilizadas mundialmente."
-
-          },
-          {
-
-            question: "Compliance é responsabilidade apenas do setor jurídico?",
-            answer: "Não. Todas as áreas da empresa participam do Compliance, inclusive a TI."
-
-          },
-          {
-
-            question: "Uma empresa pequena precisa de Governança?",
-            answer: "Sim. A complexidade será menor, mas os princípios permanecem os mesmos."
-
-          }
-
-        ]
-
-      },
-      {
-        type: "pdgti",
-        title: "Aplicando ao PDGTI",
-        content: `
-
-Nesta semana seu grupo deverá aprofundar o Capítulo 1 do PDGTI.
-
-Procure responder:
-
-• Quem toma as decisões estratégicas da empresa?
-
-• Existe um CIO?
-
-• Existe Comitê de TI?
-
-• Como a área de TI responde à diretoria?
-
-• Existem políticas formais?
-
-• Quais stakeholders devem ser considerados?
-
-Essas informações serão fundamentais para os próximos capítulos do documento.
-
-`
-
       },
       {
         type: "summary",
-        title: "Resumo da Aula",
+        title: "Resumo da Semana 1",
         bullets: [
-
-          "Governança de TI deriva da Governança Corporativa.",
-          "Compliance significa agir conforme leis e normas.",
-          "SOX fortaleceu os controles internos.",
-          "A TI participa diretamente da confiabilidade das informações.",
-          "Stakeholders influenciam as decisões organizacionais."
-
+          "Governança define 'O QUE' deve ser feito e 'QUEM' decide; Gestão executa 'COMO' fazer.",
+          "Investimentos em TI só fazem sentido quando alinhados às metas estratégicas da organização.",
+          "Os 5 pilares sustentam a maturidade da governança corporativa de tecnologia."
         ]
-
-      },
-      {
-        type: "review",
-        title: "Checklist",
-        checklist: [
-
-          "Consigo explicar Governança Corporativa.",
-          "Entendo o conceito de Compliance.",
-          "Sei explicar a importância da SOX.",
-          "Consigo identificar stakeholders.",
-          "Consegui relacionar esses conceitos ao PDGTI."
-
-        ]
-
       }
-
     ]
   },
+
   {
-    id: "mod-03",
-    title: "Módulo 3 — Alinhamento Estratégico de TI e Planejamento Estratégico",
-    subtitle: "Como garantir que a Tecnologia da Informação trabalhe em favor dos objetivos da organização",
-    icon: "fa-solid fa-bullseye",
-    estimatedReading: "55 a 70 min",
-    difficulty: "Intermediário",
+    id: "mod-02",
+    weekRef: "Semana 2",
+    title: "Módulo 2 — Governança Corporativa, SOX Act, Compliance e Ética",
+    subtitle: "Controles internos, SOX Seção 404, transparência e mitigação de riscos regulatórios",
+    icon: "fa-solid fa-building-shield",
+    estimatedReading: "40 a 55 min",
+    difficulty: "Fundamental",
     bibliography: [
-      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulo 2.",
-      "KAPLAN, Robert; NORTON, David. Organização Orientada para Estratégia.",
-      "COBIT 2019 - Governance and Management Objectives.",
-      "ISO/IEC 38500."
+      "BITTENCOURT, Carlos Magno Andriolli. Governança corporativa e compliance: planejamento e gestão estratégica. Curitiba: Contentus, 2020. Capítulos 1 e 2.",
+      "Sarbanes-Oxley Act (SOX Act de 2002 - Seções 302, 404 e 802).",
+      "Lei Geral de Proteção de Dados Pessoais (LGPD - Lei nº 13.709/2018)."
     ],
     learningObjectives: [
-
-      "Compreender o conceito de alinhamento estratégico.",
-      "Relacionar objetivos de negócio com objetivos de TI.",
-      "Entender a finalidade do PETI.",
-      "Identificar mecanismos de decisão em TI.",
-      "Aplicar os conceitos no diagnóstico do PDGTI."
-
+      "Compreender a relação de subordinação e alinhamento entre a Governança Corporativa e a Governança de TI.",
+      "Analisar o impacto histórico e prático da Lei Sarbanes-Oxley (SOX) sobre a área de tecnologia.",
+      "Entender os conceitos de Compliance, Ética Corporativa e Controles Gerais de TI (ITGC).",
+      "Aplicar o princípio da Segregação de Funções (SoD) para prevenção de fraudes em sistemas."
     ],
     relatedPDGTI: [
-      "Diagnóstico da situação atual",
-      "Levantamento das necessidades do negócio",
-      "Identificação dos objetivos estratégicos",
-      "Mapeamento dos problemas atuais"
+      "Capítulo 1 - Estrutura Organizacional e Mapeamento de Stakeholders",
+      "Capítulo 2 - Diagnóstico da Situação Atual de TI (Identificação de Falhas de Controle)"
     ],
     examTopics: [
-
-      "Alinhamento Estratégico",
-      "PETI",
-      "Objetivos Estratégicos",
-      "Mecanismos de decisão",
-      "Planejamento"
-
+      "Sarbanes-Oxley Act (Seção 404 - Avaliação de Controles Internos)",
+      "Controles Gerais de TI (ITGC - IT General Controls)",
+      "Segregação de Funções (SoD - Segregation of Duties)",
+      "Compliance Regulatório (LGPD, SOX, Bacen)"
     ],
     sections: [
       {
         type: "intro",
-        title: "Por que tantos projetos de TI fracassam?",
-        content: `
+        title: "A TI sob a Ótica da Governança Corporativa",
+        content: `A Governança Corporativa é o sistema pelo qual as organizações são dirigidas, monitoradas e incentivadas, envolvendo os relacionamentos entre sócios, conselho de administração, diretoria e órgãos de fiscalização.
 
-Imagine uma empresa que decide investir milhões de reais em um novo sistema de gestão.
+Após grandes escândalos financeiros no início dos anos 2000 (como os casos Enron e WorldCom nos EUA), constatou-se que demonstrações financeiras fraudulentas eram geradas ou manipuladas dentro de sistemas de informação sem rastreabilidade.
 
-O projeto termina dentro do prazo.
-
-O orçamento foi respeitado.
-
-O software funciona perfeitamente.
-
-Mesmo assim, alguns meses depois, a diretoria conclui que o investimento foi um fracasso.
-
-Como isso é possível?
-
-Porque um projeto pode ser tecnicamente perfeito e, ainda assim, não resolver nenhum problema importante do negócio.
-
-É exatamente esse cenário que o Alinhamento Estratégico procura evitar.
-
-A pergunta deixa de ser:
-
-"Qual tecnologia devemos comprar?"
-
-e passa a ser:
-
-"Quais objetivos estratégicos queremos alcançar?"
-
-A tecnologia passa a ser um meio, nunca um fim.
-
-`
-
-      },
-      {
-        type: "definition",
-        title: "Definição",
-        content: `
-
-Alinhamento Estratégico é o processo de garantir que pessoas, processos, investimentos e tecnologias estejam direcionados para apoiar os objetivos estratégicos da organização.
-
-Na Governança de TI, isso significa assegurar que toda decisão relacionada à tecnologia gere benefícios reais para o negócio.
-
-`
+Isso forçou a criação de regulamentações estritas como a Lei Sarbanes-Oxley (SOX), tornando a TI parte direta das auditorias de governança corporativa.`
       },
       {
         type: "callout",
-        style: "primary",
-        title: "Ideia-chave",
-        icon: "fa-solid fa-lightbulb",
-        content: `
-
-A TI não deve criar estratégias.
-
-Ela deve viabilizar a estratégia definida pela organização.
-
-`
-
-      },
-      {
-        type: "heading",
-        title: "A estratégia da empresa"
-
-      },
-      {
-        type: "paragraph",
-        content: `
-
-Toda organização possui um propósito.
-
-Esse propósito normalmente é traduzido em documentos estratégicos como:
-
-• Missão
-
-• Visão
-
-• Valores
-
-• Objetivos Estratégicos
-
-Esses elementos orientam todas as decisões organizacionais.
-
-A Governança de TI garante que a tecnologia caminhe exatamente na mesma direção.
-
-`
-
+        style: "warning",
+        icon: "fa-solid fa-gavel",
+        title: "Lei Sarbanes-Oxley (SOX - 2002)",
+        content: "A Seção 404 da SOX exige que executivos e auditores independentes atestem anualmente a eficácia dos Controles Internos sobre os relatórios financeiros. Como a contabilidade roda em ERPs, os Controles de TI (ITGC) tornaram-se obrigatórios por lei."
       },
       {
         type: "table",
-        title: "Dos objetivos ao uso da TI",
-        headers: ["Negócio", "Tecnologia"],
+        title: "Os 4 Pilares dos Controles Gerais de TI (ITGC para SOX)",
+        headers: ["Domínio de Controle", "Objetivo de Auditoria", "Exemplo Prático"],
         rows: [
-
-          [
-            "Expandir vendas",
-            "Implantar CRM e Business Intelligence"
-          ],
-          [
-            "Reduzir custos",
-            "Automatizar processos"
-          ],
-          [
-            "Melhorar atendimento",
-            "Portal do Cliente e Chatbots"
-          ],
-          [
-            "Maior segurança",
-            "Controles de acesso e SIEM"
-          ],
-          [
-            "Expandir internacionalmente",
-            "Infraestrutura em nuvem"
-          ]
-
+          ["Gestão de Acessos", "Garantir que apenas pessoas autorizadas acessem dados financeiros.", "Uso de autenticação forte e revisão periódica de privilégios de usuários."],
+          ["Gestão de Mudanças", "Garantir que alterações em sistemas sejam testadas e aprovadas antes da produção.", "Proibição de desenvolvedores publicarem código diretamente em produção."],
+          ["Operações de TI", "Garantir o processamento correto de rotinas diárias e backups.", "Monitoramento automatizado de rotinas batch e testes de restauração."],
+          ["Desenvolvimento de Sistemas", "Garantir que novas aplicações sigam requisitos de segurança e negócio.", "Validação formal de requisitos e testes de aceitação pelo usuário (UAT)."]
         ]
-
-      },
-      {
-        type: "framework",
-        title: "Planejamento Estratégico Empresarial",
-        description: "Antes do planejamento de TI existe o planejamento da organização.",
-        steps: [
-
-          "Missão",
-          "Visão",
-          "Valores",
-          "Objetivos Estratégicos",
-          "Indicadores",
-          "Projetos",
-          "Resultados"
-
-        ]
-
       },
       {
         type: "heading",
-        title: "PETI - Plano Estratégico de Tecnologia da Informação"
-
+        title: "Segregação de Funções (SoD - Segregation of Duties)"
       },
       {
         type: "paragraph",
-        content: `
-
-O PETI é o documento que traduz os objetivos estratégicos do negócio em iniciativas de Tecnologia da Informação.
-
-Ele responde perguntas como:
-
-• Quais tecnologias serão necessárias?
-
-• Quais projetos deverão ser executados?
-
-• Quais investimentos serão realizados?
-
-• Quais competências deverão ser desenvolvidas?
-
-O PETI normalmente possui horizonte entre três e cinco anos.
-
-`
-
+        content: "A Segregação de Funções é um princípio fundamental de controle interno que proíbe que uma única pessoa possua privilégios suficientes no sistema para executar e ocultar fraudes ou erros. Na TI, exige-se a separação estrita entre quem desenvolve o código, quem aprova a mudança e quem opera a produção."
       },
       {
-        type: "example",
-        title: "Exemplo",
-        content: `
-
-Objetivo estratégico da empresa:
-
-"Tornar-se líder regional em vendas online."
-
-Desdobramento no PETI:
-
-✔ Modernização do e-commerce
-
-✔ Infraestrutura em nuvem
-
-✔ Implantação de Analytics
-
-✔ Plataforma CRM
-
-✔ Segurança para pagamentos
-
-Observe que a TI não criou o objetivo.
-
-Ela criou iniciativas para alcançá-lo.
-
-`
-
+        type: "pdgti",
+        title: "Aplicação Prática no PDGTI (Capítulo 2)",
+        content: "No Capítulo 2, o grupo diagnostica a situação atual de conformidade da empresa, avaliando se existem políticas formais de segurança da informação, controle de acessos ou fragilidades de Segregação de Funções nos sistemas legados."
       },
       {
-        type: "process",
-        title: "Fluxo do Alinhamento Estratégico",
-        steps: [
-
-          "Planejamento Estratégico",
-          "Objetivos do Negócio",
-          "Objetivos da TI",
-          "Projetos de TI",
-          "Execução",
-          "Indicadores",
-          "Resultados"
-
+        type: "glossary",
+        title: "Glossário do Módulo 2",
+        terms: [
+          { term: "Compliance", definition: "Estar em conformidade com leis, normas externas, regulamentos e políticas internas." },
+          { term: "ITGC", definition: "Controles Gerais de TI que garantem a integridade dos sistemas e dados da organização." },
+          { term: "SoD", definition: "Segregação de Funções; divisão de tarefas para evitar conflitos de interesse e fraudes." }
         ]
+      },
+      {
+        type: "summary",
+        title: "Resumo da Semana 2",
+        bullets: [
+          "A Governança de TI viabiliza a transparência e conformidade exigidas pela Governança Corporativa.",
+          "A SOX 404 transformou a auditoria de TI em requisito obrigatório em empresas de capital aberto.",
+          "Controles de acesso, gestão de mudanças e segregação de funções são pilares de compliance."
+        ]
+      }
+    ]
+  },
 
+  {
+    id: "mod-03",
+    weekRef: "Semana 3",
+    title: "Módulo 3 — Alinhamento Estratégico de TI e PETI",
+    subtitle: "Conectando a TI à estratégia do negócio, diagnósticos e instrumentos de planejamento",
+    icon: "fa-solid fa-bullseye",
+    estimatedReading: "45 a 55 min",
+    difficulty: "Intermediário",
+    bibliography: [
+      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulo 2.",
+      "LUFTMAN, Jerry. Assessing Business-IT Alignment Maturity.",
+      "REZENDE, Denis Alcides. Planejamento Estratégico de Informação e Tecnologia da Informação. Atlas."
+    ],
+    learningObjectives: [
+      "Compreender o Modelo de Alinhamento Estratégico de Luftman (SAM).",
+      "Elaborar a estrutura de um Plano Estratégico de Tecnologia da Informação (PETI).",
+      "Realizar a Análise SWOT aplicada à gestão de TI no contexto do negócio.",
+      "Mapear mecanismos formais para priorização e tomada de decisão tecnológica."
+    ],
+    relatedPDGTI: [
+      "Capítulo 2 - Diagnóstico da Situação Atual de TI (Matriz SWOT da TI)",
+      "Capítulo 3 - Objetivos Estratégicos e Alinhamento com o Negócio"
+    ],
+    examTopics: [
+      "PETI (Plano Estratégico de Tecnologia da Informação)",
+      "Análise SWOT da TI (Forças, Oportunidades, Fraquezas, Ameaças)",
+      "Alinhamento Estratégico (Luftman - 6 Domínios de Maturidade)"
+    ],
+    sections: [
+      {
+        type: "intro",
+        title: "O Desafio do Alinhamento Estratégico",
+        content: `O Alinhamento Estratégico é a integração contínua entre a estratégia de negócios da organização e a estratégia de TI.
+
+Historicamente, a TI funcionava como uma 'caixa preta' reativa, atendendo solicitações operacionais sem compreender para onde a empresa desejava crescer.
+
+O alinhamento exige que toda decisão tecnológica — desde a migração para a nuvem até a compra de um software — possua justificativa clara conectada às metas de vendas, expansão, rentabilidade ou atendimento aos clientes.`
       },
       {
         type: "heading",
-        title: "Mecanismos de decisão em TI"
-
+        title: "O PETI — Plano Estratégico de Tecnologia da Informação"
       },
       {
         type: "paragraph",
-        content: `
+        content: "O PETI é o instrumento formal de planejamento que estabelece o direcionamento tecnológico para um horizonte de 3 a 5 anos. Ele define o estado atual da TI, a visão de futuro desejada, a arquitetura de sistemas e o plano de transição."
+      },
+      {
+        type: "table",
+        title: "Matriz SWOT Aplicada à TI Corporativa",
+        headers: ["Ambiente", "Fatores Positivos", "Fatores Negativos"],
+        rows: [
+          ["Ambiente Interno (Sob controle da TI)", "FORÇAS (Strengths): Equipe técnica altamente qualificada, infraestrutura em nuvem moderna, alta estabilidade do ERP.", "FRAQUEZAS (Weaknesses): Documentação desatualizada, processos manuais de deploy, dependência de fornecedor único."],
+          ["Ambiente Externo (Fora do controle)", "OPORTUNIDADES (Opportunities): Adoção de Inteligência Artificial para atendimento automatizado, expansão de e-commerce.", "AMEAÇAS (Threats): Novas regulamentações de segurança, ataques de ransomware, escassez de talentos no mercado."]
+        ]
+      },
+      {
+        type: "pdgti",
+        title: "Aplicação Prática no PDGTI (Capítulos 2 e 3)",
+        content: "No Capítulo 2 do PDGTI, os grupos elaboram a Matriz SWOT completa da TI da empresa estudada. No Capítulo 3, desdobram os Objetivos Estratégicos que guiarão os investimentos em tecnologia."
+      },
+      {
+        type: "glossary",
+        title: "Glossário do Módulo 3",
+        terms: [
+          { term: "PETI", definition: "Plano Estratégico de TI; documento executivo de planejamento tecnológico de médio/longo prazo." },
+          { term: "Análise SWOT", definition: "Ferramenta estratégica para avaliação de Forças, Fraquezas, Oportunidades e Ameaças." },
+          { term: "Visão de Futuro da TI", definition: "Declaração da arquitetura de TI ideal desejada pela empresa para os próximos anos." }
+        ]
+      },
+      {
+        type: "summary",
+        title: "Resumo da Semana 3",
+        bullets: [
+          "O alinhamento estratégico garante que a TI trabalhe ativamente para atingir as metas do negócio.",
+          "O PETI estabelece o roadmap de evolução da arquitetura e dos sistemas corporativos.",
+          "A análise SWOT direciona os esforços de correção das fraquezas e aproveitamento de oportunidades."
+        ]
+      }
+    ]
+  },
 
-Uma Governança eficiente define claramente quem possui autoridade para tomar decisões.
+  {
+    id: "mod-04",
+    weekRef: "Semana 4",
+    title: "Módulo 4 — Balanced Scorecard (BSC) de TI, Portfólio e Estruturas",
+    subtitle: "As 4 perspectivas do BSC, gestão do portfólio de projetos e comitês de governança",
+    icon: "fa-solid fa-chart-pie",
+    estimatedReading: "50 a 60 min",
+    difficulty: "Intermediário",
+    bibliography: [
+      "KAPLAN, Robert S.; NORTON, David P. A estratégia em ação: Balanced Scorecard. Rio de Janeiro: Elsevier.",
+      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulo 3."
+    ],
+    learningObjectives: [
+      "Desenvolver o Balanced Scorecard (BSC) aplicado à área de TI nas 4 perspectivas clássicas.",
+      "Construir o Mapa Estratégico de TI estabelecendo relações de causa e efeito.",
+      "Compreender a Gestão de Portfólio de Projetos de TI (Run, Grow, Transform).",
+      "Estruturar o Comitê Estratégico de TI e aplicar a Matriz RACI."
+    ],
+    relatedPDGTI: [
+      "Capítulo 3 - Mapa Estratégico de TI e Perspectivas do BSC",
+      "Capítulo 4 - Estrutura de Governança de TI e Matriz RACI"
+    ],
+    examTopics: [
+      "4 Perspectivas do BSC de TI (Financeira, Clientes/Usuários, Processos Internos, Aprendizado & Crescimento)",
+      "Gestão de Portfólio de TI (Run, Grow, Transform)",
+      "Matriz RACI (Responsible, Accountable, Consulted, Informed)",
+      "Comitê Estratégico de TI (Papéis e Atribuições)"
+    ],
+    sections: [
+      {
+        type: "intro",
+        title: "Medição Estratégica com o BSC de TI",
+        content: `O Balanced Scorecard (BSC), criado por Robert Kaplan e David Norton, revolucionou a gestão ao demonstrar que medir apenas indicadores financeiros é insuficiente para avaliar o sucesso de uma organização.
 
-Quanto maior a organização, maior a necessidade de estruturas formais.
-
-Entre os principais mecanismos destacam-se:
-
-`
-
+Aplicado à TI, o BSC desdobra a visão estratégica em quatro perspectivas equilibradas, mostrando como o aprendizado da equipe melhora os processos internos, o que satisfaz os usuários e resulta em valor financeiro.`
       },
       {
         type: "cards",
         cards: [
-
           {
-
-            title: "Comitê de TI",
+            title: "1. Perspectiva Financeira",
+            icon: "fa-solid fa-dollar-sign",
+            content: "Retorno sobre o Investimento (ROI de TI), otimização do orçamento, redução de custos operacionais e valor gerado."
+          },
+          {
+            title: "2. Perspectiva dos Clientes/Usuários",
             icon: "fa-solid fa-users",
-            content: "Prioriza investimentos e acompanha resultados."
-
+            content: "Satisfação dos usuários internos, cumprimento de SLAs, facilidade de uso dos sistemas e parceria de negócios."
           },
           {
-
-            title: "CIO",
-            icon: "fa-solid fa-user-tie",
-            content: "Responsável pela liderança estratégica da TI."
-
+            title: "3. Perspectiva dos Processos Internos",
+            icon: "fa-solid fa-gears",
+            content: "Qualidade na entrega de software, tempo de atendimento (MTTR), segurança da informação e estabilidade operacional."
           },
           {
-
-            title: "Políticas",
-            icon: "fa-solid fa-file-signature",
-            content: "Definem regras institucionais."
-
-          },
-          {
-
-            title: "Portfólio",
-            icon: "fa-solid fa-briefcase",
-            content: "Organiza todos os projetos de TI."
-
+            title: "4. Perspectiva do Aprendizado e Crescimento",
+            icon: "fa-solid fa-graduation-cap",
+            content: "Capacitação técnica da equipe, clima organizacional, retenção de talentos e adoção de novas tecnologias."
           }
-
         ]
-
-      },
-      {
-        type: "didYouKnow",
-        title: "Você sabia?",
-        content: `
-
-Segundo pesquisas do PMI, um dos principais motivos para o fracasso de projetos não é a tecnologia utilizada, mas a falta de alinhamento com os objetivos estratégicos da organização.
-
-`
-
       },
       {
         type: "heading",
-        title: "Problemas causados pelo desalinhamento"
+        title: "A Matriz RACI de Responsabilidades"
+      },
+      {
+        type: "paragraph",
+        content: "A Matriz RACI elimina a ambiguidade atribuindo papéis claros para cada decisão ou processo de TI. Regra estrita: Deve haver exatamente UM único aprovador ('Accountable') por atividade!"
+      },
+      {
+        type: "table",
+        title: "Estrutura da Matriz RACI",
+        headers: ["Sigla", "Papel na Atividade", "Definição Operacional"],
+        rows: [
+          ["R", "Responsible (Executor)", "Quem coloca a mão na massa e executa a tarefa."],
+          ["A", "Accountable (Aprovador)", "Quem possui a autoridade final e responde pelo resultado (apenas 1 por tarefa)."],
+          ["C", "Consulted (Consultado)", "Especialista ou área consultada antes de tomar a decisão."],
+          ["I", "Informed (Informado)", "Pessoa ou equipe notificada sobre o andamento e conclusão."]
+        ]
+      },
+      {
+        type: "pdgti",
+        title: "Aplicação Prática no PDGTI (Capítulos 3 e 4)",
+        content: "No Capítulo 3, os grupos desenham o Mapa Estratégico de TI. No Capítulo 4, definem a composição do Comitê Estratégico de TI e montam a Matriz RACI para os principais processos da empresa."
+      },
+      {
+        type: "glossary",
+        title: "Glossário do Módulo 4",
+        terms: [
+          { term: "Mapa Estratégico", definition: "Diagrama visual que conecta os objetivos das 4 perspectivas do BSC por relações de causa e efeito." },
+          { term: "Comitê Estratégico de TI", definition: "Órgão colegiado composto por lideranças de negócio e TI para deliberar sobre prioridades e orçamentos." }
+        ]
+      },
+      {
+        type: "summary",
+        title: "Resumo da Semana 4",
+        bullets: [
+          "O BSC de TI traduz a estratégia em indicadores distribuídos nas 4 perspectivas.",
+          "A Matriz RACI garante que cada processo de TI tenha um responsável direto e um aprovador único.",
+          "Comitês formais de TI evitam que decisões tecnológicas sejam tomadas de forma isolada."
+        ]
+      }
+    ]
+  },
 
+  {
+    id: "mod-05",
+    weekRef: "Semana 5",
+    title: "Módulo 5 — Gestão de Serviços, Relacionamento e Alocação de Recursos",
+    subtitle: "Modelos operacionais de atendimento, sourcing, orçamento e Entrega Parcial 1",
+    icon: "fa-solid fa-hand-holding-hand",
+    estimatedReading: "40 a 50 min",
+    difficulty: "Intermediário",
+    bibliography: [
+      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulo 4.",
+      "AXELOS. ITIL 4 Foundation: IT Service Management."
+    ],
+    learningObjectives: [
+      "Compreender a gestão financeira de TI distinguindo despesas de capital (Capex) e operacionais (Opex).",
+      "Avaliar estratégias de sourcing tecnológico (In-house, Outsourcing, Cloud Computing).",
+      "Consolidar a estrutura dos Capítulos 1 a 4 para a Entrega Parcial 1 do PDGTI."
+    ],
+    relatedPDGTI: [
+      "ENTREGA PARCIAL 1 DO PDGTI (Consolidação dos Capítulos 1, 2, 3 e 4)"
+    ],
+    examTopics: [
+      "Capex (Capital Expenditure) vs Opex (Operational Expenditure)",
+      "Modelos de Sourcing (Outsourcing, Insourcing, Shared Services)",
+      "Consolidação e Revisão da Entrega Parcial 1"
+    ],
+    sections: [
+      {
+        type: "intro",
+        title: "Gestão Financeira e Modelos de Recursos em TI",
+        content: `A alocação eficiente de recursos é um dos pilares centrais da Governança de TI. A TI precisa gerenciar seu orçamento com disciplina financeira, compreendendo o modelo de custos da organização.`
+      },
+      {
+        type: "comparison",
+        title: "Capex x Opex em TI Corporativa",
+        leftTitle: "Capex (Capital Expenditure)",
+        rightTitle: "Opex (Operational Expenditure)",
+        left: [
+          "Investimento em bens físicos/tangíveis (ativos da empresa).",
+          "Exemplo: Compra de servidores próprios, data center, licenças perpétuas.",
+          "Depreciação contabilizada ao longo de vários anos.",
+          "Exige alto desembolso inicial de caixa (Upfront cost)."
+        ],
+        right: [
+          "Despesas operacionais recorrentes de consumo de serviços.",
+          "Exemplo: Assinatura de software SaaS, nuvem (AWS/Azure), terceirização.",
+          "Abatido integralmente como despesa no exercício corrente.",
+          "Proporciona flexibilidade e escalabilidade conforme a demanda."
+        ]
+      },
+      {
+        type: "pdgti",
+        title: "Marco do PDGTI — Entrega Parcial 1",
+        content: "Nesta semana, os grupos submetem a Entrega Parcial 1 contendo o refinamento dos Capítulos 1 (Caracterização da Empresa), 2 (Diagnóstico SWOT da TI), 3 (Objetivos Estratégicos e BSC) e 4 (Estrutura de Governança, Comitê e Matriz RACI)."
+      },
+      {
+        type: "summary",
+        title: "Resumo da Semana 5",
+        bullets: [
+          "A migração para a nuvem transforma investimentos Capex em despesas previsíveis Opex.",
+          "A Entrega Parcial 1 consolida a base conceitual e diagnóstica do PDGTI."
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "mod-06",
+    weekRef: "Semana 7",
+    title: "Módulo 6 — Gestão de Desempenho em TI, Métricas e Indicadores (KPIs)",
+    subtitle: "Desenvolvimento de KPIs do negócio, linhas de base, metas e dashboards executivos",
+    icon: "fa-solid fa-chart-line",
+    estimatedReading: "45 a 55 min",
+    difficulty: "Intermediário",
+    bibliography: [
+      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulo 5.",
+      "ITIL v4 - Continual Improvement & Service Financial Management."
+    ],
+    learningObjectives: [
+      "Diferenciar métricas operacionais genéricas de Indicadores Chave de Desempenho (KPIs).",
+      "Definir linhas de base, metas SMART e frequência de apuração de indicadores de TI.",
+      "Compreender as métricas operacionais de serviços (SLA, MTTR, MTBF, FCR).",
+      "Projetar Dashboards Executivos para apresentação de resultados à diretoria."
+    ],
+    relatedPDGTI: [
+      "Capítulo 5 - Indicadores de Desempenho e Acordos de Nível de Serviço (SLAs)"
+    ],
+    examTopics: [
+      "Diferença entre Métrica Operacional e KPI",
+      "Métricas de Serviços: SLA (Service Level Agreement), MTTR, MTBF, FCR",
+      "Estabelecimento de Linha de Base (Baseline) e Metas SMART"
+    ],
+    sections: [
+      {
+        type: "intro",
+        title: "O que não se mede, não se gerencia",
+        content: `A Gestão de Desempenho em TI permite comprovar numericamente se os serviços e projetos estão atingindo os resultados esperados.
+
+Contudo, muitas organizações cometem o erro de criar centenas de métricas irrelevantes. A governança exige o foco em KPIs (Key Performance Indicators) alinhados diretamente aos objetivos estratégicos do negócio.`
+      },
+      {
+        type: "table",
+        title: "Principais Métricas Operacionais de Serviços de TI",
+        headers: ["Métrica", "Nome por Extenso", "Conceito e Significado"],
+        rows: [
+          ["SLA", "Service Level Agreement (Acordo de Nível de Serviço)", "Compromisso formal negociado entre a TI e o cliente sobre a qualidade do serviço."],
+          ["MTTR", "Mean Time To Repair (Tempo Médio de Reparo)", "Tempo médio necessário para resolver um incidente e restabelecer o serviço."],
+          ["MTBF", "Mean Time Between Failures (Tempo Médio entre Falhas)", "Indicador de confiabilidade que mede o tempo operacional entre duas paralisações."],
+          ["FCR", "First Contact Resolution (Resolução no Primeiro Contato)", "Percentual de chamados resolvidos logo no primeiro atendimento do Service Desk."]
+        ]
+      },
+      {
+        type: "callout",
+        style: "info",
+        icon: "fa-solid fa-bullseye",
+        title: "Metas SMART para KPIs",
+        content: "Toda meta de KPI deve ser SMART: Específica (Specific), Mensurável (Measurable), Atingível (Achievable), Relevante (Relevant) e Temporalmente definida (Time-bound)."
+      },
+      {
+        type: "pdgti",
+        title: "Aplicação Prática no PDGTI (Capítulo 5)",
+        content: "No Capítulo 5 do PDGTI, os alunos definem a tabela de KPIs da empresa estudada, informando o nome do indicador, fórmula de cálculo, linha de base atual, meta desejada e o responsável RACI."
+      },
+      {
+        type: "glossary",
+        title: "Glossário do Módulo 6",
+        terms: [
+          { term: "Linha de Base (Baseline)", definition: "Valor histórico atual do indicador antes da implementação de melhorias." },
+          { term: "Dashboard Executivo", definition: "Painel visual sintético com gráficos dos principais KPIs para decisão do C-Level." }
+        ]
+      },
+      {
+        type: "summary",
+        title: "Resumo da Semana 7",
+        bullets: [
+          "Métricas medem volumes; KPIs medem o alcance de objetivos estratégicos.",
+          "SLA, MTTR e MTBF são métricas essenciais para gestão de acordos de serviço.",
+          "Dashboards devem apresentar dados claros para orientação rápida de decisões."
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "mod-07",
+    weekRef: "Semana 10",
+    title: "Módulo 7 — Gestão de Riscos em TI, Compliance e Segurança da Informação",
+    subtitle: "Matriz de Riscos (Probabilidade x Impacto), mitigações e a norma ISO/IEC 27001",
+    icon: "fa-solid fa-shield-cat",
+    estimatedReading: "50 a 60 min",
+    difficulty: "Avançado",
+    bibliography: [
+      "ISO/IEC 27005:2018 - Information security risk management.",
+      "ISO 31000:2018 - Risk management — Guidelines.",
+      "ISO/IEC 27001:2022 - Information security, cybersecurity and privacy protection."
+    ],
+    learningObjectives: [
+      "Compreender a definição de risco tecnológico como o efeito da incerteza nos objetivos.",
+      "Mapear e calcular os riscos na Matriz 5x5 de Probabilidade x Impacto.",
+      "Aplicar as 4 estratégias de tratamento de riscos (Evitar, Mitigar, Transferir, Aceitar).",
+      "Entender a Triada CID da Segurança da Informação (Confidencialidade, Integridade, Disponibilidade)."
+    ],
+    relatedPDGTI: [
+      "Capítulo 6 - Gestão de Riscos, Segurança da Informação e Plano de Contingência"
+    ],
+    examTopics: [
+      "Cálculo de Risco (Risco = Probabilidade x Impacto)",
+      "4 Estratégias de Tratamento de Risco (Evitar, Mitigar, Transferir, Aceitar)",
+      "Tríade da Segurança da Informação (CID - Confidencialidade, Integridade, Disponibilidade)",
+      "RPO (Recovery Point Objective) e RTO (Recovery Time Objective)"
+    ],
+    sections: [
+      {
+        type: "intro",
+        title: "Gestão de Riscos Tecnológicos Corporativos",
+        content: `Toda organização exposta à tecnologia enfrenta riscos diários: ataques de ransomware, vazamento de dados de clientes (LGPD), falhas de hardware, desastres naturais ou indisponibilidade de links.
+
+A Gestão de Riscos de TI não busca eliminar todos os riscos (o que seria financeiramente inviável), mas sim identificar, analisar e manter os riscos dentro de níveis aceitáveis pela diretoria (Apetite ao Risco).`
+      },
+      {
+        type: "callout",
+        style: "warning",
+        icon: "fa-solid fa-triangle-exclamation",
+        title: "Fórmula Fundamental do Risco",
+        content: "Nível de Risco = Probabilidade de Ocorrência × Impacto no Negócio. Riscos classificados no quadrante crítico exigem plano de ação imediato."
+      },
+      {
+        type: "cards",
+        cards: [
+          {
+            title: "1. Evitar (Avoid)",
+            icon: "fa-solid fa-ban",
+            content: "Eliminar a atividade de risco (ex: cancelar um projeto inseguro ou descontinuar um sistema obsoleto)."
+          },
+          {
+            title: "2. Mitigar (Mitigate)",
+            icon: "fa-solid fa-wrench",
+            content: "Implementar controles para reduzir a probabilidade ou impacto (ex: instalar firewall, realizar backups, treinar equipe)."
+          },
+          {
+            title: "3. Transferir (Transfer)",
+            icon: "fa-solid fa-file-signature",
+            content: "Compartilhar o risco com terceiros (ex: contratar seguro cibernético ou terceirizar data center com SLA garantido)."
+          },
+          {
+            title: "4. Aceitar (Accept)",
+            icon: "fa-solid fa-check-double",
+            content: "Aceitar passivamente ou ativamente o risco residual quando o custo do controle for maior que o dano."
+          }
+        ]
+      },
+      {
+        type: "heading",
+        title: "A Tríade CID e Continuidades de Negócio"
+      },
+      {
+        type: "table",
+        title: "Métricas de Continuidade (BCP / DRP)",
+        headers: ["Métrica", "Nome por Extenso", "Conceito"],
+        rows: [
+          ["RPO", "Recovery Point Objective (Objetivo de Ponto de Recuperação)", "Mede a quantidade máxima aceitável de DADOS PERDIDOS em tempo (ex: backup de até 1 hora atrás)."],
+          ["RTO", "Recovery Time Objective (Objetivo de Tempo de Recuperação)", "Mede o tempo máximo aceitável que o SISTEMA PODE FICAR FORA DO AR até a restauração completa."]
+        ]
+      },
+      {
+        type: "pdgti",
+        title: "Aplicação Prática no PDGTI (Capítulo 6)",
+        content: "No Capítulo 6 do PDGTI, os grupos elaboram a Matriz de Riscos de TI com pelo menos 5 riscos reais da empresa, indicando probabilidade, impacto, estratégia de mitigação, RPO e RTO."
+      },
+      {
+        type: "glossary",
+        title: "Glossário do Módulo 7",
+        terms: [
+          { term: "Apetite ao Risco", definition: "Nível de risco que a diretoria da empresa está disposta a aceitar na busca de seus objetivos." },
+          { term: "Tríade CID", definition: "Os 3 pilares da segurança: Confidencialidade (acesso restrito), Integridade (dado não alterado) e Disponibilidade (sistema acessível)." }
+        ]
+      },
+      {
+        type: "summary",
+        title: "Resumo da Semana 10",
+        bullets: [
+          "Risco avalia a probabilidade e o impacto de eventos incertos nos objetivos organizacionais.",
+          "Existem 4 formas de tratar riscos: Evitar, Mitigar, Transferir ou Aceitar.",
+          "RPO mede perda de dados tolerável; RTO mede tempo de indisponibilidade tolerável."
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "mod-08",
+    weekRef: "Semana 12",
+    title: "Módulo 8 — Frameworks Globais: ISO/IEC 38500, COBIT 2019 e ITIL v4",
+    subtitle: "Análise comparativa das normas internacionais e harmonização dos modelos",
+    icon: "fa-solid fa-cubes",
+    estimatedReading: "55 a 70 min",
+    difficulty: "Avançado",
+    bibliography: [
+      "ISO/IEC 38500:2015 - Governance of IT for the Organization.",
+      "ISACA. COBIT 2019 Framework: Governance and Management Objectives.",
+      "AXELOS. ITIL 4 Foundation: IT Service Management. 2019."
+    ],
+    learningObjectives: [
+      "Dominar os 6 princípios da norma ISO/IEC 38500 e o modelo EDM.",
+      "Compreender a estrutura dos 5 domínios e 40 objetivos do COBIT 2019.",
+      "Entender o Sistema de Valor de Serviço (SVS) e as 4 Dimensões da ITIL v4.",
+      "Harmonizar a adoção conjunta de ISO 38500, COBIT e ITIL em um plano de governança."
+    ],
+    relatedPDGTI: [
+      "Capítulo 7 - Seleção, Adequação e Justificativa dos Frameworks de Governança"
+    ],
+    examTopics: [
+      "ISO 38500: 6 Princípios (Responsabilidade, Estratégia, Aquisição, Desempenho, Conformidade, Comportamento Humano)",
+      "COBIT 2019: 5 Domínios (EDM, APO, BAI, DSS, MEA) e 40 Objetivos",
+      "ITIL v4: 4 Dimensões e Práticas (Incidentes, Problemas, Mudanças, SLA, Service Desk)",
+      "Harmonização de Frameworks (ISO = O Que Exigir; COBIT = O Que Gerenciar; ITIL = Como Operar)"
+    ],
+    sections: [
+      {
+        type: "intro",
+        title: "Harmonização dos Frameworks Internacionais",
+        content: `Nenhum modelo isolado atende todas as necessidades de uma organização. A governança de alta maturidade utiliza a combinação harmônica das normas internacionais: a ISO 38500 estabelece as diretrizes do conselho; o COBIT estruturas os objetivos de gestão/governança; e a ITIL orienta a operação de serviços.`
+      },
+      {
+        type: "heading",
+        title: "1. Norma ISO/IEC 38500 — Os 6 Princípios Fundamentais"
+      },
+      {
+        type: "cards",
+        cards: [
+          { title: "1. Responsabilidade", icon: "fa-solid fa-user-check", content: "Todos entendem e aceitam suas responsabilidades no uso e oferta de TI." },
+          { title: "2. Estratégia", icon: "fa-solid fa-compass", content: "Os planos de TI alinham-se continuamente às necessidades do negócio." },
+          { title: "3. Aquisição", icon: "fa-solid fa-cart-shopping", content: "Investimentos são feitos com análises claras de viabilidade e risco." },
+          { title: "4. Desempenho", icon: "fa-solid fa-gauge-high", content: "A TI entrega os serviços com a qualidade e prazos exigidos." },
+          { title: "5. Conformidade", icon: "fa-solid fa-scale-balanced", content: "A TI atende rigorosamente a leis, regulamentos e contratos." },
+          { title: "6. Comportamento Humano", icon: "fa-solid fa-people-group", content: "Políticas de TI respeitam as necessidades e a cultura das pessoas." }
+        ]
+      },
+      {
+        type: "heading",
+        title: "2. Framework COBIT 2019 (ISACA) — Os 5 Domínios"
+      },
+      {
+        type: "table",
+        title: "Mapeamento dos 5 Domínios do COBIT 2019",
+        headers: ["Domínio", "Escopo e Foco", "Qtd. Objetivos"],
+        rows: [
+          ["EDM (Avaliar, Dirigir e Monitorar)", "Governança Corporativa de TI (Conselho / Alta Administração)", "5 Objetivos (EDM01 a EDM05)"],
+          ["APO (Alinhar, Planejar e Organizar)", "Gestão Estratégica, Arquitetura, Riscos e Custos", "14 Objetivos (APO01 a APO14)"],
+          ["BAI (Construir, Adquirir e Implementar)", "Gestão de Projetos, Mudanças e Desenvolvimento", "11 Objetivos (BAI01 a BAI11)"],
+          ["DSS (Entregar, Serviço e Suporte)", "Operações Diárias, Suporte, Incidentes e Segurança", "6 Objetivos (DSS01 a DSS06)"],
+          ["MEA (Monitorar, Avaliar e Analisar)", "Qualidade, Controles Internos e Conformidade", "4 Objetivos (MEA01 a MEA04)"]
+        ]
+      },
+      {
+        type: "heading",
+        title: "3. ITIL v4 (AXELOS) — As 4 Dimensões da Gestão de Serviços"
+      },
+      {
+        type: "cards",
+        cards: [
+          { title: "1. Organizações e Pessoas", icon: "fa-solid fa-users", content: "Cultura, papéis, competências e liderança." },
+          { title: "2. Informação e Tecnologia", icon: "fa-solid fa-database", content: "Sistemas, dados, bases de conhecimento e ferramentas." },
+          { title: "3. Parceiros e Fornecedores", icon: "fa-solid fa-handshake", content: "Contratos de terceiros, fornecedores em nuvem e integradores." },
+          { title: "4. Fluxos de Valor e Processos", icon: "fa-solid fa-route", content: "Sequências de atividades que transformam demandas em valor." }
+        ]
+      },
+      {
+        type: "comparison",
+        title: "Práticas Essenciais da ITIL v4",
+        leftTitle: "Gerenciamento de Incidentes x Problemas",
+        rightTitle: "Habilitação de Mudança x SLA",
+        left: [
+          "Incidente: Restabelecer a operação normal o mais rápido possível.",
+          "Problema: Investigar e eliminar as causas raízes dos incidentes repetitivos."
+        ],
+        right: [
+          "Mudança: Avaliar e autorizar alterações nos sistemas com mínimo risco.",
+          "SLA: Negociar e monitorar as metas formais de serviço com os usuários."
+        ]
+      },
+      {
+        type: "pdgti",
+        title: "Aplicação Prática no PDGTI (Capítulo 7)",
+        content: "No Capítulo 7 do PDGTI, os grupos escolhem quais objetivos do COBIT 2019 e quais práticas da ITIL v4 serão adotados na empresa, justificando como a combinação responde às dores levantadas no diagnóstico."
+      },
+      {
+        type: "glossary",
+        title: "Glossário do Módulo 8",
+        terms: [
+          { term: "COBIT 2019", definition: "Framework global da ISACA para governança e gestão de TI corporativa." },
+          { term: "ITIL v4", definition: "Conjunto de melhores práticas da AXELOS focado na gestão e entrega de serviços de TI." },
+          { term: "SVS", definition: "Sistema de Valor de Serviço da ITIL v4 que descreve como os componentes trabalham juntos para co-criar valor." }
+        ]
+      },
+      {
+        type: "summary",
+        title: "Resumo da Semana 12",
+        bullets: [
+          "A ISO 38500 orienta o Conselho; o COBIT estrutura a gestão; a ITIL orienta os serviços.",
+          "O COBIT 2019 possui 40 objetivos divididos em 5 domínios (EDM, APO, BAI, DSS, MEA).",
+          "ITIL v4 foca nas 4 dimensões e na co-criação de valor sustentável."
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "mod-09",
+    weekRef: "Semana 13",
+    title: "Módulo 9 — Qualidade e Maturidade de Software: CMMI, MR-MPS-SW, ISO 12207 e ISO 25010",
+    subtitle: "Modelos de maturidade, ciclo de vida e a norma ISO/IEC 25010 (sucessora da ISO 9126)",
+    icon: "fa-solid fa-code-branch",
+    estimatedReading: "50 a 65 min",
+    difficulty: "Avançado",
+    bibliography: [
+      "CMMI Institute. CMMI V2.0 Model Overview.",
+      "SOFTTEX. Guia Geral MPS.BR - Modelo de Referência MR-MPS-SW.",
+      "ISO/IEC 25010:2011 Standard - Systems and software Quality Requirements and Evaluation (SQuaRE) [Sucessora da ISO 9126]."
+    ],
+    learningObjectives: [
+      "Diferenciar Maturidade de Processo (CMMI/MPS.BR) de Qualidade de Produto (ISO 25010).",
+      "Compreender os 5 Níveis de Maturidade do CMMI V2.0 e os 7 Níveis do MR-MPS-SW.",
+      "Dominar as TODAS as 8 Características de Qualidade de Software da ISO/IEC 25010.",
+      "Entender os processos do ciclo de vida de software da norma ISO/IEC 12207."
+    ],
+    relatedPDGTI: [
+      "Capítulo 8 - Plano de Melhoria de Processos e Qualidade de Software"
+    ],
+    examTopics: [
+      "Níveis de Maturidade CMMI V2.0 (1 a 5) e MR-MPS-SW (G a A)",
+      "ISO/IEC 25010 (8 Características de Qualidade de Produto de Software)",
+      "Atualização Normativa: ISO 25010 como sucessora oficial da antiga ISO 9126"
+    ],
+    sections: [
+      {
+        type: "intro",
+        title: "Maturidade de Processos x Qualidade de Software",
+        content: `Para garantir entregas de sistemas estáveis e funcionais, a governança atua em duas frentes: na maturidade dos processos de desenvolvimento (CMMI e MPS.BR) e na medição da qualidade do produto de software final (ISO 25010).`
+      },
+      {
+        type: "table",
+        title: "Comparativo de Níveis de Maturidade: CMMI V2.0 x MR-MPS-SW",
+        headers: ["Nível CMMI V2.0", "Nível MR-MPS-SW (Softex)", "Descrição do Estágio da Organização"],
+        rows: [
+          ["Nível 1 - Inicial", "Nível G - Em Realização", "Processos imprevisíveis, caóticos e dependentes do esforço individual de 'heróis'."],
+          ["Nível 2 - Gerenciado", "Nível F/E - Gerenciado / Parcialmente Definido", "Projetos possuem planejamento básico, controle de requisitos e estimativas."],
+          ["Nível 3 - Definido", "Nível D/C - Definido / Largo Alcance", "Processos de engenharia de software são padronizados em toda a empresa."],
+          ["Nível 4 - Gerenciado Quantitativamente", "Nível B - Gerenciado Quantitativamente", "Processos são medidos e controlados por métricas estatísticas."],
+          ["Nível 5 - Em Otimização", "Nível A - Em Otimização", "Foco contínuo na melhoria dos processos, inovação e prevenção de defeitos."]
+        ]
+      },
+      {
+        type: "callout",
+        style: "warning",
+        icon: "fa-solid fa-triangle-exclamation",
+        title: "Atualização Normativa Obrigatória de Prova",
+        content: "A antiga norma ISO/IEC 9126 foi descontinuada e substituída pela família ISO/IEC 25010 (SQuaRE). A ISO 25010 estabelece 8 características de qualidade para produtos de software."
+      },
+      {
+        type: "heading",
+        title: "As 8 Características de Qualidade da ISO/IEC 25010"
+      },
+      {
+        type: "cards",
+        cards: [
+          { title: "1. Adequação Funcional", icon: "fa-solid fa-check-double", content: "Completude funcional, correção funcional e apropriabilidade funcional." },
+          { title: "2. Eficiência de Desempenho", icon: "fa-solid fa-gauge", content: "Comportamento em relação ao tempo de resposta, uso de recursos e capacidade." },
+          { title: "3. Compatibilidade", icon: "fa-solid fa-network-wired", content: "Coexistência em ambientes compartilhados e interoperabilidade com outros sistemas." },
+          { title: "4. Usabilidade", icon: "fa-solid fa-display", content: "Interface intuitiva, operabilidade, proteção contra erros do usuário e acessibilidade." },
+          { title: "5. Confiabilidade", icon: "fa-solid fa-shield", content: "Maturidade do código, disponibilidade, tolerância a falhas e capacidade de recuperação." },
+          { title: "6. Segurança", icon: "fa-solid fa-lock", content: "Confidencialidade dos dados, integridade, não-repúdio, rastreabilidade e autenticidade." },
+          { title: "7. Manutenibilidade", icon: "fa-solid fa-code", content: "Modularidade, reusabilidade, facilidade de análise, modificabilidade e testabilidade." },
+          { title: "8. Portabilidade", icon: "fa-solid fa-mobile-screen", content: "Facilidade de adaptação a novos ambientes, instalabilidade e substituibilidade." }
+        ]
+      },
+      {
+        type: "pdgti",
+        title: "Aplicação Prática no PDGTI (Capítulo 8)",
+        content: "No Capítulo 8 do PDGTI, os grupos avaliam o nível de maturidade atual da equipe de desenvolvimento da empresa e especificam quais características da ISO 25010 serão priorizadas nos testes de qualidade."
+      },
+      {
+        type: "glossary",
+        title: "Glossário do Módulo 9",
+        terms: [
+          { term: "CMMI", definition: "Capability Maturity Model Integration; modelo global de referência para maturidade de desenvolvimento." },
+          { term: "ISO/IEC 25010", definition: "Norma internacional vigente que define as 8 características de qualidade de software." },
+          { term: "MR-MPS-SW", definition: "Modelo de Referência para Software brasileiro mantido pela Softex, alinhado à ISO 12207 e CMMI." }
+        ]
+      },
+      {
+        type: "summary",
+        title: "Resumo da Semana 13",
+        bullets: [
+          "CMMI e MPS.BR medem a maturidade dos processos de desenvolvimento de software.",
+          "A ISO 25010 substituiu a ISO 9126 e define 8 características de qualidade do produto.",
+          "Processos maduros reduzem retrabalho e aumentam a previsibilidade das entregas."
+        ]
+      }
+    ]
+  },
+
+  {
+    id: "mod-10",
+    weekRef: "Semana 15",
+    title: "Módulo 10 — Implantando a Governança de TI, FCS e Gestão da Mudança",
+    subtitle: "Roteiro em 6 fases, Fatores Críticos de Sucesso (FCS), Kotter e Entrega Final",
+    icon: "fa-solid fa-rocket",
+    estimatedReading: "45 a 55 min",
+    difficulty: "Intermediário",
+    bibliography: [
+      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulos 8 e 9.",
+      "KOTTER, John P. Liderando Mudanças (Leading Change). Harvard Business Review Press."
+    ],
+    learningObjectives: [
+      "Mapear o roteiro prático de implantação da Governança de TI em 6 Fases.",
+      "Identificar os Fatores Críticos de Sucesso (FCS) e garantir o patrocínio executivo (Sponsorship).",
+      "Dominar TODOS OS 8 PASSOS de John Kotter para a Gestão da Mudança Organizacional.",
+      "Consolidar a estrutura executiva da Entrega Final do PDGTI."
+    ],
+    relatedPDGTI: [
+      "Capítulo 9 - Roadmap de Implantação, Cronograma em Ondas e Matriz de Benefícios",
+      "ENTREGA FINAL DO PLANO DIRETOR DE GOVERNANÇA DE TI (PDGTI)"
+    ],
+    examTopics: [
+      "Roteiro de Implantação em 6 Fases (Sensibilização, Diagnóstico, Desenho, Plano, Piloto, Monitoramento)",
+      "Fatores Críticos de Sucesso (FCS - Critical Success Factors)",
+      "Os 8 Passos Completos de Kotter para Gestão da Mudança",
+      "Vitórias Rápidas (Quick Wins)"
+    ],
+    sections: [
+      {
+        type: "intro",
+        title: "O Desafio da Implantação Prática",
+        content: `Elaborar um excelente plano conceitual não garante resultados se a organização não conseguir executá-lo. A implantação da Governança de TI é, acima de tudo, um projeto de transformação cultural e organizacional.
+
+Superar a resistência dos colaboradores, manter o engajamento dos executivos e demonstrar resultados rápidos (Quick Wins) são os fatores decisivos para a longevidade da governança.`
+      },
+      {
+        type: "timeline",
+        title: "Roteiro de Implantação em 6 Fases (Fernandes & Abreu)",
+        events: [
+          { year: "Fase 1", title: "Sensibilização e Alinhamento", description: "Conscientizar o Conselho e a Diretoria Executiva sobre a necessidade e retornos da governança." },
+          { year: "Fase 2", title: "Diagnóstico Situacional", description: "Avaliar o estado atual da TI, riscos, processos e lacunas de maturidade (Gap Analysis)." },
+          { year: "Fase 3", title: "Desenho do Modelo", description: "Definir a estrutura do Comitê de TI, políticas corporativas, matriz RACI e frameworks." },
+          { year: "Fase 4", title: "Planejamento e Roadmap", description: "Priorizar projetos em ondas de execução, orçamentos e cronogramas executivos." },
+          { year: "Fase 5", title: "Execução dos Projetos Piloto", description: "Implementar projetos-piloto de alto impacto e vitórias rápidas (Quick Wins)." },
+          { year: "Fase 6", title: "Monitoramento e Institucionalização", description: "Acompanhar os KPIs do BSC e consolidar a melhoria contínua na cultura corporativa." }
+        ]
+      },
+      {
+        type: "heading",
+        title: "Os 8 Passos Completos de Kotter para Gestão da Mudança"
       },
       {
         type: "list",
         items: [
-
-          "Projetos sem retorno financeiro.",
-          "Duplicidade de sistemas.",
-          "Baixa satisfação dos usuários.",
-          "Custos elevados.",
-          "Baixa competitividade.",
-          "Desperdício de recursos.",
-          "Decisões baseadas em tecnologia e não em estratégia."
-
-        ]
-
-      },
-      {
-        type: "case",
-        title: "Estudo de Caso",
-        company: "Hospital Vida",
-        content: `
-
-A direção decidiu reduzir o tempo médio de atendimento aos pacientes.
-
-Enquanto isso, o departamento de TI propôs investir em novos servidores para o datacenter.
-
-Embora tecnicamente interessante, esse investimento não resolveria o principal problema do hospital.
-
-Após reuniões entre diretoria e TI, o projeto foi alterado.
-
-Em vez de infraestrutura, decidiu-se implantar um sistema de triagem eletrônica integrado ao prontuário.
-
-Resultado:
-
-• Atendimento mais rápido.
-
-• Redução das filas.
-
-• Melhor experiência dos pacientes.
-
-A tecnologia passou a apoiar diretamente o objetivo estratégico.
-
-`
-
-      },
-      {
-        type: "commonMistakes",
-        title: "Erros comuns",
-        mistakes: [
-
-          "Comprar tecnologia antes de identificar necessidades.",
-          "Confundir inovação com estratégia.",
-          "Executar projetos sem indicadores.",
-          "Não envolver a diretoria.",
-          "Ignorar prioridades do negócio."
-
-        ]
-
-      },
-      {
-        type: "exercise",
-        title: "Aplicação",
-        statement: `
-
-Escolha uma organização (real ou fictícia).
-
-Defina três objetivos estratégicos.
-
-Para cada objetivo proponha duas iniciativas de TI que contribuam diretamente para seu alcance.
-
-Explique por que essas iniciativas estão alinhadas ao negócio.
-
-`
-
-      },
-      {
-        type: "pdgti",
-        title: "Aplicando ao PDGTI",
-        content: `
-
-Nesta semana seu grupo iniciará o Capítulo 2.
-
-Antes de propor qualquer solução tecnológica responda:
-
-• Quais são os objetivos estratégicos da organização?
-
-• A TI atual contribui para esses objetivos?
-
-• Existem investimentos que não geram valor?
-
-• Quais problemas mais afetam o negócio?
-
-• Quais oportunidades poderiam ser exploradas?
-
-Esse diagnóstico será utilizado durante praticamente todo o restante do PDGTI.
-
-`
-
-      },
-      {
-        type: "takeaway",
-        title: "O que você deve lembrar desta aula?",
-        items: [
-
-          "Estratégia vem antes da tecnologia.",
-          "Toda iniciativa de TI deve apoiar objetivos organizacionais.",
-          "O PETI traduz estratégia em projetos de TI.",
-          "Alinhamento estratégico é um dos pilares da Governança.",
-          "Projetos de TI só fazem sentido quando geram valor para o negócio."
-
-        ]
-
-      },
-      {
-        type: "review",
-        title: "Checklist",
-        checklist: [
-
-          "Sei explicar o que é Alinhamento Estratégico.",
-          "Entendo a finalidade do PETI.",
-          "Consigo relacionar objetivos de negócio com iniciativas de TI.",
-          "Conheço os principais mecanismos de decisão.",
-          "Estou preparado para iniciar o diagnóstico estratégico do PDGTI."
-
-        ]
-
-      }
-
-    ]
-
-  },
-  {
-    id: "mod-04",
-    title: "Módulo 4 — Balanced Scorecard, Portfólio de TI e Estrutura da Governança",
-    icon: "fa-solid fa-chart-line",
-    bibliography: [
-      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulos 3 e 4.",
-      "KAPLAN, Robert; NORTON, David. A Estratégia em Ação (Balanced Scorecard).",
-      "COBIT 2019 – Governance and Management Objectives."
-    ],
-    learningObjectives: [
-      "Compreender como transformar objetivos estratégicos em indicadores.",
-      "Construir um Mapa Estratégico utilizando o Balanced Scorecard.",
-      "Entender o conceito de Portfólio de TI.",
-      "Conhecer mecanismos de decisão em Governança.",
-      "Relacionar indicadores de negócio com indicadores de TI."
-    ],
-    sections: [
-      {
-        type: "text",
-        title: "Por que medir a TI?",
-        content: `
-Após definir para onde a organização deseja ir, surge uma pergunta inevitável:
-
-**Como saber se a TI realmente está ajudando a empresa?**
-
-A resposta está na medição.
-
-Uma organização somente consegue melhorar aquilo que consegue medir.
-
-Governança de TI depende de indicadores que demonstrem se os investimentos realizados estão produzindo valor.
-
-Sem indicadores, decisões passam a ser baseadas em opiniões.
-
-Com indicadores, decisões passam a ser baseadas em evidências.
-`
-      },
-      {
-        type: "callout",
-        style: "success",
-        title: "Princípio da Governança",
-        content: `
-A Governança não controla pessoas.
-
-A Governança controla resultados.
-
-Por isso indicadores são tão importantes.
-`
-      },
-      {
-        type: "text",
-        title: "Balanced Scorecard (BSC)",
-        content: `
-Criado por Robert Kaplan e David Norton, o Balanced Scorecard é uma metodologia para traduzir a estratégia em objetivos mensuráveis.
-
-Em vez de analisar apenas resultados financeiros, o BSC observa quatro perspectivas diferentes.
-
-Essas perspectivas se influenciam mutuamente.
-
-Aprender → melhorar processos → satisfazer clientes → gerar resultados financeiros.
-`
-      },
-      {
-        type: "table",
-        title: "As quatro perspectivas do BSC",
-        headers: ["Perspectiva", "Pergunta Principal", "Exemplos em TI"],
-        rows: [
-          [
-            "Financeira",
-            "Como a TI gera valor financeiro?",
-            "Redução de custos, ROI dos projetos, economia com cloud."
-          ],
-          [
-            "Clientes",
-            "Como os usuários enxergam a TI?",
-            "Satisfação dos usuários, SLA, disponibilidade."
-          ],
-          [
-            "Processos Internos",
-            "Quais processos precisam melhorar?",
-            "Tempo de atendimento, incidentes, mudanças."
-          ],
-          [
-            "Aprendizado e Crescimento",
-            "Como a TI continuará evoluindo?",
-            "Treinamentos, inovação, certificações, cultura."
-          ]
-        ]
-      },
-      {
-        type: "diagram",
-        title: "Fluxo lógico do Balanced Scorecard",
-        mermaid: `
-flowchart LR
-
-A[Aprendizado e Crescimento]
-
-B[Melhoria dos Processos]
-
-C[Satisfação dos Clientes]
-
-D[Resultados Financeiros]
-
-A --> B
-B --> C
-C --> D
-`
-      },
-      {
-        type: "example",
-        title: "Exemplo prático",
-        content: `
-Uma empresa deseja aumentar suas vendas online.
-
-Objetivo estratégico:
-
-"Aumentar em 20% as vendas."
-
-Como a TI contribui?
-
-• Implantação de novo e-commerce
-• Melhor desempenho do site
-• Segurança nas transações
-• Integração com ERP
-
-Agora surgem indicadores.
-
-Financeiro:
-• ROI do projeto
-
-Cliente:
-• Tempo médio de carregamento
-• Satisfação dos usuários
-
-Processos:
-• Tempo para corrigir falhas
-
-Aprendizado:
-• Equipe treinada em DevOps
-`
-      },
-      {
-        type: "text",
-        title: "Mapa Estratégico",
-        content: `
-O Mapa Estratégico é uma representação visual das relações de causa e efeito entre objetivos.
-
-Ele mostra como investimentos em pessoas e tecnologia impactam processos, clientes e resultados financeiros.
-
-É uma ferramenta extremamente utilizada em Planejamento Estratégico de TI.
-`
-      },
-      {
-        type: "diagram",
-        title: "Exemplo de mapa estratégico",
-        mermaid: `
-flowchart TD
-
-A[Capacitar Equipe]
-
-B[Melhorar Processos]
-
-C[Melhorar Serviços]
-
-D[Aumentar Satisfação]
-
-E[Gerar Valor]
-
-A --> B
-B --> C
-C --> D
-D --> E
-`
-      },
-      {
-        type: "text",
-        title: "Portfólio de TI",
-        content: `
-Nem todo projeto merece investimento.
-
-Uma das funções da Governança é escolher onde investir.
-
-Esse conjunto de projetos recebe o nome de Portfólio de TI.
-
-O objetivo é priorizar aquilo que gera maior valor para a organização.
-`
-      },
-      {
-        type: "table",
-        title: "Exemplo de Portfólio",
-        headers: [
-          "Projeto",
-          "Valor para o negócio",
-          "Complexidade",
-          "Prioridade"
-        ],
-        rows: [
-          ["Migração para Cloud", "Alta", "Alta", "Alta"],
-          ["Novo ERP", "Muito Alta", "Muito Alta", "Muito Alta"],
-          ["Troca de notebooks", "Baixa", "Baixa", "Baixa"],
-          ["Implantação de BI", "Alta", "Média", "Alta"]
-        ]
-      },
-      {
-        type: "text",
-        title: "Mecanismos de decisão",
-        content: `
-Uma organização madura define claramente quem decide o quê.
-
-Isso evita conflitos.
-
-Também evita desperdício de recursos.
-
-Exemplos de decisões:
-
-• Comprar servidores
-• Contratar sistemas
-• Priorizar projetos
-• Aprovar orçamento
-• Definir políticas
-• Aceitar riscos
-`
-      },
-      {
-        type: "table",
-        title: "Exemplo de responsabilidades",
-        headers: [
-          "Decisão",
-          "Responsável"
-        ],
-        rows: [
-          ["Estratégia de TI", "Conselho"],
-          ["Orçamento", "Diretoria"],
-          ["Projetos", "Comitê de TI"],
-          ["Execução", "Gerência de TI"]
-        ]
-      },
-      {
-        type: "callout",
-        style: "warning",
-        title: "Erro comum",
-        content: `
-Muitas empresas escolhem projetos porque alguém "acha importante".
-
-Na Governança isso não acontece.
-
-Projetos são escolhidos por critérios previamente definidos.
-`
-      },
-      {
-        type: "framework",
-        title: "Onde isso aparece no COBIT?",
-        items: [
-          "EDM02 — Garantir Entrega de Benefícios",
-          "APO05 — Gerenciar Portfólio",
-          "APO06 — Gerenciar Orçamento",
-          "APO02 — Gerenciar Estratégia",
-          "MEA01 — Monitorar Desempenho"
+          "1. Criar um Senso de Urgência: Demonstrar com dados reais os riscos de manter a TI desalinhada e as oportunidades perdidas.",
+          "2. Formar uma Coalizão Orientadora Forte: Reunir líderes influentes do negócio e da TI para guiar a mudança.",
+          "3. Desenvolver uma Visão Estratégica e Iniciativas: Criar uma visão clara de futuro inspiradora materializada no PDGTI.",
+          "4. Comunicar a Visão da Mudança de Forma Ampla: Utilizar múltiplos canais para divulgar os objetivos da governança a todos os colaboradores.",
+          "5. Empoderar Colaboradores e Remover Barreiras: Eliminar burocracias, sistemas obsoletos e estruturas que impeçam a inovação.",
+          "6. Gerar Vitórias de Curto Prazo (Quick Wins): Alcançar metas visíveis de alto impacto nos primeiros meses para comprovar o valor do projeto.",
+          "7. Consolidar os Ganhos e Produzir Mais Mudanças: Usar a credibilidade das vitórias iniciais para reformar processos mais complexos.",
+          "8. Ancorar as Novas Abordagens na Cultura Organizacional: Incorporar a governança nas rotinas diárias e integração de novos funcionários."
         ]
       },
       {
         type: "pdgti",
-        title: "Aplicação no PDGTI",
-        content: `
-Nesta semana os grupos deverão produzir o Capítulo 3 do PDGTI.
-
-O documento deverá conter:
-
-• Objetivos estratégicos da organização
-
-• Objetivos estratégicos da TI
-
-• Mapa Estratégico
-
-• Balanced Scorecard
-
-• Portfólio de Projetos
-
-• Critérios de priorização
-
-• Relação entre objetivos do negócio e objetivos da TI
-`
+        title: "Marco do PDGTI — Entrega Final Completa",
+        content: "No Capítulo 9, o grupo apresenta o Roadmap final em ondas, a estimativa de investimentos, os Fatores Críticos de Sucesso e submete a versão executiva completa do PDGTI."
       },
       {
-        type: "reflection",
-        title: "Questões para reflexão",
-        questions: [
-          "Toda empresa precisa medir resultados da TI?",
-          "É possível justificar investimentos sem indicadores?",
-          "Como saber se um projeto realmente agregou valor?",
-          "Quais indicadores você utilizaria para medir uma universidade?",
-          "Quais indicadores mediriam uma startup?"
+        type: "glossary",
+        title: "Glossário do Módulo 10",
+        terms: [
+          { term: "Quick Wins", definition: "Vitórias rápidas; melhorias de baixo custo e implementação ágil que comprovam o valor da governança nos primeiros meses." },
+          { term: "Sponsorship", definition: "Patrocínio executivo ativo fornecido pela diretoria para respaldar as mudanças organizacionais." },
+          { term: "Kotter 8 Steps", definition: "Modelo clássico de liderança de transformação organizacional desenvolvido por John Kotter." }
         ]
       },
       {
         type: "summary",
-        title: "Resumo da Semana",
-        items: [
-          "Balanced Scorecard transforma estratégia em indicadores.",
-          "Mapa Estratégico mostra relações de causa e efeito.",
-          "Portfólio ajuda a escolher projetos prioritários.",
-          "Governança decide onde investir.",
-          "Indicadores permitem acompanhar geração de valor."
-        ]
-      }
-    ]
-  },
-  {
-    id: "mod-05",
-    title: "Módulo 5 — Estrutura Organizacional da Governança de TI, Políticas Corporativas e Mecanismos de Decisão",
-    icon: "fa-solid fa-sitemap",
-    bibliography: [
-      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulos 4 e 5.",
-      "COBIT 2019 – Governance and Management Objectives.",
-      "ISO/IEC 38500:2015."
-    ],
-    learningObjectives: [
-      "Compreender como a Governança é estruturada dentro das organizações.",
-      "Conhecer papéis e responsabilidades da Alta Administração, Comitês e TI.",
-      "Entender a importância das políticas corporativas.",
-      "Construir uma matriz RACI.",
-      "Definir mecanismos formais para tomada de decisão."
-    ],
-    sections: [
-      {
-        type: "text",
-        title: "Da estratégia para a organização",
-        content: `
-Nas semanas anteriores aprendemos como definir objetivos estratégicos e indicadores.
-
-Agora surge uma pergunta igualmente importante:
-
-Quem garante que tudo isso será realmente executado?
-
-A resposta está na estrutura de Governança.
-
-Governança não depende apenas de boas ideias.
-
-Ela depende de pessoas, responsabilidades, processos e regras claramente definidos.
-
-Quando todos sabem exatamente suas atribuições, as decisões tornam-se mais rápidas, transparentes e alinhadas aos objetivos organizacionais.
-`
-      },
-      {
-        type: "callout",
-        style: "success",
-        title: "Princípio da Governança",
-        content: `
-Governança eficiente não significa centralizar decisões.
-
-Significa definir claramente QUEM decide, O QUE decide e ATÉ ONDE pode decidir.
-`
-      },
-      {
-        type: "text",
-        title: "Estrutura Organizacional da Governança de TI",
-        content: `
-Embora cada organização possua características próprias, existe uma estrutura considerada referência.
-
-As decisões estratégicas permanecem com a Alta Administração.
-
-A Governança atua como elo entre o negócio e a área de Tecnologia.
-
-Já a Gestão executa aquilo que foi definido estrategicamente.
-`
-      },
-      {
-        type: "diagram",
-        title: "Estrutura simplificada de Governança",
-        mermaid: `
-flowchart TD
-
-A[Conselho de Administração]
-
-A --> B[Comitê Executivo]
-
-B --> C[Comitê Estratégico de TI]
-
-C --> D[CIO]
-
-D --> E[Gerência de TI]
-
-E --> F[Equipes Técnicas]
-`
-      },
-      {
-        type: "table",
-        title: "Papéis da Governança",
-        headers: [
-          "Nível",
-          "Responsabilidade Principal"
-        ],
-        rows: [
-          [
-            "Conselho",
-            "Direcionar estrategicamente a organização."
-          ],
-          [
-            "Diretoria",
-            "Definir prioridades e investimentos."
-          ],
-          [
-            "Comitê de TI",
-            "Avaliar projetos, riscos e indicadores."
-          ],
-          [
-            "CIO",
-            "Transformar decisões estratégicas em ações."
-          ],
-          [
-            "Gerentes",
-            "Planejar e executar processos."
-          ],
-          [
-            "Equipe Técnica",
-            "Executar atividades operacionais."
-          ]
-        ]
-      },
-      {
-        type: "text",
-        title: "O Comitê Estratégico de TI",
-        content: `
-O Comitê Estratégico de TI é considerado um dos principais mecanismos de Governança.
-
-Seu objetivo não é resolver problemas técnicos.
-
-Seu objetivo é tomar decisões estratégicas relacionadas à tecnologia.
-
-Normalmente participam:
-
-• Diretor Executivo
-
-• Diretor Financeiro
-
-• Diretor de Operações
-
-• CIO
-
-• Gestores das áreas de negócio
-
-As reuniões costumam ocorrer mensalmente ou trimestralmente.
-`
-      },
-      {
-        type: "table",
-        title: "Exemplos de decisões do Comitê",
-        headers: [
-          "Decisão",
-          "Exemplo"
-        ],
-        rows: [
-          [
-            "Investimentos",
-            "Aprovar implantação de ERP."
-          ],
-          [
-            "Prioridades",
-            "Escolher quais projetos iniciar."
-          ],
-          [
-            "Riscos",
-            "Aceitar ou mitigar riscos críticos."
-          ],
-          [
-            "Políticas",
-            "Aprovar Política de Segurança."
-          ],
-          [
-            "Indicadores",
-            "Avaliar desempenho da TI."
-          ]
-        ]
-      },
-      {
-        type: "text",
-        title: "Políticas Corporativas",
-        content: `
-Uma política é um documento institucional que estabelece regras gerais para determinado assunto.
-
-Ela orienta comportamentos, reduz ambiguidades e aumenta a padronização.
-
-Na Governança, políticas são instrumentos fundamentais.
-
-Elas garantem que todos atuem segundo os mesmos princípios.
-`
-      },
-      {
-        type: "table",
-        title: "Principais políticas de TI",
-        headers: [
-          "Política",
-          "Objetivo"
-        ],
-        rows: [
-          [
-            "Segurança da Informação",
-            "Proteger ativos e dados."
-          ],
-          [
-            "Uso Aceitável",
-            "Definir regras de utilização dos recursos."
-          ],
-          [
-            "Backup",
-            "Garantir recuperação das informações."
-          ],
-          [
-            "Controle de Acesso",
-            "Regular permissões dos usuários."
-          ],
-          [
-            "Aquisição de TI",
-            "Padronizar compras de tecnologia."
-          ],
-          [
-            "Gestão de Mudanças",
-            "Controlar alterações em produção."
-          ]
-        ]
-      },
-      {
-        type: "callout",
-        style: "info",
-        title: "Política não é procedimento",
-        content: `
-Uma Política responde:
-
-"O que deve ser seguido."
-
-Um Procedimento responde:
-
-"Como isso será realizado."
-
-Já uma Instrução de Trabalho detalha cada etapa operacional.
-`
-      },
-      {
-        type: "text",
-        title: "Matriz RACI",
-        content: `
-Uma das ferramentas mais utilizadas para definir responsabilidades é a Matriz RACI.
-
-Ela evita conflitos, sobreposição de funções e ausência de responsáveis.
-
-Cada atividade possui quatro possíveis papéis.
-`
-      },
-      {
-        type: "table",
-        title: "Modelo RACI",
-        headers: [
-          "Sigla",
-          "Significado",
-          "Função"
-        ],
-        rows: [
-          [
-            "R",
-            "Responsible",
-            "Executa a atividade."
-          ],
-          [
-            "A",
-            "Accountable",
-            "Responsável final pela entrega."
-          ],
-          [
-            "C",
-            "Consulted",
-            "É consultado antes da decisão."
-          ],
-          [
-            "I",
-            "Informed",
-            "Recebe comunicação após a decisão."
-          ]
-        ]
-      },
-      {
-        type: "example",
-        title: "Exemplo simplificado de RACI",
-        content: `
-Atividade:
-Implantar novo ERP.
-
-Diretoria:
-A
-
-CIO:
-R
-
-Financeiro:
-C
-
-Usuários:
-I
-`
-      },
-      {
-        type: "text",
-        title: "Mecanismos de decisão",
-        content: `
-Uma boa Governança estabelece critérios objetivos para tomada de decisão.
-
-Alguns exemplos:
-
-• Valor para o negócio
-
-• Risco
-
-• Custo
-
-• Retorno esperado
-
-• Alinhamento estratégico
-
-• Impacto regulatório
-
-Esses critérios evitam decisões baseadas apenas em preferências pessoais.
-`
-      },
-      {
-        type: "framework",
-        title: "Relacionamento com o COBIT",
-        items: [
-          "EDM01 — Garantir a Estrutura de Governança.",
-          "APO01 — Gerenciar o Framework de Gestão.",
-          "APO07 — Gerenciar Recursos Humanos.",
-          "APO08 — Gerenciar Relacionamentos.",
-          "APO13 — Gerenciar Segurança."
-        ]
-      },
-      {
-        type: "pdgti",
-        title: "Aplicação no PDGTI",
-        content: `
-Ao final desta semana os grupos deverão concluir a Entrega Parcial 1.
-
-O documento deverá conter:
-
-• Caracterização da organização
-
-• Diagnóstico da TI
-
-• Objetivos estratégicos
-
-• Balanced Scorecard
-
-• Estrutura da Governança
-
-• Organograma
-
-• Comitê Estratégico
-
-• Matriz RACI
-
-• Políticas iniciais de TI
-
-• Critérios de decisão
-`
-      },
-      {
-        type: "reflection",
-        title: "Questões para discussão",
-        questions: [
-          "Quem deveria participar do Comitê de TI em uma pequena empresa?",
-          "É possível existir Governança sem políticas formais?",
-          "Toda decisão tecnológica deveria passar pelo Comitê?",
-          "Quais riscos surgem quando não existe definição clara de responsabilidades?",
-          "Como uma Matriz RACI pode reduzir conflitos entre áreas?"
-        ]
-      },
-      {
-        type: "summary",
-        title: "Resumo da Semana",
-        items: [
-          "Governança depende de uma estrutura organizacional clara.",
-          "O Comitê Estratégico de TI é um dos principais mecanismos de Governança.",
-          "Políticas corporativas orientam comportamentos e decisões.",
-          "A Matriz RACI define responsabilidades de forma objetiva.",
-          "Critérios formais tornam a tomada de decisão mais transparente.",
-          "Entrega Parcial 1 do PDGTI consolida os quatro primeiros capítulos do projeto."
-        ]
-      }
-
-    ]
-  },
-  {
-    id: "mod-06",
-    title: "Módulo 6 — Geração de Valor, Gestão de Recursos e Relacionamento com Stakeholders",
-    icon: "fa-solid fa-handshake",
-    bibliography: [
-      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulos 5 e 6.",
-      "COBIT 2019 – Governance System and Components.",
-      "ISO/IEC 38500:2015.",
-      "VAL IT (ISACA)."
-    ],
-    learningObjectives: [
-      "Compreender o conceito de geração de valor pela TI.",
-      "Entender como ocorre a gestão de recursos de TI.",
-      "Conhecer os principais stakeholders da Governança.",
-      "Relacionar investimentos de TI aos benefícios esperados.",
-      "Consolidar os conhecimentos para a primeira avaliação."
-    ],
-    sections: [
-      {
-        type: "text",
-        title: "A finalidade da Governança",
-        content: `
-Após estudar estratégia, indicadores, políticas e estruturas organizacionais, surge uma pergunta fundamental:
-
-**Por que existe Governança de TI?**
-
-A resposta é simples:
-
-Gerar valor para a organização.
-
-Nenhuma empresa investe milhões em tecnologia para possuir servidores modernos ou softwares sofisticados.
-
-Ela investe para aumentar receitas, reduzir custos, minimizar riscos e criar vantagens competitivas.
-
-Tecnologia é um meio.
-
-Valor é o objetivo.
-`
-      },
-      {
-        type: "callout",
-        style: "success",
-        title: "A principal missão da Governança",
-        content: `
-Toda decisão sobre TI deve responder uma pergunta:
-
-"Como esta decisão gera valor para o negócio?"
-`
-      },
-      {
-        type: "text",
-        title: "O conceito de Valor",
-        content: `
-Valor não significa apenas lucro financeiro.
-
-Dependendo da organização, valor pode significar:
-
-• aumento da satisfação dos clientes;
-
-• maior segurança da informação;
-
-• redução de riscos;
-
-• conformidade legal;
-
-• inovação;
-
-• melhoria da imagem institucional;
-
-• maior produtividade;
-
-• continuidade do negócio.
-`
-      },
-      {
-        type: "table",
-        title: "Exemplos de geração de valor",
-        headers: [
-          "Investimento em TI",
-          "Valor esperado"
-        ],
-        rows: [
-          [
-            "Implantar ERP",
-            "Integração dos processos e redução de retrabalho."
-          ],
-          [
-            "Business Intelligence",
-            "Melhores decisões gerenciais."
-          ],
-          [
-            "Backup em nuvem",
-            "Continuidade do negócio."
-          ],
-          [
-            "Firewall",
-            "Redução dos riscos de segurança."
-          ],
-          [
-            "Portal do Cliente",
-            "Melhoria da experiência do usuário."
-          ]
-        ]
-      },
-      {
-        type: "text",
-        title: "Os recursos da Governança de TI",
-        content: `
-A Governança administra muito mais do que computadores.
-
-Ela coordena diversos recursos organizacionais.
-
-Esses recursos precisam ser utilizados da forma mais eficiente possível.
-`
-      },
-      {
-        type: "table",
-        title: "Recursos de TI",
-        headers: [
-          "Recurso",
-          "Exemplos"
-        ],
-        rows: [
-          [
-            "Pessoas",
-            "Analistas, desenvolvedores, gestores."
-          ],
-          [
-            "Informação",
-            "Bases de dados, documentos, conhecimento."
-          ],
-          [
-            "Infraestrutura",
-            "Servidores, redes, cloud."
-          ],
-          [
-            "Aplicações",
-            "ERP, CRM, sistemas internos."
-          ],
-          [
-            "Investimentos",
-            "Orçamento, contratos, licenças."
-          ]
-        ]
-      },
-      {
-        type: "callout",
-        style: "warning",
-        title: "Erro comum",
-        content: `
-Muitas organizações acreditam que Governança de TI administra apenas infraestrutura.
-
-Na realidade, ela administra recursos que geram valor para o negócio.
-`
-      },
-      {
-        type: "text",
-        title: "Stakeholders",
-        content: `
-Outro conceito importante é o de Stakeholder.
-
-Stakeholders são todas as partes interessadas que podem influenciar ou ser impactadas pelas decisões da organização.
-
-Cada grupo possui expectativas diferentes em relação à TI.
-`
-      },
-      {
-        type: "table",
-        title: "Principais stakeholders",
-        headers: [
-          "Stakeholder",
-          "Interesse"
-        ],
-        rows: [
-          [
-            "Conselho",
-            "Retorno dos investimentos."
-          ],
-          [
-            "Diretoria",
-            "Resultados estratégicos."
-          ],
-          [
-            "Clientes",
-            "Serviços confiáveis."
-          ],
-          [
-            "Funcionários",
-            "Ferramentas eficientes."
-          ],
-          [
-            "Fornecedores",
-            "Relacionamentos sustentáveis."
-          ],
-          [
-            "Órgãos reguladores",
-            "Conformidade."
-          ]
-        ]
-      },
-      {
-        type: "text",
-        title: "Relacionamento com clientes e usuários",
-        content: `
-A Governança busca aproximar a TI das áreas de negócio.
-
-A TI deixa de atuar apenas como suporte técnico e passa a ser parceira estratégica.
-
-Isso exige comunicação constante entre:
-
-• usuários;
-
-• gestores;
-
-• equipes técnicas;
-
-• diretoria.
-
-Quanto melhor esse relacionamento, maior será o alinhamento estratégico.
-`
-      },
-      {
-        type: "text",
-        title: "Relacionamento com fornecedores",
-        content: `
-Grande parte dos serviços de TI depende de fornecedores externos.
-
-Cloud Computing.
-
-ERP.
-
-Internet.
-
-Equipamentos.
-
-Consultorias.
-
-A Governança estabelece critérios para seleção, contratação, monitoramento e avaliação desses parceiros.
-
-Não basta contratar.
-
-É necessário acompanhar desempenho, qualidade e riscos.
-`
-      },
-      {
-        type: "framework",
-        title: "Onde isso aparece no COBIT?",
-        items: [
-          "EDM02 — Garantir Entrega de Benefícios.",
-          "EDM04 — Garantir Otimização dos Recursos.",
-          "APO08 — Gerenciar Relacionamentos.",
-          "APO10 — Gerenciar Fornecedores.",
-          "APO09 — Gerenciar Acordos de Serviço."
-        ]
-      },
-      {
-        type: "example",
-        title: "Caso para discussão",
-        content: `
-Uma universidade decide investir R$ 3 milhões em um novo sistema acadêmico.
-
-Após um ano:
-
-• o sistema funciona perfeitamente;
-
-• nenhum professor utiliza os recursos;
-
-• os alunos continuam reclamando;
-
-• os processos continuam lentos.
-
-Pergunta:
-
-O projeto foi um sucesso tecnológico.
-
-Mas foi um sucesso de Governança?
-
-Justifique sua resposta.
-`
-      },
-      {
-        type: "text",
-        title: "Preparação para a Prova 1",
-        content: `
-Até este momento da disciplina você já estudou:
-
-• Governança de TI
-
-• Governança Corporativa
-
-• Compliance
-
-• SOX
-
-• Alinhamento Estratégico
-
-• PETI
-
-• Balanced Scorecard
-
-• Portfólio
-
-• Estrutura Organizacional
-
-• Comitês
-
-• Políticas
-
-• Matriz RACI
-
-• Valor
-
-• Recursos
-
-• Stakeholders
-
-Todos esses conceitos estão diretamente relacionados e fazem parte do ciclo da Governança.
-`
-      },
-      {
-        type: "activity",
-        title: "Atividade do Projeto Integrador",
-        estimatedTime: "50 minutos",
-        instructions: `
-Durante a Semana do Projeto Integrador cada grupo deverá revisar criticamente os quatro primeiros capítulos do PDGTI.
-
-Verifique especialmente:
-
-• coerência entre objetivos estratégicos;
-
-• alinhamento entre negócio e TI;
-
-• indicadores do BSC;
-
-• estrutura organizacional;
-
-• papéis da Matriz RACI;
-
-• políticas propostas.
-
-Ao final, elabore uma lista das melhorias identificadas antes da Entrega Final.
-`,
-        deliverable: "Checklist de revisão do PDGTI."
-      },
-      {
-        type: "reflection",
-        title: "Questões para reflexão",
-        questions: [
-          "Toda tecnologia gera valor?",
-          "Quem define o que é valor para uma organização?",
-          "Como medir valor em uma universidade pública?",
-          "Um projeto pode ser tecnicamente perfeito e fracassar para o negócio?",
-          "Qual stakeholder costuma ser mais negligenciado pelas organizações?"
-        ]
-      },
-      {
-        type: "summary",
-        title: "Resumo da Semana",
-        items: [
-          "A finalidade da Governança é gerar valor para o negócio.",
-          "Valor não significa apenas retorno financeiro.",
-          "A Governança administra pessoas, processos, informação, infraestrutura e investimentos.",
-          "Stakeholders possuem interesses diferentes e precisam ser considerados nas decisões.",
-          "O relacionamento entre TI, usuários e fornecedores influencia diretamente o sucesso da Governança.",
-          "Esta semana consolida os principais conceitos antes da primeira avaliação."
-        ]
-      }
-
-    ]
-  },
-  {
-    id: "mod-07",
-    title: "Módulo 7 — Governança Corporativa de TI — ISO/IEC 38500 e COBIT 2019",
-    icon: "fa-solid fa-landmark",
-    bibliography: [
-      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulos 5 e 6.",
-      "ISACA. COBIT 2019 Framework: Introduction and Methodology.",
-      "ISO/IEC 38500:2015 - Governance of IT for the Organization."
-    ],
-    objective: `
-Compreender como a alta administração governa a Tecnologia da Informação,
-quais responsabilidades pertencem ao Conselho de Administração e quais pertencem
-à gestão executiva de TI. Ao final da aula o estudante deverá ser capaz de
-selecionar mecanismos de governança apropriados para sua organização e justificar
-a utilização da ISO/IEC 38500 e do COBIT no PDGTI.
-`,
-    sections: [
-      {
-        title: "1. Por que existem Frameworks de Governança?",
-        type: "content",
-        html: `
-<p>
-Até este momento da disciplina construímos o diagnóstico da organização,
-identificamos problemas, definimos objetivos estratégicos e criamos indicadores.
-Agora surge uma pergunta natural:
-</p>
-
-<blockquote>
-Como garantir que tudo isso continue funcionando daqui para frente?
-</blockquote>
-
-<p>
-A resposta está na Governança.
-Frameworks como a ISO/IEC 38500 e o COBIT não ensinam apenas processos.
-Eles definem <strong>como as decisões devem ser tomadas</strong>,
-quem possui autoridade para decidir e como verificar se a TI realmente gera valor
-para o negócio.
-</p>
-
-<div class="callout callout-info">
-<strong>Importante</strong><br>
-Governança não significa controlar computadores.
-Governança significa controlar decisões.
-</div>
-`
-      },
-      {
-        title: "2. Governança x Gestão (revisão aprofundada)",
-        type: "table",
-        headers: ["Governança", "Gestão"],
-        rows: [
-          ["Define direção estratégica", "Executa a estratégia"],
-          ["Avalia resultados", "Entrega resultados"],
-          ["Decide investimentos", "Gerencia projetos"],
-          ["Controla riscos", "Opera controles"],
-          ["Alta administração", "Gerentes e equipes técnicas"],
-          ["Longo prazo", "Curto e médio prazo"]
-        ]
-      },
-      {
-        title: "3. ISO/IEC 38500",
-        type: "content",
-        html: `
-<p>
-A ISO/IEC 38500 é uma norma internacional publicada para orientar a alta
-administração sobre como utilizar a Tecnologia da Informação de maneira ética,
-eficiente e alinhada aos objetivos da organização.
-</p>
-
-<p>
-Ela não define processos detalhados.
-Seu foco é orientar os dirigentes sobre o papel da Governança.
-</p>
-`
-      },
-      {
-        title: "4. Os seis princípios da ISO/IEC 38500",
-        type: "cards",
-        cards: [
-
-          {
-            title: "Responsabilidade",
-            text: "Todos devem compreender claramente suas responsabilidades relacionadas à TI."
-          },
-          {
-            title: "Estratégia",
-            text: "A TI deve apoiar diretamente os objetivos estratégicos da organização."
-          },
-          {
-            title: "Aquisição",
-            text: "Os investimentos em TI precisam gerar benefícios claramente identificáveis."
-          },
-          {
-            title: "Desempenho",
-            text: "Os serviços de TI devem entregar qualidade, disponibilidade e eficiência."
-          },
-          {
-            title: "Conformidade",
-            text: "A TI deve atender às leis, normas, contratos e políticas internas."
-          },
-          {
-            title: "Comportamento Humano",
-            text: "As decisões de TI devem considerar pessoas, cultura organizacional e gestão da mudança."
-          }
-
-        ]
-      },
-      {
-        title: "5. O modelo EDM",
-        type: "diagram",
-        html: `
-<div class="diagram">
-
-Avaliar (Evaluate)
-⬇
-
-Dirigir (Direct)
-⬇
-
-Monitorar (Monitor)
-
-</div>
-
-<p>
-Todo processo de Governança pode ser resumido nessas três atividades.
-</p>
-
-<ul>
-<li><strong>Evaluate:</strong> analisar necessidades do negócio.</li>
-<li><strong>Direct:</strong> estabelecer políticas e direcionamentos.</li>
-<li><strong>Monitor:</strong> verificar se os resultados estão sendo alcançados.</li>
-</ul>
-`
-      },
-      {
-        title: "6. COBIT 2019",
-        type: "content",
-        html: `
-<p>
-Enquanto a ISO/IEC 38500 responde <strong>"o que deve ser feito"</strong>,
-o COBIT responde <strong>"como organizar essa Governança".</strong>
-</p>
-
-<p>
-O COBIT é atualmente o framework mais utilizado para Governança e Gestão de TI.
-Foi desenvolvido pela ISACA e organiza os objetivos de governança e gestão em
-domínios claramente definidos.
-</p>
-`
-      },
-      {
-        title: "7. Estrutura do COBIT",
-        type: "table",
-        headers: ["Domínio", "Objetivo"],
-        rows: [
-          ["EDM", "Avaliar, Dirigir e Monitorar"],
-          ["APO", "Alinhar, Planejar e Organizar"],
-          ["BAI", "Construir, Adquirir e Implementar"],
-          ["DSS", "Entregar, Serviços e Suporte"],
-          ["MEA", "Monitorar, Avaliar e Analisar"]
-        ]
-      },
-      {
-        title: "8. COBIT x ISO 38500",
-        type: "comparison",
-        leftTitle: "ISO/IEC 38500",
-        rightTitle: "COBIT 2019",
-        left: [
-          "Norma internacional",
-          "Voltada ao Conselho",
-          "Princípios",
-          "Poucos detalhes operacionais",
-          "Foco em Governança"
-        ],
-        right: [
-          "Framework ISACA",
-          "Voltado à Governança e Gestão",
-          "Objetivos e práticas",
-          "Grande detalhamento",
-          "Pode ser implementado"
-        ]
-      },
-      {
-        title: "9. Exemplo prático",
-        type: "case",
-        html: `
-<h4>Caso: Hospital Vida+</h4>
-
-<p>
-O hospital pretende investir R$ 8 milhões em um novo prontuário eletrônico.
-Quem decide?
-</p>
-
-<ul>
-<li>A equipe de TI escolhe o fornecedor?</li>
-<li>O diretor financeiro aprova sozinho?</li>
-<li>Quem assume os riscos?</li>
-</ul>
-
-<p>
-Pela ISO 38500, a Alta Administração deve avaliar o investimento,
-definir diretrizes e acompanhar os resultados.
-O COBIT fornece os mecanismos para transformar essa decisão em processos,
-controles, indicadores e responsabilidades.
-</p>
-`
-      },
-      {
-        title: "10. Aplicação no PDGTI",
-        type: "activity",
-        html: `
-<h4>Capítulo 7 — Frameworks de Governança</h4>
-
-<p>O grupo deverá justificar:</p>
-
-<ul>
-
-<li>Por que escolheu utilizar o COBIT?</li>
-
-<li>Quais princípios da ISO/IEC 38500 serão adotados?</li>
-
-<li>Quais domínios do COBIT serão mais importantes para a empresa estudada?</li>
-
-<li>Como essas escolhas apoiam os objetivos estratégicos definidos anteriormente?</li>
-
-</ul>
-`
-      },
-      {
-        title: "11. Resumo da Aula",
-        type: "summary",
-        items: [
-          "Governança define direção.",
-          "Gestão executa as decisões.",
-          "ISO/IEC 38500 orienta a alta administração.",
-          "COBIT organiza Governança e Gestão.",
-          "EDM representa o núcleo da Governança.",
-          "Frameworks devem ser escolhidos conforme o contexto organizacional."
-        ]
-      },
-      {
-        title: "12. Leituras Recomendadas",
-        type: "reading",
-        items: [
-          "Fernandes & Abreu — Capítulos 5 e 6",
-          "COBIT 2019 Framework Overview",
-          "ISO/IEC 38500:2015",
-          "ISACA — Governance versus Management"
-        ]
-      }
-
-    ]
-  },
-  {
-    id: "mod-08",
-    title: "Módulo 8 — Gestão de Serviços de TI — ITIL 4 e ISO/IEC 20000",
-    icon: "fa-solid fa-headset",
-    bibliography: [
-      "FREITAS, Marcos André dos Santos. Fundamentos do Gerenciamento de Serviços de TI. 2. ed.",
-      "ITIL® 4 Foundation.",
-      "ISO/IEC 20000-1:2018 - Information Technology - Service Management."
-    ],
-    objective: `
-Compreender que o objetivo da TI não é apenas operar infraestrutura ou desenvolver
-software, mas entregar serviços que gerem valor ao negócio. Ao final desta aula,
-o estudante deverá compreender os princípios do ITIL 4, o conceito de Sistema de
-Valor de Serviço (SVS), o papel das principais práticas de gerenciamento de serviços
-e a relação entre ITIL e a norma ISO/IEC 20000.
-`,
-    sections: [
-      {
-        title: "1. O que é um Serviço de TI?",
-        type: "content",
-        html: `
-<p>
-Uma das maiores mudanças promovidas pelo ITIL foi alterar a forma como enxergamos a TI.
-Em vez de pensar em servidores, computadores ou sistemas, devemos pensar em
-<strong>serviços que entregam valor aos clientes</strong>.
-</p>
-
-<blockquote>
-Um serviço é um meio de possibilitar a criação de valor para o cliente,
-facilitando os resultados que ele deseja alcançar sem que precise gerenciar
-custos e riscos específicos.
-</blockquote>
-
-<p>
-Quando um colaborador acessa seu e-mail corporativo, abre um ERP ou solicita suporte
-ao Service Desk, ele não está utilizando um computador: ele está consumindo um
-<strong>serviço de TI</strong>.
-</p>
-
-<div class="callout callout-info">
-<strong>Exemplo:</strong><br>
-O usuário não quer um servidor funcionando.
-Ele quer conseguir emitir uma nota fiscal.
-</div>
-`
-      },
-      {
-        title: "2. Governança x Gestão de Serviços",
-        type: "table",
-        headers: ["Governança", "Gestão de Serviços"],
-        rows: [
-          ["Define objetivos estratégicos", "Entrega os serviços"],
-          ["Decide investimentos", "Opera processos"],
-          ["Controla riscos", "Executa atividades diárias"],
-          ["Conselho e Diretoria", "Equipe de TI"],
-          ["COBIT / ISO 38500", "ITIL / ISO 20000"]
-        ]
-      },
-      {
-        title: "3. O ITIL 4",
-        type: "content",
-        html: `
-<p>
-O ITIL (Information Technology Infrastructure Library) é o framework mais utilizado
-no mundo para Gerenciamento de Serviços de TI (ITSM).
-</p>
-
-<p>
-Sua principal mudança na versão 4 foi abandonar uma visão extremamente baseada em
-processos para focar na <strong>co-criação de valor</strong> entre organização,
-clientes, usuários e parceiros.
-</p>
-
-<div class="callout callout-success">
-O foco deixou de ser "gerenciar infraestrutura" e passou a ser "entregar valor".
-</div>
-`
-      },
-      {
-        title: "4. Os Sete Princípios do ITIL 4",
-        type: "cards",
-        cards: [
-
-          {
-            title: "Foque no Valor",
-            text: "Toda atividade deve gerar valor para clientes e organização."
-          },
-          {
-            title: "Comece Onde Está",
-            text: "Antes de mudar processos, aproveite aquilo que já funciona."
-          },
-          {
-            title: "Progrida Iterativamente",
-            text: "Pequenas melhorias contínuas produzem melhores resultados."
-          },
-          {
-            title: "Colabore e Promova Visibilidade",
-            text: "A comunicação entre áreas reduz retrabalho."
-          },
-          {
-            title: "Pense e Trabalhe Holisticamente",
-            text: "Os serviços dependem da integração entre pessoas, processos e tecnologia."
-          },
-          {
-            title: "Mantenha Simples",
-            text: "Evite burocracias desnecessárias."
-          },
-          {
-            title: "Otimize e Automatize",
-            text: "Automatize atividades repetitivas sempre que possível."
-          }
-
-        ]
-      },
-      {
-        title: "5. Sistema de Valor de Serviço (SVS)",
-        type: "diagram",
-        html: `
-<div class="diagram">
-
-Oportunidade / Demanda
-
-↓
-
-Governança
-
-↓
-
-Cadeia de Valor
-
-↓
-
-Práticas ITIL
-
-↓
-
-Melhoria Contínua
-
-↓
-
-Valor
-
-</div>
-
-<p>
-Todo o ITIL gira em torno da geração de valor para clientes e organização.
-</p>
-`
-      },
-      {
-        title: "6. As principais práticas do ITIL",
-        type: "table",
-        headers: ["Prática", "Objetivo"],
-        rows: [
-          ["Gerenciamento de Incidentes", "Restabelecer rapidamente o serviço."],
-          ["Gerenciamento de Problemas", "Eliminar causas raiz dos incidentes."],
-          ["Gerenciamento de Mudanças", "Controlar alterações em produção."],
-          ["Gerenciamento de Requisições", "Atender solicitações rotineiras."],
-          ["Gerenciamento de Configuração", "Controlar ativos e relacionamentos."],
-          ["Gerenciamento de Nível de Serviço", "Garantir cumprimento dos SLAs."]
-        ]
-      },
-      {
-        title: "7. O que é SLA?",
-        type: "content",
-        html: `
-<p>
-O SLA (Service Level Agreement) representa o acordo entre o provedor do serviço e
-o cliente sobre os níveis mínimos aceitáveis de qualidade.
-</p>
-
-<p>
-Um SLA normalmente estabelece indicadores como:
-</p>
-
-<ul>
-
-<li>Disponibilidade do serviço;</li>
-
-<li>Tempo máximo de atendimento;</li>
-
-<li>Tempo máximo de solução;</li>
-
-<li>Tempo de resposta;</li>
-
-<li>Percentual mínimo de disponibilidade.</li>
-
-</ul>
-
-<div class="callout callout-warning">
-Sem indicadores não existe gestão de serviços.
-</div>
-`
-      },
-      {
-        title: "8. ISO/IEC 20000",
-        type: "content",
-        html: `
-<p>
-Enquanto o ITIL apresenta boas práticas,
-a ISO/IEC 20000 é uma norma certificável para Sistemas de Gestão de Serviços de TI.
-</p>
-
-<p>
-Pode-se dizer que o ITIL mostra "como trabalhar" e a ISO 20000 define
-os requisitos necessários para demonstrar maturidade e conformidade.
-</p>
-`
-      },
-      {
-        title: "9. ITIL x ISO/IEC 20000",
-        type: "comparison",
-        leftTitle: "ITIL",
-        rightTitle: "ISO/IEC 20000",
-        left: [
-          "Framework",
-          "Boas práticas",
-          "Não certifica organizações",
-          "Flexível",
-          "Base para implantação"
-        ],
-        right: [
-          "Norma internacional",
-          "Requisitos obrigatórios",
-          "Permite certificação",
-          "Auditável",
-          "Comprova maturidade"
-        ]
-      },
-      {
-        title: "10. Estudo de Caso",
-        type: "case",
-        html: `
-<h4>Empresa Alfa</h4>
-
-<p>
-A equipe de TI recebe dezenas de chamados por dia.
-Cada técnico resolve os problemas de maneira diferente.
-Não existe histórico, classificação dos incidentes nem definição de prioridade.
-Os usuários reclamam da demora e a diretoria não consegue medir a qualidade do suporte.
-</p>
-
-<p>
-Como o ITIL poderia melhorar essa situação?
-</p>
-
-<ul>
-
-<li>Criar um catálogo de serviços.</li>
-
-<li>Implantar um Service Desk.</li>
-
-<li>Definir SLAs.</li>
-
-<li>Padronizar o gerenciamento de incidentes.</li>
-
-<li>Registrar indicadores de desempenho.</li>
-
-</ul>
-`
-      },
-      {
-        title: "11. Aplicação no PDGTI",
-        type: "activity",
-        html: `
-<h4>Capítulo 7 do PDGTI</h4>
-
-<p>O grupo deverá definir:</p>
-
-<ul>
-
-<li>Quais serviços de TI serão considerados críticos.</li>
-
-<li>Quais processos do ITIL serão adotados.</li>
-
-<li>Quais SLAs serão estabelecidos.</li>
-
-<li>Como será medido o desempenho dos serviços.</li>
-
-<li>Como a ISO/IEC 20000 contribuirá para a organização.</li>
-
-</ul>
-`
-      },
-      {
-        title: "12. Erros comuns",
-        type: "tips",
-        items: [
-          "Confundir incidente com problema.",
-          "Implantar ITIL inteiro de uma vez.",
-          "Criar processos excessivamente burocráticos.",
-          "Não definir SLAs mensuráveis.",
-          "Medir apenas quantidade de chamados."
-        ]
-      },
-      {
-        title: "13. Resumo da Aula",
-        type: "summary",
-        items: [
-          "TI entrega serviços, não tecnologia.",
-          "Valor é o principal objetivo do ITIL.",
-          "O SVS integra todas as atividades do ITIL.",
-          "Incidentes restauram serviços; problemas eliminam causas.",
-          "SLAs definem níveis de serviço.",
-          "A ISO/IEC 20000 certifica Sistemas de Gestão de Serviços."
-        ]
-      },
-      {
-        title: "14. Leituras Recomendadas",
-        type: "reading",
-        items: [
-          "Freitas - Fundamentos do Gerenciamento de Serviços de TI",
-          "ITIL 4 Foundation",
-          "ISO/IEC 20000-1",
-          "AXELOS - ITIL Practices"
-        ]
-      }
-
-    ]
-  },
-  {
-    id: "mod-09",
-    title: "Módulo 9 — Frameworks de Governança de TI: ISO/IEC 38500, COBIT 2019, ITIL 4 e ISO/IEC 20000",
-    icon: "fa-solid fa-layer-group",
-    learningObjectives: [
-      "Compreender a finalidade dos principais frameworks e normas de Governança de TI.",
-      "Diferenciar governança, gestão e gerenciamento de serviços.",
-      "Selecionar frameworks adequados para diferentes contextos organizacionais.",
-      "Justificar tecnicamente a adoção dos modelos no PDGTI."
-    ],
-    bibliography: {
-      required: [
-        "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulos 6 e 7.",
-        "ISO/IEC 38500.",
-        "COBIT 2019 Framework.",
-        "ITIL 4 Foundation."
-      ],
-      complementary: [
-        "ISO/IEC 20000.",
-        "ISACA - COBIT Design Guide."
-      ]
-    },
-    sections: [
-      {
-        type: "concept",
-        title: "Por que existem tantos Frameworks?",
-        content: `
-        Um dos maiores erros em Governança de TI é acreditar que existe um único
-        modelo capaz de resolver todos os problemas de uma organização.
-
-        Cada framework foi criado para resolver um tipo específico de problema.
-
-        Alguns focam em governança.
-
-        Outros focam em gestão.
-
-        Outros tratam exclusivamente da operação dos serviços.
-
-        Outros definem requisitos para certificação.
-
-        O papel do gestor de TI é combinar esses modelos de forma coerente.
-      `
-      },
-      {
-        type: "callout",
-        style: "info",
-        title: "Não existe concorrência entre eles",
-        content: `
-ISO 38500 → Governança
-
-COBIT → Governança + Gestão
-
-ITIL → Gestão de Serviços
-
-ISO 20000 → Certificação dos Serviços
-
-Todos podem coexistir na mesma organização.
-      `
-      },
-      {
-        type: "table",
-        title: "Comparando os principais modelos",
-        headers: [
-          "Framework",
-          "Objetivo",
-          "Foco",
-          "Público"
-        ],
-        rows: [
-          [
-            "ISO/IEC 38500",
-            "Governança Corporativa de TI",
-            "Estratégico",
-            "Conselho e Diretoria"
-          ],
-          [
-            "COBIT 2019",
-            "Governança e Gestão",
-            "Estratégico/Tático",
-            "Executivos e Gestores"
-          ],
-          [
-            "ITIL 4",
-            "Gerenciamento de Serviços",
-            "Operacional",
-            "Equipe de TI"
-          ],
-          [
-            "ISO 20000",
-            "Sistema de Gestão de Serviços",
-            "Certificação",
-            "Organização"
-          ]
-        ]
-      },
-      {
-        type: "concept",
-        title: "ISO/IEC 38500",
-        content: `
-É a principal norma internacional de Governança Corporativa de TI.
-
-Ela não descreve processos.
-
-Não descreve fluxos.
-
-Não define papéis detalhados.
-
-Seu objetivo é orientar a alta administração sobre como utilizar a TI de forma responsável.
-
-Ela estabelece seis princípios:
-
-• Responsabilidade
-
-• Estratégia
-
-• Aquisição
-
-• Desempenho
-
-• Conformidade
-
-• Comportamento Humano
-
-Além disso apresenta o famoso ciclo:
-
-Evaluate
-
-Direct
-
-Monitor
-
-(EDM)
-
-Toda governança deve seguir esse ciclo.
-      `
-      },
-      {
-        type: "diagram",
-        title: "Ciclo da ISO 38500",
-        content: `
-Avaliar
-     ↓
-Dirigir
-     ↓
-Monitorar
-     ↺
-      `
-      },
-      {
-        type: "concept",
-        title: "COBIT 2019",
-        content: `
-O COBIT é atualmente o framework mais completo para Governança de TI.
-
-Enquanto a ISO apenas orienta,
-
-o COBIT mostra COMO implementar.
-
-Ele organiza os processos em cinco domínios.
-      `
-      },
-      {
-        type: "table",
-        title: "Domínios do COBIT 2019",
-        headers: [
-          "Domínio",
-          "Significado"
-        ],
-        rows: [
-          [
-            "EDM",
-            "Evaluate, Direct and Monitor (Governança)"
-          ],
-          [
-            "APO",
-            "Align, Plan and Organize"
-          ],
-          [
-            "BAI",
-            "Build, Acquire and Implement"
-          ],
-          [
-            "DSS",
-            "Deliver, Service and Support"
-          ],
-          [
-            "MEA",
-            "Monitor, Evaluate and Assess"
-          ]
-        ]
-      },
-      {
-        type: "callout",
-        style: "success",
-        title: "Importante",
-        content: `
-O COBIT não substitui o ITIL.
-
-Na prática:
-
-COBIT define O QUE deve ser governado.
-
-ITIL mostra COMO operar os serviços.
-      `
-      },
-      {
-        type: "concept",
-        title: "ITIL 4",
-        content: `
-O ITIL é o framework mais utilizado no mundo para Gerenciamento de Serviços de TI.
-
-Seu objetivo principal é gerar valor através dos serviços.
-
-A versão 4 introduziu o conceito de Service Value System (SVS).
-
-O foco deixou de ser processos isolados e passou para a criação contínua de valor.
-
-Algumas práticas importantes:
-
-• Gestão de Incidentes
-
-• Gestão de Problemas
-
-• Gestão de Mudanças
-
-• Gestão de Catálogo de Serviços
-
-• Gestão de Nível de Serviço (SLA)
-
-• Central de Serviços (Service Desk)
-      `
-      },
-      {
-        type: "concept",
-        title: "ISO/IEC 20000",
-        content: `
-Enquanto o ITIL representa boas práticas,
-
-a ISO 20000 é uma norma certificável.
-
-Ela estabelece requisitos para que uma organização possua um Sistema de Gestão de Serviços de TI.
-
-Empresas que desejam demonstrar maturidade operacional podem buscar essa certificação.
-      `
-      },
-      {
-        type: "comparison",
-        title: "Quando utilizar cada modelo?",
-        items: [
-          {
-            framework: "ISO 38500",
-            use: "Definir princípios de governança para a alta direção."
-          },
-          {
-            framework: "COBIT",
-            use: "Implantar governança e gestão integrada."
-          },
-          {
-            framework: "ITIL",
-            use: "Melhorar a operação e os serviços de TI."
-          },
-          {
-            framework: "ISO 20000",
-            use: "Certificar o gerenciamento dos serviços."
-          }
-        ]
-      },
-      {
-        type: "case",
-        title: "Estudo de Caso",
-        scenario: `
-Uma empresa possui:
-
-• muitos chamados;
-
-• baixa disponibilidade dos sistemas;
-
-• projetos atrasados;
-
-• diretoria sem indicadores;
-
-• ausência de processos formais.
-
-Quais frameworks seriam utilizados?
-      `,
-        reflection: [
-          "Qual modelo apoiaria a diretoria?",
-          "Qual modelo organizaria os serviços?",
-          "Qual framework auxiliaria na gestão estratégica?",
-          "Uma única solução seria suficiente?"
-        ]
-      },
-      {
-        type: "pdgti",
-        title: "Aplicação no Projeto (PDGTI)",
-        content: `
-Nesta semana o grupo deverá elaborar o Capítulo 7 do PDGTI.
-
-O documento deverá conter:
-
-• justificativa dos frameworks escolhidos;
-
-• motivos para não utilizar outros modelos;
-
-• integração entre COBIT, ITIL e ISO 38500;
-
-• benefícios esperados;
-
-• aderência às necessidades da organização estudada.
-      `
-      },
-      {
-        type: "summary",
-        title: "Resumo da Aula",
+        title: "Resumo da Semana 15",
         bullets: [
-          "Frameworks possuem objetivos diferentes.",
-          "ISO 38500 orienta a Governança.",
-          "COBIT implementa Governança e Gestão.",
-          "ITIL gerencia os serviços.",
-          "ISO 20000 permite certificação.",
-          "Frameworks devem ser utilizados de forma complementar."
-        ]
-      },
-      {
-        type: "quiz",
-        title: "Questões para Revisão",
-        questions: [
-          "Qual a principal diferença entre ISO 38500 e COBIT?",
-          "Por que COBIT e ITIL não competem entre si?",
-          "Quais são os cinco domínios do COBIT?",
-          "Qual framework é voltado ao gerenciamento de serviços?",
-          "Qual norma é certificável?"
+          "A implantação da governança ocorre em 6 fases graduais para reduzir o impacto organizacional.",
+          "Os 8 passos de Kotter orientam a liderança da mudança cultural das pessoas.",
+          "A Entrega Final consolida todo o documento do PDGTI para decisão da diretoria."
         ]
       }
     ]
   },
-  {
-    id: "mod-10",
-    title: "Módulo 10 — Gestão de Riscos de TI, Compliance e Controles de Governança",
-    icon: "fa-solid fa-triangle-exclamation",
-    learningObjectives: [
-      "Compreender o papel da gestão de riscos dentro da Governança de TI.",
-      "Identificar riscos tecnológicos, operacionais e regulatórios.",
-      "Construir uma matriz de riscos de TI utilizando probabilidade e impacto.",
-      "Relacionar riscos, controles e frameworks de governança.",
-      "Aplicar conceitos de risco no Capítulo 6 do PDGTI."
-    ],
-    bibliography: {
-      required: [
-        "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulos sobre riscos e controles.",
-        "MARTINS, Camila Saldanha. Governança e Compliance.",
-        "COBIT 2019 Framework - APO12 Managed Risk.",
-        "ISO/IEC 27005 - Gestão de Riscos de Segurança da Informação."
-      ],
-      complementary: [
-        "ISO/IEC 38500 - Princípio da Conformidade.",
-        "COSO Enterprise Risk Management."
-      ]
-    },
-    sections: [
-      {
-        type: "concept",
-        title: "O papel dos riscos na Governança de TI",
-        content: `
-        Toda organização depende da tecnologia para executar seus processos.
 
-        Sistemas corporativos, bancos de dados, redes, aplicações e serviços
-        digitais passaram a representar ativos estratégicos.
-
-        Entretanto, quanto maior a dependência tecnológica, maior a exposição
-        aos riscos.
-
-        A Governança de TI busca garantir que:
-
-        • riscos sejam conhecidos;
-
-        • decisões sejam tomadas considerando impactos;
-
-        • controles sejam estabelecidos;
-
-        • resultados sejam monitorados.
-
-        O objetivo não é eliminar todos os riscos, pois isso seria inviável.
-
-        O objetivo é manter os riscos dentro de níveis aceitáveis pela organização.
-      `
-      },
-
-
-      {
-        type: "callout",
-        style: "info",
-        title: "Risco x Incidente",
-        content: `
-Risco:
-
-É uma possibilidade futura de algo acontecer.
-
-Exemplo:
-"Existe possibilidade de indisponibilidade do ERP por falha no servidor."
-
-Incidente:
-
-É quando o risco realmente acontece.
-
-Exemplo:
-"O ERP ficou indisponível durante 4 horas."
-
-A Governança atua principalmente antes do incidente ocorrer.
-      `
-      },
-
-
-      {
-        type: "concept",
-        title: "Conceito de Risco",
-        content: `
-Risco pode ser definido como o efeito da incerteza sobre os objetivos.
-
-Na Governança de TI, normalmente analisamos:
-
-Probabilidade:
-Qual a chance do evento ocorrer?
-
-Impacto:
-Qual o prejuízo caso aconteça?
-
-A combinação desses fatores determina a criticidade do risco.
-      `
-      },
-
-
-      {
-        type: "formula",
-        title: "Modelo básico de avaliação de risco",
-        content: `
-        Risco = Probabilidade × Impacto
-
-
-        Exemplo:
-
-        Probabilidade:
-        Alta (5)
-
-
-        Impacto:
-        Alto (5)
-
-
-        Risco:
-        25 pontos → Risco Crítico
-      `
-      },
-
-
-      {
-        type: "table",
-        title: "Categorias de Riscos de TI",
-        headers: [
-          "Categoria",
-          "Exemplos"
-        ],
-        rows: [
-          [
-            "Segurança",
-            "Ataques, vazamento de dados, ransomware, acessos indevidos"
-          ],
-          [
-            "Operacional",
-            "Falhas de servidores, indisponibilidade, erros humanos"
-          ],
-          [
-            "Projetos",
-            "Atrasos, custos acima do previsto, requisitos incorretos"
-          ],
-          [
-            "Compliance",
-            "Descumprimento de leis, normas ou contratos"
-          ],
-          [
-            "Estratégico",
-            "Tecnologia desalinhada aos objetivos do negócio"
-          ]
-        ]
-      },
-
-
-      {
-        type: "concept",
-        title: "Processo de Gestão de Riscos",
-        content: `
-A gestão de riscos normalmente segue um ciclo contínuo:
-
-1. Identificar riscos
-
-2. Analisar e classificar
-
-3. Avaliar prioridade
-
-4. Definir tratamento
-
-5. Implementar controles
-
-6. Monitorar resultados
-
-
-Esse ciclo deve ser incorporado à rotina da Governança de TI.
-      `
-      },
-
-
-      {
-        type: "diagram",
-        title: "Ciclo de Tratamento de Riscos",
-        content: `
-Identificar
-     ↓
-Analisar
-     ↓
-Avaliar
-     ↓
-Tratar
-     ↓
-Monitorar
-     ↺
-      `
-      },
-
-
-      {
-        type: "concept",
-        title: "Estratégias para tratamento de riscos",
-        content: `
-Após identificar um risco, a organização pode escolher quatro estratégias:
-
-1. Evitar
-
-Eliminar a causa do risco.
-
-Exemplo:
-Cancelar uma tecnologia insegura.
-
-
-2. Mitigar
-
-Reduzir probabilidade ou impacto.
-
-Exemplo:
-Criar backups e controles de acesso.
-
-
-3. Transferir
-
-Compartilhar o risco com terceiros.
-
-Exemplo:
-Contratação de seguro ou serviço especializado.
-
-
-4. Aceitar
-
-Assumir conscientemente o risco quando o custo do controle é maior que o benefício.
-      `
-      },
-
-
-      {
-        type: "concept",
-        title: "Compliance e Governança de TI",
-        content: `
-Compliance significa garantir que a organização esteja em conformidade com:
-
-• leis;
-
-• regulamentações;
-
-• contratos;
-
-• políticas internas;
-
-• normas técnicas.
-
-
-Na área de TI envolve temas como:
-
-• proteção de dados;
-
-• segurança da informação;
-
-• auditoria;
-
-• controles internos;
-
-• rastreabilidade.
-      `
-      },
-
-
-      {
-        type: "table",
-        title: "Relação entre Compliance e Frameworks",
-        headers: [
-          "Modelo",
-          "Contribuição"
-        ],
-        rows: [
-          [
-            "COBIT",
-            "Define objetivos de controle e governança"
-          ],
-          [
-            "ISO 38500",
-            "Garante princípios de conformidade estratégica"
-          ],
-          [
-            "ISO 27001/27005",
-            "Gestão de segurança e riscos"
-          ],
-          [
-            "ITIL",
-            "Controle e qualidade dos serviços"
-          ]
-        ]
-      },
-
-
-      {
-        type: "concept",
-        title: "Controles de Governança de TI",
-        content: `
-Controles são mecanismos criados para reduzir riscos.
-
-Podem ser:
-
-Preventivos:
-
-Atuam antes do problema.
-
-Exemplo:
-Autenticação multifator.
-
-
-Detectivos:
-
-Identificam problemas ocorridos.
-
-Exemplo:
-Monitoramento de logs.
-
-
-Corretivos:
-
-Tratam consequências.
-
-Exemplo:
-Plano de recuperação de desastre.
-      `
-      },
-
-
-      {
-        type: "case",
-        title: "Estudo de Caso",
-        scenario: `
-Uma empresa possui um sistema financeiro crítico.
-
-Problemas identificados:
-
-• usuários compartilham senhas;
-
-• não existe backup testado;
-
-• servidores não possuem monitoramento;
-
-• não há plano de continuidade.
-
-Como a Governança de TI deve agir?
-      `,
-        reflection: [
-          "Quais são os riscos existentes?",
-          "Qual o impacto para o negócio?",
-          "Quais controles devem ser implantados?",
-          "Qual framework poderia apoiar?"
-        ]
-      },
-
-
-      {
-        type: "pdgti",
-        title: "Aplicação no PDGTI — Capítulo 6",
-        content: `
-O grupo deverá elaborar a Gestão de Riscos da organização escolhida.
-
-O capítulo deve conter:
-
-• levantamento dos principais riscos;
-
-• classificação por categoria;
-
-• matriz Probabilidade x Impacto;
-
-• definição dos riscos críticos;
-
-• plano de tratamento;
-
-• responsáveis pelos controles;
-
-• indicadores de acompanhamento.
-      `
-      },
-
-
-      {
-        type: "example",
-        title: "Exemplo de Matriz de Riscos",
-        content: `
-Risco:
-Indisponibilidade do sistema ERP
-
-
-Probabilidade:
-Alta
-
-
-Impacto:
-Alto
-
-
-Classificação:
-Crítico
-
-
-Tratamento:
-Implantar redundância de servidores,
-monitoramento e plano de contingência.
-      `
-      },
-
-
-      {
-        type: "summary",
-        title: "Resumo da Aula",
-        bullets: [
-          "Governança administra riscos relacionados ao uso da TI.",
-          "Risco deve ser avaliado por probabilidade e impacto.",
-          "Compliance garante conformidade organizacional.",
-          "Frameworks ajudam a estruturar controles.",
-          "O PDGTI deve transformar riscos em planos de ação."
-        ]
-      },
-
-
-      {
-        type: "quiz",
-        title: "Questões para Revisão",
-        questions: [
-          "Qual diferença entre risco e incidente?",
-          "Como calcular a criticidade de um risco?",
-          "Quais são as quatro estratégias de tratamento?",
-          "Qual domínio do COBIT trata riscos?",
-          "Por que compliance é importante na Governança de TI?"
-        ]
-      }
-
-    ]
-  },
   {
     id: "mod-11",
-    title: "Módulo 11 — Implantando a Governança de TI: Roadmap, Mudança Organizacional e Geração de Valor",
-    icon: "fa-solid fa-road",
-    learningObjectives: [
-      "Compreender as etapas para implantação de um programa de Governança de TI.",
-      "Elaborar um roadmap de transformação organizacional.",
-      "Identificar fatores críticos de sucesso em iniciativas de governança.",
-      "Relacionar governança, pessoas, processos e tecnologia.",
-      "Consolidar o PDGTI como instrumento estratégico da organização."
+    weekRef: "Semana 16",
+    title: "Módulo 11 — Consolidação da Governança, Auditoria e Lições Aprendidas",
+    subtitle: "Auditoria de TI (ITGC), revisão de controles, encerramento do ciclo e melhoria contínua",
+    icon: "fa-solid fa-award",
+    estimatedReading: "35 a 45 min",
+    difficulty: "Intermediário",
+    bibliography: [
+      "ISACA. IT Standards, Guidelines, and Tools for Infrastructure Professionals.",
+      "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI. Capítulo 10."
     ],
-    bibliography: {
-      required: [
-        "FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz. Implantando a Governança de TI: da Estratégia à Gestão de Processos e Serviços. Capítulos 8 e 9.",
-        "COBIT 2019 Framework - Implementation Guide.",
-        "ISO/IEC 38500 - Governança Corporativa de TI."
-      ],
-      complementary: [
-        "KOTTER, John. Liderando Mudanças.",
-        "ITIL 4 Foundation - Continual Improvement."
-      ]
-    },
+    learningObjectives: [
+      "Compreender o papel da Auditoria de TI (Interna e Externa) na validação dos controles de governança.",
+      "Avaliar a conformidade dos Controles Gerais de TI (ITGC) e testes substantivos.",
+      "Consolidar as Lições Aprendidas do projeto prático de consultoria em PDGTI.",
+      "Estabelecer o ciclo de melhoria contínua (PDCA) para atualização anual do PDGTI."
+    ],
+    relatedPDGTI: [
+      "Consolidação Final do PDGTI e Checklist de Qualidade Executiva"
+    ],
+    examTopics: [
+      "Auditoria de TI (Testes de Conformidade vs Testes Substantivos)",
+      "Melhoria Contínua da Governança (Ciclo PDCA)",
+      "Consolidação e Lições Aprendidas do PBL"
+    ],
     sections: [
       {
-        type: "concept",
-        title: "Governança de TI como transformação organizacional",
-        content: `
-        Implantar Governança de TI não significa simplesmente adquirir uma
-        ferramenta ou criar novos documentos.
+        type: "intro",
+        title: "Auditoria de TI e Encerramento do Ciclo de Aprendizagem",
+        content: `A Auditoria de TI é a avaliação independente e objetiva que verifica se os controles desenhados no plano de governança estão operando com eficácia e conformidade.
 
-        Governança envolve mudança na forma como a organização:
-
-        • toma decisões;
-
-        • prioriza investimentos;
-
-        • administra riscos;
-
-        • mede resultados;
-
-        • entrega valor através da tecnologia.
-
-
-        Portanto, Governança é uma transformação envolvendo:
-
-        Pessoas + Processos + Tecnologia + Cultura Organizacional.
-      `
+O encerramento da Unidade Curricular consolida a jornada dos estudantes como consultores de Governança de TI, capacitando-os para aplicar os modelos em organizações reais.`
       },
-
-
       {
-        type: "callout",
-        style: "warning",
-        title: "Erro comum nas organizações",
-        content: `
-Muitas empresas iniciam projetos de Governança de TI focando apenas em processos
-e ferramentas.
-
-Entretanto, os maiores desafios normalmente estão relacionados a:
-
-• resistência das pessoas;
-
-• falta de patrocínio executivo;
-
-• ausência de comunicação;
-
-• conflitos entre áreas.
-      `
-      },
-
-
-      {
-        type: "concept",
-        title: "Modelo de implantação da Governança de TI",
-        content: `
-Uma implantação madura normalmente ocorre em etapas:
-
-1. Diagnóstico
-
-Compreender a situação atual da organização.
-
-
-2. Definição do Modelo de Governança
-
-Estabelecer papéis, responsabilidades e mecanismos de decisão.
-
-
-3. Priorização de Processos
-
-Escolher quais processos devem ser melhorados primeiro.
-
-
-4. Implantação dos Controles
-
-Aplicar políticas, indicadores e práticas.
-
-
-5. Monitoramento e Melhoria Contínua
-
-Avaliar resultados e evoluir continuamente.
-      `
-      },
-
-
-      {
-        type: "diagram",
-        title: "Ciclo de Evolução da Governança",
-        content: `
-Diagnosticar
-      ↓
-Planejar
-      ↓
-Implementar
-      ↓
-Medir
-      ↓
-Melhorar
-      ↺
-      `
-      },
-
-
-      {
-        type: "concept",
-        title: "Roadmap de Governança de TI",
-        content: `
-O roadmap representa o caminho planejado para transformar a situação atual
-da organização em uma situação futura desejada.
-
-Ele deve considerar:
-
-• prioridades estratégicas;
-
-• capacidade de investimento;
-
-• maturidade atual;
-
-• riscos;
-
-• disponibilidade das equipes.
-
-
-Um bom roadmap evita tentar implantar tudo ao mesmo tempo.
-      `
-      },
-
-
-      {
-        type: "table",
-        title: "Exemplo de Roadmap em Ondas",
-        headers: [
-          "Fase",
-          "Objetivo",
-          "Exemplos de Ações"
-        ],
-        rows: [
-          [
-            "Onda 1 - Fundamentos",
-            "Criar estrutura básica",
-            "Comitê de TI, políticas, papéis e responsabilidades"
-          ],
-          [
-            "Onda 2 - Controle",
-            "Melhorar gestão",
-            "Indicadores, riscos, processos e serviços"
-          ],
-          [
-            "Onda 3 - Otimização",
-            "Buscar excelência",
-            "Automação, melhoria contínua e inovação"
-          ]
+        type: "cards",
+        cards: [
+          {
+            title: "Auditoria de TI (ITGC)",
+            icon: "fa-solid fa-magnifying-glass",
+            content: "Verificação da eficácia dos controles de acessos, mudanças, infraestrutura e operações."
+          },
+          {
+            title: "Melhoria Contínua (PDCA)",
+            icon: "fa-solid fa-rotate",
+            content: "Planejar, Executar, Checar e Agir continuamente para manter o PDGTI alinhado às mudanças do mercado."
+          }
         ]
       },
-
-
-      {
-        type: "concept",
-        title: "Fatores Críticos de Sucesso (FCS)",
-        content: `
-Segundo Fernandes & Abreu, alguns fatores são determinantes para o sucesso:
-
-1. Patrocínio da alta administração
-
-A liderança deve apoiar e participar das decisões.
-
-
-2. Comunicação clara
-
-Todos precisam entender os objetivos da mudança.
-
-
-3. Envolvimento das áreas de negócio
-
-TI não governa sozinha.
-
-
-4. Priorização adequada
-
-A organização deve começar pelos problemas mais relevantes.
-
-
-5. Medição de resultados
-
-O valor entregue precisa ser demonstrado.
-      `
-      },
-
-
-      {
-        type: "concept",
-        title: "Gestão da Mudança Organizacional",
-        content: `
-A implantação da Governança modifica comportamentos.
-
-Exemplos:
-
-Antes:
-
-"TI decide quais sistemas serão comprados."
-
-Depois:
-
-"Decisões de investimento seguem critérios estratégicos."
-
-
-Antes:
-
-"Problemas são resolvidos informalmente."
-
-Depois:
-
-"Existem processos, indicadores e responsabilidades definidas."
-
-
-A mudança precisa ser conduzida com comunicação, treinamento e participação.
-      `
-      },
-
-
-      {
-        type: "table",
-        title: "Modelo de Comunicação da Mudança",
-        headers: [
-          "Público",
-          "Mensagem Principal"
-        ],
-        rows: [
-          [
-            "Diretoria",
-            "Governança aumenta valor e reduz riscos"
-          ],
-          [
-            "Gestores",
-            "Novos processos melhoram decisões"
-          ],
-          [
-            "Equipe Técnica",
-            "Governança organiza responsabilidades"
-          ],
-          [
-            "Usuários",
-            "Serviços terão mais qualidade"
-          ]
-        ]
-      },
-
-
-      {
-        type: "concept",
-        title: "Medição dos benefícios da Governança",
-        content: `
-A Governança de TI deve demonstrar resultados.
-
-Exemplos de benefícios:
-
-Financeiros:
-
-• redução de desperdícios;
-
-• melhor priorização de investimentos.
-
-
-Operacionais:
-
-• maior disponibilidade;
-
-• redução de incidentes.
-
-
-Estratégicos:
-
-• maior alinhamento entre TI e negócio.
-
-
-Organizacionais:
-
-• decisões mais transparentes.
-      `
-      },
-
-
-      {
-        type: "case",
-        title: "Estudo de Caso Final",
-        scenario: `
-Uma empresa deseja implantar Governança de TI.
-
-Situação atual:
-
-• TI trabalha de forma reativa;
-
-• projetos são escolhidos sem critérios;
-
-• não existem indicadores;
-
-• usuários reclamam dos serviços;
-
-• diretoria não conhece os riscos tecnológicos.
-
-
-Como seria o plano de implantação?
-      `,
-        reflection: [
-          "Qual seria o diagnóstico inicial?",
-          "Quais frameworks poderiam ser utilizados?",
-          "Quais processos devem ser priorizados?",
-          "Como convencer a diretoria?"
-        ]
-      },
-
-
-      {
-        type: "pdgti",
-        title: "Aplicação no PDGTI — Capítulo 9",
-        content: `
-O grupo deverá finalizar o plano de implantação da Governança de TI.
-
-O capítulo deve apresentar:
-
-• situação atual;
-
-• situação futura desejada;
-
-• roadmap de implantação;
-
-• fases e prioridades;
-
-• recursos necessários;
-
-• investimentos estimados;
-
-• benefícios esperados;
-
-• indicadores de sucesso.
-
-
-O PDGTI deve funcionar como um documento executivo para tomada de decisão.
-      `
-      },
-
-
-      {
-        type: "integration",
-        title: "Integração de todo o conteúdo da disciplina",
-        content: `
-O Plano Diretor de Governança de TI conecta todos os conceitos estudados:
-
-Governança
-↓
-Estratégia
-↓
-Processos
-↓
-Frameworks
-↓
-Controles
-↓
-Indicadores
-↓
-Melhoria Contínua
-
-
-O objetivo final não é apenas administrar tecnologia.
-
-É garantir que a tecnologia gere valor para o negócio.
-      `
-      },
-
-
       {
         type: "summary",
-        title: "Resumo da Aula",
+        title: "Resumo da Semana 16",
         bullets: [
-          "Governança de TI é uma mudança organizacional.",
-          "A implantação deve ocorrer de forma gradual.",
-          "Roadmaps orientam a evolução da maturidade.",
-          "Patrocínio executivo é essencial.",
-          "O PDGTI consolida estratégia, controles e geração de valor."
-        ]
-      },
-
-
-      {
-        type: "quiz",
-        title: "Questões para Revisão",
-        questions: [
-          "Por que Governança de TI não é apenas tecnologia?",
-          "Quais são as etapas de implantação?",
-          "O que são fatores críticos de sucesso?",
-          "Por que a gestão da mudança é importante?",
-          "Qual o papel do PDGTI na organização?"
+          "A Governança de TI é um processo vivo e dinâmico que exige revisões anuais.",
+          "A auditoria garante a credibilidade e a sustentabilidade dos controles estabelecidos.",
+          "O aprendizado em PBL prepara os estudantes para liderar a governança digital nas corporações."
         ]
       }
-
     ]
   }
 ];
@@ -4688,7 +1736,10 @@ function renderSchedule(filterType = "all", searchText = "") {
 
         <div class="pdgti-milestone">
           <strong><i class="fa-solid fa-flag-checkered"></i> Entregável PDGTI:</strong>
-          <span>${item.pdgtiStep}</span>
+          <button class="btn-link-pdgti" data-pdgti-step="${item.pdgtiStep}">
+            <span>${item.pdgtiStep}</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
         </div>
       </div>
 
@@ -4702,42 +1753,394 @@ function renderSchedule(filterType = "all", searchText = "") {
 
     container.appendChild(card);
   });
+
+  // Listeners dos atalhos diretos para o PDGTI Tracker
+  document.querySelectorAll(".btn-link-pdgti").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const pdgtiTabBtn = document.querySelector('[data-tab="tab-pdgti"]');
+      if (pdgtiTabBtn) {
+        pdgtiTabBtn.click();
+      }
+    });
+  });
 }
 
-// --- RENDERIZAÇÃO DA TEORIA ALINHADA AOS FRAMEWORKS ---
-function renderTheoryModules() {
+// --- HELPER DE RENDERIZAÇÃO DE SEÇÕES DE TEORIA ---
+function renderModuleSection(sec) {
+  if (!sec) return '';
+
+  const formatText = (text) => {
+    if (!text) return '';
+    return text.trim()
+      .split('\n\n')
+      .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+      .join('');
+  };
+
+  switch (sec.type) {
+    case 'intro':
+      return `
+        <div class="sec-intro">
+          ${sec.title ? `<h4><i class="fa-solid fa-book-open"></i> ${sec.title}</h4>` : ''}
+          <div class="sec-text">${formatText(sec.content)}</div>
+        </div>
+      `;
+
+    case 'callout':
+    case 'highlight':
+      const calloutStyle = sec.style || 'info';
+      const iconClass = sec.icon || (calloutStyle === 'warning' ? 'fa-solid fa-triangle-exclamation' : 'fa-solid fa-lightbulb');
+      return `
+        <div class="theory-callout style-${calloutStyle}">
+          ${sec.title ? `<strong><i class="${iconClass}"></i> ${sec.title}</strong>` : ''}
+          <div>${formatText(sec.content)}</div>
+        </div>
+      `;
+
+    case 'heading':
+      return `<h3 class="sec-heading">${sec.title}</h3>`;
+
+    case 'paragraph':
+      return `<div class="sec-paragraph">${formatText(sec.content)}</div>`;
+
+    case 'quote':
+      return `
+        <blockquote class="theory-quote">
+          <p>"${sec.content ? sec.content.trim() : ''}"</p>
+          ${sec.author ? `<cite>— ${sec.author}</cite>` : ''}
+        </blockquote>
+      `;
+
+    case 'table':
+      const headersHtml = (sec.headers || []).map(h => `<th>${h}</th>`).join('');
+      const rowsHtml = (sec.rows || []).map(row => 
+        `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+      ).join('');
+      return `
+        <div class="theory-table-wrap">
+          ${sec.title ? `<h4>${sec.title}</h4>` : ''}
+          <table class="theory-table">
+            <thead><tr>${headersHtml}</tr></thead>
+            <tbody>${rowsHtml}</tbody>
+          </table>
+        </div>
+      `;
+
+    case 'comparison':
+      const leftItems = (sec.left || []).map(item => `<li><i class="fa-solid fa-check"></i> ${item}</li>`).join('');
+      const rightItems = (sec.right || []).map(item => `<li><i class="fa-solid fa-chevron-right"></i> ${item}</li>`).join('');
+      return `
+        <div class="comparison-block">
+          ${sec.title ? `<h4>${sec.title}</h4>` : ''}
+          <div class="comparison-grid">
+            <div class="comp-col left">
+              <div class="comp-header">${sec.leftTitle || 'Governança'}</div>
+              <ul>${leftItems}</ul>
+            </div>
+            <div class="comp-col right">
+              <div class="comp-header">${sec.rightTitle || 'Gestão'}</div>
+              <ul>${rightItems}</ul>
+            </div>
+          </div>
+        </div>
+      `;
+
+    case 'cards':
+      const cardsHtml = (sec.cards || []).map(c => `
+        <div class="mini-card">
+          <div class="mini-card-icon"><i class="${c.icon || 'fa-solid fa-cubes'}"></i></div>
+          <div class="mini-card-body">
+            <strong>${c.title}</strong>
+            <p>${c.content}</p>
+          </div>
+        </div>
+      `).join('');
+      return `
+        <div class="mini-cards-grid">
+          ${cardsHtml}
+        </div>
+      `;
+
+    case 'timeline':
+      const eventsHtml = (sec.events || []).map(e => `
+        <div class="timeline-item">
+          <div class="timeline-year">${e.year}</div>
+          <div class="timeline-content">
+            <strong>${e.title}</strong>
+            <p>${e.description}</p>
+          </div>
+        </div>
+      `).join('');
+      return `
+        <div class="timeline-block">
+          ${sec.title ? `<h4><i class="fa-solid fa-timeline"></i> ${sec.title}</h4>` : ''}
+          <div class="timeline-list">
+            ${eventsHtml}
+          </div>
+        </div>
+      `;
+
+    case 'case':
+      return `
+        <div class="case-study-box">
+          <div class="case-header">
+            <span class="case-badge"><i class="fa-solid fa-building"></i> Estudo de Caso</span>
+            <strong>${sec.title || 'Estudo de Caso Prático'} ${sec.company ? `(${sec.company})` : ''}</strong>
+          </div>
+          <div class="case-body">${formatText(sec.content)}</div>
+        </div>
+      `;
+
+    case 'exercise':
+      return `
+        <div class="exercise-box">
+          <div class="exercise-header"><i class="fa-solid fa-pen-clip"></i> ${sec.title || 'Exercício Prático'}</div>
+          <p>${sec.statement}</p>
+        </div>
+      `;
+
+    case 'glossary':
+      const termsHtml = (sec.terms || []).map(t => `
+        <div class="glossary-item">
+          <dt>${t.term}</dt>
+          <dd>${t.definition}</dd>
+        </div>
+      `).join('');
+      return `
+        <div class="glossary-box">
+          <h4><i class="fa-solid fa-spell-check"></i> ${sec.title || 'Glossário'}</h4>
+          <dl class="glossary-list">${termsHtml}</dl>
+        </div>
+      `;
+
+    case 'faq':
+      const faqHtml = (sec.questions || []).map(q => `
+        <div class="faq-item">
+          <strong><i class="fa-solid fa-circle-question"></i> ${q.question}</strong>
+          <p>${q.answer}</p>
+        </div>
+      `).join('');
+      return `
+        <div class="faq-box">
+          <h4><i class="fa-solid fa-comments"></i> ${sec.title || 'Perguntas Frequentes'}</h4>
+          <div class="faq-list">${faqHtml}</div>
+        </div>
+      `;
+
+    case 'pdgti':
+      return `
+        <div class="pdgti-connection-box">
+          <h4><i class="fa-solid fa-diagram-project"></i> ${sec.title || 'Ligação com o PDGTI'}</h4>
+          <div>${formatText(sec.content)}</div>
+        </div>
+      `;
+
+    case 'reflection':
+      const reflHtml = (sec.questions || []).map(q => `<li>${q}</li>`).join('');
+      return `
+        <div class="reflection-box">
+          <h4><i class="fa-solid fa-brain"></i> ${sec.title || 'Perguntas para Reflexão'}</h4>
+          <ul>${reflHtml}</ul>
+        </div>
+      `;
+
+    case 'summary':
+      const bulletsHtml = (sec.bullets || []).map(b => `<li><i class="fa-solid fa-check-double"></i> ${b}</li>`).join('');
+      return `
+        <div class="module-summary-box">
+          <h4><i class="fa-solid fa-list-check"></i> ${sec.title || 'Resumo do Módulo'}</h4>
+          <ul>${bulletsHtml}</ul>
+        </div>
+      `;
+
+    case 'review':
+      const chkHtml = (sec.checklist || []).map(c => `<li><i class="fa-regular fa-square-check"></i> ${c}</li>`).join('');
+      return `
+        <div class="module-review-box">
+          <h4><i class="fa-solid fa-clipboard-check"></i> ${sec.title || 'Checklist de Aprendizagem'}</h4>
+          <ul>${chkHtml}</ul>
+        </div>
+      `;
+
+    case 'list':
+      const listHtml = (sec.items || []).map(item => `<li>${item}</li>`).join('');
+      return `<ul class="sec-list">${listHtml}</ul>`;
+
+    default:
+      if (sec.content) return `<div>${formatText(sec.content)}</div>`;
+      return '';
+  }
+}
+
+// --- POPULAR O SELECT DE MÓDULOS DE TEORIA ---
+function populateTheoryModuleSelect() {
+  const selectElem = document.getElementById("theory-module-select");
+  if (!selectElem) return;
+
+  selectElem.innerHTML = '<option value="all">📚 Ver Todos os 11 Módulos Teóricos</option>';
+
+  theoreticalModulesData.forEach((mod, idx) => {
+    const opt = document.createElement("option");
+    opt.value = mod.id || `mod-${idx + 1}`;
+    opt.textContent = `${mod.weekRef ? `[${mod.weekRef}] ` : ''}${mod.title} ${mod.subtitle ? `— ${mod.subtitle}` : ''}`;
+    selectElem.appendChild(opt);
+  });
+}
+
+// --- RENDERIZAÇÃO DA TEORIA ALINHADA AOS FRAMEWORKS COM FILTRO E BUSCA ---
+function renderTheoryModules(selectedModId = "all", searchText = "") {
   const container = document.getElementById("theory-modules-container");
   if (!container) return;
 
   container.innerHTML = "";
 
-  theoreticalModulesData.forEach(mod => {
+  const filtered = theoreticalModulesData.filter(mod => {
+    const matchesFilter = (selectedModId === "all") || (mod.id === selectedModId);
+    
+    // Busca por palavra-chave
+    const modContentString = JSON.stringify(mod).toLowerCase();
+    const matchesSearch = searchText === "" || modContentString.includes(searchText.toLowerCase());
+
+    return matchesFilter && matchesSearch;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <i class="fa-solid fa-book-open"></i>
+        <p>Nenhum módulo teórico encontrado para os termos buscados.</p>
+      </div>
+    `;
+    return;
+  }
+
+  filtered.forEach((mod, index) => {
     const card = document.createElement("div");
     card.className = "theory-card";
+
+    const biblioItems = (Array.isArray(mod.bibliography) ? mod.bibliography : [mod.bibliography || ''])
+      .filter(Boolean)
+      .map(b => `<li><i class="fa-solid fa-book"></i> ${b}</li>`).join('');
+
+    const objItems = (mod.learningObjectives || []).map(o => `<li>${o}</li>`).join('');
+    const pdgtiItems = (mod.relatedPDGTI || []).map(p => `<li>${p}</li>`).join('');
+    const examItems = (mod.examTopics || []).map(t => `<span class="exam-tag">${t}</span>`).join('');
+
+    const sectionsHtml = (mod.sections || []).map(sec => renderModuleSection(sec)).join('');
+
+    // Navegação entre módulos (Anterior e Próximo)
+    const currentGlobalIdx = theoreticalModulesData.findIndex(m => m.id === mod.id);
+    const prevMod = theoreticalModulesData[currentGlobalIdx - 1];
+    const nextMod = theoreticalModulesData[currentGlobalIdx + 1];
+
+    const navButtonsHtml = `
+      <div class="theory-nav-footer">
+        ${prevMod ? `
+          <button class="btn btn-secondary nav-mod-btn" data-target-mod="${prevMod.id}">
+            <i class="fa-solid fa-chevron-left"></i> Módulo Anterior (${prevMod.title.split('—')[0].trim()})
+          </button>
+        ` : '<div></div>'}
+        
+        ${nextMod ? `
+          <button class="btn btn-primary nav-mod-btn" data-target-mod="${nextMod.id}">
+            Próximo Módulo (${nextMod.title.split('—')[0].trim()}) <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        ` : '<div></div>'}
+      </div>
+    `;
 
     card.innerHTML = `
       <div class="theory-card-header">
         <div class="theory-title-wrap">
-          <i class="${mod.icon} theory-icon"></i>
-          <h3>${mod.title}</h3>
+          <i class="${mod.icon || 'fa-solid fa-book'} theory-icon"></i>
+          <div>
+            <h3>${mod.title}</h3>
+            ${mod.subtitle ? `<p class="theory-subtitle">${mod.subtitle}</p>` : ''}
+          </div>
         </div>
-        <div class="theory-biblio"><i class="fa-solid fa-book-bookmark"></i> ${mod.bibliography}</div>
+        <div class="theory-meta-badges">
+          ${mod.weekRef ? `<span class="meta-pill week-pill" style="background: rgba(79, 70, 229, 0.12); color: var(--accent-primary); font-weight: 700; border: 1px solid rgba(79, 70, 229, 0.3);"><i class="fa-regular fa-calendar-check"></i> ${mod.weekRef}</span>` : ''}
+          ${mod.estimatedReading ? `<span class="meta-pill"><i class="fa-regular fa-clock"></i> ${mod.estimatedReading}</span>` : ''}
+          ${mod.difficulty ? `<span class="meta-pill difficulty"><i class="fa-solid fa-layer-group"></i> ${mod.difficulty}</span>` : ''}
+        </div>
       </div>
+
+      <div class="theory-overview-grid">
+        ${objItems ? `
+          <div class="meta-block">
+            <strong><i class="fa-solid fa-bullseye"></i> Objetivos de Aprendizagem:</strong>
+            <ul>${objItems}</ul>
+          </div>
+        ` : ''}
+
+        ${pdgtiItems ? `
+          <div class="meta-block">
+            <strong><i class="fa-solid fa-file-contract"></i> Conexão com o PDGTI:</strong>
+            <ul>${pdgtiItems}</ul>
+          </div>
+        ` : ''}
+      </div>
+
+      ${examItems ? `
+        <div class="exam-topics-row">
+          <strong><i class="fa-solid fa-graduation-cap"></i> Tópicos Frequentes em Avaliações:</strong>
+          <div class="exam-tags-list">${examItems}</div>
+        </div>
+      ` : ''}
 
       <div class="theory-card-body">
-        ${mod.content}
+        ${sectionsHtml}
       </div>
 
-      <div class="theory-card-footer">
-        <strong>Frameworks & Normas Conectadas:</strong>
-        <div class="fw-pills">
-          ${mod.frameworks.map(f => `<span class="fw-pill">${f}</span>`).join('')}
+      ${biblioItems ? `
+        <div class="theory-card-footer">
+          <strong><i class="fa-solid fa-book-bookmark"></i> Referências Bibliográficas do Módulo:</strong>
+          <ul class="mod-biblio-list">${biblioItems}</ul>
         </div>
-      </div>
+      ` : ''}
+
+      ${navButtonsHtml}
     `;
 
     container.appendChild(card);
   });
+
+  // Listeners para os botões de navegação Anterior/Próximo Módulo
+  document.querySelectorAll(".nav-mod-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const targetId = e.currentTarget.getAttribute("data-target-mod");
+      const selectElem = document.getElementById("theory-module-select");
+      if (selectElem) {
+        selectElem.value = targetId;
+      }
+      renderTheoryModules(targetId);
+      const container = document.getElementById("theory-modules-container");
+      if (container) {
+        container.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+}
+
+function initTheoryFilters() {
+  const selectElem = document.getElementById("theory-module-select");
+  const searchInput = document.getElementById("theory-search-input");
+
+  if (selectElem) {
+    selectElem.addEventListener("change", (e) => {
+      renderTheoryModules(e.target.value, searchInput ? searchInput.value : "");
+      const container = document.getElementById("theory-modules-container");
+      if (container) {
+        container.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      renderTheoryModules(selectElem ? selectElem.value : "all", e.target.value);
+    });
+  }
 }
 
 // --- RENDERIZAÇÃO DO TRACKER DO PDGTI ---
@@ -4905,7 +2308,12 @@ function renderQuiz() {
       const feedbackElem = document.getElementById(`feedback-${qid}`);
 
       if (!selected) {
-        alert("Por favor, selecione uma das opções antes de verificar.");
+        feedbackElem.classList.remove("hidden", "correct", "wrong");
+        feedbackElem.classList.add("wrong");
+        feedbackElem.innerHTML = `
+          <strong><i class="fa-solid fa-triangle-exclamation"></i> Atenção!</strong>
+          <p>Por favor, selecione uma das opções acima antes de verificar a resposta.</p>
+        `;
         return;
       }
 
@@ -5014,13 +2422,31 @@ function updateThemeIcon(theme) {
   }
 }
 
+// --- MODO LEITURA / EXPANDIR TELA (ZEN MODE) ---
+function initZenModeToggle() {
+  const toggleBtn = document.getElementById("toggle-sidebar-btn");
+  const container = document.querySelector(".app-container");
+  if (!toggleBtn || !container) return;
+
+  toggleBtn.addEventListener("click", () => {
+    container.classList.toggle("sidebar-collapsed");
+    const isCollapsed = container.classList.contains("sidebar-collapsed");
+    toggleBtn.innerHTML = isCollapsed 
+      ? `<i class="fa-solid fa-compress"></i> <span>Sair do Modo Leitura</span>`
+      : `<i class="fa-solid fa-expand"></i> <span>Modo Leitura</span>`;
+  });
+}
+
 // --- INICIALIZAÇÃO GERAL ---
 document.addEventListener("DOMContentLoaded", () => {
   loadPdgtiState();
   initThemeToggle();
+  initZenModeToggle();
   initTabNavigation();
   renderSchedule();
+  populateTheoryModuleSelect();
   renderTheoryModules();
+  initTheoryFilters();
   renderPdgtiTracker();
   updateDashboardProgress();
   renderQuiz();
