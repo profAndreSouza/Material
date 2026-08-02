@@ -30,4 +30,4 @@ jobs:
 
       - name: Build da Imagem Docker
         run: |
-          docker build -t factoryhub:latest -f docker/Dockerfile .
+          docker build -t factoryhub:latest -f factoryhub/Dockerfile .
