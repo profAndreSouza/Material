@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import numpy as np
+import json
 
 os.makedirs('data', exist_ok=True)
 np.random.seed(42)
@@ -142,4 +143,47 @@ df4 = pd.DataFrame({
 })
 df4.to_csv('data/projeto_final_capstone.csv', index=False)
 print("-> data/projeto_final_capstone.csv criado (550 linhas)")
-print("=== Todos os 4 datasets industriais criados com sucesso! ===")
+
+# ==============================================================================
+# 5. Dataset 5 – Telemetry Sensors (data/telemetry.csv)
+# Utilizado na Telemetria da Fábrica e Aulas de Séries Temporais / EDA
+# ==============================================================================
+n5 = 1000
+ids5 = np.arange(1, n5 + 1)
+timestamps5 = pd.date_range(start='2026-08-01 00:00:00', periods=n5, freq='1min')
+plants5 = ['SmartN1'] * n5
+stations5 = np.random.choice(['Prensa_01', 'Torno_CNC_02', 'Fresadora_03', 'Injetora_04', 'Linha_Montagem'], size=n5)
+piece_ids5 = [f"PART-{1000 + (i % 250)}" for i in range(n5)]
+events5 = np.random.choice(['sensor.read', 'press.cycle', 'piece.detected', 'inspection.done', 'temp.warning'], size=n5, p=[0.5, 0.2, 0.15, 0.1, 0.05])
+statuses5 = np.random.choice(['OK', 'WARNING', 'ERROR'], size=n5, p=[0.85, 0.10, 0.05])
+
+press5 = np.random.normal(loc=5.8, scale=0.4, size=n5)
+nan_indices = np.random.choice(n5, size=30, replace=False)
+press5[nan_indices] = np.nan
+
+outlier_indices = np.random.choice([i for i in range(n5) if i not in nan_indices], size=15, replace=False)
+press5[outlier_indices] = np.random.uniform(9.0, 12.0, size=15)
+
+temp5 = np.random.normal(loc=72.5, scale=3.5, size=n5)
+
+payloads5 = []
+for p, t in zip(press5, temp5):
+    p_val = None if np.isnan(p) else round(float(p), 2)
+    t_val = round(float(t), 2)
+    payloads5.append(json.dumps({"pressao_bar": p_val, "temperatura_c": t_val}))
+
+df5 = pd.DataFrame({
+    'id': ids5,
+    'timestamp': timestamps5,
+    'plant': plants5,
+    'station': stations5,
+    'piece_id': piece_ids5,
+    'event': events5,
+    'status': statuses5,
+    'pressao_bar': np.round(press5, 2),
+    'temperature': np.round(temp5, 2),
+    'payload': payloads5
+})
+df5.to_csv('data/telemetry.csv', index=False)
+print("-> data/telemetry.csv criado (1000 linhas)")
+print("=== Todos os 5 datasets industriais criados com sucesso! ===")

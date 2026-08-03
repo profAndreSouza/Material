@@ -27,8 +27,6 @@ Thumbs.db
 # Logs
 *.log
 
-# Pastas Privadas e Legadas para Exclusão
-_arquivos_antigos_para_excluir/
-Privado/
-privado/
+# Pastas e Arquivos Privados 
 roteiro_docente.md
+semanas/
