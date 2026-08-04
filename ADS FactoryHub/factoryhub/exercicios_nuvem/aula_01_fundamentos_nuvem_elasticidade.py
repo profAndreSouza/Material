@@ -1,16 +1,14 @@
 """
 Aula 01 - Computação em Nuvem: Fundamentos & Elasticidade
+========================================================
+Exercício Prático para Alunos:
+1. Complete a função 'calcular_cluster_cloud(instancias, vcpu_por_inst, ram_gb_por_inst)'
+   para retornar um dicionário com total_vcpu e total_ram_gb do cluster ativado.
 """
+
 def calcular_cluster_cloud(instancias, vcpu_por_inst, ram_gb_por_inst):
-    return {
-        "instancias_ativas": instancias,
-        "total_vcpu": instancias * vcpu_por_inst,
-        "total_ram_gb": instancias * ram_gb_por_inst
-    }
+    """Calcula a capacidade computacional agregada de um cluster de máquinas na nuvem."""
+    # TODO: Implemente o cálculo de vCPU e RAM totais
+    pass
 
-res = calcular_cluster_cloud(instancias=4, vcpu_por_inst=2, ram_gb_por_inst=8)
-
-print("=== Cálculo de Capacidade Computacional Cloud (Scale-Out) ===")
-print(f"Instâncias e2-standard-2 : {res['instancias_ativas']}")
-print(f"Total vCPUs Disponíveis  : {res['total_vcpu']} vCPUs")
-print(f"Total Memória RAM        : {res['total_ram_gb']} GB RAM")
+# TODO: Chame a função para 4 instâncias e2-standard-2 (2 vCPUs e 8GB RAM cada)

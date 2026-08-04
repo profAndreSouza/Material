@@ -1,17 +1,14 @@
 """
 Aula 07 - Computação em Nuvem: Segurança IAM e Service Accounts
+================================================================
+Exercício Prático para Alunos:
+1. Monte o dicionário 'sa_config' especificando a conta de serviço (Service Account) e a lista de papéis (Roles) do IAM seguindo o princípio do menor privilégio.
 """
+
+# TODO: Defina sa_config com a Service Account e suas Roles no GCP
 sa_config = {
-    "service_account": "sa-factoryhub-api@smartn1-prod.iam.gserviceaccount.com",
-    "roles": [
-        "roles/cloudsql.client",
-        "roles/storage.objectViewer",
-        "roles/logging.logWriter"
-    ]
+    # Insira a Service Account e a lista de papéis (roles) aqui
 }
 
 print("=== Configuração de IAM & Menor Privilégio ===")
-print(f"Service Account: {sa_config['service_account']}")
-print("Papeis (Roles) Atribuídos:")
-for r in sa_config['roles']:
-    print(f" -> {r}")
+# TODO: Exiba os papéis atribuídos

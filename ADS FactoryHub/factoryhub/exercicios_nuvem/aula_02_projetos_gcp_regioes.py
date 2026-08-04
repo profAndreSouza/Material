@@ -1,14 +1,14 @@
 """
 Aula 02 - Computação em Nuvem: Projetos GCP e Regiões
+=====================================================
+Exercício Prático para Alunos:
+1. Defina o dicionário 'gcp_project' especificando project_name, project_id, region, primary_zone e billing_account.
 """
+
+# TODO: Monte o dicionário gcp_project com as configurações da região São Paulo (southamerica-east1)
 gcp_project = {
-    "project_name": "Smart N1 FactoryHub",
-    "project_id": "smartn1-factoryhub-prod",
-    "region": "southamerica-east1 (São Paulo)",
-    "primary_zone": "southamerica-east1-a",
-    "billing_account": "ACTIVE-019283-BILLING"
+    # Insira os parâmetros do projeto GCP aqui
 }
 
 print("=== Especificação do Projeto no Google Cloud Platform ===")
-for k, v in gcp_project.items():
-    print(f"[{k:18s}]: {v}")
+# TODO: Exiba as especificações do projeto

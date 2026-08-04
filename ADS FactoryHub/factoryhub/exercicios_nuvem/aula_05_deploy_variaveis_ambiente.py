@@ -1,11 +1,14 @@
 """
 Aula 05 - Computação em Nuvem: Variáveis de Ambiente para Deploy
+================================================================
+Exercício Prático para Alunos:
+1. Utilize os.getenv() para carregar as variáveis de ambiente 'DATABASE_URL' e 'MQTT_BROKER_HOST' com valores padrão (fallbacks).
 """
 import os
 
-db_url = os.getenv("DATABASE_URL", "postgresql://user:secret@cloudsql-host:5432/factoryhub")
-mqtt_host = os.getenv("MQTT_BROKER_HOST", "broker.hivemq.com")
+# TODO: Obtenha as variáveis de ambiente usando os.getenv()
+db_url = None
+mqtt_host = None
 
 print("=== Configuração da Aplicação via Variáveis de Ambiente ===")
-print(f"DATABASE_URL    : {db_url}")
-print(f"MQTT_BROKER_HOST: {mqtt_host}")
+# TODO: Exiba os valores obtidos

@@ -1,11 +1,13 @@
 """
-Aula 02 - DevOps: Entrega Contínua na Vercel (Preview Deployments)
+Aula 02 - DevOps: Configuração de Deploy Automatizado (Vercel)
+===============================================================
+Exercício Prático para Alunos:
+1. Complete a função 'gerar_config_vercel(app_name, build_command)' que retorne o dicionário de configuração vercel.json.
 """
-def obter_url_vercel(branch_name):
-    if branch_name == "main":
-        return "https://factoryhub.vercel.app (Production)"
-    return f"https://factoryhub-git-{branch_name}.vercel.app (Preview Deployment)"
 
-print("=== Simulação de Deploy Automático na Vercel ===")
-print(obter_url_vercel("feature-ui"))
-print(obter_url_vercel("main"))
+def gerar_config_vercel(app_name, build_command="npm run build"):
+    """Gera a estrutura de configuração para o deploy na Vercel."""
+    # TODO: Retorne o dicionário de configuração vercel
+    pass
+
+# TODO: Teste a função e exiba a configuração formatada em JSON

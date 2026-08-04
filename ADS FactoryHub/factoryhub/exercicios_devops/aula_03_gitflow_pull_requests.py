@@ -1,16 +1,13 @@
 """
-Aula 03 - DevOps: Pull Requests e Code Review
+Aula 03 - DevOps: Estratégia de Branches & Pull Requests (PR)
+=============================================================
+Exercício Prático para Alunos:
+1. Complete a função 'validar_pull_request(branch_origem, branch_destino, aprovacoes)' que autoriza o merge apenas se o destino for 'develop' ou 'main' E tiver pelo menos 1 aprovação.
 """
-pr_data = {
-    "pr_number": 15,
-    "title": "Adicionar reconexão dinâmica ao Broker MQTT Central",
-    "author": "dev-aluno",
-    "reviewers": ["prof-andre", "peer-reviewer"],
-    "ci_status": "PASSED",
-    "approvals": 2
-}
 
-print("=== Status do Pull Request no GitHub ===")
-print(f"PR #{pr_data['pr_number']}: {pr_data['title']}")
-print(f"CI Status: {pr_data['ci_status']} | Aprovações: {pr_data['approvals']}/2")
-print("Ação: Pronto para Merge em 'develop'.")
+def validar_pull_request(branch_origem, branch_destino, aprovacoes):
+    """Valida as regras de autorização para merge de Pull Request."""
+    # TODO: Implemente a validação do PR
+    pass
+
+# TODO: Teste a função com diferentes cenários de PR

@@ -1,10 +1,15 @@
 """
 Aula 01 - DevOps: Cultura CAMS e Modelo GitFlow
+================================================
+Exercício Prático para Alunos:
+1. Defina a lista 'branches_gitflow' com as branches padrão do fluxo (main, develop, feature/*, release/*).
+2. Exiba a estrutura de branches e a explicação dos pilares da cultura CAMS.
 """
-branches_gitflow = ["main (prod)", "develop (homolog)", "feature/mqtt-api", "release/v1.0.0"]
+
+# TODO: Defina a lista de branches do GitFlow
+branches_gitflow = [
+    # Insira as branches aqui
+]
 
 print("=== Estrutura de Branches do Modelo GitFlow ===")
-for b in branches_gitflow:
-    print(f" -> Branch: {b}")
-print("")
-print("Filosofia CAMS: Culture, Automation, Measurement, Sharing")
+# TODO: Percorra e imprima as branches

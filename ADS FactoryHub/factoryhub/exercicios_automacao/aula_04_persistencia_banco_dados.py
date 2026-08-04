@@ -1,27 +1,19 @@
 """
 Aula 04 - Automação Industrial: Persistência de Dados em Banco Relacional
+=========================================================================
+Exercício Prático para Alunos:
+1. Crie uma tabela SQLite em memória chamada 'telemetry' com as colunas: id, station, event, val.
+2. Insira pelo menos 2 registros de eventos de telemetria.
+3. Consulte e exiba todos os registros gravados.
 """
 import sqlite3
 
-conn = sqlite3.connect(':memory:')
-cursor = conn.cursor()
+# TODO: Estabeleça a conexão com o banco SQLite em memória (:memory:)
+# conn = sqlite3.connect(':memory:')
+# cursor = conn.cursor()
 
-cursor.execute("""
-CREATE TABLE telemetry (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    station TEXT,
-    event TEXT,
-    val REAL
-)
-""")
+# TODO: Escreva o comando SQL para criar a tabela 'telemetry' (CREATE TABLE...)
 
-cursor.execute("INSERT INTO telemetry (station, event, val) VALUES ('Entrada', 'piece.detected', 24.0)")
-cursor.execute("INSERT INTO telemetry (station, event, val) VALUES ('Prensa', 'press.cycle', 5.8)")
-conn.commit()
+# TODO: Insira 2 registros de teste via cursor.execute() e execute conn.commit()
 
-cursor.execute("SELECT * FROM telemetry")
-rows = cursor.fetchall()
-
-print("=== Persistência de Dados Fabris no Banco de Dados ===")
-for r in rows:
-    print(f"Registro #{r[0]} | Estação: {r[1]} | Evento: {r[2]} | Valor: {r[3]}")
+# TODO: Realize um SELECT * FROM telemetry e imprima os resultados

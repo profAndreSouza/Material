@@ -1,14 +1,18 @@
 """
 Aula 08 - Automação Industrial: Cálculo Automatizado de OEE
+===========================================================
+Exercício Prático para Alunos:
+1. Complete a função 'calcular_oee(disponibilidade, desempenho, qualidade)' retornando a Eficiência Global (OEE) em porcentagem.
 """
-disponibilidade = 0.94 # 94%
-desempenho = 0.91      # 91%
-qualidade = 0.98       # 98%
 
-oee = disponibilidade * desempenho * qualidade * 100
+def calcular_oee(disponibilidade, desempenho, qualidade):
+    """Calcula o OEE multiplicando os 3 pilares (Disponibilidade * Desempenho * Qualidade * 100)."""
+    # TODO: Implemente a fórmula do OEE
+    pass
 
-print("=== Cálculo dos Pilares de Eficiência Global (OEE) ===")
-print(f"Disponibilidade : {disponibilidade*100:.1f}%")
-print(f"Desempenho      : {desempenho*100:.1f}%")
-print(f"Qualidade       : {qualidade*100:.1f}%")
-print(f"OEE Global      : {oee:.2f}%")
+# TODO: Defina os valores dos pilares (ex: 0.94, 0.91, 0.98) e execute calcular_oee
+disponibilidade = 0.94
+desempenho = 0.91
+qualidade = 0.98
+
+# oee = calcular_oee(disponibilidade, desempenho, qualidade)

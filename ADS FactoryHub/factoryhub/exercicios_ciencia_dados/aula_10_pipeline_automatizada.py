@@ -1,27 +1,16 @@
 """
 Aula 10 - Ciência de Dados: Pipeline Analítica Automatizada Completa
 ====================================================================
-Função modularizada para ingestão, tratamento e exportação de KPIs.
+Exercício Prático para Alunos:
+1. Complete a função 'processar_lote_industrial(payload_lote)' que recebe uma lista de dicionários,
+   remove nulos, calcula total de peças, aprovadas (status == 'OK'), rejeitadas e taxa de qualidade (%).
 """
 import pandas as pd
-import json
 
 def processar_lote_industrial(payload_lote):
-    df = pd.DataFrame(payload_lote)
-    df_limpo = df.dropna().copy()
-    
-    total = len(df_limpo)
-    aprovadas = len(df_limpo[df_limpo["status"] == "OK"])
-    rejeitadas = len(df_limpo[df_limpo["status"] != "OK"])
-    taxa_qualidade = (aprovadas / total) * 100 if total > 0 else 0
-    
-    return {
-        "status_pipeline": "SUCCESS",
-        "total_processado": total,
-        "pecas_ok": aprovadas,
-        "pecas_nok": rejeitadas,
-        "taxa_qualidade_pct": round(taxa_qualidade, 2)
-    }
+    """Executa a pipeline de ingestão, tratamento e cálculo de KPIs de qualidade."""
+    # TODO: Implemente o processamento do lote e retorne o dicionário com os KPIs
+    pass
 
 lote_amostra = [
     {"id": 1, "status": "OK"},
@@ -31,6 +20,4 @@ lote_amostra = [
     {"id": 5, "status": "OK"}
 ]
 
-res = processar_lote_industrial(lote_amostra)
-print("=== Execução da Pipeline Analítica Automatizada ===")
-print(json.dumps(res, indent=2))
+# TODO: Chame a função e exiba o resultado

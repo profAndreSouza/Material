@@ -28,6 +28,4 @@ Thumbs.db
 *.log
 
 # Pastas e Arquivos Privados 
-roteiro_docente.md
-semanas/
-materiais/
+docente/

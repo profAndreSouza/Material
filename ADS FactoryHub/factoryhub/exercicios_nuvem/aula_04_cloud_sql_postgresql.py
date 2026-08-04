@@ -1,15 +1,14 @@
 """
 Aula 04 - Computação em Nuvem: Cloud SQL PostgreSQL
+===================================================
+Exercício Prático para Alunos:
+1. Defina a especificação da instância gerenciada Cloud SQL (PostgreSQL 15, High Availability, Zona de Failover).
 """
+
+# TODO: Monte o dicionário cloud_sql com a arquitetura de banco gerenciado
 cloud_sql = {
-    "instance": "smartn1-postgres-instance",
-    "engine": "PostgreSQL 15",
-    "tier": "db-custom-2-7680",
-    "high_availability": True,
-    "failover_replica": "southamerica-east1-b"
+    # Insira as propriedades do Cloud SQL aqui
 }
 
 print("=== Instância Gerenciada Cloud SQL (GCP) ===")
-print(f"Engine : {cloud_sql['engine']} (Tier: {cloud_sql['tier']})")
-print(f"Status HA Multi-AZ: {'ATIVO' if cloud_sql['high_availability'] else 'DESATIVADO'}")
-print(f"Zona de Failover  : {cloud_sql['failover_replica']}")
+# TODO: Exiba o status de HA e configurações

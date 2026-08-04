@@ -1,13 +1,14 @@
 """
 Aula 11 - DevOps: Demonstração da Esteira Híbrida CI/CD
+=======================================================
+Exercício Prático para Alunos:
+1. Monte o dicionário de status da arquitetura híbrida de produção (Frontend Vercel + Backend GCP Cloud Run + Cloud SQL DB).
 """
+
+# TODO: Monte o dicionário status_esteira com os serviços e status
 status_esteira = {
-    "frontend_vercel": "ONLINE (Production)",
-    "backend_cloud_run": "SERVED (Scale-to-Zero)",
-    "database_cloud_sql": "HEALTHY",
-    "ci_cd_status": "ALL PIPELINES GREEN"
+    # Insira os status da arquitetura híbrida aqui
 }
 
 print("=== DEMONSTRAÇÃO DO CAPSTONE DEVOPS (Vercel + GCP) ===")
-for k, v in status_esteira.items():
-    print(f"[{k:20s}]: {v}")
+# TODO: Exiba os serviços e seus respectivos status de saúde

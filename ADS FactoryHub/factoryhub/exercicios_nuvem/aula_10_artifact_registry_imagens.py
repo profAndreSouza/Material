@@ -1,13 +1,16 @@
 """
 Aula 10 - Computação em Nuvem: GCP Artifact Registry
+====================================================
+Exercício Prático para Alunos:
+1. Monte a URI completa de uma imagem OCI no Artifact Registry concatenando repositório, nome da imagem e tag.
 """
+
+# TODO: Defina o dicionário artifact_spec e monte full_image_uri
 artifact_spec = {
-    "repository": "southamerica-east1-docker.pkg.dev/smartn1-prod/apps",
-    "image_name": "factoryhub",
-    "tag": "v1.0.0"
+    # Insira repositório, image_name e tag aqui
 }
 
-full_image_uri = f"{artifact_spec['repository']}/{artifact_spec['image_name']}:{artifact_spec['tag']}"
+# full_image_uri = ...
 
 print("=== Repositório de Imagens OCI no Artifact Registry ===")
-print(f"URI Completa da Imagem: {full_image_uri}")
+# TODO: Exiba a URI completa da imagem

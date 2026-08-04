@@ -1,10 +1,13 @@
 """
 Aula 08 - DevOps: Entrega Contínua (CD) em Produção
+====================================================
+Exercício Prático para Alunos:
+1. Complete a função 'trigger_cd_deploy(branch)' que direciona o deploy para o ambiente de Produção se branch == 'main', ou para Staging caso contrário.
 """
-def trigger_cd_deploy(branch):
-    if branch == "main":
-        return "DEPLOY REALIZADO EM PRODUÇÃO (https://factoryhub.vercel.app)"
-    return "DEPLOY REALIZADO EM STAGING (https://staging.factoryhub.vercel.app)"
 
-print("=== Gatilho de Entrega Contínua (CD) ===")
-print(trigger_cd_deploy("main"))
+def trigger_cd_deploy(branch):
+    """Simula o gatilho de deploy contínuo baseado no nome da branch."""
+    # TODO: Implemente a lógica de roteamento do deploy
+    pass
+
+# TODO: Teste a função com a branch "main" e "develop"

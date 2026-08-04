@@ -1,14 +1,14 @@
 """
 Aula 03 - Computação em Nuvem: Cloud Storage & Buckets
+======================================================
+Exercício Prático para Alunos:
+1. Defina o dicionário 'bucket_spec' com bucket_uri, storage_class, location e lifecycle_rule.
 """
+
+# TODO: Monte a especificação do bucket no Cloud Storage (gs://smartn1-telemetry-storage)
 bucket_spec = {
-    "bucket_uri": "gs://smartn1-telemetry-storage",
-    "storage_class": "STANDARD",
-    "location": "SOUTHAMERICA-EAST1",
-    "lifecycle_rule": "Mover objetos com > 30 dias para NEARLINE"
+    # Insira as configurações do bucket aqui
 }
 
 print("=== Especificação do Bucket no Cloud Storage ===")
-print(f"URI do Bucket: {bucket_spec['bucket_uri']}")
-print(f"Classe      : {bucket_spec['storage_class']}")
-print(f"Regra de Ciclo de Vida: {bucket_spec['lifecycle_rule']}")
+# TODO: Exiba as propriedades do bucket

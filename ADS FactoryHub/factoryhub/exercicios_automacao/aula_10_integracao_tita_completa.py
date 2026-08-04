@@ -1,16 +1,14 @@
 """
 Aula 10 - Automação Industrial: Integração TI/TA Completa
+=========================================================
+Exercício Prático para Alunos:
+1. Monte a lista 'camadas_tita' detalhando as 5 etapas do fluxo de integração ponta-a-ponta.
 """
+
+# TODO: Complete a lista camadas_tita com as 5 etapas da arquitetura integrada Smart N1
 camadas_tita = [
-    "1. Sensor 24V aciona na esteira",
-    "2. Gateway publica evento no Broker MQTT",
-    "3. Node-RED grava no PostgreSQL",
-    "4. API Flask expõe rota REST",
-    "5. FactoryHub Web exibe em tempo real"
+    # Ex: "1. Sensor 24V aciona na esteira", ...
 ]
 
 print("=== Validação do Fluxo Integrado TI/TA da Fábrica Smart N1 ===")
-for c in camadas_tita:
-    print(f" -> {c}")
-print("")
-print("Status da Integração: 100% OPERACIONAL")
+# TODO: Percorra e exiba cada etapa da lista

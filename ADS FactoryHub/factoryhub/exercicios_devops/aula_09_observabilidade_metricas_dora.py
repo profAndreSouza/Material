@@ -1,13 +1,14 @@
 """
 Aula 09 - DevOps: Observabilidade & Métricas DORA
+=================================================
+Exercício Prático para Alunos:
+1. Defina o dicionário 'metricas_dora' com as 4 métricas chave de DevOps (deployment_frequency, lead_time_for_changes, change_failure_rate, mean_time_to_restore_mttr).
 """
+
+# TODO: Monte o dicionário metricas_dora com os valores correspondentes
 metricas_dora = {
-    "deployment_frequency": "Diário (2 deploys/dia)",
-    "lead_time_for_changes": "25 minutos",
-    "change_failure_rate": "1.2%",
-    "mean_time_to_restore_mttr": "12 minutos"
+    # Insira as 4 métricas DORA aqui
 }
 
 print("=== Desempenho da Equipe nas 4 Métricas DORA ===")
-for k, v in metricas_dora.items():
-    print(f" -> {k:28s}: {v}")
+# TODO: Exiba as métricas formatadas

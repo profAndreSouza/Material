@@ -1,7 +1,9 @@
 """
 Aula 02 - Ciência de Dados: Taxonomia, Amostragem e Imputação de Nulos
 =======================================================================
-Tratamento de medições ausentes (NaN) e amostragem estatística.
+Exercício Prático para Alunos:
+1. Verifique a quantidade de valores nulos no DataFrame utilizando df.isnull().sum().
+2. Calcule a média da coluna 'temp_c' e faça a imputação dos valores ausentes usando fillna().
 """
 import pandas as pd
 import numpy as np
@@ -13,13 +15,9 @@ data = {
 }
 df = pd.DataFrame(data)
 
-print("=== Taxonomia e Tratamento de Dados Ausentes ===")
-print("Contagem de nulos por coluna:")
-print(df.isnull().sum())
+def imputar_temperatura_media(df_in):
+    """Calcula a média de temp_c e preenche valores nulos em nova coluna temp_imputada."""
+    # TODO: Implementar a imputação de nulos pela média
+    pass
 
-media_temp = df["temp_c"].mean()
-df["temp_imputada"] = df["temp_c"].fillna(media_temp)
-
-print(f"\nMédia calculada (excluindo NaN): {media_temp:.2f} ºC")
-print("\nDataset após imputação pela média:")
-print(df[["sensor_id", "shift", "temp_c", "temp_imputada"]])
+# TODO: Execute a função e exiba os resultados

@@ -1,14 +1,13 @@
 """
-Aula 05 - DevOps: Orquestração Declarativa com Docker Compose
+Aula 05 - DevOps: Orquestração Multi-Container com Docker Compose
+==================================================================
+Exercício Prático para Alunos:
+1. Complete a função 'gerar_compose_config()' que retorne a especificação dos serviços 'web' (Flask) e 'broker' (Mosquitto MQTT).
 """
-compose_summary = {
-    "version": "3.8",
-    "services": {
-        "factoryhub": {"build": ".", "ports": ["5000:5000"]},
-        "db": {"image": "postgres:15-alpine", "volumes": ["db_data:/var/lib/postgresql/data"]}
-    }
-}
 
-print("=== Resumo do Arquivo docker-compose.yml ===")
-print(f"Serviços Orquestrados: {list(compose_summary['services'].keys())}")
-print("Comando de Execução : docker compose up -d")
+def gerar_compose_config():
+    """Retorna o dicionário representando um arquivo docker-compose.yml."""
+    # TODO: Defina os serviços web e broker com suas respectivas portas e imagens
+    pass
+
+# TODO: Execute a função e exiba a configuração

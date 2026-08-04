@@ -1,14 +1,14 @@
 """
 Aula 08 - Computação em Nuvem: Cloud Monitoring e Alertas
+==========================================================
+Exercício Prático para Alunos:
+1. Monte o dicionário 'metricas_gcp' com as métricas de uso de CPU, latência P95 em ms e instâncias ativas.
 """
+
+# TODO: Defina o dicionário metricas_gcp
 metricas_gcp = {
-    "cpu_utilization_pct": 38.2,
-    "http_latency_p95_ms": 112.5,
-    "active_container_instances": 3
+    # Insira as métricas de monitoramento aqui
 }
 
 print("=== Métricas Operacionais do Cloud Monitoring ===")
-for k, v in metricas_gcp.items():
-    print(f" -> {k:28s}: {v}")
-print("")
-print("Política de Alerta: OK (Latência < 200ms)")
+# TODO: Exiba as métricas coletadas

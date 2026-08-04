@@ -1,12 +1,14 @@
 """
-Aula 04 - DevOps: Compilação de Imagens e Docker Hub
+Aula 04 - DevOps: Containerização com Docker & Imagens
+======================================================
+Exercício Prático para Alunos:
+1. Monte o dicionário 'dockerfile_spec' descrevendo as instruções de um Dockerfile (FROM, WORKDIR, COPY, RUN, CMD).
 """
-cmds_docker = [
-    "docker build -t factoryhub:latest .",
-    "docker tag factoryhub:latest usuario/factoryhub:v1.0.0",
-    "docker push usuario/factoryhub:v1.0.0"
-]
 
-print("=== Sequência de Comandos para Publicação no Docker Hub ===")
-for c in cmds_docker:
-    print(f"$ {c}")
+# TODO: Defina a especificação das camadas da imagem Docker
+dockerfile_spec = {
+    # Insira as instruções aqui
+}
+
+print("=== Estrutura da Imagem Containerizada (Dockerfile) ===")
+# TODO: Imprima as etapas do Dockerfile

@@ -1,19 +1,14 @@
 """
 Aula 05 - Automação Industrial: Dashboards Operacionais Grafana
+==============================================================
+Exercício Prático para Alunos:
+1. Escreva a consulta SQL de agregação para calcular total de peças e peças conformes (status = 'OK') por janela de tempo e estação.
 """
+
+# TODO: Escreva a instrução SQL de agregação na variável query_grafana
 query_grafana = """
-SELECT 
-    time_bucket('1 min', timestamp) AS time,
-    station,
-    COUNT(*) AS total_pecas,
-    SUM(CASE WHEN status = 'OK' THEN 1 ELSE 0 END) AS conformes
-FROM telemetry
-WHERE timestamp >= NOW() - INTERVAL '1 hour'
-GROUP BY time, station
-ORDER BY time DESC;
+-- Escreva sua consulta SQL de agregação Grafana aqui (SELECT, time_bucket, COUNT, SUM CASE...)
 """
 
 print("=== Consulta SQL de Agregação para Painel Grafana ===")
 print(query_grafana.strip())
-print("")
-print("Métrica de Produção Instantânea: 480 Peças OK / 500 Total (96% Qualidade)")

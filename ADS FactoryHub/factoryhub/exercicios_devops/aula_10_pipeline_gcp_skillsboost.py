@@ -1,14 +1,14 @@
 """
 Aula 10 - DevOps: Pipeline Corporativa GitHub Actions -> GCP
+=============================================================
+Exercício Prático para Alunos:
+1. Monte a lista de passos da esteira automatizada de deploy corporativo no Google Cloud.
 """
+
+# TODO: Defina as 5 etapas da pipeline corporativa para a GCP
 steps_pipeline_gcp = [
-    "1. Checkout do Repositório",
-    "2. Autenticação na GCP via Workload Identity",
-    "3. Build da Imagem Docker OCI",
-    "4. Push para o GCP Artifact Registry",
-    "5. Deploy automático no GCP Cloud Run"
+    # Insira as etapas aqui
 ]
 
 print("=== Passos do Pipeline de Produção (GitHub Actions + GCP) ===")
-for step in steps_pipeline_gcp:
-    print(f" -> {step}")
+# TODO: Percorra e exiba cada passo

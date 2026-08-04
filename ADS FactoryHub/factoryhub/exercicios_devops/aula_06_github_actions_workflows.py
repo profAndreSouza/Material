@@ -1,17 +1,14 @@
 """
-Aula 06 - DevOps: Automação de Workflows com GitHub Actions
+Aula 06 - DevOps: Workflows de Integração Contínua (GitHub Actions)
+===================================================================
+Exercício Prático para Alunos:
+1. Monte a lista de etapas (steps) de um workflow de CI (.github/workflows/ci.yml).
 """
-workflow_yml = {
-    "name": "CI Pipeline",
-    "on": ["push", "pull_request"],
-    "jobs": {
-        "build-and-test": {
-            "runs-on": "ubuntu-latest",
-            "steps": ["checkout", "setup-python", "install-deps", "pytest"]
-        }
-    }
-}
 
-print("=== Estrutura da Workflow YAML (.github/workflows/ci.yml) ===")
-print(f"Gatilhos (Triggers): {workflow_yml['on']}")
-print(f"Runner OS         : {workflow_yml['jobs']['build-and-test']['runs-on']}")
+# TODO: Defina a lista de passos do workflow (Checkout, Setup Python, Install Deps, Run Tests)
+steps_ci = [
+    # Insira os passos do workflow de CI aqui
+]
+
+print("=== Passos da Esteira de CI (GitHub Actions) ===")
+# TODO: Exiba os passos configurados
