@@ -1,7 +1,9 @@
 import os
 import glob
-import sys
-import subprocess
+import io
+import runpy
+import contextlib
+from functools import wraps
 from flask import Blueprint, jsonify, request, current_app
 
 try:
@@ -13,7 +15,18 @@ except ImportError:
 
 api_bp = Blueprint('api', __name__)
 
+def require_api_key(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        token = request.headers.get('X-API-Key') or request.args.get('api_key')
+        expected = current_app.config.get('SECRET_KEY')
+        if not token or token != expected:
+            return jsonify({'error': 'Unauthorized'}), 401
+        return f(*args, **kwargs)
+    return decorated
+
 @api_bp.route('/api/kpis')
+@require_api_key
 def get_kpis():
     total_telemetry = Telemetry.query.count()
     total_pieces = Piece.query.count()
@@ -33,6 +46,7 @@ def get_kpis():
     })
 
 @api_bp.route('/api/mqtt/status', methods=['GET'])
+@require_api_key
 def get_mqtt_status():
     return jsonify({
         'connected': mqtt_service.connected,
@@ -45,6 +59,7 @@ def get_mqtt_status():
     })
 
 @api_bp.route('/api/mqtt/connect', methods=['POST'])
+@require_api_key
 def connect_mqtt():
     data = request.get_json() or {}
     host = data.get('host', 'localhost')
@@ -64,6 +79,7 @@ def connect_mqtt():
     })
 
 @api_bp.route('/api/mqtt/disconnect', methods=['POST'])
+@require_api_key
 def disconnect_mqtt():
     success, message = mqtt_service.disconnect_broker()
     return jsonify({
@@ -73,6 +89,7 @@ def disconnect_mqtt():
     })
 
 @api_bp.route('/api/exercicio/<int:aula_num>')
+@require_api_key
 def get_exercicio(aula_num):
     disc = request.args.get('disc', 'dados')
     base_dir = current_app.config.get('BASE_DIR', os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -99,18 +116,17 @@ def get_exercicio(aula_num):
         return jsonify({'error': f'Arquivo de exercício da Aula {aula_num:02d} ({disc}) não encontrado'}), 404
     
     file_path = files[0]
-    filename = os.path.basename(file_path)
-    
+    real_file = os.path.realpath(file_path)
+    real_base = os.path.realpath(base_dir)
+    if not real_file.startswith(real_base + os.sep):
+        return jsonify({'error': 'Access denied'}), 403
+    filename = os.path.basename(real_file)
+
     try:
-        res = subprocess.run(
-            [sys.executable, file_path],
-            capture_output=True,
-            text=True,
-            encoding='utf-8',
-            errors='replace',
-            timeout=15
-        )
-        raw_output = res.stdout if res.stdout else res.stderr
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
+            runpy.run_path(real_file, run_name='__main__')
+        raw_output = buf.getvalue()
     except Exception as e:
         raw_output = f"Erro ao executar o script: {str(e)}"
         
