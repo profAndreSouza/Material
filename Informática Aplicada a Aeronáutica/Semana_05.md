@@ -1,111 +1,122 @@
 # ROTEIRO DE AULA EXPANDIDO — SEMANA 05
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
-**Tema:** MS Excel I — Interface, Pastas de Trabalho, Células, Formatação e Funções Básicas  
-**Ambiente:** Laboratório de Informática  
+**Tema:** MS Excel II — Modelagem e Cálculos de Engenharia: Planilha Completa de Peso e Balanceamento de Aeronaves  
+**Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
+**Articulação com o PPC:** EAA-015 (Sistemas de Combustíveis, Lubrificação e Peso e Balanceamento) e CAL-201 (Cálculo Aplicado)  
 
 ---
 
-## 1. OBJETIVOS DE INFORMATICA
+## 1. OBJETIVOS DE INFORMÁTICA
 Ao final desta aula, você será capaz de:
-- Navegar com desenvoltura pela interface gráfica do Microsoft Excel.
-- Compreender o conceito computacional de **Planilha, Linha, Coluna e Célula**.
-- Entender a diferença entre **Valores Numéricos, Textos e Datas** armazenados nas células.
-- Construir e aplicar operadores aritméticos manuais (`+`, `-`, `*`, `/`, `^`).
-- Utilizar referências relativas de células e a **Alça de Preenchimento automático**.
-- Aplicar as funções fundamentais: `SOMA`, `MÉDIA`, `MÁXIMO`, `MÍNIMO` e `CONT.VALORES`.
-- Formatar tabelas numéricas (Formato de Número, Moeda, Porcentagem e Bordas).
+- Modelar planilhas complexas de engenharia no Microsoft Excel com múltiplos blocos de cálculo interdependentes.
+- Implementar as equações da física aeronáutica de **Momento Estático ($M = P \times B$)** e **Centro de Gravidade ($CG = \frac{\sum M}{\sum P}$)**.
+- Construir tabelas de carregamento dinâmico (Pilotos, Passageiros, Bagagem, Combustível e Peso Vazio).
+- Simular o deslocamento do Centro de Gravidade ($CG$) durante o voo decorrente da queima progressiva de combustível.
+- Criar verificadores lógicos preliminares para checar se o peso total e a posição do CG estão dentro dos limites operacionais de decolagem e pouso.
 
 ---
 
-## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
+## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL & MATEMÁTICA
 
-### 2.1 Estrutura da Planilha Eletrônica
-- **Célula:** A interseção entre uma Coluna (letras `A`, `B`, `C`...) e uma Linha (números `1`, `2`, `3`...).
-- **Endereço da Célula:** A identificação única da célula (ex: `B4` é a coluna B na linha 4).
-- **Toda Fórmula ou Função no Excel DEVE OBRIGATORIAMENTE começar com o sinal de IGUAL (`=`).** Se você digitar `10+20`, o Excel tratará como texto. Se digitar `=10+20`, o Excel calculará `30`.
+### 2.1 A Física do Peso e Balanceamento (Weight & Balance)
+Uma aeronave só pode voar com segurança se seu peso total não exceder o **Peso Máximo de Decolagem (MTOW)** e se a posição do seu **Centro de Gravidade ($CG$)** estiver dentro da faixa de estabilidade (*envelope de CG*).
 
-### 2.2 Operadores Aritméticos e Sintaxe de Funções
+$$\text{Momento } (M) = \text{Peso } (P) \times \text{Braço } (B)$$
+
+$$\text{Posição do } CG = \frac{\text{Somatória de Todos os Momentos } (\sum M)}{\text{Somatória de Todos os Pesos } (\sum P)} = \frac{M_{\text{total}}}{P_{\text{total}}}$$
 
 ```
-SINTAXE DE UMA FUNÇÃO NO EXCEL:
- =NOME_DA_FUNÇÃO(intervalo_de_células)
-  │             │
-  │             └── Exemplo: (A1:A10) significa da célula A1 ATÉ a célula A10
-  └── Exemplo: SOMA, MÉDIA, MÁXIMO
+ESTRUTURA COMPUTACIONAL DA PLANILHA NO EXCEL:
+ +------------------------------------------------------------------------------------+
+ | ESTAÇÃO / ITEM        | PESO (lb ou kg) | BRAÇO (polegadas/m) | MOMENTO (Peso x Braço) |
+ +-----------------------+-----------------+---------------------+------------------------+
+ | Peso Básico Vazio     |      1.500      |        85,0         |        127.500         |
+ | Piloto e Copiloto     |        340      |        85,5         |         29.070         |
+ | Passageiros Traseiros |        300      |       118,0         |         35.400         |
+ | Bagageiro 1           |         80      |       142,8         |         11.424         |
+ | Combustível Decolagem |        318      |        95,0         |         30.210         |
+ +-----------------------+-----------------+---------------------+------------------------+
+ | TOTAIS NA DECOLAGEM:  | SOMA(Pesos)     |                     | SOMA(Momentos)         |
+ |                       |   = 2.538 lb    |                     |   = 233.604 lb.in      |
+ +-----------------------+-----------------+---------------------+------------------------+
+ | POSIÇÃO DO CG (Dec.): | = Momento_Total / Peso_Total = 233.604 / 2.538 = 92,04 pol     |
+ +-----------------------+----------------------------------------------------------------+
 ```
-
-| Operador | Operação Computacional | Exemplo |
-| :--- | :--- | :--- |
-| `+` | Adição | `=A1 + B1` |
-| `-` | Subtração | `=A1 - B1` |
-| `*` | Multiplicação | `=A1 * B1` |
-| `/` | Divisão | `=A1 / B1` |
-| `:` | Intervalo ("ATÉ") | `SOMA(A1:A10)` -> Soma de A1 até A10 |
-| `;` | Separador de Argumentos ("E") | `SOMA(A1; B1; C5)` -> Soma apenas A1, B1 e C5 |
 
 ---
 
 ## 3. GUIA PRÁTICO EM LABORATÓRIO (PASSO A PASSO)
 
-### Atividade 1: Construção de uma Planilha de Controle Numérico
+### Atividade 1: Estruturação da Planilha de Carregamento
 
-1. Abra o MS Excel e crie uma nova Pasta de Trabalho em Branco.
-2. Monte a estrutura de cabeçalhos na linha 1:
-   - `A1`: `Prefixo`
-   - `B1`: `Consumo Litros AQUI`
-   - `C1`: `Horas Voadas`
-   - `D1`: `Consumo Médio (L/h)`
-3. Insira os dados numéricos nas linhas 2 a 5:
-   - `A2`: `PR-AAA` | `B2`: `450` | `C2`: `3,0`
-   - `A3`: `PR-BBB` | `B3`: `600` | `C3`: `4,2`
-   - `A4`: `PT-CCC` | `B4`: `320` | `C4`: `2,1`
-   - `A5`: `PT-DDD` | `B5`: `890` | `C5`: `5,5`
-
----
-
-### Atividade 2: Inserção de Fórmulas e Uso da Alça de Preenchimento
-
-1. Na célula `D2`, digite a fórmula de divisão do consumo pelas horas:
-   `=B2/C2`
-2. Pressione `Enter`. O valor calculado aparecerá na célula.
-3. Clique na célula `D2`. Observe o pequeno quadrado verde no canto inferior direito da célula (a **Alça de Preenchimento**).
-4. Clique duas vezes na Alça de Preenchimento ou arraste-a para baixo até a célula `D5`.
-5. Observe como o Excel ajustou automaticamente as referências para `=B3/C3`, `=B4/C4` e `=B5/C5` (**Referências Relativas**).
+1. Abra uma nova planilha no Excel e nomeie a aba como `Peso_e_Balanceamento`.
+2. Digite os títulos e cabeçalhos a partir da linha 3:
+   - `A3`: `Estação / Item`
+   - `B3`: `Peso (lb)`
+   - `C3`: `Braço (in)`
+   - `D3`: `Momento (lb.in)`
+3. Insira os dados técnicos da aeronave (Cessna 172 Skyhawk):
+   - `A4`: `Peso Vazio Básico (BEW)` | `B4`: `1642` | `C4`: `82,2`
+   - `A5`: `Assentos Dianteiros (Piloto + Copiloto)` | `B5`: `340` | `C5`: `85,0`
+   - `A6`: `Assentos Traseiros (Passageiros)` | `B6`: `280` | `C6`: `118,1`
+   - `A7`: `Bagageiro Principal` | `B7`: `65` | `C7`: `142,8`
+   - `A8`: `Combustível de Decolagem (53 gal)` | `B8`: `318` | `C8`: `95,0`
+4. Na célula `D4`, digite a fórmula do Momento:
+   `=B4 * C4`
+5. Arraste a fórmula de `D4` até `D8`.
 
 ---
 
-### Atividade 3: Aplicação das Funções Básicas
+### Atividade 2: Cálculo dos Totais e Posição do CG de Decolagem
 
-Abaixo da tabela, na linha 7, insira os rótulos e as funções nas células ao lado:
-
-1. Na célula `C7`, digite `TOTAL DE CONSUMO:` e na célula `D7` insira a função:
-   `=SOMA(B2:B5)`
-2. Na célula `C8`, digite `MÉDIA DE HORAS:` e na célula `D8` insira a função:
-   `=MÉDIA(C2:C5)`
-3. Na célula `C9`, digite `MAIOR CONSUMO:` e na célula `D9` insira a função:
-   `=MÁXIMO(B2:B5)`
-4. Na célula `C10`, digite `MENOR CONSUMO:` e na célula `D10` insira a função:
-   `=MÍNIMO(B2:B5)`
+1. Na linha 10, crie o bloco de resultados da decolagem:
+   - `A10`: `CONDIÇÃO DE DECOLAGEM (RAMP/TAKEOFF)`
+   - `B10`: `=SOMA(B4:B8)` *(Peso Total na Decolagem)*
+   - `D10`: `=SOMA(D4:D8)` *(Momento Total na Decolagem)*
+2. Na linha 11:
+   - `A11`: `POSIÇÃO DO CENTRO DE GRAVIDADE (CG DECOLAGEM):`
+   - `B11`: `=D10 / B10` *(Calcula a posição do CG em polegadas)*
+3. Formate a célula `B11` com **2 casas decimais** (`Ctrl + Shift + 1`).
 
 ---
 
-## 4. EXERCÍCIO DE FIXAÇÃO COMPUTACIONAL
+### Atividade 3: Simulação de Queima de Combustível e CG de Pouso
 
-**Exercício Prático no Excel:**
-Crie uma planilha de cálculo de custos operacionais com as colunas:
-- `Componente` | `Quantidade` | `Custo Unitário (R$)` | `Custo Total (R$)`
-- Aplique o formato de número **Moeda (R$)** nas colunas de custo.
-- Calcule o `Custo Total` da linha multiplicando `Quantidade * Custo Unitário`.
-- No rodapé, use `=SOMA()` para obter o Custo Geral e `=MÉDIA()` para o Custo Médio Unitário.
+Durante 3 horas de voo, a aeronave queima 24 galões de combustível ($24\text{ gal} \times 6\text{ lb/gal} = 144\text{ lb}$).
+1. Na linha 14:
+   - `A14`: `Combustível Consumido na Rota (Queima):`
+   - `B14`: `-144` *(Valor negativo)*
+   - `C14`: `95,0` *(Braço do tanque)*
+   - `D14`: `=B14 * C14` *(Momento negativo: -13.680 lb.in)*
+2. Na linha 16, crie o bloco de pouso:
+   - `A16`: `CONDIÇÃO DE POUSO (LANDING WEIGHT):`
+   - `B16`: `=B10 + B14` *(Peso Total no Pouso)*
+   - `D16`: `=D10 + D14` *(Momento Total no Pouso)*
+3. Na linha 17:
+   - `A17`: `POSIÇÃO DO CG NO POUSO:`
+   - `B17`: `=D16 / B16`
+4. *Análise do Estudante:* Observe como o CG se deslocou para a frente após o combustível ser consumido!
 
 ---
 
-## 5. DICAS DE PRODUTIVIDADE & ATALHOS DE TECLADO
+## 4. EXERCÍCIOS DE FIXAÇÃO INTENSIVOS
+
+### Exercício Prático:
+Adicione à sua planilha um painel de conferência dos limites estruturais:
+1. Parâmetros Limiares do Manual:
+   - `Peso Máximo de Decolagem (MTOW):` `2550 lb`
+   - `Limite Dianteiro de CG:` `82,0 in`
+   - `Limite Traseiro de CG:` `95,0 in`
+2. Calcule com fórmulas simples:
+   - Margem de Peso Disponível (`MTOW - Peso_Decolagem`).
+   - Diferença entre o CG calculado e o limite dianteiro/traseiro.
+
+---
+
+## 5. DICAS DE PRODUTIVIDADE & ATALHOS NO EXCEL
 
 | Atalho de Teclado | Função no MS Excel |
 | :--- | :--- |
-| `Alt + =` | Insere a função `=SOMA()` automaticamente nas células selecionadas |
-| `Ctrl + Shift + 4` (`$`) | Formata o número da célula instantaneamente como Moeda (`R$`) |
-| `Ctrl + Shift + 1` (`!`) | Formata o número como Número com 2 casas decimais e separador de milhar |
-| `F4` | Repete a última ação realizada ou alterna trancamento de célula |
-| `Ctrl + Setas do Teclado` | Navega instantaneamente para a última célula preenchida da tabela |
+| `Alt + =` | Insere a função `=SOMA()` na coluna instantaneamente |
+| `Ctrl + B` (ou `Ctrl + G` no 365) | Aplica Negrito às células selecionadas |
+| `Ctrl + 1` | Abre a caixa completa de Formatação de Células |

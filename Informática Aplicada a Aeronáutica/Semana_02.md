@@ -1,114 +1,129 @@
 # ROTEIRO DE AULA EXPANDIDO — SEMANA 02
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
-**Tema:** Windows 11: Gerenciamento de Arquivos, Organização de Diretórios, Extensões Técnicas e Backup  
-**Ambiente:** Laboratório de Informática  
+**Tema:** MS Word Técnico no Office 365: Estruturação de Relatórios Formais de Engenharia, Estilos ABNT, Tabelas e Sumários Automáticos  
+**Ambiente:** Laboratório de Informática (Microsoft 365 Online / Word)  
+**Articulação com o PPC:** COE-001 (Comunicação Escrita), Projetos Integradores I a IV (TAM-001 a TAM-004) e Trabalho de Graduação (TG/TCC)  
 
 ---
 
-## 1. OBJETIVOS DE INFORMATICA
+## 1. OBJETIVOS DE INFORMÁTICA
 Ao final desta aula, você será capaz de:
-- Operar com eficiência o Explorador de Arquivos do Windows 11.
-- Criar e gerenciar estruturas lógicas de diretórios (pastas e subpastas) padronizadas.
-- Reconhecer e associar extensões de arquivos (`.pdf`, `.docx`, `.xlsx`, `.dwg`, `.zip`, `.csv`) aos seus respectivos softwares executáveis.
-- Exibir e alterar extensões ocultas de arquivos no sistema operacional.
-- Executar procedimentos de compactação de arquivos e políticas de backup seguro de dados computacionais.
+- Operar o **Microsoft Word (Office 365)** com foco em documentos técnicos e de engenharia.
+- Criar e gerenciar uma hierarquia rigorosa de **Estilos de Parágrafo** (Título 1, Título 2, Título 3 e Corpo de Texto) compatíveis com as normas ABNT.
+- Inserir **Quebras de Seção (Próxima Página)** para desvincular cabeçalhos, rodapés e numeração de páginas entre elementos pré-textuais (Capa/Sumário) e o corpo do relatório.
+- Inserir e formatar **Tabelas Técnicas de Dados** com alinhamento preciso e repetição de cabeçalho.
+- Inserir figuras técnicas com **Legendas Automáticas** e referências cruzadas no texto.
+- Gerar e atualizar com 1 clique o **Sumário Automático (Índice)**.
+- Exportar o documento final no padrão oficial de arquivamento **PDF/A**.
 
 ---
 
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
-### 2.1 Estrutura em Árvore de Diretórios
-O sistema operacional organiza dados no disco em uma **estrutura hierárquica em árvore**:
-- **Unidade Raiz (`C:\`):** A raiz do sistema de arquivos.
-- **Diretórios (Pastas):** Contêineres lógicos para agrupar arquivos e outras pastas.
-- **Caminho Absoluto (*Path*):** A rota completa até um arquivo no sistema (ex: `C:\Oficina\Manutenção\Aeronaves\PR-XYZ\Relatorio.pdf`).
+### 2.1 Por que o uso de Estilos é obrigatório em Engenharia?
+Formatar textos manualmente (alterando tamanho e fonte parágrafo por parágrafo) gera documentos despadronizados, lentos e incompatíveis com a geração de sumários.
+- **Estilos (Styles):** São regras globais aplicadas aos elementos do documento. Alterar a configuração do estilo `Título 1` atualiza instantaneamente todos os títulos principais do projeto.
+- **Painel de Navegação (`Ctrl + F` / Navegação):** O Word utiliza a hierarquia de Estilos para permitir navegação rápida em relatórios extensos (30 a 100 páginas de TCC).
 
 ```
-C:\
- └── Oficina_Digital\
-      ├── 01_Documentos_Tecnicos\
-      │    ├── Manuais_PDF\
-      │    └── Cadastros_DOCX\
-      ├── 02_Planilhas_Gestao\
-      │    ├── Frota_XLSX\
-      │    └── Estoque_CSV\
-      └── 03_Projetos_CAD\
-           └── Desenhos_DWG\
+HIERARQUIA DE ESTILOS NO WORD:
+ ├── [Título 1] 1. INTRODUÇÃO E OBJETIVOS TÉCNICOS (Arial 14pt, Negrito, Caixa Alta)
+ │     ├── [Título 2] 1.1 Descrição da Célula e Sistemas (Arial 12pt, Negrito)
+ │     │     ├── [Título 3] 1.1.1 Sistema Hidráulico Principal (Arial 12pt, Itálico)
+ │     │     └── [Corpo de Texto] Parágrafos com recuo de 1,25 cm, Justificado, 1,5 linha
+ └── [Sumário Automático] Varrido automaticamente pelo Word com número de páginas dinâmico
 ```
 
-### 2.2 Extensões de Arquivos e Software Associado
-No Windows, os últimos caracteres após o ponto no nome de um arquivo indicam seu **formato e tipo de dado**:
-
-| Extensão | Tipo de Arquivo | Software Principal |
-| :--- | :--- | :--- |
-| `.xlsx` / `.xls` | Planilha Eletrônica | Microsoft Excel / LibreOffice Calc |
-| `.docx` / `.doc` | Documento de Texto | Microsoft Word / LibreOffice Writer |
-| `.pdf` | Documento Portátil Não Editável | Adobe Acrobat / Microsoft Edge |
-| `.dwg` / `.dxf` | Desenho Vetorial CAD 2D/3D | AutoCAD / DWG TrueView |
-| `.mpp` | Cronograma de Projetos | Microsoft Project |
-| `.csv` / `.txt` | Texto Plano Separado por Vírgulas/Tabulações | Bloco de Notas / MS Excel |
-| `.zip` / `.7z` / `.rar` | Arquivo Compactado (Compressão) | WinRAR / 7-Zip / Gerenciador do Windows |
+### 2.2 Quebras de Seção vs. Quebras de Página
+- **Quebra de Página (`Ctrl + Enter`):** Simplesmente joga o texto para a página seguinte, mas mantém os mesmos cabeçalhos e números de página.
+- **Quebra de Seção (Layout -> Quebras -> Próxima Página):** Cria uma "fronteira computacional" independente. Permite que a Capa e o Sumário não tenham número de página, e a numeração comece apenas na Introdução (iniciando na página 3, por exemplo).
 
 ---
 
 ## 3. GUIA PRÁTICO EM LABORATÓRIO (PASSO A PASSO)
 
-### Atividade 1: Exibir Extensões de Arquivos Ocultas no Windows 11
-Por padrão, o Windows oculta as extensões dos arquivos conhecidos, o que pode gerar confusão no trabalho computacional. Siga os passos:
+### Atividade 1: Criação e Padronização dos Estilos de Texto no Word
 
-1. Abra o **Explorador de Arquivos** com o atalho `Win + E`.
-2. No menu superior da janela, clique em **Visualizar**.
-3. Passe o ponteiro sobre **Mostrar** e marque a opção **Extensões de nomes de arquivos**.
-4. Agora todos os arquivos exibirão a extensão exata (ex: `Relatorio.docx` em vez de apenas `Relatorio`).
-
----
-
-### Atividade 2: Construindo uma Estrutura Lógica de Diretórios
-Vamos criar uma estrutura organizada de pastas para simular um repositório computacional técnico:
-
-1. Acesse o disco `C:\` ou sua pasta de trabalho.
-2. Crie uma pasta principal chamada `Gestao_Aeronautica_2026`.
-3. Dentro de `Gestao_Aeronautica_2026`, crie as seguintes subpastas:
-   - `01_Manuais_Tecnicos`
-   - `02_Ordens_de_Servico`
-   - `03_Planilhas_Controle`
-   - `04_Projetos_MSProject`
-4. Renomeie arquivos de teste atribuindo nomes padronizados (sem espaços, usando sublinhado `_` e datas ISO `AAAA-MM-DD`).
-   - *Exemplo de boa prática:* `OS_2026-08-15_Inspecao_PréVoo.docx` em vez de `ordem de servico nova (1).docx`.
+1. Abra o Microsoft Word (no Office 365 ou Desktop).
+2. Configure as Margens do documento (guia **Layout** -> **Margens** -> **Personalizadas**):
+   - *Superior:* 3,0 cm | *Esquerda:* 3,0 cm | *Inferior:* 2,0 cm | *Direita:* 2,0 cm.
+3. Na guia **Página Inicial**, localize o painel de **Estilos**:
+   - Clique com o botão direito sobre o estilo **Normal** -> **Modificar**:
+     - Fonte: *Arial* ou *Calibri*, Tamanho: *12 pt*.
+     - Alinhamento: **Justificado** (`Ctrl + J`).
+     - Clique no botão **Formatar** -> **Parágrafo**:
+       - Recuo Especial: **Primeira linha** em **1,25 cm**.
+       - Espaçamento: *Antes:* 0 pt | *Depois:* 6 pt.
+       - Espaçamento entre linhas: **1,5 linha**.
+       - Clique em **OK**.
+4. Configure o estilo **Título 1**:
+   - Fonte: *Arial*, Tamanho: *14 pt*, **Negrito**, Cor: Preto / Automático.
+   - Espaçamento *Antes:* 12 pt | *Depois:* 6 pt.
+5. Configure o estilo **Título 2**:
+   - Fonte: *Arial*, Tamanho: *12 pt*, **Negrito**, Cor: Preto.
 
 ---
 
-### Atividade 3: Compactação de Arquivos (`.zip`)
-Para enviar múltiplos arquivos pesados por e-mail ou sistema de rede:
+### Atividade 2: Inserção de Tabelas Técnicas e Formatação Profissional
 
-1. Selecione as pastas `01_Manuais_Tecnicos` e `02_Ordens_de_Servico`.
-2. Clique com o botão direito do mouse sobre os arquivos selecionados.
-3. Escolha a opção **Compactar para arquivo ZIP**.
-4. Defina o nome do arquivo resultante como `Backup_Documentos_2026.zip`.
-
----
-
-## 4. EXERCÍCIO DE FIXAÇÃO COMPUTACIONAL
-
-**Desafio em Dupla no Laboratório:**
-1. Crie um arquivo no Bloco de Notas chamado `dados_frota.txt`.
-2. Digite 3 linhas com dados separados por ponto e vírgula:
-   ```txt
-   Prefixo;Modelo;HorasVoo
-   PR-ABC;Cessna 172;1450
-   PT-XYZ;Piper Seneca;2300
-   ```
-3. Salve o arquivo. Em seguida, troque a extensão do arquivo no Explorador de Arquivos de `.txt` para `.csv`.
-4. Dê um duplo clique no arquivo `.csv` e observe qual programa o Windows abre automaticamente para ler esse formato.
+1. Acesse a guia **Inserir** -> **Tabela** -> Insira uma grade de **4 Colunas x 6 Linhas**.
+2. Digite os cabeçalhos na 1ª linha:
+   - `Item` | `Componente / Sistema` | `Part Number (PN)` | `Periodicidade (Horas/Pousos)`
+3. Selecione a linha do cabeçalho:
+   - Na guia **Design da Tabela**, escolha um sombreamento cinza escuro ou azul técnico com texto em branco/negrito.
+4. Na guia **Layout da Tabela**:
+   - Selecione todas as células e defina o alinhamento como **Centralizar à Esquerda Verticalmente**.
+   - Na coluna `Item`, centralize horizontal e verticalmente.
 
 ---
 
-## 5. DICAS DE PRODUTIVIDADE & ATALHOS DE TECLADO
+### Atividade 3: Quebras de Seção e Numeração Diferenciada de Páginas
 
-| Atalho de Teclado | Função no Explorador de Arquivos |
+1. Na Página 1, monte a Capa (Título do Relatório, Nome do Aluno, Fatec Sorocaba, 2026).
+2. No final da Página 1, clique em **Layout** -> **Quebras** -> **Quebras de Seção: Próxima Página**.
+3. Na Página 2, insira o título `SUMÁRIO` e adicione outra **Quebra de Seção: Próxima Página**.
+4. Na Página 3 (onde começa a Introdução):
+   - Dê um duplo clique na área do Cabeçalho/Rodapé da página 3.
+   - Na guia de Cabeçalho e Rodapé, **DESMARQUE** a opção **Vincular ao Anterior** (isso desconecta a página 3 da página 2).
+   - Insira o Número da Página no canto superior ou inferior direito.
+   - Clique em **Formatar Número de Página** e defina: *Iniciar em:* **3**.
+   - Observe que a Capa e o Sumário ficaram sem numeração visível!
+
+---
+
+### Atividade 4: Inserção de Figuras Técnicas e Geração do Sumário Automático
+
+1. Posicione o cursor na página 3. Insira uma imagem técnica (diagrama de aeronave ou componente).
+2. Com a imagem selecionada, acesse a guia **Referências** -> **Inserir Legenda**:
+   - Rótulo: *Figura*.
+   - Digite: `: Diagrama Esquemático do Grupo Motopropulsor`.
+   - Posição: *Abaixo do item selecionado*. Clique em **OK**.
+3. Vá para a Página 2 (abaixo da palavra Sumário).
+4. Acesse a guia **Referências** -> **Sumário** -> Escolha **Sumário Automático 1**.
+5. O Word irá gerar a lista hierárquica com títulos e números de página dinâmicos!
+
+---
+
+## 4. EXERCÍCIOS INTENSIVOS DE FIXAÇÃO
+
+### Exercício 1: Relatório Técnico de Inspeção Estrutural
+Monte um documento completo no Word contendo:
+1. Capa formatada institucionalmente.
+2. Sumário Automático funcional na página 2.
+3. Seção 1: `1. IDENTIFICAÇÃO DA AERONAVE E HISTÓRICO OPERACIONAL` (com tabela técnica contendo Modelo, Prefixo, Número de Série e Horas Totais).
+4. Seção 2: `2. PROCEDIMENTOS DE INSPEÇÃO NÃO DESTRUTIVA (NDT)` (com 2 subtítulos de Título 2 e 1 imagem técnica com legenda automática).
+5. Seção 3: `3. CONSIDERAÇÕES FINAIS E LIBERAÇÃO` (com texto justificado).
+6. Exportação final em arquivo `.pdf`.
+
+---
+
+## 5. DICAS DE PRODUTIVIDADE & ATALHOS NO MS WORD
+
+| Atalho de Teclado | Função no MS Word |
 | :--- | :--- |
-| `Ctrl + Shift + N` | Cria instantaneamente uma Nova Pasta no diretório atual |
-| `F2` | Renomeia a pasta ou arquivo selecionado |
-| `Shift + Delete` | Exclui o arquivo permanentemente sem enviar para a Lixeira |
-| `Ctrl + F` / `F3` | Ativa a barra de busca/pesquisa de arquivos |
-| `Alt + Enter` | Exibe as propriedades detalhadas do arquivo (tamanho, permissões, data) |
+| `Ctrl + Alt + 1` | Aplica o estilo **Título 1** ao parágrafo atual |
+| `Ctrl + Alt + 2` | Aplica o estilo **Título 2** ao parágrafo atual |
+| `Ctrl + J` | Justifica o parágrafo selecionado |
+| `Ctrl + Shift + N` | Aplica o estilo **Normal** (limpa formatações de título) |
+| `F9` (no Sumário) | Atualiza o sumário inteiro recalculando páginas |
+| `Ctrl + K` | Insere um link clicável para outra seção ou arquivo |

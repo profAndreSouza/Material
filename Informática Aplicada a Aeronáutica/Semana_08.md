@@ -1,96 +1,100 @@
 # ROTEIRO DE AULA EXPANDIDO — SEMANA 08
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
-**Tema:** MS Excel IV — Funções Estatísticas/Matemáticas Aplicadas (`CONT.SE`, `SOMASE`) e Mini-PBL 2  
-**Ambiente:** Laboratório de Informática  
+**Tema:** MS Excel V — Agregações Condicionais (`CONT.SE`, `CONT.SES`, `SOMASE`, `SOMASES`), Indicadores de Frota e Mini-PBL 2  
+**Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
+**Articulação com o PPC:** EAM-004 (Metodologias de Manutenção), EAM-007 (Gerenciamento) e Gestão Financeira de Manutenção  
 
 ---
 
-## 1. OBJETIVOS DE INFORMATICA
+## 1. OBJETIVOS DE INFORMÁTICA
 Ao final desta aula, você será capaz de:
-- Dominar a contagem condicional computacional de dados utilizando `=CONT.SE()` e `=CONT.SES()`.
-- Dominar a soma condicional de dados utilizando `=SOMASE()` e `=SOMASES()`.
-- Aplicar arredondamentos numéricos precisos (`ARRED`, `ARREDPARA.CIMA`, `ARREDPARA.BAIXO`).
-- Desenvolver a **Calculadora de Controle de Horas de Voo de Frota e Custos Operacionais**.
-- Executar o **Mini-PBL 2** (Controle de Horas e Estimativa do Custo por Hora de Voo - FH).
+- Dominar funções computacionais de contagem seletiva de registros: `=CONT.SE()` (1 critério) e `=CONT.SES()` (múltiplos critérios simultâneos).
+- Dominar funções de soma seletiva de valores monetários e horas operacionais: `=SOMASE()` e `=SOMASES()`.
+- Construir tabelas de indicadores executivos (*Key Performance Indicators - KPIs*) para análise de confiabilidade de frota.
+- Calcular o indicador financeiro aeronáutico **Custo por Hora de Voo (Flight Hour Cost - R$/FH)**.
+- Executar o **Mini-PBL 2** (Calculadora de Controle de Horas de Voo e Custo por FH da Frota).
 
 ---
 
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
-### 2.1 Funções de Contagem e Soma Condicional
+### 2.1 Funções de Agregação Simples vs. Multicritério
 
-```
-SINTAXE DO CONT.SE:
- =CONT.SE(intervalo_de_busca; critérios)
-  │                          │
-  ├── Exemplo: C2:C50        └── Exemplo: "CRÍTICO" ou ">=100"
+$$\text{CONT.SE}(\text{intervalo}; \text{critério})$$
 
-SINTAXE DO SOMASE:
- =SOMASE(intervalo_critério; critério; [intervalo_soma])
-  │                         │          │
-  ├── Onde testar o filtro   ├── O que  └── Onde estão os números
-  └── Ex: Coluna C (Modelos) └── Ex:"C172"  └── Ex: Coluna D (Custos)
-```
+$$\text{CONT.SES}(\text{intervalo1}; \text{critério1}; \text{intervalo2}; \text{critério2}; ...)$$
 
-- **`CONT.SE(intervalo; critério)`:** Conta quantas células dentro de um intervalo atendem a um critério especificado (ex: quantas peças estão com status "VENCIDO").
-- **`SOMASE(intervalo_critério; critério; intervalo_soma)`:** Soma os valores numéricos de um intervalo apenas para as linhas correspondentes que satisfazem o critério especificativo.
+$$\text{SOMASE}(\text{intervalo\_critério}; \text{critério}; [\text{intervalo\_soma}])$$
+
+$$\text{SOMASES}(\text{intervalo\_soma}; \text{intervalo1}; \text{critério1}; \text{intervalo2}; \text{critério2}; ...)$$
+
+> [!IMPORTANT]
+> **Atenção à Ordem dos Argumentos no SOMASES:**
+> No `SOMASE` simples, o intervalo a ser somado fica no **FINAL**.
+> No `SOMASES` multicritério, o intervalo a ser somado fica obrigatoriamente no **INÍCIO** da função!
 
 ---
 
 ## 3. GUIA PRÁTICO EM LABORATÓRIO (PASSO A PASSO)
 
-### Atividade 1: Aplicação da Função `=CONT.SE()`
+### Atividade 1: Construção da Base Operacional de Voos da Frota
 
-1. Monte a base de dados de voos na planilha:
-   - `A1`: `Prefixo` | `B1`: `Modelo` | `C1`: `Horas Voadas` | `D1`: `Status Operacional`
-   - `A2`: `PR-ABC` | `B2`: `Cessna 172` | `C2`: `4,5` | `D2`: `DISPONÍVEL`
-   - `A3`: `PR-DEF` | `B3`: `Piper Seneca` | `C3`: `2,0` | `D3`: `EM MANUTENÇÃO`
-   - `A4`: `PT-GHI` | `B4`: `Cessna 172` | `C4`: `6,1` | `D4`: `DISPONÍVEL`
-   - `A5`: `PT-JKL` | `B5`: `Cessna 172` | `C5`: `1,5` | `D5`: `DISPONÍVEL`
-
-2. Monte a tabela resumo de indicadores ao lado:
-   - Na célula `F2`: `Aeronaves Disponíveis:`
-   - Na célula `F3`: `Aeronaves em Manutenção:`
-
-3. Na célula `G2`, insira a contagem condicional de disponíveis:
-   `=CONT.SE(D2:D5; "DISPONÍVEL")`
-
-4. Na célula `G3`, insira a contagem condicional de aeronaves em manutenção:
-   `=CONT.SE(D2:D5; "EM MANUTENÇÃO")`
+1. Crie uma planilha no Excel com as colunas:
+   - `A1`: `Prefixo` | `B1`: `Modelo` | `C1`: `Base de Operação` | `D1`: `Horas no Mês` | `E1`: `Custo Fixo (R$)` | `F1`: `Custo Variável Manut (R$)` | `G1`: `Status Operacional`
+2. Preencha os dados de 6 aeronaves:
+   - `PR-AAA` | `Cessna 172`   | `Sorocaba (SOD)` | `45,0` | `12000` | `18500` | `DISPONÍVEL`
+   - `PT-BBB` | `Piper Seneca` | `Jundiaí (QDV)`  | `62,0` | `25000` | `41000` | `DISPONÍVEL`
+   - `PR-CCC` | `Cessna 172`   | `Sorocaba (SOD)` | `12,0` | `12000` | `32000` | `EM MANUTENÇÃO`
+   - `PT-DDD` | `King Air C90` | `Congonhas (CGH)`| `78,0` | `45000` | `89000` | `DISPONÍVEL`
+   - `PR-EEE` | `Cessna 172`   | `Sorocaba (SOD)` | `55,0` | `12000` | `14200` | `DISPONÍVEL`
+   - `PT-FFF` | `Piper Seneca` | `Sorocaba (SOD)` | `0,0`  | `25000` | `55000` | `AOG / INSPEÇÃO`
 
 ---
 
-### Atividade 2: Aplicação da Função `=SOMASE()`
+### Atividade 2: Fórmulas de Linha e Cálculo de Custo por Hora de Voo (R$/FH)
 
-1. Na tabela resumo, crie o indicador:
-   - Na célula `F5`: `Total Horas do Modelo Cessna 172:`
-2. Na célula `G5`, insira a soma condicional das horas voadas apenas pelo modelo "Cessna 172":
-   `=SOMASE(B2:B5; "Cessna 172"; C2:C5)`
-3. O Excel varrerá a coluna B e somará os valores correspondentes da coluna C (`4,5 + 6,1 + 1,5 = 12,1`).
+1. Adicione a coluna `H1`: `Custo Total no Mês (R$)` e `I1`: `Custo por Hora de Voo (R$/FH)`.
+2. Na célula `H2`, calcule o Custo Total:
+   `=E2 + F2`
+3. Na célula `I2`, calcule o Custo por FH tratando aeronaves que não voaram (evitar `#DIV/0!`):
+   `=SEERRO(H2 / D2; "SEM VOOS NO MÊS")`
+4. Arraste as fórmulas até a linha 7.
+
+---
+
+### Atividade 3: Construção do Painel de Indicadores com Agregações
+
+Monte a tabela de indicadores ao lado a partir da coluna `K`:
+1. **Total de Aeronaves Disponíveis:**
+   `=CONT.SE(G2:G7; "DISPONÍVEL")`
+2. **Cessna 172 Baseados em Sorocaba que estão Disponíveis (Multicritério):**
+   `=CONT.SES(B2:B7; "Cessna 172"; C2:C7; "Sorocaba (SOD)"; G2:G7; "DISPONÍVEL")`
+3. **Custo Total de Manutenção Gerado Apenas pela Frota de Piper Seneca:**
+   `=SOMASE(B2:B7; "Piper Seneca"; H2:H7)`
+4. **Custo Total de Manutenção de Aeronaves Disponíveis Baseadas em Sorocaba:**
+   `=SOMASES(H2:H7; C2:C7; "Sorocaba (SOD)"; G2:G7; "DISPONÍVEL")`
 
 ---
 
 ## 4. DESAFIO PRÁTICO (MINI-PBL 2)
 
-**Enunciado do Mini-PBL 2:**
-Você deve construir uma **Calculadora de Controle de Horas de Voo de Frota e Custo por Hora de Voo (FH - Flight Hour)** no MS Excel contendo:
+**Enunciado do Mini-PBL 2 (Peso: ~7,5% da Média Final):**
+Desenvolva a **Calculadora de Gestão Operacional e Custos da Frota Aérea**:
 
-1. Base de dados com no mínimo 6 aeronaves, contendo: `Prefixo`, `Modelo`, `Horas Voadas no Mês`, `Custo Fixo Mensal (R$)` e `Custo Variável de Manutenção (R$)`.
-2. Fórmulas para calcular:
-   - `Custo Total (R$)` = `Custo Fixo + Custo Variável`.
-   - `Custo por Hora de Voo (R$/FH)` = `Custo Total / Horas Voadas no Mês`.
-3. Tabela de Resumo Executivo utilizando obrigatoriamente:
-   - `=CONT.SE()` para contar quantas aeronaves voaram mais de 50 horas no mês.
-   - `=SOMASE()` para somar o custo total gerado por um modelo específico de aeronave.
-   - `=MÉDIA()` e `=MÁXIMO()` para identificar a média de custo por hora da frota e o custo máximo.
-4. Formatação profissional com moeda `R$`, separadores de milhares e bordas limpas.
+1. **Base com no mínimo 8 aeronaves:** Contendo prefixos, modelos, horas voadas, custos fixos e custos de componentes de reposição.
+2. **Cálculos individuais por aeronave:** Custo total e Custo por Hora de Voo (R$/FH) com proteção de erro para horas zeradas.
+3. **Painel de Indicadores Gerenciais contendo obrigatoriamente:**
+   - 2 cálculos com `=CONT.SE()` e 1 com `=CONT.SES()` multicritério.
+   - 2 cálculos com `=SOMASE()` e 1 com `=SOMASES()` multicritério.
+   - Cálculo da Média Geral de Custo por FH da empresa e identificação da aeronave com maior custo.
+4. **Formatação Visual:** Formatação de moeda `R$`, cabeçalhos limpos e formatação condicional em cores para custos acima da média.
 
 ---
 
-## 5. DICAS DE PRODUTIVIDADE & ATALHOS DE TECLADO
+## 5. DICAS DE PRODUTIVIDADE & ATALHOS NO EXCEL
 
 | Atalho de Teclado | Função no MS Excel |
 | :--- | :--- |
-| `Ctrl + Shift + 5` (`%`) | Formata o número da célula como Porcentagem (`%`) |
-| `Alt + F1` | Insere um gráfico de colunas padrão instantaneamente na planilha atual |
-| `Ctrl + T` | Seleciona toda a tabela contígua onde o cursor está posicionado |
+| `Ctrl + Shift + 4` (`$`) | Formata instantaneamente como **Moeda (R$)** |
+| `Alt + =` | Soma a coluna inteira com 1 comando |
+| `F2` | Entra no modo de edição direta da fórmula dentro da célula |

@@ -1,59 +1,43 @@
 # ROTEIRO DE AULA EXPANDIDO — SEMANA 16
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
-**Tema:** Feriado Consciência Negra — Material de Apoio e Estudo Autônomo em MS Project  
-**Ambiente:** Estudo Autônomo  
+**Tema:** Feriado Consciência Negra — Material de Apoio e Estudo Autônomo em Modelagem de Projetos no Excel  
+**Ambiente:** Estudo Autônomo (Microsoft 365 Online / Excel)  
+**Articulação com o PPC:** Projetos Integradores I a IV (TAM-001 a TAM-004) e EAM-007 (Gerenciamento da Manutenção)  
 
 ---
 
-## 1. OBJETIVOS DE INFORMATICA
-Nesta sessão de estudo autônomo, você consolidará individualmente:
-- A definição das dependências lógicas (*Predecessoras*) entre tarefas no MS Project.
-- O conceito dos 4 tipos de vínculos computacionais entre tarefas:
-  - **Término para Início (TI / FS):** A tarefa B só começa quando a tarefa A terminar.
-  - **Início para Início (II / SS):** As tarefas A e B começam juntas.
-  - **Término para Término (TT / FF):** As tarefas A e B terminam juntas.
-  - **Início para Término (IT / SF):** A tarefa B só termina quando a tarefa A começar.
+## 1. OBJETIVOS DE INFORMÁTICA
+Nesta sessão de estudo autônomo, você consolidará:
+- A vinculação de dependências lógicas (*Predecessoras*) entre tarefas no Excel.
+- O cálculo das datas de início vinculadas ao término de tarefas anteriores via fórmulas:
+  $$\text{Data\_Início}_{\text{Tarefa B}} = \text{Data\_Término}_{\text{Tarefa A}} + 1$$
+- A preparação da lógica computacional para o cálculo do **Caminho Crítico (PERT/CPM)** da próxima aula.
 
 ---
 
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
-### 2.1 Tipos de Dependências entre Tarefas
-
-```
-1. TÉRMINO PARA INÍCIO (TI / FS) - Mais comum (90% dos casos):
-   [ Tarefa A: Desmontagem ] ───> [ Tarefa B: Limpeza ]
-
-2. INÍCIO PARA INÍCIO (II / SS) - Execução paralela:
-   [ Tarefa A: Inspeção Visual ] ──┐
-   [ Tarefa B: Teste Elétrico   ] ──┴──> Ambas iniciam no mesmo instante
-
-3. TEMPO DE DECALAGEM (LAG / LEAD):
-   - Tempo de Espera (Lag): "+2d" (Ex: aguardar secagem de tinta por 2 dias após pintar).
-   - Antecipação (Lead): "-1d" (Ex: iniciar preparação 1 dia antes do término da tarefa anterior).
-```
+### 2.1 Tipos de Vínculos Lógicos entre Tarefas no Excel
+1. **Término para Início (TI):** A tarefa B só pode iniciar após o término da tarefa A.
+   - Fórmula no Excel: `=E4 + 1` (onde `E4` é a data de término da tarefa A).
+2. **Início para Início (II):** As tarefas A e B iniciam na mesma data.
+   - Fórmula no Excel: `=C4` (onde `C4` é a data de início da tarefa A).
+3. **Múltiplas Predecessoras:** Se a Tarefa C depende do término da Tarefa A **E** da Tarefa B:
+   - Fórmula no Excel: `=MÁXIMO(E4; E5) + 1` (o início será no dia seguinte à tarefa mais tardia!).
 
 ---
 
-## 3. EXERCÍCIO DE FIXAÇÃO PRÁTICA AUTÔNOMA
+## 3. EXERCÍCIO PRÁTICO DE TREINAMENTO AUTÔNOMO
 
-### Roteiro de Treinamento no MS Project:
-
-1. Abra o arquivo do MS Project criado na Semana 15 (ou crie um novo arquivo).
-2. Na coluna **Predecessoras**:
-   - Para a linha 3 (`Inspeção NDT`), digite `2` (significa que depende do término da linha 2).
-   - Para a linha 4 (`Substituição das Bronzinas`), digite `3`.
-   - Para a linha 5 (`Montagem e Teste`), digite `4`.
-   - Para a linha 6 (`Aprovação / Milestone`), digite `5`.
-3. Observe o **Gráfico de Gantt** no lado direito da tela:
-   - Veja como o MS Project desenha automaticamente as **setas de vinculação** conectando as barras azuis!
-   - Observe como a Data de Término do Projeto é recalculada dinamicamente pelo software.
+1. Abra a planilha de cronograma criada na Semana 15.
+2. Adicione uma coluna chamada `ID_Predecessora`.
+3. Utilize a função `=SE()` e `=MÁXIMO()` para fazer com que a Data de Início de cada linha seja calculada automaticamente a partir da data de término da sua predecessora indicada.
+4. *Teste:* Altere a duração da tarefa 1 de 2 dias para 6 dias. Veja todas as tarefas subsequentes e o Gráfico de Gantt se deslocarem automaticamente para a direita!
 
 ---
 
-## 4. CHECKLIST DE AUTOAVALIAÇÃO EM MS PROJECT
+## 4. CHECKLIST DE AUTOAVALIAÇÃO
 
-- [ ] Consigo criar uma Estrutura Analítica do Projeto (EAP) com tarefas resumo e subtarefas?
-- [ ] Sei alterar o modo de agendamento de Manual para Automático?
-- [ ] Compreendo por que um Marco (*Milestone*) deve ter duração `0d`?
-- [ ] Sei vincular tarefas utilizando o número da linha na coluna Predecessoras?
+- [ ] Consigo construir um Gráfico de Gantt no Excel usando barras empilhadas e ocultando a série inicial?
+- [ ] Sei criar um Gráfico de Gantt automatizado usando Formatação Condicional com a fórmula `=E(Data>=Inicio; Data<=Fim)`?
+- [ ] Compreendo como a função `=MÁXIMO()` ajuda a definir a data de início quando uma tarefa possui múltiplas predecessoras?

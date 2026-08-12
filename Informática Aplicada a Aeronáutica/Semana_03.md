@@ -1,100 +1,104 @@
 # ROTEIRO DE AULA EXPANDIDO — SEMANA 03
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
-**Tema:** MS Word I — Formatação Técnica Avançada, Estilos, Estruturação de Tabelas e Sumário Automático  
-**Ambiente:** Laboratório de Informática  
+**Tema:** MS Word Avançado: Modelagem de Ordens de Serviço (OS), Formulários Interativos, Colaboração em Nuvem e Mini-PBL 1  
+**Ambiente:** Laboratório de Informática (Microsoft 365 Online / Word)  
+**Articulação com o PPC:** EAA-003 (Familiarização), EAM-005 (Práticas de Manutenção em Aeronaves) e EAM-003 (Manutenção de Aeronaves)  
 
 ---
 
-## 1. OBJETIVOS DE INFORMATICA
+## 1. OBJETIVOS DE INFORMÁTICA
 Ao final desta aula, você será capaz de:
-- Dominar a formatação avançada de documentos técnicos no Microsoft Word.
-- Criar e aplicar **Estilos de Parágrafo** (Título 1, Título 2, Corpo de Texto) para padronizar documentos.
-- Inserir, formatar e alinhar **Tabelas Técnicas de Dados**.
-- Inserir imagens com formatação de quebra de texto, alinhamento e legenda.
-- Gerar e atualizar um **Sumário Automático (Índice)** baseado na hierarquia de estilos.
-- Configurar margens, cabeçalhos, rodapés e numeração de páginas com quebras de seção.
+- Desenvolver formulários interativos estruturados com campos padronizados (caixas de texto, listas suspensas, datas e caixas de seleção).
+- Configurar modelos técnicos protegidos contra alterações indevidas de leiaute.
+- Operar os recursos de **Colaboração em Tempo Real, Comentários e Controle de Alterações (*Track Changes*)** no Word Online (Microsoft 365).
+- Planejar a estrutura lógica de uma **Ordem de Serviço (OS)** aeronáutica digital.
+- Executar o **Mini-PBL 1** (Desenvolvimento de Modelo Padronizado de Ordem de Serviço).
 
 ---
 
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
-### 2.1 Por que usar Estilos no MS Word?
-Muitos usuários formatam documentos manualmente selecionando o texto e alterando a fonte, tamanho e cor repetidamente. Isso é ineficiente e gera documentos desalinhados.
-- **Estilos (Styles):** São conjuntos predefinidos de regras de formatação (fonte, tamanho, espaçamento entre linhas, recuo, cor).
-- **Vantagens computacionais dos Estilos:**
-  1. **Padronização Instantânea:** Modificar um estilo atualiza automaticamente todas as partes do documento que o utilizam.
-  2. **Navegação:** O Word usa os Estilos de Título para montar o Painel de Navegação lateral (`Ctrl + F`).
-  3. **Automação:** Permite criar o **Sumário Automático** com 1 clique.
+### 2.1 Formulários Digitais vs. Documentos Livres
+Em manutenção de aeronaves, ordens de serviço e fichas de inspeção não podem ser preenchidas como textos livres para evitar omissão de dados críticos.
+- **Campos de Controle:** Limitam o tipo de entrada (ex: obrigar a escolha de opções fixas de um menu dropdown, garantir que datas sigam o formato padrão e exigir marcação explícita de caixas de seleção).
+- **Colaboração em Nuvem (Microsoft 365):** Vários técnicos e engenheiros podem editar o mesmo documento simultaneamente via navegador, com rastreabilidade de quem alterou cada parágrafo.
 
 ```
-[DOCUMENTO DE TEXTO]
- ├── Título 1 (Estilo: Arial 14pt, Negrito, Espaçamento Antes 12pt)
- │    ├── Título 2 (Estilo: Arial 12pt, Negrito, Espaçamento Antes 6pt)
- │    │    └── Corpo de Texto (Estilo: Arial 11pt, Justificado, Entre-linhas 1.5)
+ESTRUTURA DE UMA ORDEM DE SERVIÇO DIGITAL:
+ +------------------------------------------------------------------------------------+
+ | [CABEÇALHO] Logotipo da Empresa | Código da OS: OS-2026-0899 | Data: [ 21/08/2026]  |
+ +------------------------------------------------------------------------------------+
+ | [IDENTIFICAÇÃO] Prefixo: [PR-XYZ] | Modelo: [Cessna 172] | Horas Totais: [1.450 h] |
+ | Tipo de Serviço: [v Inspeção de 100 Horas / Preventiva                           ] |
+ +------------------------------------------------------------------------------------+
+ | [CHECKLIST DE ITENS]                                                              |
+ |  [X] Drenagem de Combustível        [X] Troca de Filtro de Óleo                   |
+ |  [ ] Inspeção do Trem de Pouso     [X] Teste dos Aviônicos                       |
+ +------------------------------------------------------------------------------------+
+ | [ASSINATURA DIGITAL / LIBERAÇÃO] Mecânico Responsável: [Eng. Silva - CHT 998877]   |
+ +------------------------------------------------------------------------------------+
 ```
 
 ---
 
 ## 3. GUIA PRÁTICO EM LABORATÓRIO (PASSO A PASSO)
 
-### Atividade 1: Configuração das Margens e Estilos de Texto
+### Atividade 1: Construção do Cabeçalho e Tabela de Identificação da OS
 
-1. **Configurar Margens do Documento:**
-   - Acesse a guia **Layout** -> **Margens** -> **Margens Personalizadas**.
-   - Defina: *Superior:* 3,0 cm | *Esquerda:* 3,0 cm | *Inferior:* 2,0 cm | *Direita:* 2,0 cm.
-2. **Criar / Modificar o Estilo "Corpo de Texto":**
-   - Na guia **Página Inicial**, no painel **Estilos**, clique com o botão direito sobre o estilo **Normal** -> **Modificar**.
-   - Fonte: *Arial* ou *Calibri*, Tamanho: *11 pt*.
-   - Alinhamento: **Justificado** (`Ctrl + J`).
-   - Espaçamento entre linhas: **1,5 linha**.
-   - Clique em **Formatar** (canto inferior esquerdo da janela) -> **Parágrafo** -> Espaçamento *Depois:* **6 pt**. Clique em **OK**.
-
----
-
-### Atividade 2: Inserção de Tabelas Técnicas
-
-1. Acesse a guia **Inserir** -> **Tabela** -> Escolha **4 Colunas x 5 Linhas**.
-2. Digite os cabeçalhos na primeira linha:
-   - `Item` | `Descrição do Componente` | `Part Number (PN)` | `Status de Inspeção`
-3. Selecione a linha do cabeçalho:
-   - Na guia **Design da Tabela**, escolha um sombreamento cinza escuro e texto em negrito.
-4. Na guia **Layout da Tabela**, defina o alinhamento vertical como **Centralizar Verticalmente**.
+1. Crie um novo documento no Word.
+2. Na guia **Layout**, defina margens estreitas (1,5 cm em todos os lados) para aproveitar a área útil da folha A4.
+3. Insira uma Tabela de 3 colunas x 1 linha para o Cabeçalho:
+   - Coluna 1: Imagem/Logotipo institucional da oficina.
+   - Coluna 2: Texto Centralizado em negrito: `ORDEM DE SERVIÇO DE MANUTENÇÃO AERONÁUTICA (OS)`.
+   - Coluna 3: `Nº da OS:` e `Data de Emissão:`.
+4. Abaixo, insira uma Tabela de Identificação Técnica de 4 colunas x 3 linhas:
+   - Linha 1: `Aeronave / Prefixo:` | `Modelo:` | `Fabricante:` | `Nº de Série (MSN):`
+   - Linha 2: `Horas Totais (TSN):` | `Pousos Totais (CSN):` | `Base de Operação:` | `Proprietário:`
+   - Linha 3: `Tipo de Manutenção:` (Ocupando 2 colunas) | `Prazo Estimado:` (Ocupando 2 colunas).
 
 ---
 
-### Atividade 3: Geração do Sumário Automático
+### Atividade 2: Inserção de Controles de Formulário e Dropdown
 
-1. Aplique os estilos de título nos títulos do seu documento:
-   - Selecione o título principal e clique em **Título 1** na guia Página Inicial.
-   - Selecione os subtítulos e clique em **Título 2**.
-2. Posicione o cursor no início do documento (antes do primeiro título).
-3. Insira uma página em branco (`Ctrl + Enter`).
-4. Acesse a guia **Referências** -> **Sumário** -> Escolha **Sumário Automático 1**.
-5. O Word irá varrer o documento e gerar a lista de títulos com suas respectivas páginas.
-6. *Como atualizar:* Sempre que adicionar texto, clique com o botão direito no Sumário -> **Atualizar Campo** -> **Atualizar o índice inteiro**.
+1. Acesse a guia **Desenvolvedor** (se não estiver ativa: *Arquivo -> Opções -> Personalizar Faixa de Opções -> Marcar "Desenvolvedor"*):
+   - No campo `Tipo de Manutenção`: Insira o **Controle de Conteúdo de Caixa de Combinação** (Dropdown).
+   - Clique em **Propriedades**: Adicione as opções: `Inspeção de 50 Horas`, `Inspeção de 100 Horas`, `Inspeção Anual (IAM)`, `Diretriz de Aeronavegabilidade (DA)`, `Manutenção Corretiva`.
+   - No campo `Data`: Insira o **Controle de Conteúdo de Seletor de Data**.
+   - No campo `Checklist`: Insira caixas de texto e **Controles de Conteúdo de Caixa de Seleção** `[ ]`.
 
 ---
 
-## 4. EXERCÍCIO DE FIXAÇÃO COMPUTACIONAL
+### Atividade 3: Compartilhamento e Revisão Colaborativa no Office 365
 
-**Exercício Prático no Word:**
-Elabore a estrutura de um **Relatório Técnico de Inspeção** contendo:
-1. Capa com Título Centralizado, Nome do Autor e Data.
-2. Quebra de Seção / Quebra de Página.
-3. Sumário Automático na página 2.
-4. 2 Títulos principais (**Título 1**) e 4 Subtítulos (**Título 2**).
-5. Uma Tabela formatada com 4 colunas e 3 linhas de dados de equipamentos.
-6. Uma imagem técnica inserida com Legenda automática (Guia **Referências** -> **Inserir Legenda** -> *Figura 1: Diagrama do Componente*).
+1. Clique no botão **Compartilhar** no canto superior direito do Word.
+2. Insira o e-mail institucional do colega de dupla.
+3. Com o documento aberto nos dois computadores simultaneamente:
+   - Ative a ferramenta **Controlar Alterações** (*Track Changes*) na guia **Revisão**.
+   - O colega fará alterações no texto (adicionar uma linha de serviço).
+   - Observe as alterações marcadas em vermelho/balões laterais.
+   - Clique em **Aceitar Todas as Alterações** para consolidar o documento final.
 
 ---
 
-## 5. DICAS DE PRODUTIVIDADE & ATALHOS DE TECLADO
+## 4. DESAFIO PRÁTICO (MINI-PBL 1)
+
+**Enunciado do Mini-PBL 1 (Peso: ~7,5% da Média Final):**
+Em duplas no laboratório, desenvolva um **Modelo Completo de Ordem de Serviço (OS) e Ficha de Inspeção Pré-Voo/Preventiva** contendo:
+
+1. **Cabeçalho Profissional:** Com tabela formatada, logotipo e código único de documento.
+2. **Campos Interativos:** Dropdown com tipos de manutenção, seletor de data, campos de texto formatados para prefixo/modelo/horas.
+3. **Tabela de Itens Inspecionados:** Com no mínimo 6 itens técnicos contendo caixas de seleção `[X]` para *Conforme*, *Não Conforme* e *Não Aplicável*.
+4. **Tabela de Registro de Peças Aplicadas:** Colunas para `Item`, `Part Number (PN)`, `Descrição`, `Quantidade` e `Lote/Certificado`.
+5. **Campo de Liberação / Retorno ao Serviço:** Com espaço para assinatura digital/identificação do responsável técnico.
+6. **Entrega:** Envio do arquivo `.docx` modelo e do arquivo final gerado em formato `.pdf`.
+
+---
+
+## 5. DICAS DE PRODUTIVIDADE & ATALHOS NO MS WORD
 
 | Atalho de Teclado | Função no MS Word |
 | :--- | :--- |
-| `Ctrl + J` | Alinha o texto como Justificado |
-| `Ctrl + Enter` | Insere uma Quebra de Página manualmente |
-| `Ctrl + Shift + C` / `Ctrl + Shift + V` | Copia e cola apenas a formatação do texto selecionado |
-| `Ctrl + Alt + 1` | Aplica instantaneamente o estilo **Título 1** ao parágrafo |
-| `Ctrl + Alt + 2` | Aplica instantaneamente o estilo **Título 2** ao parágrafo |
-| `F7` | Inicia a verificação ortográfica e gramatical |
+| `Ctrl + Shift + E` | Ativa/Desativa o **Controlar Alterações** (*Track Changes*) |
+| `Alt + Shift + D` | Insere o campo de **Data Atual** dinâmico |
+| `Ctrl + F2` | Exibe a Pré-visualização de Impressão |
+| `F12` | Abre a caixa "Salvar Como" instantaneamente |

@@ -1,89 +1,92 @@
 # ROTEIRO DE AULA EXPANDIDO — SEMANA 13
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
-**Tema:** MS Excel VI — Tabelas Dinâmicas (*Pivot Tables*), Segmentadores (*Slicers*) e Dashboards Interativos  
-**Ambiente:** Laboratório de Informática  
+**Tema:** MS Excel VII — Tabelas Dinâmicas (*Pivot Tables*), Segmentadores de Dados (*Slicers*) e Dashboards Interativos no Office 365  
+**Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
+**Articulação com o PPC:** EAM-007 (Gerenciamento da Manutenção) e Gestão da Confiabilidade de Frota  
 
 ---
 
-## 1. OBJETIVOS DE INFORMATICA
+## 1. OBJETIVOS DE INFORMÁTICA
 Ao final desta aula, você será capaz de:
-- Compreender o funcionamento do mecanismo de **Tabela Dinâmica (Pivot Table)** para síntese e agregação de grandes volumes de dados.
-- Configurar os 4 campos da Tabela Dinâmica: **Filtros, Colunas, Linhas e Valores**.
-- Alterar as configurações dos campos de valor (Soma, Média, Contagem, Percentual do Total).
-- Inserir **Segmentadores de Dados (*Slicers*)** e **Linhas do Tempo** para filtragem interativa por botões.
-- Conectar múltiplos gráficos dinâmicos a segmentadores comuns para construir um **Dashboard Executivo Interativo**.
+- Operar o mecanismo de **Tabela Dinâmica (Pivot Table)** no Excel Online e Desktop para sintetizar bases com milhares de registros de manutenção.
+- Configurar os 4 quadrantes operacionais: **Filtros, Colunas, Linhas e Valores**.
+- Customizar os resumos de valores (Soma de Custo, Contagem de Falhas, Média de Horas e Percentual do Total da Coluna).
+- Inserir **Segmentadores de Dados (*Slicers*)** interativos para filtragem por botões visuais.
+- Integrar múltiplos gráficos dinâmicos a segmentadores comuns, construindo um **Dashboard Executivo de Manutenção Interativo**.
 
 ---
 
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
-### 2.1 A Arquitetura de uma Tabela Dinâmica
-Quando trabalhamos com tabelas contendo milhares de linhas de registros (ex: relatório exportado de ordens de serviço), fazer somas manuais com fórmulas é trabalhoso e propenso a falhas.
-- **Tabela Dinâmica:** É um mecanismo OLAP (*Online Analytical Processing*) interno do Excel que reorganiza, agrupa e resume dados instantaneamente sem escrever uma única fórmula!
+### 2.1 O que é o Processamento OLAP / Tabela Dinâmica?
+Bases de dados de ordens de serviço e diários de bordo contêm milhares de linhas. Resumi-las por fórmulas manuais consome tempo e memória computacional.
+- **Tabela Dinâmica:** Realiza agregações instantâneas em memória sem exigir que o usuário digite fórmulas. Permite reorganizar visualmente as variáveis com um simples arrastar de mouse (*drag and drop*).
 
 ```
-ESTRUTURA DO PAINEL DA TABELA DINÂMICA:
- +---------------------------+---------------------------+
- | FILTROS (Filtra a tabela) | COLUNAS (Categorias Horiz)|
- | Ex: Ano do Serviço        | Ex: Tipo de Manutenção    |
- +---------------------------+---------------------------+
- | LINHAS (Categorias Vert)  | VALORES (Métricas Numér.) |
- | Ex: Prefixo da Aeronave   | Ex: SOMA do Custo Total   |
- +---------------------------+---------------------------+
+ARQUITETURA DO PAINEL DA TABELA DINÂMICA:
+ +---------------------------+-----------------------------------+
+ | 1. FILTROS (Filtra Tudo)  | 2. COLUNAS (Categorias Horizont.) |
+ | Ex: Ano / Base de Voo     | Ex: Sistema ATA (Hidráulica, etc.)|
+ +---------------------------+-----------------------------------+
+ | 3. LINHAS (Categorias Vert| 4. VALORES (Métricas Numéricas)   |
+ | Ex: Prefixo da Aeronave   | Ex: SOMA(Custo), CONTAGEM(OS)     |
+ +---------------------------+-----------------------------------+
 ```
 
 ---
 
 ## 3. GUIA PRÁTICO EM LABORATÓRIO (PASSO A PASSO)
 
-### Atividade 1: Criando a Primeira Tabela Dinâmica
+### Atividade 1: Criando a Tabela Dinâmica a partir de Ordens de Serviço
 
-1. Baixe a base de dados de ordens de serviço contendo as colunas: `ID_OS`, `Data`, `Prefixo`, `Sistema`, `Custo_Pecas`, `Custo_MaoObra`.
-2. Clique em qualquer célula dentro da base de dados.
-3. Acesse a guia **Inserir** -> **Tabela Dinâmica** -> **Da Tabela/Intervalo**.
-4. Na janela, marque **Nova Planilha** e clique em **OK**.
-5. No painel de campos à direita da tela:
-   - Arraste o campo `Prefixo` para a área **Linhas**.
-   - Arraste o campo `Sistema` para a área **Colunas**.
-   - Arraste o campo `Custo_Pecas` para a área **Valores**.
-6. Observe a tabela resumo sendo gerada automaticamente cruzando aeronaves nas linhas e sistemas nas colunas!
-
----
-
-### Atividade 2: Inserção de Segmentadores de Dados (*Slicers*) e Dashboards
-
-1. Clique dentro da Tabela Dinâmica criada.
-2. Acesse a guia **Análise de Tabela Dinâmica** -> grupo **Filtrar** -> **Inserir Segmentação de Dados**.
-3. Marque a caixinha **Sistema** e **Prefixo**. Clique em **OK**.
-4. Botões flutuantes interativos aparecerão na tela.
-5. *Teste da Interatividade:* Clique no botão de um sistema (ex: `Hidráulico`). Observe que toda a tabela dinâmica e os gráficos dinâmicos conectados são filtrados instantaneamente!
+1. Abra a base com 50 ordens de serviço contendo: `ID_OS`, `Data`, `Prefixo`, `Modelo`, `Sistema_ATA`, `Custo_Pecas_R$`, `Horas_Homem`.
+2. Clique em qualquer célula da base. Acesse a guia **Inserir** -> **Tabela Dinâmica**.
+3. Escolha **Nova Planilha** e clique em **OK**.
+4. No painel lateral:
+   - Arraste `Prefixo` para **Linhas**.
+   - Arraste `Sistema_ATA` para **Colunas**.
+   - Arraste `Custo_Pecas_R$` para **Valores**.
+5. Clique com o botão direito nos números gerados -> **Formato do Número** -> Escolha **Moeda (R$)**.
 
 ---
 
-### Atividade 3: Conectando Múltiplas Tabelas Dinâmicas ao mesmo Segmentador
+### Atividade 2: Inserção de Gráficos Dinâmicos e Segmentadores de Dados (*Slicers*)
 
-1. Crie uma segunda Tabela Dinâmica na mesma folha.
-2. Clique com o botão direito sobre a caixa do **Segmentador de Dados** -> **Conexões de Relatório...**.
-3. Marque as caixinhas de todas as Tabelas Dinâmicas da planilha.
-4. Agora, clicar em um botão do segmentador atualizará **TODOS** os gráficos do seu Dashboard ao mesmo tempo.
+1. Com o cursor dentro da Tabela Dinâmica, acesse a guia **Inserir** -> **Gráfico Dinâmico** -> Escolha **Colunas Empilhadas**.
+2. Acesse a guia **Análise de Tabela Dinâmica** -> **Inserir Segmentação de Dados**:
+   - Marque as caixinhas: `Modelo` e `Sistema_ATA`.
+   - Clique em **OK**.
+3. Posicione as caixas de botões ao lado do gráfico.
+4. *Teste da Interatividade:* Clique no botão do modelo `King Air`. Veja todo o relatório e o gráfico se ajustarem instantaneamente!
 
 ---
 
-## 4. EXERCÍCIO DE FIXAÇÃO COMPUTACIONAL
+### Atividade 3: Conexão de Relatório para Painel Único (Dashboard)
+
+1. Crie uma segunda Tabela Dinâmica na mesma folha mostrando o `Total de Horas-Homem por Sistema ATA`.
+2. Gere um Gráfico de Barras a partir dessa segunda tabela.
+3. Clique com o botão direito na caixa do **Segmentador de Dados** -> **Conexões de Relatório...**.
+4. Marque as caixinhas de **TODAS** as Tabelas Dinâmicas da página.
+5. Na guia **Exibir**, desmarque a opção **Linhas de Grade**.
+6. Agora você possui um **Dashboard Executivo Profissional** com filtros sincronizados!
+
+---
+
+## 4. EXERCÍCIO DE FIXAÇÃO INTENSIVO
 
 **Desafio em Laboratório:**
-Construa a tela de um **Dashboard Executivo de Manutenção**:
-1. Crie 2 Tabelas Dinâmicas simples.
-2. Gere 2 **Gráficos Dinâmicos** (um de Colunas e um de Pizza/Rosca).
-3. Insira 2 **Segmentadores de Dados** estilizados com cores ajustadas.
-4. Oculte as linhas de grade da planilha (Guia **Exibir** -> Desmarcar **Linhas de Grade**) para criar um visual limpo de painel de controle.
+Construa uma tela de Dashboard Executivo de Manutenção contendo:
+- 1 Gráfico de Colunas Dinâmico (Custo de Manutenção por Aeronave).
+- 1 Gráfico de Rosca Dinâmico (Proporção de Falhas por Sistema ATA).
+- 2 Segmentadores de Dados estilizados com cores coordenadas.
+- 1 Cartão de Indicador com o Custo Total Geral da Frota.
 
 ---
 
-## 5. DICAS DE PRODUTIVIDADE & ATALHOS DE TECLADO
+## 5. DICAS DE PRODUTIVIDADE & ATALHOS NO EXCEL
 
 | Atalho de Teclado | Função no MS Excel |
 | :--- | :--- |
-| `Alt + N + V` | Atalho de teclado para inserir uma Tabela Dinâmica |
-| `Alt + F5` | Atualiza os dados da Tabela Dinâmica selecionada |
-| `Ctrl + Alt + F5` | Atualiza TODAS as Tabelas Dinâmicas e consultas do arquivo |
+| `Alt + N + V` | Insere Tabela Dinâmica |
+| `Alt + F5` | Atualiza a Tabela Dinâmica selecionada |
+| `Ctrl + Alt + F5` | Atualiza TODAS as fontes de dados do arquivo |

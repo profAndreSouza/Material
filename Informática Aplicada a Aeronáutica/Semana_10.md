@@ -1,57 +1,50 @@
 # ROTEIRO DE AULA EXPANDIDO — SEMANA 10
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
-**Tema:** Semana de Tecnologia (Setec) — Leitura Orientada: Tecnologias Digitais e Tendências na Aviação  
-**Ambiente:** Estudo Autônomo / Palestras da Setec  
+**Tema:** Semana de Tecnologia (Setec) — Leitura Orientada: Sistemas de Gestão MRO, ERP e Transformação Digital na Aviação  
+**Ambiente:** Estudo Autônomo / Palestras da Setec Fatec Sorocaba  
+**Articulação com o PPC:** EAA-009 (Informação Técnica) e EAM-007 (Gerenciamento da Manutenção)  
 
 ---
 
-## 1. OBJETIVOS DE INFORMATICA
-Ao final desta leitura e das atividades da Setec, você será capaz de:
-- Compreender o papel dos sistemas de informação modernos no setor de manutenção de aeronaves.
-- Entender o conceito de software **MRO (Maintenance, Repair, and Overhaul)** e **ERP (Enterprise Resource Planning)**.
-- Compreender como a digitalização substitui processos baseados em papéis físicos por registros digitais auditáveis.
-- Identificar as tendências tecnológicas de transformação digital na aviação civil e militar.
+## 1. OBJETIVOS DE INFORMÁTICA
+Ao final desta leitura orientada e da participação nos eventos da Setec, você será capaz de:
+- Compreender a arquitetura computacional dos sistemas de informação corporativos da indústria aeronáutica (**MRO, ERP e EFB**).
+- Entender como bancos de dados relacionais registram a vida útil de cada componente (*Life-Limited Parts - LLP*).
+- Identificar o papel da interoperabilidade de dados (arquivos `.csv`, `.xml` e APIs) na exportação de relatórios para ferramentas analíticas de escritório (Excel / Power BI).
 
 ---
 
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
-### 2.1 O Ecossistema de Softwares na Aviação Civil
+### 2.1 O Papel dos Sistemas Especializados na Manutenção
 
 ```
-+-------------------------------------------------------------------------------+
-|                       ECOSSISTEMA COMPUTACIONAL AÉREO                         |
-+-------------------------------------------------------------------------------+
-| 1. ERP / MRO (TRAX, AMOS, Maintenix, TOTVS):                                   |
-|    - Banco de dados central de peças, histórico de voos e Ordens de Serviço.  |
-|                                                                               |
-| 2. EFB (Electronic Flight Bag):                                               |
-|    - Tablets/Computadores de bordo para pilotos e mecânicos sem papel.        |
-|                                                                               |
-| 3. FERRAMENTAS DE ESCRITÓRIO E ANALYTICS (Excel, MS Project, Power BI):        |
-|    - Extração de dados (CSV/TXT) para relatórios customizados e cronogramas. |
-+-------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------+
+|                         PIRÂMIDE DE SOFTWARES DA AVIAÇÃO                           |
++------------------------------------------------------------------------------------+
+|                                                                                    |
+|                     [ DASHBOARDS / BI & EXCEL ANALYTICS ]                          |
+|                     - Tomada de decisão da diretoria e engenharia                  |
+|                     - Curva S, custos de manutenção, disponibilidade               |
+|                                                                                    |
+|               [ SISTEMAS MRO / ERP (TRAX, AMOS, TOTVS, SAP) ]                      |
+|               - Banco de dados relacional centralizado                             |
+|               - Histórico de aeronaves, logs de voo, rastreabilidade de peças      |
+|                                                                                    |
+|         [ EFB - ELECTRONIC FLIGHT BAG & DISPOSITIVOS MÓVEIS DE CABINE ]            |
+|         - Tablets de pilotos e mecânicos no pátio para assinatura digital          |
++------------------------------------------------------------------------------------+
 ```
 
-### 2.2 O que é um Sistema MRO?
-Softwares MRO (*Maintenance, Repair, and Overhaul*) são bancos de dados relacionais gigantescos projetados especificamente para monitorar a vida útil de cada componente de uma frota de aeronaves.
-- **Rastreabilidade Digital:** Cada parafuso, motor ou aviônico possui um histórico digital (*log*) contendo: quem instalou, quando foi inspecionado, quantas horas voou e quando deve ser removido.
-- **Integração com Planilhas:** Por mais avançado que seja um ERP/MRO, engenheiros e gerentes rotineiramente **exportam dados para o MS Excel** para realizar análises estatísticas e gráficos de tendência.
+### 2.2 Por que o Excel continua indispensável mesmo com sistemas ERP milionários?
+Nenhum sistema MRO/ERP fornece 100% dos relatórios customizados que a engenharia precisa para análises rápidas, estudos de confiabilidade e planejamento de curto prazo.
+- **Rotina do Engenheiro/Técnico de Manutenção:** Exportar extratos do sistema MRO em formato tabular plano (`.csv` ou `.txt`), abrir no Excel e aplicar fórmulas de busca, formatação condicional, tabelas dinâmicas e gráficos de tendência.
 
 ---
 
-## 3. ATIVIDADE DE LEITURA E SÍNTESE COMPUTACIONAL
+## 3. ATIVIDADE DE SÍNTESE E PESQUISA COMPUTACIONAL
 
-### Exercício de Reflexão Computacional:
-Elabore um texto curto (1 a 2 páginas no MS Word aplicando os Estilos aprendidos na Semana 3) abordando:
-
-1. **A importância da Padronização de Dados:** Por que a digitação incorreta de um código de peça (*Part Number*) no sistema pode paralisar uma aeronave no solo (*AOG - Aircraft On Ground*)?
-2. **Exportação de Dados:** Por que o formato `.csv` (Comma-Separated Values) é o padrão universal para exportar relatórios de grandes bancos de dados para planilhas como o MS Excel?
-3. **Segurança da Informação:** Por que a realização de backups periódicos e o controle de permissões de acesso ao sistema operacional e arquivos são vitais em uma oficina homologada?
-
----
-
-## 4. GUIA DE LEITURA RECOMENDADA
-
-- **Formatos de Dados:** Pesquise sobre a diferença entre arquivos estruturados (`.xml`, `.json`, `.csv`) e documentos estáticos (`.pdf`).
-- **Nuvem e Armazenamento:** Compreenda o funcionamento de repositórios em nuvem (OneDrive, SharePoint, Google Drive) para compartilhamento seguro de documentos técnicos.
+Elabore um texto técnico estruturado no MS Word (aplicando os Estilos de Título e Parágrafo aprendidos na Semana 2) abordando:
+1. **O formato `.csv`:** Por que o formato de texto delimitado por vírgulas é o padrão universal para exportação de dados entre diferentes softwares?
+2. **Rastreabilidade Digital:** Como o registro computacional de peças substitui os antigos livros físicos de manutenção (*Logbooks*) com maior segurança contra adulterações?
+3. **Colaboração em Nuvem:** Quais os benefícios do compartilhamento de dados em tempo real no Microsoft 365 para equipes de manutenção distribuídas em diferentes bases e aeroportos?

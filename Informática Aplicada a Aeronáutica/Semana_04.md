@@ -1,106 +1,113 @@
 # ROTEIRO DE AULA EXPANDIDO — SEMANA 04
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
-**Tema:** MS Word II — Formulários Interativos, Proteção de Documentos, Controle de Alterações e Mini-PBL 1  
-**Ambiente:** Laboratório de Informática  
+**Tema:** MS Excel I — Fundamentos, Fórmulas Matemáticas, Referências Absolutas (`$`) e Conversões de Unidades Técnicas  
+**Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
+**Articulação com o PPC:** CAL-201 (Cálculo Aplicado), FQA-001 (Física e Química) e FMT-007 (Metrologia e Ferramentas)  
 
 ---
 
-## 1. OBJETIVOS DE INFORMATICA
+## 1. OBJETIVOS DE INFORMÁTICA
 Ao final desta aula, você será capaz de:
-- Habilitar e utilizar a guia **Desenvolvedor** no Microsoft Word.
-- Inserir **Controles de Conteúdo** para criação de formulários padronizados (Caixas de texto simples/formatado, caixas de combinação/dropdown, seletores de data e caixas de seleção/checkbox).
-- Configurar **Restrições de Edição** para proteger modelos de documentos contra alterações não autorizadas na estrutura.
-- Ativar e gerenciar a ferramenta **Controlar Alterações** (*Track Changes*) e comentários para revisão colaborativa de documentos.
-- Exportar documentos no formato padrão de arquivamento digital **PDF/A**.
-- Executar o **Mini-PBL 1** (Desenvolvimento de Modelo de Ordem de Serviço).
+- Operar a interface moderna do **Microsoft Excel Online (Office 365)**.
+- Compreender a tipologia de dados no Excel: **Valores Numéricos, Textos, Datas e Fórmulas**.
+- Dominar a diferença computacional entre **Referências Relativas (`A1`)** e **Referências Absolutas / Trancamento (`$A$1`, `A$1`, `$A1`)**.
+- Construir equações matemáticas personalizadas utilizando parênteses e operadores (`+`, `-`, `*`, `/`, `^`).
+- Construir planilhas automáticas de **Conversão de Unidades Técnicas Aeronáuticas** (pés para metros, libras para quilogramas, nós para km/h, psi para bar, galões para litros).
+- Aplicar as funções fundamentais: `=SOMA()`, `=MÉDIA()`, `=MÁXIMO()`, `=MÍNIMO()`, `=ARRED()` e `=CONVERTER()`.
 
 ---
 
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
-### 2.1 O que são Controles de Conteúdo e Formulários Preenchíveis?
-Em ambientes de escritório e oficinas, formulários de papel geram erros de digitação e perda de dados.
-- **Controles de Conteúdo no Word:** São elementos de interface colocados dentro do documento que limitam o tipo de dado que o usuário pode inserir em cada campo (ex: só aceitar datas, escolher uma opção fixa de uma lista suspensa ou marcar uma caixinha de verificação).
+### 2.1 Por que o Trancamento com Cifrão (`$`) é Fundamental?
+Ao arrastar uma fórmula no Excel com a **Alça de Preenchimento**, o software desloca automaticamente as linhas e colunas (Referência Relativa).
+- **Quando você precisa fixar uma célula constante** (como uma taxa de conversão ou o preço de um galão de combustível), deve-se usar a **Referência Absoluta (`$`)**.
+- Pressionar a tecla `F4` sobre o endereço da célula insere automaticamente os cifrões:
+  - `$B$1`: Linha e coluna 100% fixas (não mudam ao arrastar nem para os lados nem para baixo).
+  - `B$1`: Linha fixa, coluna livre.
+  - `$B1`: Coluna fixa, linha livre.
 
 ```
-[MODELO DE FORMULÁRIO PROTEGIDO]
- ├── Campo Texto Simples: [ Digite o Prefixo da Aeronave... ]
- ├── Caixa de Combinação (Dropdown): [ Selecione o Tipo de Inspeção v ]
- │     ├── 50 Horas
- │     ├── 100 Horas
- │     └── Anual / IAM
- ├── Seletor de Data: [ 15/08/2026 v ]
- └── Checkbox: [X] Componente Aprovado   [ ] Componente Reprovado
+EXEMPLO COMPUTACIONAL:
+  Célula B1 = 0,3048 (Fator de Conversão: 1 pé = 0,3048 m)
+
+  Fórmula em C4 (Sem trancar):  =B4 * B1   (Ao arrastar para C5, vira =B5 * B2 -> ERRO!)
+  Fórmula em C4 (Com trancamento): =B4 * $B$1 (Ao arrastar para C5, vira =B5 * $B$1 -> CORRETO!)
 ```
+
+### 2.2 Fatores de Conversão Aeronáutica Comuns
+Na aviação internacional, manuais utilizam o sistema imperial (EUA/UK) enquanto a engenharia no Brasil utiliza o Sistema Internacional (SI):
+
+| Grandeza | Unidade Aeronáutica | Unidade SI (Métrico) | Fator de Multiplicação |
+| :--- | :--- | :--- | :--- |
+| **Altitude / Distância** | Pés (*feet* - `ft`) | Metros (`m`) | $\text{metros} = \text{ft} \times 0,3048$ |
+| **Velocidade** | Nós (*knots* - `kt`) | Quilômetros por hora (`km/h`) | $\text{km/h} = \text{kt} \times 1,852$ |
+| **Massa / Peso** | Libras (*pounds* - `lb`) | Quilogramas (`kg`) | $\text{kg} = \text{lb} \times 0,453592$ |
+| **Volume de Combustível** | Galões US (*gallons* - `gal`) | Litros (`L`) | $\text{litros} = \text{gal} \times 3,78541$ |
+| **Pressão de Pneus/Sistemas** | Libras por polegada² (`psi`) | Bar (`bar`) | $\text{bar} = \text{psi} \times 0,0689476$ |
 
 ---
 
 ## 3. GUIA PRÁTICO EM LABORATÓRIO (PASSO A PASSO)
 
-### Atividade 1: Habilitar a Guia Desenvolvedor no MS Word
+### Atividade 1: Construção da Calculadora de Conversão com Referências Absolutas
 
-1. Abra o MS Word.
-2. Clique no menu **Arquivo** -> **Opções**.
-3. Na janela de opções, clique em **Personalizar Faixa de Opções**.
-4. Na coluna da direita (*Guias Principais*), marque a caixinha **Desenvolvedor**.
-5. Clique em **OK**. A guia Desenvolvedor aparecerá no topo do Word.
-
----
-
-### Atividade 2: Inserção de Campos Interativos no Formulário
-
-1. Crie uma tabela no Word com 2 colunas e 4 linhas.
-2. Na coluna da esquerda, digite os rótulos: `Responsável Técnico:`, `Tipo de Serviço:`, `Data do Serviço:`, `Status:`.
-3. Na coluna da direita, insira os controles da guia **Desenvolvedor** -> painel **Controles**:
-   - **Para Responsável Técnico:** Clique no ícone **Controle de Conteúdo de Texto Simples** `Aa`.
-   - **Para Tipo de Serviço:** Clique no ícone **Controle de Conteúdo de Caixa de Combinação** (Dropdown).
-     - Com o controle selecionado, clique em **Propriedades** na guia Desenvolvedor.
-     - Clique em **Adicionar** e insira as opções: `Preventiva`, `Corretiva`, `Inspeção de Rotina`. Clique em **OK**.
-   - **Para Data do Serviço:** Clique no ícone **Controle de Conteúdo de Seletor de Data** (Calendário).
-   - **Para Status:** Clique no ícone **Controle de Conteúdo de Caixa de Seleção** (Checkbox).
+1. Abra o Excel Online ou Desktop.
+2. Na linha 1 e 2, crie a área de parâmetros fixos:
+   - `A1`: `PARÂMETROS FIXOS`
+   - `A2`: `Fator ft -> m:` | `B2`: `0,3048`
+   - `C2`: `Fator kt -> km/h:` | `D2`: `1,852`
+   - `E2`: `Fator lb -> kg:` | `F2`: `0,453592`
+3. Na linha 5, monte a tabela de dados de voo:
+   - `A5`: `Aeronave` | `B5`: `Altitude (ft)` | `C5`: `Altitude (m)` | `D5`: `Velocidade (kt)` | `E5`: `Velocidade (km/h)` | `F5`: `Peso Combustível (lb)` | `G5`: `Peso Combustível (kg)`
+4. Insira os dados para 4 aeronaves:
+   - Linha 6: `PR-AAA` | `B6`: `8500` | `D6`: `140` | `F6`: `1200`
+   - Linha 7: `PT-BBB` | `B7`: `12000` | `D7`: `185` | `F7`: `2400`
+   - Linha 8: `PR-CCC` | `B8`: `4500` | `D8`: `110` | `F8`: `800`
+   - Linha 9: `PT-DDD` | `B9`: `25000` | `D9`: `280` | `F9`: `5600`
 
 ---
 
-### Atividade 3: Proteger o Formulário para Preenchimento
+### Atividade 2: Inserção de Fórmulas com Trancamento e Arredondamento
 
-1. Acesse a guia **Desenvolvedor** -> **Restringir Edição** (ou na guia **Revisão**).
-2. No painel que se abre à direita:
-   - Marque o item **2. Restrições de edição: Permitir apenas este tipo de edição no documento**.
-   - No menu suspenso, escolha **Preenchendo formulários**.
-3. Clique no botão **Sim, aplicar proteção**.
-4. (Opcional) Digite uma senha ou deixe em branco e clique em OK.
-5. *Teste:* Tente apagar os rótulos da tabela. Note que o Word impede a digitação no texto fixo e permite apenas preencher os campos do formulário!
-
----
-
-### Atividade 4: Exportação em PDF/A
-
-1. Clique em **Arquivo** -> **Salvar Como** (ou **Exportar**).
-2. Escolha o local e em *Tipo*, selecione **PDF (*.pdf)**.
-3. Clique no botão **Opções...**.
-4. Marque a caixinha **Compatível com ISO 19005-1 (PDF/A)**.
-5. Clique em **OK** e depois em **Salvar**.
+1. Na célula `C6` (Altitude em metros), digite a fórmula trancando a célula `B2`:
+   `=ARRED(B6 * $B$2; 1)`
+2. Na célula `E6` (Velocidade em km/h), digite a fórmula trancando a célula `D2`:
+   `=ARRED(D6 * $D$2; 1)`
+3. Na célula `G6` (Combustível em kg), digite a fórmula trancando a célula `F2`:
+   `=ARRED(F6 * $F$2; 2)`
+4. Selecione as células `C6`, `E6` e `G6` e use a **Alça de Preenchimento** (duplo clique ou arrastar) até a linha 9.
+5. Observe que todas as linhas foram calculadas perfeitamente mantendo a referência fixa aos parâmetros da linha 2!
 
 ---
 
-## 4. DESAFIO PRÁTICO (MINI-PBL 1)
+### Atividade 3: Uso da Função Nativa `=CONVERTER()`
 
-**Enunciado do Mini-PBL 1:**
-Você deve criar um **Modelo Padronizado de Ordem de Serviço (OS)** em editor de texto contendo obrigatoriamente os seguintes requisitos computacionais:
-
-1. Cabecalho padronizado com tabela e logotipo/imagem ajustada.
-2. Tabela de Identificação com **Controles de Conteúdo Interativos** (Texto Simples, Dropdown para tipo de manutenção, Seletor de Data e Checkboxes de status).
-3. Tabela de Registro de Peças com colunas para `Item`, `Part Number`, `Quantidade` e `Descrição`.
-4. Proteção de Documento ativada para permitir apenas o preenchimento de formulário.
-5. Exportação do modelo final em formato `.docx` (editável protegido) e `.pdf` (documento estático).
+O Excel possui uma função avançada chamada `=CONVERTER(número; de_unidade; para_unidade)`:
+1. Em uma célula vazia, teste:
+   - `=CONVERTER(8500; "ft"; "m")` -> Converte pés para metros nativamente.
+   - `=CONVERTER(140; "kn"; "km/h")` -> Converte nós para km/h.
+   - `=CONVERTER(1200; "lbm"; "kg")` -> Converte libras-massa para quilogramas.
 
 ---
 
-## 5. DICAS DE PRODUTIVIDADE & ATALHOS DE TECLADO
+## 4. EXERCÍCIO DE FIXAÇÃO INTENSIVO
 
-| Atalho de Teclado | Função no MS Word |
+**Desafio em Laboratório:**
+Você recebeu um relatório técnico com 6 tanques de combustível de diferentes aeronaves:
+- Colunas: `Prefixo` | `Capacidade (Galões)` | `Consumo Médio (Galões/Hora)` | `Autonomia Máxima (Horas)` | `Capacidade em Litros`
+- **Cálculos:**
+  - `Autonomia (Horas)` = `Capacidade / Consumo Médio`
+  - `Capacidade em Litros` = `Capacidade em Galões * $Fator_Litros` (use $1\text{ gal} = 3,78541\text{ L}$).
+- No rodapé, calcule com fórmulas a **Capacidade Total da Frota em Litros** (`SOMA`), a **Média de Autonomia** (`MÉDIA`) e a **Maior Autonomia** (`MÁXIMO`).
+
+---
+
+## 5. DICAS DE PRODUTIVIDADE & ATALHOS NO EXCEL
+
+| Atalho de Teclado | Função no MS Excel |
 | :--- | :--- |
-| `Ctrl + Shift + E` | Ativa ou desativa o **Controle de Alterações** (*Track Changes*) |
-| `Alt + Shift + D` | Insere o campo de Data Atual automaticamente |
-| `Alt + Shift + T` | Insere o campo de Hora Atual automaticamente |
-| `F12` | Abre diretamente a caixa de diálogo "Salvar Como" |
+| `F4` (na fórmula) | Alterna automaticamente o trancamento com cifrões (`A1` -> `$A$1` -> `A$1` -> `$A1`) |
+| `Ctrl + Shift + 1` | Aplica formato de número com 2 casas decimais e separador de milhar |
+| `Ctrl + Setas` | Pula instantaneamente para a primeira ou última célula preenchida da tabela |
+| `Ctrl + D` | Copia a fórmula da célula de cima para a célula atual |

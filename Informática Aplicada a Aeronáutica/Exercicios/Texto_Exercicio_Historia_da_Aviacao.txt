@@ -1,0 +1,89 @@
+FATEC SOROCABA — CURSO SUPERIOR DE TECNOLOGIA EM MANUTENÇÃO DE AERONAVES
+COMPONENTE CURRICULAR: INF-117 — INFORMÁTICA APLICADA A AERONÁUTICA
+
+RELATÓRIO TÉCNICO: A EVOLUÇÃO TECNOLÓGICA DA AVIAÇÃO — DOS PRIMÓRDIOS À ERA DIGITAL
+
+AUTOR: [DIGITE SEU NOME COMPLETO AQUI]
+PROFESSOR: ANDRÉ SOUZA
+DATA: 14 DE AGOSTO DE 2026
+SOROCABA - SP
+
+--- [QUEBRA DE SEÇÃO / PRÓXIMA PÁGINA: RESERVADO PARA O SUMÁRIO AUTOMÁTICO] ---
+
+SUMÁRIO
+
+--- [QUEBRA DE SEÇÃO / PRÓXIMA PÁGINA: CORPO DO RELATÓRIO TÉCNICO - INÍCIO DA NUMERAÇÃO] ---
+
+1. INTRODUÇÃO E OS PRIMÓRDIOS DO VOO CONTROLADO
+
+A busca pelo domínio dos céus acompanha a história da humanidade desde a antiguidade clássica, permeando lendas como a de Ícaro e Dédalo e os estudos visionários de Leonardo da Vinci no Renascimento. No entanto, foi na transição do século XIX para o século XX que os avanços na termodinâmica, aerodinâmica empírica e metalurgia permitiram a transição dos planadores e balões para o voo mecânico autopropulsado e controlado por superfícies móveis.
+
+A aviação moderna estabeleceu-se sobre os alicerces construídos por pioneiros como Alberto Santos Dumont, que em 1906 realizou no Campo de Bagatelle, em Paris, o primeiro voo homologado de um aparelho mais pesado que o ar capaz de decolar, voar e pousar por seus próprios meios, o célebre 14-Bis. Concomitantemente, nos Estados Unidos, os irmãos Orville e Wilbur Wright desenvolveram estudos essenciais sobre o controle em três eixos (arfagem, rolamento e guinada), consolidando os princípios que regem a mecânica de voo até os dias atuais.
+
+1.1 O Impacto dos Conflitos Mundiais na Engenharia Aeronáutica
+
+A Primeira Guerra Mundial (1914-1918) acelerou dramaticamente a maturidade tecnológica da aviação. Aeronaves que inicialmente eram confeccionadas em madeira entelada e arames passaram a incorporar estruturas de duralumínio, motores refrigerados a líquido e sistemas de sincronização de armamentos. A velocidade máxima das aeronaves saltou de modestos 100 km/h para mais de 220 km/h em menos de cinco anos.
+
+O período entreguerras testemunhou o nascimento da aviação comercial regular de passageiros e carga. Aeronaves emblemáticas como o Douglas DC-3 (1935) transformaram o transporte aéreo em um modelo de negócio economicamente sustentável e seguro. A Segunda Guerra Mundial (1939-1945) culminou com a produção em massa e o desenvolvimento dos primeiros radares embarcados, sistemas de navegação por instrumentos e cabines pressurizadas.
+
+2. A REVOLUÇÃO DA PROPULSÃO A REAÇÃO E A ERA DO JATO
+
+A introdução dos motores a reação (turborreatores e turbofans) na década de 1940 e 1950 revolucionou o transporte global, encurtando distâncias geográficas e aumentando a confiabilidade mecânica dos voos.
+
+2.1 O Desenvolvimento dos Motores Turbofan
+
+Diferentemente dos motores a pistão de combustão interna com ciclos Otto/quatro tempos, os motores a reação operam segundo o ciclo termodinâmico contínuo de Brayton (admissão, compressão, combustão e exaustão). O desenvolvimento das turbinas a gás aeronáuticas exigiu novas superligas metálicas à base de níquel e titânio, capazes de suportar temperaturas de queima superiores a 1.400 °C na câmara de combustão.
+
+A evolução dos turborreatores puros para os turbofans de alta taxa de diluição (high-bypass) proporcionou uma redução drástica no consumo específico de combustível e nos níveis de ruído ambiental nos aeroportos, viabilizando o transporte em massa com aeronaves como o Boeing 707, Douglas DC-8 e o quadrijato Boeing 747 "Jumbo Jet".
+
+2.2 O Voo Supersônico Comercial
+
+O ápice da velocidade na aviação civil ocorreu com o desenvolvimento do consórcio anglo-francês Concorde, que operou voos comerciais regulares a Mach 2.04 (aproximadamente 2.180 km/h) a mais de 60.000 pés de altitude. O projeto impulsionou a engenharia com asas em formato de ogiva delta, entradas de ar de geometria variável e controles eletro-hidráulicos pioneiros.
+
+3. A REVOLUÇÃO DIGITAL, FLY-BY-WIRE E SISTEMAS INTEGRADOS
+
+A partir da década de 1980, a computação e a eletrônica embarcada (Aviônica) passaram a ditar os rumos do projeto e da manutenção de aeronaves. A substituição de cabos de aço e hastes mecânicas por sinais elétricos controlados por computadores deu origem à tecnologia Fly-by-Wire (FBW).
+
+3.1 Arquiteturas Fly-by-Wire e Proteção de Envelope
+
+Com o advento do Airbus A320 e posteriormente do Boeing 777 e dos jatos executivos modernos da Embraer (famílias Legacy e Praetor), os computadores de bordo assumiram a modulação em tempo real das superfícies primárias de comando (ailerons, profundores e leme). Essa tecnologia não apenas reduziu o peso estrutural das aeronaves, mas implementou algoritmos de proteção automática de envelope de voo, impedindo que o piloto exceda os limites estruturais de fator de carga (g) ou atinja o ângulo de estol em condições críticas.
+
+3.2 Instrumentação Digital (Glass Cockpit) e Redes Digitais
+
+Os painéis clássicos compostos por dezenas de instrumentos analógicos giroscópicos e barométricos individuais foram substituídos por telas multifuncionais integradas (EFIS - Electronic Flight Instrument System), onde Primary Flight Displays (PFD) e Navigation Displays (ND) apresentam atitude, altitude, velocidade e navegação satelital (GPS/GNSS) sintetizados. No âmbito da manutenção, os barramentos digitais (como ARINC 429 e AFDX / Ethernet Aeronáutica) permitem o monitoramento contínuo da saúde dos componentes (BITE - Built-In Test Equipment) e a transmissão telemétrica em tempo real de falhas para as equipes de solo.
+
+4. CARACTERÍSTICAS TÉCNICAS DE AERONAVES HISTÓRICAS E MODERNAS
+
+A tabela a seguir apresenta uma comparação dos parâmetros de desempenho e evolução das principais aeronaves que marcaram a história da engenharia aeronáutica:
+
+[TABELA DE DADOS TÉCNICOS: FORMATAR NO WORD COMO TABELA COM CABEÇALHO DESTACADO]
+Aeronave;Fabricante;Ano de Introdução;Tipo de Propulsão;Velocidade Máxima (km/h);Teto de Serviço (ft);Capacidade de Passageiros
+14-Bis;Santos Dumont;1906;Pistão Antoinette (50 hp);41;150;1
+Douglas DC-3;Douglas Aircraft;1935;2x Motores Radiais a Pistão;370;23.200;28
+Boeing 707;Boeing Company;1958;4x Turborreatores JT3C;977;42.000;181
+Concorde;Aérospatiale / BAC;1976;4x Turbojatos Rolls-Royce Olympus;2.180;60.000;100
+Boeing 747-400;Boeing Company;1989;4x Turbofans High-Bypass;988;45.000;416
+Embraer E195-E2;Embraer;2019;2x Geared Turbofan PW1900G;870;41.000;146
+Airbus A350-900;Airbus;2015;2x Turbofans Rolls-Royce Trent XWB;945;43.100;325
+
+[INSERIR FIGURA AQUI: INSERIR UMA IMAGEM DA AERONAVE EMBRAER E195-E2 OU SANTOS DUMONT 14-BIS E APLICAR A LEGENDA AUTOMÁTICA 'Figura 1: Aeronave comercial moderna com materiais compostos e motores Geared Turbofan']
+
+5. A INDÚSTRIA AERONÁUTICA BRASILEIRA E A EMBRAER
+
+O Brasil desempenha um papel de liderança global no setor aeroespacial. Com a criação do Centro Técnico de Aeronáutica (CTA, atual DCTA) e do Instituto Tecnológico de Aeronáutica (ITA) na década de 1950, o país formou a base científica que culminou na fundação da Embraer (Empresa Brasileira de Aeronáutica) em 1969.
+
+Desde o sucesso inicial do turboélice bimotor Bandeirante (EMB-110) e do treinador militar Tucano (EMB-312), a engenharia aeronáutica nacional evoluiu para a liderança mundial no segmento de aviação regional com os jatos das famílias ERJ-145, E-Jets (E170, E175, E190, E195) e E-Jets E2. Na aviação militar, o desenvolvimento do cargueiro multimissão KC-390 Millennium consolidou a capacidade nacional de integrar sistemas aviônicos de ponta, comando Fly-by-Wire de ciclo fechado e estruturas avançadas em materiais compostos de fibra de carbono.
+
+6. CONSIDERAÇÕES FINAIS E DESAFIOS FUTUROS
+
+A trajetória secular da aviação evidencia uma transição contínua da mecânica analógica para a computação integrada. Os desafios do século XXI incluem a descarbonização das frotas por meio de combustíveis sustentáveis de aviação (SAF), eletrificação de motores, aeronaves de mobilidade aérea urbana (eVTOL) e a manutenção preditiva orientada por inteligência artificial e gêmeos digitais (Digital Twins).
+
+Para os futuros tecnólogos em manutenção de aeronaves, o domínio das ferramentas de informática técnica, gestão de bancos de dados de aeronavegabilidade e rigor na elaboração de documentação formal constituem competências indispensáveis para garantir a segurança, regularidade e eficiência do ecossistema aéreo mundial.
+
+7. REFERÊNCIAS BIBLIOGRÁFICAS
+
+1. ANDERSON JR., John D. Introduction to Flight. 8th ed. New York: McGraw-Hill, 2016.
+2. BRUHN, E. F. Analysis and Design of Flight Vehicle Structures. Indianapolis: Jacobs Publishing, 1973.
+3. KROES, Michael J.; WILD, Thomas W. Aircraft Powerplants. 8th ed. New York: Glencoe/McGraw-Hill, 2013.
+4. TORENBEEK, Egbert. Synthesis of Subsonic Airplane Design. Delft: Delft University Press, 1982.
+5. FATEC SOROCABA. Projeto Pedagógico do Curso Superior de Tecnologia em Manutenção de Aeronaves (PPC R-11). Sorocaba: Centro Paula Souza, 2024.

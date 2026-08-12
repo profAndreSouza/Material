@@ -1,90 +1,95 @@
 # ROTEIRO DE AULA EXPANDIDO — SEMANA 12
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
-**Tema:** MS Excel V — Visualização de Dados, Design de Gráficos Avançados e Gráficos Combinados  
-**Ambiente:** Laboratório de Informática  
+**Tema:** MS Excel VI — Engenharia Gráfica, Gráficos de Dispersão ($X, Y$), Linhas de Tendência/Regressão e Gráficos Combinados  
+**Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
+**Articulação com o PPC:** EST-002 (Estatística Descritiva), Resistência dos Materiais e Análise de Fratura, e EAA-014 (Aerodinâmica)  
 
 ---
 
-## 1. OBJETIVOS DE INFORMATICA
+## 1. OBJETIVOS DE INFORMÁTICA
 Ao final desta aula, você será capaz de:
-- Escolher o tipo de gráfico adequado para representar diferentes tipos de dados computacionais.
-- Criar e formatar **Gráficos de Colunas, Barras, Linhas e Pizza/Rosca**.
-- Construir **Gráficos Combinados** (ex: Colunas + Linhas) utilizando eixo secundário.
-- Personalizar elementos de um gráfico (Títulos, Legendas, Rótulos de Dados, Eixos e Linhas de Grade).
-- Adicionar **Linhas de Tendência** (*Trendlines*) para análise preditiva visual.
+- Escolher a representação gráfica computacional adequada para diferentes tipos de variáveis de engenharia (discretas, temporais e contínuas).
+- Construir **Gráficos de Dispersão ($X, Y$)** para plotar dados de ensaios laboratoriais (Tensão vs. Deformação, Sustentação vs. Ângulo de Ataque).
+- Adicionar **Linhas de Tendência (*Trendlines*)** e exibir a **Equação da Reta de Regressão e o Coeficiente de Determinação ($R^2$)** no Excel.
+- Construir **Gráficos Combinados** (Colunas + Linhas) utilizando **Eixo Secundário** para comparar variáveis em escalas distintas (ex: Horas de Voo vs. Custo Total de Falhas).
+- Personalizar leiautes visuais profissionais com rótulos, eixos formatados e temas institucionais.
 
 ---
 
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
-### 2.1 Escolha do Tipo Certo de Gráfico
+### 2.1 Gráfico de Linhas vs. Gráfico de Dispersão ($X, Y$)
+- **Gráfico de Linhas:** Trata o eixo X como categorias com espaçamento uniforme (ex: meses Jan, Fev, Mar). **NÃO deve ser usado para equações físicas!**
+- **Gráfico de Dispersão ($X, Y$ - Scatter Plot):** Trata tanto o eixo X quanto o eixo Y como números contínuos. É o único gráfico correto para plotar ensaios de tração, curvas de calibração e aerodinâmica.
 
 ```
-+--------------------------------------------------------------------------------+
-|                         GUIA DE ESCOLHA DE GRÁFICOS                            |
-+--------------------------------------------------------------------------------+
-| TIPO DE GRÁFICO    | QUANDO UTILIZAR NO EXCEL                                  |
-| ------------------ | --------------------------------------------------------- |
-| Colunas / Barras   | Comparar valores entre categorias discretas.              |
-| Linhas             | Mostrar evolução contínua ao longo do TEMPO (Tendência).  |
-| Pizza / Rosca      | Mostrar a PROPORÇÃO/PERCENTUAL das partes em um TODO (100%)|
-| Combinado          | Comparar duas métricas com escalas diferentes no mesmo chart|
-+--------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------+
+|                         GUIA DE ESCOLHA DE GRÁFICOS                                |
++------------------------------------------------------------------------------------+
+| TIPO DE GRÁFICO      | APLICAÇÃO NA ENGENHARIA AERONÁUTICA                         |
+| -------------------- | ----------------------------------------------------------- |
+| Colunas / Barras     | Comparação de falhas entre sistemas ou modelos de avião.    |
+| Linhas               | Evolução temporal de consumo de óleo ao longo dos meses.    |
+| Dispersão (X, Y)     | Curvas de Tensão x Deformação; Arrasto x Velocidade; $Cl/Cd$.|
+| Combinado (Eixo 2)   | Horas Voadas (eixo esquerdo) vs. Taxa de Falhas (eixo dir). |
++------------------------------------------------------------------------------------+
 ```
-
-### 2.2 O que é um Gráfico Combinado com Eixo Secundário?
-Imagine comparar o **Custo Total de Manutenção (R$ 500.000)** com o **Número de Falhas Ocorridas (3 falhas)**.
-- Se colocados no mesmo eixo vertical (Y), a linha das falhas parecerá colada no zero (pois 3 é insignificante perto de 500.000).
-- **Solução Computacional:** Atribuir a série "Número de Falhas" ao **Eixo Secundário** no lado direito do gráfico.
 
 ---
 
 ## 3. GUIA PRÁTICO EM LABORATÓRIO (PASSO A PASSO)
 
-### Atividade 1: Construção de um Gráfico Combinado (Colunas + Linha com Eixo Secundário)
+### Atividade 1: Gráfico de Dispersão e Linha de Regressão (Ensaio de Resistência dos Materiais)
 
-1. Monte a base de dados abaixo no MS Excel:
-   - `A1`: `Mês` | `B1`: `Horas de Voo` | `C1`: `Custo Manutenção (R$)`
-   - `A2`: `Jan` | `B2`: `120` | `C2`: `45000`
-   - `A3`: `Fev` | `B3`: `150` | `C3`: `52000`
-   - `A4`: `Mar` | `B4`: `90`  | `C4`: `88000` (Inspeção pesada)
-   - `A5`: `Abr` | `B5`: `210` | `C5`: `31000`
-
-2. Selecione todo o intervalo `A1:C5`.
-3. Acesse a guia **Inserir** -> grupo **Gráficos** -> clique no ícone **Inserir Gráfico Combinado** -> **Criar Gráfico Combinado Personalizado...**.
-4. Na janela de configuração:
-   - Para a série `Horas de Voo`: Tipo de Gráfico -> **Linha com Marcadores**. Marque a caixinha **Eixo Secundário**.
-   - Para a série `Custo Manutenção (R$)`: Tipo de Gráfico -> **Colunas Agrupadas**.
-5. Clique em **OK**. Observe que o custo (em R$) ficará no eixo Y esquerdo e as Horas de Voo no eixo Y direito!
-
----
-
-### Atividade 2: Personalização e Estilização do Gráfico
-
-1. Clique no título do gráfico e edite para: `Evolução de Horas de Voo vs. Custos Operacionais`.
-2. Clique no sinal de mais **`+`** verde ao lado do gráfico (Elementos do Gráfico):
-   - Marque **Rótulos de Dados** para exibir os números em cima das colunas.
-   - Marque **Tabela de Dados** se desejar exibir a planilha anexada ao gráfico.
-3. Para adicionar uma linha de tendência:
+1. Monte os dados de um ensaio de tração de uma liga de alumínio aeronáutico (Al 2024-T3):
+   - `A1`: `Deformação Específica (mm/mm)` | `B1`: `Tensão Aplicada (MPa)`
+   - `A2`: `0,001` | `B2`: `72`
+   - `A3`: `0,002` | `B3`: `145`
+   - `A4`: `0,003` | `B4`: `215`
+   - `A5`: `0,004` | `B5`: `290`
+   - `A6`: `0,005` | `B6`: `360`
+   - `A7`: `0,006` | `B7`: `410` (Início da não-linearidade)
+2. Selecione o intervalo `A1:B7`.
+3. Acesse a guia **Inserir** -> grupo **Gráficos** -> **Dispersão (X, Y) com Marcadores e Linhas Suaves**.
+4. **Adicionar Linha de Tendência e Equação:**
    - Clique com o botão direito sobre a linha do gráfico -> **Adicionar Linha de Tendência...**.
-   - Escolha **Linear**.
+   - Tipo: **Linear**.
+   - Marque as opções: **Exibir Equação no gráfico** e **Exibir valor de R-quadrado no gráfico**.
+5. Observe que o coeficiente angular da reta ($y = mx + b$) representa o **Módulo de Elasticidade (Módulo de Young)** do material!
 
 ---
 
-## 4. EXERCÍCIO DE FIXAÇÃO COMPUTACIONAL
+### Atividade 2: Construção do Gráfico Combinado com Eixo Secundário
 
-**Exercício no Excel:**
-Crie uma planilha de acompanhamento de falhas de componentes:
-- Colunas: `Sistema Aeronáutico` (`Aviônicos`, `Hidráulico`, `Motor`, `Célula`) | `Qtd de Falhas no Ano`.
-- Gere um **Gráfico de Rosca (Donut Chart)** mostrando a porcentagem de falhas pertencente a cada sistema.
-- Formate os rótulos de dados para exibir o **Nome da Categoria e a Porcentagem (%)**.
+1. Monte a tabela de acompanhamento mensal da frota:
+   - `A1`: `Mês` | `B1`: `Horas Voadas na Frota` | `C1`: `Nº de Falhas Técnicas Reportadas`
+   - `A2`: `Jan` | `B2`: `320` | `C2`: `4`
+   - `A3`: `Fev` | `B3`: `410` | `C2`: `5`
+   - `A4`: `Mar` | `B4`: `280` | `C2`: `2`
+   - `A5`: `Abr` | `B5`: `510` | `C2`: `8`
+   - `A6`: `Mai` | `B6`: `480` | `C2`: `6`
+2. Selecione `A1:C6`.
+3. Acesse **Inserir** -> **Gráfico Combinado** -> **Criar Gráfico Combinado Personalizado**:
+   - `Horas Voadas`: **Colunas Agrupadas** (Eixo Principal - Esquerdo).
+   - `Nº de Falhas`: **Linha com Marcadores**, marcando a caixinha **Eixo Secundário** (Eixo Direito).
+4. Clique em **OK**. Observe que ambas as variáveis agora podem ser visualizadas claramente na mesma tela sem distorção de escala!
 
 ---
 
-## 5. DICAS DE PRODUTIVIDADE & ATALHOS DE TECLADO
+## 4. EXERCÍCIO DE FIXAÇÃO INTENSIVO
+
+**Desafio de Aerodinâmica no Excel:**
+Crie uma tabela relacionando o `Ângulo de Ataque (graus)` (de 0° a 16°) e o `Coeficiente de Sustentação (Cl)` de um perfil de asa (NACA 0012).
+- Plote o gráfico em **Dispersão ($X, Y$)**.
+- Adicione uma **Linha de Tendência Polinomial de Grau 2 ou 3**.
+- Identifique graficamente o ponto de estol (máximo sustentador antes da queda da curva).
+
+---
+
+## 5. DICAS DE PRODUTIVIDADE & ATALHOS NO EXCEL
 
 | Atalho de Teclado | Função no MS Excel |
 | :--- | :--- |
-| `Alt + F1` | Insere um gráfico padrão na folha de planilha atual com 1 clique |
-| `F11` | Cria instantaneamente um gráfico em uma **Nova Aba de Planilha** dedicada |
-| `Ctrl + 1` | Abre o painel lateral de **Formatador do Elemento do Gráfico** selecionado |
+| `Alt + F1` | Cria o gráfico padrão na folha atual com 1 comando |
+| `Ctrl + 1` | Abre a barra lateral de formatação do elemento gráfico selecionado |
+| `F11` | Cria o gráfico em uma aba de planilha dedicada em tela cheia |

@@ -1,59 +1,49 @@
 # ROTEIRO DE AULA EXPANDIDO — SEMANA 11
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
-**Tema:** Prova Prática 1 — Roteiro de Apoio, Orientações e Instruções da Avaliação Somativa  
+**Tema:** PROVA PRÁTICA 1 — Instruções, Escopo de Conteúdo e Critérios de Avaliação Somativa 1  
 **Ambiente:** Laboratório de Informática (Avaliação Individual)  
+**Peso na Média Final:** **35%**  
 
 ---
 
-## 1. OBJETIVOS DE INFORMATICA
-Nesta sessão de avaliação somativa, você demonstrará domínio individual em:
-- Operação e configuração do ambiente Windows 11 (gestão de diretórios e arquivos).
-- Formatação de documentos técnicos formais no MS Word (Estilos, Tabelas, Imagens, Sumário Automático).
-- Construção de planilhas de gestão no MS Excel utilizando operadores aritméticos, formatação profissional, funções essenciais (`SOMA`, `MÉDIA`), funções lógicas (`SE`), buscas (`PROCV`) e contagens/somas condicionais (`CONT.SE`, `SOMASE`).
+## 1. OBJETIVOS DE INFORMÁTICA
+Nesta sessão de avaliação individual em laboratório, você demonstrará proficiência prática em:
+- **MS Word Técnico:** Aplicação de Estilos ABNT, quebras de seção, sumário automático dinâmico, tabelas técnicas alinhadas e exportação em formato PDF/A.
+- **MS Excel Essencial & Modelagem:** Estruturação de dados, referências absolutas (`$`), funções matemáticas/estatísticas (`SOMA`, `MÉDIA`, `ARRED`), lógica condicional (`SE`, `E`, `OU`, `SEERRO`), buscas em tabelas (`PROCX` ou `PROCV`) e agregações seletivas (`CONT.SE`, `SOMASE`).
 
 ---
 
-## 2. INSTRUÇÕES GERAIS DE EXECUÇÃO EM LABORATÓRIO
+## 2. INSTRUÇÕES GERAIS DE EXECUÇÃO
 
 > [!IMPORTANT]
-> **Normas de Aplicação da Prova Prática:**
-> 1. A prova é estritamente **individual** e sem consulta a colegas ou internet externa.
-> 2. O tempo total de execução no computador é de **90 minutos**.
-> 3. Todos os arquivos criados deverão ser salvos na pasta criada por você em `C:\Prova_Pratica_1_SeuNome\`.
-> 4. Certifique-se de salvar constantemente o trabalho (`Ctrl + S`) no Word e Excel para evitar perda de dados por oscilação de energia.
+> **Regras de Aplicação da Prova Prática:**
+> 1. A avaliação é estritamente **individual** e em ambiente de laboratório.
+> 2. Duração total: **90 minutos**.
+> 3. Crie uma pasta de trabalho em sua área designada com a nomenclatura: `C:\Prova1_SeuNome_RA\`.
+> 4. Salve periodicamente os seus arquivos no Word e Excel (`Ctrl + S` / `Ctrl + B`).
 
 ---
 
-## 3. ESTRUTURA DO DESAFIO PRÁTICO DA PROVA
+## 3. ESTRUTURA DOS ARQUIVOS DA PROVA
 
 ```
-[PASTA DA PROVA: C:\Prova_Pratica_1_SeuNome\]
- ├── Parte1_Relatorio_Tecnico.docx (MS Word: Estilos, Tabela, Sumário)
- └── Parte2_Planilha_Gestao.xlsx   (MS Excel: Fórmulas, SE, PROCV, CONT.SE)
+[PASTA DE ENTREGA: C:\Prova1_SeuNome_RA\]
+ ├── Parte1_Relatorio_Tecnico.docx (MS Word: Estilos, Seções, Tabela, Sumário)
+ ├── Parte1_Relatorio_Tecnico.pdf  (Versão exportada em PDF)
+ └── Parte2_Planilha_Operacional.xlsx (MS Excel: Fórmulas, Lógica, Busca e Resumos)
 ```
-
-### Escopo das Tarefas Esperadas:
-
-#### PARTE A: MS WORD (Peso na Prova: 35%)
-1. Criar a estrutura de um relatório técnico com Capa, Sumário Automático e 3 seções.
-2. Aplicar estilos padronizados (Título 1 em Arial 14pt Negrito, Corpo de Texto em Arial 11pt Justificado com espaçamento 1,5 linha).
-3. Inserir uma tabela formatada de equipamentos com cabeçalho sombreado.
-4. Exportar a versão final do relatório no formato **PDF/A**.
-
-#### PARTE B: MS EXCEL (Peso na Prova: 65%)
-1. **Modelagem:** Montar a tabela de peças/voos com colunas de código, valores e status.
-2. **Cálculos:** Calcular totais e médias utilizando `=SOMA()` e `=MÉDIA()`.
-3. **Lógica Condicional:** Criar coluna de alerta utilizando `=SE()` para destacar componentes com horas acima do limite e aplicar Formatação Condicional vermelha.
-4. **Busca Automática:** Criar área de consulta onde o código da peça retorne a Descrição e o Preço usando `=PROCV()` envelopado por `=SEERRO()`.
-5. **Resumo:** Criar indicadores utilizando `=CONT.SE()` e `=SOMASE()`.
 
 ---
 
-## 4. CRITÉRIOS COMPUTACIONAIS DE AVALIAÇÃO
+## 4. CRITÉRIOS DE CORREÇÃO COMPUTACIONAL
 
-| Requisito Avaliado | Critério de Correção do Professor |
-| :--- | :--- |
-| **Sintaxe de Fórmulas** | Uso correto dos nomes das funções e separadores de argumentos (`;` e `:`). |
-| **Alocação de Referências** | Uso correto de referências relativas e trancamento de células (`$`) quando necessário. |
-| **Formatação Profissional** | Uso de moeda (`R$`), números decimais ajustados e visualização limpa. |
-| **Integridade de Estilos** | Documento Word com Sumário Automático funcional (não digitado manualmente). |
+| Requisito Avaliado | Pontuação Máxima | O que será verificado pelo professor |
+| :--- | :---: | :--- |
+| **Word: Estilos e Estrutura** | 1,5 pts | Uso correto dos Estilos (Título 1, Título 2, Normal) e navegação. |
+| **Word: Quebras de Seção e Numeração** | 1,0 pt | Capa e sumário sem número visível; numeração iniciando na Seção 1. |
+| **Word: Sumário Automático e Tabelas** | 1,0 pt | Sumário gerado dinamicamente pelo Word (não digitado manualmente). |
+| **Excel: Estrutura e Formatação** | 1,5 pts | Uso correto de formatos de Moeda (`R$`), decimais e referências `$`. |
+| **Excel: Lógica Condicional (`SE`/`E`/`OU`)**| 2,0 pts | Construção sintática correta dos testes e formatação condicional de cores. |
+| **Excel: Funções de Busca (`PROCX`/`PROCV`)**| 1,5 pts | Retorno automático de dados de catálogos sem erros. |
+| **Excel: Agregações (`CONT.SE`/`SOMASE`)** | 1,5 pts | Resumos e indicadores operacionais calculados por fórmulas. |
+| **TOTAL GERAL DA PROVA 1** | **10,0 pts** | *(Convertido para o peso de 35% da média semestral)* |
