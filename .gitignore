@@ -29,3 +29,7 @@ Thumbs.db
 
 # Pastas e Arquivos Privados 
 docente/
+
+Informática Aplicada a Aeronáutica/docs/
+Informática Aplicada a Aeronáutica/slides/*.md
+Informática Aplicada a Aeronáutica/*.py
