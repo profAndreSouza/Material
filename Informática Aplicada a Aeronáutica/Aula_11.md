@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 14
+# ROTEIRO DE AULA EXPANDIDO — AULA 11
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 30/10/2026  
 **Tema:** MS Excel VIII — Importação de Dados (`.csv`/`.txt`), Validação de Dados, Automação por Gravação de Macros e Mini-PBL 3  
 **Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
 **Articulação com o PPC:** EAA-009 (Informação Técnica) e Gestão de Almoxarifado MRO  
@@ -72,7 +73,7 @@ Se um usuário digitar `"Cessna172"`, outro digitar `"CESSNA 172"` e um terceiro
 ## 4. DESAFIO PRÁTICO (MINI-PBL 3)
 
 **Enunciado do Mini-PBL 3 (Peso: ~7,5% da Média Final):**
-Desenvolva um **Painel de Gestão de Estoque e Registro de Movimentação de Peças** no MS Excel:
+Desenvolva um **Painel de Gestão de Estoque e Registro de Movimentação de Peças** no MS Excel, contendo catálogo de componentes aeronáuticos e ferragens de aviação baseados nas especificações do manual oficial [`docs/FAA-H-8083-32B.pdf`](docs/FAA-H-8083-32B.pdf):
 
 1. **Aba de Cadastro:** Interface limpa com campos: `Part Number`, `Descrição`, `Quantidade Movimentada`, `Tipo de Movimentação (Entrada/Saída)` com **Validação de Dados**.
 2. **Automação por Macro:** Botão para limpar o formulário e preparar a tela para o próximo registro.

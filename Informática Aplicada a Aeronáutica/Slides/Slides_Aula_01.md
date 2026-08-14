@@ -1,6 +1,6 @@
 # SLIDES DA AULA 01 — INF-117
 **Tema:** Hardware, Processadores e Estações de Trabalho para Manutenção Aeronáutica  
-**Arquivo de Apresentação:** [`Slides/Slides_Aula_01_Hardware_e_Estacoes_de_Trabalho.pptx`](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Slides/Slides_Aula_01_Hardware_e_Estacoes_de_Trabalho.pptx)
+**Arquivo de Apresentação:** [`Slides/Slides_Aula_01_Hardware_e_Estacoes_de_Trabalho.pptx`](Slides/Slides_Aula_01_Hardware_e_Estacoes_de_Trabalho.pptx)
 
 ---
 

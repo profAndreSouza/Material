@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 04
+# ROTEIRO DE AULA EXPANDIDO — AULA 04
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 28/08/2026  
 **Tema:** MS Excel I — Fundamentos, Fórmulas Matemáticas, Referências Absolutas (`$`) e Conversões de Unidades Técnicas  
 **Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
 **Articulação com o PPC:** CAL-201 (Cálculo Aplicado), FQA-001 (Física e Química) e FMT-007 (Metrologia e Ferramentas)  
@@ -36,7 +37,7 @@ EXEMPLO COMPUTACIONAL:
 ```
 
 ### 2.2 Fatores de Conversão Aeronáutica Comuns
-Na aviação internacional, manuais utilizam o sistema imperial (EUA/UK) enquanto a engenharia no Brasil utiliza o Sistema Internacional (SI):
+Na aviação internacional, manuais regulatórios oficiais (como o [`docs/FAA-H-8083-28A - CLIMA.pdf`](docs/FAA-H-8083-28A%20-%20CLIMA.pdf) e a cartilha [`docs/04-cartilha-asas-do-conhecimento-principios-de-voo.pdf`](docs/04-cartilha-asas-do-conhecimento-principios-de-voo.pdf)) utilizam o sistema imperial americano (EUA/UK) para parâmetros de voo e clima padrão (ISA), enquanto a engenharia no Brasil exige a conversão para o Sistema Internacional (SI):
 
 | Grandeza | Unidade Aeronáutica | Unidade SI (Métrico) | Fator de Multiplicação |
 | :--- | :--- | :--- | :--- |

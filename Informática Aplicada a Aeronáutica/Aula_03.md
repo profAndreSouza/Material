@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 03
+# ROTEIRO DE AULA EXPANDIDO — AULA 03
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 21/08/2026  
 **Tema:** MS Word Avançado: Modelagem de Ordens de Serviço (OS), Formulários Interativos, Colaboração em Nuvem e Mini-PBL 1  
 **Ambiente:** Laboratório de Informática (Microsoft 365 Online / Word)  
 **Articulação com o PPC:** EAA-003 (Familiarização), EAM-005 (Práticas de Manutenção em Aeronaves) e EAM-003 (Manutenção de Aeronaves)  
@@ -19,7 +20,7 @@ Ao final desta aula, você será capaz de:
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
 ### 2.1 Formulários Digitais vs. Documentos Livres
-Em manutenção de aeronaves, ordens de serviço e fichas de inspeção não podem ser preenchidas como textos livres para evitar omissão de dados críticos.
+Em manutenção de aeronaves, ordens de serviço e fichas de inspeção não podem ser preenchidas como textos livres para evitar omissão de dados críticos. Conforme estabelecido no manual oficial [`docs/FAA-H-8083-31B - MANUAL DO TECNICO DE MANURENÇÃO DE AERONAVE.pdf`](docs/FAA-H-8083-31B%20-%20MANUAL%20DO%20TECNICO%20DE%20MANUREN%C3%87%C3%83O%20DE%20AERONAVE.pdf) e na diretriz de tomada de decisão [`docs/02-asas-do-conhecimento-tomada-de-decisao.pdf`](docs/02-asas-do-conhecimento-tomada-de-decisao.pdf), a rastreabilidade e a padronização são requisitos legais inegociáveis.
 - **Campos de Controle:** Limitam o tipo de entrada (ex: obrigar a escolha de opções fixas de um menu dropdown, garantir que datas sigam o formato padrão e exigir marcação explícita de caixas de seleção).
 - **Colaboração em Nuvem (Microsoft 365):** Vários técnicos e engenheiros podem editar o mesmo documento simultaneamente via navegador, com rastreabilidade de quem alterou cada parágrafo.
 
@@ -83,13 +84,13 @@ ESTRUTURA DE UMA ORDEM DE SERVIÇO DIGITAL:
 ## 4. DESAFIO PRÁTICO (MINI-PBL 1)
 
 **Enunciado do Mini-PBL 1 (Peso: ~7,5% da Média Final):**
-Em duplas no laboratório, desenvolva um **Modelo Completo de Ordem de Serviço (OS) e Ficha de Inspeção Pré-Voo/Preventiva** contendo:
+Em duplas no laboratório, desenvolva um **Modelo Completo de Ordem de Serviço (OS) e Ficha de Inspeção Pré-Voo/Preventiva** baseado nos padrões do manual [`docs/FAA-H-8083-31B`](docs/FAA-H-8083-31B%20-%20MANUAL%20DO%20TECNICO%20DE%20MANUREN%C3%87%C3%83O%20DE%20AERONAVE.pdf) e com checklist de tomada de decisão conforme [`docs/02-asas-do-conhecimento-tomada-de-decisao.pdf`](docs/02-asas-do-conhecimento-tomada-de-decisao.pdf), contendo:
 
 1. **Cabeçalho Profissional:** Com tabela formatada, logotipo e código único de documento.
 2. **Campos Interativos:** Dropdown com tipos de manutenção, seletor de data, campos de texto formatados para prefixo/modelo/horas.
 3. **Tabela de Itens Inspecionados:** Com no mínimo 6 itens técnicos contendo caixas de seleção `[X]` para *Conforme*, *Não Conforme* e *Não Aplicável*.
 4. **Tabela de Registro de Peças Aplicadas:** Colunas para `Item`, `Part Number (PN)`, `Descrição`, `Quantidade` e `Lote/Certificado`.
-5. **Campo de Liberação / Retorno ao Serviço:** Com espaço para assinatura digital/identificação do responsável técnico.
+5. **Campo de Liberação / Retorno ao Serviço:** Com espaço para assinatura digital/identificação do responsável técnico e declaração de aprovação para voo.
 6. **Entrega:** Envio do arquivo `.docx` modelo e do arquivo final gerado em formato `.pdf`.
 
 ---

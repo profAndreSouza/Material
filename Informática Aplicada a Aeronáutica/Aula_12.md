@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 15
+# ROTEIRO DE AULA EXPANDIDO — AULA 12
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 06/11/2026  
 **Tema:** Gestão de Projetos no MS Excel I — Estrutura Analítica do Projeto (EAP / WBS) e Construção de Gráficos de Gantt Dinâmicos  
 **Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
 **Articulação com o PPC:** Projetos Integradores I a IV (TAM-001 a TAM-004) e EAM-007 (Gerenciamento da Manutenção)  
@@ -49,7 +50,7 @@ ESTRUTURA DA TABELA DE PROJETO NO EXCEL:
 1. Abra uma nova planilha no Excel e nomeie como `Cronograma_Gantt`.
 2. Monte a estrutura de colunas:
    - `A3`: `ID` | `B3`: `Nome da Tarefa` | `C3`: `Data de Início` | `D3`: `Duração (Dias)` | `E3`: `Data de Término`
-3. Preencha 5 tarefas da Inspeção de 100 Horas da aeronave:
+3. Preencha 5 tarefas da Inspeção de 100 Horas da aeronave com base nos procedimentos descritos no manual oficial [`docs/FAA HANDBOOK MANUTENÇÃO.pdf`](docs/FAA%20HANDBOOK%20MANUTEN%C3%87%C3%83O.pdf):
    - `A4`: `1.1` | `B4`: `Posicionamento e Drenagem`    | `C4`: `01/11/2026` | `D4`: `2`
    - `A5`: `1.2` | `B5`: `Inspeção do Grupo Propulsor`  | `C5`: `03/11/2026` | `D5`: `4`
    - `A6`: `1.3` | `B6`: `Revisão do Sistema Elétrico`  | `C6`: `07/11/2026` | `D6`: `3`

@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 01
+# ROTEIRO DE AULA EXPANDIDO — AULA 01
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 07/08/2026  
 **Tema:** Introdução à Informática Técnica, Hardware, Processadores e Especificação de Estações de Trabalho para Manutenção Aeronáutica  
 **Ambiente:** Laboratório de Informática  
 

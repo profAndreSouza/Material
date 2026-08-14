@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 07
+# ROTEIRO DE AULA EXPANDIDO — AULA 07
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 18/09/2026  
 **Tema:** MS Excel IV — Buscas Modernas no Office 365: `=PROCX()` (*XLOOKUP*), `=PROCV()` e `=ÍNDICE(CORRESP())` em Catálogos Técnicos de Peças (IPC)  
 **Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
 **Articulação com o PPC:** EAA-009 (Informação Técnica) e Gestão de Peças e Suprimentos  
@@ -12,7 +13,7 @@ Ao final desta aula, você será capaz de:
 - Dominar a função revolucionária moderna do Microsoft 365: **`=PROCX()` (*XLOOKUP*)**, eliminando todas as restrições históricas do `PROCV`.
 - Compreender e aplicar o clássico `=PROCV()` com correspondência exata (`0`/`FALSO`) e aproximada (`1`/`VERDADEIRO`).
 - Dominar a combinação bidirecional `=ÍNDICE(CORRESP())` para cruzamento de matrizes de dados.
-- Construir um **Sistema Automatizado de Consulta a Catálogos de Peças (IPC - *Illustrated Parts Catalog*)** com retorno instantâneo de Part Number, descrição, estoque e preço.
+- Construir um **Sistema Automatizado de Consulta a Catálogos de Peças (IPC - *Illustrated Parts Catalog*)** com retorno instantâneo de Part Number, descrição, estoque e preço com dados reais de sistemas e controles de voo extraídos de [`docs/06-cartilha-asas-do-conhecimento-controles-de-voo.pdf`](docs/06-cartilha-asas-do-conhecimento-controles-de-voo.pdf) e [`docs/07-cartilha-asas-do-conhecimento-sistemas-de-aeronaves_.pdf`](docs/07-cartilha-asas-do-conhecimento-sistemas-de-aeronaves_.pdf).
 
 ---
 

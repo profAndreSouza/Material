@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 02
+# ROTEIRO DE AULA EXPANDIDO — AULA 02
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 14/08/2026  
 **Tema:** MS Word Técnico no Office 365: Estruturação de Relatórios Formais de Engenharia, Estilos ABNT, Tabelas e Sumários Automáticos  
 **Ambiente:** Laboratório de Informática (Microsoft 365 Online / Word)  
 **Articulação com o PPC:** COE-001 (Comunicação Escrita), Projetos Integradores I a IV (TAM-001 a TAM-004) e Trabalho de Graduação (TG/TCC)  
@@ -106,14 +107,14 @@ HIERARQUIA DE ESTILOS NO WORD:
 
 ## 4. EXERCÍCIOS INTENSIVOS DE FIXAÇÃO
 
-### Exercício 1: Relatório Técnico de Inspeção Estrutural
-Monte um documento completo no Word contendo:
-1. Capa formatada institucionalmente.
-2. Sumário Automático funcional na página 2.
-3. Seção 1: `1. IDENTIFICAÇÃO DA AERONAVE E HISTÓRICO OPERACIONAL` (com tabela técnica contendo Modelo, Prefixo, Número de Série e Horas Totais).
-4. Seção 2: `2. PROCEDIMENTOS DE INSPEÇÃO NÃO DESTRUTIVA (NDT)` (com 2 subtítulos de Título 2 e 1 imagem técnica com legenda automática).
-5. Seção 3: `3. CONSIDERAÇÕES FINAIS E LIBERAÇÃO` (com texto justificado).
-6. Exportação final em arquivo `.pdf`.
+### Exercício 1: Relatório Técnico de História e Tecnologia Aeronáutica (ABNT)
+Monte um documento completo no Word utilizando como texto base o material técnico disponível na pasta de documentação [`docs/01-asas-do-conhecimento-introducao-a-aviacao.pdf`](docs/01-asas-do-conhecimento-introducao-a-aviacao.pdf):
+1. Capa formatada institucionalmente segundo normas ABNT.
+2. Sumário Automático funcional na página 2 com quebra de seção (Próxima Página).
+3. Seção 1: `1. INTRODUÇÃO E MARCOS HISTÓRICOS DA AVIAÇÃO` (com texto formatado no estilo Normal: Arial 12pt, justificado, recuo 1,25 cm, espaçamento 1,5).
+4. Seção 2: `2. ESPECIFICAÇÕES TÉCNICAS E CÉLULA DAS AERONAVES` (com tabela técnica contendo Modelo, Prefixo, Categoria de Registro e Horas Totais extraídas dos exemplos de sala).
+5. Seção 3: `3. REFERÊNCIAS BIBLIOGRÁFICAS` (formatadas em ABNT com citação direta do manual *Asas do Conhecimento: Introdução à Aviação*, FAPESP/ITA/Fatec).
+6. Exportação final em arquivo `.pdf` (padrão PDF/A).
 
 ---
 

@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 13
+# ROTEIRO DE AULA EXPANDIDO — AULA 10
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 23/10/2026  
 **Tema:** MS Excel VII — Tabelas Dinâmicas (*Pivot Tables*), Segmentadores de Dados (*Slicers*) e Dashboards Interativos no Office 365  
 **Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
 **Articulação com o PPC:** EAM-007 (Gerenciamento da Manutenção) e Gestão da Confiabilidade de Frota  
@@ -39,7 +40,7 @@ ARQUITETURA DO PAINEL DA TABELA DINÂMICA:
 
 ### Atividade 1: Criando a Tabela Dinâmica a partir de Ordens de Serviço
 
-1. Abra a base com 50 ordens de serviço contendo: `ID_OS`, `Data`, `Prefixo`, `Modelo`, `Sistema_ATA`, `Custo_Pecas_R$`, `Horas_Homem`.
+1. Abra a base com 50 ordens de serviço (estruturada por Capítulos ATA conforme o manual [`docs/07-cartilha-asas-do-conhecimento-sistemas-de-aeronaves_.pdf`](docs/07-cartilha-asas-do-conhecimento-sistemas-de-aeronaves_.pdf)) contendo: `ID_OS`, `Data`, `Prefixo`, `Modelo`, `Sistema_ATA`, `Custo_Pecas_R$`, `Horas_Homem`.
 2. Clique em qualquer célula da base. Acesse a guia **Inserir** -> **Tabela Dinâmica**.
 3. Escolha **Nova Planilha** e clique em **OK**.
 4. No painel lateral:

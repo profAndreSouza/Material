@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 08
+# ROTEIRO DE AULA EXPANDIDO — AULA 08
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 02/10/2026  
 **Tema:** MS Excel V — Agregações Condicionais (`CONT.SE`, `CONT.SES`, `SOMASE`, `SOMASES`), Indicadores de Frota e Mini-PBL 2  
 **Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
 **Articulação com o PPC:** EAM-004 (Metodologias de Manutenção), EAM-007 (Gerenciamento) e Gestão Financeira de Manutenção  
@@ -79,7 +80,7 @@ Monte a tabela de indicadores ao lado a partir da coluna `K`:
 ## 4. DESAFIO PRÁTICO (MINI-PBL 2)
 
 **Enunciado do Mini-PBL 2 (Peso: ~7,5% da Média Final):**
-Desenvolva a **Calculadora de Gestão Operacional e Custos da Frota Aérea**:
+Desenvolva a **Calculadora de Gestão Operacional e Custos da Frota Aérea**, baseada nos intervalos e custos de manutenção preventiva e corretiva descritos no manual oficial [`docs/FAA HANDBOOK MANUTENÇÃO.pdf`](docs/FAA%20HANDBOOK%20MANUTEN%C3%87%C3%83O.pdf):
 
 1. **Base com no mínimo 8 aeronaves:** Contendo prefixos, modelos, horas voadas, custos fixos e custos de componentes de reposição.
 2. **Cálculos individuais por aeronave:** Custo total e Custo por Hora de Voo (R$/FH) com proteção de erro para horas zeradas.

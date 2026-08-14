@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 12
+# ROTEIRO DE AULA EXPANDIDO — AULA 09
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 16/10/2026  
 **Tema:** MS Excel VI — Engenharia Gráfica, Gráficos de Dispersão ($X, Y$), Linhas de Tendência/Regressão e Gráficos Combinados  
 **Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
 **Articulação com o PPC:** EST-002 (Estatística Descritiva), Resistência dos Materiais e Análise de Fratura, e EAA-014 (Aerodinâmica)  
@@ -41,6 +42,7 @@ Ao final desta aula, você será capaz de:
 
 ### Atividade 1: Gráfico de Dispersão e Linha de Regressão (Ensaio de Resistência dos Materiais)
 
+Com base nos dados de ligas de alumínio e materiais compostos extraídos da cartilha [`docs/03-asas-do-conhecimento-construcao-de-aeronaves.pdf`](docs/03-asas-do-conhecimento-construcao-de-aeronaves.pdf):
 1. Monte os dados de um ensaio de tração de uma liga de alumínio aeronáutico (Al 2024-T3):
    - `A1`: `Deformação Específica (mm/mm)` | `B1`: `Tensão Aplicada (MPa)`
    - `A2`: `0,001` | `B2`: `72`
@@ -79,7 +81,8 @@ Ao final desta aula, você será capaz de:
 ## 4. EXERCÍCIO DE FIXAÇÃO INTENSIVO
 
 **Desafio de Aerodinâmica no Excel:**
-Crie uma tabela relacionando o `Ângulo de Ataque (graus)` (de 0° a 16°) e o `Coeficiente de Sustentação (Cl)` de um perfil de asa (NACA 0012).
+Com base nos dados de coeficientes de sustentação e polares de arraste extraídos da cartilha [`docs/05-cartilha-asas-do-conhecimento-aerodinamica-do-voo.pdf`](docs/05-cartilha-asas-do-conhecimento-aerodinamica-do-voo.pdf):
+- Crie uma tabela relacionando o `Ângulo de Ataque (graus)` (de 0° a 16°) e o `Coeficiente de Sustentação (Cl)` de um perfil de asa (NACA 0012).
 - Plote o gráfico em **Dispersão ($X, Y$)**.
 - Adicione uma **Linha de Tendência Polinomial de Grau 2 ou 3**.
 - Identifique graficamente o ponto de estol (máximo sustentador antes da queda da curva).

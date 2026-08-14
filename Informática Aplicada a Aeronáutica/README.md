@@ -64,126 +64,39 @@ A disciplina adota **4 Mini-PBLs (Desafios Práticos Contextualizados)** ao long
 
 | Instrumento de Avaliação | Peso na Média Final | Data de Aplicação | Escopo do Conteúdo |
 | :--- | :---: | :---: | :--- |
-| **Prova Prática 1** | **35%** | **16/10/2026** (Sexta) | Avaliação Individual em Laboratório (Word Técnico e Excel Essencial / Modelagem de Dados) |
-| **Prova Prática 2** | **35%** | **04/12/2026** (Sexta) | Avaliação Individual em Laboratório (Excel Avançado, Dashboards, Gantt e PERT/CPM no Excel) |
+| **Prova Prática 1** | **35%** | **25/09/2026** (Sexta) | Avaliação Individual em Laboratório (Word Técnico e Excel Essencial / Modelagem de Dados) |
+| **Prova Prática 2** | **35%** | **27/11/2026** (Sexta) | Avaliação Individual em Laboratório (Excel Avançado, Dashboards, Gantt e PERT/CPM no Excel) |
 | **Mini-PBLs & Desafios** | **30%** | Ao longo do semestre | 4 Desafios Práticos em Laboratório aplicados à Manutenção Aeronáutica (~7,5% cada) |
 
 > [!IMPORTANT]
-> **Fechamento de Notas e Prova de Recuperação:** **11/12/2026**. Data limite para divulgação das médias semestrais e avaliação de recuperação.
+> **Fechamento de Notas e Prova de Recuperação:** **04/12/2026**. Data limite para divulgação das médias semestrais e avaliação de recuperação.
 
 ---
 
-## 7. CRONOGRAMA DETALHADO DAS 20 SEMANAS
+## 7. CRONOGRAMA DE AULAS E AVALIAÇÕES
 
-### Bloco 1: Fundamentos de Hardware e Editores de Texto Técnicos
-
-#### [Semana 01 — 07/08 (Sexta-feira) | Encontro 1](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_01.md)
-- **Status:** *Conteúdo Já Ministrado.*
-- **Conteúdo:** Apresentação do Plano de Ensino, Hardware, Processadores (CPU), Memória RAM, Armazenamento (SSD NVMe) e Especificação de Estações de Trabalho.
-- **Roteiro de Aula:** [Acessar Roteiro da Semana 01](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_01.md)
-- **Slides da Apresentação:** [Baixar Slides em PowerPoint (.pptx)](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Slides/Slides_Aula_01_Hardware_e_Estacoes_de_Trabalho.pptx) | [Visualizar em Markdown](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Slides/Slides_Aula_01.md)
-
-#### [Semana 02 — 14/08 (Sexta-feira) | Encontro 2](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_02.md)
-- **Conteúdo:** MS Word Técnico para Relatórios Formais de Engenharia e TCC (ABNT). Estilos de Parágrafo, hierarquia de títulos, quebras de seção com numeração de páginas diferenciada, tabelas técnicas, figuras com legendas e sumário automático. Foco intensivo em exercícios práticos.
-- **Roteiro de Aula:** [Acessar Roteiro Expandido da Semana 02](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_02.md)
-- **Slides da Apresentação:** [Baixar Slides em PowerPoint (.pptx)](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Slides/Slides_Aula_02_Word_Tecnico_e_ABNT.pptx) | [Visualizar em Markdown](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Slides/Slides_Aula_02.md)
-- **Material do Exercício Prático:** [Baixar Documento Base (.docx)](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Exercicios/Texto_Exercicio_Historia_da_Aviacao.docx) | [Texto Plano (.txt)](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Exercicios/Texto_Exercicio_Historia_da_Aviacao.txt) | [Guia de Formatação ABNT](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Exercicios/Guia_Exercicio_Formatacao_Word.md)
-
-#### [Semana 03 — 21/08 (Sexta-feira) | Encontro 3](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_03.md)
-- **Conteúdo:** MS Word Avançado & Formulários Interativos na Nuvem. Modelagem de Ordens de Serviço (OS), fichas de inspeção, campos padronizados, controle de alterações colaborativo e exportação em PDF/A.
-- **Mini-PBL 1:** *Elaboração de um Modelo Padronizado de Ordem de Serviço (OS) para Inspeção Pré-Voo e Manutenção Preventiva.*
-- **Roteiro de Aula:** [Acessar Roteiro Expandido da Semana 03](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_03.md)
-
----
-
-### Bloco 2: Planilhas Eletrônicas para Engenharia & Manutenção (Excel Essencial)
-
-#### [Semana 04 — 28/08 (Sexta-feira) | Encontro 4](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_04.md)
-- **Conteúdo:** MS Excel I — Fundamentos, Fórmulas & Conversões Técnicas. Interface do Excel Online, células, referências relativas/absolutas (`$`), operadores aritméticos e funções de conversão de unidades aeronáuticas (ft/m, lb/kg, knots/km/h, psi/bar, gal/litros), `SOMA`, `MÉDIA`, `ARRED`.
-- **Roteiro de Aula:** [Acessar Roteiro Expandido da Semana 04](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_04.md)
-
-#### [Semana 05 — 04/09 (Sexta-feira) | Encontro 5](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_05.md)
-- **Conteúdo:** MS Excel II — Modelagem e Cálculos Aplicados às Disciplinas do Curso. Modelagem de Planilha de Peso e Balanceamento de Aeronaves: cálculo de momento ($M = P \times B$), Centro de Gravidade ($CG = \sum M / \sum P$), variação de CG com queima de combustível e envelope de voo.
-- **Roteiro de Aula:** [Acessar Roteiro Expandido da Semana 05](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_05.md)
-
-#### [Semana 06 — 11/09 (Sexta-feira) | Encontro 6](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_06.md)
-- **Conteúdo:** MS Excel III — Lógica Condicional & Tomada de Decisão. Sintaxe de `=SE()`, combinadores `=E()` e `=OU()`, tratamento de erros com `=SEERRO()` e regras de Formatação Condicional com alertas visuais de vencimento de peças e Diretrizes de Aeronavegabilidade (DA).
-- **Roteiro de Aula:** [Acessar Roteiro Expandido da Semana 06](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_06.md)
-
-#### [Semana 07 — 18/09 (Sexta-feira) | Encontro 7](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_07.md)
-- **Conteúdo:** MS Excel IV — Funções de Busca Modernas no Office 365. Busca exata e dinâmica com a nova função `=PROCX()` (*XLOOKUP*), `=PROCV()` clássico e `=ÍNDICE(CORRESP())` aplicadas a Catálogos Ilustrados de Peças (IPC - *Illustrated Parts Catalog*).
-- **Roteiro de Aula:** [Acessar Roteiro Expandido da Semana 07](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_07.md)
-
-#### [Semana 08 — 25/09 (Sexta-feira) | Encontro 8](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_08.md)
-- **Conteúdo:** MS Excel V — Contagem/Soma Condicional & Análise Operacional. Funções `=CONT.SE()`, `=CONT.SES()`, `=SOMASE()`, `=SOMASES()` e cálculo de custos de manutenção.
-- **Mini-PBL 2:** *Desenvolvimento da Calculadora de Controle de Horas de Voo de Frota e Estimativa do Custo por Hora de Voo (FH).*
-- **Roteiro de Aula:** [Acessar Roteiro Expandido da Semana 08](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_08.md)
-
-#### [Semana 09 — 02/10 (Sexta-feira) | Encontro 9](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_09.md)
-- **Conteúdo:** Oficina de Exercícios Integrados & Simulado Prático Individual. Resolução de desafios de integração (Word Técnico + Excel Fórmulas/Lógica/Buscas) preparatórios para a Prova Prática 1.
-- **Roteiro de Aula:** [Acessar Roteiro da Semana 09](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_09.md)
-
----
-
-### Bloco 3: Setec, Prova Prática 1 e Engenharia Gráfica
-
-#### [Semana 10 — 09/10 (Sexta-feira) | Encontro 10](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_10.md)
-- **Evento Acadêmico:** **Semana de Tecnologia (Setec)**. Palestras e leitura orientada sobre ecossistemas de softwares aeronáuticos (MRO, ERP, EFB).
-- **Roteiro de Aula:** [Acessar Guia de Leitura da Semana 10](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_10.md)
-
-#### Sábado Letivo 1 — 10/10 (Sábado) | Atividade de Compensação
-- **Regra do Sábado:** **Oficina Prática de Exercícios & Nivelamento**. Revisão de fórmulas e formatação no Excel.
-
-#### [Semana 11 — 16/10 (Sexta-feira) | Encontro 11](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_11.md)
-- **Avaliação Somativa:** **PROVA PRÁTICA 1 (35% da Nota Final)**.
-- **Escopo:** Avaliação individual em laboratório cobrindo Word Técnico (Estilos/Tabelas/Sumário) e Excel Essencial (Fórmulas/SE/Buscas/Contagens) (Semanas 2 a 8).
-- **Roteiro de Aula:** [Acessar Roteiro de Apoio da Semana 11](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_11.md)
-
-#### Sábado Letivo 2 — 17/10 (Sábado) | Atividade de Compensação
-- **Regra do Sábado:** **Oficina de Feedback & Resolução da Prova 1**. Resolução comentada da avaliação e atendimento individual.
-
----
-
-### Bloco 4: Excel Avançado, Dashboards e Gestão de Projetos no Excel
-
-#### [Semana 12 — 23/10 (Sexta-feira) | Encontro 12](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_12.md)
-- **Conteúdo:** MS Excel VI — Visualização de Dados & Engenharia Gráfica. Gráficos de Colunas, Linhas, Gráficos de Dispersão ($X, Y$), Linhas de Tendência e Equações de Regressão (aplicados a ensaios de materiais e aerodinâmica), Gráficos Combinados com Eixo Secundário.
-- **Roteiro de Aula:** [Acessar Roteiro Expandido da Semana 12](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_12.md)
-
-#### [Semana 13 — 30/10 (Sexta-feira) | Encontro 13](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_13.md)
-- **Conteúdo:** MS Excel VII — Tabelas Dinâmicas (*Pivot Tables*) e Dashboards no Office 365. Análise multidimensional de grande base de ordens de serviço por sistema, data e aeronave, Segmentadores de Dados (*Slicers*) e painéis executivos interativos.
-- **Roteiro de Aula:** [Acessar Roteiro Expandido da Semana 13](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_13.md)
-
-#### [Semana 14 — 06/11 (Sexta-feira) | Encontro 14](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_14.md)
-- **Conteúdo:** MS Excel VIII — Tratamento de Dados, Validação & Automação de Rotinas. Importação de dados `.csv`/`.txt`, listas suspensas com Validação de Dados, gravação e execução de rotinas automatizadas.
-- **Mini-PBL 3:** *Desenvolvimento de um Painel de Gestão de Estoque e Registro de Peças com Validação e Automação de Rotinas.*
-- **Roteiro de Aula:** [Acessar Roteiro Expandido da Semana 14](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_14.md)
-
-#### [Semana 15 — 13/11 (Sexta-feira) | Encontro 15](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_15.md)
-- **Conteúdo:** Gestão de Projetos no Excel I — EAP & Gráficos de Gantt Dinâmicos. Fundamentos de Gestão de Projetos (PMBOK aplicados aos Projetos Integradores I a IV e Manutenção), montagem da Estrutura Analítica do Projeto (EAP/WBS) e construção de Gráfico de Gantt Dinâmico no Excel (usando Gráficos de Barras Empilhadas e Formatação Condicional automatizada por datas).
-- **Roteiro de Aula:** [Acessar Roteiro Expandido da Semana 15](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_15.md)
-
-#### [Semana 16 — 20/11 (Sexta-feira) | Feriado](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_16.md)
-- **Feriado Nacional:** **Dia da Consciência Negra**. Material de Estudo Autônomo e templates de planejamento no Excel.
-- **Roteiro de Aula:** [Acessar Guia de Estudo da Semana 16](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_16.md)
-
-#### [Semana 17 — 27/11 (Sexta-feira) | Encontro 17](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_17.md)
-- **Conteúdo:** Gestão de Projetos no Excel II — Redes PERT/CPM & Caminho Crítico no Excel. Modelagem matemática de redes de precedência no Excel, cálculo de tempos cedo/tarde, cálculo da Folga Total e destaque automático do Caminho Crítico com fórmulas e formatação condicional, alocação de recursos.
-- **Mini-PBL 4:** *Planejamento e Otimização do Cronograma de Revisão Geral / Check C de Aeronaves com Gantt e PERT/CPM no Excel.*
-- **Roteiro de Aula:** [Acessar Roteiro Expandido da Semana 17](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_17.md)
-
----
-
-### Bloco 5: Prova Prática 2, Recuperação e Encerramento Oficial
-
-#### [Semana 18 — 04/12 (Sexta-feira) | Encontro 18](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_18.md)
-- **Avaliação Somativa:** **PROVA PRÁTICA 2 (35% da Nota Final)**.
-- **Escopo:** Avaliação individual em laboratório cobrindo Excel Avançado, Dashboards, Gráficos de Engenharia, Gantt e PERT/CPM no Excel (Semanas 12 a 17).
-- **Roteiro de Aula:** [Acessar Roteiro de Apoio da Semana 18](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_18.md)
-
-#### [Semana 19 e 20 — 11/12 (Sexta-feira) | Encontro 19/20](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_19_20.md)
-- **Encerramento Oficial & Prova de Recuperação:** Realização da Prova de Recuperação, consolidação do portfólio digital do estudante e fechamento do diário no sistema.
-- **Roteiro de Aula:** [Acessar Guia de Encerramento da Semana 19/20](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Semana_19_20.md)
+| Data | Tipo / Evento | Conteúdo / Atividades Práticas | Arquivo de Apoio |
+| :---: | :--- | :--- | :---: |
+| **07/ago** | **Aula 1** | Introdução à Informática Técnica, Hardware, Processadores (CPU), Memória RAM, Armazenamento (SSD NVMe) e Especificação de Estações de Trabalho. | [`Aula_01.md`](Aula_01.md) |
+| **14/ago** | **Aula 2** | MS Word Técnico para Relatórios Formais (ABNT), Estilos de Parágrafo, Quebras de Seção, Tabelas Técnicas e Sumários Automáticos. | [`Aula_02.md`](Aula_02.md) |
+| **21/ago** | **Aula 3** | MS Word Avançado, Formulários Interativos, Controle de Alterações em Nuvem e **Mini-PBL 1 (Ordem de Serviço)**. | [`Aula_03.md`](Aula_03.md) |
+| **28/ago** | **Aula 4** | MS Excel I — Fundamentos, Fórmulas, Referências Absolutas (`$`), Conversões de Unidades Técnicas e Clima ISA. | [`Aula_04.md`](Aula_04.md) |
+| **04/set** | **Aula 5** | MS Excel II — Modelagem e Cálculos de Engenharia: Planilha de Peso e Balanceamento de Aeronaves ($CG$). | [`Aula_05.md`](Aula_05.md) |
+| **11/set** | **Aula 6** | MS Excel III — Lógica Condicional (`SE`, `E`, `OU`, `SEERRO`) e Formatação Condicional Visual com Alertas de Manutenção. | [`Aula_06.md`](Aula_06.md) |
+| **18/set** | **Aula 7** | MS Excel IV — Buscas Modernas no Office 365 (`PROCX`, `PROCV`, `ÍNDICE-CORRESP`) em Catálogos Técnicos de Peças (IPC). | [`Aula_07.md`](Aula_07.md) |
+| **25/set** | **Avaliação 1** | **PROVA PRÁTICA 1 (35% da Nota Final)** — Avaliação individual em laboratório (Word Técnico e Excel Essencial / Modelagem). | [`Avaliacao_01.md`](Avaliacao_01.md) |
+| **02/out** | **Aula 8** | MS Excel V — Agregações Condicionais (`CONT.SE`, `SOMASE`), Indicadores de Frota (R$/FH) e **Mini-PBL 2 (Custo FH)**. | [`Aula_08.md`](Aula_08.md) |
+| **09/out** | **Setec** *(provável)* | Semana de Tecnologia — Palestras e Leitura Orientada sobre Softwares Aeronáuticos (MRO/ERP/EFB). | - |
+| **10/out** | **Exercício de fixação** | Sábado Letivo 1 — Oficina Prática de Exercícios, Nivelamento e Revisão de Fórmulas no Excel. | - |
+| **16/out** | **Aula 9** | MS Excel VI — Engenharia Gráfica, Gráficos de Dispersão ($X,Y$), Linhas de Tendência/Regressão e Eixo Secundário. | [`Aula_09.md`](Aula_09.md) |
+| **17/out** | **Exercício de fixação** | Sábado Letivo 2 — Oficina de Feedback e Resolução Orientada de Exercícios. | - |
+| **23/out** | **Aula 10** | MS Excel VII — Tabelas Dinâmicas (*Pivot Tables*), Segmentadores de Dados (*Slicers*) e Dashboards Interativos. | [`Aula_10.md`](Aula_10.md) |
+| **30/out** | **Aula 11** | MS Excel VIII — Importação de Dados (`.csv`/`.txt`), Validação de Dados, Macros e **Mini-PBL 3 (Gestão de Estoque)**. | [`Aula_11.md`](Aula_11.md) |
+| **06/nov** | **Aula 12** | Gestão de Projetos no Excel I — Estrutura Analítica do Projeto (EAP / WBS) e Gráficos de Gantt Dinâmicos. | [`Aula_12.md`](Aula_12.md) |
+| **13/nov** | **Aula 13** | Gestão de Projetos no Excel II — Redes PERT/CPM, Cálculo de Folgas, Caminho Crítico e **Mini-PBL 4 (Check C)**. | [`Aula_13.md`](Aula_13.md) |
+| **27/nov** | **Avaliação 2** | **PROVA PRÁTICA 2 (35% da Nota Final)** — Avaliação individual em laboratório (Excel Avançado, Dashboards e Projetos). | [`Avaliacao_02.md`](Avaliacao_02.md) |
+| **04/dez** | **Reava** | **PROVA DE RECUPERAÇÃO SOMATIVA** — Avaliação abrangente de recuperação de conteúdo. | [`Reava.md`](Reava.md) |
+| **11/dez** | **Encerramento** | Encerramento Oficial do Semestre, consolidação do portfólio digital e lançamento de notas no sistema. | - |
 
 ---
 

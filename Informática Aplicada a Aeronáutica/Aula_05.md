@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 05
+# ROTEIRO DE AULA EXPANDIDO — AULA 05
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 04/09/2026  
 **Tema:** MS Excel II — Modelagem e Cálculos de Engenharia: Planilha Completa de Peso e Balanceamento de Aeronaves  
 **Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
 **Articulação com o PPC:** EAA-015 (Sistemas de Combustíveis, Lubrificação e Peso e Balanceamento) e CAL-201 (Cálculo Aplicado)  
@@ -19,7 +20,7 @@ Ao final desta aula, você será capaz de:
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL & MATEMÁTICA
 
 ### 2.1 A Física do Peso e Balanceamento (Weight & Balance)
-Uma aeronave só pode voar com segurança se seu peso total não exceder o **Peso Máximo de Decolagem (MTOW)** e se a posição do seu **Centro de Gravidade ($CG$)** estiver dentro da faixa de estabilidade (*envelope de CG*).
+Uma aeronave só pode voar com segurança se seu peso total não exceder o **Peso Máximo de Decolagem (MTOW)** e se a posição do seu **Centro de Gravidade ($CG$)** estiver dentro da faixa de estabilidade (*envelope de CG*), segundo os padrões regulatórios oficiais estipulados no manual [`docs/FAA-H-8083-1B - PESO E BALANCEAMENTO.pdf`](docs/FAA-H-8083-1B%20-%20PESO%20E%20BALANCEAMENTO.pdf).
 
 $$\text{Momento } (M) = \text{Peso } (P) \times \text{Braço } (B)$$
 
@@ -109,7 +110,7 @@ Adicione à sua planilha um painel de conferência dos limites estruturais:
    - `Limite Traseiro de CG:` `95,0 in`
 2. Calcule com fórmulas simples:
    - Margem de Peso Disponível (`MTOW - Peso_Decolagem`).
-   - Diferença entre o CG calculado e o limite dianteiro/traseiro.
+   - Diferença entre o CG calculated e o limite dianteiro/traseiro.
 
 ---
 

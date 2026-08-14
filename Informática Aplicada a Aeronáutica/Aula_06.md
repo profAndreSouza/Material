@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 06
+# ROTEIRO DE AULA EXPANDIDO — AULA 06
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 11/09/2026  
 **Tema:** MS Excel III — Lógica Condicional (`SE`, `E`, `OU`, `SEERRO`) e Formatação Condicional Visual com Alertas de Inspeção  
 **Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
 **Articulação com o PPC:** EAA-009 (Informação Técnica e Legislação), EAM-003 (Manutenção de Aeronaves) e EAM-005 (Práticas de Manutenção)  
@@ -8,7 +9,7 @@
 
 ## 1. OBJETIVOS DE INFORMÁTICA
 Ao final desta aula, você será capaz de:
-- Compreender a lógica booleana computacional (*TRUE/FALSE*) e a estrutura de tomada de decisão (*IF-THEN-ELSE*).
+- Compreender a lógica booleana computacional (*TRUE/FALSE*) e a estrutura de tomada de decisão (*IF-THEN-ELSE*) aplicadas aos checklists de decisão aeronáutica ([`docs/02-asas-do-conhecimento-tomada-de-decisao.pdf`](docs/02-asas-do-conhecimento-tomada-de-decisao.pdf)) e aos mínimos meteorológicos para voo ([`docs/FAA-H-8083-28A - CLIMA.pdf`](docs/FAA-H-8083-28A%20-%20CLIMA.pdf)).
 - Dominar a sintaxe da função `=SE()` simples e aninhada para classificação automática de status.
 - Combinar os conectivos lógicos `=E()` e `=OU()` para avaliar múltiplos critérios técnicos simultâneos.
 - Aplicar a função de contingência `=SEERRO()` para proteger planilhas contra erros de divisão por zero (`#DIV/0!`) ou dados ausentes.

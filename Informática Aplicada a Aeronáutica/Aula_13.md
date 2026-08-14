@@ -1,5 +1,6 @@
-# ROTEIRO DE AULA EXPANDIDO — SEMANA 17
+# ROTEIRO DE AULA EXPANDIDO — AULA 13
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
+**Data:** 13/11/2026  
 **Tema:** Gestão de Projetos no MS Excel II — Modelagem de Redes PERT/CPM, Cálculo de Folgas, Caminho Crítico e Mini-PBL 4  
 **Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
 **Articulação com o PPC:** EAM-007 (Gerenciamento da Manutenção / Planejamento e Controle da Manutenção - PCM) e Projetos Integradores  
@@ -90,7 +91,7 @@ ALGORITMO CPM IMPLEMENTADO NO EXCEL:
 ## 4. DESAFIO PRÁTICO (MINI-PBL 4)
 
 **Enunciado do Mini-PBL 4 (Peso: ~7,5% da Média Final):**
-Em duplas, desenvolva o **Planejamento de Cronograma e Otimização de Manutenção Tipo C de Aeronave Comercial** no MS Excel:
+Em duplas, desenvolva o **Planejamento de Cronograma e Otimização de Manutenção Tipo C de Aeronave Comercial** no MS Excel, utilizando a sequência técnica de tarefas de manutenção pesada extraída do manual oficial [`docs/FAA-H-8083-31B - MANUAL DO TECNICO DE MANURENÇÃO DE AERONAVE.pdf`](docs/FAA-H-8083-31B%20-%20MANUAL%20DO%20TECNICO%20DE%20MANUREN%C3%87%C3%83O%20DE%20AERONAVE.pdf):
 
 1. **Tabela de Atividades:** Com no mínimo 8 atividades detalhadas com durações em dias e lista de predecessoras.
 2. **Cálculo Matemático Completo do CPM:** Colunas para $IC, TC, IT, TT$ e $FT$ totalmente calculadas por fórmulas.

@@ -1,6 +1,6 @@
 # SLIDES DA AULA 02 — INF-117
 **Tema:** MS Word Técnico para Relatórios Formais de Engenharia e TCC (ABNT)  
-**Arquivo de Apresentação:** [`Slides/Slides_Aula_02_Word_Tecnico_e_ABNT.pptx`](file:///c:/projetos/Material/Inform%C3%A1tica%20Aplicada%20a%20Aeron%C3%A1utica/Slides/Slides_Aula_02_Word_Tecnico_e_ABNT.pptx)
+**Arquivo de Apresentação:** [`Slides/Slides_Aula_02_Word_Tecnico_e_ABNT.pptx`](Slides/Slides_Aula_02_Word_Tecnico_e_ABNT.pptx)
 
 ---
 
