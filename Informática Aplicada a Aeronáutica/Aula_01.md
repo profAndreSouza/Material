@@ -58,6 +58,18 @@ Ao final desta aula, você será capaz de:
 4. **Processador Gráfico (GPU - Graphics Processing Unit):**
    - Placa de vídeo com memória dedicada (VRAM GDDR6). Responsável pela renderização de desenhos 3D/CAD de motores, células e trens de pouso.
 
+### 2.3 Tópico Especial — Computação Quântica na Aviação (Dúvida dos Alunos)
+Em resposta às perguntas levantadas durante a aula sobre o futuro do processamento de dados na aviação:
+
+- **O que é Computação Quântica?**
+  Enquanto os computadores clássicos operam com bits binários ($0$ ou $1$), os computadores quânticos utilizam **qubits** (bits quânticos), baseados em fenômenos da mecânica quântica como **Superposição** (capacidade de existir em múltiplos estados simultaneamente) e **Emaranhamento**.
+- **Aplicações Práticas no Setor Aeroespacial:**
+  1. **Otimização Combinatória de Rotas e Malhas Aéreas:** Resolução em segundos do problema de otimização de rotas globais, consumo de combustível e alocação de tripulações em tempo real.
+  2. **Ciência dos Materiais Aeronáuticos:** Simulação quântica no nível molecular para criar novas ligas metálicas mais leves e compósitos termorresistentes para turbinas e fuselagens.
+  3. **Otimização de Manutenção Preditiva (*Fleet Alignment*):** Reorganização de cronogramas complexos de manutenção tipo C e D para grandes frotas comerciais.
+- **Relação com a Computação Clássica:**
+  A computação quântica **não substitui** as workstations de engenharia ou estações de hangar para tarefas do dia a dia (AutoCAD, MS Excel, SO). Ela funciona como um supercomputador acelerador especializado operado em nuvem corporativa para desafios matemáticos hiper-complexos.
+
 ---
 
 ## 3. DIMENSIONAMENTO TÉCNICO E JUSTIFICATIVA POR PERFIL DE USO
