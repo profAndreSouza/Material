@@ -85,23 +85,12 @@ Documento completo contendo:
 
 | Avaliação                         | Peso |
 | --------------------------------- | ---: |
-| Prova 1                           |  25% |
-| Prova 2                           |  25% |
-| PDGTI (documento)                 |  35% |
-| Apresentação do PDGTI             |  10% |
-| Participação e atividades em aula |   5% |
+| Prova 1                           |  35% |
+| Prova 2                           |  35% |
+| PDGTI (documento)                 |  30% |
 
 ---
 
-## Metodologia das aulas
-
-Cada encontro pode seguir um padrão que favorece a aprendizagem ativa:
-
-1. **15 min** – Discussão de um problema real ou estudo de caso.
-2. **20 min** – Exposição dialogada dos conceitos e frameworks relacionados ao tema.
-3. **15 min** – Aplicação imediata no PDGTI, com orientação do professor.
-
-Assim, ao término de cada aula os grupos já terão avançado em uma seção do documento, reduzindo o trabalho extraclasse e permitindo feedback contínuo.
 
 ### Competência desenvolvida
 
