@@ -65,9 +65,9 @@ A nota final da disciplina será composta por:
 
 | Sem. | Tipo | Data N2 | Data N2-S | Foco Teórico / Conteúdo | Atividade / Detalhes |
 | :---: | :---: | :---: | :---: | :--- | :--- |
-| **01** | Aula | **03/Ago** | **07/Ago** | [Ciência de Dados na Indústria 4.0 e Ciclo CRISP-DM](aulas/semana_01.md) | Fases do CRISP-DM e introdução ao ecossistema Python Data Science. |
-| **02** | Aula | **10/Ago** | **14/Ago** | [Estatística Descritiva: Medidas de Tendência Central e Dispersão](aulas/semana_02.md) | Média, mediana, variância, desvio padrão e amplitude interquartil. |
-| **03** | Aula | **17/Ago** | **21/Ago** | [Análise Exploratória de Dados (EDA) com Matplotlib e Seaborn](aulas/semana_03.md) | Histogramas, Boxplots, Scatter plots e matriz de correlação. |
+| **01** | Aula | **03/Ago** | **07/Ago** | [Ciência de Dados e Ciclo CRISP-DM](aulas/semana_01.ipynb) ([.md](aulas/semana_01.md)) | Fases do CRISP-DM e custos assimétricos de negócio. |
+| **02** | Aula | **10/Ago** | **14/Ago** | [CRISP-DM Fase 2: Métricas de Avaliação & Distribuições](aulas/semana_02.ipynb) ([.md](aulas/semana_02.md)) | Acurácia, Precisão, Recall, F1, ROC-AUC, Normal e Poisson. |
+| **03** | Aula | **17/Ago** | **21/Ago** | [EDA Avançada (Fase 2) & Data Preparation (Fase 3)](aulas/semana_03.ipynb) ([.md](aulas/semana_03.md)) | Matplotlib, Seaborn, tendência central, imputação e encoding. |
 | **04** | Aula | **24/Ago** | **28/Ago** | [Tratamento de Dados: Imputação, Sanitização e Outliers](aulas/semana_04.md) | Limpeza de nulos, Z-Score, regra do IQR e normalização MinMax/Standard. |
 | **05** | Aula | **31/Ago** | **04/Set** | [Distribuições de Probabilidade e Testes de Hipóteses](aulas/semana_05.md) | Normal, Poisson, teste Shapiro-Wilk e Qui-Quadrado. |
 | **06** | Semana de PII | **22/Ago (Sáb)** | **11/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento do tratamento e análise estatística dos dados do PII. |
