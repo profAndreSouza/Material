@@ -1,35 +1,43 @@
-# Ambientes Virtuais Python
+# Python Virtual Environments
 venv/
 env/
 .venv/
 ENV/
+.env
 
-# Caches e Bytecode Python
+# Python Cache & Bytecode
 __pycache__/
 *.py[cod]
 *$py.class
 .pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
 
-# Banco de Dados de Desenvolvimento
+# Databases & Datasets Cache
 *.db
 *.sqlite
 *.sqlite3
-factoryhub/data/*.db
+FactoryHub/data/*.db
+FactoryHub/data/*.sqlite
 
-# Arquivos de IDE e Sistema Operacional
+# Logs & Temporary Files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# IDE & Operating System Files
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
-*.swp
-*.swo
 
-# Logs
-*.log
-
-# Pastas e Arquivos Privados 
+# Legacy & Internal Folders (Ignored in Sync)
+ADS FactoryHub/
 docente/
 
+# Other Course Specific Rules
 Informática Aplicada a Aeronáutica/docs/
 Informática Aplicada a Aeronáutica/slides/*.md
 Informática Aplicada a Aeronáutica/*.py
