@@ -119,14 +119,27 @@ O desenvolvimento do PDGTI é incremental. O acompanhamento é feito em **4 entr
 
 ## Composição da Avaliação
 
-A nota final da disciplina será composta pelas seguintes avaliações:
+A nota final da Unidade Curricular é composta por três pilares principais:
 
-| Avaliação | Peso | Descrição |
+| Pilar de Avaliação | Peso na UC | Descrição |
+| :--- | :---: | :--- |
+| **Avaliação Docente** | **55%** | Composta pelas avaliações individuais (Provas 1 e 2) e atividades teóricas/práticas conduzidas pelo docente. |
+| **Projeto Integrador (PDGTI)** | **35%** | Avaliação do documento final do Plano Diretor de Governança de TI (Capítulos 1 a 9). |
+| **Autoavaliação** | **10%** | Autoavaliação individual do estudante sobre seu desempenho, engajamento e desenvolvimento socioemocional. |
+| **TOTAL DA UC** | **100%** | |
+
+---
+
+### Detalhamento da Avaliação Docente (55% da Nota Final)
+
+A composição interna da nota de **Avaliação Docente** (55% da nota global) segue a distribuição abaixo:
+
+| Componente Docente | Peso Interno | Descrição |
 | :--- | :---: | :--- |
 | **Prova 1 (Individual)** | **35%** | Avaliação síncrona sobre os conceitos teóricos e práticos das Semanas 1 a 5. |
 | **Prova 2 (Individual)** | **35%** | Avaliação síncrona sobre os conceitos teóricos e práticos das Semanas 7 a 15. |
-| **PDGTI Completo (Documento)** | **30%** | Avaliação escrita do documento final do PDGTI (sem necessidade de apresentação oral). |
-| **TOTAL** | **100%** | |
+| **Atividades & Entregas Parciais** | **30%** | Avaliação contínua das atividades de sala de aula e acompanhamento dos capítulos do PDGTI. |
+| **TOTAL DOCENTE** | **100%** | |
 
 ---
 
