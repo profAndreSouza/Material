@@ -67,32 +67,27 @@ A nota final da disciplina será composta por:
 
 ---
 
-## Cronograma Semestral e Calendário de Aulas
+## Cronograma Semestral e Calendário de Aulas (20 Semanas)
 
-| Sem. | Tipo | Datas | Foco Teórico / Conteúdo | Atividade / Detalhes |
-| :---: | :---: | :---: | :--- | :--- |
-| **01** | Aula | **03/Ago a 07/Ago** | [Computação em Nuvem na Indústria 4.0 e Modelos de Serviço](aulas/semana_01.md) | Pilares da nuvem, elasticidade, resiliência, IaaS, PaaS e SaaS. |
-| **02** | Aula | **10/Ago a 14/Ago** | [Infraestrutura de Rede e Virtualização (VPC, Subredes e Firewalls)](aulas/semana_02.md) | Redes Virtuais (VPC), subredes, tabelas de rotas e Firewall. |
-| **03** | Aula | **17/Ago a 21/Ago** | [Máquinas Virtuais (IaaS) e Provisionamento no GCP/AWS](aulas/semana_03.md) | Tipos de instâncias Linux, discos persistentes e chaves SSH. |
-| **04** | Exercício de Fixação | **22/Ago (Sáb)** | Atividade Prática / Exercício de Fixação I | Provisionamento de VPC e instâncias virtuais na nuvem. |
-| **05** | Aula | **24/Ago a 28/Ago** | [Armazenamento na Nuvem: Block Storage e Cloud Object Storage](aulas/semana_04.md) | Storage de bloco vs. objeto (Cloud Storage/S3) e retenção. |
-| **06** | Aula | **31/Ago a 04/Set** | [Bancos de Dados Gerenciados na Nuvem (Cloud SQL PostgreSQL)](aulas/semana_05.md) | Instâncias de banco gerenciadas, backups automáticos e réplicas. |
-| **07** | Semana de PII | **08/Set a 11/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da arquitetura de nuvem para sustentação do PII. |
-| **08** | Aula | **14/Set a 18/Set** | [Computação Serverless e Microserviços (Cloud Run / Functions)](aulas/semana_07.md) | Serverless computing, gatilhos de eventos e conteinerização. |
-| **09** | Exercício de Fixação | **19/Set (Sáb)** | Atividade Prática / Exercício de Fixação II | Deploy de funções serverless orientadas a eventos. |
-| **10** | Avaliação | **21/Set a 25/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 05. |
-| **11** | Semana de PII | **28/Set a 02/Out** | Consolidação do Projeto Integrador (PII) | Validação do banco gerenciado e armazenamento do PII. |
-| **12** | Aula | **05/Out a 09/Out** | [Gestão de Identidade, Acesso e Segurança (IAM & Security)](aulas/semana_08.md) | Controle de acesso IAM, Service Accounts, roles e chaves. |
-| **13** | Semana de Tecnologia | **14/Out a 16/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
-| **14** | Aula | **19/Out a 23/Out** | [Balanceamento de Carga, Auto Scaling e Alta Disponibilidade](aulas/semana_09.md) | Load Balancers HTTP/TCP, Auto Scaling Groups e resiliência. |
-| **15** | Exercício de Fixação | **24/Out (Sáb)** | Atividade Prática / Exercício de Fixação III | Configuração de Auto Scaling e Load Balancing. |
-| **16** | Aula | **26/Out a 30/Out** | [Monitoramento de Infraestrutura, Observabilidade e FinOps](aulas/semana_10.md) | Cloud Monitoring, alertas de métricas e controle de custos. |
-| **17** | Semana de PII | **03/Nov a 06/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Refinamento das políticas de segurança IAM do PII. |
-| **18** | Exercício de Fixação | **07/Nov (Sáb)** | Atividade Prática / Exercício de Fixação IV | Criação de alertas de infraestrutura e orçamentos FinOps. |
-| **19** | Aula | **09/Nov a 13/Nov** | [Implantação Final em Nuvem da Plataforma FactoryHub](aulas/semana_11.md) | Publicação final da aplicação na nuvem com apontamento DNS/HTTPS. |
-| **20** | Aula | **16/Nov a 19/Nov** | Consolidação Técnica e Revisão de Arquitetura Cloud | Revisão de serverless, segurança e preparação para P2. |
-| **21** | Avaliação | **23/Nov a 27/Nov** | **PROVA 2 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 07 a 11 & Entrega do Projeto. |
-| **22** | Semana de PII | **30/Nov a 04/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
-| **23** | Congresso UniSENAI-SP | **05/Dez (Sáb)** | Congresso UniSENAI-SP | Apresentação dos melhores trabalhos no Congresso UniSENAI-SP. |
-| **24** | Recuperação | **07/Dez a 11/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
-| **25** | Fechamento | **14/Dez a 18/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |
+| Sem. | Tipo | Data N2 | Data N2-S | Foco Teórico / Conteúdo | Atividade / Detalhes |
+| :---: | :---: | :---: | :---: | :--- | :--- |
+| **01** | Aula | **06/Ago** | **04/Ago** | [Computação em Nuvem na Indústria 4.0 e Modelos de Serviço](aulas/semana_01.md) | Pilares da nuvem, elasticidade, resiliência, IaaS, PaaS e SaaS. |
+| **02** | Aula | **13/Ago** | **11/Ago** | [Infraestrutura de Rede e Virtualização (VPC, Subredes e Firewalls)](aulas/semana_02.md) | Redes Virtuais (VPC), subredes, tabelas de rotas e Firewall. |
+| **03** | Aula | **20/Ago** | **18/Ago** | [Máquinas Virtuais (IaaS) e Provisionamento no GCP/AWS](aulas/semana_03.md) | Tipos de instâncias Linux, discos persistentes e chaves SSH. |
+| **04** | Aula | **27/Ago** | **25/Ago** | [Armazenamento na Nuvem: Block Storage e Cloud Object Storage](aulas/semana_04.md) | Storage de bloco vs. objeto (Cloud Storage/S3) e retenção. |
+| **05** | Aula | **03/Set** | **01/Set** | [Bancos de Dados Gerenciados na Nuvem (Cloud SQL PostgreSQL)](aulas/semana_05.md) | Instâncias de banco gerenciadas, backups automáticos e réplicas. |
+| **06** | Semana de PII | **10/Set** | **08/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da arquitetura de nuvem para sustentação do PII. |
+| **07** | Aula | **17/Set** | **15/Set** | [Computação Serverless e Microserviços (Cloud Run / Functions)](aulas/semana_07.md) | Serverless computing, gatilhos de eventos e conteinerização. |
+| **08** | Avaliação | **24/Set** | **22/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 05. |
+| **09** | Semana de PII | **01/Out** | **29/Set** | Consolidação do Projeto Integrador (PII) | Validação do banco gerenciado e armazenamento do PII. |
+| **10** | Aula | **08/Out** | **06/Out** | [Gestão de Identidade, Acesso e Segurança (IAM & Security)](aulas/semana_08.md) | Controle de acesso IAM, Service Accounts, roles e chaves. |
+| **11** | Semana Tec. | **15/Out** | **Feriado (13/Out)** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
+| **12** | Aula | **22/Out** | **20/Out** | [Balanceamento de Carga, Auto Scaling e Alta Disponibilidade](aulas/semana_09.md) | Load Balancers HTTP/TCP, Auto Scaling Groups e resiliência. |
+| **13** | Aula | **29/Out** | **27/Out** | [Monitoramento de Infraestrutura, Observabilidade e FinOps](aulas/semana_10.md) | Cloud Monitoring, alertas de métricas e controle de custos. |
+| **14** | Semana de PII | **05/Nov** | **03/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Refinamento das políticas de segurança IAM do PII. |
+| **15** | Aula | **12/Nov** | **10/Nov** | [Implantação Final em Nuvem da Plataforma FactoryHub](aulas/semana_11.md) | Publicação final da aplicação na nuvem com apontamento DNS/HTTPS. |
+| **16** | Aula / Revisão | **19/Nov** | **17/Nov** | Consolidação Técnica e Revisão de Arquitetura Cloud | Revisão de serverless, segurança e preparação para P2. |
+| **17** | Avaliação | **26/Nov** | **24/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Projeto Final | Avaliação individual cobrindo as Semanas 07 a 11 & Entrega do Projeto. |
+| **18** | Semana de PII | **03/Dez** | **01/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
+| **19** | Recuperação | **10/Dez** | **08/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
+| **20** | Fechamento | **17/Dez** | **15/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |

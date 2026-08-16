@@ -61,32 +61,27 @@ A nota final da disciplina será composta por:
 
 ---
 
-## Cronograma Semestral e Calendário de Aulas
+## Cronograma Semestral e Calendário de Aulas (20 Semanas)
 
-| Sem. | Tipo | Datas | Foco Teórico / Conteúdo | Atividade / Detalhes |
-| :---: | :---: | :---: | :--- | :--- |
-| **01** | Aula | **03/Ago a 07/Ago** | [Ciência de Dados na Indústria 4.0 e Ciclo CRISP-DM](aulas/semana_01.md) | Fases do CRISP-DM e introdução ao ecossistema Python Data Science. |
-| **02** | Aula | **10/Ago a 14/Ago** | [Estatística Descritiva: Medidas de Tendência Central e Dispersão](aulas/semana_02.md) | Média, mediana, variância, desvio padrão e amplitude interquartil. |
-| **03** | Aula | **17/Ago a 21/Ago** | [Análise Exploratória de Dados (EDA) com Matplotlib e Seaborn](aulas/semana_03.md) | Histogramas, Boxplots, Scatter plots e matriz de correlação. |
-| **04** | Exercício de Fixação | **22/Ago (Sáb)** | Atividade Prática / Exercício de Fixação I | Notebooks de EDA e exploração gráfica em dados fabris. |
-| **05** | Aula | **24/Ago a 28/Ago** | [Tratamento de Dados: Imputação, Sanitização e Outliers](aulas/semana_04.md) | Limpeza de nulos, Z-Score, regra do IQR e normalização MinMax/Standard. |
-| **06** | Aula | **31/Ago a 04/Set** | [Distribuições de Probabilidade e Testes de Hipóteses](aulas/semana_05.md) | Normal, Poisson, teste Shapiro-Wilk e Qui-Quadrado. |
-| **07** | Semana de PII | **08/Set a 11/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento do tratamento e análise estatística dos dados do PII. |
-| **08** | Aula | **14/Set a 18/Set** | [Análise de Séries Temporais Industriais (Time Series)](aulas/semana_07.md) | Tendência, sazonalidade, decomposição e médias móveis (EWMA). |
-| **09** | Exercício de Fixação | **19/Set (Sáb)** | Atividade Prática / Exercício de Fixação II | Decomposição de séries temporais de sensores. |
-| **10** | Avaliação | **21/Set a 25/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 05. |
-| **11** | Semana de PII | **28/Set a 02/Out** | Consolidação do Projeto Integrador (PII) | Validação do pipeline de tratamento de dados do PII. |
-| **12** | Aula | **05/Out a 09/Out** | [Engenharia de Recursos (Feature Engineering) para Manufatura](aulas/semana_08.md) | Janelas deslizantes, agregados temporais e encodificação. |
-| **13** | Semana de Tecnologia | **14/Out a 16/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
-| **14** | Aula | **19/Out a 23/Out** | [Aprendizado de Máquina Supervisionado: Classificação e Regressão](aulas/semana_09.md) | Árvores de Decisão, Random Forest e métricas ROC-AUC/F1-Score. |
-| **15** | Exercício de Fixação | **24/Out (Sáb)** | Atividade Prática / Exercício de Fixação III | Treinamento e validação de modelos preditivos no Jupyter. |
-| **16** | Aula | **26/Out a 30/Out** | [Aprendizado Não Supervisionado e Detecção de Anomalias](aulas/semana_10.md) | K-Means, DBSCAN e Isolation Forest para telemetria. |
-| **17** | Semana de PII | **03/Nov a 06/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Refinamento dos modelos analíticos do PII. |
-| **18** | Exercício de Fixação | **07/Nov (Sáb)** | Atividade Prática / Exercício de Fixação IV | Detecção de anomalias em sensores de campo. |
-| **19** | Aula | **09/Nov a 13/Nov** | [Dashboards Analíticos Integrados e Indicadores de OEE](aulas/semana_11.md) | Cálculo de OEE e gráficos interativos com Plotly/Dash. |
-| **20** | Aula | **16/Nov a 19/Nov** | Consolidação Técnica e Revisão Analítica | Revisão de aprendizado de máquina e preparação para P2. |
-| **21** | Avaliação | **23/Nov a 27/Nov** | **PROVA 2 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 07 a 11 & Entrega do Projeto. |
-| **22** | Semana de PII | **30/Nov a 04/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
-| **23** | Congresso UniSENAI-SP | **05/Dez (Sáb)** | Congresso UniSENAI-SP | Apresentação dos melhores trabalhos no Congresso UniSENAI-SP. |
-| **24** | Recuperação | **07/Dez a 11/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
-| **25** | Fechamento | **14/Dez a 18/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |
+| Sem. | Tipo | Data N2 | Data N2-S | Foco Teórico / Conteúdo | Atividade / Detalhes |
+| :---: | :---: | :---: | :---: | :--- | :--- |
+| **01** | Aula | **03/Ago** | **07/Ago** | [Ciência de Dados na Indústria 4.0 e Ciclo CRISP-DM](aulas/semana_01.md) | Fases do CRISP-DM e introdução ao ecossistema Python Data Science. |
+| **02** | Aula | **10/Ago** | **14/Ago** | [Estatística Descritiva: Medidas de Tendência Central e Dispersão](aulas/semana_02.md) | Média, mediana, variância, desvio padrão e amplitude interquartil. |
+| **03** | Aula | **17/Ago** | **21/Ago** | [Análise Exploratória de Dados (EDA) com Matplotlib e Seaborn](aulas/semana_03.md) | Histogramas, Boxplots, Scatter plots e matriz de correlação. |
+| **04** | Aula | **24/Ago** | **28/Ago** | [Tratamento de Dados: Imputação, Sanitização e Outliers](aulas/semana_04.md) | Limpeza de nulos, Z-Score, regra do IQR e normalização MinMax/Standard. |
+| **05** | Aula | **31/Ago** | **04/Set** | [Distribuições de Probabilidade e Testes de Hipóteses](aulas/semana_05.md) | Normal, Poisson, teste Shapiro-Wilk e Qui-Quadrado. |
+| **06** | Semana de PII | **Feriado (07/Set)** | **11/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento do tratamento e análise estatística dos dados do PII. |
+| **07** | Aula | **14/Set** | **18/Set** | [Análise de Séries Temporais Industriais (Time Series)](aulas/semana_07.md) | Tendência, sazonalidade, decomposição e médias móveis (EWMA). |
+| **08** | Avaliação | **21/Set** | **25/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 05. |
+| **09** | Semana de PII | **28/Set** | **02/Out** | Consolidação do Projeto Integrador (PII) | Validação do pipeline de tratamento de dados do PII. |
+| **10** | Aula | **05/Out** | **09/Out** | [Engenharia de Recursos (Feature Engineering) para Manufatura](aulas/semana_08.md) | Janelas deslizantes, agregados temporais e encodificação. |
+| **11** | Semana Tec. | **Feriado (12/Out)** | **16/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
+| **12** | Aula | **19/Out** | **23/Out** | [Aprendizado de Máquina Supervisionado: Classificação e Regressão](aulas/semana_09.md) | Árvores de Decisão, Random Forest e métricas ROC-AUC/F1-Score. |
+| **13** | Aula | **26/Out** | **30/Out** | [Aprendizado Não Supervisionado e Detecção de Anomalias em Sensores](aulas/semana_10.md) | K-Means, DBSCAN e Isolation Forest para telemetria. |
+| **14** | Semana de PII | **Feriado (02/Nov)** | **06/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Refinamento dos modelos analíticos do PII. |
+| **15** | Aula | **09/Nov** | **13/Nov** | [Dashboards Analíticos Integrados e Indicadores de OEE](aulas/semana_11.md) | Cálculo de OEE e gráficos interativos com Plotly/Dash. |
+| **16** | Aula / Revisão | **16/Nov** | **Feriado (20/Nov)** | Consolidação Técnica e Revisão Analítica | Revisão de aprendizado de máquina e preparação para P2. |
+| **17** | Avaliação | **23/Nov** | **27/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Projeto Final | Avaliação individual cobrindo as Semanas 07 a 11 & Entrega do Projeto. |
+| **18** | Semana de PII | **30/Nov** | **04/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
+| **19** | Recuperação | **07/Dez** | **11/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
+| **20** | Fechamento | **14/Dez** | **18/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |
