@@ -81,7 +81,7 @@ A nota final da disciplina será composta por:
 | **08** | Avaliação | **24/Set** | **22/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 05. |
 | **09** | Semana de PII | **01/Out** | **29/Set** | Consolidação do Projeto Integrador (PII) | Validação do banco gerenciado e armazenamento do PII. |
 | **10** | Aula | **08/Out** | **06/Out** | [Gestão de Identidade, Acesso e Segurança (IAM & Security)](aulas/semana_08.md) | Controle de acesso IAM, Service Accounts, roles e chaves. |
-| **11** | Semana Tec. | **15/Out** | **Feriado (13/Out)** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
+| **11** | Semana Tec. | **15/Out** | **19/Set (Sáb)** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
 | **12** | Aula | **22/Out** | **20/Out** | [Balanceamento de Carga, Auto Scaling e Alta Disponibilidade](aulas/semana_09.md) | Load Balancers HTTP/TCP, Auto Scaling Groups e resiliência. |
 | **13** | Aula | **29/Out** | **27/Out** | [Monitoramento de Infraestrutura, Observabilidade e FinOps](aulas/semana_10.md) | Cloud Monitoring, alertas de métricas e controle de custos. |
 | **14** | Semana de PII | **05/Nov** | **03/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Refinamento das políticas de segurança IAM do PII. |

@@ -82,7 +82,7 @@ A nota final da disciplina será composta por:
 | **08** | Avaliação | **22/Set** | **23/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 05. |
 | **09** | Semana de PII | **29/Set** | **30/Set** | Consolidação do Projeto Integrador (PII) | Integração de controladores e sensores no projeto. |
 | **10** | Aula | **06/Out** | **07/Out** | [Princípios de Operação do CLP, Ciclo de SCAN e Endereçamento](aulas/semana_08.md) | Fases do SCAN, memória de imagem e determinismo temporal. |
-| **11** | Semana Tec. | **Feriado (13/Out)** | **14/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
+| **11** | Semana Tec. | **19/Set (Sáb)** | **14/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
 | **12** | Aula | **20/Out** | **21/Out** | [Programação em Texto Estruturado (ST)](aulas/semana_09.md) | Sintaxe ST (IEC 61131-3), estruturas condicionais e blocos funcionais. |
 | **13** | Aula | **27/Out** | **28/Out** | [Protocolos de Comunicação Industrial (Modbus TCP, OPC UA, MQTT)](aulas/semana_10.md) | Redes industriais, arquitetura OPC UA e protocolo MQTT. |
 | **14** | Semana de PII | **03/Nov** | **04/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Ajustes na comunicação de dados do PII. |
