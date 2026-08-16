@@ -69,17 +69,30 @@ A nota final da disciplina será composta por:
 
 ## Cronograma Semestral e Calendário de Aulas
 
-| Sem. | Tipo | Foco Teórico & Prático | Arquivo da Aula |
-| :---: | :---: | :--- | :--- |
-| **01** | Aula | Computação em Nuvem na Indústria 4.0 e Modelos de Serviço | [semana_01.md](aulas/semana_01.md) |
-| **02** | Aula | Infraestrutura de Rede e Virtualização (VPC, Subredes e Firewalls) | [semana_02.md](aulas/semana_02.md) |
-| **03** | Aula | Máquinas Virtuais (IaaS) e Provisionamento no GCP/AWS | [semana_03.md](aulas/semana_03.md) |
-| **04** | Aula | Armazenamento na Nuvem: Block Storage e Cloud Object Storage | [semana_04.md](aulas/semana_04.md) |
-| **05** | Aula | Bancos de Dados Gerenciados na Nuvem (Cloud SQL PostgreSQL) | [semana_05.md](aulas/semana_05.md) |
-| **06** | Avaliação | **PROVA 1 INDIVIDUAL** & Entrega dos Projetos de Infraestrutura 1 a 5 | - |
-| **07** | Aula | Computação Serverless e Microserviços (Cloud Run / Functions) | [semana_07.md](aulas/semana_07.md) |
-| **08** | Aula | Gestão de Identidade, Acesso e Segurança (IAM & Security) | [semana_08.md](aulas/semana_08.md) |
-| **09** | Aula | Balanceamento de Carga, Auto Scaling e Alta Disponibilidade | [semana_09.md](aulas/semana_09.md) |
-| **10** | Aula | Monitoramento de Infraestrutura, Observabilidade e FinOps | [semana_10.md](aulas/semana_10.md) |
-| **11** | Aula | Implantação Final em Nuvem da Plataforma FactoryHub | [semana_11.md](aulas/semana_11.md) |
-| **12** | Avaliação | **PROVA 2 INDIVIDUAL** & Apresentação do Projeto Cloud Final | - |
+| Sem. | Tipo | Datas | Foco Teórico / Conteúdo | Atividade / Detalhes |
+| :---: | :---: | :---: | :--- | :--- |
+| **01** | Aula | **03/Ago a 07/Ago** | [Computação em Nuvem na Indústria 4.0 e Modelos de Serviço](aulas/semana_01.md) | Pilares da nuvem, elasticidade, resiliência, IaaS, PaaS e SaaS. |
+| **02** | Aula | **10/Ago a 14/Ago** | [Infraestrutura de Rede e Virtualização (VPC, Subredes e Firewalls)](aulas/semana_02.md) | Redes Virtuais (VPC), subredes, tabelas de rotas e Firewall. |
+| **03** | Aula | **17/Ago a 21/Ago** | [Máquinas Virtuais (IaaS) e Provisionamento no GCP/AWS](aulas/semana_03.md) | Tipos de instâncias Linux, discos persistentes e chaves SSH. |
+| **04** | Exercício de Fixação | **22/Ago (Sáb)** | Atividade Prática / Exercício de Fixação I | Provisionamento de VPC e instâncias virtuais na nuvem. |
+| **05** | Aula | **24/Ago a 28/Ago** | [Armazenamento na Nuvem: Block Storage e Cloud Object Storage](aulas/semana_04.md) | Storage de bloco vs. objeto (Cloud Storage/S3) e retenção. |
+| **06** | Aula | **31/Ago a 04/Set** | [Bancos de Dados Gerenciados na Nuvem (Cloud SQL PostgreSQL)](aulas/semana_05.md) | Instâncias de banco gerenciadas, backups automáticos e réplicas. |
+| **07** | Semana de PII | **08/Set a 11/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da arquitetura de nuvem para sustentação do PII. |
+| **08** | Aula | **14/Set a 18/Set** | [Computação Serverless e Microserviços (Cloud Run / Functions)](aulas/semana_07.md) | Serverless computing, gatilhos de eventos e conteinerização. |
+| **09** | Exercício de Fixação | **19/Set (Sáb)** | Atividade Prática / Exercício de Fixação II | Deploy de funções serverless orientadas a eventos. |
+| **10** | Avaliação | **21/Set a 25/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 05. |
+| **11** | Semana de PII | **28/Set a 02/Out** | Consolidação do Projeto Integrador (PII) | Validação do banco gerenciado e armazenamento do PII. |
+| **12** | Aula | **05/Out a 09/Out** | [Gestão de Identidade, Acesso e Segurança (IAM & Security)](aulas/semana_08.md) | Controle de acesso IAM, Service Accounts, roles e chaves. |
+| **13** | Semana de Tecnologia | **14/Out a 16/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
+| **14** | Aula | **19/Out a 23/Out** | [Balanceamento de Carga, Auto Scaling e Alta Disponibilidade](aulas/semana_09.md) | Load Balancers HTTP/TCP, Auto Scaling Groups e resiliência. |
+| **15** | Exercício de Fixação | **24/Out (Sáb)** | Atividade Prática / Exercício de Fixação III | Configuração de Auto Scaling e Load Balancing. |
+| **16** | Aula | **26/Out a 30/Out** | [Monitoramento de Infraestrutura, Observabilidade e FinOps](aulas/semana_10.md) | Cloud Monitoring, alertas de métricas e controle de custos. |
+| **17** | Semana de PII | **03/Nov a 06/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Refinamento das políticas de segurança IAM do PII. |
+| **18** | Exercício de Fixação | **07/Nov (Sáb)** | Atividade Prática / Exercício de Fixação IV | Criação de alertas de infraestrutura e orçamentos FinOps. |
+| **19** | Aula | **09/Nov a 13/Nov** | [Implantação Final em Nuvem da Plataforma FactoryHub](aulas/semana_11.md) | Publicação final da aplicação na nuvem com apontamento DNS/HTTPS. |
+| **20** | Aula | **16/Nov a 19/Nov** | Consolidação Técnica e Revisão de Arquitetura Cloud | Revisão de serverless, segurança e preparação para P2. |
+| **21** | Avaliação | **23/Nov a 27/Nov** | **PROVA 2 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 07 a 11 & Entrega do Projeto. |
+| **22** | Semana de PII | **30/Nov a 04/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
+| **23** | Congresso UniSENAI-SP | **05/Dez (Sáb)** | Congresso UniSENAI-SP | Apresentação dos melhores trabalhos no Congresso UniSENAI-SP. |
+| **24** | Recuperação | **07/Dez a 11/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
+| **25** | Fechamento | **14/Dez a 18/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |

@@ -63,17 +63,30 @@ A nota final da disciplina será composta por:
 
 ## Cronograma Semestral e Calendário de Aulas
 
-| Sem. | Tipo | Foco Teórico & Prático | Arquivo da Aula |
-| :---: | :---: | :--- | :--- |
-| **01** | Aula | Ciência de Dados na Indústria 4.0 e Ciclo CRISP-DM | [semana_01.md](aulas/semana_01.md) |
-| **02** | Aula | Estatística Descritiva: Medidas de Tendência Central e Dispersão | [semana_02.md](aulas/semana_02.md) |
-| **03** | Aula | Análise Exploratória de Dados (EDA) com Matplotlib e Seaborn | [semana_03.md](aulas/semana_03.md) |
-| **04** | Aula | Tratamento de Dados: Imputação, Sanitização e Outliers | [semana_04.md](aulas/semana_04.md) |
-| **05** | Aula | Distribuições de Probabilidade e Testes de Hipóteses | [semana_05.md](aulas/semana_05.md) |
-| **06** | Avaliação | **PROVA 1 INDIVIDUAL** & Entrega dos Notebooks Práticos 1 a 5 | - |
-| **07** | Aula | Análise de Séries Temporais Industriais (Time Series) | [semana_07.md](aulas/semana_07.md) |
-| **08** | Aula | Engenharia de Recursos (Feature Engineering) para Manufatura | [semana_08.md](aulas/semana_08.md) |
-| **09** | Aula | Aprendizado de Máquina Supervisionado: Classificação e Regressão | [semana_09.md](aulas/semana_09.md) |
-| **10** | Aula | Aprendizado Não Supervisionado e Detecção de Anomalias em Sensores | [semana_10.md](aulas/semana_10.md) |
-| **11** | Aula | Dashboards Analíticos Integrados e Indicadores de OEE | [semana_11.md](aulas/semana_11.md) |
-| **12** | Avaliação | **PROVA 2 INDIVIDUAL** & Apresentação do Projeto Analítico Final | - |
+| Sem. | Tipo | Datas | Foco Teórico / Conteúdo | Atividade / Detalhes |
+| :---: | :---: | :---: | :--- | :--- |
+| **01** | Aula | **03/Ago a 07/Ago** | [Ciência de Dados na Indústria 4.0 e Ciclo CRISP-DM](aulas/semana_01.md) | Fases do CRISP-DM e introdução ao ecossistema Python Data Science. |
+| **02** | Aula | **10/Ago a 14/Ago** | [Estatística Descritiva: Medidas de Tendência Central e Dispersão](aulas/semana_02.md) | Média, mediana, variância, desvio padrão e amplitude interquartil. |
+| **03** | Aula | **17/Ago a 21/Ago** | [Análise Exploratória de Dados (EDA) com Matplotlib e Seaborn](aulas/semana_03.md) | Histogramas, Boxplots, Scatter plots e matriz de correlação. |
+| **04** | Exercício de Fixação | **22/Ago (Sáb)** | Atividade Prática / Exercício de Fixação I | Notebooks de EDA e exploração gráfica em dados fabris. |
+| **05** | Aula | **24/Ago a 28/Ago** | [Tratamento de Dados: Imputação, Sanitização e Outliers](aulas/semana_04.md) | Limpeza de nulos, Z-Score, regra do IQR e normalização MinMax/Standard. |
+| **06** | Aula | **31/Ago a 04/Set** | [Distribuições de Probabilidade e Testes de Hipóteses](aulas/semana_05.md) | Normal, Poisson, teste Shapiro-Wilk e Qui-Quadrado. |
+| **07** | Semana de PII | **08/Set a 11/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento do tratamento e análise estatística dos dados do PII. |
+| **08** | Aula | **14/Set a 18/Set** | [Análise de Séries Temporais Industriais (Time Series)](aulas/semana_07.md) | Tendência, sazonalidade, decomposição e médias móveis (EWMA). |
+| **09** | Exercício de Fixação | **19/Set (Sáb)** | Atividade Prática / Exercício de Fixação II | Decomposição de séries temporais de sensores. |
+| **10** | Avaliação | **21/Set a 25/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 05. |
+| **11** | Semana de PII | **28/Set a 02/Out** | Consolidação do Projeto Integrador (PII) | Validação do pipeline de tratamento de dados do PII. |
+| **12** | Aula | **05/Out a 09/Out** | [Engenharia de Recursos (Feature Engineering) para Manufatura](aulas/semana_08.md) | Janelas deslizantes, agregados temporais e encodificação. |
+| **13** | Semana de Tecnologia | **14/Out a 16/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
+| **14** | Aula | **19/Out a 23/Out** | [Aprendizado de Máquina Supervisionado: Classificação e Regressão](aulas/semana_09.md) | Árvores de Decisão, Random Forest e métricas ROC-AUC/F1-Score. |
+| **15** | Exercício de Fixação | **24/Out (Sáb)** | Atividade Prática / Exercício de Fixação III | Treinamento e validação de modelos preditivos no Jupyter. |
+| **16** | Aula | **26/Out a 30/Out** | [Aprendizado Não Supervisionado e Detecção de Anomalias](aulas/semana_10.md) | K-Means, DBSCAN e Isolation Forest para telemetria. |
+| **17** | Semana de PII | **03/Nov a 06/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Refinamento dos modelos analíticos do PII. |
+| **18** | Exercício de Fixação | **07/Nov (Sáb)** | Atividade Prática / Exercício de Fixação IV | Detecção de anomalias em sensores de campo. |
+| **19** | Aula | **09/Nov a 13/Nov** | [Dashboards Analíticos Integrados e Indicadores de OEE](aulas/semana_11.md) | Cálculo de OEE e gráficos interativos com Plotly/Dash. |
+| **20** | Aula | **16/Nov a 19/Nov** | Consolidação Técnica e Revisão Analítica | Revisão de aprendizado de máquina e preparação para P2. |
+| **21** | Avaliação | **23/Nov a 27/Nov** | **PROVA 2 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 07 a 11 & Entrega do Projeto. |
+| **22** | Semana de PII | **30/Nov a 04/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
+| **23** | Congresso UniSENAI-SP | **05/Dez (Sáb)** | Congresso UniSENAI-SP | Apresentação dos melhores trabalhos no Congresso UniSENAI-SP. |
+| **24** | Recuperação | **07/Dez a 11/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
+| **25** | Fechamento | **14/Dez a 18/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |

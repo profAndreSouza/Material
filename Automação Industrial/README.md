@@ -70,17 +70,30 @@ A nota final da disciplina será composta por:
 
 ## Cronograma Semestral e Calendário de Aulas
 
-| Sem. | Tipo | Foco Teórico & Prático | Arquivo da Aula |
-| :---: | :---: | :--- | :--- |
-| **01** | Aula | Arquitetura TI/TA e Pirâmide ISA-95 na Célula Fabril Smart N1 | [semana_01.md](aulas/semana_01.md) |
-| **02** | Aula | Sensores Industriais Discretos: Eletromecânicos, Indutivos e Capacitivos | [semana_02.md](aulas/semana_02.md) |
-| **03** | Aula | Sensores Avançados: Ultrassônicos, Fotoelétricos e Identificação RFID | [semana_03.md](aulas/semana_03.md) |
-| **04** | Aula | Atuadores Industriais: Pneumática, Hidráulica e Inversores de Frequência | [semana_04.md](aulas/semana_04.md) |
-| **05** | Aula | Robótica Industrial e Células Flexíveis de Manufatura | [semana_05.md](aulas/semana_05.md) |
-| **06** | Avaliação | **PROVA 1 INDIVIDUAL** & Entrega dos Relatórios de Laboratório 1 a 5 | - |
-| **07** | Aula | Controladores Industriais (CLP) e Arquitetura de PC Industrial | [semana_07.md](aulas/semana_07.md) |
-| **08** | Aula | Princípios de Operação do CLP, Ciclo de Scan e Endereçamento de E/S | [semana_08.md](aulas/semana_08.md) |
-| **09** | Aula | Programação em Texto Estruturado (ST) e Lógica de Controle | [semana_09.md](aulas/semana_09.md) |
-| **10** | Aula | Protocolos de Comunicação Industrial (Modbus TCP, OPC UA e MQTT) | [semana_10.md](aulas/semana_10.md) |
-| **11** | Aula | Integração TI/TA: Ingestão de Telemetria e Dashboards SCADA | [semana_11.md](aulas/semana_11.md) |
-| **12** | Avaliação | **PROVA 2 INDIVIDUAL** & Apresentação do Projeto de Integração Final | - |
+| Sem. | Tipo | Datas | Foco Teórico / Conteúdo | Atividade / Detalhes |
+| :---: | :---: | :---: | :--- | :--- |
+| **01** | Aula | **03/Ago a 07/Ago** | [Arquitetura TI/TA e Pirâmide ISA-95](aulas/semana_01.md) | Conceitos de integração OT/IT e modelo de eventos fabris. |
+| **02** | Aula | **10/Ago a 14/Ago** | [Sensores Industriais Discretos: Eletromecânicos, Indutivos e Capacitivos](aulas/semana_02.md) | Princípios de sensoriamento de proximidade e chaveamento. |
+| **03** | Aula | **17/Ago a 21/Ago** | [Sensores Avançados: Ultrassônicos, Fotoelétricos e Identificação RFID](aulas/semana_03.md) | Sensoriamento óptico, medição de distância e rastreabilidade RFID. |
+| **04** | Exercício de Fixação | **22/Ago (Sáb)** | Atividade Prática / Exercício de Fixação I | Mapeamento e testes de sensores em bancada (Sábado Letivo). |
+| **05** | Aula | **24/Ago a 28/Ago** | [Atuadores Industriais: Pneumática, Hidráulica e Inversores](aulas/semana_04.md) | Cilindros pneumáticos, motores trifásicos e inversores VFD. |
+| **06** | Aula | **31/Ago a 04/Set** | [Robótica Industrial e Células Flexíveis de Manufatura](aulas/semana_05.md) | Cinemática robótica, garras manipuladoras e segurança (NR-12). |
+| **07** | Semana de PII | **08/Set a 11/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da infraestrutura de automação para o PII. |
+| **08** | Aula | **14/Set a 18/Set** | [Controladores Industriais (CLP) e Arquitetura de PC Industrial](aulas/semana_07.md) | Hardware de CLP, módulos E/S e PCs industriais. |
+| **09** | Exercício de Fixação | **19/Set (Sáb)** | Atividade Prática / Exercício de Fixação II | Simulação de lógica de controle discreto (Sábado Letivo). |
+| **10** | Avaliação | **21/Set a 25/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 05. |
+| **11** | Semana de PII | **28/Set a 02/Out** | Consolidação do Projeto Integrador (PII) | Integração de controladores e sensores no projeto. |
+| **12** | Aula | **05/Out a 09/Out** | [Princípios de Operação do CLP, Ciclo de SCAN e Endereçamento](aulas/semana_08.md) | Fases do SCAN, memória de imagem e determinismo temporal. |
+| **13** | Semana de Tecnologia | **14/Out a 16/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
+| **14** | Aula | **19/Out a 23/Out** | [Programação em Texto Estruturado (ST)](aulas/semana_09.md) | Sintaxe ST (IEC 61131-3), estruturas condicionais e blocos funcionais. |
+| **15** | Exercício de Fixação | **24/Out (Sáb)** | Atividade Prática / Exercício de Fixação III | Desenvolvimento de lógicas de controle em Texto Estruturado. |
+| **16** | Aula | **26/Out a 30/Out** | [Protocolos de Comunicação Industrial (Modbus TCP, OPC UA, MQTT)](aulas/semana_10.md) | Redes industriais, arquitetura OPC UA e protocolo MQTT. |
+| **17** | Semana de PII | **03/Nov a 06/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Ajustes na comunicação de dados do PII. |
+| **18** | Exercício de Fixação | **07/Nov (Sáb)** | Atividade Prática / Exercício de Fixação IV | Conectividade MQTT e publicação de dados industriais. |
+| **19** | Aula | **09/Nov a 13/Nov** | [Integração TI/TA: Ingestão de Telemetria e Dashboards SCADA](aulas/semana_11.md) | Gateways IoT e painéis SCADA em tempo real. |
+| **20** | Aula | **16/Nov a 19/Nov** | Consolidação Técnica e Revisão Integrada | Revisão prática dos protocolos industriais e preparação para P2. |
+| **21** | Avaliação | **23/Nov a 27/Nov** | **PROVA 2 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 07 a 11 & Entrega do Projeto. |
+| **22** | Semana de PII | **30/Nov a 04/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
+| **23** | Congresso UniSENAI-SP | **05/Dez (Sáb)** | Congresso UniSENAI-SP | Apresentação dos melhores trabalhos no Congresso UniSENAI-SP. |
+| **24** | Recuperação | **07/Dez a 11/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
+| **25** | Fechamento | **14/Dez a 18/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |
