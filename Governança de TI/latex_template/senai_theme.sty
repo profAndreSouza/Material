@@ -1,0 +1,214 @@
+% ==============================================================================
+% SENAI BEAMER THEME (senai_theme.sty)
+% Template TeX/Beamer limpo e moderno para apresentações de Governança de TI
+% ==============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{senai_theme}[2026/08/15 Template Beamer SENAI Governança de TI]
+
+% ------------------------------------------------------------------------------
+% Pacotes Essenciais
+% ------------------------------------------------------------------------------
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[portuguese]{babel}
+\RequirePackage{helvet}
+\RequirePackage{xcolor}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\RequirePackage{tikz}
+\RequirePackage{geometry}
+
+% ------------------------------------------------------------------------------
+% Configurações Gerais do Beamer
+% ------------------------------------------------------------------------------
+\setbeamertemplate{navigation symbols}{}
+
+% Margens horizontais do conteúdo do slide
+\setbeamersize{
+  text margin left=0.55cm,
+  text margin right=0.55cm
+}
+
+% ------------------------------------------------------------------------------
+% Paleta de Cores Oficial SENAI & Governança de TI
+% ------------------------------------------------------------------------------
+\definecolor{SenaiPrimary}{HTML}{0B2545}     % #0B2545 - Deep Navy
+\definecolor{SenaiSecondary}{HTML}{134074}   % #134074 - Slate Blue
+\definecolor{SenaiAccent}{HTML}{C8102E}      % #C8102E - SENAI Red / Crimson
+\definecolor{SenaiDark}{HTML}{1E293B}        % #1E293B - Slate Dark
+\definecolor{SenaiMuted}{HTML}{475569}       % #475569 - Muted Gray
+\definecolor{SenaiWhite}{HTML}{FFFFFF}
+
+% Cabeçalho (Header Banner)
+\definecolor{SenaiHeaderBg}{HTML}{F1F5F9}      % #F1F5F9 - Slate Gray Banner
+\definecolor{SenaiHeaderBorder}{HTML}{CBD5E1}  % #CBD5E1 - Border Line
+
+% Cores dos Cards
+\definecolor{SenaiCardBg}{HTML}{F8FAFC}      % Ice White
+\definecolor{SenaiCardBorder}{HTML}{CBD5E1}  % Light Slate Border
+
+\definecolor{SenaiBlueBg}{HTML}{EFF6FF}      % Soft Blue
+\definecolor{SenaiBlueBorder}{HTML}{BFDBFE}  % Blue Border
+\definecolor{SenaiBlueTitle}{HTML}{1E3A8A}   % Dark Navy Title
+
+\definecolor{SenaiRedBg}{HTML}{FEF2F2}       % Soft Red
+\definecolor{SenaiRedBorder}{HTML}{FECACA}   % Red Border
+\definecolor{SenaiRedTitle}{HTML}{991B1B}    % Dark Red Title
+
+\definecolor{SenaiAmberBg}{HTML}{FFFBEB}     % Soft Amber
+\definecolor{SenaiAmberBorder}{HTML}{FDE68A} % Amber Border
+\definecolor{SenaiAmberTitle}{HTML}{92400E}  % Dark Amber Title
+
+\definecolor{SenaiGreenBg}{HTML}{F0FDF4}     % Soft Green
+\definecolor{SenaiGreenBorder}{HTML}{BBF7D0} % Green Border
+\definecolor{SenaiGreenTitle}{HTML}{166534}  % Dark Green Title
+
+% ------------------------------------------------------------------------------
+% Fontes e Cores Gerais
+% ------------------------------------------------------------------------------
+\setbeamercolor{background canvas}{bg=SenaiWhite}
+\setbeamercolor{normal text}{fg=SenaiDark}
+\setbeamercolor{item}{fg=SenaiAccent}
+\setbeamercolor{subitem}{fg=SenaiSecondary}
+
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{subtitle}{size=\normalsize, series=\bfseries}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\footnotesize}
+
+% ------------------------------------------------------------------------------
+% Otimização de Listas
+% ------------------------------------------------------------------------------
+\setlength{\leftmargini}{14pt}
+\setlength{\leftmarginii}{12pt}
+
+\setbeamertemplate{itemize/enumerate body begin}{\vspace{-2pt}}
+\setbeamertemplate{itemize/enumerate body end}{\vspace{-2pt}}
+
+% ------------------------------------------------------------------------------
+% Rodapé Compacto
+% ------------------------------------------------------------------------------
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[
+    wd=\paperwidth,
+    ht=0.28cm,
+    dp=0.08cm,
+    leftskip=0.5cm,
+    rightskip=0.5cm
+  ]{}%
+    {\tiny\color{SenaiMuted}\textbf{SENAI} • Governança de TI}%
+    \hfill%
+    {\tiny\color{SenaiMuted}\insertframenumber\,/\,\inserttotalframenumber}%
+  \end{beamercolorbox}%
+}
+
+% ------------------------------------------------------------------------------
+% Cabeçalho do Frame (100% Largura, Encostado no Topo, Sem Erros de TeX)
+% ------------------------------------------------------------------------------
+\makeatletter
+
+\setbeamertemplate{frametitle}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    % Fundo da faixa superior (Largura total no topo)
+    \fill[SenaiHeaderBg]
+      (current page.north west)
+      rectangle
+      ([yshift=-1.35cm]current page.north east);
+
+    % Linha inferior da faixa
+    \draw[line width=1pt, SenaiHeaderBorder]
+      ([yshift=-1.35cm]current page.north west)
+      --
+      ([yshift=-1.35cm]current page.north east);
+
+    % Barra vertical Vermelha SENAI (posicionada a 0.25cm da borda esquerda)
+    \fill[SenaiAccent]
+      ([xshift=0.25cm,yshift=-0.12cm]current page.north west)
+      rectangle
+      ([xshift=0.33cm,yshift=-1.2cm]current page.north west);
+  \end{tikzpicture}%
+  \vspace{-0.12cm}%
+  \begin{minipage}[t][0.5cm][t]{\textwidth}
+    \vspace{-0.25cm}
+    \ifx\insertframesubtitle\@empty\else
+      {\tiny\bfseries\color{SenaiAccent}\MakeUppercase{\insertframesubtitle}}\par\vspace{1pt}%
+    \fi
+    \vspace{-0.1cm}
+    {\large\bfseries\color{SenaiPrimary}\insertframetitle}%
+  \end{minipage}%
+}
+
+\makeatother
+
+% ------------------------------------------------------------------------------
+% Ambiente senaiframe
+% ------------------------------------------------------------------------------
+\newenvironment{senaiframe}[2]{%
+  \begin{frame}[t]{#2}{#1}
+    \vspace{-4pt}%
+}{%
+  \end{frame}
+}
+
+% ------------------------------------------------------------------------------
+% Estilos dos Cards Customizados (tcolorbox)
+% ------------------------------------------------------------------------------
+\tcbset{
+  senaibase/.style={
+    enhanced,
+    arc=2mm,
+    boxrule=0.8pt,
+    left=6pt, right=6pt, top=3pt, bottom=3pt,
+    fonttitle=\bfseries\small,
+    attach title to upper,
+    after title={\par\vspace{1pt}}
+  },
+  senaicard/.style={
+    senaibase,
+    colback=SenaiCardBg,
+    colframe=SenaiCardBorder,
+    coltitle=SenaiDark
+  },
+  senaibluecard/.style={
+    senaibase,
+    colback=SenaiBlueBg,
+    colframe=SenaiBlueBorder,
+    coltitle=SenaiBlueTitle
+  },
+  senairedcard/.style={
+    senaibase,
+    colback=SenaiRedBg,
+    colframe=SenaiRedBorder,
+    coltitle=SenaiRedTitle
+  },
+  senaiambercard/.style={
+    senaibase,
+    colback=SenaiAmberBg,
+    colframe=SenaiAmberBorder,
+    coltitle=SenaiAmberTitle
+  },
+  senaigreencard/.style={
+    senaibase,
+    colback=SenaiGreenBg,
+    colframe=SenaiGreenBorder,
+    coltitle=SenaiGreenTitle
+  }
+}
+
+% ------------------------------------------------------------------------------
+% Comando para Slide de Capa
+% ------------------------------------------------------------------------------
+\newcommand{\senaicover}[4]{%
+  \begin{frame}[plain]
+    \vfill
+    \begin{minipage}{\textwidth}
+      {\small\bfseries\color{SenaiAccent}\MakeUppercase{#3}}\par\vspace{6pt}
+      {\Huge\bfseries\color{SenaiPrimary} #1}\par\vspace{8pt}
+      {\large\color{SenaiMuted} #2}\par\vspace{20pt}
+      {\small\color{SenaiDark}\textbf{#4}}\par\vspace{2pt}
+      {\tiny\color{SenaiMuted} SENAI — Serviço Nacional de Aprendizagem Industrial}
+    \end{minipage}
+    \vfill
+  \end{frame}
+}
+
+\endinput
