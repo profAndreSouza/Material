@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Objetivos de Aprendizagem
+## Objetivos de Aprendizagem
 
 - Entender o conceito de **Alinhamento Estratégico de TI** e os modelos teóricos consolidados no mercado.
 - Compreender a estrutura, objetivos e processo de elaboração do **Plano Estratégico de Tecnologia da Informação (PETI)**.
@@ -17,7 +17,7 @@
 
 ---
 
-## 📖 Fundamentação Teórica
+## Fundamentação Teórica
 
 ### 1. Modelo de Alinhamento Estratégico (SAM - Strategic Alignment Model)
 Proposto por Henderson & Venkatraman (1993), o Modelo de Alinhamento Estratégico demonstra que a TI não pode ser gerida de forma isolada das estratégias do negócio. O modelo baseia-se na harmonização entre 4 domínios essenciais:
@@ -58,7 +58,7 @@ A Matriz SWOT (FOFA - Forças, Oportunidades, Fraquezas e Ameaças) é uma ferra
 
 ---
 
-## 🏢 Estudo de Caso / Exemplo Prático
+## Estudo de Caso / Exemplo Prático
 
 ### O Caso de Desalinhamento na Indústria Hospitalar
 - **Problema:** Um grupo hospitalar definiu em seu plano estratégico de negócio o objetivo de reduzir o tempo de espera no atendimento de emergência de 45 para 15 minutos.
@@ -67,7 +67,7 @@ A Matriz SWOT (FOFA - Forças, Oportunidades, Fraquezas e Ameaças) é uma ferra
 
 ---
 
-## 🛠️ Oficina Prática / Aplicação no PDGTI
+## Oficina Prática / Aplicação no PDGTI
 
 Nesta semana, os grupos desenvolverão o **Capítulo 2 do PDGTI (Diagnóstico da Situação Atual de TI)**.
 
@@ -79,7 +79,7 @@ Nesta semana, os grupos desenvolverão o **Capítulo 2 do PDGTI (Diagnóstico da
 
 ---
 
-## ❓ Questões para Fixação e Discussão
+## Questões para Fixação e Discussão
 
 1. Qual é a diferença entre o Plano Estratégico de TI (PETI) e o Plano Diretor de Governança de TI (PDGTI)?
 2. Como a Matriz SWOT pode ser utilizada para justificar investimentos em segurança da informação para a diretoria executiva?

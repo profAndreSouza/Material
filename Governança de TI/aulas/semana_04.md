@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Objetivos de Aprendizagem
+## Objetivos de Aprendizagem
 
 - Compreender a metodologia do **Balanced Scorecard (BSC)** aplicada à Tecnologia da Informação.
 - Construir um **Mapa Estratégico de TI** interligando as 4 perspectivas organizacionais.
@@ -17,7 +17,7 @@
 
 ---
 
-## 📖 Fundamentação Teórica
+## Fundamentação Teórica
 
 ### 1. O IT Balanced Scorecard (IT BSC)
 Criado por Kaplan & Norton e adaptado para a Tecnologia da Informação pela ITGI, o **IT BSC** busca traduzir a estratégia de TI em objetivos mensuráveis, divididos em 4 perspectivas interconectadas por relações de causa e efeito:
@@ -61,7 +61,7 @@ De acordo com Weill & Ross, a governança eficaz exige estabelecer formalmente *
 
 ---
 
-## 🏢 Estudo de Caso / Exemplo Prático
+## Estudo de Caso / Exemplo Prático
 
 ### Construção do Mapa Estratégico de uma Fintech
 - **Aprendizado:** Capacitar 100% da equipe de desenvolvimento nas diretrizes da LGPD e em ferramentas de integração contínua (DevSecOps).
@@ -71,7 +71,7 @@ De acordo com Weill & Ross, a governança eficaz exige estabelecer formalmente *
 
 ---
 
-## 🛠️ Oficina Prática / Aplicação no PDGTI
+## Oficina Prática / Aplicação no PDGTI
 
 Nesta semana, os grupos desenvolverão o **Capítulo 3 do PDGTI (Objetivos Estratégicos & Mapa Estratégico)**.
 
@@ -83,7 +83,7 @@ Nesta semana, os grupos desenvolverão o **Capítulo 3 do PDGTI (Objetivos Estra
 
 ---
 
-## ❓ Questões para Fixação e Discussão
+## Questões para Fixação e Discussão
 
 1. Por que o Balanced Scorecard enfatiza as relações de "causa e efeito" entre a perspectiva de Aprendizado/Crescimento e a perspectiva Financeira?
 2. Como uma empresa pode evitar o erro de investir 100% do seu orçamento de TI apenas em projetos Transacionais e Infraestrutura, esquecendo os projetos Estratégicos?

@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Objetivos de Aprendizagem
+## Objetivos de Aprendizagem
 
 - Entender o conceito de **Serviço de TI** sob a ótica de geração de valor para o negócio.
 - Estruturar o **Comitê Estratégico de TI** e definir papéis e responsabilidades claras.
@@ -18,7 +18,7 @@
 
 ---
 
-## 📖 Fundamentação Teórica
+## Fundamentação Teórica
 
 ### 1. O Conceito de Serviço de TI
 Na governança moderna, os usuários e clientes do negócio não compram "servidores" ou "bancos de dados"; eles consomem **Serviços de TI** que viabilizam capacidades organizacionais.
@@ -48,7 +48,7 @@ As políticas corporativas traduzem os princípios de governança em regras mand
 
 ---
 
-## 🏢 Estudo de Caso / Exemplo Prático
+## Estudo de Caso / Exemplo Prático
 
 ### A Matriz RACI na Aprovação de Mudanças em Produção (Change Management)
 | Atividade / Processo de TI | Desenvolvedor | Gestor de TI / CAB | Auditoria | Diretoria Comercial |
@@ -60,7 +60,7 @@ As políticas corporativas traduzem os princípios de governança em regras mand
 
 ---
 
-## 🛠️ Oficina Prática / Aplicação no PDGTI
+## Oficina Prática / Aplicação no PDGTI
 
 Nesta semana, os grupos concluirão o **Capítulo 4 do PDGTI** e realizarão a submissão da **Entrega Parcial 1**.
 
@@ -72,7 +72,7 @@ Nesta semana, os grupos concluirão o **Capítulo 4 do PDGTI** e realizarão a s
 
 ---
 
-## 📦 Instruções da ENTREGA PARCIAL 1 (Data Limite: 04/Set)
+## Instruções da ENTREGA PARCIAL 1 (Data Limite: 04/Set)
 
 > [!IMPORTANT]
 > A **Entrega Parcial 1** consiste no envio do documento contendo a consolidação dos **Capítulos 1 a 4 do PDGTI**:

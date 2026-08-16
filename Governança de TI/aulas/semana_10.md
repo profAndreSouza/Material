@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Objetivos de Aprendizagem
+## Objetivos de Aprendizagem
 
 - Entender os princípios de **Gestão de Riscos em TI** alinhados às normas ISO 31000 e aos frameworks COBIT / ISO 27001.
 - Dominar o processo de identificação, análise, avaliação e resposta aos riscos tecnológicos e regulatórios.
@@ -17,7 +17,7 @@
 
 ---
 
-## 📖 Fundamentação Teórica
+## Fundamentação Teórica
 
 ### 1. O que é Risco de TI?
 Conforme a ISO 31000, risco é o "efeito da incerteza nos objetivos". No contexto da Tecnologia da Informação, o **Risco de TI** é a probabilidade de uma ameaça explorar uma vulnerabilidade em ativos de informação, causando danos ou perdas operacionais, financeiras ou reputacionais para a organização.
@@ -41,7 +41,7 @@ Conforme a ISO 31000, risco é o "efeito da incerteza nos objetivos". No context
 Para cada risco identificado e priorizado na matriz, a Governança de TI deve definir uma das quatro respostas formais:
 
 1. **Mitigar (Reduzir):** Implementar controles de segurança ou processos para reduzir a probabilidade ou o impacto.
-   - *Exemplo:* Instalar autenticação em dois fatores (MFA) para mitigar o risco de sequestro de credenciais.
+   - *Exemplo:* Installar autenticação em dois fatores (MFA) para mitigar o risco de sequestro de credenciais.
 2. **Evitar (Eliminar):** Descontinuar a atividade ou tecnologia que gera o risco inaceitável.
    - *Exemplo:* Desligar um servidor obsoleto com sistema operacional sem suporte de segurança.
 3. **Transferir (Compartilhar):** Repassar o impacto financeiro do risco a terceiros.
@@ -58,7 +58,7 @@ A TI moderna atua sob rigoroso escrutínio legal. Os principais marcos regulató
 
 ---
 
-## 💥 Estudo de Caso / Exemplo Prático
+## Estudo de Caso / Exemplo Prático
 
 ### Ataque de Ransomware em uma Rede de Saúde
 - **O Incidente:** Uma clínica hospitalar sofreu um ataque de *Ransomware* que criptografou todos os servidores de banco de dados e arquivos de exames dos pacientes. O atacante exigiu US$ 2 milhões em Bitcoins.
@@ -67,7 +67,7 @@ A TI moderna atua sob rigoroso escrutínio legal. Os principais marcos regulató
 
 ---
 
-## 🛠️ Oficina Prática / Aplicação no PDGTI
+## Oficina Prática / Aplicação no PDGTI
 
 Nesta semana, os grupos concluirão o **Capítulo 6 do PDGTI** e realizarão a submissão da **Entrega Parcial 2**.
 
@@ -79,7 +79,7 @@ Nesta semana, os grupos concluirão o **Capítulo 6 do PDGTI** e realizarão a s
 
 ---
 
-## 📦 Instruções da ENTREGA PARCIAL 2 (Data Limite: 09/Out)
+## Instruções da ENTREGA PARCIAL 2 (Data Limite: 09/Out)
 
 > [!IMPORTANT]
 > A **Entrega Parcial 2** consiste no envio do documento contendo os **Capítulos 5 e 6 do PDGTI** (consolidados com as correções da Entrega Parcial 1):

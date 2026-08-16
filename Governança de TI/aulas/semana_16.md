@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Objetivos de Aprendizagem
+## Objetivos de Aprendizagem
 
 - Integrar os 9 capítulos do **Plano Diretor de Governança de TI (PDGTI)** em um documento executivo único, coeso e harmonioso.
 - Conduzir uma revisão sistemática utilizando o **Checklist de Qualidade e Rigor Técnico**.
@@ -16,7 +16,7 @@
 
 ---
 
-## 📖 Fundamentação Teórica
+## Fundamentação Teórica
 
 ### 1. A Visão Sistêmica do PDGTI
 Um Plano Diretor de Governança de TI não é uma colagem fortuita de capítulos isolados. É um **artefato de arquitetura organizacional** onde cada seção fundamenta a seguinte em um encadeamento lógico perfeito:
@@ -56,7 +56,7 @@ O PDGTI não é um documento estático para "ficar guardado na gaveta". Ele é u
 
 ---
 
-## 🛠️ Checklist de Rigor Técnico para a Entrega Final do PDGTI
+## Checklist de Rigor Técnico para a Entrega Final do PDGTI
 
 Os grupos devem realizar a verificação do documento completo (Capítulos 1 a 9) com base nos seguintes itens obrigatórios:
 
@@ -79,7 +79,7 @@ Os grupos devem realizar a verificação do documento completo (Capítulos 1 a 9
 
 ---
 
-## 📦 Instruções para a ENTREGA FINAL DO PDGTI COMPLETO (Data Limite: 27/Nov)
+## Instruções para a ENTREGA FINAL DO PDGTI COMPLETO (Data Limite: 27/Nov)
 
 > [!IMPORTANT]
 > A **Entrega Final do PDGTI Completo** (peso de **30% na nota final da unidade curricular**) consiste na submissão do documento consolidado contendo os **Capítulos 1 a 9 revisados e corrigidos**.

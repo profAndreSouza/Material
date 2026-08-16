@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Objetivos de Aprendizagem
+## Objetivos de Aprendizagem
 
 - Compreender a relação intrínseca entre **Governança Corporativa** e **Governança de TI**.
 - Estudar os **4 Princípios Universais do IBGC** (Transparência, Equidade, Prestação de Contas e Responsabilidade Corporativa) e sua aplicação prática no ambiente de tecnologia.
@@ -17,7 +17,7 @@
 
 ---
 
-## 📖 Fundamentação Teórica
+## Fundamentação Teórica
 
 ### 1. Governança Corporativa & Teoria da Agência
 A Governança Corporativa é o sistema pelo qual as empresas são dirigidas, monitoradas e incentivadas, envolvendo os relacionamentos entre sócios, Conselho de Administração, Diretoria Executiva, órgãos de fiscalização e demais partes interessadas.
@@ -56,7 +56,7 @@ Como 100% dos dados financeiros trafegam por sistemas de TI (ERPs, bancos de dad
 
 ---
 
-## 💥 Estudos de Caso Emblemáticos
+## Estudos de Caso Emblemáticos
 
 ### Caso 1: O Escândalo da Enron (2001)
 A Enron utilizava centenas de empresas de fachada para ocultar dívidas bilionárias e inflar lucros nos balanços. A auditoria Arthur Andersen omitiu as fraudes e destruiu evidências. **Lição:** Demonstrou que sem governança e controles independentes de TI/auditoria, a fraude pode destruir corporações globais.
@@ -66,7 +66,7 @@ Engenheiros de software programaram a unidade de controle do motor (ECU) para de
 
 ---
 
-## 🛠️ Oficina Prática / Aplicação no PDGTI
+## Oficina Prática / Aplicação no PDGTI
 
 Nesta semana, os grupos darão início ao **Capítulo 1 do PDGTI (Caracterização da Organização)**.
 
@@ -78,7 +78,7 @@ Nesta semana, os grupos darão início ao **Capítulo 1 do PDGTI (Caracterizaç�
 
 ---
 
-## ❓ Questões para Fixação e Discussão
+## Questões para Fixação e Discussão
 
 1. O que é a Teoria da Agência e como os mecanismos de Governança de TI ajudam a alinhar os interesses dos acionistas e da diretoria de TI?
 2. Por que os auditores de conformidade SOX passam a maior parte do tempo testando processos da equipe de TI (ITGC)?

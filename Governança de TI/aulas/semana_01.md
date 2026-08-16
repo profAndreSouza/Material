@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Objetivos de Aprendizagem
+## Objetivos de Aprendizagem
 
 - Compreender o conceito fundamental de **Governança de TI** e sua importância estratégica para as organizações modernas.
 - Diferenciar com clareza conceitual e prática as funções de **Governança de TI** e **Gestão de TI**.
@@ -16,7 +16,7 @@
 
 ---
 
-## 📖 Fundamentação Teórica
+## Fundamentação Teórica
 
 ### 1. O que é Governança de TI?
 Nas últimas décadas, a Tecnologia da Informação evoluiu de uma função de suporte operacional (processamento de dados e suporte técnico) para o elemento central que viabiliza modelos de negócios modernos. Diante dessa dependência crítica, surge a necessidade de gerir a TI não apenas sob o aspecto técnico, mas sob o aspecto **estratégico e diretivo**.
@@ -47,7 +47,7 @@ A TI agrega valor quando seus investimentos produzem benefícios diretos e mensu
 
 ---
 
-## 🏢 Estudo de Caso / Exemplo Prático
+## Estudo de Caso / Exemplo Prático
 
 ### Caso Real: Transição de uma Rede Varejista
 - **Cenário Sem Governança:** Uma empresa varejista investia 8% do seu faturamento em TI. No entanto, a equipe de TI gastava 90% do tempo apaga fogos em servidores instáveis e desenvolvendo sistemas sem priorização formal. A diretoria comercial desejava um e-commerce omnicanal, mas a TI estava focada em trocar a marca dos computadores da sede.
@@ -56,7 +56,7 @@ A TI agrega valor quando seus investimentos produzem benefícios diretos e mensu
 
 ---
 
-## 🛠️ Oficina Prática / Aplicação no PDGTI
+## Oficina Prática / Aplicação no PDGTI
 
 Nesta primeira semana, os estudantes darão os primeiros passos para a construção do **Plano Diretor de Governança de TI (PDGTI)**.
 
@@ -70,7 +70,7 @@ Nesta primeira semana, os estudantes darão os primeiros passos para a construç
 
 ---
 
-## ❓ Questões para Fixação e Discussão
+## Questões para Fixação e Discussão
 
 1. Explique por que uma empresa pode possuir uma excelente equipe técnica de TI (Gestão) e ainda assim falhar miseravelmente em termos de alinhamento com o negócio (Governança).
 2. De acordo com o COBIT, quais são as três atribuições exclusivas da Governança (domínio EDM)?

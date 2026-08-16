@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Objetivos de Aprendizagem
+## Objetivos de Aprendizagem
 
 - Estruturar um **Roadmap de Implantação da Governança de TI** dividido em ondas de maturidade (curto, médio e longo prazo).
 - Identificar os **Fatores Críticos de Sucesso (FCS)** para garantir a sustentabilidade das iniciativas de governança.
@@ -18,7 +18,7 @@
 
 ---
 
-## 📖 Fundamentação Teórica
+## Fundamentação Teórica
 
 ### 1. O Roteiro de Implantação em Ondas (Phased Roadmap)
 A implantação da Governança de TI não ocorre da noite para o dia. Tentar implementar todas as políticas e frameworks simultaneamente causa paralisia operacional. Por isso, utiliza-se a estratégia de **Implantação em Ondas**:
@@ -60,7 +60,7 @@ A maior barreira para a governança de TI raramente é tecnológica; é **cultur
 
 ---
 
-## 🏢 Estudo de Caso / Exemplo Prático
+## Estudo de Caso / Exemplo Prático
 
 ### A Implantação da Governança em uma Cooperativa Agroindustrial
 - **O Desafio:** A cooperativa possuía 40 filiais de recebimento de grãos com sistemas descentralizados e sem padrões de segurança.
@@ -70,7 +70,7 @@ A maior barreira para a governança de TI raramente é tecnológica; é **cultur
 
 ---
 
-## 🛠️ Oficina Prática / Aplicação no PDGTI
+## Oficina Prática / Aplicação no PDGTI
 
 Nesta semana, os grupos desenvolverão o **Capítulo 9 do PDGTI (Roadmap de Implantação & Benefícios)**.
 
@@ -83,7 +83,7 @@ Nesta semana, os grupos desenvolverão o **Capítulo 9 do PDGTI (Roadmap de Impl
 
 ---
 
-## ❓ Questões para Fixação e Discussão
+## Questões para Fixação e Discussão
 
 1. Por que tentar implementar o COBIT de uma só vez sem divisão em ondas é a causa número 1 de fracasso na governança de TI?
 2. Qual é a diferença entre CAPEX e OPEX e por que a migração para a nuvem alterou a forma como os CFOs avaliam os orçamentos de TI?

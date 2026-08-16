@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Objetivos de Aprendizagem
+## Objetivos de Aprendizagem
 
 - Entender o papel da **Gestão de Desempenho (Performance Management)** no ciclo de vida da Governança de TI.
 - Diferenciar com precisão os conceitos de **Métricas**, **Indicadores** e **Key Performance Indicators (KPIs)**.
@@ -17,7 +17,7 @@
 
 ---
 
-## 📖 Fundamentação Teórica
+## Fundamentação Teórica
 
 ### 1. Por que Medir o Desempenho da TI?
 A famosa frase de Peter Drucker resume a necessidade da medição de desempenho:
@@ -62,7 +62,7 @@ Todo KPI deve ser configurado de forma estruturada:
 
 ---
 
-## 🏢 Estudo de Caso / Exemplo Prático
+## Estudo de Caso / Exemplo Prático
 
 ### Dashboard Executivo em uma Empresa de Logística
 - **Indicador Operacional:** A equipe de suporte mede a taxa de chamados fechados por dia (métrica interna útil).
@@ -71,7 +71,7 @@ Todo KPI deve ser configurado de forma estruturada:
 
 ---
 
-## 🛠️ Oficina Prática / Aplicação no PDGTI
+## Oficina Prática / Aplicação no PDGTI
 
 Nesta semana, os grupos desenvolverão o **Capítulo 5 do PDGTI (Gestão de Desempenho e Indicadores)**.
 
@@ -83,7 +83,7 @@ Nesta semana, os grupos desenvolverão o **Capítulo 5 do PDGTI (Gestão de Dese
 
 ---
 
-## ❓ Questões para Fixação e Discussão
+## Questões para Fixação e Discussão
 
 1. Por que apresentar apenas métricas operacionais técnicas (como utilização de CPU de servidores) para o CEO pode gerar a impressão de que a TI não entende o negócio?
 2. Explique a diferença matemática e prática entre o MTTR (Tempo Médio de Reparo) e o MTBF (Tempo Médio Entre Falhas).

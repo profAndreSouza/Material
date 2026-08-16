@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Objetivos de Aprendizagem
+## Objetivos de Aprendizagem
 
 - Compreender a norma internacional de Governança de TI **ISO/IEC 38500** e seus 6 Princípios Orientadores.
 - Entender a estrutura do **COBIT 2019**, seus Objetivos de Governança/Gestão e Fatores de Design.
@@ -17,7 +17,7 @@
 
 ---
 
-## 📖 Fundamentação Teórica
+## Fundamentação Teórica
 
 ### 1. A Norma ISO/IEC 38500 (Governança Corporativa de TI)
 A ISO/IEC 38500 é a norma internacional de referência que fornece princípios orientadores para os membros dos conselhos de administração e executivos sobre o uso eficaz, eficiente e aceitável da TI.
@@ -66,7 +66,7 @@ Demonstra como todos os componentes e atividades da organização trabalham junt
 
 ---
 
-## 🔗 Matriz de Intersecção dos Frameworks
+## Matriz de Intersecção dos Frameworks
 
 Cada framework atua em um nível de maturidade e abstração organizacional:
 
@@ -86,7 +86,7 @@ Cada framework atua em um nível de maturidade e abstração organizacional:
 
 ---
 
-## 🛠️ Oficina Prática / Aplicação no PDGTI
+## Oficina Prática / Aplicação no PDGTI
 
 Nesta semana, os grupos desenvolverão o **Capítulo 7 do PDGTI (Seleção e Justificativa de Frameworks)**.
 
@@ -98,7 +98,7 @@ Nesta semana, os grupos desenvolverão o **Capítulo 7 do PDGTI (Seleção e Jus
 
 ---
 
-## ❓ Questões para Fixação e Discussão
+## Questões para Fixação e Discussão
 
 1. Por que tentar aplicar "100% do COBIT" ou "100% do ITIL" em uma pequena ou média empresa é um erro fatal de governança?
 2. Como a ISO 38500 se conecta ao trabalho do Conselho de Administração da empresa?

@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Objetivos de Aprendizagem
+## Objetivos de Aprendizagem
 
 - Entender os modelos de maturidade de processo de software **CMMI-DEV** e **MR-MPS-SW**.
 - Compreender a norma **ISO/IEC 12207** para processos de ciclo de vida de software.
@@ -17,7 +17,7 @@
 
 ---
 
-## 📖 Fundamentação Teórica
+## Fundamentação Teórica
 
 ### 1. Modelos de Maturidade de Software: CMMI e MPS-SW
 
@@ -74,7 +74,7 @@ Evolução da ISO/IEC 9126, a **ISO/IEC 25010** define as 8 características ess
 
 ---
 
-## 🛠️ Oficina Prática / Aplicação no PDGTI
+## Oficina Prática / Aplicação no PDGTI
 
 Nesta semana, os grupos concluirão o **Capítulo 8 do PDGTI** e realizarão a submissão da **Entrega Parcial 3**.
 
@@ -86,7 +86,7 @@ Nesta semana, os grupos concluirão o **Capítulo 8 do PDGTI** e realizarão a s
 
 ---
 
-## 📦 Instruções da ENTREGA PARCIAL 3 (Data Limite: 30/Out)
+## Instruções da ENTREGA PARCIAL 3 (Data Limite: 30/Out)
 
 > [!IMPORTANT]
 > A **Entrega Parcial 3** consiste no envio do documento contendo os **Capítulos 7 e 8 do PDGTI** (consolidados com todas as correções anteriores dos Capítulos 1 a 6):
