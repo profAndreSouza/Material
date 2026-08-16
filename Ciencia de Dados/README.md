@@ -69,9 +69,9 @@ A nota final da disciplina será composta por:
 | **02** | Aula | **10/Ago** | **14/Ago** | [CRISP-DM Fase 2: Métricas de Avaliação & Distribuições](aulas/semana_02.ipynb) | Acurácia, Precisão, Recall, F1, ROC-AUC, Normal e Poisson. |
 | **03** | Aula | **17/Ago** | **21/Ago** | [EDA Avançada (Fase 2) & Data Preparation (Fase 3)](aulas/semana_03.ipynb) | Matplotlib, Seaborn, tendência central, imputação e encoding. |
 | **04** | Aula | **24/Ago** | **28/Ago** | [CRISP-DM Fases 4 e 5: Modelagem e Avaliação de ROI](aulas/semana_04.ipynb) | Treinamento com Random Forest, Feature Importance e ROI financeiro. |
-| **05** | Aula | **31/Ago** | **04/Set** | [Distribuições de Probabilidade e Testes de Hipóteses](aulas/semana_05.md) | Normal, Poisson, teste Shapiro-Wilk e Qui-Quadrado. |
+| **05** | Aula | **31/Ago** | **04/Set** | [Distribuições de Probabilidade e Testes de Hipóteses](aulas/semana_05.ipynb) | Normal, Poisson, teste Shapiro-Wilk e Qui-Quadrado. |
 | **06** | Semana de PII | **22/Ago (Sáb)** | **11/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento do tratamento e análise estatística dos dados do PII. |
-| **07** | Aula | **14/Set** | **18/Set** | [Análise de Séries Temporais Industriais (Time Series)](aulas/semana_07.md) | Tendência, sazonalidade, decomposição e médias móveis (EWMA). |
+| **07** | Aula | **14/Set** | **18/Set** | [Análise de Séries Temporais Industriais (Time Series)](aulas/semana_07.ipynb) | Tendência, sazonalidade, decomposição e médias móveis (EWMA). |
 | **08** | Avaliação | **21/Set** | **25/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 05. |
 | **09** | Semana de PII | **28/Set** | **02/Out** | Consolidação do Projeto Integrador (PII) | Validação do pipeline de tratamento de dados do PII. |
 | **10** | Aula | **05/Out** | **09/Out** | [Engenharia de Recursos (Feature Engineering) para Manufatura](aulas/semana_08.md) | Janelas deslizantes, agregados temporais e encodificação. |
