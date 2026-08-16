@@ -1,15 +1,15 @@
 % ==============================================================================
-% SLIDES - SEMANA 01 (TEMPLATE LIMPO / ESTRUTURAL)
+% SLIDES - SEMANA 01: INTRODUÇÃO À GOVERNANÇA DE TI, GOVERNANÇA VS GESTÃO & AGREGACAO DE VALOR
 % ==============================================================================
 
 % ------------------------------------------------------------------------------
-% 1. SLIDE DE CAPA DA SEMANA
+% 1. SLIDE DE CAPA
 % ------------------------------------------------------------------------------
 \senaicover
-  {Título da Aula / Tema Principal} % Título Principal
-  {Subtítulo ou Módulo da Semana • Descrição Curta dos Tópicos} % Subtítulo
-  {Unidade Curricular: Governança de TI} % Tag Superior
-  {Prof. André Souza} % Autor / Professor
+  {Introdução à Governança de TI}
+  {Governança vs. Gestão de TI \& Agregação de Valor para o Negócio}
+  {Unidade Curricular: Governança de TI}
+  {Prof. André Souza}
 
 % ------------------------------------------------------------------------------
 % 2. SLIDE DE VISÃO GERAL / AGENDA (GRID DE 4 CARDS)
@@ -18,37 +18,37 @@
 
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={1. Tópico Azul}]
+      \begin{tcolorbox}[senaibluecard, title={1. Conceito de Governança}]
         \begin{itemize}
-          \item \textbf{Subtópico 1:} Descrição sucinta do ponto principal.
-          \item \textbf{Subtópico 2:} Detalhes e conceitos-chave.
+          \item Evolução da TI de suporte para elemento estratégico.
+          \item Direitos de decisão e estrutura de responsabilidades.
         \end{itemize}
       \end{tcolorbox}
       
       \vspace{4pt}
       
-      \begin{tcolorbox}[senaiambercard, title={3. Tópico Âmbar / Alerta}]
+      \begin{tcolorbox}[senaiambercard, title={3. Agregação de Valor}]
         \begin{itemize}
-          \item \textbf{Subtópico 1:} Atenção a este ponto estratégico.
-          \item \textbf{Subtópico 2:} Impacto nas decisões corporativas.
+          \item Alinhamento de investimentos com metas de negócio.
+          \item Mitigação de riscos e otimização de recursos.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
 
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senairedcard, title={2. Tópico Vermelho / Crítico}]
+      \begin{tcolorbox}[senairedcard, title={2. Governança vs. Gestão}]
         \begin{itemize}
-          \item \textbf{Subtópico 1:} Elemento crítico ou regulatório.
-          \item \textbf{Subtópico 2:} Requisitos de conformidade.
+          \item Governança: Avaliar, Dirigir e Monitorar (EDM).
+          \item Gestão: Planejar, Construir, Executar (APO/BAI/DSS).
         \end{itemize}
       \end{tcolorbox}
       
       \vspace{4pt}
       
-      \begin{tcolorbox}[senaigreencard, title={4. Tópico Verde / Prático}]
+      \begin{tcolorbox}[senaigreencard, title={4. Oficina do PDGTI}]
         \begin{itemize}
-          \item \textbf{Subtópico 1:} Aplicação prática no PDGTI.
-          \item \textbf{Subtópico 2:} Resultados esperados e entregáveis.
+          \item Formação dos grupos de consultoria em TI.
+          \item Escolha da empresa-alvo e escopo inicial.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
@@ -57,27 +57,27 @@
 \end{senaiframe}
 
 % ------------------------------------------------------------------------------
-% 3. SLIDE PADRÃO DE 2 COLUNAS (CONCEITO VS. APLICAÇÃO)
+% 3. GOVERNANÇA VS GESTÃO (COBIT 2019)
 % ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 1 • Conceitos Fundamentais}{Título do Slide de Duas Colunas}
+\begin{senaiframe}{Módulo 1 • Conceitos Fundamentais}{Governança de TI vs. Gestão de TI}
 
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaicard, title={Conceito \& Fundamentação}]
+      \begin{tcolorbox}[senaicard, title={Governança de TI (EDM)}]
         \begin{itemize}
-          \item \textbf{Conceito A:} Explicação teórica do primeiro conceito.
-          \item \textbf{Conceito B:} Detalhamento dos elementos estruturais.
-          \item \textbf{Conceito C:} Relação com os objetivos de negócio.
+          \item \textbf{Responsável:} Conselho e Alta Diretoria.
+          \item \textbf{Foco:} Avaliar necessidades, Dirigir estratégias e Monitorar o desempenho.
+          \item \textbf{Pergunta:} *"Estamos fazendo as coisas certas?"*
         \end{itemize}
       \end{tcolorbox}
     \end{column}
 
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={Mecanismos \& Prática}]
+      \begin{tcolorbox}[senaibluecard, title={Gestão de TI (APO / BAI / DSS)}]
         \begin{itemize}
-          \item \textbf{Mecanismo 1:} Processo de execução no dia a dia.
-          \item \textbf{Mecanismo 2:} Ferramentas e frameworks adotados.
-          \item \textbf{Mecanismo 3:} Indicadores e acompanhamento.
+          \item \textbf{Responsável:} CIO e Gerentes Técnicos.
+          \item \textbf{Foco:} Planejar, construir, executar e operacionalizar os serviços de TI.
+          \item \textbf{Pergunta:} *"Estamos fazendo com eficiência?"*
         \end{itemize}
       \end{tcolorbox}
     \end{column}
@@ -86,27 +86,25 @@
 \end{senaiframe}
 
 % ------------------------------------------------------------------------------
-% 4. SLIDE DE ESTUDO DE CASO OU ANÁLISE DE RISCO
+% 4. PILARES DE AGREGAÇÃO DE VALOR
 % ------------------------------------------------------------------------------
-\begin{senaiframe}{Estudo de Caso • Análise Prática}{Cenário Real vs. Solução Proposta}
+\begin{senaiframe}{Módulo 2 • Valor para o Negócio}{Os 5 Pilares da Agregação de Valor}
 
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senairedcard, title={Cenário / Problema Identificado}]
+      \begin{tcolorbox}[senaibluecard, title={Estratégia \& Entrega}]
         \begin{itemize}
-          \item \textbf{Gargalo:} Descreva o problema ou falha de governança.
-          \item \textbf{Impacto:} Consequências financeiras ou operacionais.
-          \item \textbf{Risco:} Vulnerabilidades associadas à TI.
+          \item \textbf{Alinhamento Estratégico:} A TI viabiliza e acelera as metas corporativas.
+          \item \textbf{Entrega de Valor:} Projetos entregues no prazo, custo e benefício esperado.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
 
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaigreencard, title={Solução \& Controles Propostos}]
+      \begin{tcolorbox}[senaiambercard, title={Riscos, Recursos \& Métricas}]
         \begin{itemize}
-          \item \textbf{Controle 1:} Medida corretiva recomendada.
-          \item \textbf{Controle 2:} Diretriz ou política a implementar.
-          \item \textbf{Resultado:} Mitigação do risco e conformidade.
+          \item \textbf{Gestão de Riscos:} Proteção de ativos e continuidade dos negócios.
+          \item \textbf{Gestão de Recursos:} Otimização de capital humano, software e nuvem.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
@@ -115,16 +113,31 @@
 \end{senaiframe}
 
 % ------------------------------------------------------------------------------
-% 5. SLIDE DE FECHAMENTO / APLICAÇÃO NO PDGTI
+% 5. REFERÊNCIAS BIBLIOGRÁFICAS
 % ------------------------------------------------------------------------------
-\begin{senaiframe}{Aplicação no PDGTI}{Próximos Passos e Entregáveis}
+\begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
 
-  \vspace{0.5cm}
-  \begin{tcolorbox}[senaibluecard, title={Orientações para o Projeto PDGTI}]
+  \begin{tcolorbox}[senaicard, title={Obras de Referência}]
     \begin{itemize}
-      \item \textbf{Capítulo Relevante:} Indique qual capítulo do PDGTI deve ser desenvolvido nesta semana.
-      \item \textbf{Atividade Prática:} Descreva a tarefa a ser realizada pelos grupos.
-      \item \textbf{Checklist de Qualidade:} Requisitos obrigatórios para a próxima entrega parcial.
+      \item \textbf{FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz.} *Implantando a governança de TI: da estratégia à gestão de processos e serviços.* 4. ed. Rio de Janeiro: Brasport, 2014.
+      \item \textbf{WEILL, Peter; ROSS, Jeanne W.} *Governança de Tecnologia da Informação.* Rio de Janeiro: Elsevier, 2004.
+      \item \textbf{ISACA.} *COBIT 2019 Framework: Governance and Management Objectives.* Schaumburg: ISACA, 2018.
+    \end{itemize}
+  \end{tcolorbox}
+
+\end{senaiframe}
+
+% ------------------------------------------------------------------------------
+% 6. APLICAÇÃO NO PDGTI
+% ------------------------------------------------------------------------------
+\begin{senaiframe}{Aplicação no PDGTI}{Orientações para o Projeto da Semana}
+
+  \vspace{0.3cm}
+  \begin{tcolorbox}[senaigreencard, title={Atividades Práticas da Semana 1}]
+    \begin{itemize}
+      \item \textbf{Formação dos Grupos:} Organização em consultorias de TI (individual ou duplas).
+      \item \textbf{Escolha da Empresa-Alvo:} Seleção de empresa real ou fictícia bem documentada.
+      \item \textbf{Definição do Escopo Inicial:} Identificação do setor, porte, missão e viabilidade de acesso aos dados para o PDGTI.
     \end{itemize}
   \end{tcolorbox}
 

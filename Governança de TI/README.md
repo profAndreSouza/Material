@@ -81,22 +81,22 @@ O projeto da disciplina consiste na elaboração de um **Plano Diretor de Govern
 
 | Sem. | Tipo | Quarta | Sexta / Sábado | Foco Teórico (Quarta) | Oficina Prática / Desenvolvimento do PDGTI |
 | :---: | :---: | :---: | :---: | :--- | :--- |
-| **01** | Aula | **05/Ago** | **07/Ago** | Apresentação da Disciplina, Governança vs Gestão e Agregação de Valor. | Formação dos grupos e definição do escopo da empresa para o PDGTI. |
-| **02** | Aula | **12/Ago** | **14/Ago** | Governança Corporativa, SOX (Sarbanes-Oxley), Compliance e Ética. | **Capítulo 1**: Caracterização da Organização, Estrutura e TI. |
-| **03** | Aula | **19/Ago** | **21/Ago** | Alinhamento Estratégico de TI e Plano Estratégico de TI (PETI). | **Capítulo 2**: Diagnóstico da Situação Atual e Problemas de TI. |
-| **04** | Aula | **26/Ago** | **28/Ago** | Balanced Scorecard (BSC) na TI, Portfólio de TI e Tomada de Decisão. | **Capítulo 3**: Objetivos Estratégicos de TI e Mapa Estratégico. |
-| **05** | Aula | **02/Set** | **04/Set** | Gestão de Serviços de TI, Alocação de Recursos e Fornecedores. | **Capítulo 4**: Estrutura de Governança, Comitês e Políticas. <br>**ENTREGA PARCIAL 1 (04/Set)** |
+| **01** | Aula | **05/Ago** | **07/Ago** | [Apresentação da Disciplina, Governança vs Gestão e Agregação de Valor](aulas/semana_01.md) | Formação dos grupos e definição do escopo da empresa para o PDGTI. |
+| **02** | Aula | **12/Ago** | **14/Ago** | [Governança Corporativa, SOX (Sarbanes-Oxley), Compliance e Ética](aulas/semana_02.md) | **Capítulo 1**: Caracterização da Organização, Estrutura e TI. |
+| **03** | Aula | **19/Ago** | **21/Ago** | [Alinhamento Estratégico de TI e Plano Estratégico de TI (PETI)](aulas/semana_03.md) | **Capítulo 2**: Diagnóstico da Situação Atual e Problemas de TI. |
+| **04** | Aula | **26/Ago** | **28/Ago** | [Balanced Scorecard (BSC) na TI, Portfólio de TI e Tomada de Decisão](aulas/semana_04.md) | **Capítulo 3**: Objetivos Estratégicos de TI e Mapa Estratégico. |
+| **05** | Aula | **02/Set** | **04/Set** | [Gestão de Serviços de TI, Alocação de Recursos e Fornecedores](aulas/semana_05.md) | **Capítulo 4**: Estrutura de Governança, Comitês e Políticas. <br>**ENTREGA PARCIAL 1 (04/Set)** |
 | **06** | Semana PII | **09/Set** | **11/Set** | Orientação e Acompanhamento do Projeto Integrador (PII). | Atividades práticas de alinhamento do PII. |
-| **07** | Aula | **16/Set** | **18/Set** | Gestão de Desempenho em TI e Métricas do Negócio. | **Capítulo 5**: Indicadores de Desempenho (KPIs) e Metas. |
+| **07** | Aula | **16/Set** | **18/Set** | [Gestão de Desempenho em TI e Métricas do Negócio](aulas/semana_07.md) | **Capítulo 5**: Indicadores de Desempenho (KPIs) e Metas. |
 | **08** | Avaliação | **23/Set** | **25/Set** | **PROVA 1 INDIVIDUAL (23/Set)** (Conteúdo Semanas 1 a 5) | Feedback da Prova 1 e Devolutiva da Entrega Parcial 1. |
 | **09** | Semana PII | **30/Set** | **02/Out** | Consolidação dos Capítulos 1 a 5 com orientação PII. | Atendimento e refinamento do PII. |
-| **10** | Aula | **07/Out** | **09/Out** | Gestão de Riscos em TI, Compliance e Segurança da Informação. | **Capítulo 6**: Matriz de Riscos, Controles e Mitigação. <br>**ENTREGA PARCIAL 2 (09/Out)** |
+| **10** | Aula | **07/Out** | **09/Out** | [Gestão de Riscos em TI, Compliance e Segurança da Informação](aulas/semana_10.md) | **Capítulo 6**: Matriz de Riscos, Controles e Mitigação. <br>**ENTREGA PARCIAL 2 (09/Out)** |
 | **11** | Semana Tec. | **14/Out** | **16/Out** | Palestras e Workshops da Semana de Tecnologia. | Atividades institucionais integradas. |
-| **12** | Aula | **21/Out** | **23/Out** | Frameworks de Governança e Serviços: ISO/IEC 38500, COBIT e ITIL. | **Capítulo 7**: Seleção e Justificativa dos Frameworks. |
-| **13** | Aula | **28/Out** | **30/Out** | Qualidade e Maturidade: CMMI, MR-MPS-SW, ISO 12207 e ISO 9126. | **Capítulo 8**: Melhoria nos Processos de Dev e Qualidade. <br>**ENTREGA PARCIAL 3 (30/Out)** |
+| **12** | Aula | **21/Out** | **23/Out** | [Frameworks de Governança e Serviços: ISO/IEC 38500, COBIT e ITIL](aulas/semana_12.md) | **Capítulo 7**: Seleção e Justificativa dos Frameworks. |
+| **13** | Aula | **28/Out** | **30/Out** | [Qualidade e Maturidade: CMMI, MR-MPS-SW, ISO 12207 e ISO 9126](aulas/semana_13.md) | **Capítulo 8**: Melhoria nos Processos de Dev e Qualidade. <br>**ENTREGA PARCIAL 3 (30/Out)** |
 | **14** | Semana PII / Exercício | **04/Nov** | **06/Nov** e **07/Nov (Sáb)** | Orientação do PII | **07/Nov (Sábado Letivo)**: Aula Prática / Exercício de consolidação dos frameworks. |
-| **15** | Aula | **11/Nov** | **13/Nov** | Implantação da Governança de TI, FCS e Gestão da Mudança. | **Capítulo 9**: Roadmap de Implantação e Benefícios. |
-| **16** | Aula | **18/Nov** | *20/Nov (Feriado)* | Consolidação Final do PDGTI e Checklist de Qualidade. | Feriado Nacional (20/Nov - compensado pelo dia 07/Nov). |
+| **15** | Aula | **11/Nov** | **13/Nov** | [Implantação da Governança de TI, FCS e Gestão da Mudança](aulas/semana_15.md) | **Capítulo 9**: Roadmap de Implantação e Benefícios. |
+| **16** | Aula | **18/Nov** | *20/Nov (Feriado)* | [Consolidação Final do PDGTI e Checklist de Qualidade](aulas/semana_16.md) | Feriado Nacional (20/Nov - compensado pelo dia 07/Nov). |
 | **17** | Avaliação | **25/Nov** | **27/Nov** | **PROVA 2 INDIVIDUAL (25/Nov)** (Conteúdo Semanas 7 a 15) | **ENTREGA FINAL DO PDGTI COMPLETO (27/Nov)** |
 | **18** | Semana PII | **02/Dez** | **04/Dez** | Entrega Geral do Projeto Integrador (PII). | Devolutiva dos Trabalhos e Fechamento das Médias. |
 | **19** | Recuperação | **09/Dez** | **11/Dez** | Exame de Recuperação Síncrono. | Devolutiva e revisão da recuperação. |
