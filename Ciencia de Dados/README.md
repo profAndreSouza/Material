@@ -55,9 +55,9 @@ Desenvolver capacidades técnicas e socioemocionais relacionadas a sistemas de m
 ## Critérios de Avaliação e Composição de Nota
 
 A nota final da disciplina será composta por:
-- **Prova Teórico-Prática 1 (P1):** Peso 30% (Semanas 01 a 05)
-- **Prova Teórico-Prática 2 (P2):** Peso 30% (Semanas 06 a 10)
-- **Relatórios Analíticos e Notebooks Práticos:** Peso 40%
+- **Prova Teórico-Prática 1 (P1):** Peso 35% (Semanas 01 a 05)
+- **Prova Teórico-Prática 2 (P2):** Peso 35% (Semanas 06 a 10)
+- **Relatórios Analíticos e Notebooks Práticos:** Peso 30%
 
 ---
 
