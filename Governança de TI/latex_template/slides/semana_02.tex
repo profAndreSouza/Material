@@ -2,49 +2,39 @@
 % SLIDES - SEMANA 02: GOVERNANÇA CORPORATIVA, SOX, COMPLIANCE E ÉTICA NA TI
 % ==============================================================================
 
-% ------------------------------------------------------------------------------
-% 1. SLIDE DE CAPA
-% ------------------------------------------------------------------------------
+% 1. CAPA
 \senaicover
   {Governança Corporativa \& SOX}
   {Princípios IBGC, Controles Internos (ITGC), Compliance e Ética na TI}
   {Unidade Curricular: Governança de TI}
   {Prof. André Souza}
 
-% ------------------------------------------------------------------------------
-% 2. VISÃO GERAL / AGENDA
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Visão Geral \& Agenda}{Os 4 Eixos da Aula}
-
+% 2. AGENDA
+\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura da Aula}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senaibluecard, title={1. Governança Corporativa}]
         \begin{itemize}
-          \item Teoria da Agência e conflitos de interesse.
+          \item Teoria da Agência e conflito de interesses.
           \item Os 4 Princípios Universais do IBGC.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaiambercard, title={3. Compliance \& Integridade}]
         \begin{itemize}
-          \item Conformidade legal (LGPD, BACEN, PCI).
-          \item O custo estratégico da não-conformidade.
+          \item Conformidade legal e dilemas éticos.
+          \item Casos reais: Enron e Volkswagen.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senairedcard, title={2. Lei Sarbanes-Oxley (SOX)}]
         \begin{itemize}
-          \item Seções 302/404 e responsabilização.
-          \item Controles Gerais de TI (ITGC).
+          \item Seções 302 e 404 da lei.
+          \item Os 4 domínios do ITGC (Controles de TI).
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaigreencard, title={4. Capítulo 1 do PDGTI}]
         \begin{itemize}
           \item Caracterização da Organização-Alvo.
@@ -53,68 +43,258 @@
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 3. OS 4 PRINCÍPIOS DO IBGC NA TI
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 1 • Diretrizes do IBGC}{Os 4 Princípios de Governança Aplicados à TI}
-
+% 3. CONCEITO DE GOVERNANÇA CORPORATIVA
+\begin{senaiframe}{Teoria • Módulo 1}{O que é Governança Corporativa?}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={Transparência \& Equidade}]
+      \begin{tcolorbox}[senaibluecard, title={Definição e Âmbito}]
         \begin{itemize}
-          \item \textbf{Transparência:} Relatórios de SLA, custos de nuvem (FinOps) e status de projetos sem ocultar falhas.
-          \item \textbf{Equidade:} Atendimento isonômico e priorização imparcial no portfólio de TI.
+          \item Sistema pelo qual as empresas são dirigidas e monitoradas.
+          \item Envolve sócios, conselho, diretoria e órgãos de fiscalização.
+          \item Foco na perenidade e sustentabilidade do negócio.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaicard, title={Accountability \& Responsabilidade}]
+      \begin{tcolorbox}[senaicard, title={Conexão com a TI}]
         \begin{itemize}
-          \item \textbf{Accountability:} Donos de dados e sistemas (Data Owners) e Matriz RACI explicita.
-          \item \textbf{Responsabilidade:} TI Verde, descarte de e-waste e proteção da privacidade.
+          \item A TI é o meio por onde 100\% dos dados corporativos trafegam.
+          \item Sem governança na TI, a governança corporativa é vulnerável.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 4. SOX & ITGC (CONTROLES GERAIS DE TI)
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 2 • Lei SOX \& TI}{Os 4 Domínios de Controles Gerais de TI (ITGC)}
-
+% 4. TEORIA DA AGÊNCIA
+\begin{senaiframe}{Teoria • Módulo 1}{A Teoria da Agência (Conflito de Agência)}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senairedcard, title={Acessos \& Mudanças}]
+      \begin{tcolorbox}[senaibluecard, title={O Principal (Acionista)}]
         \begin{itemize}
-          \item \textbf{Gestão de Acessos Lógicos:} Menor privilégio, MFA e revogação imediata no desligamento.
-          \item \textbf{Gestão de Mudanças:} Segregação de ambientes; nenhum dev altera código direto em produção.
+          \item Busca o crescimento sustentável de longo prazo.
+          \item Necessita de garantias e auditoria sobre a operação.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaicard, title={Operações \& Desenvolvimento}]
+      \begin{tcolorbox}[senairedcard, title={O Agente (Executivo contratado)}]
         \begin{itemize}
-          \item \textbf{Operações de TI:} Backups diários imutáveis e testes anuais de Disaster Recovery (DRP).
-          \item \textbf{Desenvolvimento:} Versionamento seguro (Git) e homologação formal antes do go-live.
+          \item Gerencia o negócio no dia a dia.
+          \item Pode focar em metas de curto prazo para obter bônus.
+          \item Exige controles rígidos de governança para alinhamento.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 5. REFERÊNCIAS BIBLIOGRÁFICAS
-% ------------------------------------------------------------------------------
+% 5. PRINCÍPIO DA TRANSPARÊNCIA
+\begin{senaiframe}{Teoria • Módulo 1}{Princípio 1: Transparência (Transparency)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Conceito do IBGC}]
+        \begin{itemize}
+          \item Disponibilização espontânea de informações relevantes.
+          \item Clareza sobre o verdadeiro estado da organização.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Aplicação Prática na TI}]
+        \begin{itemize}
+          \item Dashboards executivos de SLAs e indisponibilidades.
+          \item Transparência de custos de infraestrutura e nuvem (FinOps).
+          \item Comunicação clara de falhas e incidentes de segurança.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 6. PRINCÍPIO DA EQUIDADE
+\begin{senaiframe}{Teoria • Módulo 1}{Princípio 2: Equidade (Fairness)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Conceito do IBGC}]
+        \begin{itemize}
+          \item Tratamento justo e isonômico a todas as partes.
+          \item Eliminação de privilégios ou favorecimentos.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Aplicação Prática na TI}]
+        \begin{itemize}
+          \item Priorização de projetos baseada em critérios objetivos de ROI.
+          \item Atendimento de suporte baseado em criticidade, não em cargos.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 7. PRINCÍPIO DA PRESTAÇÃO DE CONTAS
+\begin{senaiframe}{Teoria • Módulo 1}{Princípio 3: Prestação de Contas (Accountability)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Conceito do IBGC}]
+        \begin{itemize}
+          \item Responsabilização integral pelos atos e omissões.
+          \item Clareza sobre papéis e deveres dos gestores.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Aplicação Prática na TI}]
+        \begin{itemize}
+          \item Donos de Dados e Sistemas (Data Owners) definidos.
+          \item Matriz RACI explicita para todos os processos de TI.
+          \item Registros de auditoria (audit trail) imutáveis.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 8. RESPONSABILIDADE CORPORATIVA
+\begin{senaiframe}{Teoria • Módulo 1}{Princípio 4: Responsabilidade Corporativa}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Conceito do IBGC}]
+        \begin{itemize}
+          \item Zelo pela sustentabilidade financeira, social e ambiental.
+          \item Impacto a longo prazo na sociedade.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Aplicação Prática na TI}]
+        \begin{itemize}
+          \item TI Verde (Green IT): eficiência energética em servidores.
+          \item Descarte ecológico e certificado de e-waste.
+          \item Proteção rigorosa de dados pessoais e privacidade.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 9. ORIGEM DA LEI SOX
+\begin{senaiframe}{Teoria • Módulo 2}{Origem da Lei Sarbanes-Oxley (SOX)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={O Contexto Histórico (2002)}]
+        \begin{itemize}
+          \item Grandes escândalos financeiros (Enron, WorldCom).
+          \item Manipulação de balanços e destruição de provas contábeis.
+          \item Quebra da confiança dos investidores mundiais.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Objetivo da Lei}]
+        \begin{itemize}
+          \item Exigir demonstrações financeiras rigorosamente auditáveis.
+          \item Responsabilizar criminalmente executivos por fraudes.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 10. SEÇÕES 302 E 404 DA SOX
+\begin{senaiframe}{Teoria • Módulo 2}{Seções 302 \& 404 da Lei SOX}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Seção 302 (Assinatura Executiva)}]
+        \begin{itemize}
+          \item Exige que o CEO e o CFO atestem pessoalmente os relatórios.
+          \item Responsabilidade pessoal direta por omissões ou erros.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Seção 404 (Controles Internos)}]
+        \begin{itemize}
+          \item Avaliação anual da eficácia dos controles internos (ICFR).
+          \item Auditoria externa independente obrigatoriamente acoplada.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 11. CONTROLES GERAIS DE TI (ITGC)
+\begin{senaiframe}{Teoria • Módulo 2}{Controles Gerais de TI (ITGC)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Acessos \& Mudanças}]
+        \begin{itemize}
+          \item \textbf{Acessos Lógicos:} Autenticação, MFA e menor privilégio.
+          \item \textbf{Mudanças (Change Management):} Segregação Dev/Prod.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Operações \& Desenvolvimento}]
+        \begin{itemize}
+          \item \textbf{Operações:} Backups imutáveis e plano de Disaster Recovery.
+          \item \textbf{Desenvolvimento:} Versionamento seguro e homologação.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 12. COMPLIANCE VS ÉTICA
+\begin{senaiframe}{Teoria • Módulo 3}{Compliance Regulatório vs. Cultura Ética}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Compliance Regulatório}]
+        \begin{itemize}
+          \item Cumprir leis, normas e regulamentos (obrigação formal).
+          \item Foco em evitar multas, sanções e processos.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Cultura Ética \& Integridade}]
+        \begin{itemize}
+          \item Fazer o correto mesmo quando ninguém está olhando.
+          \item Responsabilidade profissional sobre o código e algoritmos.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 13. ESTUDO DE CASO PRÁTICO
+\begin{senaiframe}{Estudo de Caso}{Enron \& Volkswagen Dieselgate}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Caso Enron (Falha de Controle)}]
+        \begin{itemize}
+          \item Fraude contábil velada por empresas de fachada.
+          \item Destruição de relatórios -> Surgimento da SOX e ITGC.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Caso Dieselgate (Dilema Ético)}]
+        \begin{itemize}
+          \item Software programado para fraudar testes de emissão de poluentes.
+          \item Responsabilidade criminal sobre os engenheiros de software.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 14. REFERÊNCIAS BIBLIOGRÁFICAS
 \begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
-
   \begin{tcolorbox}[senaicard, title={Obras de Referência}]
     \begin{itemize}
       \item \textbf{BITTENCOURT, Carlos Magno Andriolli.} *Governança corporativa e compliance: planejamento e gestão estratégica.* Curitiba: Contentus, 2020.
@@ -122,22 +302,17 @@
       \item \textbf{IBGC.} *Código das Melhores Práticas de Governança Corporativa.* 6. ed. São Paulo: IBGC, 2023.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 6. APLICAÇÃO NO PDGTI
-% ------------------------------------------------------------------------------
+% 15. APLICAÇÃO NO PDGTI
 \begin{senaiframe}{Aplicação no PDGTI}{Desenvolvimento do Capítulo 1}
-
   \vspace{0.2cm}
   \begin{tcolorbox}[senaigreencard, title={Capítulo 1 – Caracterização da Organização}]
     \begin{itemize}
-      \item \textbf{1.1 Visão Geral do Negócio:} Setor, porte, missão, visão e valores da empresa.
+      \item \textbf{1.1 Visão Geral do Negócio:} Setor, porte, missão, visão e valores.
       \item \textbf{1.2 Estrutura Organizacional:} Organograma corporativo e diretoria.
-      \item \textbf{1.3 Estrutura de TI:} Organograma atual da TI e quantitativo de colaboradores.
+      \item \textbf{1.3 Estrutura de TI:} Organograma atual da TI e equipe.
       \item \textbf{1.4 Inventário Simplificado:} Sistemas principais (ERP/CRM), infraestrutura e orçamento.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}

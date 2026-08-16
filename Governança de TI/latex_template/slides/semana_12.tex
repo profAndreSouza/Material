@@ -2,20 +2,15 @@
 % SLIDES - SEMANA 12: FRAMEWORKS DE GOVERNANÇA (ISO 38500, COBIT, ITIL)
 % ==============================================================================
 
-% ------------------------------------------------------------------------------
-% 1. SLIDE DE CAPA
-% ------------------------------------------------------------------------------
+% 1. CAPA
 \senaicover
   {Frameworks de Governança \& Serviços}
   {ISO/IEC 38500, COBIT 2019, ITIL v4 e Seleção Justificada de Processos}
   {Unidade Curricular: Governança de TI}
   {Prof. André Souza}
 
-% ------------------------------------------------------------------------------
-% 2. VISÃO GERAL / AGENDA
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Visão Geral \& Agenda}{Os 4 Eixos da Aula}
-
+% 2. AGENDA
+\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura da Aula}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senaibluecard, title={1. ISO/IEC 38500}]
@@ -24,9 +19,7 @@
           \item O ciclo EDM (Avaliar, Dirigir, Monitorar).
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaiambercard, title={3. ITIL v4}]
         \begin{itemize}
           \item Sistema de Valor de Serviço (SVS).
@@ -34,7 +27,6 @@
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senairedcard, title={2. COBIT 2019}]
         \begin{itemize}
@@ -42,9 +34,7 @@
           \item Fatores de Design e Governança Sob Medida.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaigreencard, title={4. Capítulo 7 do PDGTI}]
         \begin{itemize}
           \item Seleção e Justificativa dos Frameworks.
@@ -53,69 +43,248 @@
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 3. ISO 38500 & COBIT 2019
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 1 • Diretrizes \& Governança}{ISO/IEC 38500 \& COBIT 2019}
-
+% 3. O PAPEL DOS FRAMEWORKS
+\begin{senaiframe}{Teoria • Módulo 1}{O Papel dos Frameworks Internacionais}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={ISO/IEC 38500 (Nível Conselho)}]
+      \begin{tcolorbox}[senaibluecard, title={Não Reinventar a Roda}]
         \begin{itemize}
-          \item \textbf{6 Princípios:} Responsabilidade, Estratégia, Aquisição, Desempenho, Conformidade, Comportamento.
-          \item \textbf{Modelo EDM:} Evaluate, Direct, Monitor.
+          \item Frameworks compilam as melhores práticas globais de TI.
+          \item Adaptáveis à realidade de cada empresa (não são rígidos).
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senairedcard, title={COBIT 2019 (Visão Holística)}]
+      \begin{tcolorbox}[senaicard, title={Benefícios de Adoção}]
         \begin{itemize}
-          \item \textbf{5 Domínios:} EDM (Governança) + APO, BAI, DSS, MEA (Gestão).
-          \item \textbf{40 Objetivos:} Seleção dos processos prioritários baseados nos Fatores de Design.
+          \item Padrão comum de linguagem, auditabilidade e maturidade.
+          \item Reconhecimento de mercado e clientes internacionais.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 4. ITIL V4 & COMPLEMENTARIDADE
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 2 • Serviços \& Integração}{ITIL v4 \& Hierarquia de Abstração}
-
+% 4. A NORMA ISO 38500
+\begin{senaiframe}{Teoria • Módulo 1}{A Norma ISO/IEC 38500}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaiambercard, title={ITIL v4 (Gestão de Serviços)}]
+      \begin{tcolorbox}[senaibluecard, title={Escopo do Padrão}]
         \begin{itemize}
-          \item \textbf{SVS:} Sistema de Valor de Serviço e Cadeia de Valor.
-          \item \textbf{7 Princípios:} Foco no valor, começar de onde está, manter simples e prático.
+          \item Norma internacional focada no nível executivo/conselho.
+          \item Guia diretivo para conselheiros sobre o uso aceitável da TI.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaicard, title={Hierarquia dos Frameworks}]
+      \begin{tcolorbox}[senaigreencard, title={Orientação}]
         \begin{itemize}
-          \item \textbf{ISO 38500:} *O Quê* fazer no Conselho.
-          \item \textbf{COBIT 2019:} *Como* governar e estruturar.
-          \item \textbf{ITIL v4:} *Como* executar os serviços diariamente.
+          \item Garante que os investimentos em TI respeitem leis e agreguem valor.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 5. REFERÊNCIAS BIBLIOGRÁFICAS
-% ------------------------------------------------------------------------------
+% 5. OS 6 PRINCÍPIOS DA ISO 38500
+\begin{senaiframe}{Teoria • Módulo 1}{Os 6 Princípios da ISO/IEC 38500}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Princípios 1 a 3}]
+        \begin{itemize}
+          \item \textbf{1. Responsabilidade:} Clareza de deveres.
+          \item \textbf{2. Estratégia:} Alinhamento do negócio.
+          \item \textbf{3. Aquisição:} Razões válidas de compra.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Princípios 4 a 6}]
+        \begin{itemize}
+          \item \textbf{4. Desempenho:} Atendimento com qualidade.
+          \item \textbf{5. Conformidade:} Cumprimento de leis.
+          \item \textbf{6. Comportamento Humano:} Respeito a pessoas.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 6. O CICLO EDM DA ISO 38500
+\begin{senaiframe}{Teoria • Módulo 1}{O Ciclo EDM da ISO 38500}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Evaluate \& Direct}]
+        \begin{itemize}
+          \item \textbf{Evaluate (Avaliar):} Analisar demandas do negócio.
+          \item \textbf{Direct (Dirigir):} Definir políticas e estratégias.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Monitor}]
+        \begin{itemize}
+          \item \textbf{Monitor (Monitorar):} Acompanhar os resultados práticos.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 7. COBIT 2019 (ISACA)
+\begin{senaiframe}{Teoria • Módulo 2}{O Framework COBIT 2019 (ISACA)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Visão Geral}]
+        \begin{itemize}
+          \item Framework de Governança e Gestão de TI mais utilizado.
+          \item Conecta os objetivos de TI às metas de negócio.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Distinção Clave}]
+        \begin{itemize}
+          \item Domínio de Governança (EDM) separado dos Domínios de Gestão.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 8. ESTRUTURA DOS 40 OBJETIVOS
+\begin{senaiframe}{Teoria • Módulo 2}{Os 40 Objetivos de Governança e Gestão}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Governança \& Planejamento}]
+        \begin{itemize}
+          \item \textbf{EDM (5 Objetivos):} Avaliar, Dirigir, Monitorar.
+          \item \textbf{APO (14 Objetivos):} Alinhar, Planejar, Organizar.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Execução, Serviços \& Avaliação}]
+        \begin{itemize}
+          \item \textbf{BAI (11):} Construir; \textbf{DSS (6):} Servir.
+          \item \textbf{MEA (4 Objetivos):} Monitorar e Avaliar.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 9. FATORES DE DESIGN DO COBIT
+\begin{senaiframe}{Teoria • Módulo 2}{Fatores de Design: Governança Sob Medida}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Tailoring (Customização)}]
+        \begin{itemize}
+          \item Nenhuma empresa deve aplicar os 40 objetivos de uma vez.
+          \item Fatores de design (porte, setor, modelo de ameaças) selecionam o foco.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Maturidade Proporcional}]
+        \begin{itemize}
+          \item Priorização de processos com base em dores reais.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 10. ITIL V4 (AXELOS)
+\begin{senaiframe}{Teoria • Módulo 3}{O ITIL v4 e a Gestão de Serviços}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Foco em Serviços}]
+        \begin{itemize}
+          \item Guia global de melhores práticas para gerenciamento de serviços.
+          \item Foco na co-criação de valor entre provedor e cliente.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Evolução v4}]
+        \begin{itemize}
+          \item Abordagem holística e ágil (integração com DevOps).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 11. SISTEMA DE VALOR DO ITIL (SVS)
+\begin{senaiframe}{Teoria • Módulo 3}{O Sistema de Valor de Serviço (SVS)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Componentes do SVS}]
+        \begin{itemize}
+          \item 7 Princípios Orientadores (Foco no valor, simplicidade).
+          \item Cadeia de Valor de Serviço (6 atividades).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={34 Práticas de Gestão}]
+        \begin{itemize}
+          \item Práticas Gerais, de Serviços e Técnicas.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 12. HIERARQUIA DOS FRAMEWORKS
+\begin{senaiframe}{Teoria • Módulo 3}{Hierarquia \& Complementaridade dos Modelos}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Níveis de Abstração}]
+        \begin{itemize}
+          \item \textbf{ISO 38500:} *O Quê* fazer no Conselho (Estratégico).
+          \item \textbf{COBIT 2019:} *Como* governar e estruturar (Tático).
+          \item \textbf{ITIL v4:} *Como* executar os serviços (Operacional).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Uso Conjunto}]
+        \begin{itemize}
+          \item Os três frameworks trabalham perfeitamente integrados.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 13. ESTUDO DE CASO PRÁTICO
+\begin{senaiframe}{Estudo de Caso}{Adocão Gradual em uma PME Tecnológica}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Erro Inicial}]
+        \begin{itemize}
+          \item Tentativa frustrada de implantar 100\% do COBIT em 6 meses.
+          \item Excesso de burocracia e paralisia operacional.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Solução Reajustada}]
+        \begin{itemize}
+          \item Seleção de 3 objetivos do COBIT e 4 práticas ITIL.
+          \item Ganhos rápidos e aumento de maturidade sem trauma.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 14. REFERÊNCIAS BIBLIOGRÁFICAS
 \begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
-
   \begin{tcolorbox}[senaicard, title={Obras de Referência}]
     \begin{itemize}
       \item \textbf{ISO/IEC.} *ISO/IEC 38500: Governance of IT for the organization.* ISO, 2015.
@@ -123,22 +292,17 @@
       \item \textbf{AXELOS.} *ITIL Foundation: ITIL 4 Edition.* London: TSO, 2019.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 6. APLICAÇÃO NO PDGTI
-% ------------------------------------------------------------------------------
+% 15. APLICAÇÃO NO PDGTI
 \begin{senaiframe}{Aplicação no PDGTI}{Desenvolvimento do Capítulo 7}
-
   \vspace{0.2cm}
   \begin{tcolorbox}[senaigreencard, title={Capítulo 7 – Seleção e Justificativa de Frameworks}]
     \begin{itemize}
-      \item \textbf{7.1 ISO 38500:} Aplicação do ciclo EDM no Comitê de TI da empresa.
+      \item \textbf{7.1 ISO 38500:} Ciclo EDM no Comitê de TI da empresa.
       \item \textbf{7.2 COBIT 2019:} Seleção de no mínimo 3 Objetivos prioritários.
-      \item \textbf{7.3 ITIL v4:} Seleção e justificativa das práticas de serviços (Incidentes, Mudanças, SLA).
-      \item \textbf{7.4 Matriz de Intersecção:} Demonstrar a complementaridade prática entre os modelos.
+      \item \textbf{7.3 ITIL v4:} Seleção e justificativa das práticas de serviços.
+      \item \textbf{7.4 Matriz de Intersecção:} Complementaridade entre os modelos.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}

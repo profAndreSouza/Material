@@ -1,122 +1,302 @@
 % ==============================================================================
-% SLIDES - SEMANA 01: INTRODUÇÃO À GOVERNANÇA DE TI, GOVERNANÇA VS GESTÃO & AGREGACAO DE VALOR
+% SLIDES - SEMANA 01: INTRODUÇÃO À GOVERNANÇA DE TI, GOVERNANÇA VS GESTÃO & AGREGAÇÃO DE VALOR
 % ==============================================================================
 
-% ------------------------------------------------------------------------------
-% 1. SLIDE DE CAPA
-% ------------------------------------------------------------------------------
+% 1. CAPA
 \senaicover
   {Introdução à Governança de TI}
   {Governança vs. Gestão de TI \& Agregação de Valor para o Negócio}
   {Unidade Curricular: Governança de TI}
   {Prof. André Souza}
 
-% ------------------------------------------------------------------------------
-% 2. SLIDE DE VISÃO GERAL / AGENDA (GRID DE 4 CARDS)
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Visão Geral \& Agenda}{Os 4 Eixos da Aula}
-
+% 2. AGENDA
+\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura da Aula}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={1. Conceito de Governança}]
+      \begin{tcolorbox}[senaibluecard, title={1. Conceitos de Governança}]
         \begin{itemize}
-          \item Evolução da TI de suporte para elemento estratégico.
-          \item Direitos de decisão e estrutura de responsabilidades.
+          \item Evolução histórica da TI.
+          \item Definição de Weill, Ross, Fernandes \& Abreu.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaiambercard, title={3. Agregação de Valor}]
         \begin{itemize}
-          \item Alinhamento de investimentos com metas de negócio.
-          \item Mitigação de riscos e otimização de recursos.
+          \item Os 5 pilares do valor para o negócio.
+          \item Transição de Centro de Custo para Inovação.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senairedcard, title={2. Governança vs. Gestão}]
         \begin{itemize}
-          \item Governança: Avaliar, Dirigir e Monitorar (EDM).
-          \item Gestão: Planejar, Construir, Executar (APO/BAI/DSS).
+          \item O modelo de divisão do COBIT 2019.
+          \item Domínio EDM vs. APO, BAI, DSS e MEA.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaigreencard, title={4. Oficina do PDGTI}]
         \begin{itemize}
-          \item Formação dos grupos de consultoria em TI.
+          \item Formação dos grupos de consultoria.
           \item Escolha da empresa-alvo e escopo inicial.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 3. GOVERNANÇA VS GESTÃO (COBIT 2019)
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 1 • Conceitos Fundamentais}{Governança de TI vs. Gestão de TI}
-
+% 3. CONCEITO DE GOVERNANÇA DE TI
+\begin{senaiframe}{Teoria • Módulo 1}{O que é Governança de TI?}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaicard, title={Governança de TI (EDM)}]
+      \begin{tcolorbox}[senaibluecard, title={Definição de Weill \& Ross (2004)}]
         \begin{itemize}
-          \item \textbf{Responsável:} Conselho e Alta Diretoria.
-          \item \textbf{Foco:} Avaliar necessidades, Dirigir estratégias e Monitorar o desempenho.
+          \item Especificação dos direitos de decisão.
+          \item Matriz de responsabilidade corporativa.
+          \item Estímulo a comportamentos desejáveis no uso da TI.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Definição de Fernandes \& Abreu}]
+        \begin{itemize}
+          \item Estrutura de relações e processos diretivos.
+          \item Controle e direcionamento para atingir metas.
+          \item Equilíbrio entre risco tecnológico e retorno.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 4. PAPEL DA TI NA ERA DIGITAL
+\begin{senaiframe}{Teoria • Módulo 1}{A Evolução do Papel da TI nas Organizações}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={TI Tradicional (Passado)}]
+        \begin{itemize}
+          \item Processamento de dados e suporte técnico.
+          \item Visão restrita a "Centro de Custos".
+          \item Reativa às demandas operacionais das áreas.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={TI Estratégica (Presente)}]
+        \begin{itemize}
+          \item Elemento viabilizador de modelos de negócio.
+          \item Foco em inovação, novos canais e produtos.
+          \item Parceria de valor com a alta administração.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 5. GOVERNANÇA VS GESTÃO - COBIT 2019
+\begin{senaiframe}{Teoria • Módulo 2}{Governança vs. Gestão de TI (COBIT 2019)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Instância de Governança}]
+        \begin{itemize}
+          \item \textbf{Atores:} Conselho, CEO, CFO e Comitê de TI.
+          \item \textbf{Horizonte:} Longo Prazo e Visão Estratégica.
           \item \textbf{Pergunta:} *"Estamos fazendo as coisas certas?"*
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={Gestão de TI (APO / BAI / DSS)}]
+      \begin{tcolorbox}[senaicard, title={Instância de Gestão}]
         \begin{itemize}
-          \item \textbf{Responsável:} CIO e Gerentes Técnicos.
-          \item \textbf{Foco:} Planejar, construir, executar e operacionalizar os serviços de TI.
-          \item \textbf{Pergunta:} *"Estamos fazendo com eficiência?"*
+          \item \textbf{Atores:} CIO, Gerentes de TI e Coordenadores.
+          \item \textbf{Horizonte:} Curto/Médio Prazo e Operação.
+          \item \textbf{Pergunta:} *"Estamos fazendo da forma correta?"*
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 4. PILARES DE AGREGAÇÃO DE VALOR
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 2 • Valor para o Negócio}{Os 5 Pilares da Agregação de Valor}
-
+% 6. O DOMÍNIO EDM
+\begin{senaiframe}{Teoria • Módulo 2}{O Domínio EDM (Evaluate, Direct, Monitor)}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={Estratégia \& Entrega}]
+      \begin{tcolorbox}[senaibluecard, title={Avaliar \& Dirigir}]
         \begin{itemize}
-          \item \textbf{Alinhamento Estratégico:} A TI viabiliza e acelera as metas corporativas.
-          \item \textbf{Entrega de Valor:} Projetos entregues no prazo, custo e benefício esperado.
+          \item \textbf{Evaluate (Avaliar):} Analisar constantemente as necessidades atuais e futuras do negócio.
+          \item \textbf{Direct (Dirigir):} Definir políticas, limites e alocação de recursos prioritários.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Monitorar}]
+        \begin{itemize}
+          \item \textbf{Monitor (Monitorar):} Acompanhar o alinhamento e alcance dos resultados via relatórios e auditorias.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
 
+% 7. OS DOMÍNIOS DE GESTÃO DO COBIT
+\begin{senaiframe}{Teoria • Módulo 2}{Os 4 Domínios de Gestão do COBIT 2019}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Planejamento \& Construção}]
+        \begin{itemize}
+          \item \textbf{APO:} Alinhar, Planejar e Organizar.
+          \item \textbf{BAI:} Construir, Adquirir e Implementar.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Execução \& Avaliação}]
+        \begin{itemize}
+          \item \textbf{DSS:} Entregar, Servir e Suportar.
+          \item \textbf{MEA:} Monitorar, Avaliar e Analisar.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 8. OS 5 PILARES DA AGREGAÇÃO DE VALOR
+\begin{senaiframe}{Teoria • Módulo 3}{Os 5 Pilares Globais da Agregação de Valor}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Estratégia \& Benefícios}]
+        \begin{itemize}
+          \item \textbf{1. Alinhamento Estratégico:} Integração total.
+          \item \textbf{2. Entrega de Valor:} Projetos no prazo e custo.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senaiambercard, title={Riscos, Recursos \& Métricas}]
         \begin{itemize}
-          \item \textbf{Gestão de Riscos:} Proteção de ativos e continuidade dos negócios.
-          \item \textbf{Gestão de Recursos:} Otimização de capital humano, software e nuvem.
+          \item \textbf{3. Gestão de Riscos:} Continuidade dos negócios.
+          \item \textbf{4. Gestão de Recursos:} Otimização de custos.
+          \item \textbf{5. Medição de Desempenho:} KPIs claros.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 5. REFERÊNCIAS BIBLIOGRÁFICAS
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
+% 9. ALINHAMENTO ESTRATÉGICO & ENTREGA
+\begin{senaiframe}{Teoria • Módulo 3}{Alinhamento Estratégico \& Entrega de Valor}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Garantia de Alinhamento}]
+        \begin{itemize}
+          \item Cada sistema desenvolvido atende a um objetivo do plano de negócios.
+          \item Eliminação de "projetos de estimação" da equipe técnica.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Foco na Entrega}]
+        \begin{itemize}
+          \item Validação de benefícios tangíveis (aumento de vendas, redução de tempo).
+          \item Metodologias rígidas de acompanhamento de projetos.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
 
+% 10. GESTÃO DE RISCOS & RECURSOS
+\begin{senaiframe}{Teoria • Módulo 3}{Gestão de Riscos \& Otimização de Recursos}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Mitigação de Riscos}]
+        \begin{itemize}
+          \item Identificação de ameaças à segurança e operação.
+          \item Proteção de dados e planos de continuidade.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Otimização de Recursos}]
+        \begin{itemize}
+          \item Alocação eficiente de servidores, licenças e nuvem.
+          \item Gestão do capital humano e retenção de talentos.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 11. MEDIÇÃO DE DESEMPENHO E ROI
+\begin{senaiframe}{Teoria • Módulo 3}{Medição de Desempenho \& Retorno (ROI)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Medição Objetiva}]
+        \begin{itemize}
+          \item Substituição de opiniões por dados concretos.
+          \item Acompanhamento através de dashboards executivos.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Demostração do ROI}]
+        \begin{itemize}
+          \item Cálculo do retorno financeiro sobre o capital investido.
+          \item Justificativa transparente perante o conselho.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 12. TRANSIÇÃO DA TI
+\begin{senaiframe}{Teoria • Módulo 3}{A Mudança de Percepção da TI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Percepção Negativa (Sem Governança)}]
+        \begin{itemize}
+          \item "TI é cara e lenta."
+          \item "Os sistemas vivem caindo."
+          \item "Gastam orçamento em coisas sem utilidade."
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Percepção Positiva (Com Governança)}]
+        \begin{itemize}
+          \item "TI é nossa parceira de negócios."
+          \item "Soluções ágeis que aumentam faturamento."
+          \item "Investimentos transparentes e seguros."
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 13. ESTUDO DE CASO PRÁTICO
+\begin{senaiframe}{Estudo de Caso}{Rede Varejista: Reestruturação do Investimento}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Problema Diagnosticado}]
+        \begin{itemize}
+          \item Investimento de 8\% do faturamento sem retorno em vendas.
+          \item Foco em trocas operacionais enquanto o e-commerce estava estagnado.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Resultado com Governança}]
+        \begin{itemize}
+          \item Criação do Comitê de TI com CEO, CFO e CIO.
+          \item Aprovação do e-commerce: +35\% de vendas totais no ano seguinte.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 14. REFERÊNCIAS BIBLIOGRÁFICAS
+\begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
   \begin{tcolorbox}[senaicard, title={Obras de Referência}]
     \begin{itemize}
       \item \textbf{FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz.} *Implantando a governança de TI: da estratégia à gestão de processos e serviços.* 4. ed. Rio de Janeiro: Brasport, 2014.
@@ -124,15 +304,11 @@
       \item \textbf{ISACA.} *COBIT 2019 Framework: Governance and Management Objectives.* Schaumburg: ISACA, 2018.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 6. APLICAÇÃO NO PDGTI
-% ------------------------------------------------------------------------------
+% 15. APLICAÇÃO NO PDGTI
 \begin{senaiframe}{Aplicação no PDGTI}{Orientações para o Projeto da Semana}
-
-  \vspace{0.3cm}
+  \vspace{0.2cm}
   \begin{tcolorbox}[senaigreencard, title={Atividades Práticas da Semana 1}]
     \begin{itemize}
       \item \textbf{Formação dos Grupos:} Organização em consultorias de TI (individual ou duplas).
@@ -140,5 +316,4 @@
       \item \textbf{Definição do Escopo Inicial:} Identificação do setor, porte, missão e viabilidade de acesso aos dados para o PDGTI.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}

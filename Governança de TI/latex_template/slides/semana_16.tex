@@ -2,20 +2,15 @@
 % SLIDES - SEMANA 16: CONSOLIDAÇÃO FINAL DO PDGTI, CHECKLIST & GOVERNANÇA CONTÍNUA
 % ==============================================================================
 
-% ------------------------------------------------------------------------------
-% 1. SLIDE DE CAPA
-% ------------------------------------------------------------------------------
+% 1. CAPA
 \senaicover
   {Consolidação Final do PDGTI}
   {Checklist de Qualidade, Governança Contínua (PDCA) e Entrega Final}
   {Unidade Curricular: Governança de TI}
   {Prof. André Souza}
 
-% ------------------------------------------------------------------------------
-% 2. VISÃO GERAL / AGENDA
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Visão Geral \& Agenda}{Os 4 Eixos da Aula}
-
+% 2. AGENDA
+\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura da Aula}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senaibluecard, title={1. Visão Sistêmica}]
@@ -24,9 +19,7 @@
           \item Encadeamento de diagnóstico a roadmap.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaiambercard, title={3. Governança Contínua}]
         \begin{itemize}
           \item Ciclo PDCA no PDGTI.
@@ -34,7 +27,6 @@
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senairedcard, title={2. Checklist de Qualidade}]
         \begin{itemize}
@@ -42,9 +34,7 @@
           \item Matriz RACI, SWOT, BSC e Riscos.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaigreencard, title={4. Entrega Final}]
         \begin{itemize}
           \item Submissão do PDGTI Completo (30%).
@@ -53,87 +43,246 @@
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 3. VISÃO SISTÊMICA & CICLO PDCA
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 1 • Integração}{Encadeamento Lógico \& Ciclo PDCA}
-
+% 3. ARQUITETURA ORGANIZACIONAL
+\begin{senaiframe}{Teoria • Módulo 1}{A Arquitetura Organizacional do PDGTI}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={Coerência dos 9 Capítulos}]
+      \begin{tcolorbox}[senaibluecard, title={Artefato Vivo}]
         \begin{itemize}
-          \item O Diagnóstico (Cap. 2) justifica a Estratégia (Cap. 3).
-          \item A Estrutura (Cap. 4) suporta a Medição (Cap. 5) e Proteção (Cap. 6).
-          \item Os Frameworks (Cap. 7 e 8) embasam a Execução (Cap. 9).
+          \item O PDGTI é o plano mestre de transformação digital da empresa.
+          \item Não é um relatório isolado, mas uma diretriz contínua.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaicard, title={Ciclo PDCA na Governança}]
+      \begin{tcolorbox}[senaicard, title={Harmonia dos Conteúdos}]
         \begin{itemize}
-          \item \textbf{Plan:} Revisão anual do PDGTI e metas.
-          \item \textbf{Do:} Executar as ondas do roadmap.
-          \item \textbf{Check:} Acompanhar dashboards de KPIs.
+          \item Cada capítulo sustenta e justifica o seguinte.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 4. VISÃO SISTÊMICA
+\begin{senaiframe}{Teoria • Módulo 1}{Visão Sistêmica: O Encadeamento Lógico}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Base \& Diagnóstico}]
+        \begin{itemize}
+          \item Caracterização (Cap 1) -> Diagnóstico SWOT (Cap 2) -> Estratégia BSC (Cap 3).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Controle \& Execução}]
+        \begin{itemize}
+          \item RACI (Cap 4) -> KPIs (Cap 5) -> Riscos (Cap 6) -> Frameworks (Cap 7-8) -> Roadmap (Cap 9).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 5. CAPÍTULOS 1 E 2
+\begin{senaiframe}{Teoria • Módulo 1}{Do Contexto ao Diagnóstico (Capítulos 1 \& 2)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Capítulo 1: Onde Estamos}]
+        \begin{itemize}
+          \item Porte, setor, missão e estrutura atual de TI.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Capítulo 2: O que nos Dói}]
+        \begin{itemize}
+          \item SWOT de TI, gargalos operacionais e nível de maturidade.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 6. CAPÍTULOS 3 E 4
+\begin{senaiframe}{Teoria • Módulo 1}{Da Estratégia à Decisão (Capítulos 3 \& 4)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Capítulo 3: Aonde Queremos Ir}]
+        \begin{itemize}
+          \item Mapa Estratégico do IT BSC e Portfólio de TI.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Capítulo 4: Quem Decide}]
+        \begin{itemize}
+          \item Comitê Estratégico, Matriz RACI e Políticas de TI.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 7. CAPÍTULOS 5 E 6
+\begin{senaiframe}{Teoria • Módulo 1}{Da Medição à Proteção (Capítulos 5 \& 6)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Capítulo 5: Como Medimos}]
+        \begin{itemize}
+          \item KPIs do Negócio e TI, Baseline e Dashboard.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Capítulo 6: Como nos Protegemos}]
+        \begin{itemize}
+          \item Matriz de Riscos 5x5, Mitigação e LGPD.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 8. CAPÍTULOS 7 E 8
+\begin{senaiframe}{Teoria • Módulo 1}{Dos Frameworks à Qualidade (Capítulos 7 \& 8)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Capítulo 7: Melhores Práticas}]
+        \begin{itemize}
+          \item Seleção de COBIT 2019, ITIL v4 e ISO 38500.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Capítulo 8: Qualidade de Dev}]
+        \begin{itemize}
+          \item Maturidade CMMI/MPS-SW e ISO 25010.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 9. CAPÍTULO 9
+\begin{senaiframe}{Teoria • Módulo 1}{Da Execução ao Valor (Capítulo 9)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Capítulo 9: Quando e Quanto}]
+        \begin{itemize}
+          \item Roadmap em 3 Ondas, Orçamento CAPEX/OPEX.
+          \item Fatores Críticos de Sucesso e Geração de Valor.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Síntese Final}]
+        \begin{itemize}
+          \item Fechamento do plano de investimentos de 3 anos.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 10. GOVERNANÇA CONTÍNUA
+\begin{senaiframe}{Teoria • Módulo 2}{O Conceito de Governança Contínua}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Instrumento Vivo}]
+        \begin{itemize}
+          \item O PDGTI deve ser revisado anualmente.
+          \item Reajuste de metas conforme mudanças de mercado.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Evitar o Engavetamento}]
+        \begin{itemize}
+          \item Acompanhamento mensal das metas pelo Comitê.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 11. O CICLO PDCA NO PDGTI
+\begin{senaiframe}{Teoria • Módulo 2}{O Ciclo PDCA Aplicado ao PDGTI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Plan \& Do}]
+        \begin{itemize}
+          \item \textbf{Plan:} Elaborar/Revisar o PDGTI e metas.
+          \item \textbf{Do:} Executar as ondas do roadmap e políticas.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Check \& Act}]
+        \begin{itemize}
+          \item \textbf{Check:} Acompanhar dashboards e auditorias.
           \item \textbf{Act:} Corrigir desvios no Comitê de TI.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 4. CHECKLIST DE QUALIDADE DO PDGTI
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 2 • Auditoria}{Checklist de Rigor Técnico do Artefato}
-
+% 12. RITOS DO COMITÊ DE TI
+\begin{senaiframe}{Teoria • Módulo 2}{Ritos do Comitê Estratégico de TI}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senairedcard, title={Estrutura \& Diagnóstico}]
+      \begin{tcolorbox}[senaibluecard, title={Pauta Mensal}]
         \begin{itemize}
-          \item Organogramas corporativo e de TI claros.
-          \item Matriz SWOT completa nos 4 quadrantes.
-          \item Mapa Estratégico nas 4 perspectivas do BSC.
+          \item Revisão dos KPIs do dashboard e incidentes graves.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaiambercard, title={Controles \& Execução}]
+      \begin{tcolorbox}[senaiambercard, title={Pauta Trimestral/Anual}]
         \begin{itemize}
-          \item Matriz RACI com exatamente um 'A' por linha.
-          \item KPIs com baseline e metas SMART.
-          \item Roadmap em 3 Ondas com orçamentos CAPEX/OPEX.
+          \item Avaliação do portfólio de projetos e revisão do PDGTI.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 5. REFERÊNCIAS BIBLIOGRÁFICAS
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
+% 13. ESTUDO DE CASO PRÁTICO
+\begin{senaiframe}{Estudo de Caso}{Auditoria de Qualidade em Artefato de PDGTI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Falha de Auditoria}]
+        \begin{itemize}
+          \item Matriz RACI com 2 'A's em alguns processos.
+          \item Incompatibilidade corrigida na revisão final.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Aprovação Executiva}]
+        \begin{itemize}
+          \item Documento 100\% auditável e aprovado pelo Conselho.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
 
+% 14. REFERÊNCIAS BIBLIOGRÁFICAS
+\begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
   \begin{tcolorbox}[senaicard, title={Obras de Referência}]
     \begin{itemize}
       \item \textbf{FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz.} *Implantando a governança de TI: da estratégia à gestão de processos e serviços.* 4. ed. Rio de Janeiro: Brasport, 2014.
       \item \textbf{WEILL, Peter; ROSS, Jeanne W.} *Governança de Tecnologia da Informação.* Rio de Janeiro: Elsevier, 2004.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 6. APLICAÇÃO NO PDGTI
-% ------------------------------------------------------------------------------
+% 15. APLICAÇÃO NO PDGTI
 \begin{senaiframe}{Aplicação no PDGTI}{Instruções para a ENTREGA FINAL (27/Nov)}
-
   \vspace{0.2cm}
   \begin{tcolorbox}[senaigreencard, title={Entrega Final do PDGTI Completo (Peso: 30%)}]
     \begin{itemize}
@@ -142,5 +291,4 @@
       \item Data limite impreterível: **27 de Novembro**.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}

@@ -2,20 +2,15 @@
 % SLIDES - SEMANA 04: IT BALANCED SCORECARD (BSC), PORTFÓLIO DE TI & DECISÃO
 % ==============================================================================
 
-% ------------------------------------------------------------------------------
-% 1. SLIDE DE CAPA
-% ------------------------------------------------------------------------------
+% 1. CAPA
 \senaicover
   {IT BSC \& Portfólio de TI}
   {Mapa Estratégico, Matriz do Portfólio (Weill \& Aral) e Tomada de Decisão}
   {Unidade Curricular: Governança de TI}
   {Prof. André Souza}
 
-% ------------------------------------------------------------------------------
-% 2. VISÃO GERAL / AGENDA
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Visão Geral \& Agenda}{Os 4 Eixos da Aula}
-
+% 2. AGENDA
+\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura da Aula}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senaibluecard, title={1. IT Balanced Scorecard}]
@@ -24,9 +19,7 @@
           \item Relações de causa e efeito estratégicas.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaiambercard, title={3. Mecanismos de Decisão}]
         \begin{itemize}
           \item As 5 decisões de TI (Weill \& Ross).
@@ -34,7 +27,6 @@
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senairedcard, title={2. Portfólio de TI}]
         \begin{itemize}
@@ -42,9 +34,7 @@
           \item Infraestrutura, Transacional, Informacional e Estratégico.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaigreencard, title={4. Capítulo 3 do PDGTI}]
         \begin{itemize}
           \item Objetivos Estratégicos de TI.
@@ -53,68 +43,250 @@
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 3. AS 4 PERSPECTIVAS DO IT BSC
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 1 • IT BSC}{As 4 Perspectivas do Mapa Estratégico}
+% 3. ORIGEM DO BSC
+\begin{senaiframe}{Teoria • Módulo 1}{Origem e Conceito do Balanced Scorecard (BSC)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Kaplan \& Norton (1992)}]
+        \begin{itemize}
+          \item Superação da medição focada apenas em indicadores contábeis.
+          \item Visão equilibrada do desempenho organizacional.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Adaptação para a TI (IT BSC)}]
+        \begin{itemize}
+          \item Tradução da estratégia de TI em objetivos mensuráveis.
+          \item Conexão entre inovação técnica e resultado financeiro.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
 
+% 4. O IT BSC
+\begin{senaiframe}{Teoria • Módulo 1}{As 4 Perspectivas do IT BSC}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senaibluecard, title={Financeira \& Cliente}]
         \begin{itemize}
-          \item \textbf{Financeira (Topo):} Retorno sobre investimentos em TI, otimização de custos e ROI.
-          \item \textbf{Cliente / Negócio:} Satisfação dos usuários internos, SLAs e entrega de valor percepível.
+          \item \textbf{Financeira:} ROI, redução de custos e valor entregue.
+          \item \textbf{Cliente / Negócio:} SLAs, valor percebido e satisfação.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaicard, title={Processos \& Aprendizado}]
+      \begin{tcolorbox}[senaiambercard, title={Processos \& Aprendizado}]
         \begin{itemize}
-          \item \textbf{Processos Internos:} Qualidade do código, velocidade de entrega e segurança da informação.
-          \item \textbf{Aprendizado \& Crescimento (Base):} Capacitação técnica da equipe e inovação tecnológica.
+          \item \textbf{Processos Internos:} Qualidade, agilidade e segurança.
+          \item \textbf{Aprendizado \& Crescimento:} Capacitação da equipe.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 4. PORTFÓLIO DE TI (WEILL & ARAL)
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 2 • Portfólio}{As 4 Categorias de Ativos de TI}
+% 5. PERSPECTIVA FINANCEIRA
+\begin{senaiframe}{Teoria • Módulo 1}{Perspectiva 1: Financeira}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Objetivos Típicos}]
+        \begin{itemize}
+          \item Maximizar o retorno do capital investido em tecnologia.
+          \item Otimizar os custos de operação em infraestrutura (OPEX).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Indicadores Chave}]
+        \begin{itemize}
+          \item Retorno sobre o Investimento (ROI de TI).
+          \item Custo total de propriedade (TCO) por usuário.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
 
+% 6. PERSPECTIVA DO CLIENTE / NEGÓCIO
+\begin{senaiframe}{Teoria • Módulo 1}{Perspectiva 2: Cliente / Negócio}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Objetivos Típicos}]
+        \begin{itemize}
+          \item Ser visto como parceiro estratégico das áreas de negócio.
+          \item Garantir a satisfação dos usuários internos e clientes.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Indicadores Chave}]
+        \begin{itemize}
+          \item Índice de satisfação (CSAT / NPS de TI).
+          \item Cumprimento dos acordos de nível de serviço (SLA).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 7. PERSPECTIVA DOS PROCESSOS INTERNOS
+\begin{senaiframe}{Teoria • Módulo 1}{Perspectiva 3: Processos Internos de TI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Objetivos Típicos}]
+        \begin{itemize}
+          \item Acelerar a entrega de software (Time-to-Market).
+          \item Garantir a segurança da informação e zero bugs críticos.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Indicadores Chave}]
+        \begin{itemize}
+          \item Tempo médio de atendimento de chamados (MTTR).
+          \item Taxa de defeitos em produção após o deploy.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 8. PERSPECTIVA DE APRENDIZADO E CRESCIMENTO
+\begin{senaiframe}{Teoria • Módulo 1}{Perspectiva 4: Aprendizado \& Crescimento}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Objetivos Típicos}]
+        \begin{itemize}
+          \item Capacitar a equipe técnica em tecnologias emergentes.
+          \item Promover uma cultura de inovação e agilidade.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Indicadores Chave}]
+        \begin{itemize}
+          \item Horas de treinamento por colaborador/ano.
+          \item Taxa de retenção de talentos (Turnover de TI).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 9. CAUSA E EFEITO NO MAPA ESTRATÉGICO
+\begin{senaiframe}{Teoria • Módulo 1}{Relações de Causa e Efeito}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Encadeamento Lógico}]
+        \begin{itemize}
+          \item Equipe capacitada (Aprendizado) -> Desenvolve código melhor (Processos) -> Entrega sistemas estáveis (Cliente) -> Aumenta faturamento (Financeiro).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Importância da Base}]
+        \begin{itemize}
+          \item Investir na base (capacitação) viabiliza o topo (lucro).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 10. GESTÃO DE PORTFÓLIO DE TI
+\begin{senaiframe}{Teoria • Módulo 2}{Gestão de Portfólio de TI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Equilíbrio de Ativos}]
+        \begin{itemize}
+          \item Tratar os investimentos de TI como uma carteira de ações.
+          \item Balancear riscos altos com retornos estratégicos.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Weill \& Aral}]
+        \begin{itemize}
+          \item Categorização em 4 tipos de investimento tecnológico.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 11. AS 4 CATEGORIAS DE WEILL & ARAL
+\begin{senaiframe}{Teoria • Módulo 2}{As 4 Categorias de Ativos (Weill \& Aral)}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senaicard, title={Infraestrutura \& Transacional}]
         \begin{itemize}
-          \item \textbf{Infraestrutura:} Base tecnológica compartilhada (redes, servidores, nuvem).
-          \item \textbf{Transacional:} Automação de tarefas repetitivas e redução de custos (ERP, folha).
+          \item \textbf{Infraestrutura:} Sustentação (redes, servidores).
+          \item \textbf{Transacional:} Automação e corte de custos (ERP).
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senairedcard, title={Informacional \& Estratégico}]
         \begin{itemize}
-          \item \textbf{Informacional:} Inteligência e dados para apoio à decisão (BI, CRM, Data Lakes).
-          \item \textbf{Estratégico:} Diferencial competitivo e inovação no mercado (Apps exclusivos, IA).
+          \item \textbf{Informacional:} Inteligência e apoio à decisão (BI).
+          \item \textbf{Estratégico:} Diferencial competitivo e inovação.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 5. REFERÊNCIAS BIBLIOGRÁFICAS
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
+% 12. MECANISMOS DE DECISÃO
+\begin{senaiframe}{Teoria • Módulo 3}{As 5 Decisões de TI (Weill \& Ross)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Diretrizes \& Infraestrutura}]
+        \begin{itemize}
+          \item \textbf{1. Princípios de TI:} Papel da tecnologia na empresa.
+          \item \textbf{2. Arquitetura de TI:} Padrões permitidos.
+          \item \textbf{3. Infraestrutura:} Estratégia de recursos centrais.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Aplicações \& Investimento}]
+        \begin{itemize}
+          \item \textbf{4. Necessidade de Aplicações:} O que comprar/criar.
+          \item \textbf{5. Investimento e Priorização:} Orçamento.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
 
+% 13. ESTUDO DE CASO PRÁTICO
+\begin{senaiframe}{Estudo de Caso}{Mapa Estratégico de uma Fintech}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Iniciativas Mapeadas}]
+        \begin{itemize}
+          \item Treinar equipe em LGPD/DevSecOps (Aprendizado).
+          \item Automatizar testes OWASP em código (Processos).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Resultados Alcançados}]
+        \begin{itemize}
+          \item API de pagamentos com 99,99\% de uptime (Cliente).
+          \item Crescimento de 40\% nas transações com custo menor (Financeiro).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 14. REFERÊNCIAS BIBLIOGRÁFICAS
+\begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
   \begin{tcolorbox}[senaicard, title={Obras de Referência}]
     \begin{itemize}
       \item \textbf{KAPLAN, Robert S.; NORTON, David P.} *A estratégia em ação: Balanced Scorecard.* 14. ed. Rio de Janeiro: Elsevier, 1997.
@@ -122,22 +294,17 @@
       \item \textbf{ITGI.} *Implementing and Nurturing IT Governance.* IT Governance Institute, 2005.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 6. APLICAÇÃO NO PDGTI
-% ------------------------------------------------------------------------------
+% 15. APLICAÇÃO NO PDGTI
 \begin{senaiframe}{Aplicação no PDGTI}{Desenvolvimento do Capítulo 3}
-
   \vspace{0.2cm}
   \begin{tcolorbox}[senaigreencard, title={Capítulo 3 – Objetivos Estratégicos \& Mapa Estratégico}]
     \begin{itemize}
-      \item \textbf{3.1 Alinhamento de Objetivos:} Vincular objetivos de TI aos objetivos estratégicos do negócio.
-      \item \textbf{3.2 Mapa Estratégico de TI:} Desenho gráfico contemplando as 4 perspectivas do BSC.
-      \item \textbf{3.3 Matriz do Portfólio:} Classificar projetos nas 4 categorias de Weill \& Aral.
-      \item \textbf{3.4 Alçadas de Decisão:} Tabela definindo quem aprova compras, arquitetura e projetos.
+      \item \textbf{3.1 Alinhamento de Objetivos:} Vincular Objetivos de TI ao Negócio.
+      \item \textbf{3.2 Mapa Estratégico de TI:} Desenhar o mapa no modelo BSC.
+      \item \textbf{3.3 Matriz do Portfólio:} Classificar projetos nas 4 categorias.
+      \item \textbf{3.4 Alçadas de Decisão:} Tabela definindo responsáveis por aprovações.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}

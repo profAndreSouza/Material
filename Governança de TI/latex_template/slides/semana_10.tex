@@ -2,20 +2,15 @@
 % SLIDES - SEMANA 10: GESTÃO DE RISCOS, COMPLIANCE & SEGURANÇA DA INFORMAÇÃO
 % ==============================================================================
 
-% ------------------------------------------------------------------------------
-% 1. SLIDE DE CAPA
-% ------------------------------------------------------------------------------
+% 1. CAPA
 \senaicover
   {Riscos, Compliance \& Segurança}
   {Gestão de Riscos (ISO 31000), Matriz de Riscos 5x5, LGPD e Entrega Parcial 2}
   {Unidade Curricular: Governança de TI}
   {Prof. André Souza}
 
-% ------------------------------------------------------------------------------
-% 2. VISÃO GERAL / AGENDA
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Visão Geral \& Agenda}{Os 4 Eixos da Aula}
-
+% 2. AGENDA
+\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura da Aula}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senaibluecard, title={1. Gestão de Riscos}]
@@ -24,9 +19,7 @@
           \item As 4 etapas da ISO 31000.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaiambercard, title={3. Compliance Regulatório}]
         \begin{itemize}
           \item Requisitos da LGPD (Lei 13.709/2018).
@@ -34,7 +27,6 @@
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senairedcard, title={2. Matriz de Riscos}]
         \begin{itemize}
@@ -42,9 +34,7 @@
           \item As 4 respostas: Mitigar, Evitar, Transferir, Aceitar.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaigreencard, title={4. Entrega Parcial 2}]
         \begin{itemize}
           \item Submissão dos Capítulos 5 e 6.
@@ -53,70 +43,249 @@
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 3. AS 4 ESTRATÉGIAS DE RESPOSTA AOS RISCOS
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 1 • Resposta a Riscos}{As 4 Estratégias de Tratamento}
-
+% 3. CONCEITO DE RISCO DE TI
+\begin{senaiframe}{Teoria • Módulo 1}{O que é Risco de TI? (ISO 31000)}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={Mitigar \& Evitar}]
+      \begin{tcolorbox}[senaibluecard, title={Definição Geral}]
         \begin{itemize}
-          \item \textbf{Mitigar (Reduzir):} Implementar controles técnicos (ex: MFA, firewalls, backups).
-          \item \textbf{Evitar (Eliminar):} Descontinuar sistemas legados inseguros ou processos arriscados.
+          \item Efeito da incerteza nos objetivos da organização.
+          \item Probabilidade de um evento afetar negativamente os negócios.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senairedcard, title={Transferir \& Aceitar}]
+      \begin{tcolorbox}[senaicard, title={Contexto da TI}]
         \begin{itemize}
-          \item \textbf{Transferir (Compartilhar):} Seguro cibernético ou terceirização em nuvem com SLA.
-          \item \textbf{Aceitar (Residual):} Assumir o risco quando o custo do controle supera o dano.
+          \item Falhas de sistemas, ataques virtuais ou erros operacionais.
+          \item Danos financeiros, operacionais e reputacionais.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 4. COMPLIANCE & SEGURANÇA DA INFORMAÇÃO
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 2 • Compliance}{LGPD \& ISO/IEC 27001}
-
+% 4. AMEAÇA VS VULNERABILIDADE
+\begin{senaiframe}{Teoria • Módulo 1}{Ameaça vs. Vulnerabilidade vs. Impacto}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaiambercard, title={LGPD (Lei 13.709/2018)}]
+      \begin{tcolorbox}[senairedcard, title={Ameaça \& Vulnerabilidade}]
         \begin{itemize}
-          \item Proteção de dados pessoais e direitos dos titulares.
-          \item Multas administrativas de até R$ 50 milhões por infração.
-          \item Governança de dados, DPO e Relatório RIPD.
+          \item \textbf{Ameaça:} Agente externo/interno (ex: hacker, enchente).
+          \item \textbf{Vulnerabilidade:} Fraqueza no sistema (ex: senha fraca).
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaicard, title={ISO/IEC 27001 (Tríade CID)}]
+      \begin{tcolorbox}[senaiambercard, title={Equação do Risco}]
         \begin{itemize}
-          \item \textbf{Confidencialidade:} Acesso restrito apenas a pessoas autorizadas.
-          \item \textbf{Integridade:} Dados exatos, imutáveis e sem adulteração.
-          \item \textbf{Disponibilidade:} Acesso garantido sempre que necessário.
+          \item \textbf{Risco = Ameaça x Vulnerabilidade x Impacto}.
+          \item Sem vulnerabilidade, a ameaça não se concretiza.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 5. REFERÊNCIAS BIBLIOGRÁFICAS
-% ------------------------------------------------------------------------------
+% 5. ETAPAS DA GESTÃO DE RISCOS
+\begin{senaiframe}{Teoria • Módulo 1}{As 4 Etapas da Gestão de Riscos}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Identificação \& Análise}]
+        \begin{itemize}
+          \item \textbf{1. Identificação:} Mapeamento das ameaças aos ativos.
+          \item \textbf{2. Análise:} Determinar probabilidade e impacto.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Avaliação \& Resposta}]
+        \begin{itemize}
+          \item \textbf{3. Avaliação:} Priorização na matriz de risco.
+          \item \textbf{4. Resposta:} Definir plano de ação/mitigação.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 6. MATRIZ DE RISCOS 5X5
+\begin{senaiframe}{Teoria • Módulo 2}{A Matriz de Riscos 5x5}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Eixos de Avaliação}]
+        \begin{itemize}
+          \item \textbf{Probabilidade (1 a 5):} Rara até Quase Certa.
+          \item \textbf{Impacto (1 a 5):} Insignificante até Catastrófico.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Categorias de Severidade}]
+        \begin{itemize}
+          \item \textbf{Baixo, Médio, Alto e Crítico}.
+          \item Foco prioritário de investimento nos riscos Críticos.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 7. RESPOSTAS: MITIGAR E EVITAR
+\begin{senaiframe}{Teoria • Módulo 2}{Estratégias: Mitigar \& Evitar}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Mitigar (Reduzir)}]
+        \begin{itemize}
+          \item Implementar controles técnicos para diminuir risco.
+          \item *Exemplo:* Instalação de MFA e criptografia.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Evitar (Eliminar)}]
+        \begin{itemize}
+          \item Descontinuar tecnologia ou atividade arriscada.
+          \item *Exemplo:* Desligar servidores sem patches de segurança.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 8. RESPOSTAS: TRANSFERIR E ACEITAR
+\begin{senaiframe}{Teoria • Módulo 2}{Estratégias: Transferir \& Aceitar}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Transferir (Compartilhar)}]
+        \begin{itemize}
+          \item Repassar o impacto financeiro a terceiros.
+          \item *Exemplo:* Seguro cibernético ou contratação de nuvem.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Aceitar (Risco Residual)}]
+        \begin{itemize}
+          \item Conviver com o risco quando o custo do controle supera a perda.
+          \item Decisão formalizada e aprovada pela diretoria.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 9. UNIVERSIO DE COMPLIANCE
+\begin{senaiframe}{Teoria • Módulo 3}{O Universo de Compliance Regulatório}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Regulação da TI}]
+        \begin{itemize}
+          \item Exigências legais sobre armazenamento de dados e privacidade.
+          \item Auditabilidade de processos operacionais de TI.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Sanções de Não-Conformidade}]
+        \begin{itemize}
+          \item Multas milionárias, paralisação de sistemas e dano à marca.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 10. A LGPD NA TI
+\begin{senaiframe}{Teoria • Módulo 3}{A LGPD (Lei 13.709/2018) na TI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Diretrizes Gerais}]
+        \begin{itemize}
+          \item Proteção de dados pessoais e privacidade dos titulares.
+          \item Multas de até 2\% do faturamento (limite de R$ 50 mi).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Controles de TI}]
+        \begin{itemize}
+          \item Anonimização de dados, gestão de consentimento e DPO.
+          \item Relatório de Impacto à Proteção de Dados (RIPD).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 11. ISO 27001 E TRÍADE CID
+\begin{senaiframe}{Teoria • Módulo 3}{ISO/IEC 27001 \& Tríade CID}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={A Tríade CID}]
+        \begin{itemize}
+          \item \textbf{Confidencialidade:} Acesso restrito a pessoas autorizadas.
+          \item \textbf{Integridade:} Dados exatos e sem modificações indevidas.
+          \item \textbf{Disponibilidade:} Acesso garantido quando necessário.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={SGSI}]
+        \begin{itemize}
+          \item Sistema de Gestão de Segurança da Informação formal.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 12. OUTROS MARCOS
+\begin{senaiframe}{Teoria • Módulo 3}{Outros Marcos Regulatórios (PCI-DSS, BACEN)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={PCI-DSS}]
+        \begin{itemize}
+          \item Padrão para transações com cartões de crédito.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={BACEN (Bancos)}]
+        \begin{itemize}
+          \item Resoluções sobre cibersegurança no setor financeiro.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 13. ESTUDO DE CASO PRÁTICO
+\begin{senaiframe}{Estudo de Caso}{Rede Hospitalar: Sequestro por Ransomware}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Incidente Real}]
+        \begin{itemize}
+          \item Criptografia do banco de exames; resgate de US$ 2 milhões.
+          \item Causa: Servidores desatualizados e sem backup offline.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Resposta de Governança}]
+        \begin{itemize}
+          \item Adotado backup imutável com testes DRP mensais.
+          \item Microssegmentação da rede hospitalar.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 14. REFERÊNCIAS BIBLIOGRÁFICAS
 \begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
-
   \begin{tcolorbox}[senaicard, title={Obras de Referência}]
     \begin{itemize}
       \item \textbf{FREITAS, Daniel Paulo Paiva.} *Proteção e governança de dados.* Curitiba: Contentus, 2020.
@@ -124,21 +293,16 @@
       \item \textbf{ISO/IEC.} *ISO/IEC 27001: Information security, cybersecurity and privacy protection.* ISO, 2022.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 6. APLICAÇÃO NO PDGTI
-% ------------------------------------------------------------------------------
+% 15. APLICAÇÃO NO PDGTI
 \begin{senaiframe}{Aplicação no PDGTI}{Orientações para a ENTREGA PARCIAL 2}
-
   \vspace{0.2cm}
   \begin{tcolorbox}[senaigreencard, title={Entrega Parcial 2 (Capítulos 5 e 6) – Data: 09/Out}]
     \begin{itemize}
-      \item \textbf{Capítulo 5:} Sistema de Indicadores de Desempenho (KPIs do Negócio e Operacionais de TI).
-      \item \textbf{Capítulo 6:} Gestão de Riscos, Matriz 5x5, Planos de Mitigação e Compliance Regulatório (LGPD).
-      \item Consolidar com as revisões e correções apontadas na Entrega Parcial 1.
+      \item \textbf{Capítulo 5:} Indicadores de Desempenho (KPIs Negócio/TI).
+      \item \textbf{Capítulo 6:} Matriz de Riscos 5x5, Mitigação e LGPD.
+      \item Consolidação das correções solicitadas na Entrega Parcial 1.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}

@@ -2,20 +2,15 @@
 % SLIDES - SEMANA 07: GESTÃO DE DESEMPENHO EM TI, KPIS & MÉTRICAS
 % ==============================================================================
 
-% ------------------------------------------------------------------------------
-% 1. SLIDE DE CAPA
-% ------------------------------------------------------------------------------
+% 1. CAPA
 \senaicover
   {Gestão de Desempenho em TI}
   {Métricas, KPIs do Negócio vs. Operacionais e Dashboard Executivo}
   {Unidade Curricular: Governança de TI}
   {Prof. André Souza}
 
-% ------------------------------------------------------------------------------
-% 2. VISÃO GERAL / AGENDA
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Visão Geral \& Agenda}{Os 4 Eixos da Aula}
-
+% 2. AGENDA
+\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura da Aula}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senaibluecard, title={1. Hierarquia da Medição}]
@@ -24,9 +19,7 @@
           \item A regra de Peter Drucker na TI.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaiambercard, title={3. Linha de Base \& Metas}]
         \begin{itemize}
           \item Estabelecendo a Baseline atual.
@@ -34,7 +27,6 @@
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senairedcard, title={2. Categorias de KPIs}]
         \begin{itemize}
@@ -42,9 +34,7 @@
           \item KPIs Operacionais (MTTR, MTBF, Availability).
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaigreencard, title={4. Capítulo 5 do PDGTI}]
         \begin{itemize}
           \item Sistema de Indicadores de Desempenho.
@@ -53,94 +43,266 @@
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 3. KPIS DO NEGÓCIO VS OPERACIONAIS
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 1 • Indicadores}{KPIs Executivos vs. KPIs Operacionais}
-
+% 3. POR QUE MEDIR
+\begin{senaiframe}{Teoria • Módulo 1}{Por que Medir o Desempenho em TI?}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={KPIs do Negócio (Estratégico)}]
+      \begin{tcolorbox}[senaibluecard, title={Subjetividade vs. Fatos}]
         \begin{itemize}
-          \item \textbf{ROI de TI:} Retorno financeiro sobre investimentos em projetos.
-          \item \textbf{CSAT / NPS de TI:} Nível de satisfação dos usuários internos.
-          \item \textbf{Time-to-Market:} Tempo para lançar novos produtos digitais.
+          \item Sem dados, o valor da TI é avaliado por percepções.
+          \item Incidentes pontuais mancham a reputação da TI sem métricas.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaicard, title={KPIs Operacionais (Técnico)}]
+      \begin{tcolorbox}[senaigreencard, title={Comprovação de Resultados}]
         \begin{itemize}
-          \item \textbf{Disponibilidade / Uptime (%):} Tempo de atividade dos sistemas críticos.
-          \item \textbf{MTTR:} Tempo Médio para Reparo de incidentes.
-          \item \textbf{MTBF:} Tempo Médio Entre Falhas consecutivas.
+          \item Demonstração objetiva do cumprimento de SLAs.
+          \item Justificativa fundamentada para novos orçamentos.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 4. METAS SMART & DASHBOARD
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 2 • Metas \& Painel}{Estrutura de um KPI de Sucesso}
-
+% 4. FRASE DE DRUCKER
+\begin{senaiframe}{Teoria • Módulo 1}{A Máxima da Gestão de Desempenho}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaiambercard, title={Metas SMART}]
+      \begin{tcolorbox}[senaiambercard, title={Peter Drucker}]
         \begin{itemize}
-          \item \textbf{Específica:} Específica e sem ambiguidade.
-          \item \textbf{Mensurável:} Quantificável numericamente.
-          \item \textbf{Atingível \& Relevante:} Desafiadora, mas viável.
-          \item \textbf{Temporal:} Prazo limite claro para alcance.
+          \item *"O que não é medido não pode ser gerido."*
+          \item *"O que não é gerido é degradado."*
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaigreencard, title={Dashboard Executivo}]
+      \begin{tcolorbox}[senaicard, title={Aplicação na Governança}]
         \begin{itemize}
-          \item Coleta automatizada sem sobrecarga manual.
-          \item Apresentação visual intuitiva para o Comitê de TI (estilo Farol/Semáforo: Verde, Amarelo, Vermelho).
+          \item A medição contínua garante o alinhamento e a melhoria de processos.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 5. REFERÊNCIAS BIBLIOGRÁFICAS
-% ------------------------------------------------------------------------------
+% 5. HIERARQUIA DA MEDIÇÃO
+\begin{senaiframe}{Teoria • Módulo 1}{Hierarquia: Dado vs. Métrica vs. KPI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Dado \& Métrica}]
+        \begin{itemize}
+          \item \textbf{Dado:} Log "Servidor caiu às 14h".
+          \item \textbf{Métrica:} Tempo de parada mensal "22 minutos".
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={KPI (Indicador Chave)}]
+        \begin{itemize}
+          \item \textbf{KPI:} "Disponibilidade do ERP no mês: 99,95\% (Meta: 99,90\%)".
+          \item Medição com contexto e meta definida.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 6. CATEGORIAS DE KPIS
+\begin{senaiframe}{Teoria • Módulo 2}{As Duas Grandes Categorias de KPIs}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={KPIs do Negócio (Estratégicos)}]
+        \begin{itemize}
+          \item Medem o impacto da TI nos resultados da empresa.
+          \item Apresentados ao Conselho e Diretoria.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={KPIs Operacionais (Técnicos)}]
+        \begin{itemize}
+          \item Medem a eficiência e saúde da infraestrutura.
+          \item Utilizados pelos gerentes e equipes de TI.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 7. KPIS DO NEGÓCIO
+\begin{senaiframe}{Teoria • Módulo 2}{KPIs de Alinhamento com o Negócio}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={ROI \& Receita}]
+        \begin{itemize}
+          \item \textbf{ROI de TI:} Retorno financeiro sobre projetos.
+          \item \textbf{Receita Digital:} % de vendas via sistemas digitais.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Satisfação \& Agilidade}]
+        \begin{itemize}
+          \item \textbf{CSAT / NPS de TI:} Aprovação dos usuários internos.
+          \item \textbf{Time-to-Market:} Tempo para lançar soluções.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 8. KPIS OPERACIONAIS
+\begin{senaiframe}{Teoria • Módulo 2}{KPIs Operacionais de TI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Uptime \& SLAs}]
+        \begin{itemize}
+          \item \textbf{Disponibilidade (%):} % de tempo que os sistemas operam.
+          \item \textbf{SLA de Atendimento:} Chamados resolvidos no prazo.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Qualidade de Código}]
+        \begin{itemize}
+          \item \textbf{Densidade de Bugs:} Erros por 1.000 linhas de código.
+          \item \textbf{Falhas de Segurança:} Vulnerabilidades identificadas.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 9. MTTR E MTBF
+\begin{senaiframe}{Teoria • Módulo 2}{Métricas Técnicas Críticas: MTTR \& MTBF}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={MTTR (Mean Time to Repair)}]
+        \begin{itemize}
+          \item Tempo médio para reparar um sistema após falha.
+          \item Mede a agilidade da equipe na solução do problema.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={MTBF (Mean Time Between Failures)}]
+        \begin{itemize}
+          \item Tempo médio de operação entre duas falhas.
+          \item Mede a confiabilidade e estabilidade do sistema.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 10. METAS SMART E BASELINE
+\begin{senaiframe}{Teoria • Módulo 3}{Linha de Base (Baseline) \& Metas SMART}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Linha de Base (Baseline)}]
+        \begin{itemize}
+          \item Situação atual medida antes da melhoria (ex: MTTR de 4h).
+          \item Ponto de partida obrigatório para avaliar avanços.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Meta SMART}]
+        \begin{itemize}
+          \item Específica, Mensurável, Atingível, Relevante e Temporal.
+          \item *Exemplo:* Reduzir MTTR de 4h para 45min no 4º tri.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 11. FERRAMENTAS DE APURAÇÃO
+\begin{senaiframe}{Teoria • Módulo 3}{Ferramentas de Apuração Automática}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Monitoramento em Tempo Real}]
+        \begin{itemize}
+          \item Zabbix, Datadog, Dynatrace para infraestrutura e redes.
+          \item Alertas automáticos antes que o cliente perceba o erro.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Gestão de ITSM}]
+        \begin{itemize}
+          \item Jira Service Management, ServiceNow para chamados e SLAs.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 12. DASHBOARD EXECUTIVO
+\begin{senaiframe}{Teoria • Módulo 3}{O Dashboard Executivo de Governança}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Princípios do Painel}]
+        \begin{itemize}
+          \item Apresentação visual limpa no modelo Semáforo (Verde/Amarelo/Vermelho).
+          \item Atualização em tempo real para o Comitê de TI.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Acompanhamento}]
+        \begin{itemize}
+          \item Análise de tendências históricas e desvios.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 13. ESTUDO DE CASO PRÁTICO
+\begin{senaiframe}{Estudo de Caso}{Empresa de Logística: Foco no Sistema GATE}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Situação Inicial}]
+        \begin{itemize}
+          \item Suporte media chamados resolvidos por dia (métrica técnica).
+          \item Diretoria focava no tempo de liberação de caminhões (GATE).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Alinhamento por KPI}]
+        \begin{itemize}
+          \item Ajuste do SLA do sistema do GATE para MTTR < 15 min.
+          \item Eliminação de filas na rodovia e multas de atraso.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 14. REFERÊNCIAS BIBLIOGRÁFICAS
 \begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
-
   \begin{tcolorbox}[senaicard, title={Obras de Referência}]
     \begin{itemize}
       \item \textbf{FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz.} *Implantando a governança de TI: da estratégia à gestão de processos e serviços.* 4. ed. Rio de Janeiro: Brasport, 2014.
       \item \textbf{BITTENCOURT, Carlos Magno Andriolli.} *Governança corporativa e compliance: planejamento e gestão estratégica.* Curitiba: Contentus, 2020.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 6. APLICAÇÃO NO PDGTI
-% ------------------------------------------------------------------------------
+% 15. APLICAÇÃO NO PDGTI
 \begin{senaiframe}{Aplicação no PDGTI}{Desenvolvimento do Capítulo 5}
-
   \vspace{0.2cm}
   \begin{tcolorbox}[senaigreencard, title={Capítulo 5 – Gestão de Desempenho e Indicadores}]
     \begin{itemize}
-      \item \textbf{5.1 KPIs do Negócio:} Definir no mínimo 3 KPIs com impacto estratégico.
-      \item \textbf{5.2 KPIs Operacionais de TI:} Definir no mínimo 4 KPIs técnicos (Uptime, MTTR, SLA).
-      \item \textbf{5.3 Linha de Base e Metas:} Estabelecer baseline, meta SMART, responsável e apuração.
-      \item \textbf{5.4 Dashboard Executivo:} Mock-up visual do painel a ser apresentado ao Comitê.
+      \item \textbf{5.1 KPIs do Negócio:} Definir no mínimo 3 KPIs estratégicos.
+      \item \textbf{5.2 KPIs Operacionais de TI:} Definir no mínimo 4 KPIs técnicos.
+      \item \textbf{5.3 Baseline e Metas:} Configurar linha de base e metas SMART.
+      \item \textbf{5.4 Dashboard Executivo:} Desenhar o layout do painel visual.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}

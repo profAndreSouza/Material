@@ -2,20 +2,15 @@
 % SLIDES - SEMANA 15: IMPLANTAÇÃO DA GOVERNANÇA, FCS & GESTÃO DA MUDANÇA
 % ==============================================================================
 
-% ------------------------------------------------------------------------------
-% 1. SLIDE DE CAPA
-% ------------------------------------------------------------------------------
+% 1. CAPA
 \senaicover
   {Implantação da Governança de TI}
   {Roadmap em Ondas, Fatores Críticos de Sucesso, Mudança (ADKAR) e Orçamento}
   {Unidade Curricular: Governança de TI}
   {Prof. André Souza}
 
-% ------------------------------------------------------------------------------
-% 2. VISÃO GERAL / AGENDA
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Visão Geral \& Agenda}{Os 4 Eixos da Aula}
-
+% 2. AGENDA
+\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura da Aula}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senaibluecard, title={1. Roadmap em Ondas}]
@@ -24,9 +19,7 @@
           \item Onda 2 (Médio) e Onda 3 (Longo Prazo).
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaiambercard, title={3. Gestão da Mudança}]
         \begin{itemize}
           \item Modelo ADKAR (Prosci).
@@ -34,7 +27,6 @@
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senairedcard, title={2. Fatores Críticos}]
         \begin{itemize}
@@ -42,9 +34,7 @@
           \item Foco nos negócios e vitórias rápidas.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaigreencard, title={4. Capítulo 9 do PDGTI}]
         \begin{itemize}
           \item Roadmap e Investimentos (CAPEX/OPEX).
@@ -53,91 +43,261 @@
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 3. ROADMAP EM ONDAS
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 1 • Roteiro}{Implantação Estruturada em 3 Ondas}
-
+% 3. DESAFIO DA IMPLANTAÇÃO
+\begin{senaiframe}{Teoria • Módulo 1}{O Desafio da Implantação da Governança}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={Onda 1 — Curto Prazo (0-6m)}]
+      \begin{tcolorbox}[senairedcard, title={Erro da "Big Bang"}]
         \begin{itemize}
-          \item Contenção de danos, inventário inicial, controles de acesso e criação do Comitê Estratégico de TI.
+          \item Tentar implantar todas as políticas simultaneamente.
+          \item Causa paralisia operacional e rejeição cultural.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaicard, title={Ondas 2 \& 3 — Médio/Longo}]
+      \begin{tcolorbox}[senaigreencard, title={Abordagem Gradual}]
         \begin{itemize}
-          \item \textbf{Onda 2 (6-18m):} Adoção ITIL/COBIT, formalização do PETI e monitoramento.
-          \item \textbf{Onda 3 (18-36m):} Maturidade CMMI/MPS-SW e automação avançada.
+          \item Implantação incremental por etapas (Ondas).
+          \item Priorização de ganhos rápidos (*Quick Wins*).
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 4. GESTÃO DA MUDANÇA (ADKAR) & ORÇAMENTO
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 2 • Pessoas \& Recursos}{O Modelo ADKAR \& CAPEX vs. OPEX}
-
+% 4. IMPLANTAÇÃO EM ONDAS
+\begin{senaiframe}{Teoria • Módulo 1}{A Estratégia de Implantação em Ondas}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaiambercard, title={Modelo ADKAR (Mudança)}]
+      \begin{tcolorbox}[senaibluecard, title={Por que usar Ondas?}]
         \begin{itemize}
-          \item \textbf{Awareness:} Conscientização do motivo.
-          \item \textbf{Desire:} Desejo pessoal de apoiar.
-          \item \textbf{Knowledge \& Ability:} Saber e praticar.
-          \item \textbf{Reinforcement:} Sustentação contínua.
+          \item Permite o amadurecimento cultural da empresa.
+          \item Distribui os investimentos ao longo do tempo.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senairedcard, title={CAPEX vs. OPEX}]
+      \begin{tcolorbox}[senaicard, title={Visão de Longo Prazo}]
         \begin{itemize}
-          \item \textbf{CAPEX:} Investimento em ativos físicos (hardware, data center).
-          \item \textbf{OPEX:} Despesas operacionais (SaaS, nuvem por assinatura).
+          \item Planejamento horizonte de 3 anos (36 meses).
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 5. REFERÊNCIAS BIBLIOGRÁFICAS
-% ------------------------------------------------------------------------------
+% 5. ONDA 1 - CURTO PRAZO
+\begin{senaiframe}{Teoria • Módulo 1}{Onda 1: Curto Prazo (0 a 6 Meses)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Foco em Quick Wins}]
+        \begin{itemize}
+          \item Contenção de danos e controle de acessos lógicos.
+          \item Inventário básico de ativos e sistemas.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Estrutura Inicial}]
+        \begin{itemize}
+          \item Criação formal do Comitê Estratégico de TI.
+          \item Apresentação das primeiras vitórias à diretoria.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 6. ONDA 2 - MÉDIO PRAZO
+\begin{senaiframe}{Teoria • Módulo 1}{Onda 2: Médio Prazo (6 a 18 Meses)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Estruturação de Processos}]
+        \begin{itemize}
+          \item Formalização das práticas ITIL (Incidentes, Mudanças).
+          \item Implementação dos objetivos prioritários do COBIT.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Monitoramento}]
+        \begin{itemize}
+          \item Ferramentas de monitoramento em tempo real (Zabbix).
+          \item Implantação do Dashboard Executivo de KPIs.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 7. ONDA 3 - LONGO PRAZO
+\begin{senaiframe}{Teoria • Módulo 1}{Onda 3: Longo Prazo (18 a 36 Meses)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Otimização Avançada}]
+        \begin{itemize}
+          \item Elevação da maturidade de desenvolvimento (CMMI/MPS-SW).
+          \item Automação avançada e governança de Inteligência Artificial.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Governança Contínua}]
+        \begin{itemize}
+          \item Ciclo de melhoria contínua consolidado na cultura da empresa.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 8. FATORES CRÍTICOS DE SUCESSO (FCS)
+\begin{senaiframe}{Teoria • Módulo 2}{Fatores Críticos de Sucesso (FCS)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={O que são FCS?}]
+        \begin{itemize}
+          \item Elementos indispensáveis que garantem o sucesso do projeto.
+          \item Se falharem, todo o investimento em governança é perdido.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Principais FCS}]
+        \begin{itemize}
+          \item Patrocínio executivo, foco no negócio, comunicação e quick wins.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 9. PATROCÍNIO EXECUTIVO
+\begin{senaiframe}{Teoria • Módulo 2}{Tone at the Top \& Foco no Negócio}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Tone at the Top}]
+        \begin{itemize}
+          \item O CEO e os Diretores devem apoiar as regras ativamente.
+          \item Se a diretoria burlar as políticas, a equipe também burlará.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Foco no Negócio}]
+        \begin{itemize}
+          \item Governança deve simplificar os negócios, não criar burocracia inutilizável.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 10. GESTÃO DA MUDANÇA
+\begin{senaiframe}{Teoria • Módulo 3}{Gestão da Mudança Organizacional}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={A Barreira Cultural}]
+        \begin{itemize}
+          \item A maior resistência vem das pessoas habituadas a processos informais.
+          \item Necessidade de treinamento e comunicação transparente.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={O Fator Humano}]
+        \begin{itemize}
+          \item Tratar a mudança com empatia e demonstração de valor.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 11. O MODELO ADKAR
+\begin{senaiframe}{Teoria • Módulo 3}{O Modelo ADKAR (Prosci)}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Awareness, Desire, Knowledge}]
+        \begin{itemize}
+          \item \textbf{A (Awareness):} Conscientização da razão da mudança.
+          \item \textbf{D (Desire):} Vontade pessoal de apoiar.
+          \item \textbf{K (Knowledge):} Saber como mudar (treinamento).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Ability \& Reinforcement}]
+        \begin{itemize}
+          \item \textbf{A (Ability):} Habilidade de praticar.
+          \item \textbf{R (Reinforcement):} Sustentação e celebração.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 12. ORÇAMENTO CAPEX VS OPEX
+\begin{senaiframe}{Teoria • Módulo 3}{Orçamento de TI: CAPEX vs. OPEX}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={CAPEX (Capital Expenditure)}]
+        \begin{itemize}
+          \item Compra de ativos físicos (hardware, servidores, data center).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={OPEX (Operational Expenditure)}]
+        \begin{itemize}
+          \item Custos recorrentes (assinatura de nuvem SaaS/AWS).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 13. ESTUDO DE CASO PRÁTICO
+\begin{senaiframe}{Estudo de Caso}{Cooperativa Agroindustrial: Transição em 40 Filiais}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Ações da Onda 1}]
+        \begin{itemize}
+          \item Padronização de antivírus e Active Directory em 90 dias.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Engajamento ADKAR}]
+        \begin{itemize}
+          \item Programa "TI Parceira do Campo": treinamento presencial prévio.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 14. REFERÊNCIAS BIBLIOGRÁFICAS
 \begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
-
   \begin{tcolorbox}[senaicard, title={Obras de Referência}]
     \begin{itemize}
       \item \textbf{FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz.} *Implantando a governança de TI: da estratégia à gestão de processos e serviços.* 4. ed. Rio de Janeiro: Brasport, 2014.
       \item \textbf{HIATT, Jeffrey M.} *ADKAR: a model for change in business, government and our community.* Prosci Learning Center Publications, 2006.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 6. APLICAÇÃO NO PDGTI
-% ------------------------------------------------------------------------------
+% 15. APLICAÇÃO NO PDGTI
 \begin{senaiframe}{Aplicação no PDGTI}{Desenvolvimento do Capítulo 9}
-
   \vspace{0.2cm}
   \begin{tcolorbox}[senaigreencard, title={Capítulo 9 – Roadmap de Implantação \& Benefícios}]
     \begin{itemize}
-      \item \textbf{9.1 Cronograma em Ondas:} Tabela ou Gantt com as 3 ondas de implantação.
-      \item \textbf{9.2 Estimativa Orçamentária:} Projeção de investimentos em CAPEX e OPEX.
-      \item \textbf{9.3 Fatores Críticos de Sucesso:} Mapear no mínimo 4 FCS específicos.
-      \item \textbf{9.4 Matriz de Benefícios:} Demonstrar a geração de valor para o negócio.
+      \item \textbf{9.1 Cronograma em Ondas:} Tabela ou Gantt das 3 ondas de implantação.
+      \item \textbf{9.2 Estimativa Orçamentária:} Projeção de CAPEX e OPEX.
+      \item \textbf{9.3 Fatores Críticos de Sucesso:} Mapear no mínimo 4 FCS.
+      \item \textbf{9.4 Matriz de Benefícios:} Demonstrar o valor para o negócio.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}

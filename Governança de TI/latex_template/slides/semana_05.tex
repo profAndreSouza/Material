@@ -2,20 +2,15 @@
 % SLIDES - SEMANA 05: GESTÃO DE SERVIÇOS, RACI, POLÍTICAS & ENTREGA PARCIAL 1
 % ==============================================================================
 
-% ------------------------------------------------------------------------------
-% 1. SLIDE DE CAPA
-% ------------------------------------------------------------------------------
+% 1. CAPA
 \senaicover
   {Serviços, Estrutura \& Políticas}
   {Comitê Estratégico, Matriz RACI, Políticas de TI e Entrega Parcial 1}
   {Unidade Curricular: Governança de TI}
   {Prof. André Souza}
 
-% ------------------------------------------------------------------------------
-% 2. VISÃO GERAL / AGENDA
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Visão Geral \& Agenda}{Os 4 Eixos da Aula}
-
+% 2. AGENDA
+\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura da Aula}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senaibluecard, title={1. Conceito de Serviço}]
@@ -24,9 +19,7 @@
           \item O Comitê Estratégico de TI (Steering).
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaiambercard, title={3. Políticas Fundamentais}]
         \begin{itemize}
           \item Política de Segurança da Informação (PSI).
@@ -34,7 +27,6 @@
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
       \begin{tcolorbox}[senairedcard, title={2. A Matriz RACI}]
         \begin{itemize}
@@ -42,9 +34,7 @@
           \item Eliminação da dubiedade operacional.
         \end{itemize}
       \end{tcolorbox}
-      
       \vspace{4pt}
-      
       \begin{tcolorbox}[senaigreencard, title={4. Entrega Parcial 1}]
         \begin{itemize}
           \item Consolidação dos Capítulos 1 a 4.
@@ -53,93 +43,269 @@
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 3. MATRIZ RACI NOS PROCESSOS DE TI
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 1 • Estrutura de Governança}{Regra de Ouro da Matriz RACI}
-
+% 3. CONCEITO DE SERVIÇO DE TI
+\begin{senaiframe}{Teoria • Módulo 1}{O Conceito de Serviço de TI}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={Os 4 Papéis da Matriz RACI}]
+      \begin{tcolorbox}[senaibluecard, title={Visão de Serviços}]
         \begin{itemize}
-          \item \textbf{R (Responsible):} Quem executa a tarefa na prática.
-          \item \textbf{A (Accountable):} O único aprovador final (quem responde pelo sucesso/falha).
-          \item \textbf{C (Consulted):} Especialista consultado antes de decidir.
-          \item \textbf{I (Informed):} Pessoas avisadas após a execução.
+          \item O negócio não compra servidores ou código; consome serviços.
+          \item Entrega de valor facilitando os resultados do cliente.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senairedcard, title={Regra de Ouro (Apenas 1 'A')}]
+      \begin{tcolorbox}[senaicard, title={Isolamento de Riscos}]
         \begin{itemize}
-          \item Para cada atividade de TI, deve existir \textbf{exatamente um 'A'}.
-          \item Se houver dois 'A's: Conflito de autoridade.
-          \item Se houver zero 'A's: Ninguém responde pelas falhas.
+          \item A TI assume a complexidade técnica e a infraestrutura.
+          \item O cliente foca na utilização estratégica do serviço.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 4. POLÍTICAS FUNDAMENTAIS DE TI
-% ------------------------------------------------------------------------------
-\begin{senaiframe}{Módulo 2 • Diretrizes}{As 3 Políticas Fundamentais de TI}
-
+% 4. O COMITÊ ESTRATÉGICO DE TI
+\begin{senaiframe}{Teoria • Módulo 1}{O Comitê Estratégico de TI (Steering Committee)}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={Segurança \& Uso Aceitável}]
+      \begin{tcolorbox}[senaibluecard, title={Instância Máxima}]
         \begin{itemize}
-          \item \textbf{Política de Segurança (PSI):} Senhas, criptografia, MFA, acessos e resposta a incidentes.
-          \item \textbf{Uso Aceitável:} Regras para notebooks, e-mail corporativo, internet e BYOD.
+          \item Órgão colegiado de direcionamento entre TI e Negócio.
+          \item Encontros periódicos (mensais ou trimestrais).
         \end{itemize}
       \end{tcolorbox}
     \end{column}
-
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaiambercard, title={Aquisições \& Fornecedores}]
+      \begin{tcolorbox}[senaigreencard, title={Atribuições Principais}]
         \begin{itemize}
-          \item \textbf{Política de Aquisição de TI:} Processo formal de cotação, homologação de softwares e SaaS.
-          \item \textbf{Gestão de Terceiros:} Contratos de SLA, NDAs e gestão de riscos em fornecedores.
+          \item Aprovação do PETI/PDGTI e grandes investimentos.
+          \item Priorização do portfólio de projetos estratégicos.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 5. REFERÊNCIAS BIBLIOGRÁFICAS
-% ------------------------------------------------------------------------------
+% 5. COMPOSIÇÃO DO COMITÊ
+\begin{senaiframe}{Teoria • Módulo 1}{Composição Típica do Comitê de TI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Membros Obrigatórios}]
+        \begin{itemize}
+          \item CEO / Presidente da Empresa.
+          \item CFO / Diretor Financeiro.
+          \item CIO / Gestor de TI.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Membros de Negócio}]
+        \begin{itemize}
+          \item Diretores Comerciais, de Operações e RH.
+          \item Representantes de governança e auditoria.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 6. CONCEITO DA MATRIZ RACI
+\begin{senaiframe}{Teoria • Módulo 2}{A Matriz RACI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Finalidade}]
+        \begin{itemize}
+          \item Atribuir responsabilidades sem dubiedade em processos.
+          \item Mapear quem executa, quem aprova e quem é informado.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Benefícios}]
+        \begin{itemize}
+          \item Elimina o "jogo de empurra" em incidentes graves.
+          \item Dá clareza sobre o fluxo de aprovação.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 7. OS 4 PAPÉIS RACI
+\begin{senaiframe}{Teoria • Módulo 2}{Os 4 Papéis da Matriz RACI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={R \& A}]
+        \begin{itemize}
+          \item \textbf{R (Responsible):} Quem executa a tarefa prática.
+          \item \textbf{A (Accountable):} O único aprovador/dono do processo.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={C \& I}]
+        \begin{itemize}
+          \item \textbf{C (Consulted):} Especialista ouvido previamente.
+          \item \textbf{I (Informed):} Notificado após a conclusão.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 8. A REGRA DE OURO DO 'A' ÚNICO
+\begin{senaiframe}{Teoria • Módulo 2}{A Regra de Ouro da Matriz RACI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senairedcard, title={Exatamente UM 'A'}]
+        \begin{itemize}
+          \item Para cada linha de processo de TI, deve existir apenas um 'A'.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Erros Comuns}]
+        \begin{itemize}
+          \item \textbf{Dois 'A's:} Conflito de autoridade entre gestores.
+          \item \textbf{Zero 'A's:} Ninguém responde se a tarefa falhar.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 9. GESTÃO DE RECURSOS (OPEX VS CAPEX)
+\begin{senaiframe}{Teoria • Módulo 3}{Gestão de Recursos: OPEX vs. CAPEX}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={CAPEX (Capital Expenditure)}]
+        \begin{itemize}
+          \item Investimento em bens de capital (compra de servidores).
+          \item Entra como ativo no balanço contábil.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={OPEX (Operational Expenditure)}]
+        \begin{itemize}
+          \item Despesas operacionais recorrentes (assinatura de nuvem).
+          \item Tendência de migração para modelos sob demanda.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 10. POLÍTICAS CORPORATIVAS DE TI
+\begin{senaiframe}{Teoria • Módulo 3}{Importância das Políticas de TI}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Diretrizes Mandatórias}]
+        \begin{itemize}
+          \item Tradução dos princípios de governança em regras escritas.
+          \item Aplicação obrigatória a todos os colaboradores.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Proteção Jurídica}]
+        \begin{itemize}
+          \item Amparo legal para a empresa em desvios de conduta.
+          \item Conscientização das equipes operacionais.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 11. PSI E USO ACEITÁVEL
+\begin{senaiframe}{Teoria • Módulo 3}{PSI \& Política de Uso Aceitável}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={PSI (Segurança)}]
+        \begin{itemize}
+          \item Regras de senhas, criptografia, MFA e acessos.
+          \item Classificação da informação e gestão de incidentes.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaiambercard, title={Uso Aceitável (BYOD)}]
+        \begin{itemize}
+          \item Diretrizes para e-mail corporativo, notebooks e redes.
+          \item Regras para uso de dispositivos pessoais no trabalho.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 12. AQUISIÇÕES E TERCEIROS
+\begin{senaiframe}{Teoria • Módulo 3}{Política de Aquisições \& Gestão de Terceiros}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaicard, title={Aquisição de TI}]
+        \begin{itemize}
+          \item Cotação formal, homologação de softwares e SaaS.
+          \item Vedada a compra de sistemas sem aprovação da TI.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Gestão de Fornecedores}]
+        \begin{itemize}
+          \item Cláusulas de SLA, NDAs e obrigações de segurança.
+          \item Avaliação periódica do desempenho do fornecedor.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 13. ESTUDO DE CASO PRÁTICO
+\begin{senaiframe}{Estudo de Caso}{Matriz RACI na Gestão de Mudanças}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaibluecard, title={Atividade}]
+        \begin{itemize}
+          \item Escrever código do sistema: Dev (\textbf{R}), Gestor (\textbf{A}).
+          \item Aprovar deploy em Produção: Gestor (\textbf{A}), Dev (\textbf{C}).
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{tcolorbox}[senaigreencard, title={Resultado}]
+        \begin{itemize}
+          \item Fim de deploies não autorizados às sextas-feiras.
+          \item Rastreabilidade total exigida pelas auditorias.
+        \end{itemize}
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 14. REFERÊNCIAS BIBLIOGRÁFICAS
 \begin{senaiframe}{Referências Bibliográficas}{Fontes \& Leitura Recomendada}
-
   \begin{tcolorbox}[senaicard, title={Obras de Referência}]
     \begin{itemize}
       \item \textbf{FERNANDES, Aguinaldo Aragon; ABREU, Vladimir Ferraz.} *Implantando a governança de TI: da estratégia à gestão de processos e serviços.* 4. ed. Rio de Janeiro: Brasport, 2014.
       \item \textbf{FREITAS, Marcos André dos Santos.} *Fundamentos do gerenciamento de serviços de TI: preparatório para a certificação ITIL Foundation Edição 2011.* 2. ed. Rio de Janeiro: Brasport, 2018.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}
 
-% ------------------------------------------------------------------------------
-% 6. APLICAÇÃO NO PDGTI
-% ------------------------------------------------------------------------------
+% 15. APLICAÇÃO NO PDGTI
 \begin{senaiframe}{Aplicação no PDGTI}{Orientações para a ENTREGA PARCIAL 1}
-
   \vspace{0.2cm}
   \begin{tcolorbox}[senaigreencard, title={Entrega Parcial 1 (Capítulos 1 a 4) – Data: 04/Set}]
     \begin{itemize}
-      \item \textbf{Capítulo 1:} Caracterização da Organização e Estrutura Atual de TI.
-      \item \textbf{Capítulo 2:} Diagnóstico da Situação Atual de TI (SWOT, dores e maturidade).
-      \item \textbf{Capítulo 3:} Objetivos Estratégicos \& Mapa Estratégico (IT BSC).
-      \item \textbf{Capítulo 4:} Estrutura de Governança, Comitês, Matriz RACI e Minuta de Políticas.
+      \item \textbf{Capítulo 1:} Caracterização da Organização e Estrutura de TI.
+      \item \textbf{Capítulo 2:} Diagnóstico da Situação Atual de TI (SWOT/Dores).
+      \item \textbf{Capítulo 3:} Objetivos Estratégicos \& Mapa Estratégico (BSC).
+      \item \textbf{Capítulo 4:} Estrutura de Governança, Matriz RACI e Minuta de Políticas.
     \end{itemize}
   \end{tcolorbox}
-
 \end{senaiframe}
