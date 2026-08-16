@@ -4,7 +4,7 @@ Este repositório reúne os planos de ensino, materiais didáticos teóricos, ap
 
 ---
 
-## 🎯 Visão Geral & Modelo Pedagógico
+## Visão Geral & Modelo Pedagógico
 
 O modelo de ensino é fundamentado no **Ecossistema Integrado de Aprendizagem**, onde as disciplinas teóricas e práticas atuam de forma sinérgica utilizando uma célula fabril didática de referência — a **Smart N1**.
 
@@ -19,7 +19,7 @@ Adicionalmente, o repositório contempla disciplinas de gestão e governança es
 
 ---
 
-## 📚 Padronização dos Materiais Didáticos
+## Padronização dos Materiais Didáticos
 
 Cada unidade curricular presente neste repositório é organizada sob um padrão estrutural único para facilitar o acompanhamento por alunos e docentes:
 
@@ -29,13 +29,13 @@ Cada unidade curricular presente neste repositório é organizada sob um padrão
 
 ---
 
-## 🚀 Plataforma Prática Integrada (FactoryHub)
+## Plataforma Prática Integrada (FactoryHub)
 
 Para vivenciar na prática o ciclo completo de desenvolvimento de software e telemetria industrial, o ecossistema disponibiliza a aplicação **FactoryHub**: uma plataforma web em Flask containerizada via Docker Compose que simula e processa os eventos do chão de fábrica, integrando ingestão MQTT, persistência de dados, endpoints REST e dashboards operacionais em tempo real.
 
 ---
 
-## 🛠️ Como Utilizar este Repositório
+## Como Utilizar este Repositório
 
 ### Para Estudantes
 1. Navegue até a disciplina desejada e consulte o arquivo `README.md` principal para visualizar o cronograma semestral e as datas de avaliação.
