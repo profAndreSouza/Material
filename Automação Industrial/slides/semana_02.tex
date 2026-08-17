@@ -1,66 +1,233 @@
 % ==============================================================================
-% SLIDES - SEMANA 02: SENSORES INDUSTRIAIS DISCRETOS: ELETROMECÂNICOS, INDUTIVOS E CAPACITIVOS
+% SLIDES - SEMANA 02: SENSORES INDUSTRIAIS DISCRETOS (ELETROMECÂNICOS, INDUTIVOS E CAPACITIVOS)
 % ==============================================================================
 
 % 1. CAPA
 \senaicover
-  {Sensores Industriais Discretos: Eletromecânicos, Indutivos e Capacitivos}
-  {Princípios de funcionamento de sensores de proximidade e chaveamento.}
+  {Sensores Industriais Discretos}
+  {Chaves Fim de Curso, Sensores Indutivos, Capacitivos e Polarização PNP/NPN}
   {Unidade Curricular: Automação Industrial}
   {Prof. André Souza}
 
-% 2. AGENDA
-\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura da Aula}
+% 2. AGENDA DA AULA
+\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura do Conteúdo}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={1. Conceitos Chave}]
+      \begin{tcolorbox}[senaibluecard, title={1. Sensoriamento Discreto}]
         \begin{itemize}
-          \item Fundamentos teóricos e definições.
-          \item Relevância para a Indústria 4.0.
+          \item Sinal binário (0/1, 24V DC).
+          \item Chaves Eletromecânicas Fim de Curso.
+          \item Contatos NA (NO) e NF (NC) / \textit{Fail-Safe}.
         \end{itemize}
       \end{tcolorbox}
       \vspace{4pt}
-      \begin{tcolorbox}[senaiambercard, title={3. Aplicação Prática}]
+      \begin{tcolorbox}[senaiambercard, title={3. Sensores Capacitivos}]
         \begin{itemize}
-          \item Estudo de caso na Célula Smart N1.
-          \item Desenvolvimento de rotinas técnicas.
+          \item Placas capacitivas concêntricas.
+          \item Constante dielétrica ($\epsilon_r$).
+          \item Detecção de líquidos e não-metais.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senairedcard, title={2. Detalhamento Técnico}]
+      \begin{tcolorbox}[senairedcard, title={2. Sensores Indutivos}]
         \begin{itemize}
-          \item Ferramentas e protocolos utilizados.
-          \item Boas práticas de implementação.
+          \item Oscilador LC e correntes de Foucault.
+          \item Detecção exclusiva de metais.
+          \item Fator de Redução ($K_r$) e Histerese.
         \end{itemize}
       \end{tcolorbox}
       \vspace{4pt}
-      \begin{tcolorbox}[senaigreencard, title={4. Exercícios \& Avaliação}]
+      \begin{tcolorbox}[senaigreencard, title={4. Esquema elétrico PNP / NPN}]
         \begin{itemize}
-          \item Desafios de fixação do conhecimento.
-          \item Integração com a plataforma FactoryHub.
+          \item Padrão de cores IEC (BN, BU, BK).
+          \item Saídas PNP (\textit{Sourcing}) vs NPN (\textit{Sinking}).
+          \item Testes e diagnósticos de bancada.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
 \end{senaiframe}
 
-% 3. CONTEÚDO TEÓRICO
-\begin{senaiframe}{Teoria • Módulo 1}{Sensores Industriais Discretos: Eletromecânicos, Indutivos e Capacitivos}
-  \begin{columns}[t]
-    \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={Fundamentos Teóricos}]
-        \begin{itemize}
-          \item Sensores indutivos (detecção de metais), capacitivos (plásticos, líquidos) e chaves fim de curso.
-        \end{itemize}
-      \end{tcolorbox}
+% 3. CONCEITO DE SENSORIAMENTO DISCRETO
+\begin{senaiframe}{Fundamentos de Campo}{O que são Sensores Discretos?}
+  \begin{itemize}
+    \item Dispositivos de entrada que fornecem um \textbf{sinal binário (DIGITAL: 0 ou 1, +24V DC ou 0V DC)}.
+    \item Primeira camada de percepção física no chão de fábrica da célula \textbf{Smart N1}.
+    \item \textbf{Funções Principais:} Detecção de presença/ausência de peças, contagem em esteiras e limites de curso de atuadores mecânicos.
+  \end{itemize}
+
+  \vspace{6pt}
+  \begin{tcolorbox}[senaibluecard, title={Tipos Físicos}]
+    Dividem-se entre sensores por \textbf{contato mecânico} (eletromecânicos) e sensores de \textbf{proximidade estado sólido} sem contato físico (indutivos, capacitivos, fotoelétricos e ultrassônicos).
+  \end{tcolorbox}
+\end{senaiframe}
+
+% 4. SENSORES ELETROMECÂNICOS (FIM DE CURSO)
+\begin{senaiframe}{Chaves Fim de Curso}{Sensores Discretos Eletromecânicos}
+  Dependem do impacto físico direto entre o mecanismo em movimento e o atuador do sensor.
+
+  \vspace{4pt}
+  \begin{itemize}
+    \item \textbf{Contato NA / NO (Normal Aberto):} Aberto em repouso ($0\text{V}$), fecha ao ser acionado ($24\text{V}$).
+    \item \textbf{Contato NF / NC (Normal Fechado):} Fechado em repouso ($24\text{V}$), abre ao ser acionado ($0\text{V}$).
+  \end{itemize}
+
+  \vspace{6pt}
+  \begin{tcolorbox}[senairedcard, title={Princípio da Falha Segura (Fail-Safe)}]
+    \textbf{Uso obrigatório de contatos NF em circuitos de emergência!} Se o fio romper ou for cortado, o circuito se abre imediatamente, parando a máquina e garantindo a segurança dos operadores.
+  \end{tcolorbox}
+\end{senaiframe}
+
+% 5. RICOCHETE DE CONTATO (CONTACT BOUNCE)
+\begin{senaiframe}{Fenômenos Elétricos}{Ricochete de Contato (Contact Bounce) \& Debounce}
+  \begin{itemize}
+    \item \textbf{O Problema:} O choque mecânico dos contatos elétricos gera micro-vibrações durante $1\text{ ms}$ a $10\text{ ms}$, disparando múltiplos pulsos falsos de contagem no CLP.
+    \item \textbf{Solução no CLP:} Configuração de filtro digital de entrada (\textit{Hardware Debounce Filter}) para ignorar pulsos transitórios menores que $10\text{ ms}$.
+  \end{itemize}
+
+  \vspace{6pt}
+  \begin{center}
+    \small
+    \textbf{Vantagem do Contato Mecânico:} Imunidade total a ruídos eletromagnéticos e altas correntes.  
+    \textbf{Desvantagem:} Desgaste mecânico por atrito e velocidade limitada.
+  \end{center}
+\end{senaiframe}
+
+% 6. SENSORES DE PROXIMIDADE INDUTIVOS
+\begin{senaiframe}{Estado Sólido}{Sensores de Proximidade Indutivos}
+  Projetados para a detecção \textbf{exclusiva de materiais condutores de eletricidade (metais)} sem contato físico.
+
+  \vspace{4pt}
+  \textbf{Princípio de Operação:}
+  \begin{enumerate}
+    \item Um circuito oscilador LC interno gera um campo magnético de alta frequência na face sensora.
+    \item A aproximação de um alvo metálico induz \textbf{Correntes de Foucault} (\textit{Eddy currents}) na superfície do metal.
+    \item As correntes parasitas absorvem energia do campo, reduzindo a amplitude da oscilação.
+    \item O circuito disparador (\textit{Schmitt Trigger}) detecta a queda de amplitude e comuta o transistor de saída.
+  \end{enumerate}
+\end{senaiframe}
+
+% 7. INFOGRÁFICO: INDUTIVO vs CAPACITIVO
+\begin{senaiframe}{Comparativo de Tecnologias}{Sensor Indutivo vs Sensor Capacitivo}
+  \begin{columns}[c]
+    \begin{column}{0.55\textwidth}
+      \centering
+      \includegraphics[width=\textwidth, height=0.72\textheight, keepaspectratio]{../aulas/img/sensores_indutivo_capacitivo.jpg}
     \end{column}
-    \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaigreencard, title={Prática \& Laboratório}]
-        \begin{itemize}
-          \item Simulação de bancada de testes de sensores discretos.
-        \end{itemize}
-      \end{tcolorbox}
+    \begin{column}{0.42\textwidth}
+      \small
+      \textbf{Resumo Comparativo:}
+      \begin{itemize}
+        \item \textbf{Indutivo:}
+          \begin{itemize}
+            \item Detecta apenas metais.
+            \item Campo magnético induz correntes de Foucault.
+          \end{itemize}
+        \item \textbf{Capacitivo:}
+          \begin{itemize}
+            \item Detecta plásticos, líquidos, vidro e metais.
+            \item Mede variação da constante dielétrica ($\epsilon_r$).
+          \end{itemize}
+      \end{itemize}
     \end{column}
   \end{columns}
+\end{senaiframe}
+
+% 8. FATOR DE REDUÇÃO E HISTERESE
+\begin{senaiframe}{Especificações Técnicas}{Fator de Redução ($K_r$) e Histerese Operacional}
+  \small
+  A distância nominal ($S_n$) é especificada para \textbf{Aço Carbono Fe 360} ($K_r = 1,0$).  
+  Para outros metais, a distância efetiva é $S_e = S_n \times K_r$:
+
+  \vspace{4pt}
+  \begin{center}
+    \begin{tabular}{|l|c|p{4cm}|}
+      \hline
+      \textbf{Material do Alvo} & \textbf{Fator de Redução ($K_r$)} & \textbf{Distância Efetiva ($S_n = 10\text{ mm}$)} \\ \hline
+      Aço Carbono Fe 360 & \textbf{1,00} & $10,0\text{ mm}$ \\ \hline
+      Aço Inoxidável & \textbf{0,70 – 0,80} & $7,5\text{ mm}$ \\ \hline
+      Latão & \textbf{0,45 – 0,50} & $4,8\text{ mm}$ \\ \hline
+      Alumínio & \textbf{0,35 – 0,40} & $3,8\text{ mm}$ \\ \hline
+      Cobre & \textbf{0,25 – 0,30} & $2,8\text{ mm}$ \\ \hline
+    \end{tabular}
+  \end{center}
+
+  \vspace{2pt}
+  \textbf{Histerese ($H$):} Diferença percentual entre o ponto de ligar e desligar do sensor. Evita oscilação da saída se a peça vibrar na borda de leitura.
+\end{senaiframe}
+
+% 9. SENSORES DE PROXIMIDADE CAPACITIVOS
+\begin{senaiframe}{Estado Sólido}{Sensores de Proximidade Capacitivos}
+  Detectam \textbf{qualquer material} (líquidos, plásticos, vidro, grãos, metais) com base na variação da capacitância da face sensora:
+
+  $$C = \frac{\epsilon_0 \cdot \epsilon_r \cdot A}{d}$$
+
+  \begin{itemize}
+    \item A aproximação de qualquer corpo com constante dielétrica $\epsilon_r > 1$ altera o campo elétrico dos eletrodos concêntricos.
+    \item \textbf{Constantes Dielétricas Relativas ($\epsilon_r$):}
+      \begin{itemize}
+        \item Água pura: $\epsilon_r = 80$ (Altíssima sensibilidade).
+        \item Vidro: $\epsilon_r = 5 - 10$ | Acrílico/PET: $\epsilon_r = 3,2$.
+      \end{itemize}
+    \item Possuem potenciômetro traseiro para ajuste fino de sensibilidade.
+  \end{itemize}
+\end{senaiframe}
+
+% 10. POLARIZAÇÃO ELÉTRICA E PADRÃO DE CORES
+\begin{senaiframe}{Esquema Elétrico}{Fiação de 3 Fios (Norma IEC 60947-5-2)}
+  Sensores eletrônicos alimentados em \textbf{Corrente Contínua (+24V DC)} seguem a convenção normatizada de cores:
+
+  \vspace{6pt}
+  \begin{center}
+    \begin{tabular}{|l|c|l|}
+      \hline
+      \textbf{Cor do Fio} & \textbf{Sigla IEC} & \textbf{Função Elétrica} \\ \hline
+      \textbf{MARROM} & BN (\textit{Brown}) & Alimentação Positiva (\textbf{+24V DC}) \\ \hline
+      \textbf{AZUL} & BU (\textit{Blue}) & Alimentação Negativa (\textbf{0V / GND}) \\ \hline
+      \textbf{PRETO} & BK (\textit{Black}) & Linha de Sinal / Saída Digital (\textbf{OUT}) \\ \hline
+    \end{tabular}
+  \end{center}
+
+  \vspace{6pt}
+  \begin{tcolorbox}[senaiambercard, title={Atenção}]
+    Confundir a inversão de polaridade dos fios Marrom e Azul pode queimar o estágio de proteção interna do sensor.
+  \end{tcolorbox}
+\end{senaiframe}
+
+% 11. INFOGRÁFICO PNP vs NPN
+\begin{senaiframe}{Ligação Elétrica}{Saídas PNP (Fonte) vs NPN (Dreno)}
+  \begin{columns}[c]
+    \begin{column}{0.55\textwidth}
+      \centering
+      \includegraphics[width=\textwidth, height=0.72\textheight, keepaspectratio]{../aulas/img/esquema_pnp_npn.jpg}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \small
+      \begin{block}{\textbf{PNP (Sourcing)}}
+        Chaveia \textbf{+24V} para a carga. Carga ligada entre Sinal (BK) e \textbf{0V}.  
+        \textit{Padrão Europa/Brasil (Siemens, Rockwell).}
+      \end{block}
+      \begin{block}{\textbf{NPN (Sinking)}}
+        Chaveia \textbf{0V} para a carga. Carga ligada entre \textbf{+24V} e Sinal (BK).  
+        \textit{Padrão Ásia (Omron, Keyence).}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{senaiframe}
+
+% 12. DIAGNÓSTICO E EXERCÍCIOS DE FIXAÇÃO
+\begin{senaiframe}{Prática & Fixação}{Diagnóstico com Multímetro \& Questões}
+  \begin{block}{\textbf{Roteiro de Teste de Bancada (Sensor PNP NA)}}
+    \begin{enumerate}
+      \item Alimentar: Marrom = $+24\text{V}$, Azul = $0\text{V}$.
+      \item Medir Tensão: Ponteira Vermelha no Fio Preto, Preta no Azul ($0\text{V}$).
+      \item Sem objeto: $0\text{V}$ | Com objeto detectado: $+24\text{V}$.
+    \end{enumerate}
+  \end{block}
+
+  \vspace{4pt}
+  \small
+  \textbf{Questão de Fixação:} Um sensor indutivo possui $S_n = 10\text{ mm}$. Para detectar uma lata de alumínio ($K_r = 0,35$), qual a distância máxima efetiva de montagem ($S_e$)?  
+  \textit{Resposta:} $S_e = 10 \times 0,35 = 3,5\text{ mm}$.
 \end{senaiframe}

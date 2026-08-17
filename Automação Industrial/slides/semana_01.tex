@@ -1,66 +1,193 @@
 % ==============================================================================
-% SLIDES - SEMANA 01: INTRODUÇÃO À AUTOMAÇÃO INDUSTRIAL E ARQUITETURA TI/TA
+% SLIDES - SEMANA 01: ARQUITETURA TI/TA, PIRÂMIDE ISA-95 E EVENTOS FABRIS
 % ==============================================================================
 
 % 1. CAPA
 \senaicover
-  {Introdução à Automação Industrial e Arquitetura TI/TA}
-  {Pirâmide ISA-95, integração OT/IT e modelo de eventos da Smart N1.}
+  {Arquitetura TI/TA e Pirâmide ISA-95}
+  {Modelos de Integração OT/IT, Perímetro da Manufatura e Telemetria Fabril}
   {Unidade Curricular: Automação Industrial}
   {Prof. André Souza}
 
-% 2. AGENDA
-\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura da Aula}
+% 2. AGENDA DA AULA
+\begin{senaiframe}{Visão Geral \& Agenda}{Estrutura do Conteúdo}
   \begin{columns}[t]
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={1. Conceitos Chave}]
+      \begin{tcolorbox}[senaibluecard, title={1. Arquitetura TI/TA}]
         \begin{itemize}
-          \item Fundamentos teóricos e definições.
-          \item Relevância para a Indústria 4.0.
+          \item Evolução das Revoluções Industriais.
+          \item Separação entre OT (\textit{Operational Tech}) e IT (\textit{Info Tech}).
         \end{itemize}
       \end{tcolorbox}
       \vspace{4pt}
-      \begin{tcolorbox}[senaiambercard, title={3. Aplicação Prática}]
+      \begin{tcolorbox}[senaiambercard, title={3. Convergência TI/TA}]
         \begin{itemize}
-          \item Estudo de caso na Célula Smart N1.
-          \item Desenvolvimento de rotinas técnicas.
+          \item Diferenças entre Tríades CIA vs AIC.
+          \item Do modelo rígido ao Data Mesh Industrial.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
     \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senairedcard, title={2. Detalhamento Técnico}]
+      \begin{tcolorbox}[senairedcard, title={2. A Norma ISA-95}]
         \begin{itemize}
-          \item Ferramentas e protocolos utilizados.
-          \item Boas práticas de implementação.
+          \item Níveis 0 a 4: Chão de Fábrica ao ERP.
+          \item Latências e determinismo por camada.
         \end{itemize}
       \end{tcolorbox}
       \vspace{4pt}
-      \begin{tcolorbox}[senaigreencard, title={4. Exercícios \& Avaliação}]
+      \begin{tcolorbox}[senaigreencard, title={4. Ecossistema Smart N1}]
         \begin{itemize}
-          \item Desafios de fixação do conhecimento.
-          \item Integração com a plataforma FactoryHub.
+          \item Payloads JSON de Telemetria.
+          \item Insumos para Ciência de Dados.
         \end{itemize}
       \end{tcolorbox}
     \end{column}
   \end{columns}
 \end{senaiframe}
 
-% 3. CONTEÚDO TEÓRICO
-\begin{senaiframe}{Teoria • Módulo 1}{Introdução à Automação Industrial e Arquitetura TI/TA}
-  \begin{columns}[t]
-    \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaibluecard, title={Fundamentos Teóricos}]
-        \begin{itemize}
-          \item Níveis da norma ISA-95, sensores de campo, controladores e barramentos industriais.
-        \end{itemize}
-      \end{tcolorbox}
+% 3. EVOLUÇÃO HISTÓRICA DA AUTOMAÇÃO
+\begin{senaiframe}{Fundamentos Teóricos}{Evolução das Revoluções Industriais}
+  \begin{itemize}
+    \item \textbf{Indústria 1.0 (Séc. XVIII):} Mecanização movida a vapor e tração hidráulica.
+    \item \textbf{Indústria 2.0 (Séc. XIX):} Eletrificação, produção em massa e linhas de montagem.
+    \item \textbf{Indústria 3.0 (Década de 1970):} Invenção do CLP, eletrônica de estado sólido e informática industrial.
+    \item \textbf{Indústria 4.0 (Atual):} Sistemas Ciber-Físicos (CPS), IIoT, Inteligência Artificial e Ciência de Dados integrados ao chão de fábrica.
+  \end{itemize}
+
+  \vspace{8pt}
+  \begin{tcolorbox}[senaibluecard, title={Desafio Atual}]
+    Conectar o mundo determinístico em tempo real do chão de fábrica (OT) com o mundo corporativo flexível de alta volumetria de dados (IT).
+  \end{tcolorbox}
+\end{senaiframe}
+
+% 4. A NORMA ISA-95 (IEC 62264)
+\begin{senaiframe}{Normatização}{A Norma ANSI/ISA-95 (IEC 62264)}
+  A norma \textbf{ISA-95} define a interface padrão entre os sistemas corporativos de gestão e os sistemas de controle de produção fabril.
+
+  \vspace{6pt}
+  \begin{itemize}
+    \item Estipula uma hierarquia funcional rigorosa em \textbf{5 Níveis} (Nível 0 ao Nível 4).
+    \item Padroniza terminologias para integração entre ERP (\textit{Enterprise Resource Planning}) e MES (\textit{Manufacturing Execution System}).
+    \item Delimita responsabilidades de tempo de resposta e requisitos de rede por camada.
+  \end{itemize}
+\end{senaiframe}
+
+% 5. INFOGRÁFICO DA PIRÂMIDE ISA-95
+\begin{senaiframe}{Hierarquia da Manufatura}{Infográfico da Pirâmide ISA-95}
+  \begin{columns}[c]
+    \begin{column}{0.55\textwidth}
+      \centering
+      \includegraphics[width=\textwidth, height=0.72\textheight, keepaspectratio]{../aulas/img/piramide_isa95.jpg}
     \end{column}
-    \begin{column}{0.48\textwidth}
-      \begin{tcolorbox}[senaigreencard, title={Prática \& Laboratório}]
-        \begin{itemize}
-          \item Mapeamento de eventos fabris em JSON com Python.
-        \end{itemize}
-      \end{tcolorbox}
+    \begin{column}{0.42\textwidth}
+      \small
+      \textbf{Destaques por Camada:}
+      \begin{itemize}
+        \item \textbf{Nível 4 (ERP):} Planejamento e Logística (Meses/Semanas).
+        \item \textbf{Nível 3 (MES):} Gestão de Operações e OEE (Turnos/Dias).
+        \item \textbf{Nível 2 (SCADA):} Supervisão e Operação ($\sim$Segundos).
+        \item \textbf{Nível 1 (CLP):} Controle Determinístico ($\sim$ms).
+        \item \textbf{Nível 0 (Campo):} Sensores/Atuadores ($\mu$s/ms).
+      \end{itemize}
     \end{column}
   \end{columns}
+\end{senaiframe}
+
+% 6. DETALHAMENTO DOS NÍVEIS 0 E 1
+\begin{senaiframe}{ISA-95 • Camada Operacional}{Nível 0 e Nível 1: Chão de Fábrica e Controle}
+  \begin{block}{\textbf{Nível 0 — Processo Físico (Chão de Fábrica)}}
+    \begin{itemize}
+      \item Interface física com a matéria-prima e mecanismos.
+      \item Sensores discretos/analógicos, cilindros pneumáticos, válvulas solenoide, motores e servomotores.
+      \item Resposta física instantânea.
+    \end{itemize}
+  \end{block}
+
+  \vspace{4pt}
+  \begin{block}{\textbf{Nível 1 — Controle Discreto e Contínuo}}
+    \begin{itemize}
+      \item Execução de algoritmos determinísticos e malhas de segurança.
+      \item Controladores Lógicos Programáveis (CLPs), PACs e SDCDs.
+      \item \textbf{Redes Industriais:} Profinet, EtherCAT, Modbus RTU/TCP.
+      \item \textbf{Ciclo de Varredura (SCAN):} $1\text{ ms}$ a $50\text{ ms}$.
+    \end{itemize}
+  \end{block}
+\end{senaiframe}
+
+% 7. DETALHAMENTO DOS NÍVEIS 2, 3 E 4
+\begin{senaiframe}{ISA-95 • Camada de Gestão}{Níveis 2, 3 e 4: Supervisão, MES e ERP}
+  \begin{itemize}
+    \item \textbf{Nível 2 — Supervisão e Controle de Processo (SCADA / HMI):}
+      \begin{itemize}
+        \item Telas sinóticas para monitoramento da linha em tempo real, registro de histórico e gestão de alarmes.
+      \end{itemize}
+    \item \textbf{Nível 3 — Gestão das Operações de Manufatura (MES / MOM):}
+      \begin{itemize}
+        \item Sequenciamento fino de ordens de produção, genealogia/rastreabilidade de produto, controle de qualidade e cálculo automatizado de OEE.
+      \end{itemize}
+    \item \textbf{Nível 4 — Planejamento Empresarial e Logística (ERP):}
+      \begin{itemize}
+        \item Gestão financeira, compras, faturamento e vendas globais (ex.: SAP, TOTVS).
+      \end{itemize}
+  \end{itemize}
+\end{senaiframe}
+
+% 8. TI vs TA (COMPARATIVO RIGOROSO)
+\begin{senaiframe}{Convergência Tecnológica}{Tecnologia da Informação (TI) vs Automação (TA)}
+  \small
+  \begin{center}
+    \begin{tabular}{|l|p{4.2cm}|p{4.2cm}|}
+      \hline
+      \textbf{Característica} & \textbf{Tecnologia da Automação (TA/OT)} & \textbf{Tecnologia da Informação (TI/IT)} \\ \hline
+      \textbf{Foco Principal} & Disponibilidade e \textit{Safety} físico & Confidencialidade e dados \\ \hline
+      \textbf{Determinismo} & \textbf{Crítico em Tempo Real} ($\text{ms}$) & Tolerante a latência \\ \hline
+      \textbf{Tríade Segurança} & \textbf{AIC} (Availability 1º) & \textbf{CIA} (Confidentiality 1º) \\ \hline
+      \textbf{Ciclo de Vida} & 10 a 20 anos & 3 a 5 anos \\ \hline
+      \textbf{Protocolos} & Modbus, Profinet, OPC UA, MQTT & HTTP, REST API, SQL \\ \hline
+    \end{tabular}
+  \end{center}
+\end{senaiframe}
+
+% 9. DO MODELO RÍGIDO AO DATA MESH INDUSTRIAL
+\begin{senaiframe}{Indústria 4.0}{Do Modelo Rígido ao Industrial Data Mesh}
+  \begin{itemize}
+    \item \textbf{Arquitetura Tradicional:} O dado trafega estritamente nível a nível. Alto custo de integração e gargalo no CLP.
+    \item \textbf{Arquitetura IIoT Moderna:} Dados de telemetria são publicados diretamente via protocolos leves e abertos (\textbf{MQTT / OPC UA}).
+    \item \textbf{Benefício:} Modelos de \textbf{Machine Learning} e Ciência de Dados consomem a telemetria em tempo real sem comprometer o determinismo do CLP.
+  \end{itemize}
+
+  \vspace{6pt}
+  \begin{tcolorbox}[senaigreencard, title={Paradigma IIoT}]
+    Publish/Subscribe desacopla os produtores de dados (sensores/CLPs) dos consumidores (bancos de séries temporais e modelos preditivos).
+  \end{tcolorbox}
+\end{senaiframe}
+
+% 10. ESTUDO DE CASO SMART N1 - EVENTOS FABRIS
+\begin{senaiframe}{Aplicação Prática}{Modelo de Eventos Fabris na Célula Smart N1}
+  Cada alteração de estado no chão de fábrica gera um \textbf{Payload JSON de Telemetria}:
+
+  \vspace{4pt}
+  \begin{tcolorbox}[senaicard, title={Payload JSON de Exemplo}]
+    \tiny
+    \texttt{\{\\
+    ~~"timestamp": "2026-08-16T22:30:00.125Z",\\
+    ~~"station_id": "ESTACAO_TRIAGEM_01",\\
+    ~~"sensor_id": "SENS_IND_01",\\
+    ~~"event_type": "PECA_DETECTADA",\\
+    ~~"metrics": \{ "material": "METALLIC", "conveyor_speed_m_s": 0.45, "temperature_celsius": 42.8 \}\\
+    \}}
+  \end{tcolorbox}
+
+  \vspace{2pt}
+  \small
+  Este payload é a base para o fluxo de \textbf{MQTT $\rightarrow$ Node-RED $\rightarrow$ InfluxDB $\rightarrow$ CRISP-DM / ML}.
+\end{senaiframe}
+
+% 11. EXERCÍCIOS DE FIXAÇÃO
+\begin{senaiframe}{Avaliação \& Fixação}{Exercícios de Revisão}
+  \begin{enumerate}
+    \item Explique a diferença entre a prioridade de segurança \textbf{AIC} em Automação (TA) e \textbf{CIA} em Tecnologia da Informação (TI).
+    \item Em qual nível da Pirâmide ISA-95 se enquadra um sistema SCADA e qual o seu papel no diálogo entre o CLP (Nível 1) e o MES (Nível 3)?
+    \item Qual a principal vantagem do protocolo MQTT na ingestão de telemetria industrial para bancos de dados de séries temporais?
+  \end{enumerate}
 \end{senaiframe}
