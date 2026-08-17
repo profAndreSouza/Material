@@ -34,11 +34,11 @@ A norma **ANSI/ISA-95** (adotada internacionalmente sob o padrão **IEC 62264**)
 
 ```mermaid
 graph TD
-    N4["Nível 4: ERP / SCM / BI (Planejamento Corporativo - Meses/Semanas)"]
-    N3["Nível 3: MES / MOM (Gestão de Operações de Manufatura - Dias/Turnos)"]
-    N2["Nível 2: SCADA / HMI (Supervisão e Controle de Processo - Segundos)"]
-    N1["Nível 1: CLP / PAC / SDCD (Controle Lógico Determinístico - Milissegundos)"]
-    N0["Nível 0: Chão de Fábrica (Sensores & Atuadores Físicos - Tempo Real)"]
+    N4["Nível 4: ERP / SCM / BI - Planejamento Corporativo (Meses/Semanas)"]
+    N3["Nível 3: MES / MOM - Gestão de Operações de Manufatura (Dias/Turnos)"]
+    N2["Nível 2: SCADA / HMI - Supervisão e Controle de Processo (Segundos)"]
+    N1["Nível 1: CLP / PAC / SDCD - Controle Lógico Determinístico (Milissegundos)"]
+    N0["Nível 0: Chão de Fábrica - Sensores e Atuadores Físicos (Tempo Real)"]
 
     N4 <-->|Ordens de Produção / Custos| N3
     N3 <-->|KPIs, OEE, Apontamento| N2

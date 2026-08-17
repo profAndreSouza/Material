@@ -54,10 +54,10 @@ Os sensores indutivos são dispositivos eletrônicos estado sólido que detectam
 
 ```mermaid
 graph LR
-    Osc[1. Oscilador LC<br/>(Campo Magnético)] --> Face[Face Sensora]
-    Face -->|Aproximação de Metal| Foucault[2. Indução de Correntes<br/>de Foucault no Alvo]
-    Foucault --> Trigger[3. Disparador Schmitt<br/>(Queda de Amplitude)]
-    Trigger --> Out[4. Estágio de Saída<br/>Transistor PNP/NPN]
+    Osc["1. Oscilador LC<br/>(Campo Magnético)"] --> Face["Face Sensora"]
+    Face -->|Aproximação de Metal| Foucault["2. Indução de Correntes<br/>de Foucault no Alvo"]
+    Foucault --> Trigger["3. Disparador Schmitt<br/>(Queda de Amplitude)"]
+    Trigger --> Out["4. Estágio de Saída<br/>Transistor PNP/NPN"]
 ```
 
 1. O **circuito oscilador LC** interno produz um campo magnético alternado de alta frequência ($100\text{ kHz}$ a $1\text{ MHz}$) que se projeta a partir da face sensora.
@@ -150,19 +150,19 @@ Durante as aulas práticas no laboratório da **Smart N1**, siga este procedimen
 
 ```mermaid
 graph TD
-    Start[1. Identificar Pinos/Cores do Sensor] --> Power[2. Alimentar Sensor: Marrom = +24V, Azul = 0V]
-    Power --> Meter[3. Posicionar Multímetro na Escala Tensão Contínua 200V DC]
-    Meter --> ProbePNP{Sensor é PNP ou NPN?}
+    Start["1. Identificar Pinos/Cores do Sensor"] --> Power["2. Alimentar Sensor: Marrom = +24V, Azul = 0V"]
+    Power --> Meter["3. Posicionar Multímetro na Escala Tensão Contínua 200V DC"]
+    Meter --> ProbePNP{"Sensor é PNP ou NPN?"}
     
-    ProbePNP -->|PNP| TestPNP[Ponteira Vermelha no Fio Preto <br/> Ponteira Preta no Fio Azul 0V]
-    ProbePNP -->|NPN| TestNPN[Ponteira Vermelha no Fio Marrom +24V <br/> Ponteira Preta no Fio Preto]
+    ProbePNP -->|PNP| TestPNP["Ponteira Vermelha no Fio Preto <br/> Ponteira Preta no Fio Azul 0V"]
+    ProbePNP -->|NPN| TestNPN["Ponteira Vermelha no Fio Marrom +24V <br/> Ponteira Preta no Fio Preto"]
 
-    TestPNP --> Target[4. Aproximar Alvo de Teste da Face Sensora]
+    TestPNP --> Target["4. Aproximar Alvo de Teste da Face Sensora"]
     TestNPN --> Target
 
-    Target --> Check{Leitura no Multímetro}
-    Check -->|Muda de 0V para 24V| OK[Sensor Operational & Saudável]
-    Check -->|Não altera valor / LED apagado| Fault[Falha: Verificar Alimentação, Distância ou Tipo de Material]
+    Target --> Check{"Leitura no Multímetro"}
+    Check -->|Muda de 0V para 24V| OK["Sensor Operacional & Saudável"]
+    Check -->|Não altera valor / LED apagado| Fault["Falha: Verificar Alimentação, Distância ou Tipo de Material"]
 ```
 
 ---
