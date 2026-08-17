@@ -1,24 +1,20 @@
-# Semana 05: Robótica Industrial e Células Flexíveis de Manufatura
+# Aula 05: Orquestração de Dados e Fluxos IIoT com Node-RED
 
-## 1. Visão Geral & Objetivos
-Cinemática robótica, garras manipuladoras e segurança de trabalho (NR-12).
+## 1. Visão Geral & Objetivos Didáticos
 
----
-
-## 2. Conteúdo Teórico
-
-### 2.1 Conceitos Fundamentais
-Graus de liberdade, robôs articulados vs. SCARA, cortinas de luz e intertravamento.
+Esta aula foca na utilização do **Node-RED** como middleware de orquestração de dados IIoT, permitindo a recepção, transformação, tratamento e roteamento de fluxos de telemetria entre o chão de fábrica e a TI.
 
 ---
 
-## 3. Aplicação Prática no Ecossistema Smart N1
+## 2. Escopo Sintético do Conteúdo Teórico
 
-### 3.1 Atividade de Laboratório
-Cálculo de tempo de ciclo e simulação de rotina pick-and-place.
+- Paradigma de **Programação Baseada em Fluxos (Flow-Based Programming)**.
+- Nós fundamentais do Node-RED: `mqtt-in`, `mqtt-out`, `json`, `function`, `change`, `switch` e `debug`.
+- Manipulação de objetos JSON de telemetria fabril em JavaScript (`msg.payload`).
+- Boas práticas de tratamento de erros e filtragem de mensagens ruidosas em tempo real.
 
 ---
 
-## 4. Exercícios de Fixação
-1. Explique detalhadamente como os conceitos discutidos nesta aula se aplicam no contexto da manufatura avançada e da célula fabril Smart N1.
-2. Desenvolva o código/procedimento técnico descrito na seção prática e documente os resultados obtidos.
+## 3. Atividade / Prática IIoT (A ser desenvolvida na respectiva semana)
+
+- Construção de fluxos de integração no Node-RED conectando tópicos MQTT a dashboards simples e preparando dados para persistência.

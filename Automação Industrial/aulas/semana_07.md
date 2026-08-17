@@ -1,24 +1,22 @@
-# Semana 07: Controladores Industriais (CLP) e Arquitetura de PC Industrial
+# Aula 06: Persistência de Telemetria em Banco de Dados Temporal (InfluxDB)
 
-## 1. Visão Geral & Objetivos
-Hardware de controle programável e sistemas embarcados de tempo real.
+## 1. Visão Geral & Objetivos Didáticos
 
----
-
-## 2. Conteúdo Teórico
-
-### 2.1 Conceitos Fundamentais
-Módulos de E/S digitais/analógicas, CPU do CLP, memória de imagem e PCs Industriais (IPC).
+Esta aula aborda o armazenamento eficiente de dados de telemetria de sensores industriais utilizando o **InfluxDB**, um banco de dados especializado em Séries Temporais (*Time-Series Database* - TSDB).
 
 ---
 
-## 3. Aplicação Prática no Ecossistema Smart N1
+## 2. Escopo Sintético do Conteúdo Teórico
 
-### 3.1 Atividade de Laboratório
-Configuração de mapa de memória e barramento de expansão.
+- Diferenças entre Bancos de Dados Relacionais (SQL), NoSQL Documentais e Bancos de Séries Temporais (TSDB).
+- Estrutura de dados do InfluxDB: **Buckets, Measurements, Tags** (indexados), **Fields** (valores de telemetria) e **Timestamps**.
+- Políticas de retenção de dados (*Retention Policies*) e agregação temporal.
+- Linguagem de consulta **Flux** e Line Protocol para escrita de alta performance.
 
 ---
 
-## 4. Exercícios de Fixação
-1. Explique detalhadamente como os conceitos discutidos nesta aula se aplicam no contexto da manufatura avançada e da célula fabril Smart N1.
-2. Desenvolva o código/procedimento técnico descrito na seção prática e documente os resultados obtidos.
+## 3. Atividade / Prática IIoT (A ser desenvolvida na respectiva semana)
+
+- Configuração de um bucket no InfluxDB.
+- Integração do Node-RED para gravar automaticamente a telemetria recebida do MQTT no InfluxDB.
+- Execução de consultas temporais via interface web e Flux Query Language.

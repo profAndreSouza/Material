@@ -1,24 +1,24 @@
-# Semana 10: Protocolos de Comunicação Industrial (Modbus TCP, OPC UA e MQTT)
+# Aula 09: Machine Learning em Telemetria: Manutenção Preditiva & OEE
 
-## 1. Visão Geral & Objetivos
-Conectividade de redes industriais e protocolos para IIoT.
+## 1. Visão Geral & Objetivos Didáticos
 
----
-
-## 2. Conteúdo Teórico
-
-### 2.1 Conceitos Fundamentais
-Tabelas de registradores Modbus (Holding/Input), arquitetura cliente-servidor OPC UA e modelo Publish/Subscribe do MQTT.
+Esta aula foca na aplicação de algoritmos de **Aprendizado Supervisionado** para predição de vida útil restante (**RUL - Remaining Useful Life**) e cálculo automatizado em tempo real do indicador **OEE (Overall Equipment Effectiveness)**.
 
 ---
 
-## 3. Aplicação Prática no Ecossistema Smart N1
+## 2. Escopo Sintético do Conteúdo Teórico
 
-### 3.1 Atividade de Laboratório
-Implementação de cliente Python com `paho-mqtt` e `pymodbus`.
+- Estratégias de Manutenção: Corretiva, Preventiva vs **Preditiva (PdM)**.
+- Algoritmos supervisionados para classificação/regressão de falhas (Random Forest, XGBoost).
+- Cálculo dos três pilares do **OEE**:
+  - **Disponibilidade (Availability):** Tempo rodando / Tempo planejado.
+  - **Desempenho (Performance):** Velocidade real / Velocidade nominal.
+  - **Qualidade (Quality):** Peças boas / Total de peças produzidas.
+- Integração dos resultados com os conceitos de Ciência de Dados e retorno sobre investimento (ROI).
 
 ---
 
-## 4. Exercícios de Fixação
-1. Explique detalhadamente como os conceitos discutidos nesta aula se aplicam no contexto da manufatura avançada e da célula fabril Smart N1.
-2. Desenvolva o código/procedimento técnico descrito na seção prática e documente os resultados obtidos.
+## 3. Atividade / Prática IIoT & ML (A ser desenvolvida na respectiva semana)
+
+- Criação de um pipeline de cálculo de OEE a partir dos eventos de sensores de passagem e tempo de ciclo.
+- Treinamento e teste de modelo de classificação para identificação da causa raiz de paradas da máquina.

@@ -25,20 +25,20 @@ Desenvolver capacidades técnicas e socioemocionais relacionadas a sistemas de a
 - **Resolução de problemas complexos:** Reconhecer demandas e apresentar soluções proativas para cenários industriais reais.
 
 ### Conteúdo Programático (Conhecimentos)
-1. **Dispositivos Industriais:**
-   - Sensores Eletromecânicos, Indutivos, Capacitivos, Magnéticos, Ultrassônicos, Fotoelétricos e Leitores RFID.
-   - Atuadores Pneumáticos, Hidráulicos, Motores, Inversores de Frequência, Servomotores e Servo Drivers.
-   - Robôs industriais e células de manipulação.
-2. **Controladores Industriais:**
-   - Arquitetura de Hardware (CLP, PC Industrial).
-   - Princípios de operação, ciclo de scan, endereçamento e tipos de dados.
-   - Linguagens de programação com Texto Estruturado (ST).
-   - Softwares de desenvolvimento e simulação.
-3. **Integração com a Tecnologia da Informação (TI/TA):**
-   - Comunicação entre CLP e sistemas de TI (Modbus TCP, OPC UA, MQTT).
-   - Banco de dados industriais e persistência de eventos.
-   - Coleta de dados de telemetria para Ciência de Dados e gestão.
-   - Dashboards em tempo real e monitoramento SCADA/HMI.
+1. **Dispositivos e Controladores Industriais:**
+   - Sensores Eletromecânicos, Indutivos, Capacitivos, Magnéticos, Ultrassônicos, Fotoelétricos e Identificação RFID.
+   - Atuadores Pneumáticos, Válvulas Solenoide, Motores Elétricos, Inversores de Frequência (VFD) e Servomotores.
+   - Arquitetura de Hardware de Controladores (CLP, PC Industrial), cartões E/S, ciclo de SCAN e IHMs.
+2. **Arquitetura IIoT e Comunicação de Dados:**
+   - Protocolo MQTT, Broker Mosquitto/HiveMQ, arquitetura Publisher/Subscriber e payloads JSON.
+   - Flow-Based Programming com Node-RED para ingestão, tratamento e roteamento de telemetria.
+3. **Persistência de Telemetria de Séries Temporais:**
+   - Bancos de Dados de Séries Temporais (Time-Series DB) com InfluxDB.
+   - Estruturação de Buckets, Measurements, Tags, Fields e consultas via Flux.
+4. **Análise Avançada e Aprendizado de Máquina (CRISP-DM + ML):**
+   - Aplicação da metodologia CRISP-DM em dados armazenados no InfluxDB.
+   - Detecção de Anomalias em telemetria de sensores (Isolation Forest / K-Means).
+   - Manutenção Preditiva e cálculo automatizado de OEE em sinergia com Ciência de Dados.
 
 ---
 
@@ -72,23 +72,23 @@ A nota final da disciplina será composta por:
 
 | Sem. | Tipo | Data N2 | Data N2-S | Foco Teórico / Conteúdo | Atividade / Detalhes |
 | :---: | :---: | :---: | :---: | :--- | :--- |
-| **01** | Aula | **04/Ago** | **05/Ago** | [Arquitetura TI/TA e Pirâmide ISA-95](aulas/semana_01.md) | Conceitos de integração OT/IT e modelo de eventos fabris. |
-| **02** | Aula | **11/Ago** | **12/Ago** | [Sensores Industriais Discretos: Eletromecânicos, Indutivos e Capacitivos](aulas/semana_02.md) | Princípios de sensoriamento de proximidade e chaveamento. |
-| **03** | Aula | **18/Ago** | **19/Ago** | [Sensores Avançados: Ultrassônicos, Fotoelétricos e Identificação RFID](aulas/semana_03.md) | Sensoriamento óptico, medição de distância e rastreabilidade RFID. |
-| **04** | Aula | **25/Ago** | **26/Ago** | [Atuadores Industriais: Pneumática, Hidráulica e Inversores](aulas/semana_04.md) | Cilindros pneumáticos, motores trifásicos e inversores VFD. |
-| **05** | Aula | **01/Set** | **02/Set** | [Robótica Industrial e Células Flexíveis de Manufatura](aulas/semana_05.md) | Cinemática robótica, garras manipuladoras e segurança (NR-12). |
+| **01** | Aula 01 | **04/Ago** | **05/Ago** | [Arquitetura TI/TA e Pirâmide ISA-95](aulas/semana_01.md) | Conceitos de integração OT/IT e modelo de eventos fabris. |
+| **02** | Aula 02 | **11/Ago** | **12/Ago** | [Prática de Laboratório: Reconhecimento Físico de Componentes](aulas/semana_02.md) | Reconhecimento prático de sensores discretos, CLPs, IHMs e atuadores. |
+| **03** | Aula 03 | **18/Ago** | **19/Ago** | [Teoria Geral dos Dispositivos Industriais (Sensores, Atuadores e Controladores)](aulas/semana_03.md) | Fundamentação teórica de sensores, atuadores e arquitetura CLP/IHM. |
+| **04** | Aula 04 | **25/Ago** | **26/Ago** | [Protocolos de Comunicação Industrial & Broker MQTT](aulas/semana_04.md) | Arquitetura Pub/Sub, Broker MQTT Mosquitto e payloads JSON para IIoT. |
+| **05** | Aula 05 | **01/Set** | **02/Set** | [Orquestração de Dados e Fluxos IIoT com Node-RED](aulas/semana_05.md) | Flow-based programming em Node-RED, tratamento de mensagens e integração. |
 | **06** | Semana de PII | **08/Set** | **09/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da infraestrutura de automação para o PII. |
-| **07** | Aula | **15/Set** | **16/Set** | [Controladores Industriais (CLP) e Arquitetura de PC Industrial](aulas/semana_07.md) | Hardware de CLP, módulos E/S e PCs industriais. |
-| **08** | Avaliação | **22/Set** | **23/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 05. |
+| **07** | Aula 06 | **15/Set** | **16/Set** | [Persistência de Telemetria em Banco de Dados Temporal (InfluxDB)](aulas/semana_07.md) | Armazenamento de séries temporais, InfluxDB, Flux queries e retenção. |
+| **08** | Avaliação | **22/Set** | **23/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Aulas 01 a 05. |
 | **09** | Semana de PII | **29/Set** | **30/Set** | Consolidação do Projeto Integrador (PII) | Integração de controladores e sensores no projeto. |
-| **10** | Aula | **06/Out** | **07/Out** | [Princípios de Operação do CLP, Ciclo de SCAN e Endereçamento](aulas/semana_08.md) | Fases do SCAN, memória de imagem e determinismo temporal. |
+| **10** | Aula 07 | **06/Out** | **07/Out** | [Ciclo CRISP-DM Aplicado a Séries Temporais Industriais](aulas/semana_08.md) | Entendimento do negócio/dados não relacionais no InfluxDB e eng. de recursos. |
 | **11** | Semana Tec. | **19/Set (Sáb)** | **14/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
-| **12** | Aula | **20/Out** | **21/Out** | [Programação em Texto Estruturado (ST)](aulas/semana_09.md) | Sintaxe ST (IEC 61131-3), estruturas condicionais e blocos funcionais. |
-| **13** | Aula | **27/Out** | **28/Out** | [Protocolos de Comunicação Industrial (Modbus TCP, OPC UA, MQTT)](aulas/semana_10.md) | Redes industriais, arquitetura OPC UA e protocolo MQTT. |
-| **14** | Semana de PII | **03/Nov** | **04/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Ajustes na comunicação de dados do PII. |
-| **15** | Aula | **10/Nov** | **11/Nov** | [Integração TI/TA: Ingestão de Telemetria e Dashboards SCADA](aulas/semana_11.md) | Gateways IoT e painéis SCADA em tempo real. |
-| **16** | Aula / Revisão | **17/Nov** | **18/Nov** | Consolidação Técnica e Revisão Integrada | Revisão prática dos protocolos industriais e preparação para P2. |
-| **17** | Avaliação | **24/Nov** | **25/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Projeto Final | Avaliação individual cobrindo as Semanas 07 a 11 & Entrega do Projeto. |
+| **12** | Aula 08 | **20/Out** | **21/Out** | [Machine Learning em Telemetria: Detecção de Anomalias em Sensores](aulas/semana_09.md) | Aplicação de Isolation Forest / K-Means em dados de campo em tempo real. |
+| **13** | Aula 09 | **27/Out** | **28/Out** | [Machine Learning em Telemetria: Manutenção Preditiva & OEE](aulas/semana_10.md) | Predição de falhas e cálculo de OEE em sinergia com Ciência de Dados. |
+| **14** | Semana de PII | **03/Nov** | **04/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Ajustes na comunicação de dados e inteligência do PII. |
+| **15** | Aula 10 | **10/Nov** | **11/Nov** | [Ingestão Integrada de Dados & Dashboards de Monitoramento](aulas/semana_11.md) | Painéis analíticos e monitoramento de planta em tempo real. |
+| **16** | Aula 11 / Rev. | **17/Nov** | **18/Nov** | Consolidação Técnica e Revisão Integrada | Revisão prática da pilha IIoT/ML e preparação para P2. |
+| **17** | Avaliação | **24/Nov** | **25/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Projeto Final | Avaliação individual cobrindo as Aulas 06 a 10 & Entrega do Projeto. |
 | **18** | Semana de PII | **01/Dez** | **02/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
 | **19** | Recuperação | **08/Dez** | **09/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
 | **20** | Fechamento | **15/Dez** | **16/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |

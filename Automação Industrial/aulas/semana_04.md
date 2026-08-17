@@ -1,24 +1,21 @@
-# Semana 04: Atuadores Industriais: Pneumática, Hidráulica e Inversores de Frequência
+# Aula 04: Protocolos de Comunicação Industrial & Broker MQTT
 
-## 1. Visão Geral & Objetivos
-Sistemas de atuação mecânica, controle elétrico e velocidade de esteiras.
+## 1. Visão Geral & Objetivos Didáticos
 
----
-
-## 2. Conteúdo Teórico
-
-### 2.1 Conceitos Fundamentais
-Cilindros de dupla ação, válvulas direcionais 5/2 vias, motores trifásicos e inversores VFD.
+Esta aula apresenta os protocolos de comunicação para integração TI/TA na IIoT, com foco principal na arquitetura do protocolo **MQTT (Message Queuing Telemetry Transport)** e na configuração do **Broker MQTT Mosquitto/HiveMQ**.
 
 ---
 
-## 3. Aplicação Prática no Ecossistema Smart N1
+## 2. Escopo Sintético do Conteúdo Teórico
 
-### 3.1 Atividade de Laboratório
-Script de controle simulado de velocidade da esteira via comandos Modbus.
+- Arquitetura de Comunicação Cliente/Servidor vs **Publisher/Subscriber (Pub/Sub)**.
+- Componentes do Protocolo MQTT: Tópicos (*Topics*), Payloads JSON, Qualidade de Serviço (**QoS 0, 1, 2**), Mensagens Retidas (*Retained Messages*) e *Last Will and Testament (LWT)*.
+- Estruturação de Tópicos industriais para a planta Smart N1 (ex.: `smartn1/estacao1/sensores/temperatura`).
+- Comparativo com protocolos tradicionais de chão de fábrica (Modbus TCP, OPC UA).
 
 ---
 
-## 4. Exercícios de Fixação
-1. Explique detalhadamente como os conceitos discutidos nesta aula se aplicam no contexto da manufatura avançada e da célula fabril Smart N1.
-2. Desenvolva o código/procedimento técnico descrito na seção prática e documente os resultados obtidos.
+## 3. Atividade / Prática IIoT (A ser desenvolvida na respectiva semana)
+
+- Instalação e execução do Broker **Mosquitto**.
+- Testes de publicação e subscrição de telemetria simulada via terminal e cliente MQTT (MQTTX / Python `paho-mqtt`).

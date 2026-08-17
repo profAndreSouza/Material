@@ -1,24 +1,22 @@
-# Semana 09: Programação em Texto Estruturado (ST - Structured Text)
+# Aula 08: Machine Learning em Telemetria: Detecção de Anomalias em Sensores
 
-## 1. Visão Geral & Objetivos
-Linguagem ST conforme a norma IEC 61131-3 para lógica complexa.
+## 1. Visão Geral & Objetivos Didáticos
 
----
-
-## 2. Conteúdo Teórico
-
-### 2.1 Conceitos Fundamentais
-Sintaxe ST, estruturas condicionais (IF/CASE), laços (FOR/WHILE), blocos funcionais (FB) e temporizadores (TON/TOF).
+Esta aula aplica algoritmos de **Aprendizado Não Supervisionado** para a detecção em tempo real de anomalias operacionais e desvios de comportamento em sensores e atuadores da planta **Smart N1**.
 
 ---
 
-## 3. Aplicação Prática no Ecossistema Smart N1
+## 2. Escopo Sintético do Conteúdo Teórico
 
-### 3.1 Atividade de Laboratório
-Desenvolvimento de algoritmo de controle de esteira em Texto Estruturado.
+- Conceito de anomalias em séries temporais (anomalias pontuais, contextuais e de padrão).
+- Algoritmos não supervisionados para identificação de outliers:
+  - **Isolation Forest**: Isolamento de anomalias por particionamento aleatório de recursos.
+  - **K-Means / DBSCAN**: Agrupamento espacial de estados operacionais normais vs anômalos.
+- Avaliação de métricas analíticas e geração de alertas antecipados de falha.
 
 ---
 
-## 4. Exercícios de Fixação
-1. Explique detalhadamente como os conceitos discutidos nesta aula se aplicam no contexto da manufatura avançada e da célula fabril Smart N1.
-2. Desenvolva o código/procedimento técnico descrito na seção prática e documente os resultados obtidos.
+## 3. Atividade / Prática IIoT & ML (A ser desenvolvida na respectiva semana)
+
+- Treinamento de um modelo de Isolation Forest com Scikit-Learn utilizando telemetria histórica extraída do InfluxDB.
+- Implantação de um script de inferência para classificar dados em tempo real vindos do MQTT.

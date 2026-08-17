@@ -1,24 +1,22 @@
-# Semana 08: Princípios de Operação do CLP, Ciclo de SCAN e Endereçamento
+# Aula 07: Ciclo CRISP-DM Aplicado a Séries Temporais Industriais
 
-## 1. Visão Geral & Objetivos
-Determinismo temporal, ciclo de varredura e mapeamento de memória.
+## 1. Visão Geral & Objetivos Didáticos
 
----
-
-## 2. Conteúdo Teórico
-
-### 2.1 Conceitos Fundamentais
-Fases do SCAN (Leitura de Entradas -> Execução da Lógica -> Escrita de Saídas), watchdog timer e endereçamento IEC 61131-3.
+Esta aula faz a ponte direta com a disciplina de **Ciência de Dados**, aplicando o ciclo metodológico **CRISP-DM** (*Cross-Industry Standard Process for Data Mining*) sobre os dados não relacionais de séries temporais armazenados no InfluxDB.
 
 ---
 
-## 3. Aplicação Prática no Ecossistema Smart N1
+## 2. Escopo Sintético do Conteúdo Teórico
 
-### 3.1 Atividade de Laboratório
-Cálculo do tempo de resposta do ciclo de SCAN.
+- Fases do ciclo CRISP-DM no contexto industrial:
+  1. *Business Understanding*: Definição do problema operacional e custos de paradas não planejadas.
+  2. *Data Understanding*: Extração de séries temporais do InfluxDB via Python (`influxdb-client`).
+  3. *Data Preparation*: Resampling, alinhamento temporal, tratamento de lacunas (*missing data*) e engenharia de recursos com janelas deslizantes (*rolling features*).
+- Formatação de conjuntos de dados para alimentar pipelines de Aprendizado de Máquina.
 
 ---
 
-## 4. Exercícios de Fixação
-1. Explique detalhadamente como os conceitos discutidos nesta aula se aplicam no contexto da manufatura avançada e da célula fabril Smart N1.
-2. Desenvolva o código/procedimento técnico descrito na seção prática e documente os resultados obtidos.
+## 3. Atividade / Prática IIoT & Data Science (A ser desenvolvida na respectiva semana)
+
+- Conexão de um Jupyter Notebook em Python ao InfluxDB da fábrica.
+- Extração de dados brutos e pré-processamento de séries temporais usando a biblioteca Pandas.

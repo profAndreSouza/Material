@@ -1,24 +1,20 @@
-# Semana 11: Integração TI/TA: Ingestão de Telemetria e Dashboards SCADA
+# Aula 10: Ingestão Integrada de Dados & Dashboards de Monitoramento
 
-## 1. Visão Geral & Objetivos
-Supervisão de fábrica em tempo real e ponte de dados com o FactoryHub.
+## 1. Visão Geral & Objetivos Didáticos
 
----
-
-## 2. Conteúdo Teórico
-
-### 2.1 Conceitos Fundamentais
-Gateways IoT (Node-RED), gravação em banco de dados de séries temporais e criação de dashboards SCADA.
+Esta aula consolida a **integração ponta a ponta** do ecossistema IIoT da planta **Smart N1**, conectando o sensoriamento de campo aos painéis de visualização em tempo real e relatórios executivos.
 
 ---
 
-## 3. Aplicação Prática no Ecossistema Smart N1
+## 2. Escopo Sintético do Conteúdo Teórico
 
-### 3.1 Atividade de Laboratório
-Construção de painel SCADA integrando telemetria da célula Smart N1 com a API Flask.
+- Arquitetura completa de dados: **Chão de Fábrica → MQTT Broker → Node-RED → InfluxDB → Dashboard SCADA / Analytics**.
+- Princípios de Design de Interfaces Industriais (Design de alta performance / Norma ISA-101 para IHMs e Dashboards).
+- Visualização de séries temporais, alarmes visuais, histogramas e indicadores OEE em tempo real.
+- Segurança de acesso, autenticação e tokens de API em ambientes industriais integrados.
 
 ---
 
-## 4. Exercícios de Fixação
-1. Explique detalhadamente como os conceitos discutidos nesta aula se aplicam no contexto da manufatura avançada e da célula fabril Smart N1.
-2. Desenvolva o código/procedimento técnico descrito na seção prática e documente os resultados obtidos.
+## 3. Atividade / Prática IIoT (A ser desenvolvida na respectiva semana)
+
+- Construção do painel final de controle da estação Smart N1 integrando dados ao vivo e dados preditivos de Machine Learning.
