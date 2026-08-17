@@ -1,88 +1,192 @@
-# Aula 02: Prática de Laboratório & Guia Teórico de Reconhecimento Físico de Componentes
+# Aula 02: Guia de Referência de Sensores Industriais Discretos & Prática de Laboratório
 
-## 1. Visão Geral & Objetivos Didáticos
-
-Esta aula foi dedicada ao **reconhecimento físico presencial no laboratório**, permitindo a identificação tátil e visual dos componentes de automação no chão de fábrica da planta **Smart N1**. Este guia serve como fonte permanente de consulta teórica sobre os sensores discretos de proximidade e chaveamento.
-
-### Objetivos de Aprendizagem:
-- Identificar fisicamente e classificar sensores de proximidade discretos (Eletromecânicos, Indutivos e Capacitivos).
-- Compreender o princípio físico de operação e as limitações de cada tecnologia de sensoriamento.
-- Dominar a polarização elétrica de saídas digitais (**PNP vs NPN**) e contatos (**NA / NO vs NF / NC**).
-- Realizar diagnósticos elétricos e testes práticos em bancadas industriais.
+> **Guia Didático e Material Teórico de Consulta Assíncrona**  
+> *Disciplina: Automação Industrial | Unidade Curricular: Dispositivos de Campo & Sensoriamento Discreto*
 
 ---
 
-## 2. Conteúdo Teórico de Referência
+## 1. Visão Geral do Sensoriamento Discreto
 
-### 2.1 Sensores Discretos Eletromecânicos (Chaves Fim de Curso / Microswitches)
+Sensores discretos são dispositivos de entrada que fornecem um **sinal binário (DIGITAL: LIGADO / DESLIGADO, 1 / 0, +24V DC / 0V DC)** para o sistema de controle. Eles representam a primeira camada de percepção física da planta **Smart N1**, responsáveis por detectar a presença, ausência ou contagem de peças e a posição extrema de mecanismos.
 
-As **chaves fim de curso** (*limit switches*) utilizam contato mecânico direto com o objeto acionador.
+---
 
-- **Princípios de Operação:** O impacto físico desloca um atuador mecânico (rolete, pino, alavanca) que comuta mecanicamente um conjunto de contatos elétricos.
-- **Tipos de Contatos:**
-  - **NA / NO (*Normally Open* / Normal Aberto):** O circuito permanece aberto até que haja o acionamento mecânico.
-  - **NF / NC (*Normally Closed* / Normal Fechado):** O circuito permanece fechado e se abre ao ser acionado (usado por segurança em circuitos de emergência).
-- **Vantagens:** Imunidade total a ruídos eletromagnéticos, imunidade a cor de material ou constantes dielétricas, alta capacidade de condução de corrente.
-- **Desvantagens:** Desgaste mecânico por atrito, ricochete de contato (*contact bounce*), menor frequência de resposta e necessidade de contato físico.
+## 2. Tecnologias de Sensoriamento Discreto
+
+### Infográfico Comparativo: Sensor Indutivo vs Sensor Capacitivo
+
+![Comparação Sensor Indutivo e Capacitivo](img/sensores_indutivo_capacitivo.jpg)
+
+---
+
+### 2.1 Sensores Eletromecânicos (Chaves Fim de Curso / Microswitches)
+
+As **chaves fim de curso** (*limit switches*) dependem do impacto físico direto entre a peça em movimento e o atuador mecânico do sensor.
+
+```
+       Atuador Mecânico (Haste / Rolete)
+                    │
+                    ▼
+          ┌───────────────────┐
+          │  Bloco de Contatos│
+          │   NA (NO) / NF (NC)│
+          └─────────┬─────────┘
+                    │
+                    ▼
+       Chaveamento Elétrico Físico
+```
+
+#### **Estrutura dos Contatos Internos:**
+- **NA / NO (*Normally Open* / Normal Aberto):** O contato fica aberto em repouso ($0\text{V}$) e se fecha ao ser acionado ($24\text{V}$).
+- **NF / NC (*Normally Closed* / Normal Fechado):** O contato fica fechado em repouso ($24\text{V}$) e se abre ao ser acionado ($0\text{V}$). **Uso Obrigatório em Circuitos de Emergência e Parada de Segurança (Princípio da Falha Segura / *Fail-Safe*)**.
+
+#### **Fenômeno de Ricochete de Contato (*Contact Bounce*):**
+Quando os contatos metálicos se chocam, ocorrem micro-vibrações mecânicas durante $1\text{ ms}$ a $10\text{ ms}$, gerando múltiplos pulsos falsos no CLP.
+- **Solução no CLP:** Aplicação de filtros digitais de entrada (*hardware debounce filter*) configurados para ignorar transições menores que $10\text{ ms}$.
+
+---
 
 ### 2.2 Sensores de Proximidade Indutivos
 
-Os sensores indutivos são projetados exclusivamente para a detecção de **materiais metálicos** (condutores elétricos) sem contato físico.
+Os sensores indutivos são dispositivos eletrônicos estado sólido que detectam **exclusivamente materiais condutores de eletricidade (metais)** sem contato físico.
 
-- **Princípio Físico de Funcionamento:**
-  1. Um circuito oscilador interno (composto por uma bobina e um capacitor) gera um campo magnético de alta frequência na face sensora do sensor.
-  2. Quando um objeto metálico adentra esse campo magnético, são induzidas **correntes de Foucault** (*Edged currents*) na superfície do metal.
-  3. Essas correntes absorvem energia do campo magnético, reduzindo a amplitude da oscilação do circuito.
-  4. Um circuito disparador (*Schmitt Trigger*) detecta essa atenuação da amplitude e comuta o estágio de saída digital do sensor.
-- **Fator de Redução por Tipo de Metal ($K_r$):**
-  - A distância nominal de detecção ($S_n$) é especificada para **Aço Carbono Fe 360** ($K_r = 1,0$).
-  - Para outros metais, multiplica-se $S_n$ pelo fator:
-    - **Aço Inoxidável:** $0,60 - 0,80$
-    - **Latão:** $0,40 - 0,50$
-    - **Alumínio:** $0,30 - 0,40$
-    - **Cobre:** $0,25 - 0,35$
+#### **Arquitetura de Bloco e Princípio de Operação:**
+
+```mermaid
+graph LR
+    Osc[1. Oscilador LC<br/>(Campo Magnético)] --> Face[Face Sensora]
+    Face -->|Aproximação de Metal| Foucault[2. Indução de Correntes<br/>de Foucault no Alvo]
+    Foucault --> Trigger[3. Disparador Schmitt<br/>(Queda de Amplitude)]
+    Trigger --> Out[4. Estágio de Saída<br/>Transistor PNP/NPN]
+```
+
+1. O **circuito oscilador LC** interno produz um campo magnético alternado de alta frequência ($100\text{ kHz}$ a $1\text{ MHz}$) que se projeta a partir da face sensora.
+2. Quando um objeto metálico aproxima-se do campo, são induzidas na superfície do metal pequenas correntes parasitas conhecidas como **Correntes de Foucault** (*Eddy currents*).
+3. Essas correntes geram um campo magnético oposto, absorvendo energia do oscilador e **reduzindo a amplitude de oscilação**.
+4. O circuito **Schmitt Trigger** monitora a amplitude e comuta o transistor de saída quando o nível cai abaixo do limiar pré-definido.
+
+#### **Distância Efetiva de Detecção ($S_e$) e Fator de Redução ($K_r$):**
+A distância nominal ($S_n$) informada pelo fabricante é medida padronizada para uma placa de **Aço Carbono Fe 360** de $1\text{ mm}$ de espessura. Para outros materiais:
+
+$$S_e = S_n \times K_r$$
+
+| Material do Alvo | Fator de Redução Aproximado ($K_r$) | Distância Efetiva ($S_n = 10\text{ mm}$) |
+| :--- | :---: | :---: |
+| **Aço Carbono (Fe 360)** | **1,00** | $10,0\text{ mm}$ |
+| **Aço Inoxidável (AISI 304)** | **0,70 – 0,80** | $7,5\text{ mm}$ |
+| **Latão** | **0,45 – 0,50** | $4,8\text{ mm}$ |
+| **Alumínio** | **0,35 – 0,40** | $3,8\text{ mm}$ |
+| **Cobre** | **0,25 – 0,30** | $2,8\text{ mm}$ |
+
+#### **Histerese Operacional ($H$):**
+Diferença percentual entre a distância em que o sensor **liga** na aproximação ($S_a$) e a distância em que ele **desliga** no afastamento ($S_r$). A histerese (tipicamente $5\%$ a $15\%$ de $S_r$) evita trepidações e acionamentos instáveis da saída caso o objeto oscile mecanicamente na borda de detecção.
+
+---
 
 ### 2.3 Sensores de Proximidade Capacitivos
 
-Os sensores capacitivos detectam a presença de **qualquer objeto** (metais, plásticos, vidro, madeira, líquidos, grãos) com base em sua constante dielétrica ($\epsilon_r$).
+Detectam a aproximação de **qualquer tipo de material (metais, plásticos, vidro, água, óleo, madeira, papel, grãos)** através da variação da capacitância da face sensora.
 
-- **Princípio Físico de Funcionamento:**
-  1. A face sensora consiste em duas placas metálicas concêntricas que formam um capacitor aberto.
-  2. O ar atua como dielétrico inicial com constante $\epsilon_r \approx 1$.
-  3. Quando qualquer alvo aproxima-se da face sensora, ele altera a permissividade dielétrica do meio, alterando a capacitância do conjunto ($C = \frac{\epsilon \cdot A}{d}$).
-  4. O aumento da capacitância faz iniciar a oscilação de um circuito RC interno, comutando o circuito de saída.
-- **Aplicações Típicas:** Detecção de nível de líquidos em reservatórios através de paredes não metálicas (ex: tubos acrílicos), presença de garrafas PET e caixas de papelão.
+#### **Princípio Físico de Operação:**
+A face sensora é formada por dois eletrodos metálicos concêntricos que atuam como um capacitor de placas abertas. O valor da capacitância $C$ é dado por:
+
+$$C = \frac{\epsilon_0 \cdot \epsilon_r \cdot A}{d}$$
+
+Onde:
+- $\epsilon_0$: Permissividade do vácuo/ar ($8,854 \times 10^{-12}\text{ F/m}$).
+- $\epsilon_r$: **Constante dielétrica relativa do material aproximado**.
+- $A$: Área das placas dos eletrodos.
+- $d$: Distância entre a face e o eletrodo.
+
+Como a constante dielétrica do ar é $\epsilon_r \approx 1$, a entrada de qualquer meio com $\epsilon_r > 1$ aumenta a capacitância do conjunto, acionando o oscilador interno.
+
+#### **Tabela de Constantes Dielétricas Relativas ($\epsilon_r$):**
+
+| Material | Constante Dielétrica ($\epsilon_r$) | Sensibilidade de Detecção |
+| :--- | :---: | :--- |
+| **Água pura / Soluções aquosas** | **80** | Excelente (Alta sensibilidade) |
+| **Glicerina / Álcool** | **30 – 40** | Muito Boa |
+| **Vidro** | **5 – 10** | Boa |
+| **Acrílico / Polietileno (PET)** | **3,2** | Média (Requer ajuste fino) |
+| **Óleo Mineral / Petróleo** | **2,2** | Baixa |
+| **Ar seco** | **1,0** | Referência de repouso |
 
 ---
 
-## 3. Esquemas Elétricos e Polarização (NPN vs PNP)
+## 3. Esquemas de Ligação Elétrica (PNP vs NPN)
 
-Nos sensores de 3 fios em corrente contínua (24V DC):
+Para sensores eletrônicos de 3 fios alimentados em **Corrente Contínua (+24V DC)**, o padrão normatizado de fiação **IEC 60947-5-2** é:
 
 ```
-Conexão Padrão de Cores (IEC 60947-5-2):
-  - Marrom (BN): V+ (+24V DC)
-  - Azul (BU):   GND (0V DC)
-  - Preto (BK):  Sinal de Saída (OUT)
+  ──────────────────────────────────────────────────────────
+  Cor do Fio           Sigla IEC        Função Elétrica
+  ──────────────────────────────────────────────────────────
+  MARROM               BN (Brown)       Alimentação Positiva (+24V DC)
+  AZUL                 BU (Blue)        Alimentação Negativa (0V / GND)
+  PRETO                BK (Black)       Linha de Sinal / Saída Digital (OUT)
+  BRANCO (4º fio)      WH (White)       Saída Complementar (NC) ou Sinal 2
+  ──────────────────────────────────────────────────────────
 ```
 
-| Tipo de Saída | Comportamento do Transistor de Saída | Carga Conectada Entre | Aplicação Principal |
-| :---: | :--- | :--- | :--- |
-| **PNP (Sourcing)** | Chaveia o polo **positivo (+24V)** para a linha de sinal (BK). | Sinal (BK) e **GND (0V)**. | Padrão dominante na Europa e no Brasil (CLPs Siemens, Rockwell). |
-| **NPN (Sinking)** | Chaveia o polo **negativo (0V)** para a linha de sinal (BK). | Sinal (BK) e **+24V**. | Padrão comum na Ásia (CLPs Omron, Mitsubishi). |
+### Infográfico de Ligação Elétrica: PNP vs NPN
+
+![Esquema de Ligação PNP vs NPN](img/esquema_pnp_npn.jpg)
+
+### 3.1 Transistor de Saída PNP (Modo FONTE / *Sourcing*)
+- O transistor interno chaveia o polo **positivo (+24V DC)** para o fio Preto (Sinal).
+- **A carga (entrada do CLP)** deve ser conectada entre o **fio Preto (Sinal)** e o **0V (GND)**.
+- **Padrão:** Padrão industrial amplamente adotado na América Latina e Europa (CLPs Siemens, Schneider, ABB).
+
+### 3.2 Transistor de Saída NPN (Modo DRENO / *Sinking*)
+- O transistor interno chaveia o polo **negativo (0V / GND)** para o fio Preto (Sinal).
+- **A carga (entrada do CLP)** deve ser conectada entre o **+24V DC** e o **fio Preto (Sinal)**.
+- **Padrão:** Padrão comum em máquinas de origem asiática (CLPs Omron, Mitsubishi, Keyence).
 
 ---
 
-## 4. Diagnóstico de Laboratório e Questões de Fixação
+## 4. Guia de Diagnóstico de Bancada e Teste Prático
 
-### Roteiro de Verificação Rápida em Bancada:
-1. Alimente o sensor com 24V DC (Marrom = +24V, Azul = 0V).
-2. Meça com o multímetro a tensão entre o fio Preto (Sinal) e o Azul (GND):
-   - Se for sensor **PNP NA**: sem objeto = 0V; com objeto = +24V.
-   - Se for sensor **NPN NA**: sem objeto = +24V (em aberto/pull-up); com objeto = 0V.
-3. Avalie o LED indicador de estado no corpo do sensor.
+Durante as aulas práticas no laboratório da **Smart N1**, siga este procedimento de bancada para testar e comissionar um sensor discreto de 3 fios:
 
-### Exercícios de Fixação:
-1. Um sensor indutivo com distância nominal $S_n = 10\text{ mm}$ precisa detectar uma peça de alumínio ($K_r = 0,35$). Qual a distância máxima efetiva de atuação desse sensor?
-2. Em um painel de automação onde o cartão de entrada do CLP é do tipo *Sink* (espera receber +24V na entrada digital), qual tipo de sensor de 3 fios deve ser instalado: **PNP** ou **NPN**? Justifique.
-3. Qual a principal vantagem do sensor capacitivo sobre o indutivo na triagem de embalagens industriais?
+```mermaid
+graph TD
+    Start[1. Identificar Pinos/Cores do Sensor] --> Power[2. Alimentar Sensor: Marrom = +24V, Azul = 0V]
+    Power --> Meter[3. Posicionar Multímetro na Escala Tensão Contínua 200V DC]
+    Meter --> ProbePNP{Sensor é PNP ou NPN?}
+    
+    ProbePNP -->|PNP| TestPNP[Ponteira Vermelha no Fio Preto <br/> Ponteira Preta no Fio Azul 0V]
+    ProbePNP -->|NPN| TestNPN[Ponteira Vermelha no Fio Marrom +24V <br/> Ponteira Preta no Fio Preto]
+
+    TestPNP --> Target[4. Aproximar Alvo de Teste da Face Sensora]
+    TestNPN --> Target
+
+    Target --> Check{Leitura no Multímetro}
+    Check -->|Muda de 0V para 24V| OK[Sensor Operational & Saudável]
+    Check -->|Não altera valor / LED apagado| Fault[Falha: Verificar Alimentação, Distância ou Tipo de Material]
+```
+
+---
+
+## 5. Exercícios Práticos e Questões Resolvidas
+
+### Exercício Resolvido 01 (Cálculo de Distância com Fator de Redução)
+Um sensor indutivo possui distância nominal $S_n = 12\text{ mm}$. Deseja-se utilizar este sensor para detectar a passagem de latas de alumínio ($K_r = 0,40$) em uma esteira transportadora.  
+**Pergunta:** Qual deve ser a distância física máxima de montagem entre o sensor e a lata para garantir detecção confiável?
+
+**Solução:**
+$$S_e = S_n \times K_r = 12\text{ mm} \times 0,40 = 4,8\text{ mm}$$
+*Resposta:* O sensor deve ser montado a uma distância máxima de $4,8\text{ mm}$ da superfície da lata de alumínio. Recomenda-se aplicar uma margem de segurança operacional de $20\%$, posicionando-o a aproximadamente $3,8\text{ mm}$.
+
+---
+
+### Exercício de Autoavaliação 02
+Um técnico conectou um sensor NPN em uma entrada digital de um CLP cujo cartão foi configurado internamente para operar no modo *Sink* (esperando receber +24V em relação ao GND comum). O LED do sensor acende ao aproximar a peça, mas o CLP não registra a entrada.  
+**Pergunta:** Explique a causa elétrica da falha e qual a solução correta de hardware.
+
+---
+
+## 6. Referências Bibliográficas
+
+1. **IEC 60947-5-2:** *Low-voltage switchgear and controlgear - Part 5-2: Control circuit devices and switching elements - Proximity switches*.
+2. **FRANCHI, Claiton Moro.** *Controladores Lógicos Programáveis: Sistemas Discretos*. 2. ed. Érica, 2009.
+3. **AGUIRRE, Luis Antonio.** *Fundamentos de Instrumentação*. Pearson, 2013.

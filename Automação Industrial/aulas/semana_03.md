@@ -1,121 +1,204 @@
-# Aula 03: Teoria Geral dos Dispositivos Industriais (Sensores, Atuadores e Controladores)
+# Aula 03: Teoria Geral dos Dispositivos Industriais (Sensores Avançados, Atuadores e Controladores)
 
-## 1. Visão Geral & Objetivos Didáticos
-
-Esta aula consolida a **fundamentação teórica rigorosa dos dispositivos físicos do chão de fábrica**, integrando sensores avançados (ópticos, acústicos e identificação por rádio frequência), atuadores de potência (pneumática, hidráulica e acionamentos elétricos) e a arquitetura interna dos controladores industriais (CLPs e IHMs).
-
-### Objetivos de Aprendizagem:
-- Compreender a física de operação de sensores ópticos (Fotoelétricos), acústicos (Ultrassônicos) e rastreabilidade por RFID.
-- Analisar os princípios de atuação pneumática e acionamentos elétricos (Motores AC, Inversores de Frequência VFD e Servomotores).
-- Dominar a arquitetura de hardware de um CLP, barramentos de E/S, isolamento óptico e o determinismo temporal do **Ciclo de SCAN**.
+> **Guia Didático e Material Teórico de Consulta Assíncrona**  
+> *Disciplina: Automação Industrial | Unidade Curricular: Dispositivos Industriais, Atuadores e Controladores (CLP/IHM)*
 
 ---
 
-## 2. Sensores Avançados e Identificação Automática
+## 1. Visão Geral & Escopo Técnico
+
+Esta aula consolida a **fundamentação teórica dos dispositivos físicos do chão de fábrica**, cumprindo a ementa de hardware da disciplina. Compreendemos aqui o funcionamento de sensores ópticos e acústicos avançados, sistemas de identificação RFID, atuadores de potência (pneumáticos e acionamentos elétricos) e a arquitetura determinística do **Controlador Lógico Programável (CLP)**.
+
+---
+
+## 2. Sensores Avançados e Sistemas de Identificação
 
 ### 2.1 Sensores Fotoelétricos (Ópticos)
 
-Utilizam feixes de luz (visível ou infravermelha) emitidos por um LED ou laser e detectados por um fototransistor.
+Os sensores fotoelétricos utilizam o princípio da emissão e recepção de feixes de luz (visível vermelha ou infravermelha modulada em alta frequência) para detectar objetos a longas distâncias.
 
-1. **Barreira Operacional (*Through-Beam*):**
-   - Emissor e receptor ficam em invólucros separados alinhados frontalmente.
-   - Detecção ocorre quando o objeto interrompe o feixe.
-   - **Alcance:** Longo alcance (até dezenas de metros); imune a cores do objeto.
-2. **Retroreflexivo (*Retro-reflective*):**
-   - Emissor e receptor no mesmo invólucro; utilizam um espelho prismático para refletir o feixe.
-   - **Filtro Polarizado:** Evita falsos disparos com objetos brilhantes ou metálicos.
-3. **Difuso (*Diffuse-reflective*):**
-   - O próprio objeto atua como refletor.
-   - **Alcance:** Depende da cor, rugosidade e reflexividade da superfície do objeto.
+#### Infográfico Comparativo: Tipos de Sensores Fotoelétricos
 
-### 2.2 Sensores Ultrassônicos
+![Comparação de Sensores Fotoelétricos](img/sensores_fotoeletricos.jpg)
 
-Detectam alvos transmitindo ondas sonoras de alta frequência (acima de $200\text{ kHz}$) e medindo o tempo de retorno do eco (*Time-of-Flight* - ToF).
+#### **1. Sistema por Barreira / Feixe Transmitido (*Through-Beam*):**
+- **Funcionamento:** Emissor e receptor são montados em invólucros separados e alinhados frontalmente. O objeto é detectado quando interrompe fisicamente a passagem do feixe luminoso.
+- **Características:**
+  - Maior alcance operacional (até $50\text{ metros}$).
+  - Máxima confiabilidade: imune à cor, reflexividade ou rugosidade do objeto.
+  - Requer cabeamento elétrico em ambos os lados da esteira.
 
-$$\text{Distância } (d) = \frac{v_{\text{som}} \cdot t_{\text{eco}}}{2}$$
+#### **2. Sistema Retroreflexivo (*Retro-reflective*):**
+- **Funcionamento:** Emissor e receptor estão integrados no mesmo corpo. O feixe é emitido em direção a um **espelho prismático retroreflexivo** que devolve a luz ao receptor.
+- **Filtro Polarizado:** Os sensores modernos utilizam filtros de polarização cruzada. A luz refletida pelo espelho prismático tem sua fase girada em $90^\circ$, permitindo que o receptor diferencie a luz do espelho da reflexão de um objeto metálico brilhante (evitando falsos disparos).
 
-- **Zona Cega (*Blind Zone*):** Região imediatamente à frente da face sensora onde o sensor não consegue alternar a tempo entre o modo emissor e o modo receptor.
-- **Aplicações:** Medição analógica contínua de nível de líquidos em tanques e medição de diâmetro de bobinas.
+#### **3. Sistema Difuso (*Diffuse-Reflective*):**
+- **Funcionamento:** Emissor e receptor no mesmo invólucro. O próprio objeto atua como refletor da luz.
+- **Limitações:** O alcance depende drasticamente do **fator de albedo (cor e refletividade)** do objeto:
+  - Papel / Objeto Branco: $100\%$ do alcance nominal.
+  - Plástico Cinza: $\approx 50\%$ do alcance.
+  - Borracha Preta / Superfície Fosca: $\approx 10\%$ do alcance.
 
-### 2.3 Rastreabilidade por Identificação por Rádio Frequência (RFID)
+---
 
-Substitui códigos de barras pela leitura de dados gravados em chips sem contato de visão direta.
-- **Componentes:** Transponder (Tag/Etiqueta RFID), Antena e Leitor/Escritor RFID.
-- **Frequências Industriais:** HF ($13,56\text{ MHz}$ - Norma ISO 15693 / ISO 14443) e UHF ($860 - 960\text{ MHz}$ - EPC Gen2).
-- **Aplicações na Smart N1:** Rastreabilidade de *pallets* e caixas de produção gravando histórico de processos diretamente na tag RFID acoplada à peça.
+### 2.2 Sensores Ultrassônicos (Acústicos)
+
+Detectam a presença ou medem continuamente a distância de alvos através da emissão de pulsos de ondas sonoras de alta frequência (típico $200\text{ kHz}$ a $400\text{ kHz}$) e medição do tempo de eco (**Time-of-Flight - ToF**).
+
+```
+   Face Sensora (Transdutor Piezoolétrico)
+      │
+      ├─── Pulsos Ultrassônicos (Emissão) ────────►  ┌──────────────┐
+      │                                              │ Objeto Alvo  │
+      └─── Eco Refletido (Recepção) ◄───────────────  └──────────────┘
+```
+
+#### **Formulação Matemática da Distância ($d$):**
+
+$$d = \frac{v_{\text{som}} \cdot t_{\text{eco}}}{2}$$
+
+Onde:
+- $v_{\text{som}}$: Velocidade de propagação do som no ar ($\approx 343\text{ m/s}$ a $20^\circ\text{C}$).
+- $t_{\text{eco}}$: Tempo decorrido entre a emissão do pulso e a recepção do eco.
+- O fator $2$ compensa o trajeto de ida e volta da onda.
+
+#### **Influência da Temperatura ($T$):**
+A velocidade do som no ar varia com a temperatura ambiente segundo a aproximação:
+
+$$v_{\text{som}}(T) \approx 331,5 + 0,6 \times T(^\circ\text{C}) \quad [\text{m/s}]$$
+
+Sensores ultrassônicos industriais possuem um **sensor de temperatura NTC integrado** para compensação automática da leitura.
+
+#### **Zona Cega (*Blind Zone*):**
+Região física imediatamente à frente do transdutor (típico $5\text{ cm}$ a $20\text{ cm}$) onde o sensor não consegue realizar medições, pois o cristal piezoelétrico ainda está oscilando da emissão e não pode alternar para o modo receptor.
+
+---
+
+### 2.3 Identificação Automática por Rádio Frequência (RFID)
+
+O **RFID** (*Radio Frequency Identification*) permite a leitura e escrita sem contato direto de dados armazenados em microchips acoplados a peças, ferramentas ou *pallets* de produção.
+
+```mermaid
+graph LR
+    Leitor["Leitor RFID<br/>(Antena Industrial)"] <===>|Onda Eletromagnética<br/>13,56 MHz (HF) / 900 MHz (UHF)| Tag["Tag / Transponder RFID<br/>(Chip + Microantena)"]
+    Leitor <===>|Modbus TCP / Profinet| CLP["CLP / PC Industrial"]
+```
+
+#### **Tipos de Tags RFID:**
+- **Passivas:** Não possuem bateria interna. São energizadas por **indução eletromagnética** a partir do campo gerado pela antena do leitor.
+- **Ativas:** Possuem bateria própria e alcançam distâncias de dezenas de metros.
+
+#### **Estrutura de Memória de uma Tag RFID (Norma ISO 15693 / EPC Gen2):**
+1. **UID (Unique Identifier):** Código de fábrica gravado em ROM, hexadecimal de 64 bits, inalterável.
+2. **User Memory:** Bloco de memória RAM/EEPROM regravável onde o CLP salva o histórico do produto (ex: receita da peça, status de aprovação do teste de qualidade, timestamps de estações).
 
 ---
 
 ## 3. Atuadores Industriais e Elementos Finais de Controle
 
+Os atuadores transformam sinais elétricos de comando do CLP em **trabalho mecânico útil** (movimento linear, rotativo ou controle de fluxo).
+
 ### 3.1 Atuadores Pneumáticos e Válvulas Solenoide
 
-- **Cilindros Pneumáticos:** Transformam a energia do ar comprimido (tipicamente $6\text{ bar}$) em movimento linear.
-  - **Simples Ação:** Retorno por mola interna.
-  - **Dupla Ação:** Pressão aplicada em ambas as câmaras para avanço e retorno.
-- **Válvulas Direcionais Solenoide:** Controlam o fluxo de ar comprimido.
-  - Exemplo: Válvula **5/2 vias duplo solenoide** (5 vias de conexão, 2 posições estáveis, comandada por impulsos elétricos de 24V DC).
+A pneumática industrial utiliza ar comprimido seco e lubrificado na pressão padrão de $6\text{ bar} = 600\text{ kPa} \approx 87\text{ PSI}$.
 
-### 3.2 Motores Elétricos, Inversores de Frequência (VFD) e Servomotores
+```
+  Compressor ──► Unidade FRL ──► Válvula Solenoide 5/2 Vias ──► Cilindro Dupla Ação
+                 (Filtro, Reg,                  │
+                 Lubrificador)                 ├──► Solenoide Y1 (Avança)
+                                               └──► Solenoide Y2 (Retorna)
+```
 
-| Atuador Elétrico | Princípio de Operação | Tipo de Controle | Aplicação Principal |
-| :---: | :--- | :--- | :--- |
-| **Motor Assíncrono Trifásico** | Campo magnético girante no estator induz corrente no rotor de gaiola. | On/Off via Contatores elétricos. | Bombas, ventiladores e esteiras fixas. |
-| **Inversor de Frequência (VFD)** | Modula a frequência ($f$) e tensão do motor ($V/f = \text{constante}$). | Ajuste de velocidade contínuo e rampas de aceleração. | Esteiras com velocidade variável e economia de energia. |
-| **Servomotor & Servo Driver** | Motor síncrono com encoder de malha fechada (*feedback* de posição). | Controle preciso de torque, velocidade e posição angular. | Robótica industrial, mesas CNC e dosadores. |
+#### **Cálculo da Força Teórica de um Cilindro Pneumático ($F$):**
+- **Força no Avanço ($F_{\text{av}}$):**
+  $$F_{\text{av}} = P \times A_{\text{pistão}} = P \times \frac{\pi \cdot D^2}{4}$$
+- **Força no Retorno ($F_{\text{ret}}$):**
+  $$F_{\text{ret}} = P \times (A_{\text{pistão}} - A_{\text{haste}}) = P \times \frac{\pi \cdot (D^2 - d^2)}{4}$$
+
+Onde:
+- $P$: Pressão manométrica do ar ($\text{N/m}^2$ ou $\text{Pa}$).
+- $D$: Diâmetro interno do tubo do cilindro ($\text{m}$).
+- $d$: Diâmetro da haste do cilindro ($\text{m}$).
 
 ---
 
-## 4. Arquitetura de Controladores Industriais (CLP) e IHM
+### 3.2 Acionamentos Eléticos de Potência
 
-### 4.1 Arquitetura Interna do CLP (Controlador Lógico Programável)
-
-Um CLP é um computador robustecido projetado para operar em ambientes fabris hostis (ruídos elétricos, vibração, poeira e variação de temperatura).
-
-```
-   ┌─────────────────────────────────────────────────────────────┐
-   │                         FONTE DE ALIMENTAÇÃO (24V DC)        │
-   └──────────────────────────────┬──────────────────────────────┘
-                                  │
-┌─────────────────────────┐  ┌────▼────────────────────┐  ┌─────────────────────────┐
-│ ENTREDAS DIGITAIS/ANALÓG.│  │   UNIDADE CENTRAL DE   │  │  SAÍDAS DIGITAIS/ANALÓG.│
-│  - Isolamento Óptico    ├──►│    PROCESSAMENTO (CPU) │──►│   - Relés / Transistores│
-│  - Filtros de Ruído     │  │  - Memória de Imagem   │  │   - Triacs / D/A        │
-└─────────────────────────┘  └─────────────────────────┘  └─────────────────────────┘
+```mermaid
+graph TD
+    AC[Rede Elétrica 380V AC 60Hz] --> VFD[Inversor de Frequência VFD]
+    VFD -->|Frequência Modulada f = 0 a 60Hz| MIT[Motor Assíncrono Trifásico]
+    
+    AC2[Fonte de Servo Driver] --> SD[Servo Driver]
+    SD -->|Malha Fechada PWM| SM[Servomotor + Encoder Realimentação]
+    SM -->|Sinal de Posição / Pulsos| SD
 ```
 
-### 4.2 O Ciclo de SCAN (Varredura Determinística)
+#### **1. Motor Assíncrono Trifásico (MIT):**
+A velocidade síncrona do campo magnético girante no estator ($N_s$) em RPM é calculada por:
 
-A CPU do CLP executa repetidamente um ciclo determinístico de 4 etapas:
+$$N_s = \frac{120 \cdot f}{P}$$
 
-```
-  ┌─────────────────────────────────────────────────────────────┐
-  │ 1. Leitura das Entradas Físicas -> Atualiza Memória de Imagem │
-  └──────────────────────────────┬──────────────────────────────┘
-                                 │
-  ┌──────────────────────────────▼──────────────────────────────┐
-  │ 2. Execução do Programa do Usuário (Lógica ST, Ladder, etc.) │
-  └──────────────────────────────┬──────────────────────────────┘
-                                 │
-  ┌──────────────────────────────▼──────────────────────────────┐
-  │ 3. Atualização da Memória de Imagem de Saída -> Saídas Físicas│
-  └──────────────────────────────┬──────────────────────────────┘
-                                 │
-  ┌──────────────────────────────▼──────────────────────────────┐
-  │ 4. Diagnóstico de Hardware & Comunicação de Rede            │
-  └─────────────────────────────────────────────────────────────┘
-```
+Onde $f$ é a frequência da rede ($60\text{ Hz}$) e $P$ é o número de polos magnéticos do motor.
 
-- **Tempo de SCAN ($T_{\text{scan}}$):** O tempo total para completar o ciclo (tipicamente entre $1\text{ ms}$ e $10\text{ ms}$). Garante o **determinismo temporal** exigido em processos fabris.
+#### **2. Inversor de Frequência (VFD - Variable Frequency Drive):**
+Controla a velocidade do motor variando a frequência ($f$) e a tensão aplicada, mantendo a razão $V/f$ constante para preservar o torque nominal do motor.
 
-### 4.3 Interface Homem-Máquina (IHM / HMI)
-
-Telas touch-screen industriais conectadas ao CLP via redes como Ethernet/IP, Modbus TCP ou Profinet. Permitem ao operador visualizar sinóticos da planta, ajustar *setpoints*, visualizar alarmes e monitorar grandezas em tempo real.
+#### **3. Servomotores:**
+Motores de alta dinâmica com **encoder de alta resolução** integrado no eixo. Operam em malha fechada controlada pelo Servo Driver, permitindo posicionamento angular com precisão de frações de grau.
 
 ---
 
-## 5. Questões de Fixação e Avaliação
+## 4. Controladores Industriais (CLPs) e o Ciclo de SCAN
 
-1. **(Sensores Ópticos)** Por que os sensores fotoelétricos retroreflexivos modernos utilizam filtros polarizados e refletores prismáticos?
-2. **(Ciclo de SCAN)** O que é a "Memória de Imagem de Entradas" no CLP e qual a vantagem de ler todas as entradas no início do ciclo em vez de lê-las dinamicamente durante a execução da lógica?
-3. **(Acionamento Elétrico)** Qual a relação entre a frequência da tensão aplicada por um Inversor de Frequência (VFD) e a velocidade síncrona de um motor elétrico trifásico? Formulação: $N_s = \frac{120 \cdot f}{P}$.
+O **CLP (Controlador Lógico Programável)** é o cérebro determinístico da automação de Nível 1.
+
+### Infográfico do Ciclo de SCAN do CLP
+
+![Ciclo de SCAN do CLP](img/ciclo_de_scan_clp.jpg)
+
+### Detalhamento das 4 Etapas do SCAN:
+
+1. **Etapa 1 - Leitura das Entradas Físicas (PII - Process Image Input):**
+   - O hardware lê o estado de todos os cartões de entrada digitais e analógicos.
+   - O estado de cada entrada é copiado para uma região dedicada da memória RAM denominada **Memória de Imagem das Entradas**.
+   - *Vantagem:* Durante a execução do programa, o valor das entradas permanece congelado e consistente, imune a ruídos temporários de campo.
+
+2. **Etapa 2 - Execução da Lógica de Programação:**
+   - A CPU executa instrução por instrução o programa do usuário (em Texto Estruturado ST, Ladder, etc.) lendo os dados da Memória de Imagem das Entradas e escrevendo os resultados intermediários na **Memória de Imagem das Saídas (PIO)**.
+
+3. **Etapa 3 - Atualização das Saídas Físicas (PIO - Process Image Output):**
+   - Os dados gravados na Memória de Imagem das Saídas são transferidos simultaneamente para os módulos físicos de saída, acionando relés, transistores e atuadores.
+
+4. **Etapa 4 - Diagnósticos e Tarefas de Comunicação de Rede:**
+   - A CPU realiza autochecagens de hardware, monitora a bateria de backup, processa solicitações de comunicação de rede (Modbus, Profinet, MQTT) e reinicia o ciclo.
+
+---
+
+## 5. Questões Resolvidas e Avaliativas
+
+### Exercício Resolvido 01 (Cálculo de Força Pneumática)
+Um cilindro de dupla ação possui diâmetro do pistão $D = 50\text{ mm} = 0,05\text{ m}$ e diâmetro da haste $d = 20\text{ mm} = 0,02\text{ m}$. Sabendo que a rede pneumática fornece ar a uma pressão de $6\text{ bar} = 600.000\text{ N/m}^2$, calcule a força teórica de avanço ($F_{\text{av}}$) e de retorno ($F_{\text{ret}}$).
+
+**Solução:**
+- **Área do Pistão ($A_{\text{pistão}}$):**
+  $$A_{\text{pistão}} = \frac{\pi \cdot D^2}{4} = \frac{3,14159 \cdot (0,05)^2}{4} \approx 0,0019635\text{ m}^2$$
+- **Força de Avanço ($F_{\text{av}}$):**
+  $$F_{\text{av}} = P \times A_{\text{pistão}} = 600.000\text{ N/m}^2 \times 0,0019635\text{ m}^2 = 1178,1\text{ N} \approx 120\text{ kgf}$$
+- **Área Útil de Retorno ($A_{\text{ret}}$):**
+  $$A_{\text{ret}} = \frac{\pi \cdot (D^2 - d^2)}{4} = \frac{3,14159 \cdot (0,0025 - 0,0004)}{4} \approx 0,0016493\text{ m}^2$$
+- **Força de Retorno ($F_{\text{ret}}$):**
+  $$F_{\text{ret}} = P \times A_{\text{ret}} = 600.000 \times 0,0016493 = 989,6\text{ N} \approx 101\text{ kgf}$$
+
+---
+
+### Questão de Autoavaliação 02
+Por que um CLP executa a lógica de programação utilizando uma "Memória de Imagem" em vez de acessar diretamente os cartões físicos de entrada e saída a cada instrução do código? Quais os benefícios em relação a **determinismo** e **consistência gráfica**?
+
+---
+
+## 6. Referências Bibliográficas
+
+1. **IEC 61131-3:** *Programmable controllers - Part 3: Programming languages*.
+2. **GROOVER, Mikell P.** *Automação Industrial e Sistemas de Manufatura*. 3. ed. Pearson, 2011.
+3. **FIALHO, Arivelto Bustamante.** *Automação Hidráulica: Projetos, Dimensionamento e Análise de Circuitos*. Érica, 2011.
