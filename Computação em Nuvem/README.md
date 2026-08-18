@@ -70,9 +70,9 @@ Desenvolver capacidades técnicas e socioemocionais relacionadas a arquiteturas 
 ## Critérios de Avaliação e Composição de Nota
 
 A nota final da disciplina será composta por:
-- **Prova Teórico-Prática 1 (P1):** Peso 30% (Semanas 01 a 07)
-- **Prova Teórico-Prática 2 (P2) & Defesa da Atividade Integrada:** Peso 30% (Semanas 12 a 17)
-- **Projetos Práticos de Laboratório no AWS Learner Lab:** Peso 40%
+- **Prova Teórico-Prática 1 (P1):** Peso 35% (Semanas 01 a 07)
+- **Prova Teórico-Prática 2 (P2) & Defesa da Atividade Integrada:** Peso 35% (Semanas 12 a 17)
+- **Projetos Práticos de Laboratório no AWS Learner Lab:** Peso 30%
 
 ---
 
