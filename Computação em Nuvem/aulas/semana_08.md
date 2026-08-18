@@ -1,24 +1,24 @@
-# Semana 08: Gerenciamento de Identidade, Acesso e Segurança (IAM & Security Best Practices)
+# Semana 08: Avaliação Teórico-Prática 1 (P1)
 
 ## 1. Visão Geral & Objetivos
-Políticas de controle de acesso de menor privilégio e segurança de dados.
+Avaliação individual cobrindo os conceitos teóricos e habilidades práticas desenvolvidas nas Semanas 01 a 07 no ambiente AWS Learner Lab.
 
 ---
 
-## 2. Conteúdo Teórico
+## 2. Estrutura da Avaliação
 
-### 2.1 Conceitos Fundamentais
-Identidades IAM, papéis (roles), permissões, Service Accounts, chaves de API e criptografia (KMS).
+### 2.1 Parte Teórica (40%)
+- Conceitos de computação em nuvem, modelos de serviço (IaaS, PaaS, SaaS) e infraestrutura AWS.
+- Segurança no IAM (Roles, Policies, menor privilégio).
+- Redes virtuais VPC (Subredes, Roteamento e IGW) e conteinerização Docker.
+
+### 2.2 Parte Prática no AWS Learner Lab (60%)
+- Provisionamento de instância EC2 em VPC personalizada.
+- Implantação de container Docker exposto em porta pública via Security Group.
+- Configuração de acesso seguro ao S3 utilizando a `LabRole`.
 
 ---
 
-## 3. Aplicação Prática no Ecossistema Smart N1
-
-### 3.1 Atividade de Laboratório
-Configuração de Service Account com privilégios restritos para a plataforma FactoryHub.
-
----
-
-## 4. Exercícios de Fixação
-1. Explique detalhadamente como os conceitos discutidos nesta aula se aplicam no contexto da manufatura avançada e da célula fabril Smart N1.
-2. Desenvolva o código/procedimento técnico descrito na seção prática e documente os resultados obtidos.
+## 3. Diretrizes de Entrega
+- A avaliação será realizada individualmente durante o horário da aula.
+- Envio dos comandos executados, IPs públicos e evidências fotográficas das telas do console AWS.
