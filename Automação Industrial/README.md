@@ -1,12 +1,12 @@
 # Automação Industrial
 
-Este repositório contém o plano de ensino, ementa, cronograma detalhado, referências bibliográficas e diretrizes das atividades práticas para a unidade curricular de **Automação Industrial**.
+Este repositório contém o plano de ensino, ementa, cronograma semestral detalhado (20 Semanas), referências bibliográficas e diretrizes das atividades práticas para a unidade curricular de **Automação Industrial**.
 
 ---
 
 ## Ementa da Unidade Curricular
 
-**Carga Horária:** 80 aulas (66h40min relógio)
+**Carga Horária:** 80 aulas (66h40min relógio / 20 Semanas)
 
 ### Descrição
 Ao final dessa unidade curricular o estudante será capaz de desenvolver sistemas de automação para coleta e processamento de dados em plantas industriais. Para tanto serão abordados os seguintes conteúdos: Dispositivos Industriais; Controladores Industriais; Integração TI/TA (Tecnologia da Informação / Tecnologia da Automação).
@@ -62,23 +62,33 @@ Desenvolver capacidades técnicas e socioemocionais relacionadas a sistemas de a
 ## Critérios de Avaliação e Composição de Nota
 
 A nota final da disciplina será composta por:
-- **Avaliações Teórico-Práticas (P1 e P2):** Peso 60%
+- **Prova Teórico-Prática 1 (P1):** Peso 30% (Semanas 01 a 05)
+- **Prova Teórico-Prática 2 (P2):** Peso 30% (Semanas 06 a 10)
 - **Atividades Práticas de Laboratório / Entregas Semanais:** Peso 40%
 
 ---
 
-## Cronograma de Aulas da Disciplina (11 Aulas Práticas)
+## Cronograma Semestral e Calendário de Aulas (20 Semanas)
 
-| Aula | Foco Teórico / Conteúdo | Atividade / Detalhes |
-| :---: | :--- | :--- |
-| **01** | [Arquitetura TI/TA e Pirâmide ISA-95](aulas/semana_01.ipynb) | Conceitos de integração OT/IT e modelo de eventos fabris. |
-| **02** | [Prática de Laboratório: Reconhecimento Físico de Componentes](aulas/semana_02.ipynb) | Reconhecimento prático de sensores discretos, CLPs, IHMs e atuadores. |
-| **03** | [Teoria Geral dos Dispositivos Industriais (Sensores, Atuadores e Controladores)](aulas/semana_03.ipynb) | Fundamentação teórica de sensores, atuadores e arquitetura CLP/IHM. |
-| **04** | [Protocolos de Comunicação Industrial & Broker MQTT](aulas/semana_04.md) | Arquitetura Pub/Sub, Broker MQTT Mosquitto e payloads JSON para IIoT. |
-| **05** | [Orquestração de Dados e Fluxos IIoT com Node-RED](aulas/semana_05.md) | Flow-based programming em Node-RED, tratamento de mensagens e integração. |
-| **06** | [Persistência de Telemetria em Banco de Dados Temporal (InfluxDB)](aulas/semana_07.md) | Armazenamento de séries temporais, InfluxDB, Flux queries e retenção. |
-| **07** | [Ciclo CRISP-DM Aplicado a Séries Temporais Industriais](aulas/semana_08.md) | Entendimento do negócio/dados não relacionais no InfluxDB e eng. de recursos. |
-| **08** | [Machine Learning em Telemetria: Detecção de Anomalias em Sensores](aulas/semana_09.md) | Aplicação de Isolation Forest / K-Means em dados de campo em tempo real. |
-| **09** | [Machine Learning em Telemetria: Manutenção Preditiva & OEE](aulas/semana_10.md) | Predição de falhas e cálculo de OEE em sinergia com Ciência de Dados. |
-| **10** | [Ingestão Integrada de Dados & Dashboards de Monitoramento](aulas/semana_11.md) | Painéis analíticos e monitoramento de planta em tempo real. |
-| **11** | [Consolidação Técnica e Revisão Integrada](aulas/semana_11.md) | Revisão prática da pilha IIoT/ML e preparação para encerramento. |
+| Sem. | Tipo | Data N2 | Data N2-S | Foco Teórico / Conteúdo | Atividade / Detalhes |
+| :---: | :---: | :---: | :---: | :--- | :--- |
+| **01** | Aula 01 | **04/Ago** | **05/Ago** | [Arquitetura TI/TA e Pirâmide ISA-95](aulas/semana_01.ipynb) | Conceitos de integração OT/IT e modelo de eventos fabris. |
+| **02** | Aula 02 | **11/Ago** | **12/Ago** | [Prática de Laboratório: Reconhecimento Físico de Componentes](aulas/semana_02.ipynb) | Reconhecimento prático de sensores discretos, CLPs, IHMs e atuadores. |
+| **03** | Aula 03 | **18/Ago** | **19/Ago** | [Teoria Geral dos Dispositivos Industriais (Sensores, Atuadores e Controladores)](aulas/semana_03.ipynb) | Fundamentação teórica de sensores, atuadores e arquitetura CLP/IHM. |
+| **04** | Aula 04 | **25/Ago** | **26/Ago** | [Protocolos de Comunicação Industrial & Broker MQTT](aulas/semana_04.ipynb) | Arquitetura Pub/Sub, Broker MQTT Mosquitto e payloads JSON para IIoT. |
+| **05** | Aula 05 | **01/Set** | **02/Set** | [Orquestração de Dados e Fluxos IIoT com Node-RED](aulas/semana_05.ipynb) | Flow-based programming em Node-RED, tratamento de mensagens e integração. |
+| **06** | Semana de PII | **08/Set** | **09/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da infraestrutura de automação para o PII. |
+| **07** | Aula 06 | **15/Set** | **16/Set** | [Persistência de Telemetria em Banco de Dados Temporal (InfluxDB)](aulas/semana_06.ipynb) | Armazenamento de séries temporais, InfluxDB, Flux queries e retenção. |
+| **08** | Avaliação | **22/Set** | **23/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Aulas 01 a 05. |
+| **09** | Semana de PII | **29/Set** | **30/Set** | Consolidação do Projeto Integrador (PII) | Integração de controladores e sensores no projeto. |
+| **10** | Aula 07 | **06/Out** | **07/Out** | [Ciclo CRISP-DM Aplicado a Séries Temporais Industriais](aulas/semana_07.ipynb) | Entendimento do negócio/dados não relacionais no InfluxDB e eng. de recursos. |
+| **11** | Semana Tec. | **19/Set (Sáb)** | **14/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
+| **12** | Aula 08 | **20/Out** | **21/Out** | [Machine Learning em Telemetria: Detecção de Anomalias em Sensores](aulas/semana_08.ipynb) | Aplicação de Isolation Forest / K-Means em dados de campo em tempo real. |
+| **13** | Aula 09 | **27/Out** | **28/Out** | [Machine Learning em Telemetria: Manutenção Preditiva & OEE](aulas/semana_09.ipynb) | Predição de falhas e cálculo de OEE em sinergia com Ciência de Dados. |
+| **14** | Semana de PII | **03/Nov** | **04/Nov** | Orientação e Acompanhamento do PII | Ajustes na comunicação de dados e inteligência do PII. |
+| **15** | Aula 10 | **10/Nov** | **11/Nov** | [Ingestão Integrada de Dados & Dashboards de Monitoramento](aulas/semana_10.ipynb) | Painéis analíticos e monitoramento de planta em tempo real. |
+| **16** | Aula 11 | **17/Nov** | **18/Nov** | [Consolidação Técnica e Revisão Integrada](aulas/semana_11.ipynb) | Revisão prática da pilha IIoT/ML e preparação para encerramento. |
+| **17** | Avaliação | **24/Nov** | **25/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Projeto Final | Avaliação individual cobrindo as Aulas 06 a 10 & Entrega do Projeto. |
+| **18** | Semana de PII | **01/Dez** | **02/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
+| **19** | Recuperação | **08/Dez** | **09/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
+| **20** | Fechamento | **15/Dez** | **16/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |
