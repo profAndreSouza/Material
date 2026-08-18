@@ -44,6 +44,16 @@ Desenvolver capacidades técnicas e socioemocionais relacionadas à implementaç
 
 ---
 
+## Materiais de Apoio e Tutoriais Práticos
+
+Disponibilizamos tutoriais fundamentais na pasta [materiais/](materiais/):
+
+1. [Padronização de Commits (Conventional Commits)](materiais/padrao_de_commits.md): Guia sobre a convenção de mensagens de commit (`feat`, `fix`, `refactor`, `chore`, Breaking Changes).
+2. [Versionamento Semântico (SemVer)](materiais/versionamento_semantico.md): Explicação completa sobre `MAJOR.MINOR.PATCH`, qualificadores pre-release (`alpha`, `beta`, `rc`) e automação.
+3. [Guia Passo a Passo Git & GitFlow](materiais/guia_passo_a_passo_gitflow.md): Manual prático de comandos CLI para criar branches de feature, fazer commits, rebase, resolver conflitos de merge, publicar releases e criar tags de versão.
+
+---
+
 ## Referências Bibliográficas
 
 ### Básicas
