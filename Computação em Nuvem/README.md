@@ -80,9 +80,9 @@ A nota final da disciplina será composta por:
 
 | Sem. | Tipo | Data N2 | Data N2-S | Foco Teórico / Conteúdo | Atividade / Projeto Prático AWS |
 | :---: | :---: | :---: | :---: | :--- | :--- |
-| **01** | Aula | **06/Ago** | **04/Ago** | [Computação em Nuvem na Indústria 4.0 e Modelos de Serviço](aulas/semana_01.md) | Pilares da nuvem, elasticidade, IaaS, PaaS, SaaS e visão das Big Techs. |
-| **02** | Aula | **13/Ago** | **11/Ago** | [Infraestrutura AWS e Ambientes de Laboratório](aulas/semana_02.md) | Regiões, Zonas de Disponibilidade e introdução ao AWS Learner Lab Sandbox. |
-| **03** | Aula | **20/Ago** | **18/Ago** | [Máquinas Virtuais (EC2) e Conteinerização com Docker](aulas/semana_03.md) | **Projetos 01 & 04:** EC2 Linux, SSH, Security Groups e Hello Web em Docker. |
+| **01** | Aula | **06/Ago** | **04/Ago** | [Computação em Nuvem na Indústria 4.0 e Modelos de Serviço](aulas/semana_01.ipynb) | Pilares da nuvem, elasticidade, IaaS, PaaS, SaaS e visão das Big Techs. |
+| **02** | Aula | **13/Ago** | **11/Ago** | [Infraestrutura AWS e Ambientes de Laboratório](aulas/semana_02.ipynb) | Regiões, Zonas de Disponibilidade e introdução ao AWS Learner Lab Sandbox. |
+| **03** | Aula | **20/Ago** | **18/Ago** | [Máquinas Virtuais (EC2) e Conteinerização com Docker](aulas/semana_03.ipynb) | **Projetos 01 & 04:** EC2 Linux, SSH, Security Groups e Hello Web em Docker. |
 | **04** | Aula | **27/Ago** | **25/Ago** | [Conteinerização de Aplicações de Automação Industrial](aulas/semana_04.md) | **Projeto 02:** Deploy de servidor Node-RED em Docker na instâncias EC2. |
 | **05** | Aula | **03/Set** | **01/Set** | [Armazenamento de Objetos (S3) e Controle de Acesso IAM](aulas/semana_05.md) | **Projeto 03:** Amazon S3, permissões IAM e uso da `LabRole` na EC2. |
 | **06** | PII | **10/Set** | **08/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da arquitetura de nuvem para sustentação do PII. |
