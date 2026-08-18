@@ -72,9 +72,9 @@ A nota final da disciplina será composta por:
 
 | Sem. | Tipo | Data N2 | Data N2-S | Foco Teórico / Conteúdo | Atividade / Detalhes |
 | :---: | :---: | :---: | :---: | :--- | :--- |
-| **01** | Aula 01 | **04/Ago** | **05/Ago** | [Arquitetura TI/TA e Pirâmide ISA-95](aulas/semana_01.md) | Conceitos de integração OT/IT e modelo de eventos fabris. |
-| **02** | Aula 02 | **11/Ago** | **12/Ago** | [Prática de Laboratório: Reconhecimento Físico de Componentes](aulas/semana_02.md) | Reconhecimento prático de sensores discretos, CLPs, IHMs e atuadores. |
-| **03** | Aula 03 | **18/Ago** | **19/Ago** | [Teoria Geral dos Dispositivos Industriais (Sensores, Atuadores e Controladores)](aulas/semana_03.md) | Fundamentação teórica de sensores, atuadores e arquitetura CLP/IHM. |
+| **01** | Aula 01 | **04/Ago** | **05/Ago** | [Arquitetura TI/TA e Pirâmide ISA-95](aulas/semana_01.ipynb) | Conceitos de integração OT/IT e modelo de eventos fabris. |
+| **02** | Aula 02 | **11/Ago** | **12/Ago** | [Prática de Laboratório: Reconhecimento Físico de Componentes](aulas/semana_02.ipynb) | Reconhecimento prático de sensores discretos, CLPs, IHMs e atuadores. |
+| **03** | Aula 03 | **18/Ago** | **19/Ago** | [Teoria Geral dos Dispositivos Industriais (Sensores, Atuadores e Controladores)](aulas/semana_03.ipynb) | Fundamentação teórica de sensores, atuadores e arquitetura CLP/IHM. |
 | **04** | Aula 04 | **25/Ago** | **26/Ago** | [Protocolos de Comunicação Industrial & Broker MQTT](aulas/semana_04.md) | Arquitetura Pub/Sub, Broker MQTT Mosquitto e payloads JSON para IIoT. |
 | **05** | Aula 05 | **01/Set** | **02/Set** | [Orquestração de Dados e Fluxos IIoT com Node-RED](aulas/semana_05.md) | Flow-based programming em Node-RED, tratamento de mensagens e integração. |
 | **06** | Semana de PII | **08/Set** | **09/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da infraestrutura de automação para o PII. |
