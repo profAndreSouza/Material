@@ -77,7 +77,7 @@ A avaliação é formativa e contínua, valorizando o trabalho prático semana a
 | **23/out** | **Aula 11** | **Excel VII — Pesquisa e Busca de Dados:** Funções `PROCX` / `PROCV` para localização de componentes em catálogos de peças aeronáuticas (IPC). | [`Aula_11.md`](Aula_11.md) |
 | **30/out** | **Aula 12** | **Excel VIII — Visualização Gráfica:** Gráficos de colunas, barras, linhas e dispersão aplicados ao acompanhamento de manutenção e consumo. | [`Aula_12.md`](Aula_12.md) |
 | **06/nov** | **Aula 13** | **Excel IX — Análise com Tabelas Dinâmicas:** Criação de Tabelas Dinâmicas (*Pivot Tables*) e Segmentadores (*Slicers*) para relatórios gerenciais rápidos. | [`Aula_13.md`](Aula_13.md) |
-| **13/nov** | **Aula 14** | **Excel X — Revisão Geral Prática & Simulado:** Resolução integrada de exercícios preparatórios para a avaliação final. | — |
+| **13/nov** | **Aula 14** | **Excel X — Revisão Geral Prática & Simulado:** Resolução integrada de exercícios preparatórios para a avaliação final. | [`Aula_14.md`](Aula_14.md) |
 | **20/nov** | *Feriado* | *Feriado Nacional — Dia da Consciência Negra.* | — |
 | **27/nov** | **Avaliação Final** | **PROVA PRÁTICA FINAL DE EXCEL (50% da Média Final):** Avaliação individual prática em laboratório. | [`Avaliacao_02.md`](Avaliacao_02.md) |
 | **04/dez** | **Reavaliação** | **PROVA DE RECUPERAÇÃO SOMATIVA & FEEDBACK:** Devolutiva e prova de recuperação para alunos em reavaliação. | [`Reava.md`](Reava.md) |

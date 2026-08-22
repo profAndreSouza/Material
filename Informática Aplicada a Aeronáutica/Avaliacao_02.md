@@ -1,61 +1,75 @@
-# GUIA DE AVALIAÇÃO — AVALIAÇÃO 02
+# GUIA DE AVALIAÇÃO — PROVA PRÁTICA FINAL DE EXCEL
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
 **Data de Aplicação:** 27/11/2026 (Sexta-feira)  
-**Tema:** PROVA PRÁTICA 2 — Excel Avançado, Dashboards, Engenharia Gráfica e Gestão de Projetos (Aulas 8 a 13)  
-**Ambiente:** Laboratório de Informática (Avaliação Individual)  
-**Peso na Média Final:** **35%**  
+**Tema:** PROVA PRÁTICA FINAL DE EXCEL — Avaliação Individual em Laboratório (Aulas 5 a 14)  
+**Ambiente:** Laboratório de Informática  
+**Duração:** 90 minutos  
+**Peso na Média Final:** **50% da Média Final (5,0 Pontos)**  
 
 ---
 
 ## 1. ESCOPO DO CONTEÚDO AVALIADO
-Nesta segunda avaliação prática individual, o estudante demonstrará o domínio consolidado das competências ministradas nas **Aulas 8 a 13**:
-- **MS Excel Avançado & Agregações (Aula 8):**
-  - Funções de contagem e soma condicional multicritério (`CONT.SE`, `CONT.SES`, `SOMASE`, `SOMASES`).
-  - Cálculo do Custo por Hora de Voo (R$/FH) e indicadores gerenciais da frota.
-- **Engenharia Gráfica & Regressão (Aula 9):**
-  - Gráficos de Dispersão ($X, Y$) com linhas de tendência/regressão, exibição da equação da reta e coeficiente de determinação ($R^2$).
-  - Gráficos Combinados (Colunas + Linhas) utilizando **Eixo Secundário** para variáveis de escalas distintas.
-- **Tabelas Dinâmicas, Slicers e Dashboards (Aula 10):**
-  - Construção de Tabelas Dinâmicas (*Pivot Tables*) para análise multidimensional de ordens de serviço por Capítulos ATA.
-  - Inserção e sincronização de Segmentadores de Dados (*Slicers*) com múltiplos relatórios em um Dashboard Executivo.
-- **Tratamento de Dados, Validação e Macros (Aula 11):**
-  - Importação de arquivos `.csv`/`.txt` de sistemas MRO.
-  - Criação de regras de Validação de Dados (listas suspensas) e gravação de Macros operacionais (`.xlsm`).
-- **Gestão de Projetos no Excel (Aulas 12 e 13):**
-  - Montagem de Estrutura Analítica do Projeto (EAP / WBS).
-  - Gráfico de Gantt Dinâmico no Excel.
-  - Implementação completa do algoritmo PERT/CPM (passo para frente, passo para trás, Folga Total $FT$) e destaque condicional automático do **Caminho Crítico**.
+
+A Prova Prática Final de Excel é uma avaliação individual que consolida todo o aprendizado de planilhas eletrônicas aplicadas à manutenção e engenharia aeronáutica:
+
+1. **Fórmulas Básicas & Referências Absolutas (Aulas 5 e 6):**
+   - Entrada e formatação de dados (número, moeda, data).
+   - Uso obrigatório do trancamento com cifrão (`$`) em constantes e taxas de conversão de unidades.
+2. **Modelagem de Dados & Peso e Balanceamento (Aula 7):**
+   - Cálculo de momento ($M = P \times B$), somatórias de peso/momento e Centro de Gravidade ($CG$).
+3. **Tomada de Decisão com Lógica Condicional & Formatação Visual (Aulas 8 e 9):**
+   - Função `=SE()` simples e aninhada para controle de status e validade de componentes.
+   - Combinações com `=E()`, `=OU()` e prevenção de erros com `=SEERRO()`.
+   - Regras de Formatação Condicional com realce por cores.
+4. **Agregações & Funções de Busca (Aulas 10 e 11):**
+   - Contagens e somas com critérios: `=CONT.SE()` e `=SOMASE()`.
+   - Consulta em catálogos de peças (*Illustrated Parts Catalog - IPC*) com `=PROCX()` ou `=PROCV()`.
+5. **Engenharia Gráfica & Tabelas Dinâmicas (Aulas 12 e 13):**
+   - Gráfico de colunas/linhas com títulos de eixos e rótulos de dados.
+   - Construção de Tabela Dinâmica com Segmentação de Dados (*Slicers*).
 
 ---
 
 ## 2. INSTRUÇÕES GERAIS DE EXECUÇÃO
 
 > [!IMPORTANT]
-> **Regras de Aplicação da Avaliação 2:**
-> 1. A avaliação é estritamente **individual** e realizada no laboratório de informática.
-> 2. Duração total: **90 minutos**.
-> 3. Crie uma pasta de trabalho em sua área de trabalho com a nomenclatura: `C:\Avaliacao2_SeuNome_RA\`.
-> 4. Se a prova contiver rotinas gravadas, certifique-se de salvar a pasta de trabalho como `.xlsm`.
-> 5. A avaliação foi elaborada com base no projeto pedagógico [`docs/PPC-Fatec-Sorocaba-manutencao-aeronaves.pdf`](docs/PPC-Fatec-Sorocaba-manutencao-aeronaves.pdf) e nos exames de referência [`docs/EXAMES FINAIS.docx`](docs/EXAMES%20FINAIS.docx).
+> **Regras de Aplicação da Prova Final:**
+> 1. A avaliação é estritamente **individual** e sem consulta externa (exceto à ajuda integrada do Excel).
+> 2. Crie uma pasta na Área de Trabalho com a nomenclatura: `C:\ProvaFinal_SeuNome_RA\`.
+> 3. Salve periodicamente sua pasta de trabalho (`Ctrl + B` ou `Ctrl + S`).
+> 4. Todas as respostas numéricas devem ser geradas por **fórmulas e funções** do Excel. Resultados digitados manualmente como texto ou valores estáticos serão zerados.
 
 ---
 
-## 3. ESTRUTURA DOS ARQUIVOS DE ENTREGA
+## 3. ESTRUTURA DO ARQUIVO DE ENTREGA
 
 ```
-[PASTA DE ENTREGA: C:\Avaliacao2_SeuNome_RA\]
- ├── Parte1_Dashboard_e_Analise.xlsx (Excel: Tabelas Dinâmicas, Slicers e Gráficos de Engenharia)
- └── Parte2_Gestao_de_Projetos.xlsx  (Excel: Cronograma Gantt Dinâmico e Rede PERT/CPM com Caminho Crítico)
+[PASTA DE ENTREGA: C:\ProvaFinal_SeuNome_RA\]
+ └── Prova_Final_Excel_SeuNome.xlsx
+      ├── Aba 1: Conversoes_e_CG
+      ├── Aba 2: Lógica_e_Alertas
+      ├── Aba 3: Catalogo_e_Requisicao
+      └── Aba 4: Graficos_e_Dashboard
 ```
 
 ---
 
-## 4. CRITÉRIOS DE CORREÇÃO COMPUTACIONAL
+## 4. CRITÉRIOS DE CORREÇÃO COMPUTACIONAL (TOTAL: 10,0 PONTOS)
 
-| Requisito Avaliado | Pontuação Máxima | O que será verificado pelo professor |
+| Questão / Bloco Avaliado | Pontos | O que será verificado pelo professor |
 | :--- | :---: | :--- |
-| **Excel: Tabela Dinâmica e Slicers** | 2,5 pts | Agregações corretas por categoria e filtros sincronizados no Dashboard. |
-| **Excel: Engenharia Gráfica** | 2,0 pts | Construção correta de Gráfico Combinado com Eixo 2 ou Dispersão com Regressão. |
-| **Excel: Gráfico de Gantt Dinâmico** | 2,5 pts | Gráfico de Gantt funcional (barras empilhadas ou formatação condicional por datas). |
-| **Excel: Algoritmo PERT/CPM** | 3,0 pts | Fórmulas de $IC, TC, IT, TT$, cálculo de Folga Total e destaque das tarefas críticas. |
-| **TOTAL GERAL DA AVALIAÇÃO 2** | **10,0 pts** | *(Convertido para o peso de 35% da média semestral)* |
+| **Bloco 1: Conversões e $CG$** | 2,0 pts | Uso correto de referências `$`, fórmulas de momento e cálculo correto da posição do $CG$. |
+| **Bloco 2: Lógica Condicional (`SE`/`E`/`OU`)** | 2,5 pts | Sintaxe correta dos testes lógicos, respostas automáticas e regras de formatação condicional de cores. |
+| **Bloco 3: Buscas e Agregações (`PROCX`/`SOMASE`)** | 2,5 pts | Busca automática de descrição/preço no catálogo e contagens/somas condicionais corretas. |
+| **Bloco 4: Gráficos de Engenharia** | 1,5 pts | Gráfico com títulos nos eixos, escala correta e leitura visual clara. |
+| **Bloco 5: Tabela Dinâmica & Slicers** | 1,5 pts | Tabela dinâmica cruzando dados corretamente e filtro visual por segmentador funcionando. |
+| **TOTAL GERAL DA PROVA FINAL** | **10,0 pts** | *(Comporá 50% da Média Final semestral)* |
+
+---
+
+## 5. FÓRMULA DE CÁLCULO DA MÉDIA FINAL (MF)
+
+$$\text{MF} = (\text{Média dos Exercícios} \times 0{,}5) + (\text{Nota da Prova Final} \times 0{,}5)$$
+
+- Se $\text{MF} \ge 6{,}0$ e Frequência $\ge 75\% \to$ **Aprovado Direto!**
+- Se $2{,}0 \le \text{MF} < 6{,}0 \to$ **Habilitado para a Reavaliação (04/12/2026)**.

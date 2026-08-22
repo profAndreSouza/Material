@@ -1,97 +1,133 @@
 # ROTEIRO DE AULA EXPANDIDO — AULA 03
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
 **Data:** 21/08/2026  
-**Tema:** MS Word Avançado: Modelagem de Ordens de Serviço (OS), Formulários Interativos, Colaboração em Nuvem e Mini-PBL 1  
-**Ambiente:** Laboratório de Informática (Microsoft 365 Online / Word)  
-**Articulação com o PPC:** EAA-003 (Familiarização), EAM-005 (Práticas de Manutenção em Aeronaves) e EAM-003 (Manutenção de Aeronaves)  
+**Tema:** MS Word Técnico — Normas ABNT (Parte 2): Quebras de Seção, Numeração ABNT, Figuras/Tabelas e Sumário Automático *(Continuação da Aula 02)*  
+**Ambiente:** Laboratório de Informática (Microsoft 365 / Word)  
+**Articulação com o PPC:** COE-001 (Comunicação Escrita), Projetos Integradores I a IV (TAM-001 a TAM-004) e Trabalho de Graduação (TG/TCC)  
 
 ---
 
-## 1. OBJETIVOS DE INFORMÁTICA
-Ao final desta aula, você será capaz de:
-- Desenvolver formulários interativos estruturados com campos padronizados (caixas de texto, listas suspensas, datas e caixas de seleção).
-- Configurar modelos técnicos protegidos contra alterações indevidas de leiaute.
-- Operar os recursos de **Colaboração em Tempo Real, Comentários e Controle de Alterações (*Track Changes*)** no Word Online (Microsoft 365).
-- Planejar a estrutura lógica de uma **Ordem de Serviço (OS)** aeronáutica digital.
-- Executar o **Mini-PBL 1** (Desenvolvimento de Modelo Padronizado de Ordem de Serviço).
+## 1. CONTEXTO PEDAGÓGICO & OBJETIVOS
+Na Aula 02, iniciamos a padronização do documento no Word configurando o tamanho A4, as margens ABNT (3-3-2-2), a tipografia e os **Estilos de Parágrafo (Normal, Título 1, Título 2)**.
+
+Nesta Aula 03 (**continuação direta da Aula 02**), finalizaremos todos os elementos estruturais do relatório técnico:
+- Criação da **Capa formal ABNT**.
+- Inserção de **Quebras de Seção (Próxima Página)** para dividir o relatório em: Capa, Elementos Pré-Textuais (Sumário) e Elementos Textuais (Introdução em diante).
+- Desvinculação de cabeçalhos e rodapés entre seções (**"Vincular ao Anterior"**).
+- Configuração da **Numeração de Páginas no Padrão ABNT** (contar todas as folhas a partir da capa, mas exibir o número apenas a partir da Introdução, no canto superior direito).
+- Inserção de **Tabelas e Figuras Técnicas com Legendas Padronizadas** e indicação de fonte.
+- Geração e atualização com 1 clique do **Sumário Automático** (que lê os Estilos criados na Aula 02!).
+- Exportação do arquivo final em formato **PDF/A**.
 
 ---
 
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
-### 2.1 Formulários Digitais vs. Documentos Livres
-Em manutenção de aeronaves, ordens de serviço e fichas de inspeção não podem ser preenchidas como textos livres para evitar omissão de dados críticos. Conforme estabelecido no manual oficial [`docs/FAA-H-8083-31B - MANUAL DO TECNICO DE MANURENÇÃO DE AERONAVE.pdf`](docs/FAA-H-8083-31B%20-%20MANUAL%20DO%20TECNICO%20DE%20MANUREN%C3%87%C3%83O%20DE%20AERONAVE.pdf) e na diretriz de tomada de decisão [`docs/02-asas-do-conhecimento-tomada-de-decisao.pdf`](docs/02-asas-do-conhecimento-tomada-de-decisao.pdf), a rastreabilidade e a padronização são requisitos legais inegociáveis.
-- **Campos de Controle:** Limitam o tipo de entrada (ex: obrigar a escolha de opções fixas de um menu dropdown, garantir que datas sigam o formato padrão e exigir marcação explícita de caixas de seleção).
-- **Colaboração em Nuvem (Microsoft 365):** Vários técnicos e engenheiros podem editar o mesmo documento simultaneamente via navegador, com rastreabilidade de quem alterou cada parágrafo.
+### 2.1 Por que Seções são Necessárias na ABNT?
+No Microsoft Word, um documento padrão possui cabeçalhos, rodapés e numeração contínuos. Para atender às normas da ABNT (NBR 14724) para trabalhos acadêmicos e relatórios técnicos da aviação:
+1. **Capa e Sumário:** São contados, mas **NÃO exibem** o número da página.
+2. **Introdução (Primeira página de texto):** É a primeira página onde o número aparece impresso (exemplo: Página 3).
+
+Para fazer isso sem criar arquivos separados, o Word utiliza **Quebras de Seção**:
+- Cada seção funciona como um "subdocumento" com formatações de página independentes.
+- Ao desativar o botão **"Vincular ao Anterior"** no cabeçalho da Seção 2, podemos colocar números de página nela sem que apareçam na Seção 1 (Capa/Sumário).
 
 ```
-ESTRUTURA DE UMA ORDEM DE SERVIÇO DIGITAL:
- +------------------------------------------------------------------------------------+
- | [CABEÇALHO] Logotipo da Empresa | Código da OS: OS-2026-0899 | Data: [ 21/08/2026]  |
- +------------------------------------------------------------------------------------+
- | [IDENTIFICAÇÃO] Prefixo: [PR-XYZ] | Modelo: [Cessna 172] | Horas Totais: [1.450 h] |
- | Tipo de Serviço: [v Inspeção de 100 Horas / Preventiva                           ] |
- +------------------------------------------------------------------------------------+
- | [CHECKLIST DE ITENS]                                                              |
- |  [X] Drenagem de Combustível        [X] Troca de Filtro de Óleo                   |
- |  [ ] Inspeção do Trem de Pouso     [X] Teste dos Aviônicos                       |
- +------------------------------------------------------------------------------------+
- | [ASSINATURA DIGITAL / LIBERAÇÃO] Mecânico Responsável: [Eng. Silva - CHT 998877]   |
- +------------------------------------------------------------------------------------+
+ESTRUTURA DE SEÇÕES NO DOCUMENTO ABNT:
+ +---------------------------+   +---------------------------+   +---------------------------+
+ |         SEÇÃO 1           |   |         SEÇÃO 1           |   |         SEÇÃO 2           |
+ |          CAPA             |   |         SUMÁRIO           |   |      1. INTRODUÇÃO        |
+ |                           |   |                           |   |                           |
+ |  (Conta como pág. 1)      |   |  (Conta como pág. 2)      |   |  (Página 3 no topo dir.)  |
+ |  [Sem número visível]     |   |  [Sem número visível]     |   |  [Número visível: 3]      |
+ +---------------------------+   +---------------------------+   +---------------------------+
+               |                               |                               |
+               +--- [Quebra de Página] --------+--- [Quebra de Seção: Próxima Página] ---+
+                                                                               |
+                                                            [Desvincular Cabeçalho!]
 ```
 
 ---
 
 ## 3. GUIA PRÁTICO EM LABORATÓRIO (PASSO A PASSO)
 
-### Atividade 1: Construção do Cabeçalho e Tabela de Identificação da OS
+### Atividade 1: Abrindo o Arquivo da Aula 02 e Montando a Capa
 
-1. Crie um novo documento no Word.
-2. Na guia **Layout**, defina margens estreitas (1,5 cm em todos os lados) para aproveitar a área útil da folha A4.
-3. Insira uma Tabela de 3 colunas x 1 linha para o Cabeçalho:
-   - Coluna 1: Imagem/Logotipo institucional da oficina.
-   - Coluna 2: Texto Centralizado em negrito: `ORDEM DE SERVIÇO DE MANUTENÇÃO AERONÁUTICA (OS)`.
-   - Coluna 3: `Nº da OS:` e `Data de Emissão:`.
-4. Abaixo, insira uma Tabela de Identificação Técnica de 4 colunas x 3 linhas:
-   - Linha 1: `Aeronave / Prefixo:` | `Modelo:` | `Fabricante:` | `Nº de Série (MSN):`
-   - Linha 2: `Horas Totais (TSN):` | `Pousos Totais (CSN):` | `Base de Operação:` | `Proprietário:`
-   - Linha 3: `Tipo de Manutenção:` (Ocupando 2 colunas) | `Prazo Estimado:` (Ocupando 2 colunas).
+1. Abra o arquivo `Relatorio_ABNT_Aula02.docx` salvo na aula anterior (onde os estilos e margens já estão configurados).
+2. Na primeira página, centralize os dados da Capa:
+   - Topo: `FATEC SOROCABA — CST EM MANUTENÇÃO DE AERONAVES`
+   - Centro: `RELATÓRIO TÉCNICO: INTRODUÇÃO À AVIAÇÃO CIVIL E REGULAMENTAÇÃO`
+   - Abaixo: Seu Nome Completo e RA
+   - Rodapé: `Sorocaba — SP / 2026`
+3. Posicione o cursor no final da Capa e insira uma quebra de página simples (`Ctrl + Enter`) para criar a Página 2 (reservada para a palavra `SUMÁRIO`).
 
 ---
 
-### Atividade 2: Inserção de Controles de Formulário e Dropdown
+### Atividade 2: Inserção de Quebra de Seção e Divisão do Documento
 
-1. Acesse a guia **Desenvolvedor** (se não estiver ativa: *Arquivo -> Opções -> Personalizar Faixa de Opções -> Marcar "Desenvolvedor"*):
-   - No campo `Tipo de Manutenção`: Insira o **Controle de Conteúdo de Caixa de Combinação** (Dropdown).
-   - Clique em **Propriedades**: Adicione as opções: `Inspeção de 50 Horas`, `Inspeção de 100 Horas`, `Inspeção Anual (IAM)`, `Diretriz de Aeronavegabilidade (DA)`, `Manutenção Corretiva`.
-   - No campo `Data`: Insira o **Controle de Conteúdo de Seletor de Data**.
-   - No campo `Checklist`: Insira caixas de texto e **Controles de Conteúdo de Caixa de Seleção** `[ ]`.
+1. Na página do **Sumário** (Página 2), posicione o cursor no final da página.
+2. Acesse a guia **Layout** -> clique em **Quebras** -> selecione **Quebras de Seção: Próxima Página**.
+   - *Dica:* Ative o botão **Mostrar Tudo (`¶`)** na guia *Página Inicial* para visualizar onde a quebra de seção está inserida.
 
 ---
 
-### Atividade 3: Compartilhamento e Revisão Colaborativa no Office 365
+### Atividade 3: Desvinculação de Cabeçalho e Inserção da Numeração ABNT
 
-1. Clique no botão **Compartilhar** no canto superior direito do Word.
-2. Insira o e-mail institucional do colega de dupla.
-3. Com o documento aberto nos dois computadores simultaneamente:
-   - Ative a ferramenta **Controlar Alterações** (*Track Changes*) na guia **Revisão**.
-   - O colega fará alterações no texto (adicionar uma linha de serviço).
-   - Observe as alterações marcadas em vermelho/balões laterais.
-   - Clique em **Aceitar Todas as Alterações** para consolidar o documento final.
+1. Vá até a primeira página de conteúdo textual (**Introdução**, agora na Seção 2).
+2. Dê um duplo clique na área do **Cabeçalho** da página da Introdução.
+3. Na guia superior **Cabeçalho e Rodapé**, observe que o botão **"Vincular ao Anterior"** está ativado (sombreado).
+4. **Clique em "Vincular ao Anterior" para DESATIVÁ-LO!** (Isso impede que o número apareça na capa e no sumário).
+5. Ainda na guia *Cabeçalho e Rodapé*:
+   - Clique em **Número de Página** -> **Formatar Números de Página...**
+   - Em *Numeração das páginas*, marque: **Iniciar em: 3** (ou o número correspondente à contagem real das folhas).
+   - Clique em **OK**.
+   - Clique novamente em **Número de Página** -> **Início da Página** -> **Número Sem Formatação 3** (alinhado à direita).
+6. Dê duplo clique no meio da folha para fechar o cabeçalho.
+7. **Verificação:** Role a tela até a Capa e Sumário e confirme que elas **não** possuem número impresso!
 
 ---
 
-## 4. DESAFIO PRÁTICO (MINI-PBL 1)
+### Atividade 4: Inserção de Figuras e Tabelas com Legendas Padronizadas
 
-**Enunciado do Mini-PBL 1 (Peso: ~7,5% da Média Final):**
-Em duplas no laboratório, desenvolva um **Modelo Completo de Ordem de Serviço (OS) e Ficha de Inspeção Pré-Voo/Preventiva** baseado nos padrões do manual [`docs/FAA-H-8083-31B`](docs/FAA-H-8083-31B%20-%20MANUAL%20DO%20TECNICO%20DE%20MANUREN%C3%87%C3%83O%20DE%20AERONAVE.pdf) e com checklist de tomada de decisão conforme [`docs/02-asas-do-conhecimento-tomada-de-decisao.pdf`](docs/02-asas-do-conhecimento-tomada-de-decisao.pdf), contendo:
+1. **Inserindo uma Figura Técnica:**
+   - Acesse **Inserir** -> **Imagens** e insira a imagem de uma aeronave ou componente.
+   - Centralize a imagem (`Ctrl + E`).
+   - Clique com o botão direito sobre a imagem -> **Inserir Legenda...**
+   - Rótulo: selecione **Figura**.
+   - Digite o título: `: Diagrama estrutural da fuselagem e empenagem`.
+   - Abaixo da imagem, insira em fonte 10 pt: `Fonte: ANAC (2026)`.
 
-1. **Cabeçalho Profissional:** Com tabela formatada, logotipo e código único de documento.
-2. **Campos Interativos:** Dropdown com tipos de manutenção, seletor de data, campos de texto formatados para prefixo/modelo/horas.
-3. **Tabela de Itens Inspecionados:** Com no mínimo 6 itens técnicos contendo caixas de seleção `[X]` para *Conforme*, *Não Conforme* e *Não Aplicável*.
-4. **Tabela de Registro de Peças Aplicadas:** Colunas para `Item`, `Part Number (PN)`, `Descrição`, `Quantidade` e `Lote/Certificado`.
-5. **Campo de Liberação / Retorno ao Serviço:** Com espaço para assinatura digital/identificação do responsável técnico e declaração de aprovação para voo.
-6. **Entrega:** Envio do arquivo `.docx` modelo e do arquivo final gerado em formato `.pdf`.
+2. **Inserindo uma Tabela Técnica:**
+   - Acesse **Inserir** -> **Tabela** (ex: 4 colunas x 5 linhas).
+   - Preencha com dados de especificações técnicas (Modelo, Peso Máximo, Envergadura, Motor).
+   - Formate o cabeçalho em negrito e com sombreamento suave.
+   - Clique com o botão direito na tabela -> **Inserir Legenda...** -> Rótulo: **Tabela** -> `: Especificações técnicas da frota`.
+   - Abaixo da tabela, insira em fonte 10 pt: `Fonte: Manual de Operações (2026)`.
+
+---
+
+### Atividade 5: Inserção e Atualização do Sumário Automático
+
+1. Posicione o cursor na página reservada para o **Sumário** (Página 2).
+2. Acesse a guia **Referências** -> clique em **Sumário** -> escolha **Sumário Automático 1**.
+3. O Word irá ler todos os textos que formatamos com os estilos `Título 1` e `Título 2` na Aula 02 e montará a lista com os respectivos números de página.
+4. **Como atualizar após alterações:** Caso altere títulos ou adicione novas páginas, clique com o botão direito sobre o Sumário e selecione **Atualizar Campo** -> **Atualizar o índice inteiro** (ou aperte `F9`).
+
+---
+
+### Atividade 6: Exportação em PDF/A
+
+1. Acesse **Arquivo** -> **Salvar Como** (ou **Exportar**).
+2. Selecione o tipo **PDF (*.pdf)**.
+3. Clique em **Mais opções...** (ou **Opções**) e marque a caixa **Compatível com ISO 19005-1 (PDF/A)**.
+4. Clique em **Salvar**.
+
+---
+
+## 4. CONCLUSÃO & PREPARAÇÃO PARA A AULA 04
+
+- Parabéns! O documento base está 100% formatado e completo no padrão ABNT.
+- **Na Aula 04:** Realizaremos a **Oficina Prática de Avaliação (Exercício Avaliativo 1)**, onde cada aluno aplicará sozinho todo o fluxo (Aulas 02 + 03) em um arquivo bruto para envio avaliativo.
 
 ---
 
@@ -99,7 +135,8 @@ Em duplas no laboratório, desenvolva um **Modelo Completo de Ordem de Serviço 
 
 | Atalho de Teclado | Função no MS Word |
 | :--- | :--- |
-| `Ctrl + Shift + E` | Ativa/Desativa o **Controlar Alterações** (*Track Changes*) |
-| `Alt + Shift + D` | Insere o campo de **Data Atual** dinâmico |
-| `Ctrl + F2` | Exibe a Pré-visualização de Impressão |
-| `F12` | Abre a caixa "Salvar Como" instantaneamente |
+| `Ctrl + Shift + 8` (`Ctrl + *`) | Exibe/Oculta os caracteres não imprimíveis (`¶`) e quebras de seção |
+| `Alt + Shift + P` | Insere o campo de **Número de Página** |
+| `F9` | Atualiza campos selecionados (como o Sumário Automático) |
+| `Ctrl + Enter` | Insere uma Quebra de Página simples |
+| `F12` | Abre a janela de Salvar Como instantaneamente |

@@ -1,98 +1,107 @@
 # ROTEIRO DE AULA EXPANDIDO — AULA 09
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
-**Data:** 16/10/2026  
-**Tema:** MS Excel VI — Engenharia Gráfica, Gráficos de Dispersão ($X, Y$), Linhas de Tendência/Regressão e Gráficos Combinados  
-**Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
-**Articulação com o PPC:** EST-002 (Estatística Descritiva), Resistência dos Materiais e Análise de Fratura, e EAA-014 (Aerodinâmica)  
+**Data:** 02/10/2026  
+**Tema:** MS Excel V — Formatação Condicional Visual e Funções Lógicas Combinadas (`E`, `OU`, `SEERRO`)  
+**Ambiente:** Laboratório de Informática (Microsoft 365 / Excel)  
+**Articulação com o PPC:** EAM-004 (Metodologias de Manutenção) e EAM-007 (Gerenciamento da Manutenção)  
 
 ---
 
 ## 1. OBJETIVOS DE INFORMÁTICA
 Ao final desta aula, você será capaz de:
-- Escolher a representação gráfica computacional adequada para diferentes tipos de variáveis de engenharia (discretas, temporais e contínuas).
-- Construir **Gráficos de Dispersão ($X, Y$)** para plotar dados de ensaios laboratoriais (Tensão vs. Deformação, Sustentação vs. Ângulo de Ataque).
-- Adicionar **Linhas de Tendência (*Trendlines*)** e exibir a **Equação da Reta de Regressão e o Coeficiente de Determinação ($R^2$)** no Excel.
-- Construir **Gráficos Combinados** (Colunas + Linhas) utilizando **Eixo Secundário** para comparar variáveis em escalas distintas (ex: Horas de Voo vs. Custo Total de Falhas).
-- Personalizar leiautes visuais profissionais com rótulos, eixos formatados e temas institucionais.
+- Aplicar regras de **Formatação Condicional** para destacar automaticamente células com cores (Verde, Amarelo, Vermelho) e ícones visuais.
+- Combinar testes lógicos múltiplos com a função `=E()` (todas as condições verdadeiras) e `=OU()` (pelo menos uma condição verdadeira).
+- Prevenir erros visuais nas planilhas (`#DIV/0!`, `#N/D`, `#VALOR!`) utilizando a função protetora `=SEERRO()`.
+- Construir um painel de monitoramento de status da frota com alertas visuais automatizados.
 
 ---
 
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
-### 2.1 Gráfico de Linhas vs. Gráfico de Dispersão ($X, Y$)
-- **Gráfico de Linhas:** Trata o eixo X como categorias com espaçamento uniforme (ex: meses Jan, Fev, Mar). **NÃO deve ser usado para equações físicas!**
-- **Gráfico de Dispersão ($X, Y$ - Scatter Plot):** Trata tanto o eixo X quanto o eixo Y como números contínuos. É o único gráfico correto para plotar ensaios de tração, curvas de calibração e aerodinâmica.
+### 2.1 Funções Lógicas Auxiliares: `=E()` e `=OU()`
+- **Função `=E(condição1; condição2; ...)`:** Retorna VERDADEIRO somente se **TODAS** as condições forem atendidas ao mesmo tempo.
+  - *Exemplo:* Uma aeronave só pode voar se a manutenção estiver em dia **E** o piloto estiver com exame médico válido.
+  - `=SE( E(A4="OK"; B4="OK") ; "DECOLAGEM AUTORIZADA" ; "VOO PROIBIDO" )`
+- **Função `=OU(condição1; condição2; ...)`:** Retorna VERDADEIRO se **PELO MENOS UMA** das condições for atendida.
+  - *Exemplo:* Alerta se o combustível estiver abaixo do mínimo **OU** a temperatura do óleo estiver alta.
+  - `=SE( OU(C4 < 50; D4 > 110) ; "ALERTA CRÍTICO" ; "SISTEMAS NORMAIS" )`
 
-```
-+------------------------------------------------------------------------------------+
-|                         GUIA DE ESCOLHA DE GRÁFICOS                                |
-+------------------------------------------------------------------------------------+
-| TIPO DE GRÁFICO      | APLICAÇÃO NA ENGENHARIA AERONÁUTICA                         |
-| -------------------- | ----------------------------------------------------------- |
-| Colunas / Barras     | Comparação de falhas entre sistemas ou modelos de avião.    |
-| Linhas               | Evolução temporal de consumo de óleo ao longo dos meses.    |
-| Dispersão (X, Y)     | Curvas de Tensão x Deformação; Arrasto x Velocidade; $Cl/Cd$.|
-| Combinado (Eixo 2)   | Horas Voadas (eixo esquerdo) vs. Taxa de Falhas (eixo dir). |
-+------------------------------------------------------------------------------------+
-```
+### 2.2 Tratamento de Erros com `=SEERRO()`
+Quando uma fórmula tenta dividir por zero ou busca um dado inexistente, o Excel exibe mensagens de erro feias como `#DIV/0!`.
+- A função `=SEERRO(cálculo; "mensagem alternativa")` captura o erro e exibe uma mensagem amigável:
+  `=SEERRO( Custo / Horas_Voadas ; 0 )` ou `=SEERRO( Custo / Horas_Voadas ; "Não Voou" )`.
+
+### 2.3 Formatação Condicional
+A formatação condicional altera a cor de fundo, cor do texto ou bordas da célula automaticamente conforme o valor contido nela.
+- *Texto igual a "VENCIDO":* Fundo Vermelho claro com texto Vermelho escuro.
+- *Texto igual a "LIBERADO":* Fundo Verde claro com texto Verde escuro.
 
 ---
 
 ## 3. GUIA PRÁTICO EM LABORATÓRIO (PASSO A PASSO)
 
-### Atividade 1: Gráfico de Dispersão e Linha de Regressão (Ensaio de Resistência dos Materiais)
+### Atividade 1: Construindo o Painel de Alerta de Manutenção e Tripulação
 
-Com base nos dados de ligas de alumínio e materiais compostos extraídos da cartilha [`docs/03-asas-do-conhecimento-construcao-de-aeronaves.pdf`](docs/03-asas-do-conhecimento-construcao-de-aeronaves.pdf):
-1. Monte os dados de um ensaio de tração de uma liga de alumínio aeronáutico (Al 2024-T3):
-   - `A1`: `Deformação Específica (mm/mm)` | `B1`: `Tensão Aplicada (MPa)`
-   - `A2`: `0,001` | `B2`: `72`
-   - `A3`: `0,002` | `B3`: `145`
-   - `A4`: `0,003` | `B4`: `215`
-   - `A5`: `0,004` | `B5`: `290`
-   - `A6`: `0,005` | `B6`: `360`
-   - `A7`: `0,006` | `B7`: `410` (Início da não-linearidade)
-2. Selecione o intervalo `A1:B7`.
-3. Acesse a guia **Inserir** -> grupo **Gráficos** -> **Dispersão (X, Y) com Marcadores e Linhas Suaves**.
-4. **Adicionar Linha de Tendência e Equação:**
-   - Clique com o botão direito sobre a linha do gráfico -> **Adicionar Linha de Tendência...**.
-   - Tipo: **Linear**.
-   - Marque as opções: **Exibir Equação no gráfico** e **Exibir valor de R-quadrado no gráfico**.
-5. Observe que o coeficiente angular da reta ($y = mx + b$) representa o **Módulo de Elasticidade (Módulo de Young)** do material!
+1. Abra o Excel e crie uma nova aba chamada `Painel_Alertas_Frota`.
+2. Monte os cabeçalhos a partir da linha 3:
+   - `A3`: `Prefixo`
+   - `B3`: `Inspeção Célula (Horas)`
+   - `C3`: `Inspeção Motor (Horas)`
+   - `D3`: `Status Manutenção` (Função `E`)
+   - `E3`: `Alerta de Sistema` (Função `OU`)
+   - `F3`: `Custo por Hora Voadas` (Função `SEERRO`)
 
----
-
-### Atividade 2: Construção do Gráfico Combinado com Eixo Secundário
-
-1. Monte a tabela de acompanhamento mensal da frota:
-   - `A1`: `Mês` | `B1`: `Horas Voadas na Frota` | `C1`: `Nº de Falhas Técnicas Reportadas`
-   - `A2`: `Jan` | `B2`: `320` | `C2`: `4`
-   - `A3`: `Fev` | `B3`: `410` | `C2`: `5`
-   - `A4`: `Mar` | `B4`: `280` | `C2`: `2`
-   - `A5`: `Abr` | `B5`: `510` | `C2`: `8`
-   - `A6`: `Mai` | `B6`: `480` | `C2`: `6`
-2. Selecione `A1:C6`.
-3. Acesse **Inserir** -> **Gráfico Combinado** -> **Criar Gráfico Combinado Personalizado**:
-   - `Horas Voadas`: **Colunas Agrupadas** (Eixo Principal - Esquerdo).
-   - `Nº de Falhas`: **Linha com Marcadores**, marcando a caixinha **Eixo Secundário** (Eixo Direito).
-4. Clique em **OK**. Observe que ambas as variáveis agora podem ser visualizadas claramente na mesma tela sem distorção de escala!
+3. Preencha os dados nas linhas 4 a 8:
+   - **Linha 4:** `PR-AAA` | `85` | `90` | *(fórmulas)*
+   - **Linha 5:** `PT-BBB` | `105`| `60` | *(fórmulas)*
+   - **Linha 6:** `PR-CCC` | `95` | `110`| *(fórmulas)*
+   - **Linha 7:** `PP-DDD` | `40` | `30` | *(fórmulas)*
+   - **Linha 8:** `PR-EEE` | `100`| `100`| *(fórmulas)*
 
 ---
 
-## 4. EXERCÍCIO DE FIXAÇÃO INTENSIVO
+### Atividade 2: Fórmulas Lógicas e SEERRO
 
-**Desafio de Aerodinâmica no Excel:**
-Com base nos dados de coeficientes de sustentação e polares de arraste extraídos da cartilha [`docs/05-cartilha-asas-do-conhecimento-aerodinamica-do-voo.pdf`](docs/05-cartilha-asas-do-conhecimento-aerodinamica-do-voo.pdf):
-- Crie uma tabela relacionando o `Ângulo de Ataque (graus)` (de 0° a 16°) e o `Coeficiente de Sustentação (Cl)` de um perfil de asa (NACA 0012).
-- Plote o gráfico em **Dispersão ($X, Y$)**.
-- Adicione uma **Linha de Tendência Polinomial de Grau 2 ou 3**.
-- Identifique graficamente o ponto de estol (máximo sustentador antes da queda da curva).
+1. **Status de Manutenção com `=E()` na célula `D4`:**
+   - A aeronave só está "LIBERADA" se as horas da Célula $\le 100$ **E** as horas do Motor $\le 100$:
+   - Digite: `=SE(E(B4<=100; C4<=100); "LIBERADA"; "INTERDITADA")`
+   - Arraste até a linha 8.
+
+2. **Alerta de Sistema com `=OU()` na célula `E4`:**
+   - Se a Célula $\ge 95$ **OU** o Motor $\ge 95$, exibir "ALERTA PRÓXIMO DO LIMITE", senão "OK":
+   - Digite: `=SE(OU(B4>=95; C4>=95); "ALERTA"; "NORMAL")`
+   - Arraste até a linha 8.
+
+3. **Custo por Hora com Proteção `=SEERRO()`:**
+   - Suponha custo total em `G4` e horas em `H4`.
+   - Digite: `=SEERRO(G4 / H4; 0)` para garantir que se as horas forem zero, a célula exiba `0` em vez de `#DIV/0!`.
 
 ---
 
-## 5. DICAS DE PRODUTIVIDADE & ATALHOS NO EXCEL
+### Atividade 3: Aplicação de Formatação Condicional Visual
 
-| Atalho de Teclado | Função no MS Excel |
+1. Selecione a coluna de Status de Manutenção (`D4:D8`).
+2. Acesse a guia **Página Inicial** -> **Formatação Condicional** -> **Regras de Realce das Células** -> **Texto que Contém...**
+3. Digite: `LIBERADA` e escolha o formato **Preenchimento Verde com Texto Verde Escuro**. Clique em OK.
+4. Com as células ainda selecionadas, clique novamente em **Formatação Condicional** -> **Texto que Contém...**
+5. Digite: `INTERDITADA` e escolha o formato **Preenchimento Vermelho Claro com Texto Vermelho Escuro**. Clique em OK.
+6. **Teste:** Altere as horas do motor da aeronave `PP-DDD` para 120 e veja a cor da célula mudar instantaneamente para vermelho!
+
+---
+
+## 4. EXERCÍCIO DE FIXAÇÃO EM SALA
+
+Monte um sistema de controle de calibração de torquímetros e ferramentas de precisão:
+- Colunas: `Código da Ferramenta`, `Dias desde a última calibração`, `Uso Diário (Sim/Não)`.
+- Regra: Se os dias forem $\ge 180$ **OU** uso diário for "Sim" e dias $\ge 90$, a ferramenta deve ir para calibração.
+- Aplique formatação condicional com cores vermelha e verde.
+
+---
+
+## 5. DICAS DE ATALHOS NO EXCEL
+
+| Atalho | Ação |
 | :--- | :--- |
-| `Alt + F1` | Cria o gráfico padrão na folha atual com 1 comando |
-| `Ctrl + 1` | Abre a barra lateral de formatação do elemento gráfico selecionado |
-| `F11` | Cria o gráfico em uma aba de planilha dedicada em tela cheia |
+| `Alt + C + R` | Atalho de teclado para abrir o menu de Formatação Condicional |
+| `F2` | Entra no modo de edição da célula ativa |
+| `Esc` | Cancela a edição da fórmula sem salvar alterações |

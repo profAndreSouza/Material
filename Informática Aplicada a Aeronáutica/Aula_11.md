@@ -1,91 +1,119 @@
 # ROTEIRO DE AULA EXPANDIDO — AULA 11
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
-**Data:** 30/10/2026  
-**Tema:** MS Excel VIII — Importação de Dados (`.csv`/`.txt`), Validação de Dados, Automação por Gravação de Macros e Mini-PBL 3  
-**Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
-**Articulação com o PPC:** EAA-009 (Informação Técnica) e Gestão de Almoxarifado MRO  
+**Data:** 23/10/2026  
+**Tema:** MS Excel VII — Pesquisa e Busca de Dados no Catálogo de Peças (IPC): Funções `=PROCX()` e `=PROCV()`  
+**Ambiente:** Laboratório de Informática (Microsoft 365 / Excel)  
+**Articulação com o PPC:** EAA-009 (Informação Técnica) e EAM-005 (Práticas de Manutenção)  
 
 ---
 
 ## 1. OBJETIVOS DE INFORMÁTICA
 Ao final desta aula, você será capaz de:
-- Importar e transformar arquivos de dados externos nos formatos `.csv` e `.txt` exportados de sistemas MRO/ERP da aviação.
-- Configurar regras de **Validação de Dados** criando listas suspensas (dropdowns) em células para blindar a planilha contra erros de digitação humana.
-- Compreender a diferença computacional entre automação de tarefas via **Gravação de Macros** e codificação direta.
-- Gravar sequências de comandos operacionais (limpeza de formulários, formatação de relatórios, cópia de registros) com o **Gravador de Macros**.
-- Inserir **Botões de Comando e Formas Interativas** na planilha para executar rotinas com 1 clique.
-- Salvar a planilha no formato padronizado para execução de automações (`.xlsm`).
-- Executar o **Mini-PBL 3** (Painel de Gestão de Estoque e Registro de Peças).
+- Compreender a importância de funções de pesquisa na automação de ordens de serviço e requisição de componentes de manutenção.
+- Operar a função moderna `=PROCX()` do Microsoft 365.
+- Operar a função clássica `=PROCV()` compreendendo sua sintaxe e regras de indexação de colunas.
+- Integrar a busca de peças por código **Part Number (PN)** para preenchimento automático de Descrição, Preço Unitário e Localização no Almoxarifado.
+- Prevenir erros de busca utilizando correspondência exata (`0` ou `FALSO`).
 
 ---
 
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
-### 2.1 Por que usar Validação de Dados no Excel?
-Se um usuário digitar `"Cessna172"`, outro digitar `"CESSNA 172"` e um terceiro digitar `"C-172"`, as funções `=SOMASE()`, `=CONT.SE()` e `=PROCX()` falharão.
-- **Validação de Dados (Lista):** Restringe a célula para aceitar exclusivamente os valores de uma lista predeterminada.
+### 2.1 Por que funções de busca são vitais na aviação?
+Em uma oficina de manutenção aeronáutica, o almoxarifado gerencia milhares de componentes com códigos alfanuméricos complexos (*Part Numbers* - PN). Digitar manualmente o nome e o preço de cada peça na Ordem de Serviço causa erros graves de estoque e faturamento.
+Com as funções `PROCX` ou `PROCV`, o mecânico digita apenas o código da peça (ex: `PN-1045`) e a planilha preenche instantaneamente o nome, o fabricante e o valor unitário.
 
-### 2.2 Automação com Gravação de Macros
-- **Macro:** É a gravação das ações do usuário no Excel (cliques, seleções, comandos) que permite repetir processos trabalhosos em frações de segundo.
-- **Formato Obrigatório:** O arquivo DEVE ser salvo como **Pasta de Trabalho Habilitada para Macro do Excel (`.xlsm`)**.
+```
+COMO FUNCIONA A BUSCA NO EXCEL:
+  +----------------------+--------------------+---------------------------------------------+
+  | Célula de Busca (PN) | Fórmula            | Tabela do Catálogo Geral de Peças (IPC)     |
+  +----------------------+--------------------+---------------------------------------------+
+  | [ 10-0123 ]          | =PROCX( ... ) ---->| PN         | DESCRIÇÃO          | PREÇO (R$) |
+  |                      |                    | 10-0120    | Vela de Ignição    | R$ 280,00  |
+  |                      | [Vela de Ignição]  | 10-0123    | Filtro de Óleo     | R$ 450,00  |
+  +----------------------+--------------------+---------------------------------------------+
+```
+
+### 2.2 Comparação de Sintaxe
+
+#### 1. Função Moderna: `=PROCX()` (Recomendada no Office 365)
+`=PROCX( valor_pesquisado ; coluna_onde_pesquisar ; coluna_onde_está_o_resultado ; [se_não_encontrado] )`
+- *Vantagem:* Simples, não depende da posição da coluna e permite mensagem personalizada se a peça não for encontrada.
+
+#### 2. Função Clássica: `=PROCV()` (Compatibilidade universal)
+`=PROCV( valor_pesquisado ; tabela_completa ; número_do_índice_da_coluna ; 0 )`
+- *Atenção:* O valor pesquisado deve estar obrigatoriamente na primeira coluna da tabela selecionada, e o último argumento deve ser `0` (busca exata).
 
 ---
 
 ## 3. GUIA PRÁTICO EM LABORATÓRIO (PASSO A PASSO)
 
-### Atividade 1: Importação de Dados Técnicos `.csv` de Sistema MRO
+### Atividade 1: Construção do Catálogo de Peças (IPC)
 
-1. Acesse a guia **Dados** -> **Obter Dados** -> **De Arquivo** -> **De Texto/CSV**.
-2. Selecione o arquivo `relatorio_estoque_mro.csv` fornecido.
-3. Na janela de visualização, confirme se o delimitador é *Ponto e vírgula* e clique em **Carregar**.
-4. Os dados serão dispostos em uma Tabela estruturada e limpa.
+1. Abra o Excel e crie uma aba chamada `Catalogo_Pecas_IPC`.
+2. Monte a base de dados do almoxarifado nas colunas `A` até `D`:
+   - `A3`: `Part Number (PN)`
+   - `B3`: `Descrição da Peça`
+   - `C3`: `Prateleira / Almoxarifado`
+   - `D3`: `Preço Unitário (R$)`
 
----
-
-### Atividade 2: Configuração de Validação de Dados (Lista Suspensa)
-
-1. Em uma folha nova de formulário, selecione a célula `B3` (`Tipo de Manutenção`).
-2. Acesse a guia **Dados** -> **Validação de Dados**.
-3. Na caixa *Permitir*, escolha **Lista**.
-4. No campo *Fonte*, digite os termos separados por ponto e vírgula:
-   `50 Horas; 100 Horas; Anual (IAM); Preventiva; Corretiva`
-5. Clique em **OK**. Observe que a célula `B3` agora exibe uma setinha de menu suspenso!
+3. Preencha os itens do catálogo (Linhas 4 a 8):
+   - `PN-101` | `Filtro de Óleo Motor Lycoming` | `Prat-A1` | `480,00`
+   - `PN-102` | `Vela de Ignição Champion`     | `Prat-A2` | `290,00`
+   - `PN-103` | `Pastilha de Freio Cleveland`  | `Prat-B1` | `750,00`
+   - `PN-104` | `Pneu Trem Principal 6.00-6`   | `Prat-C3` | `1450,00`
+   - `PN-105` | `Bateria Selada 24V Concorde`  | `Prat-D1` | `5200,00`
 
 ---
 
-### Atividade 3: Gravação de Macro para Limpeza de Formulário e Atribuição a um Botão
+### Atividade 2: Construção da Ficha de Requisição de Peças na OS
 
-1. Acesse a guia **Desenvolvedor** -> clique em **Gravar Macro**:
-   - Nome: `LimparEntradas` (sem espaços nem acentos!).
-   - Clique em **OK**. (O Excel agora está gravando).
-2. Selecione as células de digitação (ex: `B2:B5`).
-3. Pressione a tecla `Delete` no teclado.
-4. Selecione a célula `B2`.
-5. Acesse a guia **Desenvolvedor** -> clique em **Parar Gravação**.
-6. **Desenhar o Botão Interativo:**
-   - Acesse **Inserir** -> **Ilustrações** -> **Formas** -> Desenhe um Retângulo com Cantos Arredondados.
-   - Digite no botão: `LIMPAR FORMULÁRIO`.
-   - Clique com o botão direito sobre o botão desenhado -> **Atribuir Macro...** -> Selecione `LimparEntradas` e clique em **OK**.
-7. *Teste:* Digite valores no formulário e clique no botão para vê-lo limpar tudo automaticamente!
+1. Em uma segunda aba chamada `Requisicao_OS`:
+2. Monte a tabela de requisição:
+   - `A3`: `Item`
+   - `B3`: `Part Number Solicitado (PN)`
+   - `C3`: `Descrição (Automática)`
+   - `D3`: `Localização (Automática)`
+   - `E3`: `Preço Unitário (Automático)`
+   - `F3`: `Qtd Solicitada`
+   - `G3`: `Subtotal (R$)`
 
----
-
-## 4. DESAFIO PRÁTICO (MINI-PBL 3)
-
-**Enunciado do Mini-PBL 3 (Peso: ~7,5% da Média Final):**
-Desenvolva um **Painel de Gestão de Estoque e Registro de Movimentação de Peças** no MS Excel, contendo catálogo de componentes aeronáuticos e ferragens de aviação baseados nas especificações do manual oficial [`docs/FAA-H-8083-32B.pdf`](docs/FAA-H-8083-32B.pdf):
-
-1. **Aba de Cadastro:** Interface limpa com campos: `Part Number`, `Descrição`, `Quantidade Movimentada`, `Tipo de Movimentação (Entrada/Saída)` com **Validação de Dados**.
-2. **Automação por Macro:** Botão para limpar o formulário e preparar a tela para o próximo registro.
-3. **Aba de Estoque com Fórmulas:** Atualização automática de saldo de estoque cruzando entradas e saídas.
-4. **Formato de Entrega:** Arquivo salvo obrigatoriamente no formato `.xlsm`.
+3. Na linha 4, digite o código de teste `PN-102` na célula `B4` e a quantidade `4` na célula `F4`.
 
 ---
 
-## 5. DICAS DE PRODUTIVIDADE & ATALHOS NO EXCEL
+### Atividade 3: Implementando a Busca com `=PROCX()`
 
-| Atalho de Teclado | Função no MS Excel |
-| :--- | :--- |
-| `Alt + F8` | Abre a janela de visualização e execução de Macros |
-| `Alt + D + L` | Abre a janela de **Validação de Dados** |
-| `Ctrl + Shift + L` | Liga/Desliga Filtros na Tabela |
+1. **Descrição da Peça (`C4`):**
+   `=PROCX(B4; Catalogo_Pecas_IPC!A4:A8; Catalogo_Pecas_IPC!B4:B8; "Peça Inexistente")`
+2. **Localização no Almoxarifado (`D4`):**
+   `=PROCX(B4; Catalogo_Pecas_IPC!A4:A8; Catalogo_Pecas_IPC!C4:C8; "-")`
+3. **Preço Unitário (`E4`):**
+   `=PROCX(B4; Catalogo_Pecas_IPC!A4:A8; Catalogo_Pecas_IPC!D4:D8; 0)`
+4. **Subtotal (`G4`):**
+   `=E4 * F4`
+
+---
+
+### Atividade 4: Implementando a Busca com `=PROCV()`
+
+Em uma nova linha, teste a busca clássica com `PROCV`:
+- Na célula `C5`:
+  `=PROCV(B5; Catalogo_Pecas_IPC!A4:D8; 2; 0)` (retorna a 2ª coluna - Descrição).
+- Na célula `E5`:
+  `=PROCV(B5; Catalogo_Pecas_IPC!A4:D8; 4; 0)` (retorna a 4ª coluna - Preço).
+
+---
+
+## 4. EXERCÍCIO DE FIXAÇÃO EM SALA
+
+Construa uma planilha de **Consulta Rápida de Aeronaves por Prefixo**:
+- Crie uma tabela com 5 prefixos, modelos, ano de fabricação e número de série (MSN).
+- Na área de consulta, o usuário digita o prefixo (ex: `PR-XYZ`) e duas células com `PROCX` retornam instantaneamente o modelo e o número de série da aeronave.
+
+---
+
+## 5. DICAS DE PRODUTIVIDADE NO EXCEL
+
+- Ao selecionar intervalos em outra aba, não mude de aba até terminar de digitar os parênteses da fórmula.
+- Se o `PROCV` retornar `#N/D`, verifique se o código pesquisado existe exatamente igual na primeira coluna da tabela.

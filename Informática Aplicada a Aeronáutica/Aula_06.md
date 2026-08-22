@@ -1,98 +1,122 @@
 # ROTEIRO DE AULA EXPANDIDO — AULA 06
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
 **Data:** 11/09/2026  
-**Tema:** MS Excel III — Lógica Condicional (`SE`, `E`, `OU`, `SEERRO`) e Formatação Condicional Visual com Alertas de Inspeção  
-**Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
-**Articulação com o PPC:** EAA-009 (Informação Técnica e Legislação), EAM-003 (Manutenção de Aeronaves) e EAM-005 (Práticas de Manutenção)  
+**Tema:** MS Excel II — Funções Básicas e Referências Absolutas (`$`): Conversão de Unidades Aeronáuticas  
+**Ambiente:** Laboratório de Informática (Microsoft 365 / Excel)  
+**Articulação com o PPC:** CAL-201 (Cálculo Aplicado), FMT-007 (Metrologia) e EAA-003 (Familiarização Aeronáutica)  
 
 ---
 
 ## 1. OBJETIVOS DE INFORMÁTICA
 Ao final desta aula, você será capaz de:
-- Compreender a lógica booleana computacional (*TRUE/FALSE*) e a estrutura de tomada de decisão (*IF-THEN-ELSE*) aplicadas aos checklists de decisão aeronáutica ([`docs/02-asas-do-conhecimento-tomada-de-decisao.pdf`](docs/02-asas-do-conhecimento-tomada-de-decisao.pdf)) e aos mínimos meteorológicos para voo ([`docs/FAA-H-8083-28A - CLIMA.pdf`](docs/FAA-H-8083-28A%20-%20CLIMA.pdf)).
-- Dominar a sintaxe da função `=SE()` simples e aninhada para classificação automática de status.
-- Combinar os conectivos lógicos `=E()` e `=OU()` para avaliar múltiplos critérios técnicos simultâneos.
-- Aplicar a função de contingência `=SEERRO()` para proteger planilhas contra erros de divisão por zero (`#DIV/0!`) ou dados ausentes.
-- Construir regras de **Formatação Condicional** dinâmicas (cores, escalas de cores e conjuntos de ícones) para sinalizar componentes próximos do vencimento e cumprimento de Diretrizes de Aeronavegabilidade (DA/AD).
+- Dominar as funções fundamentais do Excel: `=SOMA()`, `=MÉDIA()`, `=MÍNIMO()`, `=MÁXIMO()`, `=CONT.VALORES()` e `=ARRED()`.
+- Compreender e aplicar o conceito de **Referência Relativa** vs. **Referência Absoluta (Trancamento com Cifrão `$`)**.
+- Utilizar o atalho `F4` para fixar células com parâmetros e constantes de cálculo.
+- Construir uma planilha de **Conversão de Unidades Aeronáuticas** (Pés para Metros, Nós para km/h, Libras para kg, Galões para Litros e PSI para Bar).
+- Controlar casas decimais e formatação de números técnicos.
 
 ---
 
 ## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
 
-### 2.1 A Função Lógica `=SE()`
-A função `=SE()` avalia uma condição lógica e bifurca o comportamento do cálculo:
-
-$$=SE(\text{teste\_lógico}; \text{valor\_se\_verdadeiro}; \text{valor\_se\_falso})$$
+### 2.1 Por que o Trancamento com Cifrão (`$`) é Fundamental?
+Ao arrastar uma fórmula com a Alça de Preenchimento, o Excel automaticamente desloca as referências:
+- Linha 4 vira Linha 5, depois Linha 6... (Referência Relativa).
+- **Problema:** Se você tem um fator de conversão fixo na célula `B1` (ex: `0,3048` para converter pés em metros) e arrastar uma fórmula `=A4*B1`, na linha seguinte o Excel tentará calcular `=A5*B2`, gerando erro!
+- **Solução:** Trancar a célula constante adicionando o cifrão (`$`): `=$B$1`.
+  - Pressionando a tecla `F4` no teclado com o cursor sobre o endereço da célula, o Excel coloca automaticamente `$B$1`.
 
 ```
-EXEMPLO COMPUTACIONAL:
-  =SE(B2 >= 100; "SUBSTITUIR IMEDIATAMENTE"; "COMPONENTE EM SERVIÇO")
+COMO O EXCEL PROCESSA O ARRASTO COMPUTACIONAL:
+  Sem Trancamento:                Com Trancamento ($):
+  Linha 4: =A4 * B1               Linha 4: =A4 * $B$1
+  Linha 5: =A5 * B2 (ERRO!)       Linha 5: =A5 * $B$1 (CORRETO!)
+  Linha 6: =A6 * B3 (ERRO!)       Linha 6: =A6 * $B$1 (CORRETO!)
 ```
 
-### 2.2 Conectivos Lógicos: `=E()` vs. `=OU()`
-- **`=E(condição1; condição2; ...)`:** Retorna VERDADEIRO somente se **TODAS** as condições forem atendidas ao mesmo tempo.
-  - *Exemplo:* Se Horas Totais $\ge 500$ **E** Anos de Instalação $\ge 5$, a peça deve ir para revisão geral (*Overhaul*).
-- **`=OU(condição1; condição2; ...)`:** Retorna VERDADEIRO se **PELO MENOS UMA** das condições for satisfeita.
-  - *Exemplo:* Se Horas Restantes $\le 10$ **OU** Dias Restantes $\le 30$, emitir alerta amarelo de agendamento.
+### 2.2 Tabela de Conversões Oficiais da Aviação
+
+| Grandeza | Unidade Anglo-Americana | Unidade SI (Métrica) | Fator de Multiplicação |
+| :--- | :--- | :--- | :--- |
+| **Altitude / Distância** | Pés (*feet* - `ft`) | Metros (`m`) | $\times 0{,}3048$ |
+| **Velocidade** | Nós (*knots* - `kt`) | km/h | $\times 1{,}852$ |
+| **Massa / Peso** | Libras (*pounds* - `lb`) | Quilogramas (`kg`) | $\times 0{,}453592$ |
+| **Combustível (Volume)** | Galões Americanos (`US Gal`) | Litros (`L`) | $\times 3{,}78541$ |
+| **Pressão de Pneus/Tubulações** | `psi` ($\text{lb/in}^2$) | Bar (`bar`) | $\times 0{,}0689476$ |
 
 ---
 
 ## 3. GUIA PRÁTICO EM LABORATÓRIO (PASSO A PASSO)
 
-### Atividade 1: Construção do Painel de Status com `=SE()` e `=SE(E(...))`
+### Atividade 1: Estruturando os Parâmetros Fixos e Tabela de Voo
 
-1. Crie uma planilha com as colunas:
-   - `A1`: `Item / Componente` | `B1`: `Horas Limite (TBO)` | `C1`: `Horas Atuais` | `D1`: `Horas Restantes` | `E1`: `Meses em Uso` | `F1`: `Status Lógico`
-2. Insira 4 componentes:
-   - `A2`: `Magneto Esquerdo` | `B2`: `500` | `C2`: `485` | `E2`: `36`
-   - `A3`: `Vela de Ignição` | `B3`: `100` | `C3`: `60` | `E3`: `12`
-   - `A4`: `Bomba de Vácuo` | `B4`: `400` | `C4`: `405` (Vencida!) | `E4`: `48`
-   - `A5`: `Filtro Hidráulico` | `B5`: `200` | `C5`: `195` | `E5`: `62`
-3. Na célula `D2`, calcule as Horas Restantes:
-   `=B2 - C2`
-4. Na célula `F2`, insira a regra de classificação:
-   `=SE(D2 <= 0; "VENCIDO"; SE(D2 <= 20; "ALERTA - PRÓXIMO"; "OK"))`
-5. Arraste as fórmulas para todas as linhas.
+1. Abra o Microsoft Excel e crie uma nova pasta de trabalho chamada `Conversoes_Aeronauticas`.
+2. Nas linhas 1 e 2, crie uma **Tabela de Parâmetros Fixos**:
+   - `A1`: `PARÂMETROS DE CONVERSÃO TÉCNICA` (em negrito)
+   - `A2`: `ft -> m:` | `B2`: `0,3048`
+   - `C2`: `kt -> km/h:` | `D2`: `1,852`
+   - `E2`: `lb -> kg:` | `F2`: `0,453592`
+   - `G2`: `gal -> L:` | `H2`: `3,78541`
+3. A partir da linha 5, monte a tabela de dados das aeronaves em rota:
+   - `A5`: `Aeronave`
+   - `B5`: `Altitude (ft)`
+   - `C5`: `Altitude (m)`
+   - `D5`: `Velocidade (kt)`
+   - `E5`: `Velocidade (km/h)`
+   - `F5`: `Peso Total (lb)`
+   - `G5`: `Peso Total (kg)`
+   - `H5`: `Combustível (gal)`
+   - `I5`: `Combustível (L)`
 
----
-
-### Atividade 2: Avaliação de Duplo Critério com `=SE(E(...))`
-
-Adicione a coluna `G1`: `Ação Recomendada`.
-- Se as Horas Restantes forem $\le 20$ **E** o componente estiver em uso há mais de 40 meses, deve ser solicitada a compra de peça nova:
-  `=SE(E(D2 <= 20; E2 >= 40); "COMPRAR PEÇA NOVA"; "MONITORAR EM OFICINA")`
-
----
-
-### Atividade 3: Aplicação de Formatação Condicional Visual no 365
-
-1. Selecione as células da coluna `F2:F5` (que contêm os textos `"VENCIDO"`, `"ALERTA - PRÓXIMO"` e `"OK"`).
-2. Na guia **Página Inicial**, clique em **Formatação Condicional** -> **Regras de Realce das Células** -> **Texto que Contém...**:
-   - Digite `VENCIDO` -> Formatar com **Preenchimento Vermelho Claro e Texto Vermelho Escuro**.
-   - Repita a regra: digite `ALERTA` -> Formatar com **Preenchimento Amarelo Claro e Texto Amarelo Escuro**.
-   - Repita a regra: digite `OK` -> Formatar com **Preenchimento Verde Claro e Texto Verde Escuro**.
-3. Selecione a coluna de Horas Restantes (`D2:D5`):
-   - Acesse **Formatação Condicional** -> **Conjuntos de Ícones** -> Escolha os **3 Símbolos (Círculos Coloridos - Farol de Trânsito)**.
-4. *Teste da Reatividade:* Altere o valor de Horas Atuais da Vela de Ignição (`C3`) de 60 para 95. Veja o status mudar instantaneamente para "ALERTA" e a cor mudar para amarelo!
+4. Insira os dados de voo das 4 aeronaves nas linhas 6 a 9:
+   - **PR-AAA:** `10000` ft | `120` kt | `2550` lb | `40` gal
+   - **PT-BBB:** `24000` ft | `210` kt | `5800` lb | `120` gal
+   - **PR-CCC:** `8500` ft  | `110` kt | `1600` lb | `25` gal
+   - **PT-DDD:** `35000` ft | `420` kt | `75000` lb| `2800` gal
 
 ---
 
-## 4. EXERCÍCIO DE FIXAÇÃO INTENSIVO
+### Atividade 2: Inserção das Fórmulas com Trancamento e Arredondamento
 
-**Desafio de Lógica Aeronáutica:**
-Você é responsável por monitorar o cumprimento de 6 **Diretrizes de Aeronavegabilidade (DA)** emitidas pela ANAC:
-- Colunas: `Nº da DA` | `Sistema` | `Horas de Voo Limite` | `Horas Atuais da Aeronave` | `Data Limite Calendárica` | `Status de Cumprimento`
-- Regra de Auditoria com `=SE(OU(...))`:
-  - Se `Horas Atuais >= Horas Limite` **OU** `Data Limite < HOJE()`, exibir `"AERONAVE IMPEDIDA DE VOAR (AOG)"`.
-  - Caso contrário, exibir `"AERONAVEGABILIDADE CONFORME"`.
-- Aplique formatação condicional vermelha e em negrito para os casos impeditivos.
+1. **Altitude em Metros (`C6`):**
+   - Digite: `=ARRED(B6 * $B$2; 1)` e aperte `Enter`.
+2. **Velocidade em km/h (`E6`):**
+   - Digite: `=ARRED(D6 * $D$2; 1)` e aperte `Enter`.
+3. **Peso em kg (`G6`):**
+   - Digite: `=ARRED(F6 * $F$2; 1)` e aperte `Enter`.
+4. **Combustível em Litros (`I6`):**
+   - Digite: `=ARRED(H6 * $H$2; 1)` e aperte `Enter`.
+5. Selecione as células `C6`, `E6`, `G6` e `I6` e arraste até a linha 9.
+6. Verifique que todos os cálculos foram efetuados perfeitamente mantendo as referências fixas aos parâmetros da linha 2!
 
 ---
 
-## 5. DICAS DE PRODUTIVIDADE & ATALHOS NO EXCEL
+### Atividade 3: Funções Estatísticas Fundamentais
 
-| Atalho de Teclado | Função no MS Excel |
+Na linha 11 em diante, monte um painel de resumo da frota:
+- `A11`: `Média de Altitude (m)` -> `=MÉDIA(C6:C9)`
+- `A12`: `Maior Velocidade (km/h)` -> `=MÁXIMO(E6:E9)`
+- `A13`: `Menor Peso (kg)` -> `=MÍNIMO(G6:G9)`
+- `A14`: `Combustível Total a Bordo (L)` -> `=SOMA(I6:I9)`
+- `A15`: `Total de Aeronaves Monitoradas` -> `=CONT.VALORES(A6:A9)`
+
+---
+
+## 4. EXERCÍCIO DE FIXAÇÃO EM SALA
+
+Em uma nova aba `Calibracao_Pneus`:
+1. Monte uma tabela com 6 tipos de aeronaves e suas pressões recomendadas para os pneus do trem de pouso principal em `psi` (ex: 45 psi, 60 psi, 85 psi, 120 psi, 200 psi).
+2. Crie uma célula de parâmetro fixo para o fator de conversão de `psi` para `bar` ($1\text{ psi} = 0{,}0689476\text{ bar}$).
+3. Calcule com trancamento (`$`) e arredondamento para 2 casas decimais a pressão equivalente em `bar`.
+4. Calcule a média e a maior pressão observada na frota.
+
+---
+
+## 5. DICAS DE ATALHOS NO EXCEL
+
+| Atalho | Ação |
 | :--- | :--- |
-| `Alt + C + L` | Abre o menu de **Formatação Condicional** |
-| `HOJE()` | Função que retorna a data atual do sistema automaticamente |
-| `Ctrl + Shift + L` | Ativa a linha de **Filtros Automáticos** no cabeçalho |
+| `F4` (ao editar fórmula) | Alterna trancamento: `A1` $\to$ `$A$1` $\to$ `A$1` $\to$ `$A1` $\to$ `A1` |
+| `Alt + =` | Insere a função `=SOMA()` na célula |
+| `Ctrl + Shift + !` | Formata número com 2 casas decimais e separador de milhar |
+| `Ctrl + Setas` | Navega para as extremidades da tabela preenchida |

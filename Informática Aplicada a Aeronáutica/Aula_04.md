@@ -1,114 +1,91 @@
 # ROTEIRO DE AULA EXPANDIDO — AULA 04
 **Componente Curricular:** INF-117 — Informática Aplicada a Aeronáutica  
 **Data:** 28/08/2026  
-**Tema:** MS Excel I — Fundamentos, Fórmulas Matemáticas, Referências Absolutas (`$`) e Conversões de Unidades Técnicas  
-**Ambiente:** Laboratório de Informática (Microsoft 365 Online / Excel)  
-**Articulação com o PPC:** CAL-201 (Cálculo Aplicado), FQA-001 (Física e Química) e FMT-007 (Metrologia e Ferramentas)  
+**Tema:** MS Word Técnico — Oficina Prática e Exercício Avaliativo de Formatação ABNT  
+**Ambiente:** Laboratório de Informática (Microsoft 365 / Word)  
+**Articulação com o PPC:** COE-001 (Comunicação Escrita), Projetos Integradores I a IV (TAM-001 a TAM-004) e Trabalho de Graduação (TG/TCC)  
 
 ---
 
 ## 1. OBJETIVOS DE INFORMÁTICA
-Ao final desta aula, você será capaz de:
-- Operar a interface moderna do **Microsoft Excel Online (Office 365)**.
-- Compreender a tipologia de dados no Excel: **Valores Numéricos, Textos, Datas e Fórmulas**.
-- Dominar a diferença computacional entre **Referências Relativas (`A1`)** e **Referências Absolutas / Trancamento (`$A$1`, `A$1`, `$A1`)**.
-- Construir equações matemáticas personalizadas utilizando parênteses e operadores (`+`, `-`, `*`, `/`, `^`).
-- Construir planilhas automáticas de **Conversão de Unidades Técnicas Aeronáuticas** (pés para metros, libras para quilogramas, nós para km/h, psi para bar, galões para litros).
-- Aplicar as funções fundamentais: `=SOMA()`, `=MÉDIA()`, `=MÁXIMO()`, `=MÍNIMO()`, `=ARRED()` e `=CONVERTER()`.
+Ao final desta aula prática, você será capaz de:
+- Consolidar individualmente o fluxo completo de formatação de um relatório técnico no Word conforme as normas ABNT.
+- Receber um texto acadêmico/aeronáutico bruto (sem formatação) e aplicar todas as regras padronizadas de editoração técnica.
+- Configurar margens, tipografia, espaçamento e recuos de parágrafo.
+- Criar e aplicar os **Estilos de Título 1 e Título 2**.
+- Inserir **Quebras de Seção** para isolar Capa e Sumário dos elementos textuais.
+- Configurar a **Numeração de Páginas ABNT** (visível apenas a partir da Introdução).
+- Inserir e formatar **Tabelas e Figuras com Legendas Oficiais**.
+- Inserir o **Sumário Automático** e exportar o relatório final em **PDF/A**.
+- Concluir e entregar o **Exercício Avaliativo 1** (componente dos 50% de exercícios contínuos).
 
 ---
 
-## 2. FUNDAMENTAÇÃO TEÓRICA COMPUTACIONAL
+## 2. METODOLOGIA DA OFICINA PRÁTICA EM LABORATÓRIO
 
-### 2.1 Por que o Trancamento com Cifrão (`$`) é Fundamental?
-Ao arrastar uma fórmula no Excel com a **Alça de Preenchimento**, o software desloca automaticamente as linhas e colunas (Referência Relativa).
-- **Quando você precisa fixar uma célula constante** (como uma taxa de conversão ou o preço de um galão de combustível), deve-se usar a **Referência Absoluta (`$`)**.
-- Pressionar a tecla `F4` sobre o endereço da célula insere automaticamente os cifrões:
-  - `$B$1`: Linha e coluna 100% fixas (não mudam ao arrastar nem para os lados nem para baixo).
-  - `B$1`: Linha fixa, coluna livre.
-  - `$B1`: Coluna fixa, linha livre.
-
-```
-EXEMPLO COMPUTACIONAL:
-  Célula B1 = 0,3048 (Fator de Conversão: 1 pé = 0,3048 m)
-
-  Fórmula em C4 (Sem trancar):  =B4 * B1   (Ao arrastar para C5, vira =B5 * B2 -> ERRO!)
-  Fórmula em C4 (Com trancamento): =B4 * $B$1 (Ao arrastar para C5, vira =B5 * $B$1 -> CORRETO!)
-```
-
-### 2.2 Fatores de Conversão Aeronáutica Comuns
-Na aviação internacional, manuais regulatórios oficiais (como o [`docs/FAA-H-8083-28A - CLIMA.pdf`](docs/FAA-H-8083-28A%20-%20CLIMA.pdf) e a cartilha [`docs/04-cartilha-asas-do-conhecimento-principios-de-voo.pdf`](docs/04-cartilha-asas-do-conhecimento-principios-de-voo.pdf)) utilizam o sistema imperial americano (EUA/UK) para parâmetros de voo e clima padrão (ISA), enquanto a engenharia no Brasil exige a conversão para o Sistema Internacional (SI):
-
-| Grandeza | Unidade Aeronáutica | Unidade SI (Métrico) | Fator de Multiplicação |
-| :--- | :--- | :--- | :--- |
-| **Altitude / Distância** | Pés (*feet* - `ft`) | Metros (`m`) | $\text{metros} = \text{ft} \times 0,3048$ |
-| **Velocidade** | Nós (*knots* - `kt`) | Quilômetros por hora (`km/h`) | $\text{km/h} = \text{kt} \times 1,852$ |
-| **Massa / Peso** | Libras (*pounds* - `lb`) | Quilogramas (`kg`) | $\text{kg} = \text{lb} \times 0,453592$ |
-| **Volume de Combustível** | Galões US (*gallons* - `gal`) | Litros (`L`) | $\text{litros} = \text{gal} \times 3,78541$ |
-| **Pressão de Pneus/Sistemas** | Libras por polegada² (`psi`) | Bar (`bar`) | $\text{bar} = \text{psi} \times 0,0689476$ |
+A aula de hoje é 100% prática e dedicada à execução orientada do trabalho de formatação no laboratório:
+1. **Primeiros 15 min:** Organização das estações, login no Office 365, download dos arquivos de apoio (`Texto_Exercicio_Historia_da_Aviacao.txt` ou modelo de relatório) e alinhamento dos critérios de avaliação.
+2. **60 min de Desenvolvimento Individual:** Cada estudante formata o seu documento passo a passo, com o professor passando de bancada em bancada para esclarecer dúvidas específicas.
+3. **Últimos 15 min:** Conferência do checklist ABNT, exportação em `.pdf` (padrão PDF/A) e envio dos arquivos na plataforma da disciplina.
 
 ---
 
-## 3. GUIA PRÁTICO EM LABORATÓRIO (PASSO A PASSO)
+## 3. CHECKLIST DO EXERCÍCIO DE FORMATAÇÃO ABNT (PASSO A PASSO)
 
-### Atividade 1: Construção da Calculadora de Conversão com Referências Absolutas
+Utilize os arquivos da pasta [`Exercicios/`](Exercicios/):
+- Texto Base: [`Exercicios/Texto_Exercicio_Historia_da_Aviacao.txt`](Exercicios/Texto_Exercicio_Historia_da_Aviacao.txt)
+- Guia Detalhado: [`Exercicios/Guia_Exercicio_Formatacao_Word.md`](Exercicios/Guia_Exercicio_Formatacao_Word.md)
 
-1. Abra o Excel Online ou Desktop.
-2. Na linha 1 e 2, crie a área de parâmetros fixos:
-   - `A1`: `PARÂMETROS FIXOS`
-   - `A2`: `Fator ft -> m:` | `B2`: `0,3048`
-   - `C2`: `Fator kt -> km/h:` | `D2`: `1,852`
-   - `E2`: `Fator lb -> kg:` | `F2`: `0,453592`
-3. Na linha 5, monte a tabela de dados de voo:
-   - `A5`: `Aeronave` | `B5`: `Altitude (ft)` | `C5`: `Altitude (m)` | `D5`: `Velocidade (kt)` | `E5`: `Velocidade (km/h)` | `F5`: `Peso Combustível (lb)` | `G5`: `Peso Combustível (kg)`
-4. Insira os dados para 4 aeronaves:
-   - Linha 6: `PR-AAA` | `B6`: `8500` | `D6`: `140` | `F6`: `1200`
-   - Linha 7: `PT-BBB` | `B7`: `12000` | `D7`: `185` | `F7`: `2400`
-   - Linha 8: `PR-CCC` | `B8`: `4500` | `D8`: `110` | `F8`: `800`
-   - Linha 9: `PT-DDD` | `B9`: `25000` | `D9`: `280` | `F9`: `5600`
+### Checklist de Execução:
 
----
-
-### Atividade 2: Inserção de Fórmulas com Trancamento e Arredondamento
-
-1. Na célula `C6` (Altitude em metros), digite a fórmula trancando a célula `B2`:
-   `=ARRED(B6 * $B$2; 1)`
-2. Na célula `E6` (Velocidade em km/h), digite a fórmula trancando a célula `D2`:
-   `=ARRED(D6 * $D$2; 1)`
-3. Na célula `G6` (Combustível em kg), digite a fórmula trancando a célula `F2`:
-   `=ARRED(F6 * $F$2; 2)`
-4. Selecione as células `C6`, `E6` e `G6` e use a **Alça de Preenchimento** (duplo clique ou arrastar) até a linha 9.
-5. Observe que todas as linhas foram calculadas perfeitamente mantendo a referência fixa aos parâmetros da linha 2!
-
----
-
-### Atividade 3: Uso da Função Nativa `=CONVERTER()`
-
-O Excel possui uma função avançada chamada `=CONVERTER(número; de_unidade; para_unidade)`:
-1. Em uma célula vazia, teste:
-   - `=CONVERTER(8500; "ft"; "m")` -> Converte pés para metros nativamente.
-   - `=CONVERTER(140; "kn"; "km/h")` -> Converte nós para km/h.
-   - `=CONVERTER(1200; "lbm"; "kg")` -> Converte libras-massa para quilogramas.
+- [ ] **1. Margens e Papel:**
+  - Papel: **A4**
+  - Margens: **Superior: 3,0 cm** | **Esquerda: 3,0 cm** | **Inferior: 2,0 cm** | **Direita: 2,0 cm**
+- [ ] **2. Estilos de Texto:**
+  - **Normal / Corpo do Texto:** Arial ou Calibri 12 pt, Alinhamento **Justificado**, Espaçamento entre linhas **1,5 linha**, Recuo de primeira linha **1,25 cm**, Espaçamento Depois **6 pt**.
+  - **Título 1:** Arial ou Calibri 14 pt, **Negrito**, **MAIÚSCULAS**, Espaçamento Antes 12 pt / Depois 6 pt.
+  - **Título 2:** Arial ou Calibri 12 pt, **Negrito**, Espaçamento Antes 6 pt / Depois 6 pt.
+- [ ] **3. Seções e Numeração ABNT:**
+  - Página 1: Capa com dados da Fatec Sorocaba, disciplina, título, autor e data.
+  - Inserir **Quebra de Seção (Próxima Página)** após a Capa.
+  - Página 2: Página de Sumário.
+  - Inserir **Quebra de Seção (Próxima Página)** após o Sumário.
+  - Página 3 (Introdução): Desvincular cabeçalho (**desmarcar "Vincular ao Anterior"**), inserir número de página alinhado à direita no cabeçalho iniciando na contagem correta (Página 3).
+  - Confirmar que a Capa e o Sumário ficaram sem numeração visível!
+- [ ] **4. Tabela Técnica:**
+  - Inserir a tabela de especificações de aeronaves históricas/modernas com cabeçalho formatado em negrito e sombreamento suave.
+  - Inserir legenda oficial acima da tabela (*Tabela 1: ...*) e indicação de fonte abaixo em 10 pt.
+- [ ] **5. Figura com Legenda:**
+  - Inserir imagem de aeronave ou componente centralizada.
+  - Inserir legenda oficial (*Figura 1: ...*) e fonte consultada abaixo.
+- [ ] **6. Sumário Automático:**
+  - Inserir na Página 2 o Sumário Automático 1 e verificar se todos os títulos foram capturados corretamente com seus números de página.
+- [ ] **7. Exportação Final:**
+  - Salvar como `Relatorio_ABNT_SeuNome_RA.docx`.
+  - Exportar como `Relatorio_ABNT_SeuNome_RA.pdf` (marcando compatibilidade PDF/A).
 
 ---
 
-## 4. EXERCÍCIO DE FIXAÇÃO INTENSIVO
+## 4. CRITÉRIOS DE AVALIAÇÃO DO EXERCÍCIO 1
 
-**Desafio em Laboratório:**
-Você recebeu um relatório técnico com 6 tanques de combustível de diferentes aeronaves:
-- Colunas: `Prefixo` | `Capacidade (Galões)` | `Consumo Médio (Galões/Hora)` | `Autonomia Máxima (Horas)` | `Capacidade em Litros`
-- **Cálculos:**
-  - `Autonomia (Horas)` = `Capacidade / Consumo Médio`
-  - `Capacidade em Litros` = `Capacidade em Galões * $Fator_Litros` (use $1\text{ gal} = 3,78541\text{ L}$).
-- No rodapé, calcule com fórmulas a **Capacidade Total da Frota em Litros** (`SOMA`), a **Média de Autonomia** (`MÉDIA`) e a **Maior Autonomia** (`MÁXIMO`).
+| Critério Avaliado | Pontuação | O que será verificado |
+| :--- | :---: | :--- |
+| **Configuração de Margens e Papel** | 1,0 pt | Margens corretas (3-3-2-2) e tamanho A4. |
+| **Aplicação de Estilos (Normal, Título 1, Título 2)** | 2,5 pts | Uso real dos estilos do Word, fontes, recuos de 1,25 cm e entrelinhas 1,5. |
+| **Quebras de Seção e Numeração ABNT** | 3,0 pts | Desvinculação correta; numeração sem aparecer na capa/sumário. |
+| **Tabelas, Figuras e Legendas Oficiais** | 1,5 pts | Inserção de legendas automáticas e indicação de fontes. |
+| **Sumário Automático e Exportação PDF/A** | 2,0 pts | Sumário dinâmico funcionando e arquivo PDF gerado corretamente. |
+| **TOTAL DO EXERCÍCIO 1** | **10,0 pts** | *(Comporá o somatório dos 50% de exercícios práticos)* |
 
 ---
 
-## 5. DICAS DE PRODUTIVIDADE & ATALHOS NO EXCEL
+## 5. DICAS DE ATALHOS RÁPIDOS NO WORD
 
-| Atalho de Teclado | Função no MS Excel |
+| Atalho | Ação |
 | :--- | :--- |
-| `F4` (na fórmula) | Alterna automaticamente o trancamento com cifrões (`A1` -> `$A$1` -> `A$1` -> `$A1`) |
-| `Ctrl + Shift + 1` | Aplica formato de número com 2 casas decimais e separador de milhar |
-| `Ctrl + Setas` | Pula instantaneamente para a primeira ou última célula preenchida da tabela |
-| `Ctrl + D` | Copia a fórmula da célula de cima para a célula atual |
+| `Ctrl + J` | Alinhamento Justificado |
+| `Ctrl + E` | Alinhamento Centralizado |
+| `Ctrl + N` | Negrito |
+| `Ctrl + I` | Itálico |
+| `Ctrl + B` ou `Ctrl + S` | Salvar o documento |
+| `F12` | Janela "Salvar Como" |
