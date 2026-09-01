@@ -191,7 +191,7 @@ html_content = r"""<!DOCTYPE html>
   <div class="meta">
     <span>Texto Base: <strong>Introdução à Aviação Civil, ANAC e Regulamentação</strong></span>
     <span>Arquivo de Apoio: <code>Texto_Exercicio_Historia_da_Aviacao.txt</code></span>
-    <span>Padrão Oficial: <strong>ABNT NBR 14724</strong></span>
+    <span>Padrão Oficial: <strong>ABNT NBR 14724 / NBR 10719</strong></span>
   </div>
 </div>
 
@@ -213,26 +213,27 @@ html_content = r"""<!DOCTYPE html>
   <span class="step-title">Definir o Papel A4 e as Margens (3-3-2-2)</span>
   
   <p style="margin-top: 8px;">
-    Antes de começar a formatar qualquer parágrafo, devemos configurar o espaço físico da folha. A ABNT exige margens assimétricas para permitir a perfuração e encadernação sem que o texto seja cortado:
+    Antes de começar a formatar qualquer parágrafo, devemos configurar o espaço físico da folha. A norma <strong>ABNT NBR 14724</strong> exige margens assimétricas para permitir a encadernação e perfuração sem que o texto seja cortado:
   </p>
   <ol>
-    <li>Abra o Microsoft Word com o seu documento (ou crie um novo documento em branco).</li>
+    <li>Abra o Microsoft Word com o seu documento base.</li>
     <li>Acesse a guia superior <strong>Layout</strong>.</li>
-    <li>No grupo <em>Configurar Página</em>, clique em <strong>Tamanho</strong> e confirme se está selecionado <strong>A4 (21 x 29,7 cm)</strong>.</li>
-    <li>Clique no botão <strong>Margens</strong> e selecione a opção <strong>Margens Personalizadas...</strong> (no final do menu).</li>
-    <li>Na caixa de diálogo que se abrirá, configure exatamente:
+    <li>No grupo <em>Configurar Página</em>, clique em <strong>Tamanho</strong> e confirme a seleção do formato <strong>A4 (21 x 29,7 cm)</strong>.</li>
+    <li>Clique no botão <strong>Margens</strong> e selecione a opção <strong>Margens Personalizadas...</strong> (no rodapé do menu suspenso).</li>
+    <li>Na caixa de diálogo <strong>Configurar página</strong> (aba <em>Margens</em>), preencha os valores:
       <ul>
-        <li><strong>Superior:</strong> <code>3,0 cm</code></li>
-        <li><strong>Esquerda:</strong> <code>3,0 cm</code> (espaço para encadernação/pasta)</li>
-        <li><strong>Inferior:</strong> <code>2,0 cm</code></li>
-        <li><strong>Direita:</strong> <code>2,0 cm</code></li>
+        <li><strong>Superior:</strong> <code>3 cm</code></li>
+        <li><strong>Esquerda:</strong> <code>3 cm</code> (espaço reservado para encadernação)</li>
+        <li><strong>Inferior:</strong> <code>2 cm</code></li>
+        <li><strong>Direita:</strong> <code>2 cm</code></li>
+        <li><strong>Orientação:</strong> <strong>Retrato</strong> | <strong>Várias páginas:</strong> <strong>Normal</strong></li>
       </ul>
     </li>
-    <li>Clique no botão <strong>OK</strong> para aplicar a todo o documento.</li>
+    <li>Clique no botão <strong>OK</strong> para aplicar as margens.</li>
   </ol>
 
   <img class="screenshot" src="tutorial_images/step1_margens.png" alt="Configuração de Margens no Word">
-  <div class="caption">Figura 1: Acesso ao menu Layout -> Margens Personalizadas e caixa de diálogo Configurar Página configurada no padrão ABNT.</div>
+  <div class="caption">Figura 1: Guia Layout -&gt; Margens Personalizadas e caixa de diálogo Configurar Página configurada com margens 3-3-2-2 cm no padrão ABNT.</div>
 </div>
 
 <!-- ========================================================================= -->
@@ -246,23 +247,24 @@ html_content = r"""<!DOCTYPE html>
   <span class="step-title">Configurar o Estilo "Normal" (Corpo de Texto)</span>
 
   <p style="margin-top: 8px;">
-    <strong>Regra de Engenharia:</strong> Nunca formate parágrafos selecionando texto com o mouse manualmente. Configure o estilo <strong>Normal</strong> para que todo o texto do documento assuma o padrão ABNT instantaneamente:
+    <strong>Regra de Engenharia:</strong> Nunca formate parágrafos selecionando texto com o mouse manualmente. Configure o estilo <strong>Normal</strong> para que todo o corpo do documento assuma o padrão ABNT instantaneamente:
   </p>
   
   <ol>
-    <li>Acesse a guia <strong>Página Inicial</strong> e localize o quadro de <strong>Estilos</strong>.</li>
+    <li>Acesse a guia <strong>Página Inicial</strong> e localize o grupo <strong>Estilos</strong>.</li>
     <li>Clique com o <strong>BOTÃO DIREITO</strong> sobre o botão <strong>Normal</strong> e selecione <strong>Modificar...</strong></li>
-    <li>Na seção <em>Formatação</em>:
+    <li>Na janela <em>Modificar estilo</em>:
       <ul>
-        <li>Fonte: <strong>Arial</strong> (ou <strong>Calibri</strong>) | Tamanho: <strong>12 pt</strong> | Cor: <strong>Automático (Preto)</strong>.</li>
-        <li>Clique no botão de alinhamento <strong>Justificado</strong> (Ctrl + J).</li>
+        <li>Em <em>Formatação</em>: Selecione Fonte <strong>Arial</strong> | Tamanho <strong>12</strong> | Cor <strong>Automático (Preto)</strong>.</li>
+        <li>Clique no botão de alinhamento <strong>Justificado</strong>.</li>
+        <li>Clique no botão de espaçamento entre linhas <strong>1,5 linha</strong>.</li>
       </ul>
     </li>
     <li>No canto inferior esquerdo da janela, clique no botão <strong>Formatar</strong> e escolha a opção <strong>Parágrafo...</strong></li>
-    <li>Na aba <em>Indentações e Espaçamento</em>, configure:
+    <li>Na caixa de diálogo de Parágrafo (aba <em>Indentações e Espaçamento</em>), configure:
       <ul>
         <li><strong>Alinhamento:</strong> Justificado.</li>
-        <li><strong>Especial:</strong> Selecione <strong>Primeira linha</strong> em <strong>1,25 cm</strong> (o recuo clássico de parágrafo).</li>
+        <li><strong>Especial:</strong> Selecione <strong>Primeira linha</strong> em <strong>1,25 cm</strong> (recuo padrão ABNT).</li>
         <li><strong>Espaçamento Antes:</strong> <code>0 pt</code> | <strong>Depois:</strong> <code>6 pt</code>.</li>
         <li><strong>Espaçamento entre linhas:</strong> <strong>1,5 linha</strong>.</li>
       </ul>
@@ -271,7 +273,7 @@ html_content = r"""<!DOCTYPE html>
   </ol>
 
   <img class="screenshot" src="tutorial_images/step2_estilo_normal.png" alt="Modificação do Estilo Normal no Word">
-  <div class="caption">Figura 2: Janela Modificar Estilo e configuração de Parágrafo (Justificado, Recuo 1ª Linha em 1,25 cm e Entrelinhas 1,5).</div>
+  <div class="caption">Figura 2: Janela Modificar Estilo (Estilo Normal) com fonte Arial 12 pt, Justificado, Entrelinhas 1,5, Recuo 1ª linha em 1,25 cm e Espaçamento Depois de 6 pt.</div>
 </div>
 
 <!-- ========================================================================= -->
@@ -281,10 +283,10 @@ html_content = r"""<!DOCTYPE html>
 
 <div class="step-box">
   <span class="step-number">PASSO 3</span>
-  <span class="step-title">Configurar Título 1, Título 2 e Inspecionar no Painel (Ctrl + F)</span>
+  <span class="step-title">Configurar Título 1, Título 2 e Acompanhar pelo Painel de Navegação (Ctrl + F)</span>
 
   <p style="margin-top: 8px;">
-    Os títulos dos capítulos e subseções precisam ser associados aos estilos nativos <strong>Título 1</strong> e <strong>Título 2</strong> para permitir a geração do Sumário Automático:
+    Os títulos das seções e subseções devem ser vinculados aos estilos nativos <strong>Título 1</strong> e <strong>Título 2</strong> para criar a estrutura hierárquica e viabilizar a geração automática do Sumário:
   </p>
 
   <table>
@@ -308,7 +310,7 @@ html_content = r"""<!DOCTYPE html>
         <td><code>Ctrl + Alt + 1</code></td>
       </tr>
       <tr>
-        <td><strong>Subseção</strong> (ex: 1.1 Santos Dumont)</td>
+        <td><strong>Subseção</strong> (ex: 3.1. Principais atribuições)</td>
         <td><strong>Título 2</strong></td>
         <td>Arial 12 pt</td>
         <td><strong>Negrito, Caixa Mista</strong></td>
@@ -320,16 +322,20 @@ html_content = r"""<!DOCTYPE html>
         <td><strong>Normal</strong></td>
         <td>Arial 12 pt</td>
         <td>Sem negrito, Justificado</td>
-        <td>Entrelinhas 1,5 linha</td>
+        <td>Entrelinhas 1,5 linha, Depois: 6 pt</td>
         <td><code>Ctrl + Shift + N</code></td>
       </tr>
     </tbody>
   </table>
 
-  <p><strong>Como aplicar no texto:</strong> Selecione a linha do título <code>1. HISTÓRIA E EVOLUÇÃO DA AVIAÇÃO</code> e clique em <strong>Título 1</strong>. Selecione <code>1.1 Santos Dumont...</code> e clique em <strong>Título 2</strong>. Pressione <code>Ctrl + F</code> e clique na aba <em>Títulos</em> para ver o esqueleto do documento.</p>
+  <ol>
+    <li>Selecione cada título principal (ex: <code>1. HISTÓRIA E EVOLUÇÃO DA AVIAÇÃO</code>, <code>2. HISTÓRIA DA ANAC...</code>) e aplique o estilo <strong>Título 1</strong>.</li>
+    <li>Selecione as subseções (ex: <code>3.1. Principais atribuições</code>) e aplique o estilo <strong>Título 2</strong>.</li>
+    <li>Pressione o atalho <code>Ctrl + F</code> (ou acesse a guia <em>Exibir -&gt; Painel de Navegação</em>) e clique na aba <strong>Títulos</strong> para inspecionar a árvore estruturada em tempo real.</li>
+  </ol>
 
   <img class="screenshot" src="tutorial_images/step3_estilo_titulos.png" alt="Hierarquia de Títulos e Painel de Navegação">
-  <div class="caption">Figura 3: Aplicação dos Estilos Título 1 e Título 2 e visualização da árvore de tópicos no Painel de Navegação (Ctrl + F).</div>
+  <div class="caption">Figura 3: Aplicação do Estilo Título 1 (Arial 14 pt, Negrito) e visualização em tempo real da hierarquia de seções no Painel de Navegação (Ctrl + F).</div>
 </div>
 
 <!-- ========================================================================= -->
@@ -340,26 +346,26 @@ html_content = r"""<!DOCTYPE html>
 
 <div class="step-box highlight">
   <span class="step-number red">PASSO 4</span>
-  <span class="step-title">Estrutura em Seções: Capa, Sumário e Introdução</span>
+  <span class="step-title">Estruturar Seções Independentes (Capa, Sumário e Corpo Textual)</span>
 
   <p style="margin-top: 8px;">
-    <strong>Atenção Crucial:</strong> Para que a Capa e o Sumário não fiquem com números de página visíveis, o documento deve ser dividido em <strong>SEÇÕES</strong> independentes utilizando a ferramenta <em>Quebras de Seção (Próxima Página)</em>.
+    <strong>Atenção Crucial:</strong> Para que a Capa e o Sumário não exibam números de página impressos (exigência da ABNT), o documento precisa ser dividido em <strong>SEÇÕES</strong> independentes utilizando <em>Quebras de Seção (Próxima Página)</em>.
   </p>
 
   <ol>
-    <li><strong>Página 1 (Capa):</strong> Digite os dados institucionais centralizados (Instituição, Título, Autor, Local, Ano).</li>
-    <li>No final da Capa, acesse a guia <strong>Layout</strong> -> clique em <strong>Quebras</strong> -> selecione <strong>Quebras de Seção: Próxima Página</strong>.</li>
-    <li><strong>Página 2 (Sumário):</strong> Digite a palavra <code>SUMÁRIO</code> em maiúsculas (reservada para o sumário automático).</li>
-    <li>No final da página do Sumário, insira OUTRA <strong>Quebras de Seção: Próxima Página</strong>.</li>
-    <li><strong>Página 3 em diante:</strong> Aqui se inicia a parte textual (<code>1. HISTÓRIA E EVOLUÇÃO DA AVIAÇÃO</code>), que agora está isolada na <strong>Seção 2</strong>!</li>
+    <li><strong>Página 1 (Capa):</strong> Digite os dados institucionais centralizados (Instituição, Curso, Autor, Título, Local e Ano).</li>
+    <li>No final da Capa (após o ano), acesse a guia superior <strong>Layout</strong> -&gt; grupo <em>Configurar Página</em> -&gt; clique no botão <strong>Quebras</strong> -&gt; selecione <strong>Quebras de Seção: Próxima Página</strong>.</li>
+    <li><strong>Página 2 (Sumário):</strong> Digite a palavra <code>SUMÁRIO</code> centralizada (esta página fica reservada para o sumário automático).</li>
+    <li>No final da página do Sumário, acesse novamente <strong>Layout -&gt; Quebras -&gt; Quebras de Seção: Próxima Página</strong>.</li>
+    <li><strong>Página 3 em diante (Corpo Textual):</strong> A partir daqui inicia-se a <strong>Seção 2</strong> (onde começa o capítulo <code>1. HISTÓRIA E EVOLUÇÃO DA AVIAÇÃO</code>).</li>
   </ol>
 
   <div class="callout warning">
-    <strong>Dica Pro:</strong> Ative o botão <strong>Mostrar Tudo (¶)</strong> na guia <em>Página Inicial</em> para enxergar exatamente a linha com a marcação <code>:::::::::: Quebra de Seção (Próxima Página) ::::::::::</code>.
+    <strong>Dica Pro:</strong> Ative o botão <strong>Mostrar Tudo (¶)</strong> na guia <em>Página Inicial</em> para enxergar com clareza as linhas com a marcação <code>:::::::::: Quebra de Seção (Próxima Página) ::::::::::</code>.
   </div>
 
   <img class="screenshot" src="tutorial_images/step4_capa_quebra_secao.png" alt="Quebras de Seção no Word">
-  <div class="caption">Figura 4: Inserção de Quebra de Seção (Próxima Página) pelo menu Layout e divisão entre Seção 1 (Capa/Sumário) e Seção 2 (Texto).</div>
+  <div class="caption">Figura 4: Inserção de Quebra de Seção (Próxima Página) pelo menu Layout para isolar a Capa e o Sumário dos elementos textuais.</div>
 </div>
 
 <!-- ========================================================================= -->
@@ -369,30 +375,30 @@ html_content = r"""<!DOCTYPE html>
 
 <div class="step-box highlight">
   <span class="step-number red">PASSO 5</span>
-  <span class="step-title">Desativar "Vincular ao Anterior" e Iniciar Numeração em 3</span>
+  <span class="step-title">Desativar "Vincular ao Anterior" e Iniciar Numeração Visível em 3</span>
 
   <p style="margin-top: 8px;">
-    Este é o passo em que a maioria dos estudantes erra. Siga o passo a passo com muita atenção:
+    Na norma ABNT NBR 14724, todas as folhas contam a partir da capa, mas a numeração só deve ficar <strong>visível a partir da primeira página textual</strong> (Introdução / Página 3).
   </p>
 
   <ol>
-    <li>Vá até a <strong>Página 3</strong> (onde começa a Introdução) e dê um <strong>DUPLO CLIQUE</strong> no topo da página (área do Cabeçalho).</li>
-    <li>Observe a barra superior intitulada <strong>Cabeçalho e Rodapé</strong>.</li>
-    <li>Localize o botão <strong>"Vincular ao Anterior"</strong> (ele estará ativado/sombreado).</li>
-    <li><strong>CLIQUE NO BOTÃO "VINCULAR AO ANTERIOR" PARA DESATIVÁ-LO!</strong> (O botão deve ficar claro/desmarcado). Isso quebra o vínculo com a Capa e o Sumário.</li>
-    <li>Ainda na barra de Cabeçalho:
+    <li>Vá até a <strong>Página 3</strong> (início da Seção 2 / Introdução) e dê um <strong>DUPLO CLIQUE</strong> no topo da página (área do Cabeçalho).</li>
+    <li>Observe que surgirá a guia contextual superior <strong>Cabeçalho e Rodapé</strong>, com a indicação <code>Cabeçalho -Seção 2-</code> à esquerda e a etiqueta <code>Mesmo que a seção anterior</code> à direita.</li>
+    <li>No grupo <em>Navegação</em>, localize o botão <strong>"Vincular ao Anterior"</strong> (que está ativado/destacado).</li>
+    <li><strong>CLIQUE NO BOTÃO "VINCULAR AO ANTERIOR" PARA DESATIVÁ-LO!</strong> A etiqueta <code>Mesmo que a seção anterior</code> desaparecerá, quebrando o vínculo com a Capa e o Sumário.</li>
+    <li>Ainda na guia contextual <em>Cabeçalho e Rodapé</em>:
       <ul>
-        <li>Clique em <strong>Número de Página</strong> -> <strong>Formatar Números de Página...</strong></li>
-        <li>Em <em>Numeração das páginas</em>, marque a opção <strong>Iniciar em:</strong> e digite o número <strong>3</strong> (contando Capa=1 e Sumário=2). Clique em <strong>OK</strong>.</li>
-        <li>Clique novamente em <strong>Número de Página</strong> -> <strong>Início da Página</strong> -> selecione <strong>Número Sem Formatação 3</strong> (alinhado no canto superior direito).</li>
+        <li>No grupo à esquerda, clique em <strong>Número de Página</strong> -&gt; <strong>Formatar Números de Página...</strong></li>
+        <li>Em <em>Numeração das páginas</em>, marque a opção <strong>Iniciar em:</strong> e digite o número <strong>3</strong> (Capa=1, Sumário=2, Introdução=3). Clique em <strong>OK</strong>.</li>
+        <li>Clique novamente em <strong>Número de Página</strong> -&gt; <strong>Início da Página</strong> -&gt; selecione <strong>Número Sem Formatação 3</strong> (alinhado no canto superior direito).</li>
       </ul>
     </li>
-    <li>Dê um duplo clique no meio da folha para sair do cabeçalho.</li>
-    <li><strong>Verificação Obrigatória:</strong> Role a tela até a Capa e o Sumário e confirme que eles <strong>NÃO POSSUEM número impresso</strong>, e que o número 3 aparece perfeitamente no canto superior direito da Introdução!</li>
+    <li>Clique no botão vermelho <strong>Fechar Cabeçalho e Rodapé</strong> (ou dê duplo clique no meio do documento).</li>
+    <li><strong>Verificação Obrigatória:</strong> Role a tela até a Capa e o Sumário e confirme que eles <strong>NÃO possuem número impresso</strong>, e que o número 3 aparece perfeitamente no topo direito da Introdução!</li>
   </ol>
 
   <img class="screenshot" src="tutorial_images/step5_desvincular_numeracao.png" alt="Desvinculação de Cabeçalho e Numeração ABNT">
-  <div class="caption">Figura 5: Desativação do botão "Vincular ao Anterior" na Seção 2 e inserção do número de página ABNT iniciando visível em 3.</div>
+  <div class="caption">Figura 5: Desativação do botão "Vincular ao Anterior" no Cabeçalho da Seção 2 e configuração da numeração ABNT iniciando visível em 3 no canto superior direito.</div>
 </div>
 
 <!-- ========================================================================= -->
@@ -403,30 +409,31 @@ html_content = r"""<!DOCTYPE html>
 
 <div class="step-box">
   <span class="step-number">PASSO 6</span>
-  <span class="step-title">Inserir Tabelas com Cabeçalho e Legendas com Fonte</span>
+  <span class="step-title">Configurar Tabela Técnica na Guia Layout e Inserir Legendas / Fontes</span>
 
   <p style="margin-top: 8px;">
-    Na Seção 4 do relatório (Classificação das Aeronaves), converta os dados em uma tabela técnica oficial e adicione legendas automáticas:
+    Na Seção 4 do relatório (Classificação das Aeronaves), formate a tabela comparativa de especificações técnicas e configure o alinhamento e repetição de cabeçalho:
   </p>
 
   <ol>
-    <li><strong>Inserir Tabela:</strong> Guia <em>Inserir -> Tabela</em> (7 colunas x 8 linhas).</li>
-    <li><strong>Design da Tabela:</strong> Selecione a primeira linha (cabeçalho), aplique sombreamento escuro e texto em negrito branco. Centralize verticalmente todas as células.</li>
-    <li><strong>Repetir Cabeçalho:</strong> Clique com o botão direito na tabela -> <em>Propriedades da Tabela -> Linha -> Marcar "Repetir como linha de cabeçalho no topo de cada página"</em>.</li>
-    <li><strong>Legenda Oficial da Tabela:</strong>
+    <li><strong>Estrutura da Tabela:</strong> Converta os dados da Seção 4 em uma tabela com 7 colunas (Aeronave, Fabricante, Ano de Introdução, Tipo de Propulsão, Velocidade Máxima, Teto de Serviço, Capacidade).</li>
+    <li><strong>Design do Cabeçalho:</strong> Na guia <strong>Design da Tabela</strong>, aplique preenchimento escuro na primeira linha e defina o texto em negrito e cor branca contrastante.</li>
+    <li><strong>Alinhamento Centralizado (Guia Tabela Layout):</strong> Selecione as células da tabela e, na guia superior <strong>Tabela Layout</strong> -&gt; grupo <strong>Alinhamento</strong>, clique no botão <strong>Alinhar ao Centro</strong> (ícone central da grade 3x3) para centralizar perfeitamente o texto vertical e horizontalmente.</li>
+    <li><strong>Repetir Cabeçalho em Múltiplas Páginas:</strong> Com o cursor posicionado na linha de cabeçalho, acesse <strong>Tabela Layout</strong> -&gt; grupo <strong>Dados</strong> -&gt; clique no botão <strong>Repetir Linhas de Cabeçalho</strong>.</li>
+    <li><strong>Legenda Oficial da Tabela (ABNT):</strong>
       <ul>
-        <li>Clique com o botão direito sobre a tabela -> <strong>Inserir Legenda...</strong></li>
+        <li>Clique com o botão direito na alça da tabela (canto superior esquerdo) -&gt; <strong>Inserir Legenda...</strong></li>
         <li>Rótulo: selecione <strong>Tabela</strong>.</li>
         <li>Digite: <code>: Comparativo de especificações de aeronaves históricas e modernas</code>.</li>
         <li>Posição: <em>Acima do item selecionado</em>.</li>
       </ul>
     </li>
-    <li><strong>Linha de Fonte:</strong> Logo abaixo da tabela, digite em fonte Arial 10 pt: <code>Fonte: Cartilha ANAC e Manuais Operacionais (2026).</code></li>
-    <li><strong>Legenda de Figuras:</strong> Para imagens, clique com o botão direito na foto -> <em>Inserir Legenda...</em> -> Rótulo: <strong>Figura</strong> -> <code>: Aeronave Embraer E195-E2</code>. Insira a fonte abaixo em 10 pt.</li>
+    <li><strong>Indicação de Fonte (ABNT):</strong> Logo abaixo da tabela, digite em fonte Arial 10 pt: <code>Fonte: Cartilha ANAC e Manuais Operacionais (2026).</code></li>
+    <li><strong>Legenda de Figuras:</strong> Para imagens (ex: foto do Embraer E195-E2 ou 14-Bis), centralize a imagem, clique com o botão direito -&gt; <strong>Inserir Legenda...</strong> -&gt; Rótulo: <strong>Figura</strong> -&gt; <code>: Aeronave comercial moderna com materiais compostos...</code> e insira abaixo a fonte em 10 pt: <code>Fonte: Embraer Media Center (2026).</code></li>
   </ol>
 
   <img class="screenshot" src="tutorial_images/step6_tabela_figura_legendas.png" alt="Formatação de Tabelas e Legendas ABNT">
-  <div class="caption">Figura 6: Tabela técnica formatada com legenda superior e indicação de fonte inferior conforme normas da ABNT.</div>
+  <div class="caption">Figura 6: Guia Tabela Layout com alinhamento centralizado das células (grade 3x3) e comando Repetir Linhas de Cabeçalho ativado.</div>
 </div>
 
 <!-- ========================================================================= -->
@@ -436,22 +443,22 @@ html_content = r"""<!DOCTYPE html>
 
 <div class="step-box">
   <span class="step-number">PASSO 7</span>
-  <span class="step-title">Inserir o Sumário Automático na Página 2</span>
+  <span class="step-title">Inserir o Sumário Automático 1 e Atualizar Dinamicamente</span>
 
   <ol>
-    <li>Vá até a <strong>Página 2</strong> reservada e posicione o cursor logo abaixo da palavra <code>SUMÁRIO</code>.</li>
-    <li>Acesse a guia <strong>Referências</strong>.</li>
-    <li>No canto esquerdo, clique no botão <strong>Sumário</strong>.</li>
+    <li>Vá até a <strong>Página 2</strong> (reservada para o sumário) e posicione o cursor logo abaixo da palavra <code>SUMÁRIO</code>.</li>
+    <li>Acesse a guia superior <strong>Referências</strong>.</li>
+    <li>No grupo <em>Sumário</em> (canto esquerdo), clique no botão <strong>Sumário</strong>.</li>
     <li>Selecione a opção <strong>Sumário Automático 1</strong>.</li>
-    <li>O Word fará a leitura automática de todos os títulos formatados como <em>Título 1</em> e <em>Título 2</em> e montará a lista completa com os respectivos números de página!</li>
+    <li>O Word fará a varredura automática de todos os títulos em <em>Título 1</em> e <em>Título 2</em> e gerará instantaneamente o sumário completo com a pontilhação e os números de página correspondentes!</li>
   </ol>
 
   <div class="callout">
-    <strong>O Segredo da Tecla F9:</strong> Se você adicionar mais textos ou alterar títulos, o sumário não muda sozinho. Basta clicar em qualquer parte do sumário e pressionar a tecla <strong>F9</strong> (ou botão direito -> <em>Atualizar Campo</em> -> <em>Atualizar o índice inteiro</em>). O Word recalculará tudo automaticamente!
+    <strong>Atualização Dinâmica (Tecla F9):</strong> Caso você adicione novos parágrafos, imagens ou renomeie seções, clique em qualquer ponto do sumário e pressione a tecla <strong>F9</strong> (ou clique no botão flutuante <strong>"Atualizar Sumário..."</strong> no topo da caixa do sumário) -&gt; escolha <em>Atualizar o índice inteiro</em> -&gt; OK. O Word recalculará todas as páginas automaticamente!
   </div>
 
   <img class="screenshot" src="tutorial_images/step7_sumario_automatico.png" alt="Geração do Sumário Automático no Word">
-  <div class="caption">Figura 7: Geração do Sumário Automático na Página 2 e recurso de atualização instantânea via tecla F9.</div>
+  <div class="caption">Figura 7: Inserção do Sumário Automático 1 pela guia Referências e índice gerado com tópicos, subseções e páginas correspondentes.</div>
 </div>
 
 <!-- ========================================================================= -->
@@ -462,24 +469,24 @@ html_content = r"""<!DOCTYPE html>
 
 <div class="step-box">
   <span class="step-number">PASSO 8</span>
-  <span class="step-title">Salvar e Exportar o Documento Final Inviolável</span>
+  <span class="step-title">Exportar o Relatório Final com Conformidade PDF/A</span>
 
   <p style="margin-top: 8px;">
-    O padrão <strong>PDF/A</strong> é a norma internacional (ISO 19005) exigida para arquivos técnicos e trabalhos acadêmicos porque garante que as fontes, margens e imagens fiquem 100% embutidas, sem risco de desconfiguração em outros computadores:
+    O padrão <strong>PDF/A</strong> é a norma internacional (ISO 19005) obrigatória para relatórios de engenharia e artigos acadêmicos, assegurando que as fontes, margens e ilustrações fiquem 100% preservadas e invioláveis em qualquer sistema operacional:
   </p>
 
   <ol>
-    <li>Acesse o menu <strong>Arquivo -> Salvar Como</strong> (ou atalho <code>F12</code>).</li>
+    <li>Acesse o menu <strong>Arquivo -&gt; Salvar Como</strong> (ou pressione a tecla <code>F12</code>).</li>
     <li>Escolha a pasta de destino em seu computador.</li>
-    <li>Em <em>Nome do arquivo</em>, digite: <code>Relatorio_ABNT_SeuNome_RA.pdf</code>.</li>
-    <li>Em <em>Tipo</em>, selecione <strong>PDF (*.pdf)</strong>.</li>
-    <li>Clique no botão <strong>Mais opções...</strong> (ou <strong>Opções...</strong>).</li>
-    <li>Na caixa de diálogo de Opções, <strong>MARQUE A CAIXA DE SELEÇÃO: "Compatível com ISO 19005-1 (PDF/A)"</strong>.</li>
-    <li>Clique em <strong>OK</strong> e depois em <strong>Salvar</strong>.</li>
+    <li>No campo <em>Nome do arquivo</em>, informe a nomenclatura solicitada (ex: <code>Relatorio_ABNT_SeuNome_RA.pdf</code>).</li>
+    <li>No campo <em>Tipo</em>, selecione <strong>PDF (*.pdf)</strong>.</li>
+    <li>Clique no botão <strong>Opções...</strong> (ou <strong>Mais opções...</strong>).</li>
+    <li>Na caixa de diálogo <em>Opções</em>, na seção <em>Opções de PDF</em>, <strong>MARQUE A CAIXA DE SELEÇÃO: "Compatível com PDF/A"</strong>.</li>
+    <li>Clique no botão <strong>OK</strong> na janela de Opções e, em seguida, clique em <strong>Salvar</strong>.</li>
   </ol>
 
   <img class="screenshot" src="tutorial_images/step8_salvar_pdfa.png" alt="Exportação no padrão PDF/A">
-  <div class="caption">Figura 8: Janela Salvar Como e marcação obrigatória da compatibilidade ISO 19005-1 (PDF/A).</div>
+  <div class="caption">Figura 8: Janela Salvar Como em formato PDF e caixa Opções com a marcação obrigatória "Compatível com PDF/A".</div>
 </div>
 
 <!-- ========================================================================= -->
@@ -491,15 +498,15 @@ html_content = r"""<!DOCTYPE html>
 
 <ul class="checklist">
   <li><strong>Margens:</strong> Superior: 3,0 cm | Esquerda: 3,0 cm | Inferior: 2,0 cm | Direita: 2,0 cm | Tamanho: A4.</li>
-  <li><strong>Estilo Normal:</strong> Fonte Arial ou Calibri 12 pt, Alinhamento Justificado, Entrelinhas 1,5 linha, Recuo 1ª Linha em 1,25 cm.</li>
+  <li><strong>Estilo Normal:</strong> Fonte Arial ou Calibri 12 pt, Alinhamento Justificado, Entrelinhas 1,5 linha, Recuo 1ª Linha em 1,25 cm, Depois: 6 pt.</li>
   <li><strong>Estilos de Título:</strong> Título 1 (14 pt, Negrito, MAIÚSCULAS) e Título 2 (12 pt, Negrito) aplicados em todas as 7 seções.</li>
   <li><strong>Painel de Navegação:</strong> Pressione <code>Ctrl + F</code> e veja se todos os 7 capítulos aparecem listados na aba Títulos.</li>
   <li><strong>Quebras de Seção:</strong> Quebra de Seção (Próxima Página) inserida no final da Capa e no final do Sumário.</li>
   <li><strong>Desvinculação de Cabeçalho:</strong> Botão "Vincular ao Anterior" desativado na Seção 2 (Página 3).</li>
   <li><strong>Numeração ABNT:</strong> Capa e Sumário SEM NÚMERO VISÍVEL; número 3 visível no topo direito da Introdução.</li>
-  <li><strong>Tabela Técnica:</strong> Tabela com cabeçalho formatado em negrito, legenda acima (<em>Tabela 1: ...</em>) e fonte abaixo em 10 pt.</li>
-  <li><strong>Figura Técnica:</strong> Imagem centralizada com legenda oficial (<em>Figura 1: ...</em>) e indicação de fonte.</li>
-  <li><strong>Sumário Automático:</strong> Inserido na Página 2 e atualizado com a tecla <code>F9</code>.</li>
+  <li><strong>Tabela Técnica:</strong> Tabela com alinhamento ao centro (grade 3x3), cabeçalho repetível, legenda acima (<em>Tabela 1: ...</em>) e fonte abaixo em 10 pt.</li>
+  <li><strong>Figura Técnica:</strong> Imagem centralizada com legenda oficial (<em>Figura 1: ...</em>) e indicação de fonte em 10 pt.</li>
+  <li><strong>Sumário Automático:</strong> Inserido na Página 2 e atualizado dinamicamente via tecla <code>F9</code> ou botão Atualizar Sumário.</li>
   <li><strong>Arquivos de Entrega:</strong> Versão editável (<code>.docx</code>) e versão final inviolável (<code>.pdf</code> em PDF/A).</li>
 </ul>
 
