@@ -1,0 +1,291 @@
+[
+  {
+    "id": "tab_semana05",
+    "type": "tab",
+    "label": "Semana 05 - Ingestão IIoT & Debug",
+    "disabled": false,
+    "info": "Fluxo de ingestão de telemetria industrial via MQTT com tratamento, filtros condicionais e observabilidade via painel Debug."
+  },
+  {
+    "id": "broker_local",
+    "type": "mqtt-broker",
+    "name": "Mosquitto Local",
+    "broker": "mosquitto",
+    "port": "1883",
+    "clientid": "nodered_subscriber_lab",
+    "autoConnect": true,
+    "usetls": false,
+    "protocolVersion": "4",
+    "keepalive": "60",
+    "cleansession": true,
+    "autoUnsubscribe": true,
+    "birthTopic": "nodered/status",
+    "birthQos": "0",
+    "birthPayload": "{\"status\":\"ONLINE\",\"origem\":\"Node-RED\"}",
+    "birthMsg": {},
+    "closeTopic": "nodered/status",
+    "closeQos": "0",
+    "closePayload": "{\"status\":\"OFFLINE\",\"origem\":\"Node-RED\"}",
+    "closeMsg": {},
+    "willTopic": "nodered/status",
+    "willQos": "0",
+    "willPayload": "{\"status\":\"CRASHED\",\"origem\":\"Node-RED\"}",
+    "willMsg": {}
+  },
+  {
+    "id": "mqtt_in_all",
+    "type": "mqtt in",
+    "z": "tab_semana05",
+    "name": "MQTT In: fabrica/#",
+    "topic": "fabrica/#",
+    "qos": "0",
+    "datatype": "auto-detect",
+    "broker": "broker_local",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 130,
+    "y": 200,
+    "wires": [
+      [
+        "json_parser",
+        "debug_raw"
+      ]
+    ]
+  },
+  {
+    "id": "json_parser",
+    "type": "json",
+    "z": "tab_semana05",
+    "name": "JSON Parser",
+    "property": "payload",
+    "action": "obj",
+    "pretty": false,
+    "x": 330,
+    "y": 200,
+    "wires": [
+      [
+        "switch_router"
+      ]
+    ]
+  },
+  {
+    "id": "switch_router",
+    "type": "switch",
+    "z": "tab_semana05",
+    "name": "Roteador por Tópico/Tipo",
+    "property": "topic",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "cont",
+        "v": "telemetria",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "alarmes",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "producao",
+        "vt": "str"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 4,
+    "x": 550,
+    "y": 200,
+    "wires": [
+      [
+        "fn_telemetria"
+      ],
+      [
+        "fn_alarme"
+      ],
+      [
+        "fn_producao"
+      ],
+      [
+        "debug_outros"
+      ]
+    ]
+  },
+  {
+    "id": "fn_telemetria",
+    "type": "function",
+    "z": "tab_semana05",
+    "name": "Tratamento de Telemetria",
+    "func": "const payload = msg.payload || {};\nconst temp = payload.temperatura || 0;\nconst vib = payload.vibracao || 0;\nconst pressao = payload.pressao || 0;\n\n// Avaliação de Criticidade\nlet statusGeral = \"NORMAL\";\nlet cor = \"#28a745\"; // Verde\n\nif (temp > 80 || vib > 7.0) {\n    statusGeral = \"CRÍTICO\";\n    cor = \"#dc3545\"; // Vermelho\n} else if (temp > 65 || vib > 4.5) {\n    statusGeral = \"ALERTA\";\n    cor = \"#ffc107\"; // Amarelo\n}\n\nmsg.status_geral = statusGeral;\nmsg.cor_status = cor;\nmsg.payload_formatado = `[${payload.maquina || 'MAQ_01'}] Temp: ${temp.toFixed(1)}°C | Vib: ${vib.toFixed(2)} mm/s | Pressão: ${pressao.toFixed(1)} bar -> Status: ${statusGeral}`;\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 810,
+    "y": 120,
+    "wires": [
+      [
+        "debug_telemetria"
+      ]
+    ]
+  },
+  {
+    "id": "fn_alarme",
+    "type": "function",
+    "z": "tab_semana05",
+    "name": "Formatador de Alarmes Críticos",
+    "func": "const payload = msg.payload || {};\n\nmsg.prioridade = \"MÁXIMA\";\nmsg.payload_alarme = {\n    tipo: payload.tipo || \"ALARME_GERAL\",\n    origem: payload.origem || msg.topic,\n    mensagem: payload.mensagem || \"Evento de emergência detectado!\",\n    timestamp: payload.timestamp || new Date().toISOString(),\n    acao_recomendada: payload.acao || \"Verificar imediatamente o painel da máquina\"\n};\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 830,
+    "y": 180,
+    "wires": [
+      [
+        "debug_alarme"
+      ]
+    ]
+  },
+  {
+    "id": "fn_producao",
+    "type": "function",
+    "z": "tab_semana05",
+    "name": "Processador de Produção",
+    "func": "const payload = msg.payload || {};\nconst total = payload.total_produzido || 0;\nconst boas = payload.pecas_boas || total;\nconst refugo = payload.refugo || (total - boas);\nconst taxaAprovacao = total > 0 ? ((boas / total) * 100).toFixed(1) : 100.0;\n\nmsg.resumo_producao = {\n    maquina: payload.maquina || \"LINHA_01\",\n    total_produzido: total,\n    pecas_boas: boas,\n    refugo: refugo,\n    taxa_qualidade: `${taxaAprovacao}%`\n};\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 820,
+    "y": 240,
+    "wires": [
+      [
+        "debug_producao"
+      ]
+    ]
+  },
+  {
+    "id": "debug_raw",
+    "type": "debug",
+    "z": "tab_semana05",
+    "name": "🔍 [DEBUG] Todas Msg Brutas",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 370,
+    "y": 300,
+    "wires": []
+  },
+  {
+    "id": "debug_telemetria",
+    "type": "debug",
+    "z": "tab_semana05",
+    "name": "🟢 [DEBUG] Telemetria Formatada",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload_formatado",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1100,
+    "y": 120,
+    "wires": []
+  },
+  {
+    "id": "debug_alarme",
+    "type": "debug",
+    "z": "tab_semana05",
+    "name": "🔴 [DEBUG] Alarme Crítico / Emergência",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload_alarme",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1120,
+    "y": 180,
+    "wires": []
+  },
+  {
+    "id": "debug_producao",
+    "type": "debug",
+    "z": "tab_semana05",
+    "name": "📦 [DEBUG] Produção & Qualidade",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "resumo_producao",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1090,
+    "y": 240,
+    "wires": []
+  },
+  {
+    "id": "debug_outros",
+    "type": "debug",
+    "z": "tab_semana05",
+    "name": "⚪ [DEBUG] Outros Tópicos",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1070,
+    "y": 300,
+    "wires": []
+  },
+  {
+    "id": "inject_test",
+    "type": "inject",
+    "z": "tab_semana05",
+    "name": "🧪 Injetar Teste Manual",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "fabrica/linha1/prensa01/telemetria",
+    "payload": "{\"maquina\":\"PRENSA_CNC_01\",\"temperatura\":88.5,\"vibracao\":8.2,\"pressao\":6.0,\"status\":\"CRITICAL\"}",
+    "payloadType": "json",
+    "x": 360,
+    "y": 120,
+    "wires": [
+      [
+        "switch_router"
+      ]
+    ]
+  }
+]

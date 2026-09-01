@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fábrica Virtual IIoT — Simulador de Telemetria MQTT</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-title">
+        <h1>🏭 Fábrica Virtual IIoT — Módulo MING</h1>
+        <p>Automação Industrial • Semana 05: Ingestão MQTT & Orquestração Node-RED</p>
+      </div>
+      <div class="header-badges">
+        <div class="badge" id="broker-badge">
+          <span class="dot dot-yellow" id="broker-dot"></span>
+          <span id="broker-text">MQTT: Conectando...</span>
+        </div>
+        <a href="http://localhost:1880" target="_blank" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.85rem;">
+          🌐 Abrir Node-RED (:1880)
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Dashboard Grid -->
+    <div class="dashboard-grid">
+      <!-- Left Column: Industrial Machinery & Quick Event Triggers -->
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        
+        <!-- Card 1: Prensa CNC 01 -->
+        <div class="card">
+          <div class="card-header">
+            <h2>⚙️ Telemetria da Máquina: Prensa CNC 01</h2>
+            <span class="badge" id="machine-status-badge">
+              <span class="dot dot-green" id="machine-dot"></span>
+              <span id="machine-status-text">OPERANDO</span>
+            </span>
+          </div>
+          
+          <div class="metrics-row">
+            <div class="metric-box">
+              <div class="metric-label">Temperatura</div>
+              <div class="metric-value" id="val-temp">48.2</div>
+              <div class="metric-unit">°C</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-label">Vibração</div>
+              <div class="metric-value" id="val-vib">2.14</div>
+              <div class="metric-unit">mm/s</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-label">Pressão Hidráulica</div>
+              <div class="metric-value" id="val-press">5.8</div>
+              <div class="metric-unit">bar</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-label">Corrente Motor</div>
+              <div class="metric-value" id="val-current">14.6</div>
+              <div class="metric-unit">A</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Linha de Produção & OEE -->
+        <div class="card">
+          <div class="card-header">
+            <h2>📦 Monitoramento da Linha de Produção</h2>
+            <span class="badge" style="background: rgba(0, 230, 118, 0.1); border-color: rgba(0, 230, 118, 0.3); color: var(--accent-green);">
+              Lote Atual: #LOTE-2026-A
+            </span>
+          </div>
+
+          <div class="metrics-row">
+            <div class="metric-box">
+              <div class="metric-label">Total Produzido</div>
+              <div class="metric-value" id="val-total-prod">120</div>
+              <div class="metric-unit">peças</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-label">Peças Boas</div>
+              <div class="metric-value" id="val-good-prod" style="color: var(--accent-green);">117</div>
+              <div class="metric-unit">peças</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-label">Refugo / Defeitos</div>
+              <div class="metric-value" id="val-scrap-prod" style="color: var(--accent-red);">3</div>
+              <div class="metric-unit">peças</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-label">Taxa de Qualidade</div>
+              <div class="metric-value" id="val-quality-rate" style="color: var(--accent-cyan);">97.5%</div>
+              <div class="metric-unit">índice</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Disparo de Eventos Industriais -->
+        <div class="card">
+          <div class="card-header">
+            <h2>🚨 Disparo Rápido de Eventos & Cenários Críticos</h2>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">
+            Clique nos botões abaixo para forçar anomalias ou eventos de chão de fábrica e observe o comportamento em tempo real no <strong>Debug do Node-RED</strong>:
+          </p>
+
+          <div class="events-grid">
+            <button class="btn btn-warning" onclick="triggerScenario('high_temp')">
+              🔥 Superaquecimento (88°C)
+            </button>
+            <button class="btn btn-warning" onclick="triggerScenario('high_vib')">
+              ⚡ Vibração Excessiva (9.2 mm/s)
+            </button>
+            <button class="btn btn-success" onclick="triggerScenario('produce_good')">
+              ✅ Registrar Peça Boa (+1)
+            </button>
+            <button class="btn btn-secondary" onclick="triggerScenario('produce_bad')">
+              ❌ Registrar Peça com Defeito
+            </button>
+            <button class="btn btn-danger" style="grid-column: span 2;" onclick="triggerScenario('emergency_stop')">
+              🛑 DISPARAR PARADA DE EMERGÊNCIA (E-STOP)
+            </button>
+            <button class="btn btn-primary" style="grid-column: span 2;" onclick="triggerScenario('reset_normal')">
+              🔄 Resetar Linha para Operação Normal
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Auto Simulator, Custom Publisher & Live Log -->
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        
+        <!-- Card 4: Motor de Simulação Contínua -->
+        <div class="card">
+          <div class="card-header">
+            <h2>⏱️ Motor de Simulação Contínua</h2>
+            <span class="badge" id="sim-status-badge">
+              <span class="dot dot-green" id="sim-dot"></span>
+              <span id="sim-text">RODANDO</span>
+            </span>
+          </div>
+
+          <div class="controls-panel">
+            <div class="form-row">
+              <div class="form-group" style="flex: 1;">
+                <label>Frequência de Publicação:</label>
+                <select id="sim-interval" onchange="updateSimConfig()">
+                  <option value="1">A cada 1 segundo (Alta Frequência)</option>
+                  <option value="2" selected>A cada 2 segundos (Padrão)</option>
+                  <option value="5">A cada 5 segundos (Baixo Consumo)</option>
+                </select>
+              </div>
+
+              <div class="form-group" style="flex: 1;">
+                <label>Total de Mensagens Enviadas:</label>
+                <input type="text" id="total-messages-count" value="0" readonly style="font-family: var(--font-mono); font-weight: bold; text-align: center;">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <button class="btn btn-danger" id="btn-toggle-sim" onclick="toggleSimulation()" style="flex: 1;">
+                ⏸️ Pausar Simulação Automática
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Publicador Manual de Mensagens MQTT -->
+        <div class="card">
+          <div class="card-header">
+            <h2>📤 Publicador Manual MQTT Customizado</h2>
+          </div>
+
+          <div class="controls-panel">
+            <div class="form-row">
+              <div class="form-group" style="flex: 2;">
+                <label>Tópico MQTT:</label>
+                <input type="text" id="custom-topic" value="fabrica/linha1/prensa01/telemetria">
+              </div>
+              <div class="form-group" style="flex: 1;">
+                <label>QoS:</label>
+                <select id="custom-qos">
+                  <option value="0">0 (At most once)</option>
+                  <option value="1">1 (At least once)</option>
+                  <option value="2">2 (Exactly once)</option>
+                </select>
+              </div>
+              <div class="form-group" style="flex: 1; align-items: center; justify-content: center;">
+                <label>Retain:</label>
+                <input type="checkbox" id="custom-retain" style="width: 20px; height: 20px; margin-top: 5px;">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Payload (JSON):</label>
+              <textarea id="custom-payload">{
+  "maquina": "PRENSA_CNC_01",
+  "temperatura": 62.5,
+  "vibracao": 3.4,
+  "pressao": 5.9,
+  "status": "RUNNING"
+}</textarea>
+            </div>
+
+            <div class="form-row">
+              <button class="btn btn-secondary" onclick="loadTemplate('telemetry')" style="font-size: 0.8rem;">Exemplo Telemetria</button>
+              <button class="btn btn-secondary" onclick="loadTemplate('alarm')" style="font-size: 0.8rem;">Exemplo Alarme</button>
+              <button class="btn btn-secondary" onclick="loadTemplate('production')" style="font-size: 0.8rem;">Exemplo Produção</button>
+              <button class="btn btn-primary" onclick="publishCustomMessage()" style="flex: 1;">
+                🚀 Publicar Payload
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Log em Tempo Real de Publicações -->
+        <div class="card">
+          <div class="card-header">
+            <h2>📜 Log de Mensagens Publicadas (Últimos Eventos)</h2>
+            <button class="btn btn-secondary" onclick="clearLogs()" style="padding: 4px 10px; font-size: 0.75rem;">
+              🗑️ Limpar
+            </button>
+          </div>
+          <div class="log-box" id="log-container">
+            <!-- Event entries added dynamically -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Desenvolvido para as aulas de <strong>Automação Industrial</strong> • Integração Chão de Fábrica (OT) com Node-RED e MQTT (IT).</p>
+    </footer>
+  </div>
+
+  <script>
+    let isSimRunning = true;
+
+    // Atualização de Status Geral
+    async function fetchStatus() {
+      try {
+        const res = await fetch('/api/status');
+        const data = await res.json();
+
+        // Broker Status
+        const brokerDot = document.getElementById('broker-dot');
+        const brokerText = document.getElementById('broker-text');
+        if (data.broker_connected) {
+          brokerDot.className = 'dot dot-green';
+          brokerText.textContent = `MQTT: Conectado (${data.broker_host}:${data.broker_port})`;
+        } else {
+          brokerDot.className = 'dot dot-red';
+          brokerText.textContent = 'MQTT: Desconectado';
+        }
+
+        // Sim Status
+        isSimRunning = data.simulation_running;
+        const simDot = document.getElementById('sim-dot');
+        const simText = document.getElementById('sim-text');
+        const simBtn = document.getElementById('btn-toggle-sim');
+        if (isSimRunning) {
+          simDot.className = 'dot dot-green';
+          simText.textContent = 'RODANDO';
+          simBtn.className = 'btn btn-danger';
+          simBtn.innerHTML = '⏸️ Pausar Simulação Automática';
+        } else {
+          simDot.className = 'dot dot-yellow';
+          simText.textContent = 'PAUSADO';
+          simBtn.className = 'btn btn-success';
+          simBtn.innerHTML = '▶️ Retomar Simulação Automática';
+        }
+
+        document.getElementById('total-messages-count').value = data.total_messages_sent;
+
+        // Telemetria da Máquina
+        const m = data.machine_state;
+        document.getElementById('val-temp').textContent = m.temperatura.toFixed(1);
+        document.getElementById('val-vib').textContent = m.vibracao.toFixed(2);
+        document.getElementById('val-press').textContent = m.pressao.toFixed(1);
+        document.getElementById('val-current').textContent = m.corrente.toFixed(1);
+
+        // Status Máquina
+        const mDot = document.getElementById('machine-dot');
+        const mText = document.getElementById('machine-status-text');
+        mText.textContent = m.status;
+        if (m.status === 'RUNNING') {
+          mDot.className = 'dot dot-green';
+        } else if (m.status === 'ALARM' || m.status === 'HIGH_TEMP' || m.status === 'HIGH_VIB') {
+          mDot.className = 'dot dot-yellow';
+        } else if (m.status === 'EMERGENCY_STOP') {
+          mDot.className = 'dot dot-red';
+        }
+
+        // Produção
+        const p = data.production_state;
+        document.getElementById('val-total-prod').textContent = p.total_produzido;
+        document.getElementById('val-good-prod').textContent = p.pecas_boas;
+        document.getElementById('val-scrap-prod').textContent = p.refugo;
+        const rate = p.total_produzido > 0 ? ((p.pecas_boas / p.total_produzido) * 100).toFixed(1) : '100.0';
+        document.getElementById('val-quality-rate').textContent = `${rate}%`;
+
+        // Renderizar logs
+        if (data.recent_logs && data.recent_logs.length > 0) {
+          renderLogs(data.recent_logs);
+        }
+
+      } catch (err) {
+        console.error("Erro ao atualizar status:", err);
+      }
+    }
+
+    function renderLogs(logs) {
+      const container = document.getElementById('log-container');
+      container.innerHTML = '';
+      logs.slice().reverse().forEach(entry => {
+        const div = document.createElement('div');
+        let cssClass = 'log-entry';
+        if (entry.topic.includes('alarmes') || (entry.payload && entry.payload.status === 'EMERGENCY_STOP')) {
+          cssClass += ' alarm';
+        } else if (entry.topic.includes('producao')) {
+          cssClass += ' prod';
+        }
+        div.className = cssClass;
+        div.innerHTML = `<span class="log-time">[${entry.time}]</span><span class="log-topic">${entry.topic}</span>: <span>${JSON.stringify(entry.payload)}</span>`;
+        container.appendChild(div);
+      });
+    }
+
+    async function toggleSimulation() {
+      await fetch('/api/simulator/toggle', { method: 'POST' });
+      fetchStatus();
+    }
+
+    async function updateSimConfig() {
+      const interval = parseFloat(document.getElementById('sim-interval').value);
+      await fetch('/api/simulator/config', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ interval })
+      });
+    }
+
+    async function triggerScenario(scenario) {
+      await fetch('/api/simulator/event', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ scenario })
+      });
+      fetchStatus();
+    }
+
+    async function publishCustomMessage() {
+      const topic = document.getElementById('custom-topic').value;
+      const qos = parseInt(document.getElementById('custom-qos').value);
+      const retain = document.getElementById('custom-retain').checked;
+      let payload;
+      try {
+        payload = JSON.parse(document.getElementById('custom-payload').value);
+      } catch (e) {
+        alert('Erro no formato JSON do payload!');
+        return;
+      }
+
+      const res = await fetch('/api/publish/custom', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ topic, payload, qos, retain })
+      });
+      const data = await res.json();
+      if (data.success) {
+        fetchStatus();
+      } else {
+        alert('Falha ao publicar: ' + data.error);
+      }
+    }
+
+    function loadTemplate(type) {
+      if (type === 'telemetry') {
+        document.getElementById('custom-topic').value = 'fabrica/linha1/prensa01/telemetria';
+        document.getElementById('custom-payload').value = JSON.stringify({
+          maquina: "PRENSA_CNC_01",
+          temperatura: 64.2,
+          vibracao: 3.12,
+          pressao: 5.8,
+          corrente: 15.2,
+          status: "RUNNING"
+        }, null, 2);
+      } else if (type === 'alarm') {
+        document.getElementById('custom-topic').value = 'fabrica/alarmes/prensa01';
+        document.getElementById('custom-payload').value = JSON.stringify({
+          tipo: "ALARME_TEMPERATURA_ELEVADA",
+          origem: "PRENSA_CNC_01",
+          mensagem: "Sensor PTC atingiu 88.5°C!",
+          acao: "Reduzir velocidade e acionar refrigeração auxiliar",
+          timestamp: new Date().toISOString()
+        }, null, 2);
+      } else if (type === 'production') {
+        document.getElementById('custom-topic').value = 'fabrica/linha1/producao';
+        document.getElementById('custom-payload').value = JSON.stringify({
+          maquina: "LINHA_01",
+          total_produzido: 250,
+          pecas_boas: 246,
+          refugo: 4,
+          timestamp: new Date().toISOString()
+        }, null, 2);
+      }
+    }
+
+    function clearLogs() {
+      document.getElementById('log-container').innerHTML = '<div style="color: var(--text-muted); font-style: italic;">Log limpo.</div>';
+    }
+
+    // Inicialização periódica
+    setInterval(fetchStatus, 1000);
+    fetchStatus();
+  </script>
+</body>
+</html>

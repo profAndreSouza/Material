@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  # 1. Broker MQTT (Eclipse Mosquitto)
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto_broker
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+    networks:
+      - rede_automacao
+
+  # 2. Node-RED (Orquestração de Fluxos IIoT)
+  nodered:
+    image: nodered/node-red:latest
+    container_name: nodered_app
+    restart: unless-stopped
+    ports:
+      - "1880:1880"
+    volumes:
+      - nodered_data:/data
+    environment:
+      - TZ=America/Sao_Paulo
+    depends_on:
+      - mosquitto
+    networks:
+      - rede_automacao
+
+  # 3. Aplicação Monolítica Flask (Simulador de Telemetria e Eventos)
+  flask_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: flask_simulator_app
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - MQTT_BROKER_HOST=mosquitto
+      - MQTT_BROKER_PORT=1883
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - mosquitto
+    networks:
+      - rede_automacao
+
+networks:
+  rede_automacao:
+    driver: bridge
+
+volumes:
+  mosquitto_data:
+  mosquitto_log:
+  nodered_data:
