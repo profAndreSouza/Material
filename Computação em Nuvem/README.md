@@ -84,7 +84,7 @@ A nota final da disciplina será composta por:
 | **02** | Aula 02 | **13/Ago** | **11/Ago** | [Infraestrutura AWS e Ambientes de Laboratório](aulas/semana_02.ipynb) | Regiões, Zonas de Disponibilidade e introdução ao AWS Learner Lab Sandbox. |
 | **03** | Aula 03 | **20/Ago** | **18/Ago** | [Máquinas Virtuais (EC2) e Conteinerização com Docker](aulas/semana_03.ipynb) | **Projetos 01 & 04:** EC2 Linux, SSH, Security Groups e Hello Web em Docker. |
 | **04** | Aula 04 | **27/Ago** | **25/Ago** | [Conteinerização de Aplicações de Automação Industrial](aulas/semana_04.ipynb) | **Projeto 02:** Deploy de servidor Node-RED em Docker na instâncias EC2. |
-| **05** | Aula 05 | **03/Set** | **01/Set** | [Armazenamento de Objetos (S3) e Controle de Acesso IAM](aulas/semana_05.ipynb) | **Projeto 03:** Amazon S3, permissões IAM e uso da `LabRole` na EC2. |
+| **05** | Aula 05 | **03/Set** | **01/Set** | [Fundamentos de Armazenamento e Segurança IAM](aulas/semana_05.ipynb) | **Consolidação Teórica:** Storage (EBS x EFS x S3), Anatomia do S3 e Governança IAM (Policies, Roles e Simulações Locais). |
 | **06** | PII | **10/Set** | **08/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da arquitetura de nuvem para sustentação do PII. |
 | **07** | Aula 06 | **17/Set** | **15/Set** | [Redes Virtuais Privadas (Amazon VPC) e Roteamento](aulas/semana_06.ipynb) | **Projeto 05:** VPC Only (Subredes públicas/privadas, IGW e Route Tables). |
 | **08** | Eval | **24/Set** | **22/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Aulas 01 a 06. |
