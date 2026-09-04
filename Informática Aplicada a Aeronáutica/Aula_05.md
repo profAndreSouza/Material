@@ -39,16 +39,56 @@ ANATOMIA DE UMA PLANILHA NO EXCEL:
      +------------+-------------+-----------------+---------------------------+
 ```
 
-### 2.2 Ordem de Precedência Matemática
-O Excel segue rigorosamente as regras da matemática clássica:
-1. Operações dentro de Parênteses `( )`
-2. Exponenciação `^`
-3. Multiplicação `*` e Divisão `/`
-4. Adição `+` e Subtração `-`
+### 2.2 Ordem de Precedência Matemática & Casos Críticos dos Operadores `^` e `-`
+O Excel segue rigorosamente uma hierarquia de execução matemática:
+1. **Parênteses `( )`** — Prioridade Máxima (isolam blocos e garantem a ordem desejada).
+2. **Exponenciação `^`** e **Sinal Unário de Negação `-`**
+3. **Multiplicação `*` e Divisão `/`** (avaliadas da esquerda para a direita)
+4. **Adição `+` e Subtração Binária `-`** (avaliadas da esquerda para a direita)
 
-*Exemplo:* Para calcular o preço médio de dois combustíveis:
-- Incorreto: `=A1 + A2 / 2` (vai dividir apenas o A2 por 2 e somar com A1).
-- Correto: `=(A1 + A2) / 2` (soma os dois primeiro e depois divide por 2).
+#### ⚠️ Armadilha Clássica do Excel com o Operador de Negação `-` e Potência `^`:
+No Excel, o operador unário de negação (ex: `-5`) tem precedência sobre a exponenciação:
+- Se você digitar no Excel: `=-5^2`, o Excel calculará `(-5)^2 = 25`.
+- Na matemática padrão escrita: $-5^2 = -(5^2) = -25$.
+- **Boas Práticas:** Use SEMPRE parênteses explícitos para eliminar ambiguidades: `=-(5^2)` para $-25$ ou `=(-5)^2` para $25$.
+
+#### ✈️ Aplicações Aeronáuticas dos Operadores `^` e `-`:
+1. **Pressão Dinâmica Aerodinâmica ($q$):**
+   $$q = \frac{1}{2} \cdot \rho \cdot V^2$$
+   - No Excel: `=0.5 * B2 * C2^2` (onde `B2` é a densidade $\rho$ e `C2` é a velocidade $V$). A potência $V^2$ é calculada antes da multiplicação por $0.5 \cdot \rho$.
+2. **Gradiente Térmico ISA (Atmosfera Padrão):**
+   $$T = T_{0} - 0{,}0065 \cdot h$$
+   - No Excel: `=15 - 0.0065 * A4` (onde `A4` é a altitude em metros). A multiplicação $0{,}0065 \cdot h$ ocorre antes da subtração dos $15^\circ\text{C}$ ao nível do mar.
+3. **Saldo de Combustível em Voo (Fuel Remaining):**
+   $$Combustivel_{final} = Combustivel_{inicial} - (Tempo \cdot Consumo)$$
+   - No Excel: `=B4 - (C4 * D4)`. Os parênteses deixam o cálculo autodocumentado e seguro contra erros de interpretação.
+
+---
+
+### 2.3 Estatística Descritiva Aplicada: Média (`=MÉDIA`) vs. Mediana (`=MED`) na Manutenção
+Ao analisar dados operacionais e de engenharia aeronáutica, escolher entre a **Média Aritmética** e a **Mediana** é crucial:
+
+| Conceito | Função no Excel | O que calcula | Sensibilidade a Valores Extremos (Outliers) |
+| :--- | :--- | :--- | :--- |
+| **Média** | `=MÉDIA(intervalo)` | Soma de todos os valores dividida pelo número de observações. | **ALTA:** É fortemente distorcida por um único valor muito alto ou muito baixo. |
+| **Mediana** | `=MED(intervalo)` | Valor central do conjunto de dados ordenado (50% dos dados estão abaixo e 50% acima). | **BAIXA (Robusta):** Não sofre influência de valores extremos isolados. |
+
+#### ✈️ Estudo de Caso no Hangar: Custo de Ordens de Serviço (OS)
+Imagine os custos de 6 manutenções realizadas no hangar na semana:
+- OS 01 (Cessna 152 - Troca de Óleo): `R$ 1.200,00`
+- OS 02 (Cessna 172 - Inspeção 50h): `R$ 1.500,00`
+- OS 03 (Piper Cherokee - Revisão): `R$ 1.800,00`
+- OS 04 (Cirrus SR22 - Manutenção Aviônica): `R$ 2.000,00`
+- OS 05 (Beech Baron - Calibração): `R$ 2.500,00`
+- OS 06 (King Air - *Overhaul* Completo de Turbina - **Outlier**): `R$ 120.000,00`
+
+**Resultados no Excel:**
+- **Média (`=MÉDIA(B2:B7)`):** `R$ 21.500,00` ❌ *(Distorce a realidade: nenhum serviço padrão custou 21 mil!)*
+- **Mediana (`=MED(B2:B7)`):** `R$ 1.900,00` ✅ *(Representa com fidelidade o custo típico de uma manutenção comum no hangar).*
+
+> **Regra de Decisão do Engenheiro/Técnico:**
+> - Use **MÉDIA** quando precisar do **orçamento total** e fluxo financeiro global da oficina.
+> - Use **MEDIANA** para definir **tempo padrão de atendimento**, prazos de entrega (*lead time*) e precificação de serviços rotineiros sem contaminação por eventos raros.
 
 ---
 

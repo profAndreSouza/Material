@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>INF-117 — Aula 05: MS Excel I (Slides Widescreen)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+  @page {
+    size: 16in 9in;
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background-color: #0f172a;
+    color: #1e293b;
+  }
+
+  .slide {
+    width: 16in;
+    height: 9in;
+    position: relative;
+    page-break-after: always;
+    page-break-inside: avoid;
+    overflow: hidden;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  /* Slide Cover (Slide 1) */
+  .slide-cover {
+    background: radial-gradient(circle at 80% 20%, #1e3a8a 0%, #0f2043 60%, #091224 100%);
+    color: #ffffff;
+    justify-content: space-between;
+    padding: 0.9in 1.2in;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background: rgba(0, 114, 206, 0.25);
+    border: 1px solid #0072ce;
+    color: #60a5fa;
+    font-weight: 700;
+    font-size: 13pt;
+    padding: 6px 16px;
+    border-radius: 30px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .cover-title {
+    font-size: 38pt;
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 14px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .cover-subtitle {
+    font-size: 18pt;
+    font-weight: 400;
+    color: #94a3b8;
+    line-height: 1.4;
+    max-width: 12in;
+    margin-bottom: 30px;
+  }
+
+  .cover-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #94a3b8;
+    font-size: 12pt;
+  }
+
+  .cover-footer strong {
+    color: #f1f5f9;
+  }
+
+  /* Standard Slide Header */
+  .slide-header {
+    background: #0f2043;
+    color: #ffffff;
+    padding: 0.3in 0.8in 0.25in 0.8in;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 4px solid #0072ce;
+  }
+
+  .header-meta {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #38bdf8;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 4px;
+  }
+
+  .header-title {
+    font-size: 22pt;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+  }
+
+  .header-badge {
+    background: rgba(0, 114, 206, 0.3);
+    border: 1px solid #0072ce;
+    color: #bae6fd;
+    font-size: 10.5pt;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  /* Slide Body & Content Area */
+  .slide-content {
+    flex: 1;
+    padding: 0.4in 0.8in;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 18px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    height: 100%;
+  }
+
+  /* Cards & Containers */
+  .card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-navy {
+    background: #0f2043;
+    color: #ffffff;
+    border-color: #1e3a8a;
+  }
+
+  .card-blue {
+    background: #f0f7ff;
+    border: 1px solid #bae6fd;
+  }
+
+  .card-green {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+
+  .card-yellow {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+  }
+
+  .card-red {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+
+  .card-title {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #0f2043;
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-navy .card-title {
+    color: #38bdf8;
+  }
+
+  .card-body {
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #334155;
+  }
+
+  .card-navy .card-body {
+    color: #cbd5e1;
+  }
+
+  /* Badges & Tags */
+  .tag {
+    display: inline-block;
+    font-size: 9.5pt;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+  }
+  .tag-blue { background: #e0f2fe; color: #0369a1; }
+  .tag-green { background: #dcfce7; color: #15803d; }
+  .tag-amber { background: #fef3c7; color: #b45309; }
+  .tag-red { background: #fee2e2; color: #b91c1c; }
+
+  /* Formula Highlight */
+  .formula-box {
+    background: #0b1329;
+    border: 1px solid #1e3a8a;
+    border-left: 5px solid #0072ce;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 12pt;
+    color: #38bdf8;
+    margin: 6px 0;
+    font-weight: 600;
+  }
+
+  .formula-box span.comment {
+    color: #94a3b8;
+    font-size: 9.5pt;
+    font-weight: 400;
+    display: block;
+    margin-top: 3px;
+  }
+
+  /* Tables */
+  table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5pt;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+
+  table.custom-table th {
+    background: #0f2043;
+    color: #ffffff;
+    padding: 8px 10px;
+    font-weight: 600;
+    text-align: left;
+    font-size: 10pt;
+  }
+
+  table.custom-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+  }
+
+  table.custom-table tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+
+  table.custom-table tr.total-row td {
+    background: #e2e8f0;
+    font-weight: 700;
+    color: #0f2043;
+    border-top: 2px solid #0f2043;
+    border-bottom: 3px double #0f2043;
+  }
+
+  table.custom-table tr.outlier-row td {
+    background: #fee2e2 !important;
+    color: #991b1b;
+    font-weight: 600;
+  }
+
+  /* Lists */
+  ul.clean-list {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #334155;
+  }
+
+  ul.clean-list li {
+    margin-bottom: 6px;
+  }
+
+  ul.clean-list strong {
+    color: #0f2043;
+  }
+
+  /* Slide Footer */
+  .slide-footer {
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    padding: 0.16in 0.8in;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5pt;
+    color: #64748b;
+  }
+
+  .slide-footer strong {
+    color: #0f2043;
+  }
+
+  .shortcut-pill {
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 2px 7px;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 10pt;
+    font-weight: 700;
+    color: #0f2043;
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: CAPA -->
+<div class="slide slide-cover">
+  <div>
+    <div class="cover-badge">INF-117 — Informática Aplicada a Aeronáutica</div>
+    <h1 class="cover-title">MS Excel I: Primeiros Passos no Excel</h1>
+    <div class="cover-subtitle">Interface, Endereçamento de Células, Operadores Aritméticos, Armadilhas de Precedência com ^ e -, e Análise de Média vs. Mediana com Outliers</div>
+  </div>
+  
+  <div class="cover-footer">
+    <div><strong>Fatec Sorocaba</strong> — CST em Manutenção de Aeronaves</div>
+    <div>Prof. André Souza • Semestre Letivo 2026</div>
+    <div>Slide 1 de 13</div>
+  </div>
+</div>
+
+<!-- SLIDE 2: OBJETIVOS & CONTEXTO AERONÁUTICO -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-meta">Visão Geral & Competências</div>
+      <h2 class="header-title">Objetivos de Aprendizagem & Aplicação Aeronáutica</h2>
+    </div>
+    <div class="header-badge">Aula 05 — Fundamentos</div>
+  </div>
+  
+  <div class="slide-content">
+    <div class="grid-2">
+      <div class="card card-blue">
+        <div class="card-title">🎯 Competências Técnicas em Informática</div>
+        <ul class="clean-list">
+          <li><strong>Matriz Bidimensional:</strong> Dominar a estrutura de Linhas, Colunas e Células (<code>A1</code>, <code>B4</code>).</li>
+          <li><strong>A Regra de Ouro do <code>=</code>:</strong> Entender como o Excel diferencia texto puro de fórmulas executáveis.</li>
+          <li><strong>Tipologia de Dados:</strong> Configurar Texto, Número, Moeda (<code>R$</code>) e Unidades técnicas.</li>
+          <li><strong>Operadores e Precedência:</strong> Criar equações com <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code> e parênteses.</li>
+          <li><strong>Casos Críticos de <code>^</code> e <code>-</code>:</strong> Evitar erros de sinal unário e potências aerodinâmicas.</li>
+          <li><strong>Média vs. Mediana:</strong> Compreender o impacto de <em>outliers</em> na tomada de decisão em manutenção.</li>
+        </ul>
+      </div>
+
+      <div class="card card-navy">
+        <div class="card-title">✈️ Aplicação Direta na Manutenção de Aeronaves</div>
+        <div class="card-body">
+          <p>No ambiente aeronáutico, planilhas eletrônicas são instrumentos vitais para:</p>
+          <ul class="clean-list" style="color: #cbd5e1;">
+            <li><strong>Gestão de Hangaragem:</strong> Apuração de diárias de pernoite e estadia de frotas executivas e de instrução.</li>
+            <li><strong>Controle de Combustível (AVGAS / JET A-1):</strong> Registro de abastecimento e conciliação de litros por aeronave.</li>
+            <li><strong>Física e Desempenho:</strong> Cálculo de pressão dinâmica ($q = \frac{1}{2}\rho V^2$) e gradiente ISA.</li>
+            <li><strong>Análise de Ordens de Serviço (OS):</strong> Avaliação correta de custos típicos via Mediana vs. Orçamento global via Média.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div><strong>Fatec Sorocaba</strong> — Informática Aplicada a Aeronáutica</div>
+    <div>Slide 2 de 13</div>
+  </div>
+</div>
+
+<!-- SLIDE 3: ANATOMIA DO EXCEL & REGRA DO IGUAL -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-meta">Fundamentação Teórica Computacional</div>
+      <h2 class="header-title">Anatomia do Excel & A Regra de Ouro do Sinal <code>=</code></h2>
+    </div>
+    <div class="header-badge">Estrutura & Células</div>
+  </div>
+  
+  <div class="slide-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">📐 A Matriz de Endereçamento</div>
+        <div class="card-body">
+          <p>O Excel organiza as informações em uma grade cartesiana:</p>
+          <ul class="clean-list">
+            <li><strong>Colunas:</strong> Identificadas por Letras (A, B, C... Z, AA...).</li>
+            <li><strong>Linhas:</strong> Identificadas por Números (1, 2, 3... 1.048.576).</li>
+            <li><strong>Célula:</strong> Interseção única de uma Coluna com uma Linha (ex: <code>C4</code> = Coluna C, Linha 4).</li>
+          </ul>
+          <div class="formula-box" style="margin-top: 12px;">
+            Endereçamento Dinâmico: =B4 * C4
+            <span class="comment">Multiplica o conteúdo de B4 por C4. Se B4 mudar, o resultado atualiza na hora!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-yellow">
+        <div class="card-title">⚠️ A Regra de Ouro: Como o Excel Interpreta Fórmulas</div>
+        <div class="card-body">
+          <p><strong>Toda fórmula ou cálculo DEVE obrigatoriamente iniciar com o sinal de igual (<code>=</code>).</strong></p>
+          
+          <table class="custom-table" style="margin-top: 10px;">
+            <thead>
+              <tr>
+                <th>O que você digita</th>
+                <th>Como o Excel interpreta</th>
+                <th>O que aparece na tela</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>100 + 50</code></td>
+                <td><span class="tag tag-amber">Texto Estático</span></td>
+                <td><code>100 + 50</code></td>
+              </tr>
+              <tr>
+                <td><code>=100 + 50</code></td>
+                <td><span class="tag tag-green">Fórmula / Cálculo</span></td>
+                <td><code>150</code></td>
+              </tr>
+              <tr>
+                <td><code>=C4 * D4</code></td>
+                <td><span class="tag tag-blue">Referência Dinâmica</span></td>
+                <td><code>R$ 600,00</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top: 10px; font-size: 10.5pt; color: #78350f;"><strong>Regra de Ouro:</strong> Nunca digite números fixos em fórmulas quando eles já existem em outras células!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div><strong>Fatec Sorocaba</strong> — Informática Aplicada a Aeronáutica</div>
+    <div>Slide 3 de 13</div>
+  </div>
+</div>
+
+<!-- SLIDE 4: OPERADORES & PRECEDÊNCIA -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-meta">Cálculo Computacional</div>
+      <h2 class="header-title">Operadores Aritméticos & Hierarquia de Precedência</h2>
+    </div>
+    <div class="header-badge">Matemática no Excel</div>
+  </div>
+  
+  <div class="slide-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">➕ Operadores Básicos do Excel</div>
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>Operação</th>
+              <th>Símbolo</th>
+              <th>Exemplo de Sintaxe</th>
+              <th>Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Adição</strong></td><td><code>+</code></td><td><code>=15 + 5</code></td><td><code>20</code></td></tr>
+            <tr><td><strong>Subtração</strong></td><td><code>-</code></td><td><code>=50 - 20</code></td><td><code>30</code></td></tr>
+            <tr><td><strong>Multiplicação</strong></td><td><code>*</code></td><td><code>=4 * 150</code></td><td><code>600</code></td></tr>
+            <tr><td><strong>Divisão</strong></td><td><code>/</code></td><td><code>=120 / 4</code></td><td><code>30</code></td></tr>
+            <tr><td><strong>Exponenciação</strong></td><td><code>^</code></td><td><code>=2 ^ 3</code></td><td><code>8</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card card-blue">
+        <div class="card-title">⚡ Hierarquia & Armadilha do Sinal de Menos (-)</div>
+        <div class="card-body">
+          <ol class="clean-list" style="padding-left: 18px;">
+            <li><strong>Parênteses <code>( )</code></strong> — Prioridade Absoluta.</li>
+            <li><strong>Exponenciação <code>^</code> e Sinal Unário <code>-</code></strong></li>
+            <li><strong>Multiplicação <code>*</code> e Divisão <code>/</code></strong> (Esq. para Dir.)</li>
+            <li><strong>Adição <code>+</code> e Subtração <code>-</code></strong> (Esq. para Dir.)</li>
+          </ol>
+
+          <div class="formula-box" style="margin-top: 10px; border-left-color: #ef4444;">
+            No Excel: =-5^2  →  Calcula (-5)^2 = 25!
+            <span class="comment">O sinal unário de menos (-) é executado ANTES da potência no Excel.</span>
+          </div>
+          <div class="formula-box" style="border-left-color: #10b981;">
+            Boas Práticas: =-(5^2)  →  Retorna -25 com precisão.
+            <span class="comment">Sempre utilize parênteses explícitos para eliminar ambiguidades matematicas.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div><strong>Fatec Sorocaba</strong> — Informática Aplicada a Aeronáutica</div>
+    <div>Slide 4 de 13</div>
+  </div>
+</div>
+
+<!-- SLIDE 5: OPERADORES ^ E - NA FÍSICA AERONÁUTICA -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-meta">Engenharia e Física Aplicada</div>
+      <h2 class="header-title">Operadores <code>^</code> e <code>-</code> em Fórmulas Aeronáuticas</h2>
+    </div>
+    <div class="header-badge">Pressão Dinâmica & ISA</div>
+  </div>
+  
+  <div class="slide-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">💨 1. Pressão Dinâmica Aerodinâmica ($q$)</div>
+        <div class="card-body">
+          <p>Equação fundamental da sustentação e arrasto:</p>
+          <div style="text-align: center; font-size: 16pt; font-weight: 700; color: #0f2043; margin: 8px 0;">
+            $q = \frac{1}{2} \cdot \rho \cdot V^2$
+          </div>
+          <div class="formula-box">
+            =0.5 * B5 * C5^2
+            <span class="comment">B5 = Densidade do Ar (kg/m³) | C5 = Velocidade da Aeronave (m/s)</span>
+          </div>
+          <p style="font-size: 10.5pt; color: #475569; margin-top: 8px;">
+            A velocidade é elevada ao quadrado antes da multiplicação por $0,5 \cdot \rho$, exatamente como prevê a física do voo.
+          </p>
+        </div>
+      </div>
+
+      <div class="card card-navy">
+        <div class="card-title">🌡️ 2. Gradiente Térmico na Atmosfera Padrão (ISA)</div>
+        <div class="card-body">
+          <p>Queda de temperatura com a altitude até a tropopausa ($11.000\text{ m}$):</p>
+          <div style="text-align: center; font-size: 16pt; font-weight: 700; color: #38bdf8; margin: 8px 0;">
+            $T = T_{0} - 0{,}0065 \cdot h$
+          </div>
+          <div class="formula-box" style="border-left-color: #38bdf8;">
+            =15 - (0.0065 * A13)
+            <span class="comment">A13 = Altitude em Metros (m) | 15°C = Temp ao Nível do Mar (T₀)</span>
+          </div>
+          <p style="font-size: 10.5pt; color: #cbd5e1; margin-top: 8px;">
+            A multiplicação ($0{,}0065 \cdot h$) ocorre antes da subtração. A cada 1.000 m de subida, a temperatura ambiente cai $6{,}5^\circ\text{C}$.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div><strong>Fatec Sorocaba</strong> — Informática Aplicada a Aeronáutica</div>
+    <div>Slide 5 de 13</div>
+  </div>
+</div>
+
+<!-- SLIDE 6: MÉDIA VS MEDIANA NO HANGAR -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-meta">Estatística Descritiva no Hangar</div>
+      <h2 class="header-title">Média (<code>=MÉDIA</code>) vs. Mediana (<code>=MED</code>) & O Impacto dos Outliers</h2>
+    </div>
+    <div class="header-badge">Análise de Dados</div>
+  </div>
+  
+  <div class="slide-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">🔧 Estudo de Caso: Ordens de Serviço (OS) na Semana</div>
+        <table class="custom-table" style="font-size: 9.5pt;">
+          <thead>
+            <tr>
+              <th>OS</th>
+              <th>Aeronave</th>
+              <th>Serviço</th>
+              <th>Custo (R$)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>OS-101</td><td>Cessna 152</td><td>Troca de Óleo e Filtros</td><td>R$ 1.200,00</td></tr>
+            <tr><td>OS-102</td><td>Cessna 172</td><td>Inspeção 50h</td><td>R$ 1.500,00</td></tr>
+            <tr><td>OS-103</td><td>Piper Cherokee</td><td>Revisão de Magnetos</td><td>R$ 1.800,00</td></tr>
+            <tr><td>OS-104</td><td>Cirrus SR22</td><td>Calibração Aviônica</td><td>R$ 2.000,00</td></tr>
+            <tr><td>OS-105</td><td>Beech Baron</td><td>Balanceamento de Hélice</td><td>R$ 2.500,00</td></tr>
+            <tr class="outlier-row"><td>OS-106</td><td>King Air C90</td><td>Overhaul de Turbina (OUTLIER)</td><td>R$ 120.000,00</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card card-blue">
+        <div class="card-title">📊 Comparativo & Regra de Decisão Técnica</div>
+        <div class="card-body">
+          <div style="background: #fee2e2; border: 1px solid #fca5a5; padding: 10px; border-radius: 8px; margin-bottom: 8px;">
+            <strong style="color: #991b1b;">MÉDIA (=MÉDIA) = R$ 21.500,00</strong> ❌<br>
+            <span style="font-size: 9.5pt; color: #7f1d1d;">Distorcida pelo valor extremo. Nenhum cliente de rotina pagou 21 mil! Útil apenas para previsão orçamentária global.</span>
+          </div>
+
+          <div style="background: #dcfce7; border: 1px solid #86efac; padding: 10px; border-radius: 8px;">
+            <strong style="color: #166534;">MEDIANA (=MED) = R$ 1.900,00</strong> ✅<br>
+            <span style="font-size: 9.5pt; color: #14532d;">Valor central ordenado. Imune a outliers! Representa com fidelidade o custo típico de uma manutenção preventiva no hangar.</span>
+          </div>
+
+          <p style="font-size: 10pt; color: #1e3a8a; margin-top: 10px;">
+            💡 <strong>Regra do Engenheiro:</strong> Use <strong>MÉDIA</strong> para fluxo financeiro total e <strong>MEDIANA</strong> para precificar pacotes e calcular prazos padrão (Lead Time).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div><strong>Fatec Sorocaba</strong> — Informática Aplicada a Aeronáutica</div>
+    <div>Slide 6 de 13</div>
+  </div>
+</div>
+
+<!-- SLIDE 7: ATIVIDADE 1 -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-meta">Guia Prático em Laboratório</div>
+      <h2 class="header-title">Atividade 1: Estruturando o Relatório do Hangar</h2>
+    </div>
+    <div class="header-badge">Aba: Custos_Hangar</div>
+  </div>
+  
+  <div class="slide-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">📋 Passo a Passo da Atividade 1</div>
+        <ul class="clean-list">
+          <li><strong>1. Renomear Aba:</strong> Dê duplo clique na aba inferior <code>Plan1</code> e renomeie para <code>Custos_Hangar</code>.</li>
+          <li><strong>2. Título do Relatório (A1:I1):</strong> Digite <code>AEROCLUBE DE SOROCABA — CONTROLE DE HANGARAGEM E ABASTECIMENTO</code>, mescle até <code>I1</code> e aplique fundo Azul Marinho com texto Branco em Negrito.</li>
+          <li><strong>3. Cabeçalhos das 9 Colunas (Linha 3):</strong>
+            <ul style="margin-top: 6px; font-size: 10.5pt;">
+              <li><code>A3</code>: Prefixo | <code>B3</code>: Modelo da Aeronave</li>
+              <li><code>C3</code>: Diárias Hangar | <code>D3</code>: Valor da Diária (R$)</li>
+              <li><code>E3</code>: Litros Abastecidos (L) | <code>F3</code>: Preço por Litro (R$)</li>
+              <li><code>G3</code>: Subtotal Hangar (R$) | <code>H3</code>: Subtotal Combustível (R$)</li>
+              <li><code>I3</code>: Custo Total (R$)</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card card-navy">
+        <div class="card-title">🖥️ Estrutura Visual da Planilha (Linha 3)</div>
+        <div class="card-body">
+          <p>Organização das colunas de entrada (dados brutos) versus colunas de processamento (fórmulas):</p>
+          <div style="background: rgba(255,255,255,0.08); padding: 12px; border-radius: 8px; font-size: 10pt; font-family: 'JetBrains Mono', Consolas, monospace;">
+            <div style="color: #38bdf8; font-weight: 700; margin-bottom: 4px;">[DADOS DE ENTRADA — A3 até F3]</div>
+            Prefixo | Modelo | Diárias | Valor_Diária | Litros | Preço_Litro<br><br>
+            <div style="color: #4ade80; font-weight: 700; margin-bottom: 4px;">[CAMPOS CALCULADOS — G3 até I3]</div>
+            Subtotal_Hangar | Subtotal_Combustível | Custo_Total
+          </div>
+          <p style="margin-top: 12px; font-size: 10.5pt; color: #94a3b8;">💡 <em>Dica de Design:</em> Mantenha as colunas de resultado agrupadas à direita para facilitar a leitura gerencial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div><strong>Fatec Sorocaba</strong> — Informática Aplicada a Aeronáutica</div>
+    <div>Slide 7 de 13</div>
+  </div>
+</div>
+
+<!-- SLIDE 8: ATIVIDADE 2 -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-meta">Guia Prático em Laboratório</div>
+      <h2 class="header-title">Atividade 2: Lançamento dos Dados Operacionais da Frota</h2>
+    </div>
+    <div class="header-badge">Inserção de Dados</div>
+  </div>
+  
+  <div class="slide-content">
+    <div class="card" style="flex: 1;">
+      <div class="card-title">✈️ Tabela de Dados das Aeronaves (Linhas 4 a 8)</div>
+      <p style="margin-top: 0; color: #64748b; font-size: 10.5pt;">Digite os valores abaixo nas respectivas colunas sem se preocupar com os símbolos de moeda (R$) neste momento:</p>
+      
+      <table class="custom-table" style="font-size: 10.5pt;">
+        <thead>
+          <tr>
+            <th>Linha</th>
+            <th>A: Prefixo</th>
+            <th>B: Modelo</th>
+            <th>C: Diárias</th>
+            <th>D: Valor Diária</th>
+            <th>E: Litros</th>
+            <th>F: Preço/L</th>
+            <th>G: Subtot Hangar</th>
+            <th>H: Subtot Comb</th>
+            <th>I: Custo Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>4</strong></td><td><code>PR-ABC</code></td><td>Cessna 172</td><td>4</td><td>150,00</td><td>120</td><td>11,50</td><td><em>(Fórmula)</em></td><td><em>(Fórmula)</em></td><td><em>(Fórmula)</em></td></tr>
+          <tr><td><strong>5</strong></td><td><code>PT-KRT</code></td><td>Piper Seneca</td><td>10</td><td>280,00</td><td>350</td><td>11,50</td><td><em>(Fórmula)</em></td><td><em>(Fórmula)</em></td><td><em>(Fórmula)</em></td></tr>
+          <tr><td><strong>6</strong></td><td><code>PR-FTE</code></td><td>Beech Baron</td><td>7</td><td>320,00</td><td>280</td><td>11,50</td><td><em>(Fórmula)</em></td><td><em>(Fórmula)</em></td><td><em>(Fórmula)</em></td></tr>
+          <tr><td><strong>7</strong></td><td><code>PP-ZUL</code></td><td>Cirrus SR22</td><td>3</td><td>220,00</td><td>160</td><td>11,50</td><td><em>(Fórmula)</em></td><td><em>(Fórmula)</em></td><td><em>(Fórmula)</em></td></tr>
+          <tr><td><strong>8</strong></td><td><code>PR-MNT</code></td><td>Cessna 152</td><td>15</td><td>120,00</td><td>90</td><td>11,50</td><td><em>(Fórmula)</em></td><td><em>(Fórmula)</em></td><td><em>(Fórmula)</em></td></tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 14px; background: #e0f2fe; border: 1px solid #bae6fd; padding: 10px 16px; border-radius: 8px; font-size: 10.5pt; color: #0369a1;">
+        💡 <strong>Atenção ao Teclado Numérico:</strong> No Excel em português, use a <strong>vírgula (,)</strong> para separar casas decimais ao digitar valores como <code>11,50</code>.
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div><strong>Fatec Sorocaba</strong> — Informática Aplicada a Aeronáutica</div>
+    <div>Slide 8 de 13</div>
+  </div>
+</div>
+
+<!-- SLIDE 9: ATIVIDADE 3 -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-meta">Guia Prático em Laboratório</div>
+      <h2 class="header-title">Atividade 3: Construção das Fórmulas & Alça de Preenchimento</h2>
+    </div>
+    <div class="header-badge">Cálculo e Automação</div>
+  </div>
+  
+  <div class="slide-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">⚙️ Fórmulas da Linha 4 (Cessna 172)</div>
+        <div class="card-body">
+          <p>Digite exatamente as seguintes fórmulas na linha 4:</p>
+          
+          <div class="formula-box">
+            G4: =C4*D4
+            <span class="comment">Subtotal Hangar = 4 diárias × R$ 150,00 = R$ 600,00</span>
+          </div>
+
+          <div class="formula-box">
+            H4: =E4*F4
+            <span class="comment">Subtotal Combustível = 120 L × R$ 11,50 = R$ 1.380,00</span>
+          </div>
+
+          <div class="formula-box">
+            I4: =G4+H4
+            <span class="comment">Custo Total = R$ 600,00 + R$ 1.380,00 = R$ 1.980,00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-blue">
+        <div class="card-title">🚀 Magia da Alça de Preenchimento</div>
+        <div class="card-body">
+          <p>Você não precisa digitar a fórmula linha por linha!</p>
+          <ol class="clean-list">
+            <li>Selecione o bloco com as 3 células calculadas: <strong><code>G4:I4</code></strong>.</li>
+            <li>Leve o mouse até o <strong>quadradinho verde</strong> no canto inferior direito da seleção.</li>
+            <li>Dê um <strong>duplo clique</strong> (ou arraste até a linha 8).</li>
+          </ol>
+          <div style="background: #ffffff; border: 1px solid #93c5fd; padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 10.5pt; color: #1e3a8a;">
+            ✨ <strong>O que o Excel faz?</strong> Ele atualiza as referências automaticamente para a linha de baixo (<code>=C5*D5</code>, <code>=C6*D6</code>...) graças ao conceito de <em>Referências Relativas</em>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div><strong>Fatec Sorocaba</strong> — Informática Aplicada a Aeronáutica</div>
+    <div>Slide 9 de 13</div>
+  </div>
+</div>
+
+<!-- SLIDE 10: ATIVIDADE 4 -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-meta">Guia Prático em Laboratório</div>
+      <h2 class="header-title">Atividade 4: Formatação Profissional & Linha de Totais (=SOMA)</h2>
+    </div>
+    <div class="header-badge">Acabamento & Consolidação</div>
+  </div>
+  
+  <div class="slide-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">💰 Formatação Numérica e Visual</div>
+        <ul class="clean-list">
+          <li><strong>Formato Moeda (<code>R$</code>):</strong> Selecione as colunas de valores (<code>D</code>, <code>F</code>, <code>G</code>, <code>H</code>, <code>I</code>) e use o atalho <span class="shortcut-pill">Ctrl + Shift + $</span>.</li>
+          <li><strong>Bordas:</strong> Selecione de <code>A3:I8</code> e aplique <em>Todas as Bordas</em>.</li>
+          <li><strong>Alinhamentos:</strong>
+            <ul style="font-size: 10.5pt; margin-top: 4px;">
+              <li>Centralizado: Prefixo, Diárias e Litros.</li>
+              <li>Alinhado à Esquerda: Modelo da Aeronave.</li>
+              <li>Alinhado à Direita: Todos os valores monetários.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card card-green">
+        <div class="card-title">📊 Linha de Totais da Operação (Linha 9)</div>
+        <div class="card-body">
+          <ul class="clean-list">
+            <li>Na célula <code>A9</code>, digite: <strong>TOTAL GERAL</strong> (coloque em Negrito).</li>
+            <li>Na célula <code>G9</code>: <div class="formula-box" style="margin: 3px 0;">=SOMA(G4:G8)</div></li>
+            <li>Na célula <code>H9</code>: <div class="formula-box" style="margin: 3px 0;">=SOMA(H4:H8)</div></li>
+            <li>Na célula <code>I9</code>: <div class="formula-box" style="margin: 3px 0;">=SOMA(I4:I8)</div></li>
+          </ul>
+          <div style="background: #ffffff; border: 1px solid #86efac; padding: 8px 12px; border-radius: 8px; margin-top: 6px; font-size: 10pt; color: #166534;">
+            💡 <strong>Atalho de Alta Velocidade:</strong> Selecione a célula <code>G9</code> e pressione <span class="shortcut-pill">Alt + =</span> para inserir a soma automática!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div><strong>Fatec Sorocaba</strong> — Informática Aplicada a Aeronáutica</div>
+    <div>Slide 10 de 13</div>
+  </div>
+</div>
+
+<!-- SLIDE 11: EXERCÍCIO DE FIXAÇÃO -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-meta">Aplicação Prática Autônoma</div>
+      <h2 class="header-title">Exercício de Fixação: Controle de Consumo em Treinamento</h2>
+    </div>
+    <div class="header-badge">Aba: Consumo_Treinamento</div>
+  </div>
+  
+  <div class="slide-content">
+    <div class="grid-2">
+      <div class="card card-blue">
+        <div class="card-title">✈️ Cenário de Instrução Prática</div>
+        <table class="custom-table" style="font-size: 10pt;">
+          <thead>
+            <tr>
+              <th>Piloto Aluno</th>
+              <th>Horas Voo</th>
+              <th>Consumo (L/h)</th>
+              <th>Consumo Total (L)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Lucas Silveira</td><td>18,5</td><td>34,0</td><td><code>=B4*C4</code></td></tr>
+            <tr><td>Mariana Duarte</td><td>25,0</td><td>36,5</td><td><code>=B5*C5</code></td></tr>
+            <tr><td>Carlos Eduardo</td><td>12,0</td><td>32,0</td><td><code>=B6*C6</code></td></tr>
+            <tr><td>Beatriz Ramos</td><td>30,5</td><td>38,0</td><td><code>=B7*C7</code></td></tr>
+            <tr><td>Rodrigo Nogueira</td><td>22,0</td><td>35,0</td><td><code>=B8*C8</code></td></tr>
+            <tr><td>Gabriel Souza</td><td>15,5</td><td>33,5</td><td><code>=B9*C9</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🧮 Equações Requeridas no Exercício</div>
+        <div class="card-body">
+          <div class="formula-box">
+            Consumo por Aluno (D4): =B4*C4
+            <span class="comment">Horas de Voo × Consumo Horário da Aeronave de Treino</span>
+          </div>
+
+          <div class="formula-box" style="border-left-color: #10b981;">
+            Total Consumido (D10): =SOMA(D4:D9)
+            <span class="comment">Consolida o total de litros queimados por todos os alunos</span>
+          </div>
+
+          <div class="formula-box" style="border-left-color: #f59e0b;">
+            Média por Aluno (D11): =MÉDIA(D4:D9)
+            <span class="comment">Calcula o consumo médio de combustível por piloto</span>
+          </div>
+
+          <div class="formula-box" style="border-left-color: #8b5cf6;">
+            Mediana por Aluno (D12): =MED(D4:D9)
+            <span class="comment">Calcula a mediana central do consumo dos alunos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div><strong>Fatec Sorocaba</strong> — Informática Aplicada a Aeronáutica</div>
+    <div>Slide 11 de 13</div>
+  </div>
+</div>
+
+<!-- SLIDE 12: ATALHOS & BOAS PRÁTICAS -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-meta">Produtividade & Engenharia de Dados</div>
+      <h2 class="header-title">Atalhos Rápidos & Boas Práticas em Planilhas Técnicas</h2>
+    </div>
+    <div class="header-badge">Dicas de Alta Performance</div>
+  </div>
+  
+  <div class="slide-content">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">⚡ Tabela de Atalhos Essenciais</div>
+        <table class="custom-table" style="font-size: 10pt;">
+          <thead>
+            <tr>
+              <th>Atalho / Função</th>
+              <th>O que faz no Excel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="shortcut-pill">Ctrl + Z / Y</span></td><td>Desfazer / Refazer alterações com segurança</td></tr>
+            <tr><td><span class="shortcut-pill">Alt + =</span></td><td>Insere a fórmula de Soma automática (<code>=SOMA</code>)</td></tr>
+            <tr><td><span class="shortcut-pill">Ctrl + Shift + $</span></td><td>Formata a seleção como Moeda oficial (<code>R$</code>)</td></tr>
+            <tr><td><span class="shortcut-pill">Ctrl + Shift + %</span></td><td>Formata a seleção como Porcentagem (<code>%</code>)</td></tr>
+            <tr><td><span class="shortcut-pill">=MED(...)</span></td><td>Mediana central (imune a distorções de outliers)</td></tr>
+            <tr><td><span class="shortcut-pill">Duplo clique divisa</span></td><td>Autoajuste da largura da coluna ao maior texto</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card card-navy">
+        <div class="card-title">🛡️ Boas Práticas na Manutenção Aeronáutica</div>
+        <ul class="clean-list" style="color: #cbd5e1;">
+          <li><strong>Nunca "chumbe" totais:</strong> Todo valor derivado deve vir de fórmulas para manter a integridade da auditoria.</li>
+          <li><strong>Unidades Explícitas:</strong> Deixe claro nos cabeçalhos se o dado é <code>(L)</code>, <code>(h)</code>, <code>(R$)</code>, <code>(kg)</code> ou <code>(Pa)</code>.</li>
+          <li><strong>Parênteses Defensivos:</strong> Use <code>( )</code> em fórmulas complexas para garantir a ordem exata de cálculo.</li>
+          <li><strong>Bordas Duplas:</strong> Use borda dupla na base para sinalizar encerramento contábil/técnico oficial.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div><strong>Fatec Sorocaba</strong> — Informática Aplicada a Aeronáutica</div>
+    <div>Slide 12 de 13</div>
+  </div>
+</div>
+
+<!-- SLIDE 13: SÍNTESE & PRÓXIMOS PASSOS -->
+<div class="slide">
+  <div class="slide-header">
+    <div>
+      <div class="header-meta">Encerramento & Síntese</div>
+      <h2 class="header-title">Síntese da Aula, Checklist & Próximos Passos</h2>
+    </div>
+    <div class="header-badge">Aula 05 Concluída</div>
+  </div>
+  
+  <div class="slide-content">
+    <div class="grid-2">
+      <div class="card card-green">
+        <div class="card-title">✅ Checklist de Conclusão da Aula 05</div>
+        <ul class="clean-list">
+          <li>✔ Planilha criada com título e 9 colunas no padrão profissional.</li>
+          <li>✔ 5 aeronaves lançadas com prefixo, modelo e valores operacionais.</li>
+          <li>✔ Subtotais e Custo Total calculados via fórmulas com operadores (<code>*</code> e <code>+</code>).</li>
+          <li>✔ Física do voo aplicada com operadores <code>^</code> e <code>-</code> ($q$ e $T_{ISA}$).</li>
+          <li>✔ Análise crítica da diferença entre Média e Mediana diante de outliers.</li>
+          <li>✔ Formatação Moeda (<code>R$</code>), totais com <code>=SOMA()</code> e treino com <code>=MED()</code>.</li>
+        </ul>
+      </div>
+
+      <div class="card card-navy">
+        <div class="card-title">🚀 Próxima Aula — Aula 06: MS Excel II</div>
+        <div class="card-body">
+          <p>Na próxima aula avançaremos para:</p>
+          <ul class="clean-list" style="color: #cbd5e1;">
+            <li><strong>Referências Absolutas:</strong> O poder do caractere <code>$</code> (ex: <code>$B$1</code>) para fixar taxas, câmbio e cotações.</li>
+            <li><strong>Funções Estatísticas Avançadas:</strong> <code>=MÁXIMO()</code>, <code>=MÍNIMO()</code>, <code>=CONT.VALORES()</code> e <code>=CONT.SE()</code>.</li>
+            <li><strong>Gráficos Técnicos:</strong> Geração de gráficos de colunas e pizza para relatórios de frotas.</li>
+          </ul>
+          <div style="margin-top: 14px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px; color: #38bdf8; font-weight: 600;">
+            Parabéns pelo trabalho na oficina prática de hoje! ✈️
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div><strong>Fatec Sorocaba</strong> — Informática Aplicada a Aeronáutica</div>
+    <div>Slide 13 de 13</div>
+  </div>
+</div>
+
+</body>
+</html>
