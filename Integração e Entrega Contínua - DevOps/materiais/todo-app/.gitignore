@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches e relatórios de testes
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+
+# Ambientes virtuais
+venv/
+.venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp

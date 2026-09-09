@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    container_name: todo_app
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+      - PORT=5000
+
