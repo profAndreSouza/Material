@@ -1,83 +1,86 @@
-import pytest
-from app.services import TodoService
-
 def test_service_criar_tarefa(service):
     """
     Testa a criação de uma nova tarefa através do TodoService.
-    
-    A implementar:
-    - Chamar service.create(title="Aprender CI/CD", description="Configurar pipeline")
-    - Validar que o ID foi gerado (ex: 1)
-    - Validar que a tarefa está armazenada no serviço.
     """
-    pass
+    todo = service.create(title="Aprender CI/CD", description="Configurar pipeline")
+
+    assert todo.id == 1
+    assert todo.title == "Aprender CI/CD"
+    assert todo.description == "Configurar pipeline"
+    assert todo.completed is False
+    assert len(service.list_all()) == 1
 
 
 def test_service_listar_todas_as_tarefas(service):
     """
-    Testa se o serviço retorna todas as tarefas cadastradas.
-    
-    A implementar:
-    - Criar 2 tarefas via service.create(...)
-    - Chamar service.list_all()
-    - Validar que o tamanho da lista retornada é 2.
+    Testa se o serviço lista corretamente todas as tarefas cadastradas.
     """
-    pass
+    assert service.list_all() == []
+
+    service.create(title="Tarefa 1", description="Desc 1")
+    service.create(title="Tarefa 2", description="Desc 2")
+
+    todos = service.list_all()
+    assert len(todos) == 2
+    assert todos[0].title == "Tarefa 1"
+    assert todos[1].title == "Tarefa 2"
 
 
 def test_service_buscar_tarefa_por_id_existente(service):
     """
-    Testa a busca de uma tarefa por ID quando ela existe.
-    
-    A implementar:
-    - Criar uma tarefa
-    - Buscar pelo ID gerado via service.get_by_id(id)
-    - Validar que o retorno não é None e possui o título correto.
+    Testa a busca de uma tarefa por ID quando ela existe no repositório.
     """
-    pass
+    criada = service.create(title="Estudar Pytest")
+    encontrada = service.get_by_id(criada.id)
+
+    assert encontrada is not None
+    assert encontrada.id == criada.id
+    assert encontrada.title == "Estudar Pytest"
 
 
 def test_service_buscar_tarefa_por_id_inexistente(service):
     """
-    Testa a busca de uma tarefa por ID inexistente.
-    
-    A implementar:
-    - Buscar por um ID inexistente (ex: 999) via service.get_by_id(999)
-    - Validar que o retorno é None.
+    Testa a busca de uma tarefa por ID inexistente, esperando retorno None.
     """
-    pass
+    resultado = service.get_by_id(999)
+
+    assert resultado is None
 
 
 def test_service_atualizar_tarefa_existente(service):
     """
-    Testa a atualização parcial e total de uma tarefa.
-    
-    A implementar:
-    - Criar uma tarefa
-    - Chamar service.update(todo_id, title="Novo Titulo", completed=True)
-    - Validar que as propriedades foram atualizadas.
+    Testa a atualização de título, descrição e status de conclusão de uma tarefa.
     """
-    pass
+    todo = service.create(title="Titulo Original", description="Desc Original")
+
+    atualizada = service.update(
+        todo_id=todo.id,
+        title="Titulo Alterado",
+        description="Desc Alterada",
+        completed=True,
+    )
+
+    assert atualizada is not None
+    assert atualizada.title == "Titulo Alterado"
+    assert atualizada.description == "Desc Alterada"
+    assert atualizada.completed is True
 
 
 def test_service_remover_tarefa_existente(service):
     """
-    Testa a remoção de uma tarefa existente.
-    
-    A implementar:
-    - Criar uma tarefa
-    - Chamar service.delete(todo_id)
-    - Validar que o retorno é True e que a busca subsequente por ela retorna None.
+    Testa a remoção de uma tarefa existente e verifica se ela deixa de existir.
     """
-    pass
+    todo = service.create(title="Tarefa Temporária")
+
+    removido = service.delete(todo.id)
+    assert removido is True
+    assert service.get_by_id(todo.id) is None
 
 
 def test_service_remover_tarefa_inexistente(service):
     """
-    Testa a remoção de uma tarefa com ID inexistente.
-    
-    A implementar:
-    - Chamar service.delete(999)
-    - Validar que o retorno é False.
+    Testa a tentativa de remoção de ID inexistente, esperando retorno False.
     """
-    pass
+    removido = service.delete(999)
+
+    assert removido is False

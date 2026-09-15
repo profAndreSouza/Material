@@ -1,25 +1,56 @@
+# Guia de Implementação: Testes de Integração
+
+Este documento contém o código completo de referência para a implementação dos **Testes de Integração** da aplicação To-Do API em Flask.
+
+Diferente dos testes unitários (que validam métodos e classes isoladas em memória), os testes de integração avaliam o comportamento coordenado entre a camada de rotas HTTP, controladores, validação de payloads JSON, status codes HTTP e persistência do serviço.
+
+---
+
+## 1. O Papel das Fixtures (`tests/conftest.py`)
+
+Para que os testes de integração funcionem sem dependências externas e com total reprodutibilidade, utilizamos o `client` de teste fornecido pelo Flask via Pytest fixture:
+
+```python
+@pytest.fixture
+def app():
+    app = create_app({"TESTING": True})
+    global_todo_service.clear()
+    yield app
+    global_todo_service.clear()
+
+@pytest.fixture
+def client(app):
+    return app.test_client()
+```
+
+O `client` atua como um navegador ou cliente HTTP virtual, enviando requisições (`client.get()`, `client.post()`, `client.put()`, `client.delete()`) diretamente para a aplicação Flask em memória, sem precisar abrir uma porta de rede real na máquina.
+
+---
+
+## 2. Testes de Rotas e Contratos HTTP (`test_routes.py`)
+
+Arquivo: `tests/integration/test_routes.py`
+
+```python
+import pytest
+
+
 def test_api_health_check(client):
-    """
-    Testa o endpoint de health check /health.
-    """
+    """Testa o endpoint de health check /health."""
     response = client.get("/health")
     assert response.status_code == 200
     assert response.get_json() == {"status": "ok"}
 
 
 def test_api_listar_tarefas_inicialmente_vazia(client):
-    """
-    Testa a listagem de tarefas quando não há tarefas cadastradas.
-    """
+    """Testa a listagem quando o repositório está limpo."""
     response = client.get("/api/todos")
     assert response.status_code == 200
     assert response.get_json() == []
 
 
 def test_api_criar_tarefa_com_sucesso(client):
-    """
-    Testa o endpoint POST /api/todos com payload válido.
-    """
+    """Testa a criação com status HTTP 201 Created."""
     payload = {"title": "Comprar café", "description": "100% Arábica"}
     response = client.post("/api/todos", json=payload)
 
@@ -32,21 +63,16 @@ def test_api_criar_tarefa_com_sucesso(client):
 
 
 def test_api_criar_tarefa_sem_titulo_deve_retornar_400(client):
-    """
-    Testa a validação de erro ao criar tarefa sem o campo obrigatório 'title'.
-    """
+    """Valida retorno HTTP 400 Bad Request se faltar o campo obrigatório."""
     payload = {"description": "Sem título"}
     response = client.post("/api/todos", json=payload)
 
     assert response.status_code == 400
-    data = response.get_json()
-    assert "error" in data
+    assert "error" in response.get_json()
 
 
 def test_api_obter_tarefa_por_id_existente(client):
-    """
-    Testa o endpoint GET /api/todos/<id> para tarefa existente.
-    """
+    """Valida busca por ID existente retornando HTTP 200 OK."""
     res_criacao = client.post("/api/todos", json={"title": "Estudar Testes de Integração"})
     id_criado = res_criacao.get_json()["id"]
 
@@ -58,19 +84,14 @@ def test_api_obter_tarefa_por_id_existente(client):
 
 
 def test_api_obter_tarefa_inexistente_deve_retornar_404(client):
-    """
-    Testa o endpoint GET /api/todos/<id> para tarefa que não existe.
-    """
+    """Valida busca por ID não cadastrado retornando HTTP 404 Not Found."""
     response = client.get("/api/todos/9999")
     assert response.status_code == 404
-    data = response.get_json()
-    assert "error" in data
+    assert "error" in response.get_json()
 
 
 def test_api_atualizar_tarefa_com_sucesso(client):
-    """
-    Testa o endpoint PUT /api/todos/<id> para atualizar status e informações.
-    """
+    """Valida alteração de status via PUT /api/todos/<id>."""
     res_criacao = client.post("/api/todos", json={"title": "Tarefa Pendente"})
     id_criado = res_criacao.get_json()["id"]
 
@@ -86,9 +107,7 @@ def test_api_atualizar_tarefa_com_sucesso(client):
 
 
 def test_api_deletar_tarefa_com_sucesso(client):
-    """
-    Testa o endpoint DELETE /api/todos/<id>.
-    """
+    """Valida deleção via DELETE e confirmação de remoção com subsequente 404."""
     res_criacao = client.post("/api/todos", json={"title": "Tarefa a Deletar"})
     id_criado = res_criacao.get_json()["id"]
 
@@ -98,3 +117,16 @@ def test_api_deletar_tarefa_com_sucesso(client):
 
     res_busca = client.get(f"/api/todos/{id_criado}")
     assert res_busca.status_code == 404
+```
+
+---
+
+## 3. Como Executar os Testes de Integração
+
+```bash
+# Executar apenas a suíte de integração
+pytest -v tests/integration
+
+# Executar com relatório de cobertura das rotas
+pytest -v --cov=app/routes.py tests/integration
+```
