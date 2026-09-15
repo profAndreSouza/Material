@@ -9,7 +9,7 @@ Nesta aula prática, toda a infraestrutura roda **100% conteinerizada via Docker
 
 ---
 
-## 🏗️ Arquitetura dos 3 Contêineres Docker
+## Arquitetura dos 3 Contêineres Docker
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -36,14 +36,14 @@ Nesta aula prática, toda a infraestrutura roda **100% conteinerizada via Docker
 
 ---
 
-## 🚀 Como Executar em 1 Único Passo
+## Como Executar em 1 Único Passo
 
-Tudo o que você precisa está contido nesta pasta `aulas/semana_05`.
+Tudo o que você precisa está contido nesta pasta `materiais/semana_05`.
 
 Abra o terminal nesta pasta e execute:
 
 ```bash
-cd aulas/semana_05
+cd materiais/semana_05
 docker compose up --build -d
 ```
 
@@ -59,32 +59,32 @@ Você verá:
 
 ---
 
-## 🌐 Acessos e Roteiro de Aula
+## Acessos e Roteiro de Aula
 
 ### 1. Acessar a Fábrica Virtual (Simulador SCADA)
-👉 Abra no navegador: **[http://localhost:5000](http://localhost:5000)**
+ Abra no navegador: **[http://localhost:5000](http://localhost:5000)**
 - Acompanhe a telemetria em tempo real (Temperatura, Vibração, Pressão, Corrente).
 - Observe as contagens de produção e taxa de qualidade.
 - Use os botões de ação rápida para simular falhas e eventos (Superaquecimento, Vibração Excessiva, Parada de Emergência E-STOP, etc.).
 
 ### 2. Acessar o Node-RED e Importar o Fluxo
-👉 Abra no navegador: **[http://localhost:1880](http://localhost:1880)**
+ Abra no navegador: **[http://localhost:1880](http://localhost:1880)**
 1. Pressione `Ctrl + I` (ou Menu hambúrguer `☰` > **Import**).
-2. Copie o conteúdo do arquivo [`flows_semana05.json`](file:///c:/projetos/Material/Automação%20Industrial/aulas/semana_05/flows_semana05.json) e cole na caixa de texto.
+2. Copie o conteúdo do arquivo [`flows_semana05.json`](file:///c:/projetos/Material/Automação%20Industrial/materiais/semana_05/nodered/flows_semana05.json) e cole na caixa de texto.
 3. Clique em **Import** e em seguida no botão vermelho **Deploy** (canto superior direito).
 4. Abra o **Painel lateral Debug** (ícone do inseto `🪲` ou atalho `Ctrl + G` seguido de `D`).
 
 ### 3. Observação dos Eventos e Depuração
 - Com a aba Debug aberta no Node-RED, volte à tela do simulador Flask ([http://localhost:5000](http://localhost:5000)) e dispare os eventos.
 - Observe a classificação de criticidade e os tratamentos nos nós:
-  - 🟢 `[DEBUG] Telemetria Formatada`
-  - 🔴 `[DEBUG] Alarme Crítico / Emergência`
-  - 📦 `[DEBUG] Produção & Qualidade`
-  - 🔍 `[DEBUG] Todas Msg Brutas`
+  -  `[DEBUG] Telemetria Formatada`
+  -  `[DEBUG] Alarme Crítico / Emergência`
+  -  `[DEBUG] Produção & Qualidade`
+  -  `[DEBUG] Todas Msg Brutas`
 
 ---
 
-## 🛑 Como Parar os Contêineres
+##  Como Parar os Contêineres
 
 Para encerrar a execução dos serviços ao final da aula:
 ```bash
@@ -93,12 +93,26 @@ docker compose down
 
 ---
 
-## 📁 Arquivos da Semana 05
+##  Estrutura de Diretórios da Semana 05
 
-- `docker-compose.yml`: Orquestração dos 3 contêineres.
-- `Dockerfile`: Build da imagem Python para a aplicação Flask.
-- `mosquitto/config/mosquitto.conf`: Configuração do broker Mosquitto.
-- `app.py`: Backend Flask monolítico com simulação e cliente MQTT.
-- `templates/index.html` & `static/css/style.css`: Frontend web industrial dark-mode.
-- `flows_semana05.json`: Fluxo Node-RED pronto para importação.
-- `requirements.txt`: Dependências Python (`flask`, `paho-mqtt`).
+A estrutura foi modularizada para manter cada componente isolado em seu próprio diretório:
+
+```
+materiais/semana_05/
+├── docker-compose.yml          # Orquestração dos 3 contêineres Docker
+├── README.md                   # Guia rápido de execução do laboratório
+│
+├── api/                        # Aplicação Web / Simulador SCADA Flask
+│   ├── Dockerfile              # Build da imagem da aplicação Python
+│   ├── app.py                  # Servidor Flask e simulador de chão de fábrica
+│   ├── requirements.txt        # Dependências Python (Flask, paho-mqtt)
+│   ├── static/                 # Folhas de estilo CSS
+│   └── templates/              # Painel de controle HTML (SCADA)
+│
+├── mqtt/                       # Broker MQTT (Eclipse Mosquitto)
+│   └── config/
+│       └── mosquitto.conf      # Arquivo de configuração e portas (1883 TCP, 9001 WS)
+│
+└── nodered/                    # Orquestrador de Fluxos IIoT
+    └── flows_semana05.json     # Fluxo exportado pronto para importação
+```

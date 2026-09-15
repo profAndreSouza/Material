@@ -10,7 +10,7 @@ services:
       - "1883:1883"
       - "9001:9001"
     volumes:
-      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mqtt/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - mosquitto_data:/mosquitto/data
       - mosquitto_log:/mosquitto/log
     networks:
@@ -32,10 +32,10 @@ services:
     networks:
       - rede_automacao
 
-  # 3. Aplicação Monolítica Flask (Simulador de Telemetria e Eventos)
+  # 3. Aplicação / API Flask (Simulador de Telemetria e Eventos)
   flask_app:
     build:
-      context: .
+      context: ./api
       dockerfile: Dockerfile
     container_name: flask_simulator_app
     restart: unless-stopped

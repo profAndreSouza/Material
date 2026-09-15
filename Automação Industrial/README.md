@@ -78,10 +78,10 @@ A nota final da disciplina será composta por:
 | **04** | Aula 04 | **25/Ago** | **26/Ago** | [Protocolos de Comunicação Industrial & Broker MQTT](aulas/semana_04.ipynb) | Arquitetura Pub/Sub, Broker MQTT Mosquitto e payloads JSON para IIoT. |
 | **05** | Aula 05 | **01/Set** | **02/Set** | [Orquestração de Dados e Fluxos IIoT com Node-RED](aulas/semana_05.ipynb) | Flow-based programming em Node-RED, tratamento de mensagens e integração. |
 | **06** | Semana de PII | **08/Set** | **09/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da infraestrutura de automação para o PII. |
-| **07** | Aula 06 | **15/Set** | **16/Set** | [Persistência de Telemetria em Banco de Dados Temporal (InfluxDB)](aulas/semana_06.ipynb) | Armazenamento de séries temporais, InfluxDB, Flux queries e retenção. |
+| **07** | Aula 06 | **15/Set** | **16/Set** | [Intensivão de Node-RED: Ingestão, Roteamento e Tratamento IIoT](aulas/semana_07.ipynb) | Construção passo a passo de pipeline IIoT, tratamento condicional e depuração. |
 | **08** | Avaliação | **22/Set** | **23/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Aulas 01 a 05. |
 | **09** | Semana de PII | **29/Set** | **30/Set** | Consolidação do Projeto Integrador (PII) | Integração de controladores e sensores no projeto. |
-| **10** | Aula 07 | **06/Out** | **07/Out** | [Ciclo CRISP-DM Aplicado a Séries Temporais Industriais](aulas/semana_07.ipynb) | Entendimento do negócio/dados não relacionais no InfluxDB e eng. de recursos. |
+| **10** | Aula 07 | **06/Out** | **07/Out** | [Ciclo CRISP-DM Aplicado a Séries Temporais Industriais](aulas/semana_10.ipynb) | Entendimento do negócio/dados não relacionais no InfluxDB e eng. de recursos. |
 | **11** | Semana Tec. | **19/Set (Sáb)** | **14/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
 | **12** | Aula 08 | **20/Out** | **21/Out** | [Machine Learning em Telemetria: Detecção de Anomalias em Sensores](aulas/semana_08.ipynb) | Aplicação de Isolation Forest / K-Means em dados de campo em tempo real. |
 | **13** | Aula 09 | **27/Out** | **28/Out** | [Machine Learning em Telemetria: Manutenção Preditiva & OEE](aulas/semana_09.ipynb) | Predição de falhas e cálculo de OEE em sinergia com Ciência de Dados. |
