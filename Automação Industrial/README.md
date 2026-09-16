@@ -62,8 +62,8 @@ Desenvolver capacidades técnicas e socioemocionais relacionadas a sistemas de a
 ## Critérios de Avaliação e Composição de Nota
 
 A nota final da disciplina será composta por:
-- **Prova Teórico-Prática 1 (P1):** Peso 35% (Semanas 01 a 05)
-- **Prova Teórico-Prática 2 (P2):** Peso 35% (Semanas 06 a 10)
+- **Prova Teórico-Prática 1 (P1):** Peso 35% (Semanas 01 a 07)
+- **Prova Teórico-Prática 2 (P2):** Peso 35% (Semanas 10 a 16)
 - **Atividades Práticas de Laboratório / Entregas Semanais:** Peso 30%
 
 ---
@@ -79,7 +79,7 @@ A nota final da disciplina será composta por:
 | **05** | Aula 05 | **01/Set** | **02/Set** | [Orquestração de Dados e Fluxos IIoT com Node-RED](aulas/semana_05.ipynb) | Flow-based programming em Node-RED, tratamento de mensagens e integração. |
 | **06** | Semana de PII | **08/Set** | **09/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da infraestrutura de automação para o PII. |
 | **07** | Aula 06 | **15/Set** | **16/Set** | [Intensivão de Node-RED: Ingestão, Roteamento e Tratamento IIoT](aulas/semana_07.ipynb) | Construção passo a passo de pipeline IIoT, tratamento condicional e depuração. |
-| **08** | Avaliação | **22/Set** | **23/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Aulas 01 a 05. |
+| **08** | Avaliação | **22/Set** | **23/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo os conteúdos da Semana 01 até a Semana 07 (Aulas 01 a 06 e PII). |
 | **09** | Semana de PII | **29/Set** | **30/Set** | Consolidação do Projeto Integrador (PII) | Integração de controladores e sensores no projeto. |
 | **10** | Aula 07 | **06/Out** | **07/Out** | [Ciclo CRISP-DM Aplicado a Séries Temporais Industriais](aulas/semana_10.ipynb) | Entendimento do negócio/dados não relacionais no InfluxDB e eng. de recursos. |
 | **11** | Semana Tec. | **19/Set (Sáb)** | **14/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
@@ -88,7 +88,7 @@ A nota final da disciplina será composta por:
 | **14** | Semana de PII | **03/Nov** | **04/Nov** | Orientação e Acompanhamento do PII | Ajustes na comunicação de dados e inteligência do PII. |
 | **15** | Aula 10 | **10/Nov** | **11/Nov** | [Ingestão Integrada de Dados & Dashboards de Monitoramento](aulas/semana_10.ipynb) | Painéis analíticos e monitoramento de planta em tempo real. |
 | **16** | Aula 11 | **17/Nov** | **18/Nov** | [Consolidação Técnica e Revisão Integrada](aulas/semana_11.ipynb) | Revisão prática da pilha IIoT/ML e preparação para encerramento. |
-| **17** | Avaliação | **24/Nov** | **25/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Projeto Final | Avaliação individual cobrindo as Aulas 06 a 10 & Entrega do Projeto. |
+| **17** | Avaliação | **24/Nov** | **25/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Projeto Final | Avaliação individual cobrindo os conteúdos das Semanas 10 a 16 & Entrega do Projeto. |
 | **18** | Semana de PII | **01/Dez** | **02/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
 | **19** | Recuperação | **08/Dez** | **09/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
 | **20** | Fechamento | **15/Dez** | **16/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |

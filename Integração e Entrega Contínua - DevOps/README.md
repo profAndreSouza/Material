@@ -72,8 +72,8 @@ Disponibilizamos tutoriais fundamentais na pasta [materiais/](materiais/):
 ## Critérios de Avaliação e Composição de Nota
 
 A nota final da disciplina será composta por:
-- **Prova Teórico-Prática 1 (P1):** Peso 35% (Semanas 01 a 05)
-- **Prova Teórico-Prática 2 (P2):** Peso 35% (Semanas 06 a 11)
+- **Prova Teórico-Prática 1 (P1):** Peso 35% (Semanas 01 a 07)
+- **Prova Teórico-Prática 2 (P2):** Peso 35% (Semanas 10 a 16)
 - **Construção e Execução de Esteira CI/CD Prática:** Peso 30%
 
 ---
@@ -89,7 +89,7 @@ A nota final da disciplina será composta por:
 | **05** | Aula | **03/Set** | **02/Set** | [Testes Unitários e Pirâmide de Testes](aulas/semana_05.ipynb) | Pirâmide de testes, introdução ao Pytest e testes unitários no Todo App. |
 | **06** | Semana de PII | **10/Set** | **09/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da esteira de CI e automação para o PII. |
 | **07** | Aula | **17/Set** | **16/Set** | [Testes de Integração, E2E e Quality Gates no GitHub Actions](aulas/semana_07.ipynb) | Rotas HTTP, fluxos E2E, Quality Gates no CI e publicação no GitHub Actions. |
-| **08** | Avaliação | **24/Set** | **23/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 07 (Git, CI, Testes e Quality Gates). |
+| **08** | Avaliação | **24/Set** | **23/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo os conteúdos da Semana 01 até a Semana 07 (Git, CI, Testes e Quality Gates). |
 | **09** | Semana de PII | **01/Out** | **30/Set** | Consolidação do Projeto Integrador (PII) | Validação da esteira de CI com testes e Quality Gates no PII. |
 | **10** | Aula | **08/Out** | **07/Out** | Containerização de Aplicações com Docker & Multi-Stage | VM vs Containers, Dockerfile otimizado e Multi-Stage builds. |
 | **11** | Semana Tec. | **15/Out** | **14/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
@@ -98,7 +98,7 @@ A nota final da disciplina será composta por:
 | **14** | Semana de PII | **05/Nov** | **04/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Refinamento da infraestrutura IaC e deploy na AWS. |
 | **15** | Aula | **12/Nov** | **11/Nov** | Infraestrutura como Código (IaC) com Terraform | Linguagem HCL, estado (tfstate) e provisionamento EC2 na AWS. |
 | **16** | Aula / Revisão | **19/Nov** | **18/Nov** | Monitoramento de Aplicações, Logs e Pipeline DevSecOps | Métricas RED, Prometheus, Grafana e esteira DevSecOps integrada. |
-| **17** | Avaliação | **26/Nov** | **25/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Pipeline Final | Avaliação individual cobrindo as Semanas 10 a 16 & Entrega do Projeto. |
+| **17** | Avaliação | **26/Nov** | **25/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Pipeline Final | Avaliação individual cobrindo os conteúdos das Semanas 10 a 16 & Entrega do Projeto. |
 | **18** | Semana de PII | **03/Dez** | **02/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
 | **19** | Recuperação | **10/Dez** | **09/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
 | **20** | Fechamento | **17/Dez** | **16/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |

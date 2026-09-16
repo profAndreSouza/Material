@@ -55,8 +55,8 @@ Desenvolver capacidades técnicas e socioemocionais relacionadas a sistemas de m
 ## Critérios de Avaliação e Composição de Nota
 
 A nota final da disciplina será composta por:
-- **Prova Teórico-Prática 1 (P1):** Peso 35% (Semanas 01 a 05)
-- **Prova Teórico-Prática 2 (P2):** Peso 35% (Semanas 06 a 10)
+- **Prova Teórico-Prática 1 (P1):** Peso 35% (Semanas 01 a 07)
+- **Prova Teórico-Prática 2 (P2):** Peso 35% (Semanas 10 a 16)
 - **Relatórios Analíticos e Notebooks Práticos:** Peso 30%
 
 ---
@@ -72,7 +72,7 @@ A nota final da disciplina será composta por:
 | **05** | Aula | **31/Ago** | **04/Set** | [Distribuições de Probabilidade e Testes de Hipóteses](aulas/semana_05.ipynb) | Normal, Poisson, teste Shapiro-Wilk e Qui-Quadrado. |
 | **06** | Semana de PII | **22/Ago (Sáb)** | **11/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento do tratamento e análise estatística dos dados do PII. |
 | **07** | Aula | **14/Set** | **18/Set** | [Análise de Séries Temporais Industriais (Time Series)](aulas/semana_07.ipynb) | Tendência, sazonalidade, decomposição e médias móveis (EWMA). |
-| **08** | Avaliação | **21/Set** | **25/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Semanas 01 a 05. |
+| **08** | Avaliação | **21/Set** | **25/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo os conteúdos da Semana 01 até a Semana 07. |
 | **09** | Semana de PII | **28/Set** | **02/Out** | Consolidação do Projeto Integrador (PII) | Validação do pipeline de tratamento de dados do PII. |
 | **10** | Aula | **05/Out** | **09/Out** | [Engenharia de Recursos (Feature Engineering) para Manufatura](aulas/semana_08.md) | Janelas deslizantes, agregados temporais e encodificação. |
 | **11** | Semana Tec. | **24/Out (Sáb)** | **16/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
@@ -81,7 +81,7 @@ A nota final da disciplina será composta por:
 | **14** | Semana de PII | **05/Dez (Sáb)** | **06/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Refinamento dos modelos analíticos do PII. |
 | **15** | Aula | **09/Nov** | **13/Nov** | [Dashboards Analíticos Integrados e Indicadores de OEE](aulas/semana_11.md) | Cálculo de OEE e gráficos interativos com Plotly/Dash. |
 | **16** | Aula / Revisão | **16/Nov** | **07/Nov (Sáb)** | Consolidação Técnica e Revisão Analítica | Revisão de aprendizado de máquina e preparação para P2. |
-| **17** | Avaliação | **23/Nov** | **27/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Projeto Final | Avaliação individual cobrindo as Semanas 07 a 11 & Entrega do Projeto. |
+| **17** | Avaliação | **23/Nov** | **27/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Projeto Final | Avaliação individual cobrindo os conteúdos das Semanas 10 a 16 & Entrega do Projeto. |
 | **18** | Semana de PII | **30/Nov** | **04/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
 | **19** | Recuperação | **07/Dez** | **11/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
 | **20** | Fechamento | **14/Dez** | **18/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |
