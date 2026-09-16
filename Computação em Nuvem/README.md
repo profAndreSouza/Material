@@ -86,7 +86,7 @@ A nota final da disciplina será composta por:
 | **04** | Aula 04 | **27/Ago** | **25/Ago** | [Conteinerização de Aplicações de Automação Industrial](aulas/semana_04.ipynb) | **Projeto 02:** Deploy de servidor Node-RED em Docker na instâncias EC2. |
 | **05** | Aula 05 | **03/Set** | **01/Set** | [Fundamentos de Armazenamento e Segurança IAM](aulas/semana_05.ipynb) | **Consolidação Teórica:** Storage (EBS x EFS x S3), Anatomia do S3 e Governança IAM (Policies, Roles e Simulações Locais). |
 | **06** | PII | **10/Set** | **08/Set** | Orientação e Acompanhamento do Projeto Integrador (PII) | Alinhamento da arquitetura de nuvem para sustentação do PII. |
-| **07** | Aula 06 | **17/Set** | **15/Set** | [Redes Virtuais Privadas (Amazon VPC) e Roteamento](aulas/semana_06.ipynb) | **Projeto 05:** VPC Only (Subredes públicas/privadas, IGW e Route Tables). |
+| **07** | Aula 06 | **17/Set** | **15/Set** | [AWS Learner Lab Sandbox, EC2 (Amazon Linux 2023) e Docker Compose](aulas/semana_07.ipynb) | **Projeto 01 & 04:** Deploy da Fábrica Virtual Smart N1 (Flask + Node-RED + Mosquitto via Docker Compose). |
 | **08** | Eval | **24/Set** | **22/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo as Aulas 01 a 06. |
 | **09** | PII | **01/Out** | **29/Set** | Consolidação do Projeto Integrador (PII) | Validação da arquitetura de rede e armazenamento do PII. |
 | **10** | Aula 07 | **08/Out** | **06/Out** | [Telemetria IoT Industrial e Dashboards de Observabilidade](aulas/semana_07.ipynb) | **Projeto 06:** AWS IoT Core, InfluxDB e dashboards em tempo real no Grafana. |
