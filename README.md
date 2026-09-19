@@ -31,7 +31,8 @@ Conjunto de disciplinas que atuam de forma conectada utilizando uma célula fabr
 - **[ADS FactoryHub](./ADS%20FactoryHub/)**: Aplicação web/IoT integradora que centraliza a ingestão de telemetria, APIs REST e dashboards operacionais.
 
 ### 2. Trilha de Gestão e Governança de TI
-- **[Governança de TI](./Governança%20de%20TI/)**: Modelos de governança corporativa e de TI (COBIT, ITIL, ISO/IEC 38500), alinhamento estratégico, gestão de riscos, compliance (SOX, LGPD) e elaboração do Plano Diretor de Governança de TI (PDGTI).
+- **[Governança de TI](./Governança%20de%20TI/)**: Modelos de governança corporativa e de TI (COBIT, ITIL, ISO/IEC 38500), alinhamento estratégico, gestão de riscos, compliance (SOX, LGPD) e elaboração do Plano Diretor de Governança de TI (PDGTI).  
+  *Guia de Estudo:* [GUIA_ESTUDO_P1.md](./Governança%20de%20TI/GUIA_ESTUDO_P1.md)
 
 ### 3. Trilhas Específicas e Tecnologias Emergentes
 - **[Sistema de Informação e Tecnologias Emergentes](./Sistema%20de%20Informação%20e%20Tecnologias%20Emergentes/)**: Fundamentos de blockchain, criptografia, arquiteturas descentralizadas e inovação tecnológica.

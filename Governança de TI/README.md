@@ -2,6 +2,11 @@
 
 Este repositório contém o plano de ensino, ementa, cronograma semestral detalhado, diretrizes do **Plano Diretor de Governança de TI (PDGTI)** e critérios de avaliação para a unidade curricular de **Governança de TI**.
 
+> [!IMPORTANT]
+> **Preparação para a Avaliação Regimental P1**  
+> Acesse o roteiro oficial com mapa conceitual, glossário e simulado comentado de 12 questões:  
+> 👉 **[📘 Guia de Estudos Oficial — Prova P1 (GUIA_ESTUDO_P1.md)](./GUIA_ESTUDO_P1.md)**
+
 ---
 
 ## Ementa da Unidade Curricular
@@ -88,7 +93,7 @@ O projeto da disciplina consiste na elaboração de um **Plano Diretor de Govern
 | **05** | Aula | **02/Set** | **04/Set** | [Gestão de Serviços de TI, Alocação de Recursos e Fornecedores](aulas/semana_05.md) | **Capítulo 4**: Estrutura de Governança, Comitês e Políticas. <br>**ENTREGA PARCIAL 1 (04/Set)** |
 | **06** | Semana PII | **09/Set** | **11/Set** | Orientação e Acompanhamento do Projeto Integrador (PII). | Atividades práticas de alinhamento do PII. |
 | **07** | Aula | **16/Set** | **18/Set** | [Gestão de Desempenho em TI e Métricas do Negócio](aulas/semana_07.md) | **Capítulo 5**: Indicadores de Desempenho (KPIs) e Metas. |
-| **08** | Avaliação | **23/Set** | **25/Set** | **PROVA 1 INDIVIDUAL (23/Set)** (Conteúdo Semanas 1 a 5) | Feedback da Prova 1 e Devolutiva da Entrega Parcial 1. |
+| **08** | Avaliação | **23/Set** | **25/Set** | **PROVA 1 INDIVIDUAL (23/Set)**<br>👉 [📘 Guia de Estudos P1](./GUIA_ESTUDO_P1.md) | Feedback da Prova 1 e Devolutiva da Entrega Parcial 1. |
 | **09** | Semana PII | **30/Set** | **02/Out** | Consolidação dos Capítulos 1 a 5 com orientação PII. | Atendimento e refinamento do PII. |
 | **10** | Aula | **07/Out** | **09/Out** | [Gestão de Riscos em TI, Compliance e Segurança da Informação](aulas/semana_10.md) | **Capítulo 6**: Matriz de Riscos, Controles e Mitigação. <br>**ENTREGA PARCIAL 2 (09/Out)** |
 | **11** | Semana Tec. | **14/Out** | **16/Out** | Palestras e Workshops da Semana de Tecnologia. | Atividades institucionais integradas. |
