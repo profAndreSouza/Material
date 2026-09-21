@@ -6,7 +6,7 @@
 ## 1. Informações Gerais da Avaliação
 
 - **Data da Avaliação:** Semana 08
-- **Peso na Média Final:** 35%
+- **Peso na Avaliação Docente:** 50% (correspondente a 27,5% da Nota Final da UC — P1 + P2 = 55%)
 - **Conteúdo Cobrado:** Semanas 01 a 07 (Aulas 01 a 06 e PII)
 - **Formato da Prova:** Prova escrita individual composta por **12 questões** estritamente teóricas, conceituais e de arquitetura de nuvem na AWS.
 - **Tipologia das Questões:**

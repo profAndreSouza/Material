@@ -6,7 +6,7 @@
 ## 1. Informações Gerais da Avaliação
 
 - **Data da Avaliação:** Semana 08
-- **Peso na Média Final:** 35%
+- **Peso na Avaliação Docente:** 50% (correspondente a 27,5% da Nota Final da UC — P1 + P2 = 55%)
 - **Conteúdo Cobrado:** Semanas 01 a 07 (Aulas 01 a 05, PII e Aula 06 / Quality Gates)
 - **Formato da Prova:** Prova escrita individual composta por **12 questões** estritamente teóricas e conceituais sobre cultura, práticas e esteiras de DevOps.
 - **Tipologia das Questões:**

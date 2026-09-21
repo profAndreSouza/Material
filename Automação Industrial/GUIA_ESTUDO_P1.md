@@ -6,7 +6,7 @@
 ## 1. Informações Gerais da Avaliação
 
 - **Data da Avaliação:** Semana 08
-- **Peso na Média Final:** 35%
+- **Peso na Avaliação Docente:** 35% (correspondente a 19,25% da Nota Final da UC — P1 35% + P2 35% + EaD 30% = 55%)
 - **Conteúdo Cobrado:** Semanas 01 a 07 (Aulas 01 a 06 e PII)
 - **Formato da Prova:** Prova escrita individual composta por **12 questões** estritamente teóricas e conceituais.
 - **Tipologia das Questões:**

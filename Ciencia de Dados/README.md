@@ -54,10 +54,22 @@ Desenvolver capacidades técnicas e socioemocionais relacionadas a sistemas de m
 
 ## Critérios de Avaliação e Composição de Nota
 
-A nota final da disciplina será composta por:
-- **Prova Teórico-Prática 1 (P1):** Peso 35% (Semanas 01 a 07)
-- **Prova Teórico-Prática 2 (P2):** Peso 35% (Semanas 10 a 16)
-- **Relatórios Analíticos e Notebooks Práticos:** Peso 30%
+A avaliação do rendimento escolar nesta unidade curricular segue as diretrizes regimentais integradas:
+
+| Pilar de Avaliação | Peso na UC | Descrição |
+| :--- | :---: | :--- |
+| **Avaliação Docente (P1 + P2)** | **55%** | Avaliação individual conduzida pelo docente da disciplina, composta pelas Provas Teórico-Práticas regimentais (P1 e P2). |
+| **Projeto Integrador (PII)** | **35%** | Avaliação do Projeto Integrador Interdisciplinar do semestre (PII). |
+| **Autoavaliação** | **10%** | Autoavaliação individual do estudante sobre seu desempenho, engajamento e desenvolvimento socioemocional. |
+
+### Detalhamento da Avaliação Docente (55% da Nota Final)
+
+A composição interna da nota de **Avaliação Docente** (que totaliza 55% da nota global da UC) é dividida igualmente entre as duas provas regimentais:
+
+| Avaliação | Peso Interno | Impacto na Nota Final | Descrição |
+| :--- | :---: | :---: | :--- |
+| **Prova Teórico-Prática 1 (P1)** | **50%** | **27,5%** | Avaliação individual cobrindo os conteúdos da Semana 01 até a Semana 07 (CRISP-DM, estatística descritiva, EDA e séries temporais). |
+| **Prova Teórico-Prática 2 (P2)** | **50%** | **27,5%** | Avaliação individual cobrindo os conteúdos das Semanas 10 a 16 (engenharia de recursos, aprendizado de máquina e OEE). |
 
 ---
 

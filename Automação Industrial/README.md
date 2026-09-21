@@ -61,10 +61,23 @@ Desenvolver capacidades técnicas e socioemocionais relacionadas a sistemas de a
 
 ## Critérios de Avaliação e Composição de Nota
 
-A nota final da disciplina será composta por:
-- **Prova Teórico-Prática 1 (P1):** Peso 35% (Semanas 01 a 07)
-- **Prova Teórico-Prática 2 (P2):** Peso 35% (Semanas 10 a 16)
-- **Atividades Práticas de Laboratório / Entregas Semanais:** Peso 30%
+A avaliação do rendimento escolar nesta unidade curricular segue as diretrizes regimentais integradas:
+
+| Pilar de Avaliação | Peso na UC | Descrição |
+| :--- | :---: | :--- |
+| **Avaliação Docente (P1 + P2 + EaD)** | **55%** | Avaliação conduzida pelo docente da disciplina, composta pelas Provas regimentais (P1 e P2) e pelas Atividades EaD. |
+| **Projeto Integrador (PII)** | **35%** | Avaliação do Projeto Integrador Interdisciplinar do semestre (PII). |
+| **Autoavaliação** | **10%** | Autoavaliação individual do estudante sobre seu desempenho, engajamento e desenvolvimento socioemocional. |
+
+### Detalhamento da Avaliação Docente (55% da Nota Final)
+
+A composição interna da nota de **Avaliação Docente** (que totaliza 55% da nota global da UC) é dividida nas seguintes atividades:
+
+| Avaliação | Peso Interno | Impacto na Nota Final | Descrição |
+| :--- | :---: | :---: | :--- |
+| **Prova Teórico-Prática 1 (P1)** | **35%** | **19,25%** | Avaliação individual cobrindo os conteúdos da Semana 01 até a Semana 07 (TI/TA, ISA-95, sensores, atuadores, MQTT e Node-RED). |
+| **Prova Teórico-Prática 2 (P2)** | **35%** | **19,25%** | Avaliação individual cobrindo os conteúdos das Semanas 10 a 16 (CRISP-DM industrial, séries temporais e ML em sensores). |
+| **Atividades EaD** | **30%** | **16,50%** | Atividades assíncronas, questionários e estudos dirigidos no Ambiente Virtual de Aprendizagem (AVA / EaD). |
 
 ---
 
