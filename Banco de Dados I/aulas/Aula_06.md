@@ -1,8 +1,8 @@
 # ROTEIRO DE AULA EXPANDIDO — AULA 06
 
 **Componente Curricular:** Banco de Dados I  
-**Data Calendário:** 11/09/2026 &nbsp;|&nbsp; **Data Programada:** — (Atividade Online Assíncrona com Suporte Virtual)  
-**Modalidade:** Online  
+**Data Calendário:** 11/09/2026 &nbsp;|&nbsp; **Data Programada:** A definir (Reposição Presencial)  
+**Modalidade:** Reposição Presencial em Laboratório de Informática  
 **Tema:** Implementação Física do Banco de Dados — Linguagem SQL DDL (Data Definition Language) e Restrições de Integridade  
 **Ambiente de Software:** SGBD Relacional (PostgreSQL 15 / MySQL 8.0) e DBeaver Community  
 **Articulação com o PPC:** Competência 1 e 2 — Implementar fisicamente esquemas relacionais no SGBD com rigor sintático e aplicação de protocolos de integridade  

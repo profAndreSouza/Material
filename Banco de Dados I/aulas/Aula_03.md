@@ -1,8 +1,8 @@
 # ROTEIRO DE AULA EXPANDIDO — AULA 03
 
 **Componente Curricular:** Banco de Dados I  
-**Data Calendário:** 21/08/2026 &nbsp;|&nbsp; **Data Programada:** — (Atividade Online Assíncrona com Tutoria Virtual)  
-**Modalidade:** Online  
+**Data Calendário:** 21/08/2026 &nbsp;|&nbsp; **Data Programada:** A definir (Reposição Presencial)  
+**Modalidade:** Reposição Presencial em Laboratório de Informática  
 **Tema:** Modelagem Conceitual de Dados II — Recursos Avançados: Auto-relacionamentos, Especialização/Generalização e Entidades Associativas  
 **Ambiente de Software:** brModelo 3.0 ou [brModelo Web](https://brmodeloweb.com/)  
 **Articulação com o PPC:** Competência 2 — Estruturar regras de negócio complexas através de herança de atributos, polimorfismo conceitual e associações recursivas  

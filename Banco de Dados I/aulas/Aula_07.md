@@ -1,8 +1,8 @@
 # ROTEIRO DE AULA EXPANDIDO — AULA 07
 
 **Componente Curricular:** Banco de Dados I  
-**Data Calendário:** 18/09/2026 &nbsp;|&nbsp; **Data Programada:** — (Atividade Online Assíncrona com Suporte Virtual)  
-**Modalidade:** Online  
+**Data Calendário:** 18/09/2026 &nbsp;|&nbsp; **Data Programada:** A definir (Reposição Presencial)  
+**Modalidade:** Reposição Presencial em Laboratório de Informática  
 **Tema:** Manipulação de Dados em SQL (DML) e Controle de Transações Relacionais (ACID)  
 **Ambiente de Software:** SGBD Relacional (PostgreSQL 15 / MySQL 8.0) e DBeaver Community  
 **Articulação com o PPC:** Competência 1 — Operar e manter dados com segurança, garantindo a integridade transacional e mitigando riscos de perda acidental  
