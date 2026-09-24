@@ -86,6 +86,7 @@ timeline
 
 #### **Aula 01: Fundamentos Criptográficos, Hashes e Arquitetura de Cadeia de Blocos**
 * 📓 **Notebook da Aula:** [Aula01_Fundamentos_Blockchain_Criptografia.ipynb](file:///c:/projetos/Material/Sistema%20de%20Informa%C3%A7%C3%A3o%20e%20Tecnologias%20Emergentes/Aula01_Fundamentos_Blockchain_Criptografia.ipynb)
+* 📄 **Material em PDF:** [Aula01_Fundamentos_Blockchain_Criptografia.pdf](file:///c:/projetos/Material/Sistema%20de%20Informa%C3%A7%C3%A3o%20e%20Tecnologias%20Emergentes/Aula01_Fundamentos_Blockchain_Criptografia.pdf)
 * 🌐 **Simulador Interativo:** [https://blockchaindemo.io/](https://blockchaindemo.io/)
 * **Objetivo:** Compreender a superação da autoridade centralizada e o problema dos Generais Bizantinos via registros encadeados.
 * **Conteúdo Teórico (1h):**
@@ -100,6 +101,11 @@ timeline
   * **Entregável:** Questionário de 5 questões dissertativas de análise forense, impacto de adulteração de transações e preservação de saldos em livro-razão distribuído.
 
 #### **Aula 02: Mecanismos de Consenso Distribuído, a Rede Ethereum e a EVM**
+* 📓 **Notebook da Aula:** [Aula02_Consenso_Ethereum_EVM.ipynb](file:///c:/projetos/Material/Sistema%20de%20Informa%C3%A7%C3%A3o%20e%20Tecnologias%20Emergentes/Aula02_Consenso_Ethereum_EVM.ipynb)
+* 📝 **Caderno de Exercícios:** [Aula02_Exercicios.ipynb](file:///c:/projetos/Material/Sistema%20de%20Informa%C3%A7%C3%A3o%20e%20Tecnologias%20Emergentes/Aula02_Exercicios.ipynb)
+* 📄 **Material em PDF (Contextualizado):** [Aula02_Consenso_Ethereum_EVM.pdf](file:///c:/projetos/Material/Sistema%20de%20Informa%C3%A7%C3%A3o%20e%20Tecnologias%20Emergentes/Aula02_Consenso_Ethereum_EVM.pdf)
+* 🖥️ **Slides Interativos (HTML):** [aula2/index.html](file:///c:/projetos/Material/Sistema%20de%20Informa%C3%A7%C3%A3o%20e%20Tecnologias%20Emergentes/aula2/index.html)
+* 🌐 **Explorador Blockchain:** [https://sepolia.etherscan.io/](https://sepolia.etherscan.io/)
 * **Objetivo:** Diferenciar modelos de consenso distribuído e analisar a operação computacional da Ethereum Virtual Machine.
 * **Conteúdo Teórico (1h):**
   * Comparativo de Consenso: *Proof of Work* (PoW - Bitcoin), *Proof of Stake* (PoS - Ethereum 2.0 / Slashing) e *Proof of Authority* (PoA - redes corporativas/Hyperledger).

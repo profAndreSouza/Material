@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 02: Mecanismos de Consenso Distribuído, a Rede Ethereum e a EVM | ISI022</title>
+  <meta name="description"
+    content="Slides interativos da Aula 02 da disciplina ISI022 - Sistemas de Informação e Tecnologias Emergentes. Aborda Consenso (PoW/PoS/PoA), Bitcoin vs Ethereum, EVM e Economia do Gas.">
+  <link rel="stylesheet" href="style.css">
+  <!-- MathJax para Fórmulas Matemáticas Elegantes -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <!-- Fundo com Ambient Glow -->
+  <div class="presentation-bg"></div>
+
+  <!-- Barra de Progresso Superior -->
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Cabeçalho Fixo do Slide Deck -->
+  <header class="deck-header">
+    <div class="deck-header-left">
+      <span class="badge-tag badge-primary">ISI022 · Aula 02</span>
+      <span class="badge-course">Sistemas de Informação e Tecnologias Emergentes</span>
+    </div>
+    <div class="deck-header-right">
+      <button class="header-btn" id="shortcutsBtn" title="Atalhos de teclado (?)">
+        <span>⌨️</span> Atalhos
+      </button>
+      <button class="header-btn" id="overviewBtn" title="Visão Geral dos Slides (O)">
+        <span>📑</span> Visão Geral
+      </button>
+      <button class="header-btn" id="fullscreenBtn" title="Tela Cheia (F)">
+        <span>⛶</span> Tela Cheia
+      </button>
+    </div>
+  </header>
+
+  <!-- Viewport dos Slides -->
+  <main class="slides-viewport">
+    <div class="slides-wrapper">
+
+      <!-- ==========================================
+           SLIDE 01: CAPA OFICIAL
+           ========================================== -->
+      <section class="slide active" id="slide-1">
+        <div class="slide-top">
+          <div class="slide-category">Módulo 3 · Livros-Razão Distribuídos e Máquinas Virtuais</div>
+          <h1 class="slide-title">Aula 02: Mecanismos de Consenso Distribuído, a Rede Ethereum e a EVM</h1>
+          <p class="slide-subtitle">Como redes descentralizadas alcançam a verdade contábil e executam código imutável
+            sem autoridade central</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="card" style="border-left: 5px solid var(--primary);">
+              <div class="card-header">
+                <div class="card-icon">🏛️</div>
+                <div class="card-title">Identificação Curricular</div>
+              </div>
+              <div class="card-body">
+                <p><strong>Disciplina:</strong> ISI022 — Sistemas de Informação e Tecnologias Emergentes</p>
+                <p><strong>Docente:</strong> Prof. Me. André Cassulino Araújo Souza</p>
+                <p><strong>Instituição:</strong> Centro Estadual de Educação Tecnológica Paula Souza (CEETEPS)</p>
+                <p><strong>Carga Horária:</strong> 1h40 (60min Teórico-Conceitual | 40min Laboratório Prático Etherscan)
+                </p>
+              </div>
+            </div>
+
+            <div class="card" style="border-left: 5px solid var(--secondary);">
+              <div class="card-header">
+                <div class="card-icon">💡</div>
+                <div class="card-title">Conexão com a Ementa de SI</div>
+              </div>
+              <div class="card-body">
+                <p>Na Aula 01 compreendemos a imutabilidade criptográfica e árvores de Merkle. Hoje, expandimos de uma
+                  <strong>planilha financeira estática</strong> para um <strong>computador mundial programável</strong>
+                  capaz de rodar sistemas corporativos autônomos.</p>
+                <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+                  <span class="badge-tag" style="background:#e0e7ff; color:#3730a3;">Proof of Work</span>
+                  <span class="badge-tag" style="background:#e0f2fe; color:#0369a1;">Proof of Stake</span>
+                  <span class="badge-tag" style="background:#fef3c7; color:#92400e;">Proof of Authority</span>
+                  <span class="badge-tag" style="background:#ede9fe; color:#6d28d9;">EVM & Gas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout-analogy">
+            <div class="callout-analogy-header">🧭 Instrução de Apresentação</div>
+            <div class="callout-analogy-text">
+              Use as setas do teclado <strong>[← / →]</strong> ou a barra de espaço para navegar entre os slides.
+              Pressione <strong>[O]</strong> para ver a lista completa ou <strong>[F]</strong> para entrar em modo tela
+              cheia.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 02: OBJETIVOS E ROTEIRO
+           ========================================== -->
+      <section class="slide" id="slide-2">
+        <div class="slide-top">
+          <div class="slide-category">Plano Pedagógico</div>
+          <h1 class="slide-title">Objetivos de Aprendizagem & Roteiro</h1>
+          <p class="slide-subtitle">A pergunta orientadora: como computadores que não se conhecem concordam sobre a
+            verdade contábil?</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-3">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">1</div>
+                <div class="card-title">Trilema & Consenso</div>
+              </div>
+              <div class="card-body">
+                Compreender o Trilema da Escalabilidade (Buterin) e comparar tecnicamente <strong>PoW</strong>
+                (Bitcoin), <strong>PoS</strong> (Ethereum) e <strong>PoA</strong> (Consórcios B2B).
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">2</div>
+                <div class="card-title">UTXO vs. Contas</div>
+              </div>
+              <div class="card-body">
+                Diferenciar o modelo de cédulas indivisíveis do Bitcoin do modelo de contas e estado global da Ethereum,
+                e como o <strong>nonce</strong> previne fraudes de repetição.
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">3</div>
+                <div class="card-title">A Arquitetura EVM</div>
+              </div>
+              <div class="card-body">
+                Analisar a operação da EVM como máquina de pilha de 256 bits, particionamento de dados (Stack, Memory,
+                Storage) e Turing-completude.
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">4</div>
+                <div class="card-title">Economia do Gas</div>
+              </div>
+              <div class="card-body">
+                Desvendar como o Gas resolve o <strong>Halting Problem</strong> de Alan Turing, previne ataques de DoS e
+                rege o mercado de taxas pós-EIP-1559 com queima de ETH.
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">5</div>
+                <div class="card-title">Simulações em Python</div>
+              </div>
+              <div class="card-body">
+                Operar simuladores interativos de consenso, cálculo de taxas, queima de Base Fee e execução instrução
+                por instrução em uma Mini-EVM funcional.
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">6</div>
+                <div class="card-title">Forense no Etherscan</div>
+              </div>
+              <div class="card-body">
+                Dissecar transações reais no <strong>Sepolia Etherscan</strong>: ler chamadas de método ABI, decodificar
+                logs de eventos e diagnosticar reversões de execução.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 03: CONTEXTUALIZAÇÃO PARA INICIANTES
+           ========================================== -->
+      <section class="slide" id="slide-3">
+        <div class="slide-top">
+          <div class="slide-category">Fundamento Intuitivo</div>
+          <h1 class="slide-title">Contextualização para Iniciantes: A Empresa do Livro-Caixa</h1>
+          <p class="slide-subtitle">Uma analogia prática para ancorar a compreensão de Sistemas de Informação
+            descentralizados</p>
+        </div>
+        <div class="slide-content">
+          <div class="callout-analogy">
+            <div class="callout-analogy-header">📖 A Situação Prática</div>
+            <div class="callout-analogy-text">
+              Imagine uma rede de 50 filiais de uma distribuidora. Em vez de dependerem de um único servidor mestre na
+              matriz (que pode falhar ou ser fraudado), <strong>cada filial mantém uma cópia exata do livro-caixa
+                contábil</strong>. Quando uma filial deseja registrar um pagamento, todos os computadores precisam
+              concordar sobre qual registro é o verdadeiro.
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">⚖️</div>
+                <div class="card-title">Os 4 Pilares Descomplicados</div>
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li><strong>Consenso:</strong> É o estatuto de regras que decide <em>quem</em> tem o direito legítimo
+                    de escrever a próxima página do livro-caixa.</li>
+                  <li><strong>Blockchain:</strong> É a pilha encadeada de páginas já assinadas e auditadas que ninguém
+                    pode apagar.</li>
+                  <li><strong>EVM (Máquina Virtual):</strong> É um funcionário robô idêntico que roda em cada filial
+                    para executar contratos automáticos (ex: <em>"se a carga chegou, libere o pagamento"</em>).</li>
+                  <li><strong>Gas:</strong> É a quantia de combustível/taxa paga para evitar que alguém envie ordens com
+                    tarefas infinitas que travem os computadores de todos.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">⚠️</div>
+                <div class="card-title">O Perigo do Gasto Duplo</div>
+              </div>
+              <div class="card-body">
+                <p>Se Alice tem apenas R$ 1.000,00 e envia simultaneamente R$ 1.000,00 para Bob e R$ 1.000,00 para
+                  Carlos em filiais diferentes, qual transação vale?</p>
+                <p style="margin-top: 8px;"><strong>Sem um mecanismo de consenso rigoroso</strong>, a rede se dividiria
+                  e o dinheiro seria duplicado do nada. O consenso resolve a ordem cronológica inequívoca de cada
+                  transação no planeta.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 04: O PROBLEMA DO CONSENSO
+           ========================================== -->
+      <section class="slide" id="slide-4">
+        <div class="slide-top">
+          <div class="slide-category">Teoria de Sistemas Distribuídos</div>
+          <h1 class="slide-title">O Desafio do Consenso em Redes Abertas</h1>
+          <p class="slide-subtitle">Coordenação bizantina sem autoridade central em arquiteturas Peer-to-Peer (P2P)</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">⚔️</div>
+                <div class="card-title">O Problema dos Generais Bizantinos</div>
+              </div>
+              <div class="card-body">
+                <p>Formalizado por Leslie Lamport et al. (1982): Como generais que cercam uma cidade conseguem coordenar
+                  um ataque no mesmo instante se as mensagens são levadas por mensageiros que podem ser capturados ou se
+                  alguns generais forem traidores?</p>
+                <p style="margin-top: 8px;">Na computação tradicional (Raft, Paxos), assume-se que os nós não são
+                  maliciosos (apenas sofrem panes). Em redes abertas de DLT, o algoritmo deve ser <strong>Tolerante a
+                    Falhas Bizantinas (BFT)</strong>: sobreviver mesmo com nós deliberadamente tentando forjar dados!
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🛡️</div>
+                <div class="card-title">Ataques Sybil e a Necessidade de Custo</div>
+              </div>
+              <div class="card-body">
+                <p>Em um sistema sem cadastro centralizado (como a internet), um invasor pode criar <strong>100.000
+                    computadores virtuais falsos</strong> em segundos para votar em sua própria versão mentirosa da
+                  história.</p>
+                <p style="margin-top: 8px;">Para neutralizar isso, o consenso exige um <strong>recurso escasso e
+                    caro</strong> para votar:
+                  <br>• No <strong>PoW</strong>: gasto de energia elétrica real e hardware.
+                  <br>• No <strong>PoS</strong>: depósito de dinheiro real em garantia (staking).
+                  <br>• No <strong>PoA</strong>: identidade jurídica verificada em cartório/contrato.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout-tech">
+            <div class="callout-tech-header">🎯 Ponto Crítico para Engenharia de Software</div>
+            <div class="callout-tech-text">
+              O consenso não serve apenas para "escolher um líder", mas para estabelecer <strong>finalidade</strong>: a
+              garantia matemática de que um registro contábil jamais será revertido ou alterado retroativamente.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 05: O TRILEMA DA BLOCKCHAIN
+           ========================================== -->
+      <section class="slide" id="slide-5">
+        <div class="slide-top">
+          <div class="slide-category">Arquitetura de Sistemas</div>
+          <h1 class="slide-title">O Trilema da Blockchain (Vitalik Buterin)</h1>
+          <p class="slide-subtitle">O trade-off fundamental entre Descentralização, Segurança e Escalabilidade</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="slide-img-container">
+              <img src="../images/descentralizacao_seguranca_escalabilidade.jpg" alt="Trilema da Blockchain"
+                class="slide-img">
+              <div class="slide-img-caption">Figura: O Trilema da Escalabilidade e seus três eixos interdependentes
+                (Buterin, 2014, 2017).</div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">📐</div>
+                <div class="card-title">Os Três Vértices do Trade-off</div>
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li><strong>Descentralização:</strong> Capacidade de qualquer usuário rodar um nó validador em um
+                    notebook comum, sem depender de datacenters gigantescos.</li>
+                  <li><strong>Segurança:</strong> O custo financeiro e computacional para subverter ou paralisar a rede
+                    precisa ser astronômico (resistência a 51%).</li>
+                  <li><strong>Escalabilidade (TPS):</strong> Capacidade de processar dezenas de milhares de transações
+                    por segundo com latência de poucos milissegundos.</li>
+                </ul>
+                <div class="callout-analogy" style="margin-top: 10px;">
+                  <strong>O Dilema:</strong> Se aumentarmos os blocos para 1 GB para processar 50.000 TPS, apenas
+                  grandes datacenters como AWS conseguirão rodar nós, destruindo a Descentralização!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 06: PROOF OF WORK (PoW)
+           ========================================== -->
+      <section class="slide" id="slide-6">
+        <div class="slide-top">
+          <div class="slide-category">Mecanismos de Consenso · Modelo 1</div>
+          <h1 class="slide-title">Proof of Work (PoW — Prova de Trabalho)</h1>
+          <p class="slide-subtitle">A segurança ancorada no consumo maciço de energia e hardware computacional (Bitcoin)
+          </p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">⛏️</div>
+                <div class="card-title">Como Opera o Nakamoto Consensus</div>
+              </div>
+              <div class="card-body">
+                <p>Proposto por Satoshi Nakamoto (2008), o minerador empacota transações e procura exaustivamente por um
+                  número aleatório (<strong>Nonce</strong>) tal que:</p>
+                <div
+                  style="background:#0f172a; color:#38bdf8; padding:8px 12px; border-radius:6px; font-family:var(--font-mono); margin: 8px 0; font-size:12px;">
+                  SHA256(Cabeçalho + Nonce) < Target de Dificuldade </div>
+                    <ul>
+                      <li><strong>Força Bruta Pura:</strong> Devido ao Efeito Avalanche, a única forma de achar o hash
+                        válido é testando bilhões de nonces por segundo.</li>
+                      <li><strong>Ajuste de Dificuldade:</strong> A cada 2.016 blocos (~2 semanas), a dificuldade se
+                        recalibra para manter o tempo médio do bloco fixo em ~10 minutos.</li>
+                      <li><strong>Regra da Cadeia Mais Longa (*Heaviest Chain*):** A rede reconhece como verdade a
+                          cadeia com maior trabalho cumulativo comprovado.</li>
+                    </ul>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-icon">⚖️</div>
+                  <div class="card-title">Vantagens & Limitações em SI</div>
+                </div>
+                <div class="card-body">
+                  <div style="margin-bottom: 8px;">
+                    <strong style="color:var(--success);">✅ Pontos Fortes:</strong>
+                    <br>• Máxima segurança probabilística comprovada há mais de 15 anos.
+                    <br>• Elimina a necessidade de qualquer identidade prévia.
+                  </div>
+                  <div>
+                    <strong style="color:var(--danger);">❌ Gargalos Críticos:</strong>
+                    <br>• <strong>Consumo Elétrico:</strong> A rede Bitcoin consome tanta energia quanto países inteiros
+                    (ex: Argentina ou Noruega).
+                    <br>• <strong>Baixo Throughput:</strong> Limitado a ~7 transações por segundo.
+                    <br>• <strong>Finalidade Lenta:</strong> Requer ~6 blocos (1 hora) para confirmação segura de
+                    grandes valores.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 07: PROOF OF STAKE (PoS)
+           ========================================== -->
+      <section class="slide" id="slide-7">
+        <div class="slide-top">
+          <div class="slide-category">Mecanismos de Consenso · Modelo 2</div>
+          <h1 class="slide-title">Proof of Stake (PoS / Gasper — Prova de Participação)</h1>
+          <p class="slide-subtitle">A revolução energética e econômica da Ethereum pós-The Merge (2022)</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🥩</div>
+                <div class="card-title">A Transição Histórica "The Merge"</div>
+              </div>
+              <div class="card-body">
+                <p>Em 15 de setembro de 2022, a Ethereum extinguiu a mineração por placas de vídeo e adotou a Prova de
+                  Participação (*Proof of Stake*), reduzindo o consumo elétrico da rede mundial em **mais de 99,95%**!
+                </p>
+                <ul style="margin-top: 8px;">
+                  <li><strong>Depósito de Colateral (Staking):</strong> Cada validador deve depositar <strong>32
+                      ETH</strong> em um contrato oficial de custódia.</li>
+                  <li><strong>Slots & Epochs:</strong>
+                    <br>• <strong>Slot:</strong> Janela estrita de <strong>12 segundos</strong> onde 1 validador propõe
+                    o bloco.
+                    <br>• <strong>Epoch:</strong> Conjunto de 32 slots consecutivos (384s = 6,4 minutos).
+                  </li>
+                  <li><strong>Comitês de Atestação:</strong> Centenas de outros validadores independentes verificam o
+                    bloco e assinam atestações criptográficas.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">⚡</div>
+                <div class="card-title">O Algoritmo Gasper: LMD-GHOST + Casper FFG</div>
+              </div>
+              <div class="card-body">
+                <p>A Ethereum combina dois protocolos para obter o melhor de dois mundos:</p>
+                <ul>
+                  <li><strong>LMD-GHOST:</strong> Regra de escolha da ponta da cadeia em tempo real a cada slot de 12s,
+                    permitindo que a rede nunca pare (*Liveness*).</li>
+                  <li><strong>Casper FFG (*Friendly Finality Gadget*):</strong> Confere **Finalidade Determinística
+                    Absoluta**. Quando 2 épocas consecutivas recebem $\ge 2/3$ dos votos da rede global, o bloco é
+                    <em>Finalizado</em> (~12,8 minutos).</li>
+                </ul>
+                <div class="callout-tech" style="margin-top: 8px; padding: 10px 14px;">
+                  Uma vez finalizado, é matematicamente impossível reverter o bloco sem queimar 33% de todo o dinheiro
+                  em stake da rede!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 08: TEORIA DOS JOGOS E SLASHING
+           ========================================== -->
+      <section class="slide" id="slide-8">
+        <div class="slide-top">
+          <div class="slide-category">Segurança Cripto-Econômica</div>
+          <h1 class="slide-title">Teoria dos Jogos no PoS: Inactivity Leak & Slashing</h1>
+          <p class="slide-subtitle">Como incentivos financeiros e punições automáticas blindam a honestidade dos nós</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="card" style="border-top: 4px solid var(--warning);">
+              <div class="card-header">
+                <div class="card-icon">⚠️</div>
+                <div class="card-title">Inactivity Leak (Penalidade por Pane)</div>
+              </div>
+              <div class="card-body">
+                <p>Se o servidor de um validador cair (pane de hardware, queda de link de internet ou energia):</p>
+                <ul>
+                  <li>O validador deixa de enviar suas atestações obrigatórias.</li>
+                  <li>O protocolo deduz gradualmente pequenas frações de seu saldo a cada época offline.</li>
+                  <li>A penalidade equivale aproximadamente à recompensa que ele teria ganhado se estivesse conectado.
+                  </li>
+                  <li><strong>Objetivo:</strong> Forçar os operadores a investirem em redundância e estabilidade de
+                    infraestrutura.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" style="border-top: 4px solid var(--danger);">
+              <div class="card-header">
+                <div class="card-icon">🔥</div>
+                <div class="card-title">Slashing (A Punição Extrema para Fraude)</div>
+              </div>
+              <div class="card-body">
+                <p>Se um validador agir de má-fé tentando subverter o consenso (ex: assinar dois blocos diferentes no
+                  mesmo slot ou votar em cadeias concorrentes):</p>
+                <ul>
+                  <li>Qualquer outro nó pode apresentar a prova criptográfica irrefutável do duplo voto.</li>
+                  <li>O protocolo aplica o <strong>Slashing</strong>: confisca e <strong>destrói (queima para
+                      sempre)</strong> parte substancial dos 32 ETH depositados.</li>
+                  <li>O validador infrator é <strong>ejetado compulsória e irrevogavelmente</strong> do consórcio de
+                    validadores.</li>
+                  <li><strong>Resultado:</strong> Ser desonesto custa muito mais caro do que qualquer lucro possível!
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 09: PROOF OF AUTHORITY (PoA)
+           ========================================== -->
+      <section class="slide" id="slide-9">
+        <div class="slide-top">
+          <div class="slide-category">Mecanismos de Consenso · Modelo 3</div>
+          <h1 class="slide-title">Proof of Authority (PoA — Prova de Autoridade)</h1>
+          <p class="slide-subtitle">Consenso por identidade autenticada para consórcios corporativos e redes
+            permissionadas</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🏛️</div>
+                <div class="card-title">O Modelo Corporativo / B2B</div>
+              </div>
+              <div class="card-body">
+                <p>Em redes corporativas privadas (como <strong>Hyperledger Besu</strong>, <strong>R3 Corda</strong> e o
+                  ecossistema do <strong>DREX / Banco Central</strong>), os participantes são empresas e órgãos
+                  reguladores pré-aprovados.</p>
+                <ul>
+                  <li><strong>Identidade Jurídica:</strong> Os nós validadores pertencem a instituições formalmente
+                    autenticadas (ex: Banco Central, B3, Receita Federal, Bradesco, Itaú).</li>
+                  <li><strong>Rodízio Determinístico (*Round-Robin*):</strong> A criação de blocos segue uma ordem
+                    estrita e rotativa pré-agendada.</li>
+                  <li><strong>Sem Mineração:</strong> Não existe puzzle matemático de PoW nem capital imobilizado de
+                    PoS.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">📊</div>
+                <div class="card-title">Por que Empresas Escolhem PoA?</div>
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li><strong>Throughput Massivo:</strong> Capaz de processar de <strong>1.000 a mais de 10.000
+                      TPS</strong> facilmente.</li>
+                  <li><strong>Latência Mínima:</strong> Blocos criados e finalizados em <strong>menos de 1 a 2
+                      segundos</strong>.</li>
+                  <li><strong>Previsibilidade de Custos:</strong> As taxas de transação podem ser pré-fixadas em zero ou
+                    em valores irrisórios estáveis.</li>
+                  <li><strong>Conformidade Legal:</strong> Se uma instituição tentar cometer fraude, ela é punida
+                    administrativamente no mundo real com processos civis e criminais.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 10: MATRIZ COMPARATIVA DE CONSENSO
+           ========================================== -->
+      <section class="slide" id="slide-10">
+        <div class="slide-top">
+          <div class="slide-category">Síntese Comparativa</div>
+          <h1 class="slide-title">Matriz Comparativa Rigorosa dos Três Modelos</h1>
+          <p class="slide-subtitle">Comparativo lado a lado dos parâmetros de engenharia de software</p>
+        </div>
+        <div class="slide-content">
+          <div class="slide-table-container">
+            <table class="slide-table">
+              <thead>
+                <tr>
+                  <th>Critério Arquitetural</th>
+                  <th>Proof of Work (PoW)</th>
+                  <th>Proof of Stake (PoS / Gasper)</th>
+                  <th>Proof of Authority (PoA)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Exemplo de Rede</strong></td>
+                  <td>Bitcoin, Litecoin</td>
+                  <td>Ethereum (pós-Merge), Cardano</td>
+                  <td>Hyperledger Besu, DREX, Redes Privadas</td>
+                </tr>
+                <tr>
+                  <td><strong>Recurso Escasso Exigido</strong></td>
+                  <td>Energia elétrica e hardware ASIC</td>
+                  <td>Capital financeiro (32 ETH em stake)</td>
+                  <td>Identidade jurídica e reputação</td>
+                </tr>
+                <tr>
+                  <td><strong>Consumo Energético</strong></td>
+                  <td><span style="color:var(--danger); font-weight:700;">Altíssimo (TWh/ano)</span></td>
+                  <td><span style="color:var(--success); font-weight:700;">Desprezível (99,95% menor)</span></td>
+                  <td><span style="color:var(--success); font-weight:700;">Mínimo (como servidor web comum)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Tempo de Bloco / TPS</strong></td>
+                  <td>~10 minutos | ~7 TPS</td>
+                  <td>12 segundos | ~15 a 30 TPS</td>
+                  <td>0,5 a 2 segundos | 1.000 a 10.000+ TPS</td>
+                </tr>
+                <tr>
+                  <td><strong>Tipo de Finalidade</strong></td>
+                  <td>Probabilística (~6 confirmações)</td>
+                  <td>Determinística (~12,8 min)</td>
+                  <td>Determinística Imediata (&lt; 2s)</td>
+                </tr>
+                <tr>
+                  <td><strong>Mecanismo de Punição</strong></td>
+                  <td>Custo de eletricidade sem retorno</td>
+                  <td><strong>Slashing</strong> (destruição de ETH)</td>
+                  <td>Revogação de chave e processo judicial</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="slide-img-container" style="max-height: 220px;">
+            <img src="../images/mecanismo_consenso.jpg" alt="Fluxo de Decisão de Consenso" class="slide-img"
+              style="max-height: 180px;">
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 11: SIMULAÇÃO INTERATIVA DE CONSENSO
+           ========================================== -->
+      <section class="slide" id="slide-11">
+        <div class="slide-top">
+          <div class="slide-category">Laboratório Interativo · Demonstração ao Vivo</div>
+          <h1 class="slide-title">Simulação ao Vivo: PoW vs. PoS Slashing</h1>
+          <p class="slide-subtitle">Experimente diretamente na tela o custo computacional do PoW e a punição por
+            Slashing no PoS</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <!-- Widget PoW -->
+            <div class="interactive-widget">
+              <div class="widget-header">
+                <div class="widget-title">⛏️ Simulação de PoW (Força Bruta)</div>
+                <button class="widget-btn" id="btnRunPoW">▶ Iniciar Mineração</button>
+              </div>
+              <p style="font-size:12.5px; color:var(--text-body);">Objetivo: Encontrar um Nonce por força bruta até que
+                o hash comece com <code>0000</code>.</p>
+              <div class="widget-screen" id="powScreen">
+                Clique em "Iniciar Mineração" para disparar a busca matemática...
+              </div>
+            </div>
+
+            <!-- Widget PoS Slashing -->
+            <div class="interactive-widget">
+              <div class="widget-header">
+                <div class="widget-title">🚨 Simulação de PoS Slashing (Duplo Voto)</div>
+                <button class="widget-btn widget-btn-danger" id="btnRunSlashing">⚠️ Simular Fraude</button>
+              </div>
+              <p style="font-size:12.5px; color:var(--text-body);">Objetivo: O validador <strong>Node_Beta</strong>
+                assina 2 blocos diferentes no mesmo slot de 12s.</p>
+              <div class="widget-screen" id="posScreen">
+                Clique em "Simular Fraude" para ver a rede aplicar Slashing instantâneo...
+              </div>
+            </div>
+          </div>
+
+          <div class="callout-analogy">
+            <div class="callout-analogy-header">💡 Conclusão Pedagógica</div>
+            <div class="callout-analogy-text">
+              No PoW, quem tenta fraudar gasta energia em vão sem ser recompensado. No PoS, a fraude é provada
+              criptograficamente por qualquer nó e o invasor tem seu dinheiro confiscado pelo protocolo!
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 12: MODELO DE DADOS UTXO VS CONTAS
+           ========================================== -->
+      <section class="slide" id="slide-12">
+        <div class="slide-top">
+          <div class="slide-category">Estruturas de Dados em DLT</div>
+          <h1 class="slide-title">Modelos de Dados: UTXO (Bitcoin) vs. Contas (Ethereum)</h1>
+          <p class="slide-subtitle">Onde o valor reside e como o novo estado da rede é transformado</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">💵</div>
+                <div class="card-title">Modelo UTXO (Bitcoin)</div>
+              </div>
+              <div class="card-body">
+                <p><strong>Unspent Transaction Output (Saída Não Gasta):</strong></p>
+                <ul>
+                  <li>Opera como <strong>cédulas de papel físico</strong> indivisíveis.</li>
+                  <li>Não existe um campo <code>saldo = 10 BTC</code> em uma tabela.</li>
+                  <li>Para pagar 2 BTC tendo uma cédula de 10 BTC: a cédula inteira é destruída no <em>Input</em>,
+                    gerando uma nova cédula de 2 BTC para o destinatário e uma nova cédula de troco de 8 BTC para você.
+                  </li>
+                  <li><strong>Linguagem Script:</strong> Propositalmente <strong>Não-Turing Completa</strong> (sem loops
+                    <code>while/for</code>) para evitar travamentos.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🏦</div>
+                <div class="card-title">Modelo Baseado em Contas (Ethereum)</div>
+              </div>
+              <div class="card-body">
+                <p><strong>Account-Based Model (Modelo de Conta Corrente):</strong></p>
+                <ul>
+                  <li>Opera como um <strong>banco de dados relacional de contas bancárias</strong>.</li>
+                  <li>O estado global armazena o saldo atualizado e o histórico de cada endereço.</li>
+                  <li>Para enviar 2 ETH de um saldo de 10 ETH: debita-se 2 ETH da conta remetente e credita-se 2 ETH na
+                    conta de destino diretamente.</li>
+                  <li><strong>Vantagem em SI:</strong> Permite que contratos inteligentes armazenem dados persistentes,
+                    arrays e estados complexos.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout-tech">
+            <div class="callout-tech-header">🛡️ Como a Ethereum Previne o Replay Attack?</div>
+            <div class="callout-tech-text">
+              Em um modelo de contas, se Alice envia 5 ETH para Bob, o hacker poderia tentar reenviar esse pacote
+              assinado 10 vezes para esvaziar a conta de Alice! Para impedir isso, a Ethereum exige o campo
+              <strong>`nonce`</strong>: um contador sequencial rigoroso. Se o nonce esperado é 1 e o hacker tenta
+              reenviar o nonce 0, a transação é rejeitada na hora!
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 13: ANATOMIA DE UMA CONTA ETHEREUM
+           ========================================== -->
+      <section class="slide" id="slide-13">
+        <div class="slide-top">
+          <div class="slide-category">Arquitetura de Contas</div>
+          <h1 class="slide-title">Anatomia de uma Conta na Rede Ethereum</h1>
+          <p class="slide-subtitle">A quádrupla de campos que define tanto usuários humanos quanto Contratos
+            Inteligentes</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">👤</div>
+                <div class="card-title">EOA (Externally Owned Account)</div>
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li>Conta de usuário comum, controlada exclusivamente por uma <strong>chave privada humana</strong>
+                    (ex: carteiras MetaMask).</li>
+                  <li>É a única que pode iniciar uma transação ativamente.</li>
+                  <li>Não possui código (seu <code>codeHash</code> é vazio) e não possui armazenamento interno
+                    (<code>storageRoot</code> vazio).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">📜</div>
+                <div class="card-title">Contract Account (Smart Contract)</div>
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li>Controlada por <strong>código executável imutável</strong> (bytecode compilado).</li>
+                  <li>Não possui chave privada; executa apenas em reação a transações recebidas de EOAs ou de outros
+                    contratos.</li>
+                  <li>Possui seu próprio armazenamento persistente em disco (<code>storageRoot</code>).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-table-container">
+            <table class="slide-table">
+              <thead>
+                <tr>
+                  <th>Campo da Quádrupla</th>
+                  <th>Significado em Ciência da Computação</th>
+                  <th>Comportamento em EOA</th>
+                  <th>Comportamento em Smart Contract</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>nonce</code></td>
+                  <td>Contador sequencial anti-duplicação</td>
+                  <td>Quantidade de transações enviadas</td>
+                  <td>Quantidade de novos contratos criados</td>
+                </tr>
+                <tr>
+                  <td><code>balance</code></td>
+                  <td>Saldo financeiro nativo (em Wei)</td>
+                  <td>Patrimônio do usuário</td>
+                  <td>Fundos sob custódia do contrato</td>
+                </tr>
+                <tr>
+                  <td><code>storageRoot</code></td>
+                  <td>Raiz da árvore Merkle Patricia</td>
+                  <td>Hash de árvore vazia</td>
+                  <td>Raiz que ancora todas as variáveis em disco</td>
+                </tr>
+                <tr>
+                  <td><code>codeHash</code></td>
+                  <td>Hash Keccak-256 do bytecode</td>
+                  <td>Hash de string vazia</td>
+                  <td>Hash do código executável imutável</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 14: MÁQUINA DE ESTADO FINITA
+           ========================================== -->
+      <section class="slide" id="slide-14">
+        <div class="slide-top">
+          <div class="slide-category">Formalização Computacional</div>
+          <h1 class="slide-title">A Ethereum como Máquina de Estados Finita Transacional</h1>
+          <p class="slide-subtitle">A formulação matemática do Ethereum Yellow Paper de Gavin Wood</p>
+        </div>
+        <div class="slide-content">
+          <div class="card"
+            style="text-align: center; padding: 24px; background: linear-gradient(135deg, #f8fafc, #eef2ff);">
+            <div style="font-size: 28px; font-weight: 800; color: var(--primary); font-family: var(--font-mono);">
+              $$\sigma_{t+1} = \Upsilon(\sigma_t, T)$$
+            </div>
+            <p style="font-size: 14px; color: var(--text-body); margin-top: 10px;">
+              <strong>$\sigma_t$</strong> = Estado Global no instante $t$ &nbsp;|&nbsp;
+              <strong>$T$</strong> = Transação válida &nbsp;|&nbsp;
+              <strong>$\Upsilon$</strong> = Função de Transição de Estado da EVM &nbsp;|&nbsp;
+              <strong>$\sigma_{t+1}$</strong> = Novo Estado Global
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🔄</div>
+                <div class="card-title">Transição de Estado Atômica</div>
+              </div>
+              <div class="card-body">
+                <p>Na ciência da computação, a EVM é um <strong>autômato determinístico global</strong>. Se a transação
+                  $T$ tiver saldo suficiente e for bem-sucedida, o estado avança para $\sigma_{t+1}$.</p>
+                <p style="margin-top: 8px;">Se ocorrer qualquer erro no meio do caminho (falta de saldo, violação de
+                  regra ou falta de gas), a EVM faz um <strong>Rollback Atômico</strong>: todas as escritas em variáveis
+                  são desfeitas ($\sigma_{t+1} = \sigma_t$), garantindo integridade estrita.</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🌳</div>
+                <div class="card-title">Modified Merkle Patricia Trie (MPT)</div>
+              </div>
+              <div class="card-body">
+                <p>Para que os nós não precisem guardar gigabytes redundantes a cada bloco, o estado da Ethereum é
+                  mantido em uma <strong>Árvore Merkle Patricia</strong>.</p>
+                <p style="margin-top: 8px;">O cabeçalho de cada bloco Ethereum armazena apenas três hashes mestres de 32
+                  bytes:
+                  <br>• <strong>State Root:</strong> O resumo criptográfico de todas as contas do mundo.
+                  <br>• <strong>Transactions Root:</strong> O resumo de todas as transações do bloco.
+                  <br>• <strong>Receipts Root:</strong> O resumo de todos os recibos e logs de eventos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 15: ARQUITETURA DA EVM
+           ========================================== -->
+      <section class="slide" id="slide-15">
+        <div class="slide-top">
+          <div class="slide-category">Computação Descentralizada</div>
+          <h1 class="slide-title">A Arquitetura da Máquina Virtual Ethereum (EVM)</h1>
+          <p class="slide-subtitle">Uma Stack Machine de 256 bits executando em sandbox global determinística</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-3">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🥞</div>
+                <div class="card-title">Stack Machine</div>
+              </div>
+              <div class="card-body">
+                Ao contrário das CPUs x86 que usam registradores de hardware, a EVM é baseada em <strong>pilha LIFO
+                  (Last In, First Out)</strong>. Todas as operações aritméticas retiram dados do topo da pilha e
+                devolvem o resultado.
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🔢</div>
+                <div class="card-title">Palavra de 256 bits</div>
+              </div>
+              <div class="card-body">
+                A palavra nativa da EVM tem <strong>256 bits (32 bytes)</strong>. Essa escolha de engenharia permite
+                manipular diretamente saídas de hashes criptográficos Keccak-256 e operações de curvas elípticas sem
+                custos de conversão.
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">📦</div>
+                <div class="card-title">Sandbox Determinística</div>
+              </div>
+              <div class="card-body">
+                A EVM não tem acesso a relógio do sistema, arquivos do computador nem APIs de internet externa. Dois nós
+                rodando o mesmo código produzem <strong>bit a bit o mesmíssimo resultado</strong>.
+              </div>
+            </div>
+          </div>
+
+          <div class="callout-tech">
+            <div class="callout-tech-header">⚡ Turing-Completude em Redes Descentralizadas</div>
+            <div class="callout-tech-text">
+              Diferente da linguagem Script do Bitcoin, a EVM é <strong>Turing-completa</strong>: ela é capaz de
+              calcular qualquer função computável existente, aceitando desvios condicionais, recursão e laços de
+              repetição (<code>for</code>, <code>while</code>). Mas isso cria um risco mortal... o Problema da Parada!
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 16: PARTICIONAMENTO DE MEMÓRIA NA EVM
+           ========================================== -->
+      <section class="slide" id="slide-16">
+        <div class="slide-top">
+          <div class="slide-category">Arquitetura de Memória</div>
+          <h1 class="slide-title">Os Quatro Espaços de Memória da EVM</h1>
+          <p class="slide-subtitle">Características físicas, ciclo de vida e discrepâncias extremas de custo de Gas</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="slide-img-container">
+              <img src="../images/particionamento_memoria_evm.jpg" alt="Particionamento de Memória EVM"
+                class="slide-img">
+              <div class="slide-img-caption">Figura: Particionamento entre dados voláteis de execução e dados
+                persistentes em disco.</div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">💾</div>
+                <div class="card-title">Comparativo dos Espaços</div>
+              </div>
+              <div class="card-body" style="font-size:12.5px;">
+                <p><strong>1. Stack (Pilha):</strong> Máx 1024 posições de 256 bits. Custo quase zero (3 Gas). Volátil
+                  (desaparece ao fim da função).</p>
+                <p style="margin-top:6px;"><strong>2. Memory (Memória RAM):</strong> Array linear de bytes temporário
+                  para arrays e strings. O custo cresce quadraticamente com a expansão.</p>
+                <p style="margin-top:6px;"><strong>3. Calldata:</strong> Parâmetros de entrada enviados na transação. É
+                  somente leitura e imutável (custo baixo de 16 Gas por byte não-zero).</p>
+                <p style="margin-top:6px;"><strong>4. Storage (O Disco Rígido):</strong> Mapa chave-valor de 256 bits
+                  persistido para sempre nos HDs de todos os computadores do mundo! É <strong>a operação mais cara da
+                    EVM (`SSTORE` = até 20.000 Gas)</strong>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 17: BYTECODE, OPCODES E MINI-EVM
+           ========================================== -->
+      <section class="slide" id="slide-17">
+        <div class="slide-top">
+          <div class="slide-category">Engenharia de Compilação · Laboratório Interativo</div>
+          <h1 class="slide-title">Bytecode e Execução Passo a Passo na Mini-EVM</h1>
+          <p class="slide-subtitle">Como contratos Solidity são traduzidos em opcodes executados na máquina de pilha</p>
+        </div>
+        <div class="slide-content">
+          <div class="interactive-widget">
+            <div class="widget-header">
+              <div class="widget-title">⚙️ Mini-EVM Interativa (Execução Passo a Passo)</div>
+              <div class="widget-controls">
+                <button class="widget-btn" id="btnEvmStep">▶ Passo Seguinte (Step)</button>
+                <button class="widget-btn" style="background:#64748b;" id="btnEvmReset">↺ Reiniciar</button>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <div style="background:var(--bg-subtle); padding:10px; border-radius:6px; font-size:12px;">
+                  <strong>Programa Compilado:</strong> <code>(10 + 25) * 2</code> e salvar no Slot <code>0x01</code>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:12px;">
+                  <span id="evmPc" style="color:var(--primary); font-weight:700;">PC: 0 / 8</span>
+                  <span id="evmGas" style="color:var(--danger); font-weight:700;">500 Gas</span>
+                </div>
+                <div
+                  style="background:#0f172a; padding:10px; border-radius:6px; color:#f8fafc; font-family:var(--font-mono); font-size:11.5px;">
+                  <div><strong>Pilha (Stack LIFO):</strong> <span id="evmStack" style="color:#38bdf8;">[]</span></div>
+                  <div style="margin-top:4px;"><strong>Storage (Disco):</strong> <span id="evmStorage"
+                      style="color:#4ade80;">{}</span></div>
+                </div>
+              </div>
+
+              <div class="widget-screen" id="evmLog" style="height:120px; font-size:11px;">
+                <!-- Logs da execução -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 18: HALTING PROBLEM & GAS
+           ========================================== -->
+      <section class="slide" id="slide-18">
+        <div class="slide-top">
+          <div class="slide-category">Ciência da Computação Teórica</div>
+          <h1 class="slide-title">O Halting Problem de Alan Turing e a Solução do Gas</h1>
+          <p class="slide-subtitle">Como evitar que um loop infinito paralise todos os servidores do planeta Terra</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🛑</div>
+                <div class="card-title">O Teorema da Indecidibilidade (1936)</div>
+              </div>
+              <div class="card-body">
+                <p>Alan Turing provou matematicamente que <strong>é impossível criar um algoritmo prévio que analise
+                    qualquer código arbitrário e diga se ele vai terminar ou entrar em loop infinito</strong>.</p>
+                <div class="callout-analogy"
+                  style="margin-top: 10px; background:#fff1f2; border-color:#fecdd3; border-left-color:var(--danger);">
+                  <strong style="color:var(--danger);">A Ameaça de Ataque DoS:</strong>
+                  <br>Se alguém enviar um contrato com <code>while(true) {}</code> para a blockchain, como todos os
+                  computadores do mundo devem rodar o código, <strong>o planeta inteiro congelaria</strong>!
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">⛽</div>
+                <div class="card-title">A Solução Elegante da Ethereum: Gas</div>
+              </div>
+              <div class="card-body">
+                <p>A Ethereum resolveu o Halting Problem através da <strong>medição física por combustível
+                    pré-pago</strong>:</p>
+                <ul>
+                  <li>Cada opcode consome uma quantidade exata de Gas estipulada no Yellow Paper.</li>
+                  <li>O remetente define um teto máximo de combustível: o <strong>Gas Limit</strong>.</li>
+                  <li>A cada instrução executada, o contador diminui.</li>
+                  <li>Se o contador chegar a zero antes de terminar, a EVM dispara a exceção <strong>Out of Gas
+                      (OOG)</strong>: o programa é sumariamente interrompido, o estado reverte e o invasor perde o
+                    dinheiro do gas gasto!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 19: ECONOMIA DO GAS E EIP-1559
+           ========================================== -->
+      <section class="slide" id="slide-19">
+        <div class="slide-top">
+          <div class="slide-category">Economia Monetária e Taxas</div>
+          <h1 class="slide-title">A EIP-1559 e o Mecanismo de Queima de ETH</h1>
+          <p class="slide-subtitle">A reestruturação algorítmica do mercado de taxas pós-Hard Fork London</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="slide-img-container">
+              <img src="../images/eip_1559.jpg" alt="Mecanismo EIP-1559" class="slide-img">
+              <div class="slide-img-caption">Figura: Dinâmica de divisão da taxa entre Base Fee queimada e Priority Fee
+                do validador.</div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🔥</div>
+                <div class="card-title">A Fórmula da Taxa EIP-1559</div>
+              </div>
+              <div class="card-body">
+                <div
+                  style="background:#0f172a; color:#38bdf8; padding:10px; border-radius:6px; font-family:var(--font-mono); font-size:12px; margin-bottom:8px;">
+                  Taxa Total = Gas Used × (Base Fee + Priority Fee)
+                </div>
+                <ul>
+                  <li><strong>Base Fee (Taxa Mínima Algorítmica):</strong> Regulada pelo protocolo com base na ocupação
+                    do bloco anterior (meta: 15M gas). <strong>É QUEIMADA (destruída da oferta mundial)</strong>!</li>
+                  <li><strong>Priority Fee (Gorjeta / Tip):</strong> Paga diretamente ao validador para furar a fila da
+                    mempool.</li>
+                  <li><strong>Efeito Deflacionário (*Ultrasound Money*):</strong> Quando a rede tem muito uso, queima-se
+                    mais ETH do que é emitido em recompensas, reduzindo a oferta total do ativo no mundo!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 20: CALCULADORA INTERATIVA DE GAS
+           ========================================== -->
+      <section class="slide" id="slide-20">
+        <div class="slide-top">
+          <div class="slide-category">Laboratório Interativo · Economia Computacional</div>
+          <h1 class="slide-title">Calculadora Interativa de Taxas EIP-1559</h1>
+          <p class="slide-subtitle">Ajuste os parâmetros da rede e observe em tempo real a divisão entre queima de ETH e
+            recompensa</p>
+        </div>
+        <div class="slide-content">
+          <div class="interactive-widget">
+            <div class="grid-2">
+              <!-- Painel de Controles -->
+              <div style="display:flex; flex-direction:column; gap:12px;">
+                <div>
+                  <label style="font-size:12px; font-weight:700;">Tipo de Operação Transacional:</label>
+                  <select id="calcGasType"
+                    style="width:100%; padding:6px; border-radius:6px; border:1px solid var(--border); font-family:var(--font-sans); margin-top:4px;">
+                    <option value="21000">Transferência Simples de ETH (21.000 Gas fixo)</option>
+                    <option value="65000">Transferência de Token ERC-20 / USDT (~65.000 Gas)</option>
+                    <option value="185000" selected>Swap em DEX / Uniswap V3 (~185.000 Gas)</option>
+                    <option value="350000">Deploy de Smart Contract (~350.000 Gas)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label style="font-size:12px; font-weight:700;">Base Fee da Rede: <span id="outBaseFee"
+                      style="color:var(--primary);">35.0 Gwei</span></label>
+                  <input type="range" id="calcBaseFee" min="10" max="150" value="35" step="1" style="width:100%;">
+                </div>
+
+                <div>
+                  <label style="font-size:12px; font-weight:700;">Priority Fee (Gorjeta): <span id="outPriorityFee"
+                      style="color:var(--secondary);">2.0 Gwei</span></label>
+                  <input type="range" id="calcPriorityFee" min="0.5" max="15" value="2" step="0.5" style="width:100%;">
+                </div>
+              </div>
+
+              <!-- Painel de Resultados -->
+              <div
+                style="background:var(--bg-terminal); color:#f8fafc; padding:16px; border-radius:8px; display:flex; flex-direction:column; gap:8px; font-family:var(--font-mono); font-size:12px;">
+                <div>Gas Utilizado: <strong id="outGasUsed" style="color:#38bdf8;">185,000</strong></div>
+                <hr style="border-color:#334155;">
+                <div>💸 <strong>Custo Total:</strong> <span id="outTotalFeeEth"
+                    style="color:#facc15; font-size:15px; font-weight:700;">0.006845 ETH</span></div>
+                <div>🔥 <strong>ETH Queimado (Base Fee):</strong> <span id="outBurnEth" style="color:#f87171;">0.006475
+                    ETH</span></div>
+                <div>👤 <strong>Recompensa do Validador:</strong> <span id="outValidatorEth"
+                    style="color:#4ade80;">0.000370 ETH</span></div>
+                <div style="font-size:11px; color:#94a3b8; margin-top:4px;">
+                  1 ETH = 10¹⁸ Wei | 1 Gwei = 10⁹ Wei
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 21: LABORATÓRIO FORENSE NO ETHERSCAN
+           ========================================== -->
+      <section class="slide" id="slide-21">
+        <div class="slide-top">
+          <div class="slide-category">Laboratório Prático Dirigido (40 min)</div>
+          <h1 class="slide-title">Rastreamento e Dissecação Forense no Etherscan</h1>
+          <p class="slide-subtitle">Como auditar transações reais na Testnet Sepolia ou Ethereum Mainnet</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-3">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">1</div>
+                <div class="card-title">Transferência Simples</div>
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li>Localize uma transação EOA $\to$ EOA.</li>
+                  <li>Constatar que o <strong>Gas Used é exatamente 21.000</strong> (100% de uso).</li>
+                  <li>Identificar a <strong>Base Fee</strong> e a quantidade de ETH queimada para sempre no campo
+                    <em>Burnt Fees</em>.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">2</div>
+                <div class="card-title">Chamada a Smart Contract</div>
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li>Identifique o ícone de contrato no campo <code>To</code>.</li>
+                  <li>Verifique que o <strong>Gas Used</strong> foi menor que o <strong>Gas Limit</strong> (troco
+                    estornado ao usuário).</li>
+                  <li>Decodifique o <strong>Input Data</strong> para achar o <code>MethodID</code> (4 bytes hex).</li>
+                  <li>Inspecione a aba <strong>Logs</strong> para ver os eventos emitidos consumidos por ERPs.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">3</div>
+                <div class="card-title">Auditoria de Erro / Falha</div>
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li>Filtre por transações com status <code>Fail</code> ou <code>Reverted</code>.</li>
+                  <li>Se o erro for <strong>Out of Gas</strong>, constate que 100% do Gas Limit foi cobrado.</li>
+                  <li>Verifique que o <code>Value</code> (ETH) não saiu da carteira (Rollback atômico da EVM preservou
+                    os fundos!).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout-analogy">
+            <div class="callout-analogy-header">📋 Entregável do Laboratório</div>
+            <div class="callout-analogy-text">
+              Cada dupla de estudantes deve preencher a <strong>Ficha Técnica de Auditoria Forense</strong> dissecando
+              uma transação real no Etherscan, detalhando Gas Limit, Gas Used, MethodID e logs de eventos.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 22: SÍNTESE VISUAL DA AULA
+           ========================================== -->
+      <section class="slide" id="slide-22">
+        <div class="slide-top">
+          <div class="slide-category">Síntese Conceitual</div>
+          <h1 class="slide-title">O Mapa Conceitual Integrado da Aula 02</h1>
+          <p class="slide-subtitle">Conectando os cinco elos da cadeia de processamento distribuído</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-3" style="grid-template-columns: repeat(5, 1fr); gap: 10px;">
+            <div class="card" style="text-align: center; border-top: 4px solid var(--primary);">
+              <div style="font-size: 24px; margin-bottom: 6px;">1. ⚖️</div>
+              <div style="font-weight: 700; color: var(--primary); font-size: 14px;">CONSENSO</div>
+              <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Define quem propõe e valida o
+                bloco (PoW/PoS/PoA)</div>
+            </div>
+
+            <div class="card" style="text-align: center; border-top: 4px solid var(--secondary);">
+              <div style="font-size: 24px; margin-bottom: 6px;">2. 📝</div>
+              <div style="font-weight: 700; color: var(--secondary); font-size: 14px;">TRANSAÇÃO</div>
+              <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Assinada digitalmente, com
+                Nonce anti-replay e Gas Limit</div>
+            </div>
+
+            <div class="card" style="text-align: center; border-top: 4px solid var(--accent);">
+              <div style="font-size: 24px; margin-bottom: 6px;">3. ⚙️</div>
+              <div style="font-weight: 700; color: var(--accent); font-size: 14px;">EVM</div>
+              <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Executa o bytecode
+                determinístico na máquina de pilha</div>
+            </div>
+
+            <div class="card" style="text-align: center; border-top: 4px solid var(--warning);">
+              <div style="font-size: 24px; margin-bottom: 6px;">4. ⛽</div>
+              <div style="font-weight: 700; color: var(--warning); font-size: 14px;">GAS</div>
+              <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Resolve o Halting Problem e
+                remunera validadores</div>
+            </div>
+
+            <div class="card" style="text-align: center; border-top: 4px solid var(--success);">
+              <div style="font-size: 24px; margin-bottom: 6px;">5. 💾</div>
+              <div style="font-weight: 700; color: var(--success); font-size: 14px;">ESTADO</div>
+              <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Atualiza o saldo e storage
+                global na árvore MPT ($\sigma_{t+1}$)</div>
+            </div>
+          </div>
+
+          <div class="callout-tech" style="margin-top: 14px;">
+            <div class="callout-tech-header">💡 Visão Sistêmica para o Futuro Engenheiro de SI</div>
+            <div class="callout-tech-text">
+              Uma Blockchain corporativa ou pública não é apenas um banco de dados: é um <strong>computador
+                determinístico global de confiança zero</strong>, onde as regras de negócio rodam imutáveis sem ponto
+              único de falha.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 23: PROTOCOLO DE AVALIAÇÃO FORMATIVA
+           ========================================== -->
+      <section class="slide" id="slide-23">
+        <div class="slide-top">
+          <div class="slide-category">Avaliação Formativa · Caderno de Exercícios</div>
+          <h1 class="slide-title">Caderno de Exercícios Práticos & Investigativos</h1>
+          <p class="slide-subtitle">6 atividades guiadas integrando código Python, investigação em exploradores e
+            raciocínio de SI</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-3">
+            <div class="card" style="padding: 16px;">
+              <div class="card-header">
+                <div class="card-icon" style="width: 32px; height: 32px; font-size: 15px;">🔍</div>
+                <div class="card-title" style="font-size: 14px;">Ex 1 · Forense no Etherscan</div>
+              </div>
+              <div class="card-body" style="font-size: 12px; line-height: 1.5;">
+                Acessar o <strong>Sepolia Etherscan</strong>, selecionar uma transação real, preencher a ficha técnica
+                completa e explicar por que o <em>Gas Used</em> difere do <em>Gas Limit</em> e o que acontece com a
+                sobra estornada.
+              </div>
+            </div>
+
+            <div class="card" style="padding: 16px;">
+              <div class="card-header">
+                <div class="card-icon" style="width: 32px; height: 32px; font-size: 15px;">🧮</div>
+                <div class="card-title" style="font-size: 14px;">Ex 2 · Calculadora EIP-1559</div>
+              </div>
+              <div class="card-body" style="font-size: 12px; line-height: 1.5;">
+                Completar em Python o cálculo de taxas (Wei, Gwei, ETH), pesquisar as homenagens a <strong>Wei
+                  Dai</strong> e <strong>Claude Shannon</strong> e converter o custo de um swap em DEX para Reais (R$)
+                na cotação atual.
+              </div>
+            </div>
+
+            <div class="card" style="padding: 16px;">
+              <div class="card-header">
+                <div class="card-icon" style="width: 32px; height: 32px; font-size: 15px;">🏢</div>
+                <div class="card-title" style="font-size: 14px;">Ex 3 · Estudo de Caso de Consenso</div>
+              </div>
+              <div class="card-body" style="font-size: 12px; line-height: 1.5;">
+                Analisar 3 organizações reais: <strong>DREX (Banco Central)</strong>, <strong>Protocolo DeFi
+                  Aberto</strong> e <strong>Rede de Vacinas (Farmacêuticas + ANVISA)</strong>, recomendando PoW, PoS ou
+                PoA com base no Trilema.
+              </div>
+            </div>
+
+            <div class="card" style="padding: 16px;">
+              <div class="card-header">
+                <div class="card-icon" style="width: 32px; height: 32px; font-size: 15px;">🛑</div>
+                <div class="card-title" style="font-size: 14px;">Ex 4 · Falha "Out of Gas"</div>
+              </div>
+              <div class="card-body" style="font-size: 12px; line-height: 1.5;">
+                Localizar no explorador uma transação que falhou por falta de gas; analisar por que a taxa foi retida
+                pelo validador e como o <strong>Rollback Atômico</strong> da EVM ($\sigma_{t+1} = \sigma_t$) protegeu o
+                saldo principal do remetente.
+              </div>
+            </div>
+
+            <div class="card" style="padding: 16px;">
+              <div class="card-header">
+                <div class="card-icon" style="width: 32px; height: 32px; font-size: 15px;">🛡️</div>
+                <div class="card-title" style="font-size: 14px;">Ex 5 · Anti-Replay com Nonce</div>
+              </div>
+              <div class="card-body" style="font-size: 12px; line-height: 1.5;">
+                Implementar em Python a verificação do campo <code>nonce</code> em contas Ethereum para detectar e
+                bloquear sumariamente tentativas de <strong>Replay Attack</strong> (duplicação maliciosa de pacotes
+                assinados).
+              </div>
+            </div>
+
+            <div class="card" style="padding: 16px;">
+              <div class="card-header">
+                <div class="card-icon" style="width: 32px; height: 32px; font-size: 15px;">🥩</div>
+                <div class="card-title" style="font-size: 14px;">Ex 6 · Pesquisa no Beaconcha.in</div>
+              </div>
+              <div class="card-body" style="font-size: 12px; line-height: 1.5;">
+                Investigar a camada de consenso PoS no <strong>Beaconcha.in</strong>: levantar o total de validadores e
+                ETH em staking; localizar um validador que sofreu <strong>Slashing</strong> e explicar a infração
+                cometida.
+              </div>
+            </div>
+          </div>
+
+          <div class="callout-analogy"
+            style="display: flex; justify-content: space-between; align-items: center; padding: 12px 18px;">
+            <div style="font-size: 13px; color: #166534;">
+              📓 <strong>Caderno Oficial de Entrega:</strong> Resolva e execute as células no arquivo
+              <code>Aula02_Exercicios.ipynb</code>.
+            </div>
+            <span class="badge-tag" style="background:#bbf7d0; color:#14532d; font-weight:700;">Entrega em Duplas /
+              Individual</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           SLIDE 24: BIBLIOGRAFIA E PRÓXIMA AULA
+           ========================================== -->
+      <section class="slide" id="slide-24">
+        <div class="slide-top">
+          <div class="slide-category">Referências & Continuidade</div>
+          <h1 class="slide-title">Bibliografia Canônica & Gancho para a Aula 03</h1>
+          <p class="slide-subtitle">Fundamentação acadêmica de fronteira e próximos passos da disciplina</p>
+        </div>
+        <div class="slide-content">
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">📚</div>
+                <div class="card-title">Bibliografia Canônica</div>
+              </div>
+              <div class="card-body" style="font-size: 12px; line-height: 1.5;">
+                <p>1. <strong>BUTERIN, Vitalik.</strong> <em>Ethereum Whitepaper</em>. 2014.</p>
+                <p>2. <strong>WOOD, Gavin.</strong> <em>Ethereum Yellow Paper (Berlin Version)</em>. 2014-2024.</p>
+                <p>3. <strong>ANTONOPOULOS, A. M.; WOOD, G.</strong> <em>Mastering Ethereum</em>. O'Reilly, 2018.</p>
+                <p>4. <strong>BUTERIN, V. et al.</strong> <em>EIP-1559: Fee market change for ETH 1.0</em>. 2019.</p>
+                <p>5. <strong>TURING, Alan M.</strong> <em>On Computable Numbers (Halting Problem)</em>. 1936.</p>
+                <p>6. <strong>LAMPORT, L. et al.</strong> <em>The Byzantine Generals Problem</em>. ACM TOPLAS, 1982.</p>
+              </div>
+            </div>
+
+            <div class="card" style="border-left: 5px solid var(--success);">
+              <div class="card-header">
+                <div class="card-icon">🚀</div>
+                <div class="card-title">Próxima Aula (Aula 03)</div>
+              </div>
+              <div class="card-body">
+                <p><strong>Tema: Smart Contracts (Solidity), Tokenização RWA e Aplicações em SI</strong></p>
+                <ul style="margin-top: 8px;">
+                  <li>Programação em linguagem <strong>Solidity</strong> (modificadores, eventos, funções payable).</li>
+                  <li>Padrões de tokens da economia real: <strong>ERC-20</strong> (fungíveis) e
+                    <strong>ERC-721/1155</strong> (NFTs).</li>
+                  <li>Desenvolvimento prático e deploy de um contrato de rastreabilidade e <strong>Tokenização de Ativos
+                      do Mundo Real (RWA)</strong> no <strong>Remix IDE</strong>!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Barra de Navegação Inferior Flutuante -->
+  <nav class="deck-navigation">
+    <button class="nav-btn" id="prevBtn" title="Slide Anterior (←)">
+      ◀
+    </button>
+    <div class="nav-slide-counter" id="slideCounter">
+      01 / 24
+    </div>
+    <button class="nav-btn" id="nextBtn" title="Próximo Slide (→)">
+      ▶
+    </button>
+  </nav>
+
+  <!-- Modal de Visão Geral dos Slides (Overview Grid) -->
+  <div class="overview-modal" id="overviewModal">
+    <div class="overview-container">
+      <div class="overview-header">
+        <div class="overview-title">📑 Visão Geral dos Slides (Clique para navegar)</div>
+        <button class="header-btn" id="closeOverviewBtn">✕ Fechar</button>
+      </div>
+      <div class="overview-grid" id="overviewGrid">
+        <!-- Preenchido via script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Atalhos de Teclado -->
+  <div class="shortcuts-modal" id="shortcutsModal">
+    <div class="shortcuts-card">
+      <div class="shortcuts-title">⌨️ Atalhos de Navegação</div>
+      <div class="shortcuts-list">
+        <div class="shortcut-row">
+          <span>Avançar para o próximo slide</span>
+          <span class="kbd">→ / Espaço / PageDown</span>
+        </div>
+        <div class="shortcut-row">
+          <span>Voltar para o slide anterior</span>
+          <span class="kbd">← / PageUp</span>
+        </div>
+        <div class="shortcut-row">
+          <span>Ir para o primeiro slide</span>
+          <span class="kbd">Home</span>
+        </div>
+        <div class="shortcut-row">
+          <span>Ir para o último slide</span>
+          <span class="kbd">End</span>
+        </div>
+        <div class="shortcut-row">
+          <span>Abrir Visão Geral em Grade</span>
+          <span class="kbd">O ou G</span>
+        </div>
+        <div class="shortcut-row">
+          <span>Alternar Modo Tela Cheia</span>
+          <span class="kbd">F</span>
+        </div>
+        <div class="shortcut-row">
+          <span>Fechar modais / Cancelar</span>
+          <span class="kbd">Esc</span>
+        </div>
+      </div>
+      <div style="text-align: right; margin-top: 18px;">
+        <button class="widget-btn" id="closeShortcutsBtn">Entendi</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
