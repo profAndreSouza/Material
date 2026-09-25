@@ -54,10 +54,10 @@ A avaliação é formativa e contínua, valorizando o trabalho prático semana a
 
 | Data | Aula | Conteúdo / Atividades Práticas em Laboratório | Arquivo de Apoio |
 | :---: | :---: | :--- | :---: |
-| **07/ago** | **Aula 1** | **Introdução à Informática Técnica:** Hardware, CPU, Memória RAM, Armazenamento (SSD/Nuvem), criação de pastas e organização de arquivos de manutenção. | [`Aula_01.md`](Aula_01.md) |
-| **14/ago** | **Aula 2** | **MS Word Técnico — Normas ABNT (Parte 1):** Estrutura do documento técnico, configuração de margens, tipografia padrão, espaçamento entre linhas/parágrafos e Estilos de Título. | [`Aula_02.md`](Aula_02.md) |
-| **21/ago** | **Aula 3** | **MS Word Técnico — Normas ABNT (Parte 2):** Quebras de seção (capa/pré-textual/textual), numeração de páginas ABNT, inserção de tabelas e figuras com legendas e Sumário Automático. | [`Aula_03.md`](Aula_03.md) |
-| **28/ago** | **Aula 4** | **Oficina Prática de Formatação ABNT (Exercício Avaliativo 1):** Aplicação prática orientada de todas as regras de formatação ABNT em um relatório técnico aeronáutico. | [`Aula_04.md`](Aula_04.md) |
+| **07/ago** | **Aula 1** | **Introdução à Informática Técnica:** Hardware, CPU, Memória RAM, Armazenamento (SSD/Nuvem), criação de pastas e organização de arquivos de manutenção. | [`Aula_01.md`](Aulas/Aula_01.md) |
+| **14/ago** | **Aula 2** | **MS Word Técnico — Normas ABNT (Parte 1):** Estrutura do documento técnico, configuração de margens, tipografia padrão, espaçamento entre linhas/parágrafos e Estilos de Título. | [`Aula_02.md`](Aulas/Aula_02.md) |
+| **21/ago** | **Aula 3** | **MS Word Técnico — Normas ABNT (Parte 2):** Quebras de seção (capa/pré-textual/textual), numeração de páginas ABNT, inserção de tabelas e figuras com legendas e Sumário Automático. | [`Aula_03.md`](Aulas/Aula_03.md) |
+| **28/ago** | **Aula 4** | **Oficina Prática de Formatação ABNT (Exercício Avaliativo 1):** Aplicação prática orientada de todas as regras de formatação ABNT em um relatório técnico aeronáutico. | [`Aula_04.md`](Aulas/Aula_04.md) |
 
 ---
 
@@ -65,19 +65,19 @@ A avaliação é formativa e contínua, valorizando o trabalho prático semana a
 
 | Data | Aula | Conteúdo / Atividades Práticas em Laboratório | Arquivo de Apoio |
 | :---: | :---: | :--- | :---: |
-| **04/set** | **Aula 5** | **Excel I — Primeiros Passos:** Interface, células, tipos de dados, formatação (Moeda, Número, Data) e operadores matemáticos básicos ($+$, $-$, $*$, $/$, exponenciação). | [`Aula_05.md`](Aula_05.md) |
-| **11/set** | **Aula 6** | **Excel II — Funções Básicas e Referências:** Funções `SOMA`, `MÉDIA`, `MÍNIMO`, `MÁXIMO` e o conceito de Referência Absoluta (`$`) aplicado à conversão de unidades (ft $\to$ m, kt $\to$ km/h, lb $\to$ kg). | [`Aula_06.md`](Aula_06.md) |
-| **18/set** | **Aula 7** | **Excel III — Modelagem de Dados:** Planilha prática de Peso e Balanceamento de Aeronaves (Braço, Peso, Momento e Centro de Gravidade $CG$). | [`Aula_07.md`](Aula_07.md) |
-| **25/set** | **Aula 8** | **Excel IV — Lógica Condicional Essencial:** Função `SE` simples e aninhada para controle de status de manutenção (Liberado, Pendente, Vencido). | [`Aula_08.md`](Aula_08.md) |
-| **02/out** | **Aula 9** | **Excel V — Formatação Condicional e Lógica:** Alertas visuais automáticos por cores e funções combinadas (`E`, `OU`, `SEERRO`). | [`Aula_09.md`](Aula_09.md) |
+| **04/set** | **Aula 5** | **Excel I — Primeiros Passos:** Interface, células, tipos de dados, formatação (Moeda, Número, Data) e operadores matemáticos básicos ($+$, $-$, $*$, $/$, exponenciação). | [`Aula_05.md`](Aulas/Aula_05.md) |
+| **11/set** | **Aula 6** | **Excel II — Funções Básicas e Referências:** Funções `SOMA`, `MÉDIA`, `MÍNIMO`, `MÁXIMO` e o conceito de Referência Absoluta (`$`) aplicado à conversão de unidades (ft $\to$ m, kt $\to$ km/h, lb $\to$ kg). | [`Aula_06.md`](Aulas/Aula_06.md) |
+| **18/set** | **Aula 7** | **Excel III — Modelagem de Dados:** Planilha prática de Peso e Balanceamento de Aeronaves (Braço, Peso, Momento e Centro de Gravidade $CG$). | [`Aula_07.md`](Aulas/Aula_07.md) |
+| **25/set** | **Aula 8** | **Excel IV — Lógica Condicional Essencial:** Função `SE` simples e aninhada para controle de status de manutenção (Liberado, Pendente, Vencido). | [`Aula_08.md`](Aulas/Aula_08.md) |
+| **02/out** | **Aula 9** | **Excel V — Formatação Condicional e Lógica:** Alertas visuais automáticos por cores e funções combinadas (`E`, `OU`, `SEERRO`). | [`Aula_09.md`](Aulas/Aula_09.md) |
 | **09/out** | *SETEC* | *Semana de Tecnologia — Palestras e atividades temáticas.* | — |
 | **10/out** | *Sábado Letivo 1* | **Oficina de Exercícios & Nivelamento:** Resolução orientada de exercícios práticos e fixação de fórmulas/funções. | — |
-| **16/out** | **Aula 10** | **Excel VI — Contagens e Somas Condicionais:** Funções `CONT.SE` e `SOMASE` aplicadas a relatórios de ordens de serviço e horas de voo de frota. | [`Aula_10.md`](Aula_10.md) |
+| **16/out** | **Aula 10** | **Excel VI — Contagens e Somas Condicionais:** Funções `CONT.SE` e `SOMASE` aplicadas a relatórios de ordens de serviço e horas de voo de frota. | [`Aula_10.md`](Aulas/Aula_10.md) |
 | **17/out** | *Sábado Letivo 2* | **Oficina Prática de Dúvidas & Feedback:** Atendimento individualizado e reforço para os exercícios avaliativos. | — |
-| **23/out** | **Aula 11** | **Excel VII — Pesquisa e Busca de Dados:** Funções `PROCX` / `PROCV` para localização de componentes em catálogos de peças aeronáuticas (IPC). | [`Aula_11.md`](Aula_11.md) |
-| **30/out** | **Aula 12** | **Excel VIII — Visualização Gráfica:** Gráficos de colunas, barras, linhas e dispersão aplicados ao acompanhamento de manutenção e consumo. | [`Aula_12.md`](Aula_12.md) |
-| **06/nov** | **Aula 13** | **Excel IX — Análise com Tabelas Dinâmicas:** Criação de Tabelas Dinâmicas (*Pivot Tables*) e Segmentadores (*Slicers*) para relatórios gerenciais rápidos. | [`Aula_13.md`](Aula_13.md) |
-| **13/nov** | **Aula 14** | **Excel X — Revisão Geral Prática & Simulado:** Resolução integrada de exercícios preparatórios para a avaliação final. | [`Aula_14.md`](Aula_14.md) |
+| **23/out** | **Aula 11** | **Excel VII — Pesquisa e Busca de Dados:** Funções `PROCX` / `PROCV` para localização de componentes em catálogos de peças aeronáuticas (IPC). | [`Aula_11.md`](Aulas/Aula_11.md) |
+| **30/out** | **Aula 12** | **Excel VIII — Visualização Gráfica:** Gráficos de colunas, barras, linhas e dispersão aplicados ao acompanhamento de manutenção e consumo. | [`Aula_12.md`](Aulas/Aula_12.md) |
+| **06/nov** | **Aula 13** | **Excel IX — Análise com Tabelas Dinâmicas:** Criação de Tabelas Dinâmicas (*Pivot Tables*) e Segmentadores (*Slicers*) para relatórios gerenciais rápidos. | [`Aula_13.md`](Aulas/Aula_13.md) |
+| **13/nov** | **Aula 14** | **Excel X — Revisão Geral Prática & Simulado:** Resolução integrada de exercícios preparatórios para a avaliação final. | [`Aula_14.md`](Aulas/Aula_14.md) |
 | **20/nov** | *Feriado* | *Feriado Nacional — Dia da Consciência Negra.* | — |
 | **27/nov** | **Avaliação Final** | **PROVA PRÁTICA FINAL DE EXCEL (50% da Média Final):** Avaliação individual prática em laboratório. | [`Avaliacao_02.md`](Avaliacao_02.md) |
 | **04/dez** | **Reavaliação** | **PROVA DE RECUPERAÇÃO SOMATIVA & FEEDBACK:** Devolutiva e prova de recuperação para alunos em reavaliação. | [`Reava.md`](Reava.md) |

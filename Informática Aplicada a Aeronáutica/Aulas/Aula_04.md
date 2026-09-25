@@ -32,9 +32,9 @@ A aula de hoje é 100% prática e dedicada à execução orientada do trabalho d
 
 ## 3. CHECKLIST DO EXERCÍCIO DE FORMATAÇÃO ABNT (PASSO A PASSO)
 
-Utilize os arquivos da pasta [`Exercicios/`](Exercicios/):
-- Texto Base: [`Exercicios/Texto_Exercicio_Historia_da_Aviacao.txt`](Exercicios/Texto_Exercicio_Historia_da_Aviacao.txt)
-- Guia Detalhado: [`Exercicios/Guia_Exercicio_Formatacao_Word.md`](Exercicios/Guia_Exercicio_Formatacao_Word.md)
+Utilize os arquivos da pasta [`Exercicios/`](../Exercicios/):
+- Texto Base: [`Exercicios/Texto_Exercicio_Historia_da_Aviacao.txt`](../Exercicios/Texto_Exercicio_Historia_da_Aviacao.txt)
+- Guia Detalhado: [`Exercicios/Guia_Exercicio_Formatacao_Word.md`](../Exercicios/Guia_Exercicio_Formatacao_Word.md)
 
 ### Checklist de Execução:
 
