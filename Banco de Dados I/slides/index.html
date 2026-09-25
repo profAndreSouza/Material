@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 01 — Banco de Dados I | Fatec Sorocaba</title>
+  <meta name="description"
+    content="Plano de ensino, Fundamentos de Banco de Dados, Arquitetura ANSI/SPARC, Ciclo de Modelagem (Conceitual, Lógico, Físico), MER vs DER e Modelagem Prática.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Barra de Progresso Superior -->
+  <div id="progress-bar-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <!-- Contador de Slide -->
+  <div id="slide-counter" class="slide-counter-badge">01 / 24</div>
+
+  <!-- Container Principal dos Slides -->
+  <main class="presentation-container">
+
+    <!-- SLIDE 1: Capa de Abertura -->
+    <section class="slide slide-cover active">
+      <div class="section-tag">Apresentação da Disciplina &bull; Aula 01</div>
+      <h1 class="cover-title">BANCO DE DADOS I</h1>
+      <p class="slide-subtitle" style="font-size: 1.25rem; max-width: 800px; margin-bottom: 25px;">
+        Fundamentos de Persistência, Níveis de Abstração de Dados e Metodologia de Modelagem Conceitual
+      </p>
+
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;">
+        <span class="badge badge-red">Fatec Sorocaba</span>
+        <span class="badge badge-gray">CST em Análise e Desenvolvimento de Sistemas</span>
+        <span class="badge badge-gray">1º Semestre &bull; Matriz R-11</span>
+        <span class="badge badge-blue">Prof. André Souza</span>
+      </div>
+
+      <div class="callout" style="max-width: 760px; text-align: left;">
+        <strong>Conteúdo da Aula:</strong> Apresentação do plano de ensino (ementa, avaliação, cronograma e
+        bibliografia), fundamentos de dados e metadados, arquitetura ANSI/SPARC, níveis de modelagem (conceitual, lógico
+        e físico), distinção formal entre MER e DER, e prática inicial de modelagem conceitual em papel.
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Importância e Aplicação -->
+    <section class="slide">
+      <div class="section-tag">Introdução</div>
+      <h2 class="slide-title">Papel dos Bancos de Dados em Sistemas de Informação</h2>
+      <p class="slide-subtitle">Aplicações de software dependem de persistência confiável, estruturada e padronizada.
+      </p>
+
+      <div class="grid-3">
+        <div class="card card-red">
+          <div class="card-title">Persistência e Confiabilidade</div>
+          <p class="card-desc">Garantia de que os dados transacionais permanecem íntegros após o encerramento dos
+            processos da aplicação ou eventuais falhas do sistema operacional.</p>
+        </div>
+        <div class="card card-blue">
+          <div class="card-title">Desempenho e Eficiência</div>
+          <p class="card-desc">Otimização de recuperação de dados em grandes volumes por meio de indexação, paginação de
+            memória e planos estruturados de execução de consultas.</p>
+        </div>
+        <div class="card card-green">
+          <div class="card-title">Integridade Centralizada</div>
+          <p class="card-desc">Aplicação de restrições semânticas e referenciais no próprio repositório, garantindo que
+            nenhum cliente ou serviço grave informações inconsistentes.</p>
+        </div>
+      </div>
+
+      <div class="callout callout-blue" style="margin-top: 20px;">
+        <strong>Conclusão Técnica:</strong> Em arquiteturas de software, o banco de dados é a camada responsável pela
+        integridade, disponibilidade e durabilidade dos dados corporativos.
+      </div>
+    </section>
+
+    <!-- SLIDE 3: Ementa da Disciplina -->
+    <section class="slide">
+      <div class="section-tag">Plano de Ensino &bull; Ementa</div>
+      <h2 class="slide-title">Ementa Regimental (PPC — Matriz R-11)</h2>
+      <p class="slide-subtitle">Conteúdo programático e competências regimentais definidas para a disciplina.</p>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <div class="card-title">Conteúdo Programático</div>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.9rem; line-height: 1.7; padding-left: 18px;">
+            <li>Conceitos fundamentais de Bancos de Dados e SGBD.</li>
+            <li>Modelagem de dados: Abordagem Entidade-Relacionamento (ER).</li>
+            <li>Fases de projeto: Modelos Conceitual, Lógico/Relacional e Físico.</li>
+            <li>Teoria da Normalização de Dados (1FN, 2FN e 3FN).</li>
+            <li>Restrições de integridade referencial e de domínio.</li>
+            <li>Linguagem SQL: Definição (DDL), Manipulação (DML) e Consulta (DQL).</li>
+          </ul>
+        </div>
+
+        <div class="card card-blue">
+          <div class="card-title">Competências Profissionais</div>
+          <div style="margin-bottom: 12px;">
+            <strong style="color: var(--cps-gray-dark);">1. Planejamento e Modelagem de Dados:</strong>
+            <p class="card-desc">Capacidade de analisar requisitos de software e conceber esquemas conceituais e lógicos
+              normalizados que atendam às regras de negócio.</p>
+          </div>
+          <div>
+            <strong style="color: var(--cps-gray-dark);">2. Implementação e Operação com SGBD:</strong>
+            <p class="card-desc">Capacidade de criar e manter estruturas de tabelas, aplicar restrições de integridade e
+              construir consultas SQL eficientes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Objetivos de Aprendizagem -->
+    <section class="slide">
+      <div class="section-tag">Plano de Ensino &bull; Objetivos</div>
+      <h2 class="slide-title">Objetivos de Aprendizagem do Semestre</h2>
+      <p class="slide-subtitle">Habilidades técnicas esperadas ao término da disciplina.</p>
+
+      <div class="grid-4">
+        <div class="card">
+          <div class="badge badge-red" style="margin-bottom: 8px;">01. Abstração</div>
+          <div class="card-title" style="font-size: 0.95rem;">Modelagem Conceitual</div>
+          <p class="card-desc">Interpretar requisitos de negócio em linguagem natural e construir Diagramas
+            Entidade-Relacionamento (DER).</p>
+        </div>
+        <div class="card">
+          <div class="badge badge-blue" style="margin-bottom: 8px;">02. Mapeamento</div>
+          <div class="card-title" style="font-size: 0.95rem;">Projeto Lógico</div>
+          <p class="card-desc">Mapear o DER para o Modelo Relacional, determinando chaves primárias (PK), chaves
+            estrangeiras (FK) e regras de integridade.</p>
+        </div>
+        <div class="card">
+          <div class="badge badge-green" style="margin-bottom: 8px;">03. Otimização</div>
+          <div class="card-title" style="font-size: 0.95rem;">Normalização</div>
+          <p class="card-desc">Aplicar a 1ª, 2ª e 3ª Formas Normais para eliminar redundâncias e evitar anomalias de
+            atualização e exclusão.</p>
+        </div>
+        <div class="card">
+          <div class="badge badge-gray" style="margin-bottom: 8px;">04. Implementação</div>
+          <div class="card-title" style="font-size: 0.95rem;">Linguagem SQL</div>
+          <p class="card-desc">Desenvolver scripts DDL para criação de tabelas e consultas DQL complexas com filtros,
+            ordenação e junções (JOINs).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Sistema de Avaliação -->
+    <section class="slide">
+      <div class="section-tag">Plano de Ensino &bull; Avaliação</div>
+      <h2 class="slide-title">Critérios de Avaliação e Composição da Média</h2>
+      <p class="slide-subtitle">Avaliação baseada no acompanhamento prático contínuo e em prova presencial.</p>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <div class="card-title">Fórmula da Média Final (MF)</div>
+          <div class="code-box" style="margin: 10px 0; text-align: center; font-weight: 600;">
+            MF = (Média dos Exercícios × 0,5) + (Prova Prática Final × 0,5)
+          </div>
+          <p class="card-desc"><strong>50% — Atividades Práticas Contínuas:</strong> Exercícios em sala, entregas de
+            modelagem e resolução de oficinas práticas.</p>
+          <p class="card-desc" style="margin-top: 6px;"><strong>50% — Prova Prática Final:</strong> Avaliação presencial
+            individual em laboratório cobrindo modelagem relacional, normalização e consultas SQL.</p>
+        </div>
+
+        <div class="card card-blue">
+          <div class="card-title">Datas Regimentais e Condições</div>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.9rem; line-height: 1.9; padding-left: 18px;">
+            <li><strong>Entregas Contínuas:</strong> Ao longo do semestre letivo.</li>
+            <li><strong style="color: var(--cps-red);">Prova Prática Final:</strong> <strong>27/11/2026</strong>.</li>
+            <li><strong style="color: var(--tech-amber);">Prova de Recuperação:</strong> <strong>04/12/2026</strong>.
+            </li>
+            <li><strong>Critérios de Aprovação:</strong> Média Final &ge; 6,0 e Frequência Regimental &ge; 75%.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Cronograma Resumido -->
+    <section class="slide">
+      <div class="section-tag">Plano de Ensino &bull; Cronograma</div>
+      <h2 class="slide-title">Cronograma Estruturado em 4 Blocos</h2>
+      <p class="slide-subtitle">Organização do semestre por etapas metodológicas.</p>
+
+      <div class="grid-4">
+        <div class="card card-red">
+          <div class="badge badge-red">Bloco 1 &bull; Aulas 1 a 3</div>
+          <div class="card-title" style="margin-top: 8px; font-size: 0.95rem;">Fundamentos &amp; Modelagem Conceitual
+          </div>
+          <p class="card-desc">ANSI/SPARC, ciclo de vida, MER vs. DER, entidades, atributos, cardinalidades e
+            especializações.</p>
+        </div>
+
+        <div class="card card-blue">
+          <div class="badge badge-blue">Bloco 2 &bull; Aula 4 + Oficinas</div>
+          <div class="card-title" style="margin-top: 8px; font-size: 0.95rem;">Mapeamento Lógico Relacional</div>
+          <p class="card-desc">Regras de conversão de DER para tabelas relacionais, integridade referencial (PK e FK).
+          </p>
+        </div>
+
+        <div class="card card-green">
+          <div class="badge badge-green">Bloco 3 &bull; Aula 5</div>
+          <div class="card-title" style="margin-top: 8px; font-size: 0.95rem;">Teoria da Normalização</div>
+          <p class="card-desc">Dependências funcionais e decomposição relacional nas três primeiras formas normais (1FN,
+            2FN, 3FN).</p>
+        </div>
+
+        <div class="card">
+          <div class="badge badge-gray">Bloco 4 &bull; Aulas 6 a 10</div>
+          <div class="card-title" style="margin-top: 8px; font-size: 0.95rem;">Implementação SQL</div>
+          <p class="card-desc">Criação de estruturas (DDL), manutenção de dados (DML) e consultas analíticas com junções
+            (DQL/JOINs).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: Bibliografia Recomendada -->
+    <section class="slide">
+      <div class="section-tag">Plano de Ensino &bull; Bibliografia</div>
+      <h2 class="slide-title">Bibliografia Básica e Complementar</h2>
+      <p class="slide-subtitle">Referências bibliográficas alinhadas ao plano de curso.</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title" style="color: var(--cps-red);">ELMASRI &amp; NAVATHE</div>
+          <p style="font-size: 0.85rem; font-weight: 700; color: var(--cps-gray-dark);">Sistemas de Banco de Dados</p>
+          <p class="card-desc" style="font-size: 0.82rem; margin-top: 6px;">7ª Edição, Pearson, 2019.<br>Referência
+            principal para arquitetura de sistemas, modelos conceituais e teoria relacional.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title" style="color: var(--tech-blue);">SILBERSCHATZ et al.</div>
+          <p style="font-size: 0.85rem; font-weight: 700; color: var(--cps-gray-dark);">Sistema de Banco de Dados</p>
+          <p class="card-desc" style="font-size: 0.82rem; margin-top: 6px;">7ª Edição, GEN LTC, 2020.<br>Enfoque em
+            processamento interno, indexação física e controle transacional.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title" style="color: var(--tech-green);">MARTELLI et al.</div>
+          <p style="font-size: 0.85rem; font-weight: 700; color: var(--cps-gray-dark);">Modelagem e Banco de Dados</p>
+          <p class="card-desc" style="font-size: 0.82rem; margin-top: 6px;">2ª Edição, Senac, 2018.<br>Referência
+            didática para práticas de modelagem conceitual e lógica em ferramentas gráficas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: Dado, Info, Conhecimento, Metadado -->
+    <section class="slide">
+      <div class="section-tag">Fundamentação Teórica</div>
+      <h2 class="slide-title">Dado, Informação, Conhecimento e Metadado</h2>
+      <p class="slide-subtitle">Diferenciação conceitual e técnica dos componentes da informação estruturada.</p>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <div class="card-title">1. Dado (<em>Data</em>)</div>
+          <p class="card-desc">Elemento atômico bruto, sem contexto semântico intrínseco. Não permite interpretação
+            isolada.</p>
+          <p class="card-desc" style="margin-top: 4px;"><strong>Exemplo:</strong> <code>450.00</code>,
+            <code>'2026-09-25'</code>.
+          </p>
+        </div>
+
+        <div class="card card-blue">
+          <div class="card-title">2. Informação (<em>Information</em>)</div>
+          <p class="card-desc">Dado processado, estruturado e dotado de contexto semântico compreensível.</p>
+          <p class="card-desc" style="margin-top: 4px;"><strong>Exemplo:</strong> <em>"A manutenção preventiva da
+              máquina M-01 custou R$ 450,00 no dia 25/09/2026."</em></p>
+        </div>
+
+        <div class="card card-green">
+          <div class="card-title">3. Conhecimento (<em>Knowledge</em>)</div>
+          <p class="card-desc">Padrões e correlações identificados a partir de conjuntos de informações para fundamentar
+            tomadas de decisão.</p>
+          <p class="card-desc" style="margin-top: 4px;"><strong>Exemplo:</strong> Identificar que manutenções
+            preventivas regulares reduzem paradas imprevistas em 40%.</p>
+        </div>
+
+        <div class="card card-amber">
+          <div class="card-title">4. Metadado (<em>Metadata</em>)</div>
+          <p class="card-desc">Dados que descrevem a estrutura, restrições e tipos dos dados armazenados (catálogo do
+            sistema).</p>
+          <p class="card-desc" style="margin-top: 4px;"><strong>Exemplo:</strong> O campo <code>valor_custo</code> é do
+            tipo <code>NUMERIC(10,2)</code> e obrigatório (<code>NOT NULL</code>).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: Ilustração da Pirâmide do Conhecimento -->
+    <section class="slide">
+      <div class="section-tag">Infográfico Estrutural</div>
+      <h2 class="slide-title">Pirâmide de Informação e Sustentação por Metadados</h2>
+      <p class="slide-subtitle">Hierarquia de refinamento de dados e o papel dos metadados como base estruturante.</p>
+
+      <div class="diagram-container">
+        <img src="img/piramide_dados.png" alt="Pirâmide de Dados, Informação e Conhecimento com Metadados" class="diagram-img">
+      </div>
+    </section>
+
+    <!-- SLIDE 10: Tipos de Dados: Estruturados, Semiestruturados e Não Estruturados -->
+    <section class="slide">
+      <div class="section-tag">Tipologia dos Dados</div>
+      <h2 class="slide-title">Classificação dos Dados: Estruturados, Semiestruturados e Não Estruturados</h2>
+      <p class="slide-subtitle">Como os dados do mundo real se organizam e se relacionam com esquemas de armazenamento.</p>
+
+      <div class="grid-3">
+        <div class="card card-red">
+          <div class="card-title">1. Dados Estruturados</div>
+          <p class="card-desc">Organizados em formato rígido e predeterminado, com esquema estrito de tabelas, linhas e colunas (<em>Schema-on-Write</em>).</p>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.82rem; line-height: 1.6; padding-left: 16px; margin-top: 10px;">
+            <li><strong>Formato:</strong> Tabelas relacionais, tipos atômicos (inteiros, decimais, datas).</li>
+            <li><strong>Recuperação:</strong> Consultas diretas e previsíveis via SQL.</li>
+            <li><strong>Exemplos:</strong> Bancos relacionais (PostgreSQL, MySQL), planilhas estritas, arquivos CNAB bancários.</li>
+          </ul>
+        </div>
+
+        <div class="card card-amber">
+          <div class="card-title">2. Dados Semiestruturados</div>
+          <p class="card-desc">Não seguem um esquema tabular rígido, mas contêm marcadores, tags ou hierarquias internas que definem elementos (<em>Schema-on-Read</em>).</p>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.82rem; line-height: 1.6; padding-left: 16px; margin-top: 10px;">
+            <li><strong>Formato:</strong> Pares chave-valor, matrizes aninhadas e árvores hierárquicas.</li>
+            <li><strong>Recuperação:</strong> Exige analisadores sintáticos (<em>parsers</em>) ou bancos orientados a documentos.</li>
+            <li><strong>Exemplos:</strong> Arquivos JSON, XML, YAML, feeds RSS, documentos NoSQL (MongoDB).</li>
+          </ul>
+        </div>
+
+        <div class="card card-blue">
+          <div class="card-title">3. Dados Não Estruturados</div>
+          <p class="card-desc">Não possuem estrutura interna ou modelo conceitual identificável para consultas relacionais convencionais.</p>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.82rem; line-height: 1.6; padding-left: 16px; margin-top: 10px;">
+            <li><strong>Volume:</strong> Representam mais de 80% do volume global de dados gerados no mundo corporativo.</li>
+            <li><strong>Recuperação:</strong> Exige processamento de linguagem natural (NLP), visão computacional ou indexação textual.</li>
+            <li><strong>Exemplos:</strong> Imagens, áudios, vídeos, relatórios PDF, e-mails, posts de redes sociais.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: Paradigmas de Armazenamento: Relacional vs. Não Relacional (NoSQL) -->
+    <section class="slide">
+      <div class="section-tag">Paradigmas de Persistência</div>
+      <h2 class="slide-title">Bancos Relacionais (SQL) vs. Não Relacionais (NoSQL)</h2>
+      <p class="slide-subtitle">Comparativo conceitual e estrutural entre os dois principais paradigmas de persistência corporativa.</p>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <div class="card-title">Bancos Relacionais (RDBMS / SQL)</div>
+          <p class="card-desc">Fundamentados no modelo relacional proposto por Edgar F. Codd (1970). Estrutura tabular estrita e forte base matemática.</p>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.84rem; line-height: 1.6; padding-left: 16px; margin-top: 8px;">
+            <li><strong>Estrutura Central:</strong> Tabelas (relações), colunas (atributos) e linhas (tuplas).</li>
+            <li><strong>Integridade Referencial:</strong> Chaves Primárias (PK) e Estrangeiras (FK).</li>
+            <li><strong>Transações ACID:</strong> Atomicidade, Consistência, Isolamento e Durabilidade estritas.</li>
+            <li><strong>Linguagem:</strong> SQL padronizado (ANSI/ISO).</li>
+            <li><strong>Sistemas:</strong> PostgreSQL, MySQL, Oracle Database, Microsoft SQL Server, SQLite.</li>
+          </ul>
+        </div>
+
+        <div class="card card-green">
+          <div class="card-title">Bancos Não Relacionais (NoSQL)</div>
+          <p class="card-desc">Projetados para escalabilidade horizontal massiva, modelos de dados heterogêneos e esquemas dinâmicos flexíveis.</p>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.84rem; line-height: 1.6; padding-left: 16px; margin-top: 8px;">
+            <li><strong>Orientados a Documentos:</strong> JSON/BSON flexível (ex.: MongoDB, CouchDB).</li>
+            <li><strong>Chave-Valor:</strong> Altíssima velocidade em memória (ex.: Redis, Memcached).</li>
+            <li><strong>Família de Colunas:</strong> Escrita analítica massiva (ex.: Apache Cassandra, ScyllaDB).</li>
+            <li><strong>Grafos:</strong> Foco em nós e relacionamentos densos (ex.: Neo4j, Amazon Neptune).</li>
+            <li><strong>Filosofia:</strong> Modelo BASE e Teorema CAP (alta disponibilidade e tolerância a partições).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 12: Matriz de Decisão & Foco no Modelo Relacional -->
+    <section class="slide">
+      <div class="section-tag">Engenharia de Decisão</div>
+      <h2 class="slide-title">Quando Usar Cada Paradigma & O Foco da Disciplina</h2>
+      <p class="slide-subtitle">Critérios técnicos para seleção da arquitetura de persistência e a relevância do Modelo Relacional.</p>
+
+      <div class="grid-2">
+        <div class="card card-blue">
+          <div class="card-title">Quando Adotar Banco Relacional?</div>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.84rem; line-height: 1.6; padding-left: 16px;">
+            <li><strong>Transações Críticas:</strong> Sistemas financeiros, contábeis, controle de estoque e ERPs onde a consistência é mandatória (ACID).</li>
+            <li><strong>Relações Complexas:</strong> Entidades altamente interligadas exigindo cruzamento de dados com integridade referencial e <em>JOINs</em>.</li>
+            <li><strong>Consultas Ad-Hoc:</strong> Necessidade de extrair relatórios gerenciais e filtros analíticos inéditos e dinâmicos via SQL.</li>
+            <li><strong>Esquema Estável:</strong> Regras de negócio bem delimitadas com ciclo de vida estruturado.</li>
+          </ul>
+        </div>
+
+        <div class="card card-amber">
+          <div class="card-title">Quando Adotar NoSQL?</div>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.84rem; line-height: 1.6; padding-left: 16px;">
+            <li><strong>Escalabilidade Horizontal Extrema:</strong> Volume e vazão de gravação distribuída que superam os limites verticais de um servidor.</li>
+            <li><strong>Esquemas Dinâmicos e Mutáveis:</strong> Registros onde cada entidade possui atributos totalmente distintos (ex.: catálogo heterogêneo de marketplace).</li>
+            <li><strong>Operações Simples de Baixa Latência:</strong> Acesso direto por chave para leitura em microssegundos (ex.: sessões de usuários, cache).</li>
+            <li><strong>Redes Complexas:</strong> Análise de conexões sociais e caminhos mínimos (bancos de grafos).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card card-red" style="margin-top: 15px;">
+        <div class="card-title" style="color: var(--cps-red);">O Foco do Componente: Banco de Dados I</div>
+        <p class="card-desc" style="font-size: 0.88rem; line-height: 1.6;">
+          Neste semestre, o nosso foco aprofundado é o <strong>Modelo Relacional</strong>. Ele constitui o alicerce de mais de 70% dos sistemas corporativos em produção no mundo. O domínio da modelagem conceitual, das regras de integridade, da normalização e da linguagem SQL é o <strong>fundamento técnico universal e indispensável</strong> para qualquer profissional de tecnologia antes de avançar para arquiteturas poliglota ou ecossistemas NoSQL.
+        </p>
+      </div>
+    </section>
+
+    <!-- SLIDE 13: File-System vs SGBD -->
+    <section class="slide">
+      <div class="section-tag">Fundamentação Teórica</div>
+      <h2 class="slide-title">Sistemas de Arquivos Convencionais vs. SGBD</h2>
+      <p class="slide-subtitle">Comparativo entre o gerenciamento manual de arquivos planos e o uso de SGBD.</p>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <div class="card-title">Sistemas de Arquivos (<em>File-System</em>)</div>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.88rem; line-height: 1.7; padding-left: 18px;">
+            <li><strong>Redundância descontrolada:</strong> Múltiplas cópias do mesmo dado gerando inconsistências.</li>
+            <li><strong>Acoplamento Programa-Dados:</strong> Modificações no formato do arquivo exigem alteração no
+              código-fonte de todos os programas associados.</li>
+            <li><strong>Dificuldade de concorrência:</strong> Ausência de controle transacional para acessos e gravações
+              simultâneas.</li>
+            <li><strong>Integridade dispersa:</strong> Regras de validação implementadas isoladamente em cada aplicação.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card card-green">
+          <div class="card-title">Sistemas Gerenciadores de Bancos de Dados (SGBD)</div>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.88rem; line-height: 1.7; padding-left: 18px;">
+            <li><strong>Redundância controlada:</strong> Unificação dos dados e controle centralizado.</li>
+            <li><strong>Independência de dados:</strong> Esquemas lógicos desacoplados da representação física.</li>
+            <li><strong>Controle de concorrência e transações:</strong> Garantia das propriedades ACID (Atomicidade,
+              Consistência, Isolamento e Durabilidade).</li>
+            <li><strong>Catálogo de metadados:</strong> Estrutura de dados autodescritiva gerenciada internamente.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 14: Ilustração Arquitetura ANSI/SPARC -->
+    <section class="slide">
+      <div class="section-tag">Infográfico Estrutural</div>
+      <h2 class="slide-title">Arquitetura ANSI/SPARC em Três Níveis</h2>
+      <p class="slide-subtitle">Padrão arquitetural para separação de responsabilidades e garantia de independência de
+        dados.</p>
+
+      <div class="diagram-container">
+        <svg class="diagram-svg" viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg">
+          <!-- Nível Externo -->
+          <rect x="40" y="15" width="800" height="70" rx="4" fill="#f8fafc" stroke="#0284c7" stroke-width="2" />
+          <text x="440" y="40" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#0284c7"
+            text-anchor="middle">NÍVEL EXTERNO (Visões dos Usuários / Aplicações)</text>
+
+          <rect x="70" y="50" width="220" height="24" rx="3" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="180" y="66" font-family="'Inter', sans-serif" font-size="11" fill="#334155"
+            text-anchor="middle">Visão Comercial (Vendas)</text>
+
+          <rect x="330" y="50" width="220" height="24" rx="3" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="440" y="66" font-family="'Inter', sans-serif" font-size="11" fill="#334155"
+            text-anchor="middle">Visão Financeira (Faturamento)</text>
+
+          <rect x="590" y="50" width="220" height="24" rx="3" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="700" y="66" font-family="'Inter', sans-serif" font-size="11" fill="#334155"
+            text-anchor="middle">Visão Recursos Humanos</text>
+
+          <!-- Seta Independência Lógica -->
+          <line x1="440" y1="85" x2="440" y2="130" stroke="#b20000" stroke-width="2" stroke-dasharray="4,4" />
+          <polygon points="440,135 435,125 445,125" fill="#b20000" />
+          <text x="560" y="112" font-family="'Fira Code', monospace" font-size="11" fill="#b20000">Independência Lógica
+            de Dados</text>
+
+          <!-- Nível Conceitual -->
+          <rect x="40" y="140" width="800" height="70" rx="4" fill="#f8fafc" stroke="#b20000" stroke-width="2" />
+          <text x="440" y="165" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#b20000"
+            text-anchor="middle">NÍVEL CONCEITUAL (Esquema Global da Organização)</text>
+          <text x="440" y="190" font-family="'Inter', sans-serif" font-size="12" fill="#334155"
+            text-anchor="middle">Entidades, Relacionamentos, Atributos e Regras Semânticas Gerais (Independente de
+            SGBD)</text>
+
+          <!-- Seta Independência Física -->
+          <line x1="440" y1="210" x2="440" y2="255" stroke="#15803d" stroke-width="2" stroke-dasharray="4,4" />
+          <polygon points="440,260 435,250 445,250" fill="#15803d" />
+          <text x="560" y="238" font-family="'Fira Code', monospace" font-size="11" fill="#15803d">Independência Física
+            de Dados</text>
+
+          <!-- Nível Interno -->
+          <rect x="40" y="265" width="800" height="60" rx="4" fill="#f8fafc" stroke="#15803d" stroke-width="2" />
+          <text x="440" y="290" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#15803d"
+            text-anchor="middle">NÍVEL INTERNO / FÍSICO (Armazenamento em Disco)</text>
+          <text x="440" y="310" font-family="'Inter', sans-serif" font-size="11" fill="#64748b"
+            text-anchor="middle">Organização de blocos em disco, índices (B-Tree, Hash), alocação de tabelas e
+            compressão</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SLIDE 15: Independência Lógica e Física -->
+    <section class="slide">
+      <div class="section-tag">Fundamentação Teórica</div>
+      <h2 class="slide-title">Conceito de Independência de Dados</h2>
+      <p class="slide-subtitle">Definição formal das duas formas de isolamento entre camadas de software.</p>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <div class="card-title">Independência Lógica de Dados</div>
+          <p class="card-desc">Capacidade de alterar o esquema conceitual (ex.: inclusão de uma nova entidade ou
+            atributo) sem a necessidade de modificar os programas de aplicação ou as visões externas existentes que não
+            utilizam os elementos alterados.</p>
+          <div class="code-box" style="margin-top: 10px;">
+            A inclusão de uma tabela de auditoria não altera as consultas do módulo de faturamento.
+          </div>
+        </div>
+
+        <div class="card card-green">
+          <div class="card-title">Independência Física de Dados</div>
+          <p class="card-desc">Capacidade de reorganizar a estrutura física de armazenamento (ex.: criação de índices,
+            migração para novos dispositivos de armazenamento ou particionamento de tabelas) sem a necessidade de
+            modificar o esquema conceitual ou o código das consultas SQL.</p>
+          <div class="code-box" style="margin-top: 10px;">
+            A criação de um índice para otimização não exige alteração nas declarações SELECT dos sistemas.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 16: Ilustração dos 3 Níveis de Modelagem -->
+    <section class="slide">
+      <div class="section-tag">Infográfico Metodológico</div>
+      <h2 class="slide-title">Ciclo de Modelagem: Conceitual, Lógico e Físico</h2>
+      <p class="slide-subtitle">Etapas sucessivas de refinamento de um projeto de banco de dados.</p>
+
+      <div class="diagram-container">
+        <svg class="diagram-svg" viewBox="0 0 900 330" xmlns="http://www.w3.org/2000/svg">
+          <!-- Coluna 1: Conceitual -->
+          <rect x="20" y="30" width="260" height="280" rx="6" fill="#f8fafc" stroke="#b20000" stroke-width="2" />
+          <rect x="20" y="30" width="260" height="38" rx="6" fill="#b20000" />
+          <text x="150" y="55" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#ffffff"
+            text-anchor="middle">1. MODELO CONCEITUAL</text>
+
+          <text x="150" y="95" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#1e293b"
+            text-anchor="middle">Visão Semântica do Negócio</text>
+          <text x="150" y="115" font-family="'Inter', sans-serif" font-size="11" fill="#64748b"
+            text-anchor="middle">Independe de tecnologia e de SGBD</text>
+
+          <rect x="60" y="145" width="80" height="35" rx="3" fill="#ffffff" stroke="#b20000" />
+          <text x="100" y="167" font-family="'Inter', sans-serif" font-size="10" fill="#1e293b"
+            text-anchor="middle">CLIENTE</text>
+
+          <polygon points="200,162 175,148 175,176" fill="#b20000" />
+          <text x="210" y="166" font-family="'Inter', sans-serif" font-size="10" fill="#475569">possui</text>
+
+          <text x="150" y="240" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#b20000"
+            text-anchor="middle">Entidades &bull; Atributos &bull; Relacionamentos</text>
+          <text x="150" y="260" font-family="'Inter', sans-serif" font-size="11" fill="#64748b"
+            text-anchor="middle">Notação: DER (Chen ou Crow's Foot)</text>
+
+          <!-- Seta 1 -> 2 -->
+          <line x1="290" y1="170" x2="315" y2="170" stroke="#64748b" stroke-width="2" />
+          <polygon points="320,170 312,165 312,175" fill="#64748b" />
+
+          <!-- Coluna 2: Lógico -->
+          <rect x="320" y="30" width="260" height="280" rx="6" fill="#f8fafc" stroke="#0284c7" stroke-width="2" />
+          <rect x="320" y="30" width="260" height="38" rx="6" fill="#0284c7" />
+          <text x="450" y="55" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#ffffff"
+            text-anchor="middle">2. MODELO LÓGICO</text>
+
+          <text x="450" y="95" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#1e293b"
+            text-anchor="middle">Visão Estrutural Relacional</text>
+          <text x="450" y="115" font-family="'Inter', sans-serif" font-size="11" fill="#64748b"
+            text-anchor="middle">Aderente ao paradigma relacional</text>
+
+          <rect x="345" y="140" width="210" height="65" rx="3" fill="#ffffff" stroke="#0284c7" />
+          <text x="450" y="158" font-family="'Fira Code', monospace" font-size="10" font-weight="600" fill="#0284c7"
+            text-anchor="middle">CLIENTE</text>
+          <text x="355" y="176" font-family="'Fira Code', monospace" font-size="9" fill="#1e293b">• id_cliente
+            (PK)</text>
+          <text x="355" y="192" font-family="'Fira Code', monospace" font-size="9" fill="#64748b">• nome,
+            telefone</text>
+
+          <text x="450" y="240" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#0284c7"
+            text-anchor="middle">Tabelas &bull; Chaves Primárias &bull; Estrangeiras</text>
+          <text x="450" y="260" font-family="'Inter', sans-serif" font-size="11" fill="#64748b"
+            text-anchor="middle">Esquema Relacional / Normalização</text>
+
+          <!-- Seta 2 -> 3 -->
+          <line x1="590" y1="170" x2="615" y2="170" stroke="#64748b" stroke-width="2" />
+          <polygon points="620,170 612,165 612,175" fill="#64748b" />
+
+          <!-- Coluna 3: Físico -->
+          <rect x="620" y="30" width="260" height="280" rx="6" fill="#f8fafc" stroke="#15803d" stroke-width="2" />
+          <rect x="620" y="30" width="260" height="38" rx="6" fill="#15803d" />
+          <text x="750" y="55" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#ffffff"
+            text-anchor="middle">3. MODELO FÍSICO</text>
+
+          <text x="750" y="95" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#1e293b"
+            text-anchor="middle">Visão de Implementação</text>
+          <text x="750" y="115" font-family="'Inter', sans-serif" font-size="11" fill="#64748b"
+            text-anchor="middle">Específico para o SGBD adotado</text>
+
+          <rect x="640" y="140" width="220" height="65" rx="3" fill="#ffffff" stroke="#15803d" />
+          <text x="650" y="158" font-family="'Fira Code', monospace" font-size="9" fill="#15803d">CREATE TABLE cliente
+            (</text>
+          <text x="655" y="174" font-family="'Fira Code', monospace" font-size="8" fill="#475569">id SERIAL PRIMARY
+            KEY,</text>
+          <text x="655" y="190" font-family="'Fira Code', monospace" font-size="8" fill="#475569">nome VARCHAR(100) NOT
+            NULL);</text>
+
+          <text x="750" y="240" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#15803d"
+            text-anchor="middle">Scripts DDL &bull; Tipos Concretos &bull; Índices</text>
+          <text x="750" y="260" font-family="'Inter', sans-serif" font-size="11" fill="#64748b"
+            text-anchor="middle">PostgreSQL, MySQL, Oracle, etc.</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SLIDE 17: Quadro Comparativo dos Modelos -->
+    <section class="slide">
+      <div class="section-tag">Fundamentação Teórica</div>
+      <h2 class="slide-title">Comparativo Formal: Conceitual vs. Lógico vs. Físico</h2>
+      <p class="slide-subtitle">Síntese dos objetivos, componentes e responsabilidades em cada nível de abstração.</p>
+
+      <div class="table-container">
+        <table class="modern-table">
+          <thead>
+            <tr>
+              <th>Critério</th>
+              <th>Modelo Conceitual</th>
+              <th>Modelo Lógico</th>
+              <th>Modelo Físico</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Nível de Abstração</strong></td>
+              <td>Alto (Visão de Negócio)</td>
+              <td>Intermediário (Visão Estrutural)</td>
+              <td>Baixo (Visão Tecnológica)</td>
+            </tr>
+            <tr>
+              <td><strong>Público-Alvo</strong></td>
+              <td>Analistas de Negócio e Usuários Finais</td>
+              <td>Analistas de Sistemas e Projetistas</td>
+              <td>DBAs e Engenheiros de Dados</td>
+            </tr>
+            <tr>
+              <td><strong>Dependência de Software</strong></td>
+              <td>Independente de SGBD e de tecnologia</td>
+              <td>Dependente do paradigma (ex.: Relacional)</td>
+              <td>Específico de um SGBD concreto</td>
+            </tr>
+            <tr>
+              <td><strong>Componentes Centrais</strong></td>
+              <td>Entidades, Atributos e Relacionamentos</td>
+              <td>Tabelas, Colunas, Chaves PK e FK</td>
+              <td>Tipos (`INT`, `VARCHAR`), Índices e DDL</td>
+            </tr>
+            <tr>
+              <td><strong>Artefato de Saída</strong></td>
+              <td>Diagrama Entidade-Relacionamento (DER)</td>
+              <td>Esquema Relacional Tabular</td>
+              <td>Script SQL DDL (`CREATE TABLE`)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SLIDE 18: MER vs DER -->
+    <section class="slide">
+      <div class="section-tag">Fundamentação Teórica</div>
+      <h2 class="slide-title">Diferença Formal entre MER e DER</h2>
+      <p class="slide-subtitle">Distinção técnica entre o modelo teórico abstrato e a sua representação visual.</p>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <div class="card-title">MER — Modelo Entidade-Relacionamento</div>
+          <div class="badge badge-red" style="margin-bottom: 10px;">Conceito / Modelo Teórico</div>
+          <p class="card-desc">Proposto por <strong>Peter Chen em 1976</strong>. É a formulação semântica e abstrata das
+            entidades, seus atributos, relacionamentos e restrições de integridade.</p>
+          <div class="code-box" style="margin-top: 10px; font-size: 0.82rem;">
+            O MER define a estrutura e semântica dos dados independentemente de representação gráfica.
+          </div>
+        </div>
+
+        <div class="card card-blue">
+          <div class="card-title">DER — Diagrama Entidade-Relacionamento</div>
+          <div class="badge badge-blue" style="margin-bottom: 10px;">Representação Gráfica</div>
+          <p class="card-desc">É a notação diagramática que esquematiza visualmente os componentes do MER utilizando
+            símbolos padronizados (retângulos, elipses, losangos ou pé-de-galinha).</p>
+          <div class="code-box" style="margin-top: 10px; font-size: 0.82rem;">
+            O DER é o desenho gráfico que documenta e comunica visualmente o MER.
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 16px;">
+        <strong>Rigor Terminológico:</strong> O MER é a especificação formal do modelo; o DER é a sua representação
+        gráfica. Documenta-se o modelo por meio de diagramas.
+      </div>
+    </section>
+
+    <!-- SLIDE 19: Narração Desplugada -->
+    <section class="slide">
+      <div class="section-tag">Metodologia Prática</div>
+      <h2 class="slide-title">Modelagem Inicial sem Recursos Computacionais</h2>
+      <p class="slide-subtitle">Fundamentação pedagógica para a realização da primeira modelagem em papel.</p>
+
+      <div class="card card-red" style="padding: 24px;">
+        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--cps-gray-dark);">
+          <strong>Objetivo Pedagógico:</strong> A concepção de um esquema de dados exige raciocínio analítico sobre os
+          requisitos de negócio e a identificação precisa das relações entre os elementos.
+        </p>
+        <p style="font-size: 0.95rem; line-height: 1.7; color: var(--cps-gray-medium); margin-top: 12px;">
+          Nesta etapa inicial, afastar-se do teclado e do software evita o desvio de atenção para detalhes de sintaxe
+          SQL, tipos de dados proprietários ou interfaces de ferramentas. O foco concentra-se exclusivamente na
+          semântica, integridade e cardinalidades mínimas e máximas.
+        </p>
+      </div>
+
+      <div class="grid-3" style="margin-top: 18px;">
+        <div class="card" style="padding: 14px;">
+          <strong style="color: var(--cps-red);">1. Foco Semântico</strong>
+          <p class="card-desc" style="font-size: 0.82rem; margin-top: 4px;">Compreensão das regras de negócio sem
+            interferência de comandos de SGBD.</p>
+        </div>
+        <div class="card" style="padding: 14px;">
+          <strong style="color: var(--tech-blue);">2. Raciocínio Estruturado</strong>
+          <p class="card-desc" style="font-size: 0.82rem; margin-top: 4px;">Validação de cardinalidades (1,1), (1,N) e
+            (N,N) diretamente no papel.</p>
+        </div>
+        <div class="card" style="padding: 14px;">
+          <strong style="color: var(--tech-green);">3. Transição Segura</strong>
+          <p class="card-desc" style="font-size: 0.82rem; margin-top: 4px;">Um DER correto no papel viabiliza a geração
+            de esquemas lógicos e físicos sem retrabalho.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 20: O Método em 5 Etapas -->
+    <section class="slide">
+      <div class="section-tag">Metodologia Prática</div>
+      <h2 class="slide-title">Etapas da Modelagem Conceitual</h2>
+      <p class="slide-subtitle">Procedimento sequencial estruturado para análise e modelagem de requisitos.</p>
+
+      <div class="stepper">
+        <div class="step-item">
+          <div class="step-circle">1</div>
+          <div class="step-title">Texto Narrativo</div>
+          <div class="step-desc">Requisitos do cliente</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">2</div>
+          <div class="step-title">Identificação</div>
+          <div class="step-desc">Entidades e atributos</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">3</div>
+          <div class="step-title">Regras de Negócio</div>
+          <div class="step-desc">Cardinalidades min e max</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">4</div>
+          <div class="step-title">Modelo Conceitual</div>
+          <div class="step-desc">Estruturação (MER)</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">5</div>
+          <div class="step-title">DER Gráfico</div>
+          <div class="step-desc">Diagramação visual</div>
+        </div>
+      </div>
+
+      <div class="callout callout-blue" style="margin-top: 20px;">
+        <strong>Diretriz:</strong> Cada etapa fornece insumos diretos para a subsequente, garantindo a rastreabilidade
+        entre as regras de negócio declaradas e o diagrama resultante.
+      </div>
+    </section>
+
+    <!-- SLIDE 21: Dicas de Ouro -->
+    <section class="slide">
+      <div class="section-tag">Metodologia Prática</div>
+      <h2 class="slide-title">Mapeamento Gramatical de Requisitos</h2>
+      <p class="slide-subtitle">Regras de identificação de elementos a partir da linguagem natural.</p>
+
+      <div class="grid-3">
+        <div class="card card-red">
+          <div class="card-title">Substantivos</div>
+          <p class="card-desc">Substantivos identificam candidatos a <strong>Entidades</strong> (objetos de interesse)
+            ou <strong>Atributos</strong> (propriedades descritivas).</p>
+          <div class="code-box" style="margin-top: 8px; font-size: 0.8rem;">
+            "Cliente", "Pet", "Nome", "Código"
+          </div>
+        </div>
+
+        <div class="card card-blue">
+          <div class="card-title">Verbos</div>
+          <p class="card-desc">Verbos de ligação ou ação indicam associações semânticas, correspondendo aos
+            <strong>Relacionamentos</strong>.
+          </p>
+          <div class="code-box" style="margin-top: 8px; font-size: 0.8rem;">
+            "possui", "realiza", "ministra", "publica"
+          </div>
+        </div>
+
+        <div class="card card-green">
+          <div class="card-title">Quantificadores</div>
+          <p class="card-desc">Expressões quantitativas e restrições de obrigatoriedade determinam as
+            <strong>Cardinalidades</strong> mínimas e máximas.
+          </p>
+          <div class="code-box" style="margin-top: 8px; font-size: 0.8rem;">
+            "exatamente um", "um ou vários", "opcional"
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 22: Exercício 1 Guiado - Enunciado -->
+    <section class="slide">
+      <div class="section-tag">Prática Guiada &bull; Exercício 1</div>
+      <h2 class="slide-title">Estudo de Caso Guiado: Clínica Veterinária "PetCare"</h2>
+      <p class="slide-subtitle">Etapa 1: Leitura e análise dos requisitos expressos em linguagem natural.</p>
+
+      <div class="card card-red" style="padding: 22px; font-size: 1.05rem; line-height: 1.8;">
+        <p>
+          <em>"A clínica veterinária <strong>PetCare</strong> necessita de um sistema para controle de atendimentos. O
+            sistema deve cadastrar os <strong>clientes</strong>, mantendo o <strong>código</strong>, o
+            <strong>nome</strong> completo e o <strong>telefone</strong> de cada um.</em>
+        </p>
+        <p style="margin-top: 10px;">
+          <em>Cada cliente pode possuir um ou vários <strong>pets</strong> (animais). De cada pet, devem ser armazenados
+            o <strong>código</strong> de registro, o <strong>nome</strong> e a <strong>espécie</strong> (cão, gato,
+            etc.).</em>
+        </p>
+        <p style="margin-top: 10px;">
+          <em>Regra da clínica: todo pet cadastrado deve estar associado obrigatoriamente a exatamente um cliente."</em>
+        </p>
+      </div>
+
+      <div class="callout callout-blue" style="margin-top: 18px;">
+        <strong>Atividade:</strong> Desenvolveremos juntos na lousa as etapas 2, 3, 4 e 5 deste estudo de caso.
+      </div>
+    </section>
+
+    <!-- SLIDE 23: Exercício 1 Guiado - Etapas 2 e 3 -->
+    <section class="slide">
+      <div class="section-tag">Prática Guiada &bull; Exercício 1</div>
+      <h2 class="slide-title">Etapas 2 e 3: Elementos e Regras de Negócio</h2>
+      <p class="slide-subtitle">Identificação analítica dos componentes e mapeamento das cardinalidades.</p>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <div class="card-title">Etapa 2: Identificação dos Elementos</div>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.9rem; line-height: 1.8; padding-left: 18px;">
+            <li><strong>Entidades:</strong> <code>CLIENTE</code> e <code>PET</code>.</li>
+            <li><strong>Atributos de CLIENTE:</strong> <span style="color: var(--cps-red); font-weight: 600;">id_cliente
+                (identificador)</span>, nome, telefone.</li>
+            <li><strong>Atributos de PET:</strong> <span style="color: var(--cps-red); font-weight: 600;">id_pet
+                (identificador)</span>, nome, espécie.</li>
+            <li><strong>Relacionamento:</strong> <code>POSSUI</code>.</li>
+          </ul>
+        </div>
+
+        <div class="card card-blue">
+          <div class="card-title">Etapa 3: Regras e Cardinalidades</div>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.9rem; line-height: 1.8; padding-left: 18px;">
+            <li><strong>CLIENTE para PET:</strong> Um cliente pode ter no mínimo 1 e no máximo muitos pets &rarr;
+              <strong>(1, N)</strong>.
+            </li>
+            <li><strong>PET para CLIENTE:</strong> Cada pet pertence obrigatoriamente a exatamente 1 cliente &rarr;
+              <strong>(1, 1)</strong>.
+            </li>
+            <li><strong>Classificação:</strong> Relacionamento binário de cardinalidade máxima <strong>1 para N
+                (1:N)</strong>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 24: Exercício 1 Guiado - Etapas 4 e 5 (DER Chen) -->
+    <section class="slide">
+      <div class="section-tag">Prática Guiada &bull; Exercício 1</div>
+      <h2 class="slide-title">Etapas 4 e 5: DER Conceitual Completo (Notação Chen)</h2>
+      <p class="slide-subtitle">Representação gráfica padronizada da modelagem conceitual.</p>
+
+      <div class="diagram-container">
+        <img src="img/der_pet.png" alt="DER Notação Chen — Estudo de Caso Clínica PetCare" class="diagram-img">
+      </div>
+    </section>
+
+    <!-- SLIDE 25: Exercício 2 Individual - Desafio -->
+    <section class="slide">
+      <div class="section-tag">Prática Individual &bull; Exercício 2</div>
+      <h2 class="slide-title">Estudo de Caso Individual: Biblioteca "Saber"</h2>
+      <p class="slide-subtitle">Aplicação individual do método em 5 etapas no caderno.</p>
+
+      <div class="card card-red" style="padding: 22px; font-size: 1.05rem; line-height: 1.8;">
+        <p>
+          <em>"A Biblioteca Municipal <strong>Saber</strong> deseja informatizar o catálogo de livros. Cada
+            <strong>livro</strong> possui um <strong>código</strong> identificador, o <strong>título</strong> da obra e
+            o <strong>ano de publicação</strong>.</em>
+        </p>
+        <p style="margin-top: 10px;">
+          <em>Cada livro é publicado por exatamente uma <strong>editora</strong>. De cada editora, são registrados o
+            <strong>código</strong> de identificação, a <strong>razão social</strong> e a <strong>cidade</strong> sede.
+            Uma editora pode publicar múltiplos livros cadastrados no acervo da biblioteca."</em>
+        </p>
+      </div>
+
+      <div class="grid-3" style="margin-top: 18px;">
+        <div class="card" style="padding: 14px;">
+          <strong style="color: var(--cps-red);">Etapa 2: Identificação</strong>
+          <p class="card-desc" style="font-size: 0.82rem; margin-top: 4px;">Identifique entidades, atributos
+            identificadores e atributos descritivos.</p>
+        </div>
+        <div class="card" style="padding: 14px;">
+          <strong style="color: var(--tech-blue);">Etapa 3: Cardinalidades</strong>
+          <p class="card-desc" style="font-size: 0.82rem; margin-top: 4px;">Defina os limites mínimos e máximos de
+            publicação entre Livro e Editora.</p>
+        </div>
+        <div class="card" style="padding: 14px;">
+          <strong style="color: var(--tech-green);">Etapas 4 e 5: Diagramação</strong>
+          <p class="card-desc" style="font-size: 0.82rem; margin-top: 4px;">Desenhe o DER na notação Chen com todos os
+            símbolos e conexões.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 26: Exercício 2 - Gabarito e Resolução -->
+    <section class="slide">
+      <div class="section-tag">Gabarito Técnico &bull; Exercício 2</div>
+      <h2 class="slide-title">Resolução: Biblioteca &bull; DER Notação Chen</h2>
+      <p class="slide-subtitle">Solução formal para conferência e validação da modelagem individual.</p>
+
+      <div class="diagram-container">
+        <img src="img/der_editora.png" alt="DER Notação Chen — Estudo de Caso Biblioteca Saber" class="diagram-img">
+      </div>
+
+      <div class="callout callout-blue" style="margin-top: 14px;">
+        <strong>Conclusão da Modelagem:</strong> A cardinalidade máxima (1,N) define que a chave identificadora de
+        <code>EDITORA</code> migrará posteriormente como Chave Estrangeira (FK) para a relação <code>LIVRO</code> na
+        fase de projeto lógico.
+      </div>
+    </section>
+
+    <!-- SLIDE 27: Encerramento e Próximos Passos -->
+    <section class="slide slide-cover">
+      <div class="section-tag">Encerramento &bull; Próximos Passos</div>
+      <h2 class="cover-title" style="font-size: 2.6rem;">Síntese da Aula 01</h2>
+      <p class="slide-subtitle" style="max-width: 720px; margin-bottom: 24px;">
+        Consolidação dos fundamentos teóricos de persistência, níveis de abstração e início do ciclo de modelagem
+        conceitual.
+      </p>
+
+      <div class="card card-red" style="max-width: 680px; text-align: left; margin: 0 auto 24px auto;">
+        <div class="card-title">Tópicos da Próxima Aula (Aula 02):</div>
+        <ul style="color: var(--cps-gray-medium); font-size: 0.9rem; line-height: 1.8; padding-left: 18px;">
+          <li>Tipologia de atributos (compostos, multivalorados, derivados e identificadores).</li>
+          <li>Entidades Fortes e Entidades Fracas (dependência existencial e de identificação).</li>
+          <li>Início da utilização prática do software de modelagem <strong>brModelo</strong> em laboratório.</li>
+        </ul>
+      </div>
+
+      <div style="color: var(--cps-gray-medium); font-size: 0.85rem;">
+        Faculdade de Tecnologia de Sorocaba — Fatec Sorocaba &bull; Centro Paula Souza
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé de Navegação -->
+  <footer class="bottom-nav">
+    <div class="shortcuts-hint">
+      <span>Navegação: <kbd class="key-cap">&larr;</kbd> <kbd class="key-cap">&rarr;</kbd> ou <kbd
+          class="key-cap">Espaço</kbd></span>
+      <span>Visão Geral: <kbd class="key-cap">O</kbd></span>
+      <span>Tela Cheia: <kbd class="key-cap">F</kbd></span>
+    </div>
+
+    <div class="nav-buttons">
+      <button id="btn-overview" class="btn-nav" title="Visão Geral dos Slides (Atalho: O)">
+        <span>📑</span> Visão Geral
+      </button>
+      <button id="btn-prev" class="btn-nav" title="Slide Anterior (Atalho: Seta Esquerda)">
+        <span>&larr;</span> Anterior
+      </button>
+      <button id="btn-next" class="btn-nav" title="Próximo Slide (Atalho: Seta Direita)">
+        Próximo <span>&rarr;</span>
+      </button>
+      <button id="btn-fullscreen" class="btn-nav" title="Alternar Tela Cheia (Atalho: F)">
+        <span>⛶</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Modal de Visão Geral (Overview Grid) -->
+  <div id="overview-modal">
+    <div class="overview-header">
+      <h2 style="color: var(--cps-gray-dark); font-size: 1.3rem;">Sumário de Slides — Aula 01</h2>
+      <button id="btn-close-overview" class="btn-nav">✕ Fechar (Esc)</button>
+    </div>
+    <div id="overview-grid" class="overview-grid"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

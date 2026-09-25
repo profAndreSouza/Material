@@ -1,0 +1,565 @@
+/* ==========================================================================
+   BANCO DE DADOS I — TEMA INSTITUCIONAL FATEC SOROCABA / CPS
+   Identidade: Fundo Claro Institucional, Vermelho CPS (#b20000), 
+   Design Limpo, Técnico e Alta Legibilidade para Projetor
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Cores Institucionais Fatec / CPS */
+  --cps-red: #b20000;
+  --cps-red-dark: #8c0000;
+  --cps-red-light: #fff1f2;
+  --cps-gray-dark: #1e293b;
+  --cps-gray-medium: #475569;
+  --cps-gray-light: #f8fafc;
+  --cps-border: #e2e8f0;
+  --cps-border-strong: #cbd5e1;
+
+  /* Cores de Apoio Técnico */
+  --tech-blue: #0284c7;
+  --tech-blue-bg: #f0f9ff;
+  --tech-indigo: #4f46e5;
+  --tech-green: #15803d;
+  --tech-green-bg: #f0fdf4;
+  --tech-amber: #b45309;
+  --tech-amber-bg: #fffbeb;
+
+  /* Tipografia */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+
+  /* Transição */
+  --transition: all 0.25s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f5f9;
+  color: var(--cps-gray-dark);
+  font-family: var(--font-main);
+  line-height: 1.5;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  user-select: none;
+}
+
+/* ==========================================================================
+   BARRA DE PROGRESSO & CABEÇALHO GLOBAL
+   ========================================================================== */
+
+#progress-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--cps-red);
+  transition: width 0.3s ease;
+}
+
+.slide-counter-badge {
+  position: fixed;
+  top: 14px;
+  left: 28px;
+  z-index: 950;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cps-gray-medium);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--cps-border);
+}
+
+/* ==========================================================================
+   CONTAINER DO SLIDER
+   ========================================================================== */
+
+.presentation-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  background-image: url('template_bg.png');
+  background-size: 100% 100%;
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding: 110px 70px 75px 70px;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  transition: opacity 0.25s ease-out, visibility 0.25s;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+}
+
+/* Slide Cover Special */
+.slide.slide-cover {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 60px 80px 60px;
+}
+
+/* ==========================================================================
+   TIPOGRAFIA TÉCNICA
+   ========================================================================== */
+
+.section-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cps-red);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-tag::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--cps-red);
+  border-radius: 50%;
+}
+
+h1.cover-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--cps-gray-dark);
+  line-height: 1.15;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+h1.cover-title span {
+  color: var(--cps-red);
+}
+
+h2.slide-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--cps-gray-dark);
+  line-height: 1.25;
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+
+.slide-subtitle {
+  font-size: 1.05rem;
+  color: var(--cps-gray-medium);
+  margin-bottom: 22px;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   CARDS & GRIDS
+   ========================================================================== */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  width: 100%;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.card {
+  background: var(--cps-gray-light);
+  border: 1px solid var(--cps-border);
+  border-radius: 8px;
+  padding: 20px;
+  transition: var(--transition);
+}
+
+.card:hover {
+  border-color: var(--cps-border-strong);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card-red {
+  border-left: 4px solid var(--cps-red);
+}
+
+.card-blue {
+  border-left: 4px solid var(--tech-blue);
+}
+
+.card-green {
+  border-left: 4px solid var(--tech-green);
+}
+
+.card-amber {
+  border-left: 4px solid var(--tech-amber);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cps-gray-dark);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--cps-gray-medium);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   TABELAS
+   ========================================================================== */
+
+.table-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--cps-border);
+  background: #ffffff;
+}
+
+table.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+table.modern-table th {
+  background: #f1f5f9;
+  color: var(--cps-gray-dark);
+  font-weight: 700;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--cps-red);
+  text-align: left;
+}
+
+table.modern-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--cps-border);
+  color: var(--cps-gray-dark);
+  vertical-align: middle;
+}
+
+table.modern-table tr:last-child td {
+  border-bottom: none;
+}
+
+table.modern-table tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+/* ==========================================================================
+   DIAGRAMAS VISUAIS (SVG CLARO)
+   ========================================================================== */
+
+.diagram-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid var(--cps-border);
+}
+
+.diagram-svg {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+}
+
+.diagram-img {
+  max-width: 100%;
+  max-height: 400px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ==========================================================================
+   BADGES & CALLOUTS
+   ========================================================================== */
+
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-red { background: var(--cps-red-light); color: var(--cps-red-dark); }
+.badge-blue { background: var(--tech-blue-bg); color: var(--tech-blue); }
+.badge-green { background: var(--tech-green-bg); color: var(--tech-green); }
+.badge-gray { background: #f1f5f9; color: var(--cps-gray-dark); }
+
+.callout {
+  padding: 14px 18px;
+  border-radius: 6px;
+  background: #f8fafc;
+  border-left: 4px solid var(--cps-red);
+  margin: 14px 0;
+  font-size: 0.92rem;
+  color: var(--cps-gray-dark);
+}
+
+.callout-blue {
+  background: var(--tech-blue-bg);
+  border-left-color: var(--tech-blue);
+}
+
+.code-box {
+  background: #f8fafc;
+  border: 1px solid var(--cps-border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--cps-gray-dark);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   MÉTODO EM 5 ETAPAS (STEPPER CLARO)
+   ========================================================================== */
+
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 18px 0;
+  position: relative;
+}
+
+.stepper::before {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background: var(--cps-border-strong);
+  z-index: 1;
+}
+
+.step-item {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  padding: 0 6px;
+}
+
+.step-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--cps-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--cps-red);
+  margin-bottom: 8px;
+}
+
+.step-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--cps-gray-dark);
+  margin-bottom: 2px;
+}
+
+.step-desc {
+  font-size: 0.78rem;
+  color: var(--cps-gray-medium);
+}
+
+/* ==========================================================================
+   RODAPÉ DE NAVEGAÇÃO
+   ========================================================================== */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: #ffffff;
+  border-top: 1px solid var(--cps-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 28px;
+  z-index: 900;
+}
+
+.shortcuts-hint {
+  font-size: 0.78rem;
+  color: var(--cps-gray-medium);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.key-cap {
+  background: #f1f5f9;
+  border: 1px solid var(--cps-border-strong);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--cps-gray-dark);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-nav {
+  background: #ffffff;
+  border: 1px solid var(--cps-border-strong);
+  color: var(--cps-gray-dark);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-nav:hover {
+  background: #f8fafc;
+  border-color: var(--cps-red);
+  color: var(--cps-red);
+}
+
+.btn-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Modal Overview */
+#overview-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.98);
+  z-index: 2000;
+  display: none;
+  flex-direction: column;
+  padding: 30px 40px;
+  overflow-y: auto;
+}
+
+#overview-modal.active {
+  display: flex;
+}
+
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--cps-red);
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.overview-card {
+  background: var(--cps-gray-light);
+  border: 1px solid var(--cps-border);
+  border-radius: 6px;
+  padding: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.overview-card:hover, .overview-card.current {
+  border-color: var(--cps-red);
+  box-shadow: 0 2px 8px rgba(178, 0, 0, 0.15);
+}
+
+.overview-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cps-red);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.overview-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--cps-gray-dark);
+}
