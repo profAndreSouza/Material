@@ -12,8 +12,8 @@ Cronograma oficial das avaliações regimentais (P1) para as turmas **TADS2** e 
 | :--- | :--- | :--- | :---: |
 | **21/09** | Segunda-feira | DevOps (Integração e Entrega Contínua) | [Acessar Guia](./Integração%20e%20Entrega%20Contínua%20-%20DevOps/GUIA_ESTUDO_P1.md) |
 | **22/09** | Terça-feira | Ciência de Dados | [Acessar Guia](./Ciencia%20de%20Dados/GUIA_ESTUDO_P1.md) |
-| **28/09** | Segunda-feira | Automação Industrial | [Acessar Guia](./Automação%20Industrial/GUIA_ESTUDO_P1.md) |
 | **29/09** | Terça-feira | Computação em Nuvem | [Acessar Guia](./Computação%20em%20Nuvem/GUIA_ESTUDO_P1.md) |
+| **30/09** | Quarta-feira | Automação Industrial | [Acessar Guia](./Automação%20Industrial/GUIA_ESTUDO_P1.md) |
 
 ---
 
@@ -35,7 +35,7 @@ Cronograma oficial das avaliações regimentais (P1) para as turmas **TADS2** e 
 | **DevOps** | 21/09 (Seg) | 23/09 (Qua) | [📘 GUIA_ESTUDO_P1.md](./Integração%20e%20Entrega%20Contínua%20-%20DevOps/GUIA_ESTUDO_P1.md) |
 | **Ciência de Dados** | 22/09 (Ter) | 22/09 (Ter) | [📘 GUIA_ESTUDO_P1.md](./Ciencia%20de%20Dados/GUIA_ESTUDO_P1.md) |
 | **Governança de TI** | 23/09 (Qua) | 23/09 (Qua) | [📘 GUIA_ESTUDO_P1.md](./Governança%20de%20TI/GUIA_ESTUDO_P1.md) |
-| **Automação Industrial** | 28/09 (Seg) | 30/09 (Qua) | [📘 GUIA_ESTUDO_P1.md](./Automação%20Industrial/GUIA_ESTUDO_P1.md) |
+| **Automação Industrial** | 30/09 (Qua) | 30/09 (Qua) | [📘 GUIA_ESTUDO_P1.md](./Automação%20Industrial/GUIA_ESTUDO_P1.md) |
 | **Computação em Nuvem** | 29/09 (Ter) | 29/09 (Ter) | [📘 GUIA_ESTUDO_P1.md](./Computação%20em%20Nuvem/GUIA_ESTUDO_P1.md) |
 
 ---
