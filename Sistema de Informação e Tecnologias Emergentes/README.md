@@ -117,14 +117,18 @@ timeline
   * **Entregável:** Ficha técnica dissecando uma transação com interação de contrato (gas limit, gas used, logs de eventos e hashes).
 
 #### **Aula 03: Smart Contracts (Solidity), Tokenização RWA e Aplicações em SI**
-* **Objetivo:** Desenvolver, compilar e executar um contrato inteligente autônomo com casos de uso corporativos.
+* 📓 **Notebook da Aula:** [Aula03_Smart_Contracts_Solidity_RWA.ipynb](./Aula03_Smart_Contracts_Solidity_RWA.ipynb)
+* 🖥️ **Slides Interativos (HTML):** [aula3/index.html](./aula3/index.html)
+* 🌐 **Ambiente de Desenvolvimento:** [Google Colab](https://colab.research.google.com/)
+* **Objetivo:** Compreender smart contracts e tokenização por meio de uma simulação visual e interativa em Python.
 * **Conteúdo Teórico (1h):**
-  * Anatomia de um *Smart Contract* (Solidity): variáveis de estado, modificadores de acesso (`public`, `private`, `onlyOwner`), eventos e funções pagáveis (`payable`).
-  * Padrões de Token: ERC-20 (fungíveis) e ERC-721/1155 (não-fungíveis).
-  * Aplicações Corporativas em SI: Rastreabilidade de cadeia de suprimentos (*Supply Chain*), Tokenização de Ativos do Mundo Real (*Real World Assets - RWA*) e Identidade Auto-Soberana (SSI).
+  * Modelo mental de um *Smart Contract*: pedido, regra, mudança de estado e evento.
+  * Visão geral dos padrões ERC-20, ERC-721 e ERC-1155 por meio de analogias com ativos fungíveis, únicos e multitipo.
+  * Tokenização de Ativos do Mundo Real (*Real World Assets - RWA*): vínculo entre ativo, custódia, documento jurídico e representação digital.
+  * Aplicações em SI: rastreabilidade, certificados, ativos corporativos, credenciais e pagamentos condicionados.
 * **Exercício Prático (40min):**
-  * **Prática:** Criação, compilação e deploy de um Smart Contract de rastreabilidade ou registro de ativos utilizando o ambiente de desenvolvimento *Remix IDE*.
-  * **Entregável:** Execução documentada de escrita e leitura de estado do contrato na máquina virtual de testes do navegador.
+  * **Prática:** Simulação no Google Colab de um contrato de rastreabilidade, com permissões, eventos encadeados, tentativa de fraude e fracionamento de um ativo RWA.
+  * **Entregável:** Notebook executado, análise da operação rejeitada e proposta de tokenização para um ativo escolhido pela dupla.
 
 ---
 
@@ -219,7 +223,7 @@ timeline
 | :---: | :---: | :--- | :--- | :--- |
 | **01** | M3 | Criptografia, Hashes e Estrutura de Blockchain | Simulação interativa de mineração e quebra em cadeia | Análise de imutabilidade e efeito avalanche |
 | **02** | M3 | Consenso (PoW/PoS), EVM e Economia do Gas | Análise forense de transações reais no Etherscan | Ficha técnica de transação e consumo de Gas |
-| **03** | M3 | Smart Contracts (Solidity), Tokenização e RWA | Deploy e interação com Smart Contract no Remix IDE | Execução de contrato autônomo na EVM |
+| **03** | M3 | Smart Contracts, Tokenização e RWA | Simulação lúdica de contrato, eventos e tokens no Google Colab | Notebook executado e proposta de tokenização |
 | **04** | M4 | Cidades Inteligentes e Sistemas Ciber-Físicos (CPS) | Modelagem arquitetural de solução para crise hídrica/urbana | Diagrama de fluxo do Sistema Ciber-Físico |
 | **05** | M4 | Telemetria Urbana e Protocolos IoT (MQTT/LoRaWAN) | Publicação e assinatura telemétrica em Broker MQTT | Payloads telemétricos capturados com QoS |
 | **06** | M4 | Edge vs. Cloud Computing e Gêmeos Digitais | Particionamento de dados e desenho de Digital Twin | Matriz de decisão de borda e simulação What-If |
