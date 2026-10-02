@@ -79,8 +79,8 @@ A avaliação é formativa e contínua, valorizando o trabalho prático semana a
 | **06/nov** | **Aula 13** | **Excel IX — Análise com Tabelas Dinâmicas:** Criação de Tabelas Dinâmicas (*Pivot Tables*) e Segmentadores (*Slicers*) para relatórios gerenciais rápidos. | [`Aula_13.md`](Aulas/Aula_13.md) |
 | **13/nov** | **Aula 14** | **Excel X — Revisão Geral Prática & Simulado:** Resolução integrada de exercícios preparatórios para a avaliação final. | [`Aula_14.md`](Aulas/Aula_14.md) |
 | **20/nov** | *Feriado* | *Feriado Nacional — Dia da Consciência Negra.* | — |
-| **27/nov** | **Avaliação Final** | **PROVA PRÁTICA FINAL DE EXCEL (50% da Média Final):** Avaliação individual prática em laboratório. | [`Avaliacao_02.md`](Avaliacao_02.md) |
-| **04/dez** | **Reavaliação** | **PROVA DE RECUPERAÇÃO SOMATIVA & FEEDBACK:** Devolutiva e prova de recuperação para alunos em reavaliação. | [`Reava.md`](Reava.md) |
+| **27/nov** | **Avaliação Final** | **PROVA PRÁTICA FINAL DE EXCEL (50% da Média Final):** Avaliação individual prática em laboratório. | [`Avaliacao_02.md`](Avaliacoes/Avaliacao_02.md) |
+| **04/dez** | **Reavaliação** | **PROVA DE RECUPERAÇÃO SOMATIVA & FEEDBACK:** Devolutiva e prova de recuperação para alunos em reavaliação. | [`Reava.md`](Avaliacoes/Reava.md) |
 | **11/dez** | **Encerramento** | **Encerramento do Semestre:** Lançamento de notas finais e fechamento do diário de classe. | — |
 
 ---

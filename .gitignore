@@ -13,6 +13,7 @@ __pycache__/
 .coverage
 htmlcov/
 .mypy_cache/
+node_modules/
 
 # Databases & Datasets Cache
 *.db

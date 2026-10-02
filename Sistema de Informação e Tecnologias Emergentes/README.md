@@ -85,8 +85,8 @@ timeline
 ### Bloco A · Módulo 3: Livros-Razão Distribuídos (DLT), Blockchain e Máquinas Virtuais
 
 #### **Aula 01: Fundamentos Criptográficos, Hashes e Arquitetura de Cadeia de Blocos**
-* 📓 **Notebook da Aula:** [Aula01_Fundamentos_Blockchain_Criptografia.ipynb](file:///c:/projetos/Material/Sistema%20de%20Informa%C3%A7%C3%A3o%20e%20Tecnologias%20Emergentes/Aula01_Fundamentos_Blockchain_Criptografia.ipynb)
-* 📄 **Material em PDF:** [Aula01_Fundamentos_Blockchain_Criptografia.pdf](file:///c:/projetos/Material/Sistema%20de%20Informa%C3%A7%C3%A3o%20e%20Tecnologias%20Emergentes/Aula01_Fundamentos_Blockchain_Criptografia.pdf)
+* 📓 **Notebook da Aula:** [Aula01_Fundamentos_Blockchain_Criptografia.ipynb](Aulas/Aula_01/Aula01_Fundamentos_Blockchain_Criptografia.ipynb)
+* 📄 **Material em PDF:** [Aula01_Fundamentos_Blockchain_Criptografia.pdf](Aulas/Aula_01/Aula01_Fundamentos_Blockchain_Criptografia.pdf)
 * 🌐 **Simulador Interativo:** [https://blockchaindemo.io/](https://blockchaindemo.io/)
 * **Objetivo:** Compreender a superação da autoridade centralizada e o problema dos Generais Bizantinos via registros encadeados.
 * **Conteúdo Teórico (1h):**
@@ -101,10 +101,10 @@ timeline
   * **Entregável:** Questionário de 5 questões dissertativas de análise forense, impacto de adulteração de transações e preservação de saldos em livro-razão distribuído.
 
 #### **Aula 02: Mecanismos de Consenso Distribuído, a Rede Ethereum e a EVM**
-* 📓 **Notebook da Aula:** [Aula02_Consenso_Ethereum_EVM.ipynb](file:///c:/projetos/Material/Sistema%20de%20Informa%C3%A7%C3%A3o%20e%20Tecnologias%20Emergentes/Aula02_Consenso_Ethereum_EVM.ipynb)
-* 📝 **Caderno de Exercícios:** [Aula02_Exercicios.ipynb](file:///c:/projetos/Material/Sistema%20de%20Informa%C3%A7%C3%A3o%20e%20Tecnologias%20Emergentes/Aula02_Exercicios.ipynb)
-* 📄 **Material em PDF (Contextualizado):** [Aula02_Consenso_Ethereum_EVM.pdf](file:///c:/projetos/Material/Sistema%20de%20Informa%C3%A7%C3%A3o%20e%20Tecnologias%20Emergentes/Aula02_Consenso_Ethereum_EVM.pdf)
-* 🖥️ **Slides Interativos (HTML):** [aula2/index.html](file:///c:/projetos/Material/Sistema%20de%20Informa%C3%A7%C3%A3o%20e%20Tecnologias%20Emergentes/aula2/index.html)
+* 📓 **Notebook da Aula:** [Aula02_Consenso_Ethereum_EVM.ipynb](Aulas/Aula_02/Aula02_Consenso_Ethereum_EVM.ipynb)
+* 📝 **Caderno de Exercícios:** [Aula02_Exercicios.ipynb](Aulas/Aula_02/Aula02_Exercicios.ipynb)
+* 📄 **Material em PDF (Contextualizado):** [Aula02_Consenso_Ethereum_EVM.pdf](Aulas/Aula_02/Aula02_Consenso_Ethereum_EVM.pdf)
+* 🖥️ **Slides Interativos (HTML):** [Slides/Aula_02/index.html](Slides/Aula_02/index.html)
 * 🌐 **Explorador Blockchain:** [https://sepolia.etherscan.io/](https://sepolia.etherscan.io/)
 * **Objetivo:** Diferenciar modelos de consenso distribuído e analisar a operação computacional da Ethereum Virtual Machine.
 * **Conteúdo Teórico (1h):**
@@ -117,8 +117,8 @@ timeline
   * **Entregável:** Ficha técnica dissecando uma transação com interação de contrato (gas limit, gas used, logs de eventos e hashes).
 
 #### **Aula 03: Smart Contracts (Solidity), Tokenização RWA e Aplicações em SI**
-* 📓 **Notebook da Aula:** [Aula03_Smart_Contracts_Solidity_RWA.ipynb](./Aula03_Smart_Contracts_Solidity_RWA.ipynb)
-* 🖥️ **Slides Interativos (HTML):** [aula3/index.html](./aula3/index.html)
+* 📓 **Notebook da Aula:** [Aula03_Smart_Contracts_Solidity_RWA.ipynb](Aulas/Aula_03/Aula03_Smart_Contracts_Solidity_RWA.ipynb)
+* 🖥️ **Slides Interativos (HTML):** [Slides/Aula_03/index.html](Slides/Aula_03/index.html)
 * 🌐 **Ambiente de Desenvolvimento:** [Google Colab](https://colab.research.google.com/)
 * **Objetivo:** Compreender smart contracts e tokenização por meio de uma simulação visual e interativa em Python.
 * **Conteúdo Teórico (1h):**

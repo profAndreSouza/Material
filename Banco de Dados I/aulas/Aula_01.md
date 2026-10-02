@@ -4,11 +4,54 @@
 **Curso:** Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas (TADS) &nbsp;|&nbsp; **Matriz Curricular:** 1º Semestre (R-11)  
 **Componente Curricular:** Banco de Dados I &nbsp;|&nbsp; **Carga Horária:** 80 Aulas (20 Semanas)  
 **Docente Responsável:** Prof. André Souza  
-**Data Calendário:** 07/08/2026 &nbsp;|&nbsp; **Data Programada:** 25/09/2026  
-**Modalidade:** Presencial em Laboratório de Informática  
+**Data da aula:** 02/10/2026
+**Modalidade:** Remota síncrona via Microsoft Teams
 **Tema:** Apresentação da Disciplina, Fundamentos da Persistência Estruturada, Níveis de Abstração (ANSI/SPARC), Ciclo de Modelagem e Abordagem MER vs. DER  
 **Ambiente de Software:** Introdução Conceitual ao Ecossistema de SGBDs e Ferramenta brModelo (v3.0 / Web) — *Prática inicial desplugada (papel e caneta)*  
 **Articulação com o PPC:** Competência 1 e 2 — Compreender os fundamentos de armazenamento estruturado, independência de dados e operação de SGBDs  
+
+---
+
+## 0. ORGANIZAÇÃO DA AULA NO TEAMS — 3H20
+
+### Objetivos essenciais da primeira aula
+
+Ao final do encontro, o estudante deverá ser capaz de:
+
+1. diferenciar dado, informação, metadado, banco de dados e SGBD;
+2. reconhecer por que um SGBD oferece mais controle que arquivos isolados;
+3. distinguir os níveis conceitual, lógico e físico de um projeto de banco de dados;
+4. identificar entidades, atributos, relacionamentos e cardinalidades simples em um enunciado.
+
+### Roteiro cronológico
+
+| Momento | Duração | Condução | Conteúdo e entrega |
+| :--- | :---: | :--- | :--- |
+| **Bloco 1 — Fundamentos** | **60 min** | Exposição dialogada no Teams | Acolhida e plano da disciplina (15 min); dado, informação e metadado (15 min); tipos de dados e SQL/NoSQL (10 min); arquivos versus SGBD, ANSI/SPARC e independência de dados (20 min). |
+| **Fixação 1 — Durante a aula** | **40 min** | Trabalho individual ou em dupla, com dúvidas pelo chat | Folha de respostas com quatro questões curtas sobre fundamentos, tipologia de dados, SGBD e níveis de abstração. Entrega pelo canal definido no Teams ao final do tempo. |
+| **Bloco 2 — Correção e modelagem** | **60 min** | Correção dialogada seguida de exposição | Correção da Fixação 1 (15 min); níveis conceitual, lógico e físico (15 min); MER versus DER (10 min); método de cinco etapas e exemplo PetCare (20 min). |
+| **Fixação 2 — Para a próxima aula** | **40 min** | Trabalho individual, iniciado no Teams | Estudo de caso Biblioteca Saber. O estudante aplica as cinco etapas e produz um DER em papel. A correção ocorrerá na próxima aula presencial. |
+
+### Combinados para a aula remota
+
+- Os estudantes podem enviar dúvidas pelo chat durante a explicação; o docente reserva pequenas pausas para respondê-las.
+- Na Fixação 1, os estudantes permanecem na reunião e podem trabalhar em duplas por chamada privada ou sala simultânea, se disponível.
+- A entrega da Fixação 1 deve conter nome, turma e respostas numeradas.
+- A Fixação 2 deve ser fotografada ou digitalizada, mas o gabarito não será exibido nesta aula.
+
+### Caso condutor do Bloco 1 — Loja Conecta
+
+O primeiro bloco utiliza uma única situação empresarial para conectar os conceitos. A **Loja Conecta** começou registrando clientes e vendas em planilhas. Com o crescimento das vendas pela internet, estoque, financeiro, vendas e atendimento passaram a manter arquivos diferentes. Surgiram endereços divergentes, reservas duplicadas da última unidade de um produto, pagamentos sem vínculo claro com pedidos e relatórios que exigem consolidação manual.
+
+O docente retoma esse caso ao explicar:
+
+- **persistência:** o pedido deve continuar registrado mesmo após o fechamento do aplicativo;
+- **dado, informação e metadado:** `450,00` ganha sentido quando associado ao pedido PED-1024, e seu campo precisa ter tipo e restrições definidos;
+- **tipos de dados:** pedidos ficam em tabelas, respostas de frete podem vir em JSON e fotografias de produtos são dados não estruturados;
+- **SQL e NoSQL:** clientes, pedidos e pagamentos exigem integridade, enquanto catálogos heterogêneos podem demandar maior flexibilidade;
+- **SGBD:** uma fonte central reduz duplicidade e divergência entre as planilhas dos setores;
+- **ANSI/SPARC:** atendente, analista e infraestrutura trabalham com visões diferentes do mesmo banco;
+- **independência física:** a equipe pode criar índices para acelerar pesquisas sem alterar a tela de atendimento.
 
 ---
 
@@ -378,7 +421,7 @@ O analista de banco de dados deve utilizar as classes gramaticais da língua por
 
 ## 4. LABORATÓRIO PRÁTICO DE MODELAGEM DESPLUGADA
 
-### 4.1 Exercício 1 — Prática Guiada pelo Docente (Clínica Veterinária "PetCare")
+### 4.1 Exemplo Guiado do Bloco 2 — Clínica Veterinária "PetCare"
 
 #### Etapa 1: Leitura do Texto Narrativo
 > *"A clínica veterinária **PetCare** necessita informatizar seus atendimentos. O sistema deve cadastrar os **clientes**, armazenando o **código identificador**, o **nome completo** e o **telefone** de contato. Cada cliente pode possuir um ou vários **pets** (animais). De cada pet, devem ser registrados o **código de registro**, o **nome** e a **espécie** (cão, gato, etc.). Regra obrigatória da clínica: todo pet cadastrado deve pertencer obrigatoriamente a exatamente um cliente."*
@@ -408,11 +451,17 @@ O analista de banco de dados deve utilizar as classes gramaticais da língua por
         (nome)                                   (nome)
 ```
 
-> **Correspondência nos Slides:** Consulte a imagem oficial da modelagem em [`slides/img/der_pet.png`](file:///c:/projetos/Material/Banco%20de%20Dados%20I/slides/img/der_pet.png), apresentada no **Slide 24**.
+> **Correspondência nos Slides:** Consulte a imagem oficial da modelagem em [`slides/img/der_pet.png`](file:///c:/projetos/Material/Banco%20de%20Dados%20I/slides/img/der_pet.png), apresentada no **Slide 28**.
 
 ---
 
-### 4.2 Exercício 2 — Prática Individual / Duplas em Sala (Biblioteca Municipal "Saber")
+### 4.2 Fixação 2 — Atividade Individual para a Próxima Aula Presencial (Biblioteca Municipal "Saber")
+
+**Tempo reservado no Teams:** 40 minutos.
+
+**Entrega esperada:** texto marcado, lista de elementos, cardinalidades justificadas e DER na notação de Chen.
+
+**Correção:** início da próxima aula presencial. O gabarito abaixo é exclusivo para o planejamento docente e não deve ser projetado durante esta aula.
 
 #### Etapa 1: Texto Narrativo do Estudo de Caso
 > *"A Biblioteca Municipal **Saber** deseja informatizar o controle de seu acervo de obras. Cada **livro** possui um **código identificador**, o **título** da obra e o **ano de publicação**. Cada livro é publicado por exatamente uma **editora**. De cada editora, deseja-se registrar o **código de identificação**, a **razão social** e a **cidade** sede. Sabe-se que uma editora cadastrada pode ter publicado múltiplos livros disponíveis na biblioteca."*
@@ -442,7 +491,7 @@ O analista de banco de dados deve utilizar as classes gramaticais da língua por
     (razao_social)                               (titulo)
 ```
 
-> **Correspondência nos Slides:** Consulte a imagem de gabarito em [`slides/img/der_editora.png`](file:///c:/projetos/Material/Banco%20de%20Dados%20I/slides/img/der_editora.png), apresentada no **Slide 26**.
+> **Material do docente:** o gabarito está em [`slides/img/der_editora.png`](file:///c:/projetos/Material/Banco%20de%20Dados%20I/slides/img/der_editora.png), mas não integra a apresentação desta aula.
 
 #### Conexão Pedagógica com a Fase Lógica Futura:
 Observe que, ao resolvermos o modelo conceitual com a cardinalidade $(1,N)$, antecipamos uma regra matemática fundamental do Modelo Relacional que estudaremos na Aula 04: **a chave primária do lado (1) migrará compulsoriamente como Chave Estrangeira (FK) para a tabela do lado (N)**.  
@@ -452,21 +501,19 @@ Portanto, a tabela `LIVRO` receberá a coluna `id_editora (FK)`.
 
 ## 5. ATIVIDADES DE FIXAÇÃO E AVALIAÇÃO FORMATIVA
 
-1. **Análise Comparativa de Níveis de Abstração:**  
-   Correlacione os itens abaixo ao seu nível de projeto correspondente (**[C]** Conceitual, **[L]** Lógico ou **[F]** Físico):
-   * ( ) Criação de um índice do tipo `B-TREE` na coluna `cpf` para acelerar buscas binárias.
-   * ( ) Definição da cardinalidade binária `(1,N)` entre as entidades `DEPARTAMENTO` e `FUNCIONARIO`.
-   * ( ) Estruturação da tabela relacional `TB_ALUNO` com chave primária simples `ra_aluno` do tipo numérico.
-   * ( ) Identificação com os diretores de uma fábrica de que toda ordem de serviço deve conter ao menos uma peça aplicada.
+### 5.1 Fixação 1 — 40 minutos, com correção no início do Bloco 2
 
-2. **Diferenciação Crítica MER vs. DER:**  
-   Explique a uma equipe de programadores por que afirmar que *"O banco de dados PostgreSQL executa o MER"* é um erro conceitual duplo.
+O estudante responde às questões 1 a 4. Sugestão de tempo: 8 minutos por questão e 8 minutos finais para revisão e envio.
 
-3. **Tipologia de Dados e Seleção Arquitetural:**  
-   Um hospital necessita armazenar: (a) o cadastro cadastral e financeiro de internações dos pacientes; (b) os arquivos de exames de tomografia computadorizada e ressonância magnética (imagens DICOM); e (c) as anotações livres de evolução médica diária dos enfermeiros. Classifique cada um desses três itens quanto à tipologia dos dados (Estruturado, Semiestruturado ou Não Estruturado) e justifique por que um SGBD relacional convencional é inadequado para armazenar diretamente as imagens de alta resolução nos registros tabulares.
+1. **Dado, informação e metadado:** use o valor `450,00` para criar um exemplo de dado e de informação. Depois, cite dois metadados necessários para armazená-lo corretamente.
 
-4. **Arquitetura ANSI/SPARC e Manutenção Industrial:**  
-   A diretoria de tecnologia de uma instituição bancária optou por alterar a criptografia dos discos de armazenamento e reorganizar a ordenação física dos arquivos em blocos de 64 KB. Os sistemas de home banking e caixas eletrônicos precisarão ter seus códigos-fonte alterados? Qual conceito da arquitetura tripartite assegura essa resposta?
+2. **Tipologia dos dados:** classifique o cadastro de pacientes, um laudo em JSON e uma imagem de tomografia como dado estruturado, semiestruturado ou não estruturado. Justifique cada resposta.
+
+3. **Arquivos e SGBD:** explique dois problemas que podem surgir quando setores mantêm cópias do mesmo cadastro em planilhas separadas. Para cada problema, descreva como um SGBD pode ajudar.
+
+4. **Arquitetura ANSI/SPARC:** a troca do disco e a reorganização física dos arquivos obrigam a equipe a alterar o sistema usado pelos clientes? Justifique a resposta com o conceito de independência física de dados.
+
+### 5.2 Atividade complementar opcional
 
 5. **Exercício Prático Desplugado Complementar:**  
    Aplique o método das 5 etapas para o seguinte cenário e elabore o respectivo DER de Chen no caderno:  
@@ -493,4 +540,3 @@ Portanto, a tabela `LIVRO` receberá a coluna `id_editora (FK)`.
    * **Capítulos 1 e 2 (p. 15–58):** Ciclo de vida do projeto de banco de dados (Conceitual, Lógico e Físico), elicitação de requisitos e modelagem orientada a ferramentas visuais.
 6. **SADALAGE, Pramod J.; FOWLER, Martin.** *NoSQL Essencial: Um Guia Conciso para o Mundo Pragmático do Armazenamento de Dados Poliglota.* São Paulo: Novatec, 2013.  
    * *Análise da persistência poliglota na arquitetura de sistemas corporativos modernos e a matriz de decisão técnica entre tecnologias relacionais e não relacionais.*
-

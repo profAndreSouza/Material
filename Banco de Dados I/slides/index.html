@@ -18,7 +18,7 @@
   </div>
 
   <!-- Contador de Slide -->
-  <div id="slide-counter" class="slide-counter-badge">01 / 24</div>
+  <div id="slide-counter" class="slide-counter-badge">01 / 30</div>
 
   <!-- Container Principal dos Slides -->
   <main class="presentation-container">
@@ -36,12 +36,79 @@
         <span class="badge badge-gray">CST em Análise e Desenvolvimento de Sistemas</span>
         <span class="badge badge-gray">1º Semestre &bull; Matriz R-11</span>
         <span class="badge badge-blue">Prof. André Souza</span>
+        <span class="badge badge-green">Aula remota pelo Teams</span>
       </div>
 
       <div class="callout" style="max-width: 760px; text-align: left;">
-        <strong>Conteúdo da Aula:</strong> Apresentação do plano de ensino (ementa, avaliação, cronograma e
-        bibliografia), fundamentos de dados e metadados, arquitetura ANSI/SPARC, níveis de modelagem (conceitual, lógico
-        e físico), distinção formal entre MER e DER, e prática inicial de modelagem conceitual em papel.
+        <strong>Dinâmica de hoje:</strong> 1 hora de fundamentos, 40 minutos de fixação, 1 hora de correção e modelagem
+        conceitual, e 40 minutos para iniciar a atividade que será corrigida na próxima aula presencial.
+      </div>
+    </section>
+
+    <!-- ROTEIRO DA AULA NO TEAMS -->
+    <section class="slide">
+      <div class="section-tag">Organização do encontro &bull; 3h20</div>
+      <h2 class="slide-title">Roteiro da Aula 01</h2>
+      <p class="slide-subtitle">Dois blocos de explicação, cada um seguido por 40 minutos de prática.</p>
+
+      <div class="stepper">
+        <div class="step-item">
+          <div class="step-circle">1</div>
+          <div class="step-title">Fundamentos</div>
+          <div class="step-desc">60 min de conceitos</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">2</div>
+          <div class="step-title">Fixação 1</div>
+          <div class="step-desc">40 min, entrega no Teams</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">3</div>
+          <div class="step-title">Correção e modelagem</div>
+          <div class="step-desc">60 min</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">4</div>
+          <div class="step-title">Fixação 2</div>
+          <div class="step-desc">40 min, correção presencial</div>
+        </div>
+      </div>
+
+      <div class="callout callout-blue" style="margin-top: 24px;">
+        <strong>Durante as atividades:</strong> permaneça na reunião, registre as respostas no caderno e envie dúvidas
+        pelo chat. Identifique a entrega com nome e turma.
+      </div>
+    </section>
+
+    <!-- CASO CONDUTOR DO BLOCO 1 -->
+    <section class="slide">
+      <div class="section-tag">Bloco 1 &bull; Situação de abertura</div>
+      <h2 class="slide-title">O crescimento da Loja Conecta</h2>
+      <p class="slide-subtitle">Uma pequena loja começou com uma planilha. Depois das vendas pela internet, o mesmo método passou a causar atrasos, divergências e retrabalho.</p>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <div class="card-title">Como a operação funciona hoje</div>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.9rem; line-height: 1.75; padding-left: 18px;">
+            <li>Vendas registra clientes e pedidos em uma planilha.</li>
+            <li>O estoque mantém outro arquivo com produtos e quantidades.</li>
+            <li>O financeiro copia os pedidos para controlar pagamentos.</li>
+            <li>O atendimento consulta conversas e anotações separadas.</li>
+          </ul>
+        </div>
+        <div class="card card-blue">
+          <div class="card-title">Problemas percebidos</div>
+          <ul style="color: var(--cps-gray-medium); font-size: 0.9rem; line-height: 1.75; padding-left: 18px;">
+            <li>O endereço do mesmo cliente aparece de formas diferentes.</li>
+            <li>Dois vendedores podem reservar a última unidade do produto.</li>
+            <li>Alguns pagamentos não ficam associados ao pedido correto.</li>
+            <li>Preparar o relatório mensal exige reunir vários arquivos.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-blue" style="margin-top: 18px;">
+        <strong>Pergunta para a turma:</strong> qual desses problemas parece mais grave? Durante o bloco, veremos como dados, metadados, SGBD e níveis de abstração ajudam a organizar essa operação.
       </div>
     </section>
 
@@ -49,8 +116,7 @@
     <section class="slide">
       <div class="section-tag">Introdução</div>
       <h2 class="slide-title">Papel dos Bancos de Dados em Sistemas de Informação</h2>
-      <p class="slide-subtitle">Aplicações de software dependem de persistência confiável, estruturada e padronizada.
-      </p>
+      <p class="slide-subtitle">Quando uma compra é paga, o aplicativo pode fechar, mas o pedido, o estoque e o pagamento precisam continuar registrados e consistentes.</p>
 
       <div class="grid-3">
         <div class="card card-red">
@@ -71,8 +137,8 @@
       </div>
 
       <div class="callout callout-blue" style="margin-top: 20px;">
-        <strong>Conclusão Técnica:</strong> Em arquiteturas de software, o banco de dados é a camada responsável pela
-        integridade, disponibilidade e durabilidade dos dados corporativos.
+        <strong>Na Loja Conecta:</strong> o banco precisa registrar o pedido mesmo que o navegador feche, impedir a
+        venda de estoque inexistente e manter o pagamento associado ao cliente correto.
       </div>
     </section>
 
@@ -80,7 +146,7 @@
     <section class="slide">
       <div class="section-tag">Plano de Ensino &bull; Ementa</div>
       <h2 class="slide-title">Ementa Regimental (PPC — Matriz R-11)</h2>
-      <p class="slide-subtitle">Conteúdo programático e competências regimentais definidas para a disciplina.</p>
+      <p class="slide-subtitle">Ao longo do semestre, partiremos de uma necessidade real, como controlar pedidos de uma loja, até chegar às tabelas e consultas que sustentam o sistema.</p>
 
       <div class="grid-2">
         <div class="card card-red">
@@ -115,7 +181,7 @@
     <section class="slide">
       <div class="section-tag">Plano de Ensino &bull; Objetivos</div>
       <h2 class="slide-title">Objetivos de Aprendizagem do Semestre</h2>
-      <p class="slide-subtitle">Habilidades técnicas esperadas ao término da disciplina.</p>
+      <p class="slide-subtitle">O objetivo é conseguir ouvir uma regra como “cada pedido pertence a um cliente” e transformá-la em um banco íntegro e consultável.</p>
 
       <div class="grid-4">
         <div class="card">
@@ -149,7 +215,7 @@
     <section class="slide">
       <div class="section-tag">Plano de Ensino &bull; Avaliação</div>
       <h2 class="slide-title">Critérios de Avaliação e Composição da Média</h2>
-      <p class="slide-subtitle">Avaliação baseada no acompanhamento prático contínuo e em prova presencial.</p>
+      <p class="slide-subtitle">Como em um projeto profissional, a aprendizagem será observada nas entregas intermediárias e na capacidade de construir uma solução completa.</p>
 
       <div class="grid-2">
         <div class="card card-red">
@@ -180,7 +246,7 @@
     <section class="slide">
       <div class="section-tag">Plano de Ensino &bull; Cronograma</div>
       <h2 class="slide-title">Cronograma Estruturado em 4 Blocos</h2>
-      <p class="slide-subtitle">Organização do semestre por etapas metodológicas.</p>
+      <p class="slide-subtitle">Seguiremos o caminho usado em projetos reais: compreender o negócio, modelar, organizar as tabelas e implementar a solução em SQL.</p>
 
       <div class="grid-4">
         <div class="card card-red">
@@ -248,7 +314,7 @@
     <section class="slide">
       <div class="section-tag">Fundamentação Teórica</div>
       <h2 class="slide-title">Dado, Informação, Conhecimento e Metadado</h2>
-      <p class="slide-subtitle">Diferenciação conceitual e técnica dos componentes da informação estruturada.</p>
+      <p class="slide-subtitle">Na Loja Conecta, <code>450,00</code> isolado é apenas um dado; associado ao pedido PED-1024, passa a informar o valor de uma venda real.</p>
 
       <div class="grid-2">
         <div class="card card-red">
@@ -256,31 +322,31 @@
           <p class="card-desc">Elemento atômico bruto, sem contexto semântico intrínseco. Não permite interpretação
             isolada.</p>
           <p class="card-desc" style="margin-top: 4px;"><strong>Exemplo:</strong> <code>450.00</code>,
-            <code>'2026-09-25'</code>.
+            <code>'PED-1024'</code>.
           </p>
         </div>
 
         <div class="card card-blue">
           <div class="card-title">2. Informação (<em>Information</em>)</div>
           <p class="card-desc">Dado processado, estruturado e dotado de contexto semântico compreensível.</p>
-          <p class="card-desc" style="margin-top: 4px;"><strong>Exemplo:</strong> <em>"A manutenção preventiva da
-              máquina M-01 custou R$ 450,00 no dia 25/09/2026."</em></p>
+          <p class="card-desc" style="margin-top: 4px;"><strong>Exemplo:</strong> <em>"O pedido PED-1024, realizado por
+              Ana, totalizou R$ 450,00 e aguarda pagamento."</em></p>
         </div>
 
         <div class="card card-green">
           <div class="card-title">3. Conhecimento (<em>Knowledge</em>)</div>
           <p class="card-desc">Padrões e correlações identificados a partir de conjuntos de informações para fundamentar
             tomadas de decisão.</p>
-          <p class="card-desc" style="margin-top: 4px;"><strong>Exemplo:</strong> Identificar que manutenções
-            preventivas regulares reduzem paradas imprevistas em 40%.</p>
+          <p class="card-desc" style="margin-top: 4px;"><strong>Exemplo:</strong> perceber que pedidos pagos no mesmo
+            dia têm menos cancelamentos e priorizar sua separação.</p>
         </div>
 
         <div class="card card-amber">
           <div class="card-title">4. Metadado (<em>Metadata</em>)</div>
           <p class="card-desc">Dados que descrevem a estrutura, restrições e tipos dos dados armazenados (catálogo do
             sistema).</p>
-          <p class="card-desc" style="margin-top: 4px;"><strong>Exemplo:</strong> O campo <code>valor_custo</code> é do
-            tipo <code>NUMERIC(10,2)</code> e obrigatório (<code>NOT NULL</code>).</p>
+          <p class="card-desc" style="margin-top: 4px;"><strong>Exemplo:</strong> o campo <code>valor_total</code> usa
+            <code>NUMERIC(10,2)</code> e não aceita valores negativos.</p>
         </div>
       </div>
     </section>
@@ -289,7 +355,7 @@
     <section class="slide">
       <div class="section-tag">Infográfico Estrutural</div>
       <h2 class="slide-title">Pirâmide de Informação e Sustentação por Metadados</h2>
-      <p class="slide-subtitle">Hierarquia de refinamento de dados e o papel dos metadados como base estruturante.</p>
+      <p class="slide-subtitle">A Loja Conecta registra cada item vendido, calcula o faturamento diário e usa o histórico para decidir quais produtos precisam de reposição.</p>
 
       <div class="diagram-container">
         <img src="img/piramide_dados.png" alt="Pirâmide de Dados, Informação e Conhecimento com Metadados" class="diagram-img">
@@ -300,7 +366,7 @@
     <section class="slide">
       <div class="section-tag">Tipologia dos Dados</div>
       <h2 class="slide-title">Classificação dos Dados: Estruturados, Semiestruturados e Não Estruturados</h2>
-      <p class="slide-subtitle">Como os dados do mundo real se organizam e se relacionam com esquemas de armazenamento.</p>
+      <p class="slide-subtitle">A Loja Conecta combina pedidos em tabelas, respostas JSON do frete e fotos dos produtos; cada formato possui estrutura e uso diferentes.</p>
 
       <div class="grid-3">
         <div class="card card-red">
@@ -339,7 +405,7 @@
     <section class="slide">
       <div class="section-tag">Paradigmas de Persistência</div>
       <h2 class="slide-title">Bancos Relacionais (SQL) vs. Não Relacionais (NoSQL)</h2>
-      <p class="slide-subtitle">Comparativo conceitual e estrutural entre os dois principais paradigmas de persistência corporativa.</p>
+      <p class="slide-subtitle">Na Loja Conecta, pedidos e pagamentos pedem consistência relacional; o catálogo de fornecedores pode conter atributos muito variados.</p>
 
       <div class="grid-2">
         <div class="card card-red">
@@ -372,7 +438,7 @@
     <section class="slide">
       <div class="section-tag">Engenharia de Decisão</div>
       <h2 class="slide-title">Quando Usar Cada Paradigma & O Foco da Disciplina</h2>
-      <p class="slide-subtitle">Critérios técnicos para seleção da arquitetura de persistência e a relevância do Modelo Relacional.</p>
+      <p class="slide-subtitle">A loja pode usar SQL para clientes, pedidos e pagamentos, reservando uma estrutura flexível para descrições variáveis do catálogo.</p>
 
       <div class="grid-2">
         <div class="card card-blue">
@@ -408,7 +474,7 @@
     <section class="slide">
       <div class="section-tag">Fundamentação Teórica</div>
       <h2 class="slide-title">Sistemas de Arquivos Convencionais vs. SGBD</h2>
-      <p class="slide-subtitle">Comparativo entre o gerenciamento manual de arquivos planos e o uso de SGBD.</p>
+      <p class="slide-subtitle">Na Loja Conecta, vendas e financeiro mantêm cópias separadas dos clientes; uma alteração de endereço raramente chega a todos os arquivos.</p>
 
       <div class="grid-2">
         <div class="card card-red">
@@ -441,8 +507,7 @@
     <section class="slide">
       <div class="section-tag">Infográfico Estrutural</div>
       <h2 class="slide-title">Arquitetura ANSI/SPARC em Três Níveis</h2>
-      <p class="slide-subtitle">Padrão arquitetural para separação de responsabilidades e garantia de independência de
-        dados.</p>
+      <p class="slide-subtitle">O atendente da loja vê nome e pedido, o analista vê tabelas relacionadas e o servidor cuida de arquivos e índices: três visões do mesmo banco.</p>
 
       <div class="diagram-container">
         <svg class="diagram-svg" viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg">
@@ -498,7 +563,7 @@
     <section class="slide">
       <div class="section-tag">Fundamentação Teórica</div>
       <h2 class="slide-title">Conceito de Independência de Dados</h2>
-      <p class="slide-subtitle">Definição formal das duas formas de isolamento entre camadas de software.</p>
+      <p class="slide-subtitle">A Loja Conecta pode criar um índice para acelerar a busca por pedido sem alterar a tela usada pelo atendimento.</p>
 
       <div class="grid-2">
         <div class="card card-red">
@@ -523,11 +588,48 @@
       </div>
     </section>
 
+    <!-- FIXAÇÃO 1: atividade durante a aula -->
+    <section class="slide">
+      <div class="section-tag">Fixação 1 &bull; 40 minutos</div>
+      <h2 class="slide-title">Fundamentos de bancos de dados</h2>
+      <p class="slide-subtitle">Responda individualmente ou em dupla. Envie uma foto ou arquivo pelo canal indicado no Teams.</p>
+
+      <div class="grid-2">
+        <div class="card card-red">
+          <div class="card-title">1. Dado, informação e metadado</div>
+          <p class="card-desc">Use o valor <code>450,00</code> para criar um exemplo de dado e de informação. Depois, cite dois metadados necessários para armazená-lo.</p>
+        </div>
+        <div class="card card-blue">
+          <div class="card-title">2. Tipologia dos dados</div>
+          <p class="card-desc">Classifique cadastro de pacientes, laudo em JSON e imagem de tomografia como estruturado, semiestruturado ou não estruturado.</p>
+        </div>
+        <div class="card card-green">
+          <div class="card-title">3. Arquivos e SGBD</div>
+          <p class="card-desc">Explique dois problemas de manter cadastros em planilhas separadas e como um SGBD ajuda a resolvê-los.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">4. Independência de dados</div>
+          <p class="card-desc">A troca do disco e a reorganização dos arquivos obrigam a alterar o sistema? Justifique com a arquitetura ANSI/SPARC.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCO 2: correção da fixação e retomada -->
+    <section class="slide slide-cover">
+      <div class="section-tag">Bloco 2 &bull; 60 minutos</div>
+      <h2 class="cover-title" style="font-size: 2.6rem;">Correção e modelagem conceitual</h2>
+      <p class="slide-subtitle" style="max-width: 760px;">15 minutos para discutir a Fixação 1 e 45 minutos para níveis de modelagem, MER, DER e o método de cinco etapas.</p>
+      <div class="callout" style="max-width: 760px; text-align: left;">
+        <strong>Pontos para a correção:</strong> contexto transforma dado em informação; tipos e regras são metadados;
+        um SGBD centraliza integridade; mudanças físicas não devem alterar as visões externas.
+      </div>
+    </section>
+
     <!-- SLIDE 16: Ilustração dos 3 Níveis de Modelagem -->
     <section class="slide">
       <div class="section-tag">Infográfico Metodológico</div>
       <h2 class="slide-title">Ciclo de Modelagem: Conceitual, Lógico e Físico</h2>
-      <p class="slide-subtitle">Etapas sucessivas de refinamento de um projeto de banco de dados.</p>
+      <p class="slide-subtitle">Para informatizar uma clínica, primeiro entendemos pacientes e consultas, depois definimos tabelas e, por fim, escolhemos tipos e índices do SGBD.</p>
 
       <div class="diagram-container">
         <svg class="diagram-svg" viewBox="0 0 900 330" xmlns="http://www.w3.org/2000/svg">
@@ -617,7 +719,7 @@
     <section class="slide">
       <div class="section-tag">Fundamentação Teórica</div>
       <h2 class="slide-title">Comparativo Formal: Conceitual vs. Lógico vs. Físico</h2>
-      <p class="slide-subtitle">Síntese dos objetivos, componentes e responsabilidades em cada nível de abstração.</p>
+      <p class="slide-subtitle">A regra “um aluno realiza várias matrículas” aparece como relacionamento no conceito, como chaves no modelo lógico e como colunas SQL no físico.</p>
 
       <div class="table-container">
         <table class="modern-table">
@@ -669,7 +771,7 @@
     <section class="slide">
       <div class="section-tag">Fundamentação Teórica</div>
       <h2 class="slide-title">Diferença Formal entre MER e DER</h2>
-      <p class="slide-subtitle">Distinção técnica entre o modelo teórico abstrato e a sua representação visual.</p>
+      <p class="slide-subtitle">Assim como a organização dos cômodos é uma ideia do projeto e a planta é o desenho dessa ideia, MER e DER cumprem papéis diferentes.</p>
 
       <div class="grid-2">
         <div class="card card-red">
@@ -703,7 +805,7 @@
     <section class="slide">
       <div class="section-tag">Metodologia Prática</div>
       <h2 class="slide-title">Modelagem Inicial sem Recursos Computacionais</h2>
-      <p class="slide-subtitle">Fundamentação pedagógica para a realização da primeira modelagem em papel.</p>
+      <p class="slide-subtitle">Antes de abrir o PostgreSQL, uma equipe costuma rascunhar quem é cadastrado, quais regras precisam valer e como os elementos se relacionam.</p>
 
       <div class="card card-red" style="padding: 24px;">
         <p style="font-size: 1.05rem; line-height: 1.7; color: var(--cps-gray-dark);">
@@ -740,7 +842,7 @@
     <section class="slide">
       <div class="section-tag">Metodologia Prática</div>
       <h2 class="slide-title">Etapas da Modelagem Conceitual</h2>
-      <p class="slide-subtitle">Procedimento sequencial estruturado para análise e modelagem de requisitos.</p>
+      <p class="slide-subtitle">Partiremos de um pedido comum, como “a clínica precisa controlar clientes e pets”, até produzir um diagrama que qualquer integrante da equipe possa revisar.</p>
 
       <div class="stepper">
         <div class="step-item">
@@ -780,7 +882,7 @@
     <section class="slide">
       <div class="section-tag">Metodologia Prática</div>
       <h2 class="slide-title">Mapeamento Gramatical de Requisitos</h2>
-      <p class="slide-subtitle">Regras de identificação de elementos a partir da linguagem natural.</p>
+      <p class="slide-subtitle">Na frase “um cliente possui vários pets”, os substantivos sugerem entidades, o verbo indica a relação e “vários” ajuda a definir a cardinalidade.</p>
 
       <div class="grid-3">
         <div class="card card-red">
@@ -816,7 +918,7 @@
 
     <!-- SLIDE 22: Exercício 1 Guiado - Enunciado -->
     <section class="slide">
-      <div class="section-tag">Prática Guiada &bull; Exercício 1</div>
+      <div class="section-tag">Bloco 2 &bull; Exemplo guiado</div>
       <h2 class="slide-title">Estudo de Caso Guiado: Clínica Veterinária "PetCare"</h2>
       <p class="slide-subtitle">Etapa 1: Leitura e análise dos requisitos expressos em linguagem natural.</p>
 
@@ -837,13 +939,13 @@
       </div>
 
       <div class="callout callout-blue" style="margin-top: 18px;">
-        <strong>Atividade:</strong> Desenvolveremos juntos na lousa as etapas 2, 3, 4 e 5 deste estudo de caso.
+        <strong>Atividade:</strong> desenvolveremos juntos, por compartilhamento de tela, as etapas 2, 3, 4 e 5.
       </div>
     </section>
 
     <!-- SLIDE 23: Exercício 1 Guiado - Etapas 2 e 3 -->
     <section class="slide">
-      <div class="section-tag">Prática Guiada &bull; Exercício 1</div>
+      <div class="section-tag">Bloco 2 &bull; Exemplo guiado</div>
       <h2 class="slide-title">Etapas 2 e 3: Elementos e Regras de Negócio</h2>
       <p class="slide-subtitle">Identificação analítica dos componentes e mapeamento das cardinalidades.</p>
 
@@ -878,7 +980,7 @@
 
     <!-- SLIDE 24: Exercício 1 Guiado - Etapas 4 e 5 (DER Chen) -->
     <section class="slide">
-      <div class="section-tag">Prática Guiada &bull; Exercício 1</div>
+      <div class="section-tag">Bloco 2 &bull; Exemplo guiado</div>
       <h2 class="slide-title">Etapas 4 e 5: DER Conceitual Completo (Notação Chen)</h2>
       <p class="slide-subtitle">Representação gráfica padronizada da modelagem conceitual.</p>
 
@@ -889,9 +991,9 @@
 
     <!-- SLIDE 25: Exercício 2 Individual - Desafio -->
     <section class="slide">
-      <div class="section-tag">Prática Individual &bull; Exercício 2</div>
-      <h2 class="slide-title">Estudo de Caso Individual: Biblioteca "Saber"</h2>
-      <p class="slide-subtitle">Aplicação individual do método em 5 etapas no caderno.</p>
+      <div class="section-tag">Fixação 2 &bull; 40 minutos</div>
+      <h2 class="slide-title">Biblioteca Saber</h2>
+      <p class="slide-subtitle">Atividade individual iniciada no Teams e corrigida na próxima aula presencial.</p>
 
       <div class="card card-red" style="padding: 22px; font-size: 1.05rem; line-height: 1.8;">
         <p>
@@ -925,23 +1027,6 @@
       </div>
     </section>
 
-    <!-- SLIDE 26: Exercício 2 - Gabarito e Resolução -->
-    <section class="slide">
-      <div class="section-tag">Gabarito Técnico &bull; Exercício 2</div>
-      <h2 class="slide-title">Resolução: Biblioteca &bull; DER Notação Chen</h2>
-      <p class="slide-subtitle">Solução formal para conferência e validação da modelagem individual.</p>
-
-      <div class="diagram-container">
-        <img src="img/der_editora.png" alt="DER Notação Chen — Estudo de Caso Biblioteca Saber" class="diagram-img">
-      </div>
-
-      <div class="callout callout-blue" style="margin-top: 14px;">
-        <strong>Conclusão da Modelagem:</strong> A cardinalidade máxima (1,N) define que a chave identificadora de
-        <code>EDITORA</code> migrará posteriormente como Chave Estrangeira (FK) para a relação <code>LIVRO</code> na
-        fase de projeto lógico.
-      </div>
-    </section>
-
     <!-- SLIDE 27: Encerramento e Próximos Passos -->
     <section class="slide slide-cover">
       <div class="section-tag">Encerramento &bull; Próximos Passos</div>
@@ -952,8 +1037,9 @@
       </p>
 
       <div class="card card-red" style="max-width: 680px; text-align: left; margin: 0 auto 24px auto;">
-        <div class="card-title">Tópicos da Próxima Aula (Aula 02):</div>
+        <div class="card-title">Próxima aula presencial:</div>
         <ul style="color: var(--cps-gray-medium); font-size: 0.9rem; line-height: 1.8; padding-left: 18px;">
+          <li>Correção comentada do DER da Biblioteca Saber.</li>
           <li>Tipologia de atributos (compostos, multivalorados, derivados e identificadores).</li>
           <li>Entidades Fortes e Entidades Fracas (dependência existencial e de identificação).</li>
           <li>Início da utilização prática do software de modelagem <strong>brModelo</strong> em laboratório.</li>

@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Revisão de Excel — Exercícios de Fixação</title>
+  <style>
+    :root {
+      --navy:#102a43; --blue:#1677a8; --cyan:#55c2d8; --ice:#eef7fa;
+      --paper:#fffdf8; --ink:#17212b; --muted:#5c6b78; --gold:#f0b44d;
+      --green:#2e8b57; --red:#c84a4a; --line:#c8d6df;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:#091a28;color:var(--ink);font-family:"Aptos","Segoe UI",Arial,sans-serif;overflow:hidden}
+    body{height:100vh}
+    .deck{height:100vh;width:100vw;display:grid;place-items:center;background:radial-gradient(circle at 12% 15%,#173f5c 0,#091a28 48%,#06121c 100%)}
+    .slide{display:none;position:relative;width:min(100vw,177.777vh);height:min(56.25vw,100vh);aspect-ratio:16/9;background:var(--paper);overflow:hidden;padding:4.2% 5.3% 4.4%}
+    .slide.active{display:block}
+    .slide::before{content:"";position:absolute;left:0;top:0;width:18px;height:100%;background:linear-gradient(var(--cyan),var(--blue),var(--navy))}
+    .slide::after{content:"";position:absolute;right:-90px;top:-110px;width:310px;height:310px;border:42px solid rgba(85,194,216,.13);border-radius:50%}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(40px,4.35vw,78px);line-height:1.02;letter-spacing:-2px;color:white;max-width:900px}
+    h2{font-size:clamp(28px,3vw,52px);line-height:1.06;color:var(--navy);margin-bottom:2.1%;letter-spacing:-1px}
+    h3{font-size:clamp(18px,1.55vw,28px);color:var(--blue);margin-bottom:10px}
+    p,li{font-size:clamp(15px,1.28vw,23px);line-height:1.35}
+    ul,ol{margin:10px 0 0;padding-left:1.25em}
+    li{margin:.38em 0}
+    code,.formula{font-family:"Cascadia Code","Consolas",monospace}
+    code{background:#e7f1f5;color:#0e5676;border-radius:5px;padding:.08em .3em}
+    .eyebrow{font-size:clamp(13px,.95vw,18px);font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+    .lead{font-size:clamp(20px,1.7vw,31px);line-height:1.28;color:#314454;max-width:1020px}
+    .footer{position:absolute;left:5.3%;right:4.4%;bottom:2.1%;display:flex;justify-content:space-between;align-items:center;color:#6d7e89;font-size:clamp(10px,.75vw,14px);border-top:1px solid #d7e1e6;padding-top:8px}
+    .slide-no{font-weight:800;color:var(--blue)}
+    .cover{background:linear-gradient(115deg,rgba(10,34,53,.96),rgba(17,74,103,.91)),url('images/hangar.jpg') center/cover;padding:7% 7%}
+    .cover::before{width:26px;background:var(--gold)}
+    .cover::after{border-color:rgba(255,255,255,.08);width:520px;height:520px;right:-160px;top:-180px}
+    .cover .eyebrow{color:#8de2ee}
+    .cover .subtitle{font-size:clamp(20px,1.55vw,29px);color:#d9edf3;max-width:760px;line-height:1.4}
+    .cover .tag{position:absolute;bottom:9%;left:7%;color:#fff;border-left:5px solid var(--gold);padding-left:16px;font-size:clamp(15px,1.05vw,20px)}
+    .cover .footer{color:#b9d0dc;border-color:rgba(255,255,255,.18);left:7%;right:7%}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:3.5%;align-items:start}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4%}
+    .panel{background:#f4f8fa;border-top:6px solid var(--cyan);padding:22px 24px;min-height:155px}
+    .panel.dark{background:var(--navy);color:white;border-color:var(--gold)}
+    .panel.dark h3{color:#9ce6ee}
+    .panel.gold{background:#fff5df;border-color:var(--gold)}
+    .big-num{font-size:clamp(38px,4vw,72px);font-weight:850;color:var(--blue);line-height:1}
+    .formula{display:block;background:var(--navy);color:#e7fbff;border-left:7px solid var(--cyan);padding:14px 18px;margin:10px 0;font-size:clamp(17px,1.35vw,25px);white-space:nowrap}
+    .formula.goldline{border-color:var(--gold)}
+    .result{color:var(--green);font-weight:850}
+    .warning{color:var(--red);font-weight:850}
+    .sheet-layout{display:grid;grid-template-columns:58% 1fr;gap:3%;align-items:center;height:76%}
+    .sheet{width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 12px 18px rgba(16,42,67,.2));border:1px solid #bbcbd4;background:white}
+    .caption{font-size:clamp(11px,.8vw,15px);color:var(--muted);margin-top:7px}
+    .callout{border-left:7px solid var(--gold);padding:10px 0 10px 18px;margin:14px 0;color:#334957}
+    table{width:100%;border-collapse:collapse;font-size:clamp(13px,1vw,18px)}
+    th{background:var(--navy);color:white;text-align:left;padding:10px 12px}
+    td{padding:9px 12px;border-bottom:1px solid var(--line)}
+    tr:nth-child(even) td{background:#f0f6f8}
+    .compare{display:grid;grid-template-columns:1fr auto 1fr;gap:2%;align-items:center}
+    .vs{font-size:clamp(26px,2.4vw,44px);font-weight:900;color:var(--gold)}
+    .steps{counter-reset:item;list-style:none;padding:0;display:grid;gap:12px}
+    .steps li{counter-increment:item;display:grid;grid-template-columns:44px 1fr;align-items:start;margin:0}
+    .steps li::before{content:counter(item);width:34px;height:34px;border-radius:50%;background:var(--blue);color:white;display:grid;place-items:center;font-weight:800;margin-top:1px}
+    .mini{font-size:clamp(12px,.92vw,17px);color:var(--muted)}
+    .answer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 24px}
+    .answer{border-bottom:2px solid #d6e1e6;padding:6px 0;font-size:clamp(15px,1.12vw,21px)}
+    .progress{position:absolute;left:0;bottom:0;height:5px;background:var(--gold);transition:width .2s ease}
+    .nav{position:fixed;right:18px;bottom:16px;z-index:10;display:flex;gap:8px}
+    .nav button{border:1px solid rgba(255,255,255,.3);background:rgba(5,22,34,.72);color:white;border-radius:50%;width:42px;height:42px;font-size:20px;cursor:pointer}
+    .nav button:hover{background:#1677a8}
+    @media print{
+      html,body{overflow:visible;background:white}.deck{display:block;height:auto;background:white}.slide{display:block;width:13.333in;height:7.5in;page-break-after:always}.nav{display:none}
+    }
+  </style>
+</head>
+<body>
+<main class="deck">
+  <section class="slide cover active">
+    <div class="eyebrow">INF-117 · Informática Aplicada à Aeronáutica</div>
+    <h1>Revisão prática de Excel</h1>
+    <p class="subtitle">Operadores, SOMA, MÉDIA, MEDIANA e função SE aplicados a situações de operação e manutenção aeronáutica.</p>
+    <div class="tag">Exercícios de fixação · 6 planilhas</div>
+    <div class="footer"><span>Fatec Sorocaba</span><span class="slide-no">1 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Visão geral</div><h2>O percurso da revisão</h2>
+    <div class="grid3">
+      <div class="panel"><div class="big-num">01</div><h3>Calcular</h3><p>Transformar dados em resultados com <code>+</code>, <code>-</code>, <code>*</code> e <code>/</code>.</p></div>
+      <div class="panel gold"><div class="big-num">02</div><h3>Resumir</h3><p>Consolidar intervalos com <code>SOMA</code>, <code>MÉDIA</code> e <code>MEDIANA</code>.</p></div>
+      <div class="panel dark"><div class="big-num" style="color:#8de2ee">03</div><h3>Decidir</h3><p>Aplicar regras operacionais com <code>SE</code> e resultados textuais.</p></div>
+    </div>
+    <p class="callout"><strong>Regra central:</strong> todo resultado derivado deve permanecer como fórmula ativa na planilha.</p>
+    <div class="footer"><span>Revisão de Excel</span><span class="slide-no">2 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Método de resolução</div><h2>Da pergunta à fórmula</h2>
+    <div class="grid2">
+      <ol class="steps">
+        <li><div><strong>Identifique os dados</strong><br><span class="mini">Quais células contêm os valores de entrada?</span></div></li>
+        <li><div><strong>Reconheça a operação</strong><br><span class="mini">Somar, subtrair, multiplicar, dividir, resumir ou testar?</span></div></li>
+        <li><div><strong>Escreva a fórmula</strong><br><span class="mini">Comece com <code>=</code> e use referências de células.</span></div></li>
+        <li><div><strong>Valide o resultado</strong><br><span class="mini">Confira unidade, ordem de grandeza e regra do enunciado.</span></div></li>
+      </ol>
+      <div class="panel dark">
+        <h3>Exemplo rápido</h3>
+        <p>Combustível inicial em <code>B8</code> e consumo em <code>C8</code>.</p>
+        <span class="formula goldline">=B8-C8</span>
+        <p>O Excel recalcula se qualquer entrada mudar.</p>
+      </div>
+    </div>
+    <div class="footer"><span>Fórmulas começam com =</span><span class="slide-no">3 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Exercício 1</div><h2>Operadores aritméticos</h2>
+    <div class="sheet-layout">
+      <div><img class="sheet" src="../../outputs/exercicios_fixacao_aeronautica/Ex1_Operadores.png" alt="Planilha do exercício de operadores"><div class="caption">Captura da aba Ex1_Operadores</div></div>
+      <div>
+        <h3>Operação pedida</h3>
+        <p><code>+</code> juntar valores</p><p><code>-</code> calcular saldo</p><p><code>*</code> obter produto ou custo</p><p><code>/</code> calcular taxa ou divisão</p>
+        <div class="callout">Use as referências das células. Evite digitar o resultado diretamente.</div>
+      </div>
+    </div>
+    <div class="footer"><span>Operadores básicos</span><span class="slide-no">4 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Exercício 1 · Gabarito orientado</div><h2>Fórmulas e resultados</h2>
+    <div class="answer-grid">
+      <div class="answer"><code>=B8-C8</code> <span class="result">138 L</span></div>
+      <div class="answer"><code>=B9+C9</code> <span class="result">2,5 h</span></div>
+      <div class="answer"><code>=B10*C10</code> <span class="result">95 L</span></div>
+      <div class="answer"><code>=B11*C11</code> <span class="result">R$ 715,20</span></div>
+      <div class="answer"><code>=B12/C12</code> <span class="result">150 km/h</span></div>
+      <div class="answer"><code>=B13/C13</code> <span class="result">152,5 kg</span></div>
+    </div>
+    <div class="panel dark" style="margin-top:28px">
+      <h3>Desafio: custo por hora</h3>
+      <span class="formula goldline">=F11/F9</span>
+      <p><span class="result">R$ 286,08 por hora</span> usando o custo do abastecimento e o tempo total.</p>
+    </div>
+    <div class="footer"><span>Unidade faz parte da resposta</span><span class="slide-no">5 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Exercício 2</div><h2>Função SOMA</h2>
+    <div class="sheet-layout">
+      <div><img class="sheet" src="../../outputs/exercicios_fixacao_aeronautica/Ex2_SOMA.png" alt="Planilha do exercício SOMA"><div class="caption">Captura da aba Ex2_SOMA</div></div>
+      <div>
+        <span class="formula">=SOMA(B8:F8)</span>
+        <p>Total semanal da primeira aeronave: <span class="result">11,7 h</span>.</p>
+        <span class="formula">=SOMA(B8:B12)</span>
+        <p>Total da segunda-feira: <span class="result">11,5 h</span>.</p>
+        <span class="formula goldline">=SOMA(G8:G12)</span>
+        <p>Total da frota: <span class="result">63,6 h</span>.</p>
+      </div>
+    </div>
+    <div class="footer"><span>SOMA trabalha com intervalos</span><span class="slide-no">6 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Exercício 2 · Leitura dos dados</div><h2>Totais semanais e diários</h2>
+    <div class="grid2">
+      <div>
+        <h3>Por aeronave</h3>
+        <table><tr><th>Prefixo</th><th>Total</th></tr><tr><td>PR-IAA</td><td>11,7 h</td></tr><tr><td>PR-IAB</td><td>9,6 h</td></tr><tr><td>PT-IAC</td><td><strong>17,7 h</strong></td></tr><tr><td>PR-IAD</td><td>8,5 h</td></tr><tr><td>PS-IAE</td><td>16,1 h</td></tr></table>
+      </div>
+      <div>
+        <h3>Por dia</h3>
+        <table><tr><th>Dia</th><th>Total</th></tr><tr><td>Segunda</td><td>11,5 h</td></tr><tr><td>Terça</td><td>13,4 h</td></tr><tr><td>Quarta</td><td>11,4 h</td></tr><tr><td>Quinta</td><td>12,4 h</td></tr><tr><td>Sexta</td><td><strong>14,9 h</strong></td></tr></table>
+      </div>
+    </div>
+    <p class="callout">A sexta-feira concentrou mais horas. A aeronave PT-IAC apresentou o maior total semanal.</p>
+    <div class="footer"><span>Conferência horizontal e vertical</span><span class="slide-no">7 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Exercício 3</div><h2>Função MÉDIA</h2>
+    <div class="sheet-layout">
+      <div><img class="sheet" src="../../outputs/exercicios_fixacao_aeronautica/Ex3_MEDIA.png" alt="Planilha do exercício MÉDIA"><div class="caption">Captura da aba Ex3_MEDIA</div></div>
+      <div>
+        <span class="formula">=MÉDIA(B8:E8)</span>
+        <p>Média da equipe Alfa: <span class="result">1,90 h</span>.</p>
+        <span class="formula">=MÉDIA(B8:B12)</span>
+        <p>Média do serviço “Troca de pneu”: <span class="result">2,30 h</span>.</p>
+        <div class="callout">Menor tempo médio: <strong>Equipe Charlie, 1,68 h</strong>.</div>
+      </div>
+    </div>
+    <div class="footer"><span>MÉDIA = soma ÷ quantidade</span><span class="slide-no">8 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Exercício 4</div><h2>MEDIANA e valores extremos</h2>
+    <div class="sheet-layout">
+      <div><img class="sheet" src="../../outputs/exercicios_fixacao_aeronautica/Ex4_MEDIANA.png" alt="Planilha do exercício MEDIANA"><div class="caption">Captura da aba Ex4_MEDIANA</div></div>
+      <div class="compare">
+        <div class="panel"><h3>Mediana</h3><div class="big-num">4</div><p>Valor central após ordenar os prazos.</p></div>
+        <div class="vs">×</div>
+        <div class="panel gold"><h3>Média</h3><div class="big-num">5</div><p>O prazo de 18 dias eleva o resultado.</p></div>
+      </div>
+      <span class="formula">=MEDIANA(C8:C16)</span>
+      <span class="formula goldline">=MÉDIA(C8:C16)</span>
+    </div>
+    <div class="footer"><span>A mediana resiste melhor a outliers</span><span class="slide-no">9 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">MÉDIA ou MEDIANA?</div><h2>A escolha depende da pergunta</h2>
+    <div class="grid2">
+      <div class="panel">
+        <h3>Use MÉDIA</h3>
+        <p>Quando todos os valores devem participar proporcionalmente do indicador.</p>
+        <p><strong>Exemplo:</strong> tempo médio de atendimento das equipes.</p>
+      </div>
+      <div class="panel gold">
+        <h3>Use MEDIANA</h3>
+        <p>Quando um valor muito alto ou muito baixo pode distorcer a percepção do caso típico.</p>
+        <p><strong>Exemplo:</strong> prazo típico de espera por peças.</p>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:28px">No exercício, o prazo extremo de <strong>18 dias</strong> afeta mais a média. A mediana permanece em <strong>4 dias</strong>.</p>
+    <div class="footer"><span>Indicador adequado ao contexto</span><span class="slide-no">10 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Exercício 5</div><h2>Função SE simples</h2>
+    <div class="sheet-layout">
+      <div><img class="sheet" src="../../outputs/exercicios_fixacao_aeronautica/Ex5_SE_Simples.png" alt="Planilha do exercício SE"><div class="caption">Captura da aba Ex5_SE_Simples</div></div>
+      <div>
+        <h3>Horas restantes</h3><span class="formula">=D8-C8</span>
+        <h3>Regra do exercício</h3><span class="formula goldline">=SE(C8&lt;D8;"LIBERADO";<br>"INSPEÇÃO OBRIGATÓRIA")</span>
+        <p><strong>Teste lógico:</strong> horas voadas menores que o limite.</p>
+      </div>
+    </div>
+    <div class="footer"><span>SE(teste; valor_se_verdadeiro; valor_se_falso)</span><span class="slide-no">11 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Exercício 5 · Atenção ao limite</div><h2>O operador muda a decisão</h2>
+    <div class="grid2">
+      <div class="panel dark">
+        <h3>Regra escrita no exercício</h3>
+        <p>“LIBERADO” quando as horas forem <strong>menores que 100</strong>.</p>
+        <span class="formula goldline">C8 &lt; D8</span>
+        <p>Com 100 h, a aeronave exige inspeção.</p>
+      </div>
+      <div>
+        <table><tr><th>Prefixo</th><th>Restante</th><th>Status</th></tr><tr><td>PR-AAA</td><td>2 h</td><td class="result">LIBERADO</td></tr><tr><td>PR-CCC</td><td>-2 h</td><td class="warning">INSPEÇÃO</td></tr><tr><td>PS-FFF</td><td>0 h</td><td class="warning">INSPEÇÃO</td></tr></table>
+        <p class="callout"><strong>2 aeronaves</strong> exigem inspeção imediata.</p>
+      </div>
+    </div>
+    <div class="footer"><span>&lt; é diferente de &lt;=</span><span class="slide-no">12 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Exercício 6</div><h2>Revisão integrada: pressão dos pneus</h2>
+    <div class="sheet-layout">
+      <div><img class="sheet" src="../../outputs/exercicios_fixacao_aeronautica/Ex6_Revisao.png" alt="Planilha da revisão integrada"><div class="caption">Captura da aba Ex6_Revisao</div></div>
+      <div>
+        <span class="formula">=MÉDIA(C8:E8)</span>
+        <span class="formula">=MEDIANA(C8:E8)</span>
+        <span class="formula">=MÁXIMO(C8:E8)-<br>MÍNIMO(C8:E8)</span>
+        <p>Faixa aceitável: <strong>92 a 98 psi</strong>, inclusive.</p>
+      </div>
+    </div>
+    <div class="footer"><span>Uma linha reúne cálculo, resumo e decisão</span><span class="slide-no">13 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Exercício 6 · Regra composta</div><h2>Duas condições com a função E</h2>
+    <div class="grid2">
+      <div class="panel dark">
+        <h3>Status de conformidade</h3>
+        <span class="formula goldline">=SE(E(F8&gt;=92;F8&lt;=98);<br>"CONFORME";<br>"AJUSTAR PRESSÃO")</span>
+        <p>A função <code>E</code> exige que os dois limites sejam atendidos.</p>
+      </div>
+      <div>
+        <h3>Resultados do conjunto</h3>
+        <table><tr><th>Indicador</th><th>Resultado</th></tr><tr><td>Pneus conformes</td><td class="result">6</td></tr><tr><td>Pneus para ajuste</td><td class="warning">2</td></tr><tr><td>Média geral</td><td>94,79 psi</td></tr><tr><td>Mediana geral</td><td>94,5 psi</td></tr><tr><td>Maior diferença entre médias</td><td>9,0 psi</td></tr></table>
+      </div>
+    </div>
+    <div class="footer"><span>Limites inclusivos usam &gt;= e &lt;=</span><span class="slide-no">14 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Mapa de fórmulas</div><h2>O que dominar</h2>
+    <table>
+      <tr><th>Necessidade</th><th>Estrutura</th><th>Exemplo</th></tr>
+      <tr><td>Cálculo direto</td><td><code>+, -, *, /</code></td><td><code>=B8-C8</code></td></tr>
+      <tr><td>Totalizar</td><td><code>SOMA(intervalo)</code></td><td><code>=SOMA(B8:F8)</code></td></tr>
+      <tr><td>Valor médio</td><td><code>MÉDIA(intervalo)</code></td><td><code>=MÉDIA(B8:E8)</code></td></tr>
+      <tr><td>Valor central</td><td><code>MEDIANA(intervalo)</code></td><td><code>=MEDIANA(C8:C16)</code></td></tr>
+      <tr><td>Decisão</td><td><code>SE(teste;sim;não)</code></td><td><code>=SE(C8&lt;D8;"LIBERADO";"INSPEÇÃO")</code></td></tr>
+      <tr><td>Faixa</td><td><code>E(condição1;condição2)</code></td><td><code>=E(F8&gt;=92;F8&lt;=98)</code></td></tr>
+    </table>
+    <p class="callout">Separador usado nas fórmulas em português: ponto e vírgula <code>;</code>.</p>
+    <div class="footer"><span>Resumo para consulta</span><span class="slide-no">15 / 16</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Checklist final</div><h2>Antes de entregar a planilha</h2>
+    <div class="grid2">
+      <ol class="steps">
+        <li><div>As respostas começam com <code>=</code>?</div></li>
+        <li><div>Os intervalos incluem todas as linhas corretas?</div></li>
+        <li><div>As unidades combinam com o cálculo?</div></li>
+        <li><div>A regra de limite usa <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code> ou <code>&gt;=</code> corretamente?</div></li>
+        <li><div>Os resultados mudam quando uma entrada é alterada?</div></li>
+      </ol>
+      <div class="panel dark">
+        <h3>Material de prática</h3>
+        <p><strong>Arquivo:</strong><br>Exercicios_Fixacao_Informatica_Aplicada_Aeronautica.xlsx</p>
+        <p><strong>Abas:</strong> Ex1_Operadores até Ex6_Revisao.</p>
+        <p style="color:#9ce6ee">Resolva primeiro. Use os resultados destes slides para conferir.</p>
+      </div>
+    </div>
+    <div class="footer"><span>Fim da revisão</span><span class="slide-no">16 / 16</span></div>
+  </section>
+  <div class="progress" id="progress"></div>
+</main>
+<nav class="nav" aria-label="Navegação dos slides"><button id="prev" title="Slide anterior">‹</button><button id="next" title="Próximo slide">›</button></nav>
+<script>
+  const slides=[...document.querySelectorAll('.slide')]; let current=0;
+  const progress=document.getElementById('progress');
+  function show(index){current=Math.max(0,Math.min(index,slides.length-1));slides.forEach((s,i)=>s.classList.toggle('active',i===current));progress.style.width=((current+1)/slides.length*100)+'%';document.title=`${current+1}/${slides.length} · Revisão de Excel`;}
+  document.getElementById('prev').onclick=()=>show(current-1);document.getElementById('next').onclick=()=>show(current+1);
+  addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();show(current+1)}if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(current-1)}if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1);if(e.key.toLowerCase()==='f')document.documentElement.requestFullscreen?.();});
+  let startX=0;addEventListener('touchstart',e=>startX=e.changedTouches[0].screenX,{passive:true});addEventListener('touchend',e=>{const d=e.changedTouches[0].screenX-startX;if(Math.abs(d)>50)show(current+(d<0?1:-1))},{passive:true});
+  const requested=Number(new URLSearchParams(location.search).get('slide')||1);show(requested-1);
+</script>
+</body>
+</html>
