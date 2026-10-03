@@ -101,14 +101,18 @@ A composição interna da nota de **Avaliação Docente** (que totaliza 55% da n
 | **07** | Aula 06 | **17/Set** | **15/Set** | [AWS Learner Lab Sandbox, EC2 (Amazon Linux 2023) e Docker Compose](aulas/semana_07.ipynb) | **Projeto 01 & 04:** Deploy da Fábrica Virtual Smart N1 (Flask + Node-RED + Mosquitto via Docker Compose). |
 | **08** | Eval | **24/Set** | **22/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo os conteúdos da Semana 01 até a Semana 07 (Aulas 01 a 06 e PII). |
 | **09** | PII | **01/Out** | **29/Set** | Consolidação do Projeto Integrador (PII) | Validação da arquitetura de rede e armazenamento do PII. |
-| **10** | Aula 07 | **08/Out** | **06/Out** | [Telemetria IoT Industrial e Dashboards de Observabilidade](aulas/semana_07.ipynb) | **Projeto 06:** AWS IoT Core, InfluxDB e dashboards em tempo real no Grafana. |
+| **10** | Aula 07 | **08/Out** | **06/Out** | [Da EC2 Pública à Arquitetura de Rede: Leitura da VPC Existente](aulas/semana_10.ipynb) | Partir da implantação da Semana 07 para rastrear VPC, CIDR, sub-rede, rota, Internet Gateway, Security Group e fluxo real de entrada e saída; equivalentes nos demais provedores. |
 | **11** | Tec | **15/Out** | **19/Set (Sáb)** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
-| **12** | Aula 08 | **22/Out** | **20/Out** | [Computação Serverless e Banco de Dados NoSQL](aulas/semana_08.ipynb) | **Projeto 07:** API Gateway, AWS Lambda e Amazon DynamoDB via `LabRole`. |
-| **13** | Aula 09 | **29/Out** | **27/Out** | [Infraestrutura como Código (IaC) para Serverless](aulas/semana_09.ipynb) | **Projeto 09:** Automação com AWS CLI e AWS SAM (Serverless Application Model). |
+| **12** | Aula 08 | **22/Out** | **20/Out** | Evolução para VPC com Camadas Pública e Privada | Redesenhar a stack já implantada com sub-redes pública/privada, tabelas de rotas, NAT e isolamento do backend; equivalentes conceituais em Azure, GCP e Oracle Cloud. |
+| **13** | Aula 09 | **29/Out** | **27/Out** | Defesa em Profundidade para a VPC da Aplicação | Refinar Security Groups e IAM já estudados e acrescentar NACLs, endpoints privados e acesso administrativo seguro, validando fluxos permitidos e bloqueados. |
 | **14** | PII | **05/Nov** | **03/Nov** | Orientação e Acompanhamento do PII (Módulo Serverless) | Refinamento de rotas e integração com o backend do PII. |
-| **15** | Aula 10 | **12/Nov** | **10/Nov** | [Atividade Integrada 1: Pipelines CI/CD, Docker Hub e Deploy Nuvem](aulas/semana_10.ipynb) | Esteira automatizada (GitHub Actions + Docker Hub + Deploy na AWS EC2/ALB). |
-| **16** | Aula 11 | **19/Nov** | **17/Nov** | [Atividade Integrada 2: Machine Learning na Nuvem (AWS SageMaker)](aulas/semana_11.ipynb) | **Projeto 10:** Treinamento de ML no SageMaker para manutenção preditiva fabril. |
+| **15** | Aula 10 | **12/Nov** | **10/Nov** | FinOps Aplicado à Arquitetura Construída | Estimar e comparar custos da EC2, ECS, NAT, armazenamento e transferência da própria solução; aplicar tags, budgets, Cost Explorer, rightsizing e desligamento seguro, citando equivalentes. |
+| **16** | Aula 11 | **19/Nov** | **17/Nov** | Projeto Integrado: ADS Factory Hub Essencial | Implantar o serviço conteinerizado em uma VPC com regras mínimas, comparar EC2 e ECS, registrar custos estimados e evidenciar acesso, logs e recuperação. |
 | **17** | PII | **26/Nov** | **24/Nov** | Consolidação End-to-End da Planta em Nuvem | Validação final da solução integrada da disciplina. |
 | **18** | Eval | **03/Dez** | **01/Dez** | **PROVA 2 INDIVIDUAL** & Defesa do Projeto Final | Avaliação individual cobrindo os conteúdos das Semanas 10 a 17 e apresentação da Atividade Integrada da disciplina. |
 | **19** | Rec | **10/Dez** | **08/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
 | **20** | Fim | **17/Dez** | **15/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |
+
+### Escopo integrado da Semana 16 — ADS Factory Hub Essencial
+
+O ambiente evoluirá a EC2 com Docker Compose implantada na Semana 07. A equipe deverá representar sua VPC, separar recursos públicos e privados, refinar as regras de acesso, aplicar privilégio mínimo, comparar a execução em EC2 e ECS e registrar uma estimativa simples de custos e a rotina de desligamento. Conforme o PII II, o repositório deverá conter README reproduzível, testes, pipeline, versão implantada, `health check`, logs, instrução de recuperação e `docs/plano-projeto-integrador-ii.pdf` com sua fonte editável.

@@ -94,14 +94,18 @@ A composição interna da nota de **Avaliação Docente** (que totaliza 55% da n
 | **07** | Aula 06 | **15/Set** | **16/Set** | [Intensivão de Node-RED: Ingestão, Roteamento e Tratamento IIoT](aulas/semana_07.ipynb) | Construção passo a passo de pipeline IIoT, tratamento condicional e depuração. |
 | **08** | Avaliação | **22/Set** | **23/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo os conteúdos da Semana 01 até a Semana 07 (Aulas 01 a 06 e PII). |
 | **09** | Semana de PII | **29/Set** | **30/Set** | Consolidação do Projeto Integrador (PII) | Integração de controladores e sensores no projeto. |
-| **10** | Aula 07 | **06/Out** | **07/Out** | [Ciclo CRISP-DM Aplicado a Séries Temporais Industriais](aulas/semana_10.ipynb) | Entendimento do negócio/dados não relacionais no InfluxDB e eng. de recursos. |
+| **10** | Aula 07 | **06/Out** | **07/Out** | [Construção Guiada do Fluxo Node-RED, Nó a Nó](aulas/semana_10.ipynb) | Reconstrução manual do fluxo antes importado: configuração do broker, `mqtt in`, `json`, `debug`, `switch`, `change` e `function`, com teste da mensagem após cada ligação. |
 | **11** | Semana Tec. | **19/Set (Sáb)** | **14/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
-| **12** | Aula 08 | **20/Out** | **21/Out** | [Machine Learning em Telemetria: Detecção de Anomalias em Sensores](aulas/semana_08.ipynb) | Aplicação de Isolation Forest / K-Means em dados de campo em tempo real. |
-| **13** | Aula 09 | **27/Out** | **28/Out** | [Machine Learning em Telemetria: Manutenção Preditiva & OEE](aulas/semana_09.ipynb) | Predição de falhas e cálculo de OEE em sinergia com Ciência de Dados. |
+| **12** | Aula 08 | **20/Out** | **21/Out** | Continuação do Fluxo: QoS e Tratamento de Falhas | Completar o fluxo construído na Semana 10 e testar QoS 0/1/2, desconexão, mensagens retidas, duplicidade e reconexão usando nós `status`, `catch` e caminhos de erro. |
+| **13** | Aula 09 | **27/Out** | **28/Out** | Processamento Stateful e Ciclo de Vida de Alertas | Evolução dos limiares da Semana 07 com janelas, histerese, temporização, supressão de alarmes repetidos, severidade, reconhecimento e normalização. |
 | **14** | Semana de PII | **03/Nov** | **04/Nov** | Orientação e Acompanhamento do PII | Ajustes na comunicação de dados e inteligência do PII. |
-| **15** | Aula 10 | **10/Nov** | **11/Nov** | [Ingestão Integrada de Dados & Dashboards de Monitoramento](aulas/semana_10.ipynb) | Painéis analíticos e monitoramento de planta em tempo real. |
-| **16** | Aula 11 | **17/Nov** | **18/Nov** | [Consolidação Técnica e Revisão Integrada](aulas/semana_11.ipynb) | Revisão prática da pilha IIoT/ML e preparação para encerramento. |
+| **15** | Aula 10 | **10/Nov** | **11/Nov** | Front-end Operacional Integrado ao Fluxo Existente | Transformar as saídas já tratadas em painel do Node-RED com indicadores, histórico curto, estados, reconhecimento de alarmes e comandos protegidos, sem Grafana. |
+| **16** | Aula 11 | **17/Nov** | **18/Nov** | Projeto Integrado: ADS Factory Hub Essencial | Simular telemetria via MQTT, processar QoS e alertas no fluxo e entregar o painel operacional do Node-RED integrado à API e à nuvem. |
 | **17** | Avaliação | **24/Nov** | **25/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Projeto Final | Avaliação individual cobrindo os conteúdos das Semanas 10 a 16 & Entrega do Projeto. |
 | **18** | Semana de PII | **01/Dez** | **02/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
 | **19** | Recuperação | **08/Dez** | **09/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
 | **20** | Fechamento | **15/Dez** | **16/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |
+
+### Escopo integrado da Semana 16 — ADS Factory Hub Essencial
+
+O recorte reutiliza o simulador e o broker das Semanas 05 e 07, mas o fluxo importado servirá apenas como referência. A partir da Semana 10, cada equipe deverá reconstruí-lo manualmente nó a nó, comprovar o comportamento do QoS escolhido, acrescentar tratamento de falhas, estado e ciclo de vida dos alertas e apresentar um painel operacional no próprio Node-RED. O fluxo deve consumir o indicador de anomalia e registrar ao menos uma condição normal, uma condição de alerta e sua normalização.

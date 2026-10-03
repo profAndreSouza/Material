@@ -86,14 +86,18 @@ A composição interna da nota de **Avaliação Docente** (que totaliza 55% da n
 | **07** | Aula | **14/Set** | **18/Set** | [Análise de Séries Temporais Industriais (Time Series)](aulas/semana_07.ipynb) | Tendência, sazonalidade, decomposição e médias móveis (EWMA). |
 | **08** | Avaliação | **21/Set** | **25/Set** | **PROVA 1 INDIVIDUAL** | Avaliação individual cobrindo os conteúdos da Semana 01 até a Semana 07. |
 | **09** | Semana de PII | **28/Set** | **02/Out** | Consolidação do Projeto Integrador (PII) | Validação do pipeline de tratamento de dados do PII. |
-| **10** | Aula | **05/Out** | **09/Out** | [Engenharia de Recursos (Feature Engineering) para Manufatura](aulas/semana_08.md) | Janelas deslizantes, agregados temporais e encodificação. |
+| **10** | Aula | **05/Out** | **09/Out** | [Da Random Forest às Redes Neurais: Fundamentos e Preparação Específica](aulas/semana_10.ipynb) | Continuação da modelagem já estudada: tensores, neurônio, camadas, ativações, função de perda, backpropagation e escalonamento dos dados. |
 | **11** | Semana Tec. | **24/Out (Sáb)** | **16/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
-| **12** | Aula | **19/Out** | **23/Out** | [Aprendizado de Máquina Supervisionado: Classificação e Regressão](aulas/semana_09.md) | Árvores de Decisão, Random Forest e métricas ROC-AUC/F1-Score. |
-| **13** | Aula | **26/Out** | **30/Out** | [Aprendizado Não Supervisionado e Detecção de Anomalias em Sensores](aulas/semana_10.md) | K-Means, DBSCAN e Isolation Forest para telemetria. |
+| **12** | Aula | **19/Out** | **23/Out** | MLP para Classificação e Regressão de Dados Tabulares | Aplicação da preparação e das métricas já estudadas; arquitetura, treino, regularização, validação e comparação da MLP com o baseline Random Forest. |
+| **13** | Aula | **26/Out** | **30/Out** | Escolha de Redes Neurais conforme o Problema Industrial | MLP para atributos tabulares, CNN 1D e LSTM para sequências e autoencoder para anomalias, aproveitando janelas, sazonalidade e resíduos estudados na Semana 07. |
 | **14** | Semana de PII | **05/Dez (Sáb)** | **06/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Refinamento dos modelos analíticos do PII. |
-| **15** | Aula | **09/Nov** | **13/Nov** | [Dashboards Analíticos Integrados e Indicadores de OEE](aulas/semana_11.md) | Cálculo de OEE e gráficos interativos com Plotly/Dash. |
-| **16** | Aula / Revisão | **16/Nov** | **07/Nov (Sáb)** | Consolidação Técnica e Revisão Analítica | Revisão de aprendizado de máquina e preparação para P2. |
+| **15** | Aula | **09/Nov** | **13/Nov** | CRISP-DM em Operação: Seleção, Empacotamento e Monitoramento do Modelo | Consolidar Modeling, Evaluation e Deployment sem refazer as fases: selecionar o modelo pelo custo de negócio, versionar artefatos, expor inferência e detectar drift. |
+| **16** | Aula / Revisão | **16/Nov** | **07/Nov (Sáb)** | Projeto Integrado: ADS Factory Hub Essencial | Preparar e validar dados de telemetria, treinar um modelo neural simples para anomalias e expor indicador e alerta ao serviço integrado. |
 | **17** | Avaliação | **23/Nov** | **27/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Projeto Final | Avaliação individual cobrindo os conteúdos das Semanas 10 a 16 & Entrega do Projeto. |
 | **18** | Semana de PII | **30/Nov** | **04/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
 | **19** | Recuperação | **07/Dez** | **11/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
 | **20** | Fechamento | **14/Dez** | **18/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |
+
+### Escopo integrado da Semana 16 — ADS Factory Hub Essencial
+
+O recorte utiliza a telemetria simulada de uma única máquina (temperatura, vibração e estado) e prioriza um fluxo pequeno, demonstrável e reproduzível. Em Ciência de Dados, a equipe reutilizará o pipeline de preparação, séries temporais e avaliação construído antes da P1, acrescentará uma rede neural simples (MLP ou autoencoder) e disponibilizará um indicador de anomalia para consumo pela API e pelo Node-RED. As evidências devem relacionar cada decisão às fases do CRISP-DM, sem reconstruir o ciclo do zero.
