@@ -1,5 +1,13 @@
 window.SLIDES_CATALOG = [
-  { id: "banco-de-dados", name: "Banco de Dados", code: "BD", institution: "fatec", lessons: [] },
+  {
+    id: "banco-de-dados",
+    name: "Banco de Dados I",
+    code: "BD I",
+    institution: "fatec",
+    lessons: [
+      { id: "aula-01", label: "Aula 01", title: "Fundamentos e modelagem conceitual", source: "../Banco de Dados I/slides/aula-01.js" }
+    ]
+  },
   { id: "informatica-aeronautica", name: "Informática Aplicada à Aeronáutica", code: "IAA", institution: "fatec", lessons: [] },
   {
     id: "sistemas-emergentes",

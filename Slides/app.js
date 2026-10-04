@@ -27,6 +27,7 @@
 
   function applyTheme(course) {
     document.body.dataset.theme = course.institution;
+    document.body.dataset.course = course.id;
     $("themeStylesheet").href = `styles/themes/${course.institution}.css`;
     $("brandSymbol").textContent = course.institution === "senai" ? "SENAI" : "FATEC";
   }

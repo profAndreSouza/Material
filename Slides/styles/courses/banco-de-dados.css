@@ -1,0 +1,65 @@
+body[data-course="banco-de-dados"] {
+  --cps-red: #b20000;
+  --cps-red-dark: #8c0000;
+  --cps-red-light: #fff1f2;
+  --cps-gray-dark: #1e293b;
+  --cps-gray-medium: #475569;
+  --cps-gray-light: #f8fafc;
+  --cps-border: #e2e8f0;
+  --cps-border-strong: #cbd5e1;
+  --tech-blue: #0284c7;
+  --tech-blue-bg: #f0f9ff;
+  --tech-green: #15803d;
+  --tech-green-bg: #f0fdf4;
+  --tech-amber: #b45309;
+  --tech-amber-bg: #fffbeb;
+}
+body[data-course="banco-de-dados"] .slide {
+  padding: 84px 48px 70px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+body[data-course="banco-de-dados"] .slide.slide-cover { justify-content: center; align-items: center; text-align: center; }
+body[data-course="banco-de-dados"] .section-tag { display:flex; align-items:center; gap:6px; margin-bottom:6px; color:var(--cps-red); font-size:.8rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+body[data-course="banco-de-dados"] .section-tag::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--cps-red); }
+body[data-course="banco-de-dados"] .cover-title { margin-bottom:12px; color:var(--cps-gray-dark); font-size:3.2rem; font-weight:800; line-height:1.15; }
+body[data-course="banco-de-dados"] h2.slide-title { margin-bottom:6px; color:var(--cps-gray-dark); font-size:1.85rem; line-height:1.25; }
+body[data-course="banco-de-dados"] .slide-subtitle { margin-bottom:22px; color:var(--cps-gray-medium); font-size:1.05rem; line-height:1.45; }
+body[data-course="banco-de-dados"] .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; width:100%; }
+body[data-course="banco-de-dados"] .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; width:100%; }
+body[data-course="banco-de-dados"] .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; width:100%; }
+body[data-course="banco-de-dados"] .card { padding:20px; background:var(--cps-gray-light); border:1px solid var(--cps-border); border-radius:8px; }
+body[data-course="banco-de-dados"] .card-red { border-left:4px solid var(--cps-red); }
+body[data-course="banco-de-dados"] .card-blue { border-left:4px solid var(--tech-blue); }
+body[data-course="banco-de-dados"] .card-green { border-left:4px solid var(--tech-green); }
+body[data-course="banco-de-dados"] .card-amber { border-left:4px solid var(--tech-amber); }
+body[data-course="banco-de-dados"] .card-title { display:flex; align-items:center; gap:8px; margin-bottom:8px; color:var(--cps-gray-dark); font-size:1.1rem; font-weight:700; }
+body[data-course="banco-de-dados"] .card-desc { color:var(--cps-gray-medium); font-size:.9rem; line-height:1.55; }
+body[data-course="banco-de-dados"] .table-container { width:100%; overflow:hidden; background:#fff; border:1px solid var(--cps-border); border-radius:8px; }
+body[data-course="banco-de-dados"] .modern-table { width:100%; border-collapse:collapse; font-size:.9rem; }
+body[data-course="banco-de-dados"] .modern-table th { padding:10px 14px; background:#f1f5f9; border-bottom:2px solid var(--cps-red); text-align:left; }
+body[data-course="banco-de-dados"] .modern-table td { padding:10px 14px; border-bottom:1px solid var(--cps-border); vertical-align:middle; }
+body[data-course="banco-de-dados"] .modern-table tr:nth-child(even) td { background:#fafafa; }
+body[data-course="banco-de-dados"] .diagram-container { display:flex; justify-content:center; align-items:center; width:100%; padding:14px; background:#fff; border:1px solid var(--cps-border); border-radius:8px; }
+body[data-course="banco-de-dados"] .diagram-svg { width:100%; max-width:900px; height:auto; }
+body[data-course="banco-de-dados"] .diagram-img { display:block; max-width:100%; max-height:390px; object-fit:contain; }
+body[data-course="banco-de-dados"] .badge { display:inline-block; padding:3px 8px; border-radius:4px; font-size:.78rem; font-weight:600; text-transform:uppercase; }
+body[data-course="banco-de-dados"] .badge-red { background:var(--cps-red-light); color:var(--cps-red-dark); }
+body[data-course="banco-de-dados"] .badge-blue { background:var(--tech-blue-bg); color:var(--tech-blue); }
+body[data-course="banco-de-dados"] .badge-green { background:var(--tech-green-bg); color:var(--tech-green); }
+body[data-course="banco-de-dados"] .badge-gray { background:#f1f5f9; color:var(--cps-gray-dark); }
+body[data-course="banco-de-dados"] .callout { margin:14px 0; padding:14px 18px; background:#f8fafc; border-left:4px solid var(--cps-red); border-radius:6px; color:var(--cps-gray-dark); font-size:.92rem; }
+body[data-course="banco-de-dados"] .callout-blue { background:var(--tech-blue-bg); border-left-color:var(--tech-blue); }
+body[data-course="banco-de-dados"] .code-box { padding:12px 14px; background:#f8fafc; border:1px solid var(--cps-border); border-radius:6px; font: .88rem/1.5 var(--font-mono); }
+body[data-course="banco-de-dados"] .stepper { position:relative; display:flex; justify-content:space-between; align-items:center; width:100%; margin:18px 0; }
+body[data-course="banco-de-dados"] .stepper::before { content:""; position:absolute; top:22px; left:30px; right:30px; height:2px; background:var(--cps-border-strong); }
+body[data-course="banco-de-dados"] .step-item { position:relative; z-index:1; display:flex; flex:1; flex-direction:column; align-items:center; padding:0 6px; text-align:center; }
+body[data-course="banco-de-dados"] .step-circle { display:flex; align-items:center; justify-content:center; width:44px; height:44px; margin-bottom:8px; background:#fff; border:2px solid var(--cps-red); border-radius:50%; color:var(--cps-red); font-size:1.1rem; font-weight:700; }
+body[data-course="banco-de-dados"] .step-title { color:var(--cps-gray-dark); font-size:.88rem; font-weight:700; }
+body[data-course="banco-de-dados"] .step-desc { color:var(--cps-gray-medium); font-size:.78rem; }
+@media (max-width:900px) {
+  body[data-course="banco-de-dados"] .slide { padding:78px 24px 70px; }
+  body[data-course="banco-de-dados"] .grid-3, body[data-course="banco-de-dados"] .grid-4 { grid-template-columns:repeat(2,1fr); }
+}
