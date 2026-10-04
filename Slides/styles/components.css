@@ -1,0 +1,25 @@
+.course-picker {
+  position: fixed; inset: 72px auto auto 50%; z-index: 300; width: min(760px, calc(100vw - 32px));
+  transform: translate(-50%, -130%); opacity: 0; pointer-events: none; transition: .25s ease;
+  display: grid; grid-template-columns: 1.4fr 1.2fr auto auto; gap: 12px; align-items: end;
+  padding: 18px; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,.98);
+  box-shadow: 0 24px 60px rgba(15,23,42,.18);
+}
+.course-picker.open { transform: translate(-50%, 0); opacity: 1; pointer-events: auto; }
+.course-picker label { display: grid; gap: 6px; color: var(--text-muted); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.course-picker select { min-width: 0; padding: 10px 12px; border: 1px solid var(--border-strong); border-radius: 9px; background: white; color: var(--text-main); font: 600 13px var(--font-sans); }
+.picker-button { padding: 11px 16px; border: 0; border-radius: 9px; background: var(--primary); color: white; font: 700 13px var(--font-sans); cursor: pointer; white-space: nowrap; }
+.picker-button:disabled { opacity: .45; cursor: not-allowed; }
+.picker-close { align-self: center; border: 0; background: transparent; color: var(--text-muted); font-size: 26px; cursor: pointer; }
+.brand-mark { display: inline-flex; align-items: center; border: 0; background: transparent; cursor: pointer; }
+.brand-symbol { font: 900 15px/1 var(--font-sans); letter-spacing: -.03em; padding-right: 12px; border-right: 1px solid var(--border); }
+.modal-actions { margin-top: 18px; text-align: right; }
+.empty-deck { width: min(760px, 90%); margin: auto; padding: 48px; text-align: center; background: white; border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow-lg); }
+.empty-deck h1 { margin-bottom: 12px; font-size: 28px; }
+.empty-deck p { color: var(--text-body); line-height: 1.6; }
+.load-error { color: var(--danger); }
+@media (max-width: 760px) {
+  .course-picker { grid-template-columns: 1fr; top: 18px; }
+  .picker-close { position: absolute; top: 8px; right: 12px; }
+  .badge-course { display: none; }
+}

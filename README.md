@@ -1,6 +1,6 @@
 # Repositório de Materiais Didáticos & Unidades Curriculares
 
-Este repositório reúne os planos de ensino, ementas, cronogramas, materiais didáticos teóricos em Markdown, apresentações de slides em LaTeX Beamer e projetos práticos das unidades curriculares ministradas nos cursos de Tecnologia da Informação, Engenharia e Automação.
+Este repositório reúne os planos de ensino, ementas, cronogramas, materiais didáticos teóricos em Markdown, apresentações web reutilizáveis e projetos práticos das unidades curriculares ministradas nos cursos de Tecnologia da Informação, Engenharia e Automação.
 
 ---
 
@@ -39,7 +39,7 @@ Conjunto de disciplinas que atuam de forma conectada utilizando uma célula fabr
 - **[Informática Aplicada à Aeronáutica](./Informática%20Aplicada%20a%20Aeronáutica/)**: Conteúdos voltados à aplicação de tecnologias de informação e ferramentas computacionais no setor aeronáutico.
 
 ### 4. Recursos e Modelos
-- **[latex_template](./latex_template/)**: Modelos institucionais em LaTeX Beamer para apresentações de aulas e documentos acadêmicos.
+- **[Slides](./Slides/)**: Apresentador centralizado com seleção de disciplina e aula, usando automaticamente os temas institucionais Fatec e SENAI.
 
 ---
 
@@ -49,7 +49,7 @@ As disciplinas presentes neste repositório seguem uma estrutura padronizada de 
 
 - `README.md`: Plano de ensino completo contendo ementa oficial, objetivos pedagógicos, capacidades técnicas e socioemocionais, referências bibliográficas (básicas e complementares), critérios de avaliação e o cronograma semestral detalhado.
 - `aulas/`: Apostilas e arquivos teóricos em formato Markdown (`semana_XX.md`) detalhando o conteúdo de cada encontro letivo.
-- `slides/`: Arquivos de apresentação desenvolvidos em LaTeX Beamer (`semana_XX.tex`) utilizando o tema institucional oficial SENAI.
+- `Slides/`: Aplicativo centralizado, catálogo de aulas, conteúdo reutilizável e temas institucionais compartilhados.
 - `GUIA_ESTUDO_PX.md`: Roteiros de revisão e preparação direcionados para as avaliações regimentais com exercícios e mapas conceituais.
 
 ---
@@ -63,5 +63,5 @@ As disciplinas presentes neste repositório seguem uma estrutura padronizada de 
 4. Nas disciplinas da trilha de software industrial, utilize os recursos e rotas da plataforma **FactoryHub** para execução dos exercícios práticos.
 
 ### Para Docentes
-1. Acesse a pasta `slides/` de cada disciplina para compilar e ministrar as aulas utilizando o padrão visual Beamer LaTeX.
+1. Abra `Slides/index.html`, escolha a disciplina e a aula e use o modo de apresentação no navegador.
 2. Siga as orientações constantes na ementa e no cronograma do `README.md` de cada unidade curricular para condução das oficinas e avaliações regimentais.

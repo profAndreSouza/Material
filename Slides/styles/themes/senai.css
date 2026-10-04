@@ -1,0 +1,12 @@
+:root {
+  --primary: #005ca9;
+  --primary-hover: #004780;
+  --primary-light: #e5f2fb;
+  --primary-glow: rgba(0, 92, 169, .15);
+  --secondary: #e30613;
+  --secondary-light: #fde8ea;
+  --accent: #0077c8;
+  --border-focus: #0077c8;
+}
+.progress-bar { background: linear-gradient(90deg, #005ca9, #e30613); }
+.brand-symbol { color: #005ca9; }

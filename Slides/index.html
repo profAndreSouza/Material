@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Materiais de aula</title>
+  <meta name="description" content="Apresentador reutilizável de aulas por disciplina.">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link id="themeStylesheet" rel="stylesheet" href="styles/themes/fatec.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>window.SLIDE_DECKS = {};</script>
+  <script src="catalog.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-theme="fatec">
+  <div class="presentation-bg"></div>
+  <div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+
+  <section class="course-picker" id="coursePicker" aria-label="Selecionar apresentação">
+    <label>Disciplina<select id="courseSelect"></select></label>
+    <label>Aula<select id="lessonSelect"></select></label>
+    <button class="picker-button" id="loadLessonBtn" type="button">Carregar aula</button>
+    <button class="picker-close" id="closePickerBtn" type="button" aria-label="Fechar seletor">×</button>
+  </section>
+
+  <header class="deck-header">
+    <div class="deck-header-left">
+      <button class="brand-mark" id="openPickerBtn" type="button" title="Escolher disciplina e aula">
+        <span class="brand-symbol" id="brandSymbol">FATEC</span>
+      </button>
+      <span class="badge-tag badge-primary" id="lessonBadge">Selecione uma aula</span>
+      <span class="badge-course" id="courseName">Materiais didáticos</span>
+    </div>
+    <div class="deck-header-right">
+      <button class="header-btn" id="shortcutsBtn" type="button">⌨ Atalhos</button>
+      <button class="header-btn" id="overviewBtn" type="button">▦ Visão geral</button>
+      <button class="header-btn" id="fullscreenBtn" type="button">⛶ Tela cheia</button>
+    </div>
+  </header>
+
+  <main class="slides-viewport"><div class="slides-wrapper" id="slidesWrapper"></div></main>
+
+  <nav class="deck-navigation" aria-label="Navegação dos slides">
+    <button class="nav-btn" id="prevBtn" type="button" aria-label="Slide anterior">◀</button>
+    <div class="nav-slide-counter" id="slideCounter">00 / 00</div>
+    <button class="nav-btn" id="nextBtn" type="button" aria-label="Próximo slide">▶</button>
+  </nav>
+
+  <div class="overview-modal" id="overviewModal">
+    <div class="overview-container">
+      <div class="overview-header"><div class="overview-title">Visão geral</div><button class="header-btn" id="closeOverviewBtn" type="button">× Fechar</button></div>
+      <div class="overview-grid" id="overviewGrid"></div>
+    </div>
+  </div>
+
+  <div class="shortcuts-modal" id="shortcutsModal">
+    <div class="shortcuts-card">
+      <div class="shortcuts-title">Atalhos de navegação</div>
+      <div class="shortcuts-list">
+        <div class="shortcut-row"><span>Avançar</span><span class="kbd">→ / Espaço</span></div>
+        <div class="shortcut-row"><span>Voltar</span><span class="kbd">←</span></div>
+        <div class="shortcut-row"><span>Visão geral</span><span class="kbd">O</span></div>
+        <div class="shortcut-row"><span>Escolher aula</span><span class="kbd">A</span></div>
+        <div class="shortcut-row"><span>Tela cheia</span><span class="kbd">F</span></div>
+      </div>
+      <div class="modal-actions"><button class="widget-btn" id="closeShortcutsBtn" type="button">Entendi</button></div>
+    </div>
+  </div>
+</body>
+</html>
