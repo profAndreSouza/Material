@@ -44,3 +44,6 @@ Informática Aplicada a Aeronáutica/*.py
 
 # Avaliações & Provas Geradas
 Suporte/
+.build/
+.codex-finalizer/
+assets/

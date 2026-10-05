@@ -23,3 +23,19 @@
   .picker-close { position: absolute; top: 8px; right: 12px; }
   .badge-course { display: none; }
 }
+.image-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.image-panel img {
+  display: block;
+  width: 100%;
+  max-height: 390px;
+  object-fit: contain;
+  border-radius: 14px;
+}
