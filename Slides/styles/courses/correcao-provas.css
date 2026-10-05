@@ -1,0 +1,23 @@
+body[data-theme="senai"] .exam-cover { justify-content:center; }
+.answer-table { width:100%; border-collapse:collapse; font-size:13px; text-align:center; }
+.answer-table th { padding:10px 8px; background:var(--primary); color:#fff; }
+.answer-table td { padding:10px 8px; border-bottom:1px solid var(--border); font-weight:700; }
+.answer-table tr:nth-child(even) td { background:var(--bg-subtle); }
+.answer-table td:first-child { color:var(--primary); font-weight:800; }
+.concept-list { display:grid; gap:14px; }
+.concept-row { display:grid; grid-template-columns:150px 1fr; gap:20px; align-items:start; padding:14px 0; border-bottom:1px solid var(--border); }
+.concept-row:last-child { border-bottom:0; }
+.concept-row strong { color:var(--primary); font-size:16px; }
+.concept-row p { color:var(--text-body); line-height:1.55; }
+.formula-box { padding:16px 20px; background:#0f172a; color:#f8fafc; border-radius:12px; font:600 16px/1.6 var(--font-mono); }
+.exam-note { padding:15px 18px; border-left:5px solid var(--secondary); background:var(--secondary-light); border-radius:8px; color:var(--text-body); line-height:1.55; }
+.exam-warning { border-left-color:var(--warning); background:var(--warning-light); }
+.rubric-list { display:grid; gap:10px; }
+.rubric-item { display:grid; grid-template-columns:1fr auto; gap:16px; padding:11px 14px; background:var(--bg-subtle); border-radius:8px; }
+.rubric-item b { color:var(--primary); }
+.sequence { display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; margin:14px 0; }
+.sequence span { padding:12px 16px; background:var(--primary-light); border:1px solid var(--primary); border-radius:10px; color:var(--primary-hover); font-weight:800; }
+.mistake-list { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.mistake-list > div { padding:16px; background:#fff; border:1px solid var(--border); border-left:4px solid var(--danger); border-radius:9px; }
+.mistake-list strong { display:block; margin-bottom:6px; color:var(--danger); }
+@media(max-width:900px){.concept-row{grid-template-columns:1fr}.mistake-list{grid-template-columns:1fr}.answer-table{font-size:11px}}

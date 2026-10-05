@@ -103,6 +103,20 @@
   }
 
   function goTo(index) { if (index >= 0 && index < state.slides.length) { state.current = index; updateNavigation(); } }
+
+  async function printDeck() {
+    if (!state.slides.length) return;
+    document.querySelectorAll(".open").forEach(element => element.classList.remove("open"));
+    document.body.classList.add("preparing-print");
+    if (document.fonts?.ready) await document.fonts.ready;
+    await Promise.all([...document.images].map(image => image.complete ? Promise.resolve() : new Promise(resolve => {
+      image.addEventListener("load", resolve, { once: true });
+      image.addEventListener("error", resolve, { once: true });
+    })));
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    window.print();
+  }
+
   function buildOverview() {
     $("overviewGrid").innerHTML = state.slides.map((slide, i) => `<button class="overview-item${i === state.current ? " current" : ""}" data-slide="${i}" type="button"><span class="overview-item-num">Slide ${String(i + 1).padStart(2, "0")} · ${slide.querySelector(".slide-category")?.textContent || "Conteúdo"}</span><span class="overview-item-title">${slide.querySelector(".slide-title")?.textContent || ""}</span></button>`).join("");
     document.querySelectorAll(".overview-item").forEach(item => item.onclick = () => { goTo(Number(item.dataset.slide)); $("overviewModal").classList.remove("open"); });
@@ -154,8 +168,10 @@
   $("prevBtn").onclick = () => goTo(state.current - 1); $("nextBtn").onclick = () => goTo(state.current + 1);
   $("overviewBtn").onclick = () => $("overviewModal").classList.toggle("open"); $("closeOverviewBtn").onclick = () => $("overviewModal").classList.remove("open");
   $("shortcutsBtn").onclick = () => $("shortcutsModal").classList.toggle("open"); $("closeShortcutsBtn").onclick = () => $("shortcutsModal").classList.remove("open");
+  $("printBtn").onclick = printDeck;
   $("fullscreenBtn").onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
-  document.addEventListener("keydown", e => { if (["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)) return; if (["ArrowRight","ArrowDown"," ","PageDown"].includes(e.key)) { e.preventDefault(); goTo(state.current+1); } else if (["ArrowLeft","ArrowUp","PageUp"].includes(e.key)) { e.preventDefault(); goTo(state.current-1); } else if (e.key === "Home") goTo(0); else if (e.key === "End") goTo(state.slides.length-1); else if (e.key.toLowerCase() === "o") $("overviewModal").classList.toggle("open"); else if (e.key.toLowerCase() === "a") $("coursePicker").classList.toggle("open"); else if (e.key.toLowerCase() === "f") $("fullscreenBtn").click(); else if (e.key === "?" || e.key === "/") $("shortcutsModal").classList.toggle("open"); else if (e.key === "Escape") document.querySelectorAll(".open").forEach(x => x.classList.remove("open")); });
+  window.addEventListener("afterprint", () => document.body.classList.remove("preparing-print"));
+  document.addEventListener("keydown", e => { if (["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)) return; if (["ArrowRight","ArrowDown"," ","PageDown"].includes(e.key)) { e.preventDefault(); goTo(state.current+1); } else if (["ArrowLeft","ArrowUp","PageUp"].includes(e.key)) { e.preventDefault(); goTo(state.current-1); } else if (e.key === "Home") goTo(0); else if (e.key === "End") goTo(state.slides.length-1); else if (e.key.toLowerCase() === "o") $("overviewModal").classList.toggle("open"); else if (e.key.toLowerCase() === "a") $("coursePicker").classList.toggle("open"); else if (e.key.toLowerCase() === "p" && !e.ctrlKey && !e.metaKey) { e.preventDefault(); printDeck(); } else if (e.key.toLowerCase() === "f") $("fullscreenBtn").click(); else if (e.key === "?" || e.key === "/") $("shortcutsModal").classList.toggle("open"); else if (e.key === "Escape") document.querySelectorAll(".open").forEach(x => x.classList.remove("open")); });
   document.addEventListener("touchstart", e => state.touchStartX = e.changedTouches[0].screenX, {passive:true});
   document.addEventListener("touchend", e => { const delta = state.touchStartX - e.changedTouches[0].screenX; if (Math.abs(delta)>45) goTo(state.current + (delta>0?1:-1)); }, {passive:true});
 

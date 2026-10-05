@@ -1,0 +1,78 @@
+@page {
+  size: 13.333in 7.5in;
+  margin: 0;
+}
+
+@media print {
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+
+  .presentation-bg,
+  .progress-bar-container,
+  .course-picker,
+  .deck-header,
+  .deck-navigation,
+  .overview-modal,
+  .shortcuts-modal {
+    display: none !important;
+  }
+
+  .slides-viewport,
+  .slides-wrapper {
+    position: static !important;
+    display: block !important;
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .slide,
+  .slide.active,
+  .slide.prev,
+  body[data-course="banco-de-dados"] .slide {
+    position: relative !important;
+    inset: auto !important;
+    display: flex !important;
+    width: 13.333in !important;
+    min-width: 13.333in !important;
+    max-width: 13.333in !important;
+    height: 7.5in !important;
+    min-height: 7.5in !important;
+    max-height: 7.5in !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .slide:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  button, input, select, textarea {
+    print-color-adjust: exact;
+  }
+}

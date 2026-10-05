@@ -26,6 +26,14 @@ Sistema de Informação e Tecnologias Emergentes/
 
 O endereço aceita links diretos: `index.html?disciplina=sistemas-emergentes&aula=aula-03#slide-4`.
 
+## Gerar PDF
+
+1. Carregue a disciplina e a aula desejadas.
+2. Clique em **Imprimir / PDF** no cabeçalho ou pressione `P`.
+3. Na janela do navegador, escolha **Salvar como PDF**.
+
+O modo de impressão inclui todos os slides da aula, um slide por página, no formato 16:9 e sem os controles de navegação.
+
 ## Estrutura central
 
 ```text

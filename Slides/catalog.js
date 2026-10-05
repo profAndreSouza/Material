@@ -19,9 +19,17 @@ window.SLIDES_CATALOG = [
       { id: "aula-03", label: "Aula 03", title: "Smart contracts, tokens e RWA", source: "../Sistema de Informação e Tecnologias Emergentes/Slides/aula-03.js" }
     ]
   },
-  { id: "automacao-industrial", name: "Automação Industrial", code: "AI", institution: "senai", lessons: [] },
-  { id: "computacao-em-nuvem", name: "Computação em Nuvem", code: "CN", institution: "senai", lessons: [] },
-  { id: "ciencia-de-dados", name: "Ciência de Dados", code: "CD", institution: "senai", lessons: [] },
-  { id: "devops", name: "Integração e Entrega Contínua - DevOps", code: "DEVOPS", institution: "senai", lessons: [] },
+  { id: "automacao-industrial", name: "Automação Industrial", code: "AI", institution: "senai", lessons: [
+    { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Automação Industrial/Slides/correcao-p1.js" }
+  ] },
+  { id: "computacao-em-nuvem", name: "Computação em Nuvem", code: "CN", institution: "senai", lessons: [
+    { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Computação em Nuvem/Slides/correcao-p1.js" }
+  ] },
+  { id: "ciencia-de-dados", name: "Ciência de Dados", code: "CD", institution: "senai", lessons: [
+    { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Ciencia de Dados/Slides/correcao-p1.js" }
+  ] },
+  { id: "devops", name: "Integração e Entrega Contínua - DevOps", code: "DEVOPS", institution: "senai", lessons: [
+    { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Integração e Entrega Contínua - DevOps/Slides/correcao-p1.js" }
+  ] },
   { id: "governanca-de-ti", name: "Governança de TI", code: "GTI", institution: "senai", lessons: [] }
 ];
