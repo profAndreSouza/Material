@@ -20,16 +20,20 @@ window.SLIDES_CATALOG = [
     ]
   },
   { id: "automacao-industrial", name: "Automação Industrial", code: "AI", institution: "senai", lessons: [
-    { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Automação Industrial/Slides/correcao-p1.js" }
+    { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Automação Industrial/Slides/correcao-p1.js" },
+    { id: "semana-10", label: "Semana 10", title: "Construção guiada do fluxo Node-RED", source: "../Automação Industrial/Slides/semana-10.js" }
   ] },
   { id: "computacao-em-nuvem", name: "Computação em Nuvem", code: "CN", institution: "senai", lessons: [
-    { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Computação em Nuvem/Slides/correcao-p1.js" }
+    { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Computação em Nuvem/Slides/correcao-p1.js" },
+    { id: "semana-10", label: "Semana 10", title: "Da EC2 pública à arquitetura de rede", source: "../Computação em Nuvem/Slides/semana-10.js" }
   ] },
   { id: "ciencia-de-dados", name: "Ciência de Dados", code: "CD", institution: "senai", lessons: [
-    { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Ciencia de Dados/Slides/correcao-p1.js" }
+    { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Ciencia de Dados/Slides/correcao-p1.js" },
+    { id: "semana-10", label: "Semana 10", title: "Da Random Forest às redes neurais", source: "../Ciencia de Dados/Slides/semana-10.js" }
   ] },
   { id: "devops", name: "Integração e Entrega Contínua - DevOps", code: "DEVOPS", institution: "senai", lessons: [
-    { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Integração e Entrega Contínua - DevOps/Slides/correcao-p1.js" }
+    { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Integração e Entrega Contínua - DevOps/Slides/correcao-p1.js" },
+    { id: "semana-10", label: "Semana 10", title: "Testes de integração e E2E no fluxo crítico", source: "../Integração e Entrega Contínua - DevOps/Slides/semana-10.js" }
   ] },
   { id: "governanca-de-ti", name: "Governança de TI", code: "GTI", institution: "senai", lessons: [] }
 ];
