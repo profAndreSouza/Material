@@ -29,11 +29,11 @@ window.SLIDES_CATALOG = [
   ] },
   { id: "ciencia-de-dados", name: "Ciência de Dados", code: "CD", institution: "senai", lessons: [
     { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Ciência de Dados/Slides/correcao-p1.js" },
-    { id: "semana-10", label: "Semana 10", title: "Da Random Forest às redes neurais", source: "../Ciência de Dados/Slides/semana-10.js" }
+    { id: "semana-10", label: "Semana 10", title: "Redes neurais para classificação tabular", source: "../Ciência de Dados/Slides/semana-10.js" }
   ] },
   { id: "devops", name: "Integração e Entrega Contínua - DevOps", code: "DEVOPS", institution: "senai", lessons: [
     { id: "correcao-p1", label: "Correção P1", title: "Respostas e conceitos das versões A, B, C e D", source: "../Integração e Entrega Contínua - DevOps/Slides/correcao-p1.js" },
-    { id: "reforco-01-07-gitflow", label: "Reforço", title: "Fundamentos até a semana 7 e prática de GitFlow", source: "../Integração e Entrega Contínua - DevOps/Slides/reforco-semanas-01-a-07-gitflow.js" },
+    { id: "reforco-01-07-gitflow", label: "Reforço técnico", title: "DevOps, CI/CD e laboratório distribuído de GitFlow", source: "../Integração e Entrega Contínua - DevOps/Slides/reforco-semanas-01-a-07-gitflow.js" },
     { id: "semana-10", label: "Semana 10", title: "Testes de integração e E2E no fluxo crítico", source: "../Integração e Entrega Contínua - DevOps/Slides/semana-10.js" }
   ] },
   { id: "governanca-de-ti", name: "Governança de TI", code: "GTI", institution: "senai", lessons: [] }
