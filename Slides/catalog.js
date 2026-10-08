@@ -36,5 +36,7 @@ window.SLIDES_CATALOG = [
     { id: "reforco-01-07-gitflow", label: "Reforço técnico", title: "DevOps, CI/CD e laboratório distribuído de GitFlow", source: "../Integração e Entrega Contínua - DevOps/Slides/reforco-semanas-01-a-07-gitflow.js" },
     { id: "semana-10", label: "Semana 10", title: "Testes de integração e E2E no fluxo crítico", source: "../Integração e Entrega Contínua - DevOps/Slides/semana-10.js" }
   ] },
-  { id: "governanca-de-ti", name: "Governança de TI", code: "GTI", institution: "senai", lessons: [] }
+  { id: "governanca-de-ti", name: "Governança de TI", code: "GTI", institution: "senai", lessons: [
+    { id: "semana-10", label: "Semana 10", title: "Gestão de riscos, compliance e segurança da informação", source: "../Governança de TI/Slides/semana-10.js" }
+  ] }
 ];

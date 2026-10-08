@@ -1,71 +1,15 @@
 window.SLIDE_DECKS["computacao-em-nuvem/semana-10"] = {
-  "title": "Da EC2 Pública à Arquitetura de Rede",
-  "slides": [
-    {
-      "category": "Semana 10",
-      "title": "Da EC2 pública à arquitetura de rede",
-      "subtitle": "Leitura da VPC existente e rastreamento do tráfego",
-      "content": "<div class=\"hero-story\"><div class=\"hero-emoji\">🌐</div><div><h2>A instância participa de várias decisões de rede</h2><p>VPC, sub-rede, tabela de rotas, IP público, Security Group, SO e Docker precisam cooperar para uma requisição alcançar o serviço.</p></div></div>"
-    },
-    {
-      "category": "Rastreamento",
-      "title": "Jornada do Pacote (Packet Flow Tracker)",
-      "subtitle": "Acesso público é uma cadeia encadeada de autorizações e rotas",
-      "content": "<div class=\"sequence\"><span>1. Navegador</span><span>2. Internet Gateway</span><span>3. Route Table</span><span>4. Security Group</span><span>5. Kernel Linux</span><span>6. Docker Net</span><span>7. Contêiner</span></div><div class=\"exam-note\">Uma falha em qualquer um dos 7 elos impede o acesso. O diagnóstico eficiente descobre em qual nó o pacote foi bloqueado.</div>"
-    },
-    {
-      "category": "Camadas",
-      "title": "Perguntas por Camada de Infraestrutura",
-      "subtitle": "Cada camada responde por uma causa distinta de falha",
-      "content": "<div class=\"concept-list\"><div class=\"concept-row\"><strong>1. Endereçamento (CIDR)</strong><p>Qual é o IP da rede e do host? (Ex: 10.0.1.25/24 em VPC 10.0.0.0/16)</p></div><div class=\"concept-row\"><strong>2. Roteamento (Route Table)</strong><p>Para qual próximo salto (next hop) enviar? (0.0.0.0/0 → igw-xxxx)</p></div><div class=\"concept-row\"><strong>3. Autorização (Security Group)</strong><p>Esta origem/IP pode conectar neste protocolo/porta?</p></div><div class=\"concept-row\"><strong>4. Publicação (Docker Container)</strong><p>A porta interna foi mapeada para o host? (1880:1880)</p></div></div>"
-    },
-    {
-      "category": "Endereçamento",
-      "title": "CIDR e Reservas IPv4 na AWS",
-      "subtitle": "A sub-rede segmenta o espaço de endereçamento da VPC",
-      "content": "<div class=\"grid-2\"><div class=\"formula-box\">Sub-rede /24<br>2^(32-24) = 256 IPs totas<br><strong>251 IPs Utilizáveis</strong></div><div><div class=\"concept-list\"><div class=\"concept-row\"><strong>Endereços Reservados AWS</strong><p>A AWS reserva 5 IPs por sub-rede: .0 (Rede), .1 (Roteador), .2 (DNS), .3 (Futuro) e .255 (Broadcast).</p></div></div></div></div>"
-    },
-    {
-      "category": "Roteamento",
-      "title": "Tabela de Rotas e Maior Prefixo",
-      "subtitle": "O roteador escolhe a rota mais específica",
-      "content": "<table class=\"answer-table\"><thead><tr><th>Destino</th><th>Alvo (Target)</th><th>Propósito</th></tr></thead><tbody><tr><td><code>10.0.0.0/16</code></td><td><code>local</code></td><td>Tráfego interno entre instâncias da VPC</td></tr><tr><td><code>0.0.0.0/0</code></td><td><code>igw-0abc1234</code></td><td>Tráfego destinado à Internet externa</td></tr></tbody></table><div class=\"exam-note\">Para um destino interno (10.0.2.10), a rota <code>/16</code> é escolhida por ter prefixo mais longo que <code>/0</code>.</div>"
-    },
-    {
-      "category": "Sub-rede Pública",
-      "title": "6 Condições para Acesso Público",
-      "subtitle": "Sub-rede pública não expõe a instância automaticamente",
-      "content": "<div class=\"concept-list\"><div class=\"concept-row\"><strong>1. Gateway</strong><p>IGW anexado à VPC.</p></div><div class=\"concept-row\"><strong>2. Rota</strong><p>Subnet associada à tabela apontando 0.0.0.0/0 para o IGW.</p></div><div class=\"concept-row\"><strong>3. IP Público</strong><p>Interface da EC2 com IPv4 Público ou Elastic IP.</p></div><div class=\"concept-row\"><strong>4. Security Group</strong><p>Regras Inbound liberando a porta e IP de origem.</p></div><div class=\"concept-row\"><strong>5. Serviço no SO</strong><p>Processo escutando na porta (ex: Node-RED ou Docker).</p></div><div class=\"concept-row\"><strong>6. Mapeamento Docker</strong><p>Porta Docker devidamente publicada (ex: -p 1880:1880).</p></div></div>"
-    },
-    {
-      "category": "Firewall",
-      "title": "Security Groups: Estado e Regras",
-      "subtitle": "Firewall stateful no nível da interface de rede (ENI)",
-      "content": "<div class=\"concept-list\"><div class=\"concept-row\"><strong>Stateful</strong><p>Respostas a conexões de entrada autorizadas são permitidas automaticamente.</p></div><div class=\"concept-row\"><strong>Menor Privilégio</strong><p>Liberar SSH (22) apenas para o IP /32 do administrador; evitar 0.0.0.0/0 em portas sensíveis sem TLS.</p></div></div>"
-    },
-    {
-      "category": "Diagnóstico",
-      "title": "Tabela de Diagnóstico de Falhas",
-      "subtitle": "Associe o sintoma observado à causa raiz",
-      "content": "<table class=\"answer-table\"><thead><tr><th>Sintoma / Evidência</th><th>Causa Provável</th><th>Comando de Teste</th></tr></thead><tbody><tr><td><code>Connection timed out</code></td><td>Security Group ou Route Table</td><td><code>nc -zvw3 IP PORTA</code></td></tr><tr><td><code>Connection refused</code></td><td>Host alcançado, mas nada escuta</td><td><code>sudo ss -lntp</code></td></tr><tr><td>Porta oculta em <code>docker ps</code></td><td>Falta de binding no Docker Compose</td><td><code>docker ps</code></td></tr><tr><td>HTTP 404 Not Found</td><td>Aplicação no ar, mas rota ausente</td><td><code>curl -i http://IP/rota</code></td></tr></tbody></table>"
-    },
-    {
-      "category": "Multicloud",
-      "title": "Equivalentes em Provedores Cloud",
-      "subtitle": "Conceitos universais de redes em nuvem",
-      "content": "<table class=\"answer-table\"><thead><tr><th>Conceito</th><th>AWS</th><th>Azure</th><th>GCP</th><th>Oracle Cloud</th></tr></thead><tbody><tr><td>Rede Isolada</td><td>VPC</td><td>VNet</td><td>VPC Network</td><td>VCN</td></tr><tr><td>Firewall Recurso</td><td>Security Group</td><td>NSG</td><td>VPC Firewall</td><td>Security List / NSG</td></tr><tr><td>Tabela Rotas</td><td>Route Table</td><td>Route Table / UDR</td><td>Routes</td><td>Route Table</td></tr></tbody></table>"
-    },
-    {
-      "category": "Quiz",
-      "title": "Checagem de Entendimento",
-      "subtitle": "Testando o diagnóstico de infraestrutura",
-      "content": "<div class=\"hero-story\"><div class=\"hero-emoji\">❓</div><div><h2>Se o comando 'curl http://localhost:1880' funciona na EC2, mas acessos pelo IP Público dão Timeout, onde está a falha?</h2><p><strong>Resposta:</strong> A falha está na camada de rede externa (Security Group bloqueando a porta 1880, falta de rota para o IGW ou ausência de IP público), pois o serviço já comprovou estar ativo dentro do SO da instância!</p></div></div>"
-    },
-    {
-      "category": "Prática",
-      "title": "Atividade de Inventário & Diagnóstico",
-      "subtitle": "Roteiro prático no notebook da aula",
-      "content": "<div class=\"rubric-list\"><div class=\"rubric-item\"><span>1. Mapeie os CIDRs da VPC e Sub-rede</span><b>Passo 1</b></div><div class=\"rubric-item\"><span>2. Inspecione as regras do Security Group</span><b>Passo 2</b></div><div class=\"rubric-item\"><span>3. Execute os comandos de diagnóstico CLI no terminal</span><b>Passo 3</b></div><div class=\"rubric-item\"><span>4. Resolva o estudo de caso de falha simulada</span><b>Passo 4</b></div></div>"
-    }
+  title: "Armazenamento em nuvem: bloco, objeto e arquivo",
+  slides: [
+    {category:"Semana 10",title:"Armazenamento em nuvem",subtitle:"Como escolher entre bloco, objeto e arquivo",content:`<div class="hero-story"><div class="hero-emoji">💾</div><div><h2>O dado pede um modelo de acesso</h2><p>A aplicação precisa de um disco, de uma API ou de um diretório compartilhado?</p></div></div>`},
+    {category:"Contexto",title:"Armazenamento é uma camada da arquitetura",subtitle:"A aplicação precisa sobreviver a reinícios, falhas e crescimento",content:`<div class="image-card"><img src="../Aulas/images/semana_10_fluxo_vpc_publica.png" alt="Fluxo de uma aplicação em uma VPC pública"><p>O diagrama mostra o contexto de infraestrutura em que os dados persistentes são usados pela aplicação.</p></div>`},
+    {category:"Comparação",title:"Três modelos, três perguntas",subtitle:"A unidade de acesso define a escolha",content:`<table class="answer-table"><thead><tr><th>Modelo</th><th>Unidade</th><th>Pergunta</th><th>AWS</th></tr></thead><tbody><tr><td><strong>Bloco</strong></td><td>volume/dispositivo</td><td>Preciso de semântica de disco?</td><td>EBS</td></tr><tr><td><strong>Objeto</strong></td><td>objeto + chave</td><td>Consigo acessar por API?</td><td>S3</td></tr><tr><td><strong>Arquivo</strong></td><td>arquivos/diretórios</td><td>Preciso montar e compartilhar?</td><td>EFS</td></tr></tbody></table>`},
+    {category:"Bloco",title:"EBS: o disco da máquina",subtitle:"Baixa latência e semântica de sistema de arquivos",content:`<div class="concept-list"><div class="concept-row"><strong>Use para</strong><p>Sistema operacional, banco de dados e workloads com escrita frequente.</p></div><div class="concept-row"><strong>Como aparece</strong><p>Um dispositivo como <code>/dev/xvdf</code>, que pode ser formatado e montado.</p></div><div class="concept-row"><strong>Cuidado</strong><p>Persistência não é backup; alta disponibilidade exige snapshots ou replicação.</p></div></div>`},
+    {category:"Objeto",title:"S3: dados acessados por API",subtitle:"Conteúdo, metadados e chave dentro de um bucket",content:`<div class="grid-2"><div class="formula-box"><strong>chave</strong><br><code>clientes/42/avatar.png</code><br><br><strong>metadados</strong><br>tipo, classe, versão</div><div class="concept-list"><div class="concept-row"><strong>Use para</strong><p>Imagens, vídeos, documentos, backups, datasets e conteúdo estático.</p></div><div class="concept-row"><strong>Recursos</strong><p>Versionamento, ciclo de vida, eventos e classes de armazenamento.</p></div></div></div>`},
+    {category:"Arquivo",title:"EFS: diretórios compartilhados",subtitle:"Um sistema de arquivos gerenciado para várias instâncias",content:`<div class="concept-list"><div class="concept-row"><strong>Use quando</strong><p>Várias instâncias Linux precisam acessar os mesmos uploads ou arquivos.</p></div><div class="concept-row"><strong>Interface</strong><p>A aplicação trabalha com caminhos, diretórios e permissões via montagem NFS.</p></div><div class="concept-row"><strong>Limite</strong><p>Compartilhamento não substitui banco de dados nem resolve concorrência automaticamente.</p></div></div>`},
+    {category:"Decisão",title:"Mapa rápido de escolha",subtitle:"Comece pelo padrão de acesso",content:`<div class="sequence"><span>Banco de dados → BLOCO</span><span>Imagens e backups → OBJETO</span><span>Diretório comum → ARQUIVO</span></div><div class="exam-note">A regra é um ponto de partida: valide latência, throughput, compartilhamento, disponibilidade, segurança e custo.</div>`},
+    {category:"Arquitetura",title:"Caso: aplicação web de produtos",subtitle:"Separando dados transacionais de arquivos",content:`<div class="concept-list"><div class="concept-row"><strong>Banco</strong><p>Serviço gerenciado ou volume de bloco para transações.</p></div><div class="concept-row"><strong>Imagens</strong><p>S3; o banco guarda apenas a chave do objeto.</p></div><div class="concept-row"><strong>Compartilhamento</strong><p>EFS somente se várias instâncias precisarem de diretório montado.</p></div><div class="concept-row"><strong>Proteção</strong><p>Backup automatizado, versionamento, retenção e IAM de menor privilégio.</p></div></div>`},
+    {category:"Atividade",title:"Escolha o armazenamento",subtitle:"Justifique a decisão pelo acesso ao dado",content:`<div class="formula-box"><strong>Classifique:</strong> PostgreSQL transacional · catálogo de imagens · uploads compartilhados · backup mensal.</div><div class="concept-list"><div class="concept-row"><strong>Entregue</strong><p>Modelo escolhido, requisito de latência, estratégia de backup e risco de indisponibilidade.</p></div></div>`},
+    {category:"Síntese",title:"O essencial para levar",subtitle:"Bloco, objeto e arquivo não são intercambiáveis",content:`<div class="hero-story"><div class="hero-emoji">🧭</div><div><h2>Escolha pelo modelo de acesso</h2><p><strong>Bloco</strong> para disco e banco · <strong>Objeto</strong> para conteúdo e backup · <strong>Arquivo</strong> para diretórios compartilhados.</p></div></div>`}
   ]
 };

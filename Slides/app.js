@@ -33,10 +33,10 @@
   }
 
   function loadScript(source) {
-    if (state.loadedScripts.has(source)) return Promise.resolve();
     return new Promise((resolve, reject) => {
       const script = document.createElement("script");
-      script.src = source;
+      const separator = source.includes("?") ? "&" : "?";
+      script.src = `${source}${separator}v=${Date.now()}`;
       script.onload = () => { state.loadedScripts.add(source); resolve(); };
       script.onerror = () => reject(new Error(`Não foi possível carregar ${source}`));
       document.head.appendChild(script);
