@@ -66,7 +66,7 @@ Proposto formalmente por **Peter Chen em 1976**, o Modelo Entidade-Relacionament
 * **Conceito:** Entidade cuja existência no banco depende da existência de outra entidade-proprietária (*entidade forte*), e cujos atributos próprios não são suficientes para formar uma chave primária exclusiva.
 * **Exemplo Clássico:** `DEPENDENTE` em relação ao `FUNCIONARIO`.
   * Se o funcionário é demitido, seus dependentes deixam de ter razão de existir no plano de saúde da empresa.
-  * O identificador do dependente é composto por: $(\text{id\_funcionario} + \text{numero\_ordem\_dependente})$.
+  * O identificador do dependente é composto por: $(\text{idFuncionario} + \text{numeroOrdemDependente})$.
   * **Notação Chen:** Retângulo duplo para a entidade fraca e losango duplo para o relacionamento de identificação.
 
 ---
