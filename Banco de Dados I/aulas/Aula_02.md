@@ -1,7 +1,7 @@
 # ROTEIRO DE AULA EXPANDIDO — AULA 02
 
 **Componente Curricular:** Banco de Dados I  
-**Data Calendário:** 14/08/2026 &nbsp;|&nbsp; **Data Programada:** 02/10/2026  
+**Data da Aula:** 16/10/2026 (Letivo 3)  
 **Modalidade:** Presencial em Laboratório de Informática  
 **Tema:** Modelagem Conceitual de Dados I — Abordagem Entidade-Relacionamento (DER Básico) e Cardinalidades  
 **Ambiente de Software:** brModelo 3.0 (ou brModelo Web / Draw.io)  
