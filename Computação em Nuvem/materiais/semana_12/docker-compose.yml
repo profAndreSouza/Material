@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: ./backend
+    image: smartn1-backend:1.0
+    networks: [smartn1]
+
+  frontend:
+    build: ./frontend
+    image: smartn1-frontend:1.0
+    environment:
+      BACKEND_HOST: backend
+      BACKEND_PORT: 8000
+    ports:
+      - "8080:8080"
+    depends_on: [backend]
+    networks: [smartn1]
+
+networks:
+  smartn1:

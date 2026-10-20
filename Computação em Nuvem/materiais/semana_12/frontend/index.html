@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart N1 - Arquitetura em Camadas</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, system-ui, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 20% 10%, #164e63, #07111f 52%); color: #e2e8f0; }
+    main { width: min(1060px, 92vw); margin: auto; padding: 54px 0; }
+    header { display: flex; gap: 22px; align-items: center; margin-bottom: 34px; }
+    .mark { width: 68px; height: 68px; border-radius: 18px; display: grid; place-items: center; font-size: 34px; background: #f97316; box-shadow: 0 16px 40px #f9731644; }
+    h1 { margin: 0 0 6px; font-size: clamp(2rem, 5vw, 3.5rem); }
+    .subtitle { margin: 0; color: #94a3b8; font-size: 1.1rem; }
+    .flow { display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: center; margin: 30px 0; }
+    .card { border: 1px solid #334155; border-radius: 18px; padding: 24px; background: #0f172acc; box-shadow: 0 18px 48px #0005; }
+    .card strong { display: block; color: #38bdf8; font-size: 1.2rem; margin-bottom: 8px; }
+    .private strong { color: #4ade80; }
+    .arrow { color: #fb923c; font-size: 2rem; }
+    .status { margin-top: 22px; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: #334155; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #facc15; }
+    .ok .dot { background: #4ade80; box-shadow: 0 0 14px #4ade80; }
+    .error .dot { background: #f87171; }
+    dl { display: grid; grid-template-columns: max-content 1fr; gap: 10px 18px; margin: 22px 0 0; }
+    dt { color: #94a3b8; } dd { margin: 0; overflow-wrap: anywhere; }
+    button { margin-top: 24px; padding: 11px 16px; border: 0; border-radius: 10px; font-weight: 700; background: #f97316; color: white; cursor: pointer; }
+    footer { margin-top: 28px; color: #64748b; text-align: center; }
+    @media (max-width: 720px) { .flow { grid-template-columns: 1fr; } .arrow { transform: rotate(90deg); text-align: center; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="mark">☁</div>
+      <div><h1>Smart N1</h1><p class="subtitle">Frontend público conectado a um backend privado na AWS</p></div>
+    </header>
+    <section class="flow">
+      <article class="card"><strong>Frontend</strong><span>Contêiner Nginx na sub-rede pública</span></article>
+      <div class="arrow">→</div>
+      <article class="card private"><strong>Backend</strong><span>API Flask na sub-rede privada</span></article>
+    </section>
+    <section class="card status">
+      <div id="pill" class="pill"><span class="dot"></span><span id="state">Consultando backend...</span></div>
+      <dl>
+        <dt>Serviço</dt><dd id="service">-</dd>
+        <dt>Versão</dt><dd id="version">-</dd>
+        <dt>Hostname</dt><dd id="hostname">-</dd>
+        <dt>Camada</dt><dd id="layer">-</dd>
+        <dt>Mensagem</dt><dd id="message">-</dd>
+        <dt>Horário UTC</dt><dd id="timestamp">-</dd>
+      </dl>
+      <button type="button" onclick="loadStatus()">Atualizar consulta</button>
+    </section>
+    <footer>A resposta exibida percorreu Internet → frontend público → backend privado.</footer>
+  </main>
+  <script>
+    async function loadStatus() {
+      const pill = document.getElementById('pill');
+      const state = document.getElementById('state');
+      pill.className = 'pill'; state.textContent = 'Consultando backend...';
+      try {
+        const response = await fetch('/api/status', { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        for (const key of ['service','version','hostname','layer','message','timestamp']) {
+          document.getElementById(key).textContent = data[key] ?? '-';
+        }
+        pill.className = 'pill ok'; state.textContent = 'Backend privado respondeu';
+      } catch (error) {
+        pill.className = 'pill error'; state.textContent = `Falha ao alcançar o backend: ${error.message}`;
+      }
+    }
+    loadStatus();
+  </script>
+</body>
+</html>
