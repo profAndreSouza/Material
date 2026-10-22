@@ -97,7 +97,7 @@ O projeto da disciplina consiste na elaboração de um **Plano Diretor de Govern
 | **09** | Semana PII | **30/Set** | **02/Out** | Consolidação dos Capítulos 1 a 5 com orientação PII. | Atendimento e refinamento do PII. |
 | **10** | Aula | **07/Out** | **09/Out** | [Gestão de Riscos em TI, Compliance e Segurança da Informação](aulas/semana_10.md) | **Capítulo 6**: Matriz de Riscos, Controles e Mitigação. <br>**ENTREGA PARCIAL 2 (09/Out)** |
 | **11** | Semana Tec. | **14/Out** | **16/Out** | Palestras e Workshops da Semana de Tecnologia. | Atividades institucionais integradas. |
-| **12** | Aula | **21/Out** | **23/Out** | [Frameworks de Governança e Serviços: ISO/IEC 38500, COBIT e ITIL](aulas/semana_12.md) | **Capítulo 7**: Seleção e Justificativa dos Frameworks. |
+| **12** | Aula | **21/Out** | **23/Out** | [Frameworks de Governança e Serviços: ISO/IEC 38500, COBIT e ITIL](aulas/semana_12.ipynb) | **Capítulo 7**: Seleção e Justificativa dos Frameworks. |
 | **13** | Aula | **28/Out** | **30/Out** | [Qualidade e Maturidade: CMMI, MR-MPS-SW, ISO 12207 e ISO 9126](aulas/semana_13.md) | **Capítulo 8**: Melhoria nos Processos de Dev e Qualidade. <br>**ENTREGA PARCIAL 3 (30/Out)** |
 | **14** | Semana PII / Exercício | **04/Nov** | **06/Nov** e **07/Nov (Sáb)** | Orientação do PII | **07/Nov (Sábado Letivo)**: Aula Prática / Exercício de consolidação dos frameworks. |
 | **15** | Aula | **11/Nov** | **13/Nov** | [Implantação da Governança de TI, FCS e Gestão da Mudança](aulas/semana_15.md) | **Capítulo 9**: Roadmap de Implantação e Benefícios. |
