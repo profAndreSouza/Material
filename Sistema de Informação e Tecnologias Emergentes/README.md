@@ -135,14 +135,17 @@ timeline
 ### Bloco B · Módulo 4: Cidades Inteligentes (*Smart Cities*), Telemetria IoT e Computação de Borda
 
 #### **Aula 04: Cidades Inteligentes, Sistemas Ciber-Físicos (CPS) e Camadas de Infraestrutura**
+* **Guia da Aula:** [Aula04_Cidades_Inteligentes_CPS.md](Aulas/Aula_04/Aula04_Cidades_Inteligentes_CPS.md)
+* **Enunciado da Atividade:** [Enunciado_Atividade_Bairro_CPS.md](Aulas/Aula_04/Enunciado_Atividade_Bairro_CPS.md)
+* **Slides Interativos:** disponíveis no catálogo de [Slides](../Slides/README.md).
 * **Objetivo:** Mapear a integração entre a malha urbana física e os sistemas de processamento de informação.
 * **Conteúdo Teórico (1h):**
   * Transição da cidade tradicional para Cidade Inteligente orientada a dados (*Data-Driven Smart Cities*).
   * Arquitetura em três camadas dos Sistemas Ciber-Físicos (CPS): Sensoriamento/Atuação $\to$ Transporte/Telemetria $\to$ Plataforma Analítica e GIS.
   * Desafios urbanos: monitoramento de enchentes, gestão semafórica adaptativa, resíduos sólidos e iluminação pública inteligente.
 * **Exercício Prático (40min):**
-  * **Prática:** Estudo de caso guiado: desenho da arquitetura de um Sistema Ciber-Físico municipal para monitoramento hidrológico e emissão de alertas de emergência.
-  * **Entregável:** Diagrama de fluxo de dados identificando sensores, interfaces de conversão e atores operacionais.
+  * **Prática:** Em duplas, escolher o bairro onde um integrante mora, caracterizar terreno, riscos e histórico de enchentes e, após contextualizar o território, propor uma arquitetura CPS adequada.
+  * **Entregável:** Relatório curto em PDF com mapa, contexto territorial, fontes, diagrama da solução, tratamento de falhas e cuidados de operação, enviado no Teams.
 
 #### **Aula 05: Telemetria Urbana e Protocolos de Comunicação IoT: MQTT e LoRaWAN**
 * **Objetivo:** Compreender os protocolos de transporte leve de dados e implementar comunicação telemétrica *Publish/Subscribe*.

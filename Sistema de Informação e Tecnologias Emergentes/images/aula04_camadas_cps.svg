@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">As três camadas de um Sistema Ciber-Físico urbano</title>
+  <desc id="desc">Diagrama com a camada de campo, a camada de transporte e a camada de plataforma, mostrando como dados de chuva e nível do rio ajudam equipes a emitir alertas.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1 L11 6 L1 11 Z" fill="#475569"/></marker>
+    <marker id="arrowBack" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1 L11 6 L1 11 Z" fill="#7c3aed"/></marker>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif;fill:#0f172a}.title{font-size:38px;font-weight:700}.subtitle{font-size:21px;fill:#475569}.head{font-size:27px;font-weight:700}.tag{font-size:17px;font-weight:700;letter-spacing:1px}.body{font-size:20px}.small{font-size:17px;fill:#334155}.tiny{font-size:15px;fill:#475569}.flow{font-size:16px;font-weight:700;fill:#334155}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <text x="800" y="66" text-anchor="middle" class="title">Como funciona um CPS urbano?</text>
+  <text x="800" y="103" text-anchor="middle" class="subtitle">Exemplo: monitorar chuva e nível de um rio para apoiar um alerta</text>
+
+  <!-- Layer panels -->
+  <rect x="55" y="155" width="455" height="570" rx="24" fill="#ecfeff" stroke="#0891b2" stroke-width="4"/>
+  <rect x="572" y="155" width="455" height="570" rx="24" fill="#fff7ed" stroke="#ea580c" stroke-width="4"/>
+  <rect x="1089" y="155" width="455" height="570" rx="24" fill="#eef2ff" stroke="#4f46e5" stroke-width="4"/>
+
+  <rect x="55" y="155" width="455" height="72" rx="22" fill="#cffafe"/>
+  <rect x="572" y="155" width="455" height="72" rx="22" fill="#ffedd5"/>
+  <rect x="1089" y="155" width="455" height="72" rx="22" fill="#e0e7ff"/>
+  <text x="282" y="201" text-anchor="middle" class="head" fill="#0e7490">1 · CAMPO</text>
+  <text x="799" y="201" text-anchor="middle" class="head" fill="#c2410c">2 · TRANSPORTE</text>
+  <text x="1316" y="201" text-anchor="middle" class="head" fill="#4338ca">3 · PLATAFORMA</text>
+
+  <!-- Field illustration: rain, gauge and river -->
+  <circle cx="150" cy="305" r="38" fill="#fde68a"/>
+  <path d="M76 353c4-29 47-39 67-17 13-28 61-25 70 5 32-7 49 24 31 43H92c-18-5-25-17-16-31Z" fill="#fff" stroke="#0e7490" stroke-width="5"/>
+  <path d="M113 400l-10 25M155 400l-10 25M197 400l-10 25" stroke="#0284c7" stroke-width="8" stroke-linecap="round"/>
+  <path d="M307 298v146m-26-114h53m-53 30h53m-53 30h53" stroke="#334155" stroke-width="8" stroke-linecap="round"/>
+  <path d="M289 413h39l-5 31h-29Z" fill="#38bdf8" stroke="#0369a1" stroke-width="4"/>
+  <path d="M75 469c56-26 107 24 165 0s111 25 197 0" fill="none" stroke="#0ea5e9" stroke-width="15" stroke-linecap="round"/>
+  <text x="282" y="500" text-anchor="middle" class="small">Pluviômetro + sensor de nível</text>
+  <text x="282" y="535" text-anchor="middle" class="body">Medem chuva e altura da água</text>
+  <rect x="92" y="582" width="380" height="94" rx="14" fill="#fff" stroke="#a5f3fc" stroke-width="2"/>
+  <text x="282" y="615" text-anchor="middle" class="tag" fill="#0e7490">DADO PRODUZIDO</text>
+  <text x="282" y="648" text-anchor="middle" class="small">valor · unidade · local · horário</text>
+
+  <!-- Transport illustration: signal and gateway -->
+  <rect x="744" y="339" width="110" height="105" rx="16" fill="#fff" stroke="#c2410c" stroke-width="5"/>
+  <circle cx="799" cy="389" r="10" fill="#ea580c"/>
+  <path d="M772 366a38 38 0 0 1 54 0M758 349a59 59 0 0 1 82 0" fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+  <path d="M799 446v38" stroke="#7c2d12" stroke-width="8"/>
+  <path d="M696 492h206" stroke="#c2410c" stroke-width="5"/>
+  <text x="799" y="535" text-anchor="middle" class="small">Rede + gateway</text>
+  <text x="799" y="570" text-anchor="middle" class="body">Levam a telemetria ao sistema</text>
+  <rect x="609" y="602" width="380" height="74" rx="14" fill="#fff" stroke="#fed7aa" stroke-width="2"/>
+  <text x="799" y="633" text-anchor="middle" class="tag" fill="#c2410c">ATENÇÃO</text>
+  <text x="799" y="660" text-anchor="middle" class="small">atraso · perda · falta de sinal</text>
+
+  <!-- Platform illustration: map, dashboard and operator -->
+  <rect x="1153" y="292" width="327" height="190" rx="14" fill="#fff" stroke="#4338ca" stroke-width="5"/>
+  <path d="M1180 322h269M1180 347h120" stroke="#c7d2fe" stroke-width="9" stroke-linecap="round"/>
+  <path d="M1194 440l65-55 54 26 63-61 43 27" fill="none" stroke="#4f46e5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="1313" cy="411" r="11" fill="#ef4444" stroke="#fff" stroke-width="4"/>
+  <path d="M1321 420l-18 27 21-2 15 13 2-28Z" fill="#ef4444"/>
+  <text x="1316" y="518" text-anchor="middle" class="small">Valida · combina · localiza</text>
+  <text x="1316" y="551" text-anchor="middle" class="body">Mapa, regras e painel</text>
+  <rect x="1126" y="585" width="380" height="91" rx="14" fill="#fff" stroke="#c7d2fe" stroke-width="2"/>
+  <text x="1316" y="618" text-anchor="middle" class="tag" fill="#4338ca">SAÍDA</text>
+  <text x="1316" y="649" text-anchor="middle" class="small">equipe avalia e comunica o alerta</text>
+
+  <!-- Main flow arrows -->
+  <path d="M510 390h58" fill="none" stroke="#475569" stroke-width="9" marker-end="url(#arrow)"/>
+  <text x="539" y="370" text-anchor="middle" class="flow">dados</text>
+  <path d="M1027 390h58" fill="none" stroke="#475569" stroke-width="9" marker-end="url(#arrow)"/>
+  <text x="1056" y="370" text-anchor="middle" class="flow">telemetria</text>
+  <!-- feedback -->
+  <path d="M1318 725v72H282v-72" fill="none" stroke="#7c3aed" stroke-width="5" stroke-dasharray="13 10" marker-end="url(#arrowBack)"/>
+  <rect x="545" y="765" width="510" height="52" rx="20" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="2"/>
+  <text x="800" y="799" text-anchor="middle" class="small" fill="#6d28d9">RETORNO: decisão ou comando autorizado para o campo (ex.: sirene)</text>
+  <text x="800" y="865" text-anchor="middle" class="tiny">As três camadas formam um ciclo: observar → comunicar → interpretar → agir.</text>
+</svg>

@@ -376,7 +376,7 @@ entity ENTREGADOR {
   nome : texto
 }
 CATEGORIA ||--o{ PRODUTO : classifica
-CLIENTE o|--o{ PEDIDO : identifica
+CLIENTE |o--o{ PEDIDO : identifica
 PEDIDO ||--|{ ITEM_PEDIDO : contém
 PRODUTO ||--o{ ITEM_PEDIDO : solicitado
 PEDIDO ||--o| ENTREGA : pode_gerar
@@ -448,7 +448,7 @@ ORDEM_SERVICO ||--|{ TRABALHO_TECNICO : recebe
 TECNICO ||--o{ TRABALHO_TECNICO : executa
 ORDEM_SERVICO ||--o{ USO_PECA : consome
 PECA ||--o{ USO_PECA : utilizada
-TECNICO o|--o{ TECNICO : supervisiona
+TECNICO |o--o{ TECNICO : supervisiona
 @enduml
 ```
 
@@ -652,6 +652,6 @@ FUNCIONARIO ||--o{ ALOCACAO : atua
 PROJETO ||--o{ ALOCACAO : recebe
 PROJETO ||--o{ ENTREGA : produz
 FUNCIONARIO ||--o{ ENTREGA : responsavel
-FUNCIONARIO o|--o{ FUNCIONARIO : supervisiona
+FUNCIONARIO |o--o{ FUNCIONARIO : supervisiona
 @enduml
 ```
