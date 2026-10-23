@@ -473,8 +473,8 @@ O analista de banco de dados deve utilizar as classes gramaticais da língua por
 * **Relacionamento:** `PUBLICA`.
 
 #### Etapa 3: Análise Rigorosa das Cardinalidades
-1. **EDITORA $\to$ LIVRO:** Uma editora cadastrada no sistema publica no mínimo 1 livro e pode publicar muitos livros para o acervo $\implies$ **(1, N)**.
-2. **LIVRO $\to$ EDITORA:** Cada exemplar de livro catalogado foi publicado por no mínimo 1 e no máximo 1 editora $\implies$ **(1, 1)**.
+1. **EDITORA $\to$ LIVRO:** Uma editora pode ser cadastrada antes de ter livros associados e pode publicar muitos livros para o acervo $\implies$ **(0, N)**.
+2. **LIVRO $\to$ EDITORA:** Cada livro catalogado foi publicado por no mínimo 1 e no máximo 1 editora $\implies$ **(1, 1)**.
 3. **Classificação Estrutural:** Relacionamento binário de cardinalidade máxima **1 para N (1:N)**.
 
 #### Etapa 4 e 5: DER Canônico Resultante (Notação Peter Chen)
@@ -484,7 +484,7 @@ O analista de banco de dados deve utilizar as classes gramaticais da língua por
           │                                         │
    (• id_editora)                              (• id_livro)
           │                                         │
-   ┌──────┴──────┐       (1,N)     (1,1)     ┌──────┴──────┐
+   ┌──────┴──────┐       (0,N)     (1,1)     ┌──────┴──────┐
    │   EDITORA   ├───────< PUBLICA >─────────┤    LIVRO    │
    └──────┬──────┘                           └──────┬──────┘
           │                                         │
@@ -494,7 +494,7 @@ O analista de banco de dados deve utilizar as classes gramaticais da língua por
 > **Material do docente:** o gabarito está em [`slides/img/der_editora.png`](file:///c:/projetos/Material/Banco%20de%20Dados%20I/slides/img/der_editora.png), mas não integra a apresentação desta aula.
 
 #### Conexão Pedagógica com a Fase Lógica Futura:
-Observe que, ao resolvermos o modelo conceitual com a cardinalidade $(1,N)$, antecipamos uma regra matemática fundamental do Modelo Relacional que estudaremos na Aula 04: **a chave primária do lado (1) migrará compulsoriamente como Chave Estrangeira (FK) para a tabela do lado (N)**.  
+Observe que, ao resolvermos o modelo conceitual com cardinalidade máxima 1:N, antecipamos uma regra matemática fundamental do Modelo Relacional que estudaremos na Aula 04: **a chave primária do lado (1) migra como Chave Estrangeira (FK) para a tabela do lado (N)**. O mínimo zero em EDITORA indica que ela pode existir antes de publicar livros.
 Portanto, a tabela `LIVRO` receberá a coluna `id_editora (FK)`.
 
 ---
@@ -512,14 +512,6 @@ O estudante responde às questões 1 a 4. Sugestão de tempo: 8 minutos por ques
 3. **Arquivos e SGBD:** explique dois problemas que podem surgir quando setores mantêm cópias do mesmo cadastro em planilhas separadas. Para cada problema, descreva como um SGBD pode ajudar.
 
 4. **Arquitetura ANSI/SPARC:** a troca do disco e a reorganização física dos arquivos obrigam a equipe a alterar o sistema usado pelos clientes? Justifique a resposta com o conceito de independência física de dados.
-
-### 5.2 Atividade complementar opcional
-
-5. **Exercício Prático Desplugado Complementar:**  
-   Aplique o método das 5 etapas para o seguinte cenário e elabore o respectivo DER de Chen no caderno:  
-   > *"Uma oficina mecânica mantém o cadastro de seus Mecânicos (código, nome, especialidade) e das Ferramentas especiais (código, descrição, fabricante). Cada ferramenta fica sob responsabilidade de exatamente um mecânico por turno, mas um mecânico pode ter sob sua responsabilidade múltiplas ferramentas."*
-
----
 
 ## 6. REFERÊNCIAS BIBLIOGRÁFICAS DETALHADAS E COMENTADAS
 

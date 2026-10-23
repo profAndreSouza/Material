@@ -6,7 +6,8 @@ window.SLIDES_CATALOG = [
     institution: "fatec",
     lessons: [
       { id: "aula-01", label: "Aula 01", title: "Fundamentos e modelagem conceitual", source: "../Banco de Dados I/slides/aula-01.js" },
-      { id: "aula-02", label: "Aula 02", title: "Modelagem conceitual e prática no brModelo", source: "../Banco de Dados I/slides/aula-02.js" }
+      { id: "aula-02", label: "Aula 02", title: "Modelagem conceitual e prática no brModelo", source: "../Banco de Dados I/slides/aula-02.js" },
+      { id: "aula-03", label: "Aula 03", title: "Auto-relacionamento, especialização e associações", source: "../Banco de Dados I/slides/aula-03.js" }
     ]
   },
   { id: "informatica-aeronautica", name: "Informática Aplicada à Aeronáutica", code: "IAA", institution: "fatec", lessons: [] },

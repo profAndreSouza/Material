@@ -1,106 +1,88 @@
 # Roteiro de Aula — Aula 02
 
 **Componente curricular:** Banco de Dados I  
-**Data:** 16/10/2026 (Letivo 3)  
-**Modalidade:** Presencial, com atividades em sala e laboratório  
-**Tema:** Modelagem conceitual de dados: modelo Entidade-Relacionamento e cardinalidades  
-**Ferramentas:** brModelo 3.0, brModelo Web ou Draw.io  
-**Articulação com o PPC:** Competência 2 — Planejar e desenvolver modelos conceituais com base em requisitos de negócio.
+**Tema:** Modelagem conceitual: atributos, entidades fracas, cardinalidades e atributos em relacionamentos  
+**Ferramenta:** brModelo (ou brModelo Web)  
+**Modalidade indicada nos slides:** presencial, em sala e laboratório  
+**Duração:** 3h20
 
----
+## Objetivos de aprendizagem
 
-## 1. Objetivos de aprendizagem
+Ao final, o estudante deverá interpretar atributos e cardinalidades em um DER, distinguir entidades fortes e fracas, associar atributos transacionais ao relacionamento que os determina e produzir um diagrama conceitual no brModelo.
 
-Ao final da aula, você deverá ser capaz de:
+## Organização do encontro
 
-1. Explicar a finalidade do modelo conceitual e sua independência de um SGBD específico.
-2. Distinguir entidades fortes de entidades fracas e identificar a dependência de existência e de identificação.
-3. Classificar atributos como simples, compostos, monovalorados, multivalorados, derivados ou identificadores.
-4. Definir cardinalidades mínimas e máximas em relacionamentos binários e representá-las nas notações Chen e pé-de-galinha (*Crow's Foot*).
-5. Interpretar requisitos escritos em linguagem natural e representá-los em um Diagrama Entidade-Relacionamento (DER) usando o brModelo.
+| Etapa | Duração | Atividade |
+|---|---:|---|
+| Correção e nivelamento | 30 min | Correção comentada da Biblioteca Saber, proposta na Aula 01 |
+| Teoria do DER | 50 min | Tipos de atributos, entidades fracas, cardinalidades e atributos de relacionamento |
+| Apresentação do brModelo | 30 min | Interface, ferramentas e configuração de cardinalidades |
+| Prática guiada e oficina | 70 min | Controle Comercial Sorocaba e desafio autônomo da Oficina Mecânica |
 
-## 2. Fundamentação teórica
+Os tempos detalhados nos slides somam 3 horas; o roteiro da apresentação não discrimina os 20 minutos restantes do encontro de 3h20.
 
-### 2.1 Modelo e diagrama Entidade-Relacionamento
+## 1. Correção da Biblioteca Saber
 
-Peter Chen apresentou o modelo Entidade-Relacionamento (MER) em 1976. O MER descreve os dados de interesse de um domínio, suas propriedades, associações e restrições. Ele é usado na etapa conceitual do projeto e não depende de um SGBD específico.
+O sistema registra `LIVRO(id_livro, titulo, ano_publicacao)` e `EDITORA(id_editora, razao_social, cidade)`, ligados por `PUBLICA`.
 
-O Diagrama Entidade-Relacionamento (DER) é uma forma gráfica de representar o MER. Na notação Chen, retângulos representam entidades, elipses representam atributos e losangos representam relacionamentos.
+- Cada livro é publicado por exatamente uma editora: `LIVRO (1,1)`.
+- Uma editora pode estar cadastrada antes de publicar livros no acervo e pode publicar vários: `EDITORA (0,N)`.
+- A cardinalidade máxima configura uma relação 1:N. O mínimo zero do lado EDITORA é significativo: não se exige que a editora já tenha livro associado para existir no cadastro.
 
-* **Entidade:** classe de objetos sobre os quais o sistema precisa manter dados, como `CLIENTE`, `PRODUTO` ou `PEDIDO`.
-* **Relacionamento:** associação entre ocorrências de entidades, como um cliente que realiza um pedido ou uma máquina que pertence a um setor.
+## 2. Atributos e entidades
 
-```text
-       (id_cliente)                         (id_pedido)
-            |                                    |
-     +-------------+       REALIZA       +-------------+
-     |   CLIENTE   |---------------------|    PEDIDO   |
-     +-------------+                     +-------------+
-            |                                    |
-         (nome)                           (data_emissao)
+### Tipos de atributo
 
-    Notação Chen: retângulo = entidade; elipse = atributo;
-                  losango = relacionamento.
-```
+| Tipo | Critério | Exemplo |
+|---|---|---|
+| Simples | Não se decompõe em partes relevantes para o sistema | CPF |
+| Composto | Possui componentes com significado próprio | Endereço: logradouro, número, bairro, CEP |
+| Monovalorado | Um valor por instância | Data de nascimento |
+| Multivalorado | Pode assumir vários valores por instância | Telefones de um cliente |
+| Derivado | Pode ser calculado a partir de outros dados | Idade, derivada da data de nascimento |
+| Identificador | Distingue uma instância de todas as demais | `id_cliente` |
 
-### 2.2 Tipos de atributos
+Em Chen, atributo multivalorado é representado por elipse dupla e atributo derivado por elipse tracejada. Um atributo composto se ramifica em seus componentes. No mapeamento relacional, atributos multivalorados normalmente originam uma relação própria.
 
-| Tipo | Definição | Exemplo |
-| :--- | :--- | :--- |
-| **Simples (atômico)** | Não é subdividido em partes relevantes para o sistema. | `preco_unitario`, `cpf`. |
-| **Composto** | Pode ser decomposto em componentes com significado próprio. | `endereco`: rua, número, bairro e CEP. |
-| **Monovalorado** | Tem um valor por ocorrência da entidade. | `data_nascimento`. |
-| **Multivalorado** | Pode ter vários valores para a mesma ocorrência. | Telefones de um cliente. Em Chen, usa-se elipse dupla. |
-| **Derivado** | Pode ser calculado com base em outros dados. | `idade`, calculada a partir de `data_nascimento`. Em Chen, usa-se elipse tracejada. |
-| **Identificador** | Distingue cada ocorrência da entidade das demais. | `id_cliente` ou `numero_chassi`; costuma ser sublinhado em Chen. |
+### Entidades fortes e fracas
 
-Um atributo derivado pode ser armazenado por decisão de implementação ou desempenho. No modelo conceitual, a classificação indica que seu valor pode ser obtido a partir de outros atributos.
+Uma entidade forte possui identificador próprio no domínio. Uma entidade fraca depende de outra entidade para sua identificação ou existência. Por exemplo, dependentes podem ser identificados pelo par `(id_funcionario, numero_dependente)`, se o número for único somente dentro de cada funcionário. Em Chen, retângulo duplo representa a entidade fraca e losango duplo, o relacionamento identificador.
 
-### 2.3 Entidades fracas
+## 3. Cardinalidades e relacionamentos
 
-Uma entidade fraca depende de outra entidade para existir ou para ser identificada. Seus atributos próprios não formam, por si só, um identificador suficiente no domínio modelado.
+Cardinalidade mínima indica participação opcional (`0`) ou obrigatória (`1`); máxima indica limite de uma ocorrência (`1`) ou várias (`N`). Os pares são escritos `(mínimo, máximo)` e descrevem as regras do domínio.
 
-**Exemplo:** um `DEPENDENTE` pode ser identificado dentro do cadastro de um `FUNCIONARIO` pelo par `(id_funcionario, numero_ordem_dependente)`. O número de ordem só é único entre os dependentes daquele funcionário. Na notação Chen, a entidade fraca é representada por retângulo duplo e o relacionamento identificador por losango duplo.
+- 1:1: cada ocorrência associa-se a, no máximo, uma ocorrência do outro lado.
+- 1:N: uma ocorrência de um lado pode associar-se a várias do outro, mas cada ocorrência do lado N aponta para no máximo uma do lado 1.
+- N:N: ocorrências de ambos os lados podem associar-se a várias do outro lado.
 
-### 2.4 Cardinalidades mínimas e máximas
+Exemplos: `CLIENTE (0,N) — REALIZA — (1,1) PEDIDO`; `CATEGORIA (0,N) — CLASSIFICA — (1,1) PRODUTO`; `PEDIDO (1,N) — CONTÉM — (0,N) PRODUTO` quando cada pedido precisa conter ao menos um produto.
 
-A cardinalidade informa quantas ocorrências de uma entidade podem ou devem participar de um relacionamento. Neste roteiro, cada lado é descrito pelo par `(mínimo, máximo)`.
+### Atributos de um relacionamento N:N
 
-* **Mínimo 0:** participação opcional. A ocorrência pode existir sem participar do relacionamento.
-* **Mínimo 1:** participação obrigatória. A ocorrência deve participar de pelo menos um relacionamento.
-* **Máximo 1:** pode participar de, no máximo, uma ocorrência do outro lado.
-* **Máximo N:** pode participar de várias ocorrências do outro lado.
+Se um pedido contém produtos, `quantidade` e `preco_praticado` descrevem cada ocorrência do produto naquele pedido. Não descrevem isoladamente o produto (que pode participar de pedidos diferentes com quantidades e preços distintos) nem o pedido (que pode conter várias linhas). No DER conceitual, esses atributos são ligados ao losango `CONTÉM`. No modelo lógico, a associação será representada por uma relação associativa, assunto retomado na Aula 03.
 
-Exemplos de leitura:
+## 4. Construção no brModelo
 
-* `CLIENTE (0, N) — REALIZA — PEDIDO (1, 1)`: um cliente pode não ter pedidos ou ter vários; cada pedido pertence a exatamente um cliente.
-* `CATEGORIA (0, N) — CLASSIFICA — PRODUTO (1, 1)`: uma categoria pode classificar vários produtos ou nenhum; cada produto pertence a exatamente uma categoria.
-* `PEDIDO (1, N) — CONTÉM — PRODUTO (0, N)`: segundo a regra adotada, cada pedido contém um ou mais produtos, e um produto pode ainda não aparecer em pedidos ou aparecer em vários.
+Criar entidades, seus atributos e identificadores; adicionar relacionamentos e ligá-los às entidades; definir cada par mínimo/máximo junto à entidade correspondente; e conectar atributos de associação diretamente ao losango. Revisar se não há atributos desconectados, entidades sem identificador ou cardinalidades invertidas. Na interface apresentada nos slides, o par é ajustado nas propriedades da conexão.
 
-Os exemplos mostram as regras do domínio, não uma propriedade automática do modelo. As cardinalidades devem ser confirmadas com os requisitos do sistema.
+## 5. Prática guiada — Controle Comercial Sorocaba
 
-## 3. Oficina prática no brModelo
+Requisitos a representar no modelo conceitual:
 
-### Estudo de caso: Controle de Vendas Comercial Sorocaba
+1. `PRODUTO`: código, nome, preço de venda e quantidade em estoque. `CATEGORIA`: código e nome. Cada produto pertence a exatamente uma categoria; uma categoria pode ter zero ou muitos produtos.
+2. `CLIENTE`: código, nome completo, CPF, e-mail e telefones. Telefones é atributo multivalorado.
+3. Um cliente pode realizar zero ou muitos pedidos; cada pedido possui número, data/hora e valor total e pertence a exatamente um cliente.
+4. Cada pedido contém um ou mais produtos; um produto pode não aparecer em pedidos ou aparecer em vários. `quantidade_vendida` e `preco_praticado` são atributos de `CONTÉM`.
 
-Modele as regras a seguir em um DER conceitual:
+O DER conceitual deve manter esses atributos no relacionamento; a tabela `ITENS_PEDIDO` pertence ao mapeamento lógico posterior, não deve ser confundida com a representação inicial em Chen indicada nos slides.
 
-1. A empresa cadastra produtos com código identificador, nome, preço de venda e quantidade em estoque.
-2. Cada produto pertence a exatamente uma categoria. Uma categoria pode ter nenhum produto ou vários produtos.
-3. Cada cliente tem código identificador, nome completo, CPF e e-mail. Um cliente pode ter vários telefones de contato.
-4. Um cliente pode realizar nenhum pedido ou vários pedidos. Cada pedido tem número identificador, data e hora de emissão e valor total, e pertence a exatamente um cliente.
-5. Cada pedido contém um ou mais produtos. Um produto pode aparecer em nenhum pedido ou em vários pedidos. Para cada produto em cada pedido, registre a quantidade vendida e o preço praticado naquela venda.
+## 6. Desafio autônomo — Oficina Mecânica Sorocaba
 
-Os atributos `quantidade_vendida` e `preco_praticado` descrevem a ocorrência do relacionamento entre `PEDIDO` e `PRODUTO`: seus valores podem variar de um pedido para outro. Por isso, no modelo conceitual Chen, eles são atributos do relacionamento `CONTEM`, não atributos isolados de `PEDIDO` ou `PRODUTO`.
+Modelar clientes (`código`, `nome`, `CPF`, telefones), veículos (`placa`, `marca`, `modelo`, `ano`), ordens de serviço (`número`, data de abertura, status, valor total) e serviços (`código`, descrição, preço da hora). Um cliente pode possuir vários veículos; cada veículo pertence a exatamente um cliente. Cada OS é aberta para um único veículo. Uma OS pode incluir diversos serviços; para cada serviço executado naquela OS, registrar quantidade de horas.
 
-## 4. Exercícios de fixação
+Entrega: arquivo do brModelo com identificadores e cardinalidades corretos, incluindo o N:N `ORDEM_SERVICO`–`SERVICO` com `horas_trabalhadas` como atributo do relacionamento.
 
-1. Explique por que `quantidade_vendida` e `desconto_aplicado` dependem da associação entre um pedido e um produto. Represente em que elemento do DER esses atributos devem aparecer.
-2. Diferencie atributo composto de atributo multivalorado. Dê um exemplo de cada em um sistema acadêmico.
-3. Uma aeronave opera com no mínimo dois e no máximo quatro motores. Cada motor identificado pelo número de série está instalado em, no máximo, uma aeronave por vez. Considere que todo motor cadastrado está instalado em uma aeronave. Informe o par `(mínimo, máximo)` para cada lado do relacionamento `POSSUI`.
+## Próximos passos
 
-## 5. Referências
-
-1. **ELMASRI, Ramez; NAVATHE, Shamkant B.** *Sistemas de Banco de Dados: Fundamentos e Aplicações.* 7. ed. São Paulo: Pearson, 2019. Capítulo 3, p. 43–82.
-2. **MARTELLI, Rubens; FILHO, Oswaldo V. S.; CABRAL, Almir L.** *Modelagem e banco de dados.* 2. ed. São Paulo: Senac, 2018. Capítulo 2, p. 35–66.
-3. **SILBERSCHATZ, Abraham; KORTH, Henry F.; SUDARSHAN, S.** *Sistema de Banco de Dados.* 7. ed. Rio de Janeiro: GEN LTC, 2020. Capítulo 6, p. 185–234.
+Na Aula 03, serão retomados auto-relacionamentos, especializações, associações N:N com atributos e sua migração para o modelo lógico.

@@ -1,0 +1,5 @@
+# Aula 07 — DML e transações
+
+1. Com autocommit ligado, o `UPDATE` sem `WHERE` atualiza todas as linhas e a instrução é confirmada automaticamente (o comportamento específico depende do cliente/SGBD). Uma transação explícita permite revisar antes do `COMMIT` e executar `ROLLBACK` se o erro for percebido antes da confirmação. Ela não detecta sozinha que a intenção estava errada; validar o predicado e o número de linhas afetadas continua necessário. Depois do commit, a recuperação depende de backup/log e privilégios, não de rollback comum.
+2. **Atomicidade:** todas as operações da transação ocorrem como unidade ou nenhuma fica efetivada. **Durabilidade:** após commit confirmado, os efeitos persistem mesmo após falha, conforme as garantias do SGBD e armazenamento.
+3. `TRUNCATE` é útil para esvaziar integralmente uma tabela de estágio ou área temporária, por exemplo em recarga controlada de lote. Não é universalmente “estritamente preferível”: sintaxe, logging, rollback, gatilhos e regras de FK variam por SGBD; use `DELETE` quando filtros, auditoria por linha ou semântica transacional exigirem.

@@ -1,118 +1,75 @@
-# ROTEIRO DE AULA EXPANDIDO — AULA 03
+# Roteiro de Aula — Aula 03
 
-**Componente Curricular:** Banco de Dados I  
-**Data Calendário:** 21/08/2026 &nbsp;|&nbsp; **Data Programada:** A definir (Reposição Presencial)  
-**Modalidade:** Reposição Presencial em Laboratório de Informática  
-**Tema:** Modelagem Conceitual de Dados II — Recursos Avançados: Auto-relacionamentos, Especialização/Generalização e Entidades Associativas  
-**Ambiente de Software:** brModelo 3.0 ou [brModelo Web](https://brmodeloweb.com/)  
-**Articulação com o PPC:** Competência 2 — Estruturar regras de negócio complexas através de herança de atributos, polimorfismo conceitual e associações recursivas  
+**Tema:** Modelagem conceitual: estruturas especiais  
+**Modalidade:** remota  
+**Ferramentas:** brModelo Web ou papel  
+**Oracle:** não utilizado nesta aula  
+**Duração:** 3h20
 
----
+## Objetivos de aprendizagem
 
-## 1. OBJETIVOS DE APRENDIZAGEM
+Ao final do encontro, o estudante deverá identificar papéis em auto-relacionamentos, classificar especializações segundo completude e disjunção, localizar atributos que pertencem a relacionamentos N:N e migrar uma associação N:N para uma entidade associativa e seu esquema relacional.
 
-Ao final desta aula de aprofundamento conceitual, você será capaz de:
-1. Compreender e modelar **Auto-relacionamentos (Relacionamentos Unários / Recursivos)** definindo os papéis de cada participação (ex.: gerência hierárquica, pré-requisitos de disciplinas, estrutura de componentes *Bill of Materials*).
-2. Analisar o grau de relacionamentos e modelar **Relacionamentos Ternários** quando a semântica da associação envolve 3 entidades simultaneamente.
-3. Aplicar os conceitos de **Especialização e Generalização** (Superclasse / Subclasses) com herança de atributos e relacionamentos.
-4. Classificar e justificar as restrições de especialização:
-   * **Completude:** Total ($\text{t}$) vs. Parcial ($\text{p}$);
-   * **Disjunção:** Disjunta ($\text{d}$) vs. Sobreposta ($\text{o}$).
-5. Transformar relacionamentos em **Entidades Associativas** quando a própria associação precisa se relacionar com uma terceira entidade.
-6. Identificar e evitar armadilhas clássicas de modelagem (*Connection Traps*: *Fan Trap* e *Chasm Trap*).
+## Organização do encontro
 
----
+Os slides organizam a aula em duas metades: conceitos e exercício de auto-relacionamento/especialização; em seguida, atributos em relacionamentos N:N, entidade associativa, mapeamento para o modelo lógico e exercício de aplicação em brModelo. O estudante pode enviar respostas e dúvidas pelo chat; o rascunho em papel é alternativa ao brModelo Web.
 
-## 2. FUNDAMENTAÇÃO TEÓRICA AVANÇADA
+## 1. Retomada: entidade, relacionamento e cardinalidade
 
-### 2.1 Auto-relacionamento (Relacionamento Recursivo)
+Entidade representa uma classe de objetos sobre os quais o sistema registra dados. Relacionamento associa ocorrências de entidades. Cardinalidades mínimas e máximas expressam a participação prevista pelas regras do domínio. As estruturas desta aula ampliam o DER sem substituir esses conceitos básicos.
 
-Ocorre quando instâncias da **mesma entidade** associam-se entre si desempenhando **papéis (*roles*)** distintos.
+## 2. Auto-relacionamento
 
-```
-                  ┌────────────────────────┐
-                  │                        │ (1,1) [é chefiado por]
-                  ▼                        │
-          ┌───────────────┐          ┌─────┴──────┐
-          │  FUNCIONARIO  ├──────────┤ SUPERVISAO │
-          └───────────────┘ (0,N)    └────────────┘
-                            [supervisiona]
-```
+Ocorre quando instâncias da mesma entidade se relacionam entre si. Como a entidade aparece nos dois lados da relação, é necessário nomear os papéis para evitar ambiguidade.
 
-* **Exemplo 1 (Hierarquia de Gestão):** Um funcionário pode ser supervisionado por outro funcionário (supervisor). Um supervisor pode chefiar vários colaboradores ($1:N$).
-* **Exemplo 2 (Lista de Materiais / BOM - Bill of Materials):** Uma peça industrial pode ser composta por várias outras peças, e uma peça pode fazer parte de vários conjuntos complexos ($N:N$).
+**Exemplo dos slides:** `PROFESSOR` orienta `PROFESSOR`. Um orientador pode orientar zero ou vários professores (`0..N`); um professor orientado pode ter zero ou um orientador (`0..1`). Regra adicional: ninguém pode orientar a si próprio.
 
----
+No exercício da hierarquia organizacional, use `FUNCIONARIO` nos papéis `supervisor` e `supervisionado`. Um funcionário pode supervisionar zero ou vários funcionários. Cada funcionário, exceto o diretor-geral, responde a um supervisor. No relacionamento genérico, a participação do supervisionado pode ser representada como `(0,1)`; a regra “todos exceto o diretor-geral” explicita que para os demais o mínimo é 1. A exceção do diretor-geral é uma restrição de negócio adicional.
 
-### 2.2 Especialização e Generalização (EER - Enhanced ER)
+## 3. Especialização
 
-Permite representar relações do tipo **"É UM" (*IS-A*)**, onde uma entidade genérica (**Superclasse**) compartilha seus atributos universais com entidades especializadas (**Subclasses**), que por sua vez possuem atributos e comportamentos exclusivos.
+Na especialização, uma entidade geral (superclasse) é dividida em subtipos. A superclasse conserva os atributos comuns; cada subtipo contém os atributos específicos e herda a identificação da superclasse.
 
-```
-                         ┌─────────────────────────┐
-                         │         PESSOA          │
-                         │ (• id_pessoa, nome, doc)│
-                         └────────────┬────────────┘
-                                      │
-                                      ▼  (d, t)
-                                     / \
-                                    /   \
-                                   ───────
-                                    │   │
-                  ┌─────────────────┘   └─────────────────┐
-                  ▼                                       ▼
-       ┌─────────────────────┐                 ┌─────────────────────┐
-       │   PESSOA FISICA     │                 │   PESSOA JURIDICA   │
-       │ (cpf, data_nasc)    │                 │ (cnpj, insc_est)    │
-       └─────────────────────┘                 └─────────────────────┘
+Dois eixos de restrição:
+
+- **Completude:** total quando toda ocorrência da superclasse pertence a pelo menos um subtipo; parcial quando pode não pertencer a nenhum.
+- **Disjunção:** disjunta quando uma ocorrência pode pertencer a no máximo um subtipo; sobreposta quando pode pertencer a vários simultaneamente.
+
+Nos exemplos apresentados, `CONTA` especializa-se em `CONTA_CORRENTE` e `CONTA_POUPANCA`: especialização total e disjunta (t,d). `COLABORADOR` pode ser instrutor, brigadista, ambos ou nenhum: parcial e sobreposta (p,o).
+
+## 4. Exercício da primeira metade — projetos e pré-requisitos
+
+O enunciado descreve `PROJETO(código, nome, data_prevista)`. Um projeto pode depender de zero ou vários outros projetos e pode ser pré-requisito de zero ou vários projetos. O diagrama deve representar `DEPENDE_DE` como auto-relacionamento, identificar os papéis `projeto_dependente` e `pré-requisito` e registrar a regra de que um projeto não pode depender de si próprio.
+
+## 5. Relacionamento N:N com atributos
+
+Quando o valor depende do par de instâncias associado, o atributo pertence ao relacionamento. `nota_final`, `frequência` e `semestre`, por exemplo, caracterizam um aluno cursando uma disciplina, não o aluno ou a disciplina isoladamente. O mesmo princípio vale para `quantidade` e `preço efetivamente cobrado` entre `PEDIDO` e `PRODUTO`.
+
+No modelo conceitual Chen, esses atributos são ligados ao losango do relacionamento. Quando a associação tem identidade ou precisa participar de outras relações, ela pode ser representada como entidade associativa.
+
+## 6. Entidade associativa e migração para o modelo lógico
+
+Uma associação N:N com atributos é convertida em uma relação própria, que recebe as chaves das entidades participantes como FKs e os atributos do vínculo como colunas. A chave pode ser composta quando a regra de unicidade do domínio permitir; pode incluir um período (por exemplo, semestre) quando o vínculo se repete por período. Um identificador próprio é adequado quando há ciclo de vida ou repetição que não se resolve bem com uma chave composta simples.
+
+Exemplo dos slides — matrícula:
+
+```text
+ALUNO(id_aluno PK, nome)
+DISCIPLINA(id_disciplina PK, nome)
+MATRICULA(id_aluno PK/FK, id_disciplina PK/FK, semestre PK,
+          data_matricula, nota_final, frequencia)
 ```
 
-#### Restrições Formais de Especialização:
-1. **Restrição de Disjunção:**
-   * **Disjunta ($\text{d}$):** Uma ocorrência da superclasse pode pertencer a **no máximo uma** subclasse (ex.: uma pessoa ou é Pessoa Física ou é Pessoa Jurídica; não pode ser ambos simultaneamente).
-   * **Sobreposta ($\text{o}$):** Uma ocorrência da superclasse pode pertencer a **duas ou mais subclasses** ao mesmo tempo (ex.: em uma fábrica, um colaborador pode ser simultaneamente `OPERADOR` e `BRIGADISTA_DE_INCENDIO`).
-2. **Restrição de Completude:**
-   * **Total ($\text{t}$):** Toda ocorrência da superclasse **obrigatoriamente deve** pertencer a alguma subclasse (representada no DER por linha dupla ligando a superclasse ao triângulo).
-   * **Parcial ($\text{p}$):** Uma ocorrência da superclasse pode existir isoladamente sem pertencer a nenhuma subclasse (linha simples).
+A chave `(id_aluno, id_disciplina, semestre)` traduz a regra de uma matrícula por aluno, disciplina e semestre. Se o negócio admitir duas matrículas no mesmo semestre, a chave deve ser revista. O diagrama conceitual pode mostrar `MATRICULA` como entidade associativa, ligada por duas relações 1:N.
 
----
+## 7. Exercício intermediário — contrato consultor-cliente
 
-### 2.3 Entidades Associativas
+O enunciado propõe relação N:N entre `CONSULTOR` e `CLIENTE`, com data de início, encerramento e valor mensal. Deve-se criar entidade associativa `CONTRATO`, ligada a cada entidade por 1:N. Para preservar contratos sucessivos do mesmo par, uma solução é `id_contrato` próprio; outra é usar chave composta que inclua uma data de início, desde que a regra garanta unicidade.
 
-Quando duas entidades possuem um relacionamento $N:N$, e essa associação precisa, ela própria, relacionar-se com uma terceira entidade, a abordagem de Chen promove o relacionamento a uma **Entidade Associativa** (representada graficamente por um retângulo envolvendo o losango).
+## 8. Exercício da segunda metade — equipe em projetos
 
-* **Exemplo Prático:**
-  * O relacionamento entre `MEDICO` e `PACIENTE` gera a `CONSULTA` ($N:N$).
-  * Se a `CONSULTA` precisa gerar uma ou mais `RECEITAS_MEDICAS` ou envolver um `CONVENIO`, a `CONSULTA` é promovida a entidade associativa.
+Modelar `COLABORADOR(id_colaborador, nome)` e `PROJETO(id_projeto, nome)` com participação N:N. Cada ocorrência da participação registra `papel`, `horas_semanais` e `data_inicio`. Entrega: DER conceitual e esquema relacional, com justificativa para a localização dos atributos, PKs e FKs.
 
----
+## Encerramento
 
-## 3. ESTUDO DE CASO PRÁTICO (ONLINE ASSÍNCRONO)
-
-### Cenário: "Sistema Hospitalar Santa Cruz de Sorocaba"
-
-Modele no brModelo o sistema com as seguintes regras de negócio:
-1. **Pessoas e Especializações:** O hospital cadastra `PESSOAS` (identificador, nome, data de nascimento, endereço e telefones). Uma pessoa especializa-se em `PACIENTE` (com número do prontuário e tipo sanguíneo) ou `PROFISSIONAL_SAUDE` (com número do registro no conselho regional CRM/COREN e carga horária semanal). A especialização é disjunta e parcial.
-2. `PROFISSIONAL_SAUDE` especializa-se em `MEDICO` (com especialidade cirúrgica) ou `ENFERMEIRO` (com setor de atuação).
-3. **Internações:** Um paciente pode passar por várias `INTERNACOES`. Cada internação possui data de entrada, data de alta e leito ocupado.
-4. **Plantões e Equipes:** Um médico chefia outros médicos residentes através de um auto-relacionamento de mentoria.
-5. **Procedimentos Cirúrgicos (Relacionamento Ternário):** Uma cirurgia envolve simultaneamente: um `PACIENTE`, um `MEDICO_CIRURGIAO` titular e uma `SALA_CIRURGICA`, com registro da data, duração em minutos e laudo pós-operatório.
-
----
-
-## 4. EXERCÍCIOS DE FIXAÇÃO
-
-1. Explique a diferença teórica entre uma especialização **Total Disjunta $(t, d)$** e uma especialização **Parcial Sobreposta $(p, o)$**, apresentando um exemplo prático de cada uma.
-2. O que é uma armadilha de leque (*Fan Trap*) em modelagem conceitual? Como a correta análise de cardinalidades mínimas e a reestruturação dos relacionamentos evitam esse erro semântico?
-3. Em uma empresa de telecomunicações, deseja-se representar que determinados projetos de fibra óptica possuem outros projetos como pré-requisitos para poderem iniciar. Modele graficamente essa regra usando um auto-relacionamento e indique suas cardinalidades.
-
----
-
-## 5. REFERÊNCIAS BIBLIOGRÁFICAS UTILIZADAS
-
-1. **ELMASRI, Ramez; NAVATHE, Shamkant B.** *Sistemas de Banco de Dados: Fundamentos e Aplicações.* 7. ed. São Paulo: Pearson, 2019.  
-   - **Capítulo 4:** *Modelagem de Dados Conceitual Avançada: O Modelo Entidade-Relacionamento Estendido (EER), Especialização, Generalização, Uniões e Herança de Atributos* (p. 83–120).
-2. **MARTELLI, Rubens; FILHO, Oswaldo V. S.; CABRAL, Almir L.** *Modelagem e banco de dados.* 2. ed. São Paulo: Senac, 2018.  
-   - **Capítulo 2:** *Tipos Especiais de Relacionamentos: Unários, Ternários e Estruturas de Generalização/Especialização* (p. 50–66).
-3. **SILBERSCHATZ, Abraham; KORTH, Henry F.; SUDARSHAN, S.** *Sistema de Banco de Dados.* 7. ed. Rio de Janeiro: GEN LTC, 2020.  
-   - **Capítulo 6:** *Características Estendidas do Modelo ER: Especialização, Generalização, Agregação e Conjuntos de Entidades de Alto Nível* (p. 210–234).
+Revisar a diferença entre auto-relacionamento, especialização e entidade associativa. O modelo final deve tornar claros os papéis, as regras de participação e a identidade dos vínculos.
