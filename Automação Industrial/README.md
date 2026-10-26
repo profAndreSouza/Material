@@ -83,6 +83,8 @@ A composição interna da nota de **Avaliação Docente** (que totaliza 55% da n
 
 ## Cronograma Semestral e Calendário de Aulas (20 Semanas)
 
+**Ajuste de percurso:** concluir nesta semana a exposição do conteúdo teórico das quatro unidades. Na semana 14, permanece a orientação do PII. Nas semanas 15, 16 e 17, o foco integrado será o desenvolvimento do ADS Factory Hub, conforme as etapas abaixo.
+
 | Sem. | Tipo | Data N2 | Data N2-S | Foco Teórico / Conteúdo | Atividade / Detalhes |
 | :---: | :---: | :---: | :---: | :--- | :--- |
 | **01** | Aula 01 | **04/Ago** | **05/Ago** | [Arquitetura TI/TA e Pirâmide ISA-95](aulas/semana_01.ipynb) | Conceitos de integração OT/IT e modelo de eventos fabris. |
@@ -97,15 +99,15 @@ A composição interna da nota de **Avaliação Docente** (que totaliza 55% da n
 | **10** | Aula 07 | **06/Out** | **07/Out** | [Construção Guiada do Fluxo Node-RED, Nó a Nó](aulas/semana_10.ipynb) | Reconstrução manual do fluxo antes importado: configuração do broker, `mqtt in`, `json`, `debug`, `switch`, `change` e `function`, com teste da mensagem após cada ligação. |
 | **11** | Semana Tec. | **19/Set (Sáb)** | **14/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
 | **12** | Aula 08 | **20/Out** | **21/Out** | [Continuação do Fluxo: QoS e Tratamento de Falhas](aulas/semana_12.ipynb) | Evoluir, nó a nó, o fluxo construído na Semana 10 sobre a Fábrica Virtual já implantada na AWS; testar QoS 0/1/2, mensagens retidas, duplicidade, validação e observabilidade com `status`, `catch` e caminhos de erro. |
-| **13** | Aula 09 | **27/Out** | **28/Out** | Processamento Stateful e Ciclo de Vida de Alertas | Evolução dos limiares da Semana 07 com janelas, histerese, temporização, supressão de alarmes repetidos, severidade, reconhecimento e normalização. |
+| **13** | Aula 09 | **27/Out** | **28/Out** | [Processamento Stateful e Ciclo de Vida de Alertas](Aulas/semana_13.ipynb) | Evolução dos limiares da Semana 07 com janelas, histerese, temporização, supressão de alarmes repetidos, severidade, reconhecimento e normalização. |
 | **14** | Semana de PII | **03/Nov** | **04/Nov** | Orientação e Acompanhamento do PII | Ajustes na comunicação de dados e inteligência do PII. |
-| **15** | Aula 10 | **10/Nov** | **11/Nov** | Front-end Operacional Integrado ao Fluxo Existente | Transformar as saídas já tratadas em painel do Node-RED com indicadores, histórico curto, estados, reconhecimento de alarmes e comandos protegidos, sem Grafana. |
-| **16** | Aula 11 | **17/Nov** | **18/Nov** | Projeto Integrado: ADS Factory Hub Essencial | Simular telemetria via MQTT, processar QoS e alertas no fluxo e entregar o painel operacional do Node-RED integrado à API e à nuvem. |
-| **17** | Avaliação | **24/Nov** | **25/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Projeto Final | Avaliação individual cobrindo os conteúdos das Semanas 10 a 16 & Entrega do Projeto. |
+| **15** | Projeto | **10/Nov** | **11/Nov** | ADS Factory Hub: arquitetura e integração de ponta a ponta | Definir arquitetura, tópicos MQTT, contrato de telemetria e segurança; conectar o simulador/Node-RED ao AWS IoT Core e planejar persistência de eventos no banco NoSQL gerenciado. |
+| **16** | Projeto | **17/Nov** | **18/Nov** | ADS Factory Hub: implementação e deploy | Implementar fluxo de telemetria, alertas e painel operacional; integrar a aplicação ao banco NoSQL e validar publicação MQTT, persistência e consulta de eventos. |
+| **17** | Projeto / Avaliação | **24/Nov** | **25/Nov** | ADS Factory Hub: validação, demonstração e entrega | Demonstrar o fluxo completo, incluindo condição normal, alerta e normalização; apresentar evidências de integração com IoT Core, persistência, logs e documentação. |
 | **18** | Semana de PII | **01/Dez** | **02/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
 | **19** | Recuperação | **08/Dez** | **09/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
 | **20** | Fechamento | **15/Dez** | **16/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |
 
-### Escopo integrado da Semana 16 — ADS Factory Hub Essencial
+### Projeto integrado ADS Factory Hub — Semanas 15 a 17
 
-O recorte reutiliza o simulador e o broker das Semanas 05 e 07, mas o fluxo importado servirá apenas como referência. A partir da Semana 10, cada equipe deverá reconstruí-lo manualmente nó a nó, comprovar o comportamento do QoS escolhido, acrescentar tratamento de falhas, estado e ciclo de vida dos alertas e apresentar um painel operacional no próprio Node-RED. O fluxo deve consumir o indicador de anomalia e registrar ao menos uma condição normal, uma condição de alerta e sua normalização.
+Reutilize o simulador e o Node-RED existentes. Nas semanas 15 a 17, evolua o pipeline para publicar via AWS IoT Core, persistir eventos em banco NoSQL gerenciado (substituindo o InfluxDB nesta stack) e exibir indicadores e alertas no painel. Documente tópicos, payloads, regras de acesso e testes com estados normal, alerta e normalização.

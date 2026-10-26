@@ -92,6 +92,8 @@ A composição interna da nota de **Avaliação Docente** (que totaliza 55% da n
 
 ## Cronograma Semestral e Calendário de Aulas (20 Semanas)
 
+**Ajuste de percurso:** concluir nesta semana a exposição do conteúdo teórico das quatro unidades. Na semana 14, permanece a orientação do PII. Nas semanas 15, 16 e 17, o foco integrado será o desenvolvimento do ADS Factory Hub, conforme as etapas abaixo.
+
 | Sem. | Tipo | Data N2 | Data N2-S | Foco Teórico / Conteúdo | Atividade / Detalhes |
 | :---: | :---: | :---: | :---: | :--- | :--- |
 | **01** | Aula | **06/Ago** | **05/Ago** | [Fundamentos de DevOps, Cultura CALMS e Fluxo de Valor](aulas/semana_01.ipynb) | Princípios CALMS, fluxo de entrega e eliminação de silos. |
@@ -106,15 +108,15 @@ A composição interna da nota de **Avaliação Docente** (que totaliza 55% da n
 | **10** | Aula | **08/Out** | **07/Out** | [Testes de Integração e E2E no Fluxo Crítico](aulas/semana_10.ipynb) | Implementar os testes ainda não realizados: integração entre API e persistência, E2E do cenário principal, fixtures, isolamento, execução local e diagnóstico de falhas. |
 | **11** | Semana Tec. | **15/Out** | **14/Out** | Palestras e Workshops da Semana de Tecnologia | Atividades institucionais integradas da Semana Tec. |
 | **12** | Aula | **22/Out** | **21/Out** | [Issues, Boards, Pull Requests e Quality Gates no GitHub Actions](aulas/semana_12.ipynb) | Reforçar o GitFlow com rastreabilidade issue-card-branch-commit-PR e criar o primeiro gate efetivo com lint, testes unitários, integração, E2E, cobertura e bloqueio de merge. |
-| **13** | Aula | **29/Out** | **28/Out** | Imagens Docker Versionadas e Publicação no Docker Hub | Converter o build aprovado em Dockerfile multi-stage, testar a imagem, gerar tags imutáveis por versão/commit e publicar no Docker Hub com secrets. |
+| **13** | Aula | **29/Out** | **28/Out** | [Imagens Docker Versionadas e Publicação no Docker Hub](Aulas/semana_13.ipynb) | Converter o build aprovado em Dockerfile multi-stage, testar a imagem, gerar tags imutáveis por versão/commit e publicar no Docker Hub com secrets. |
 | **14** | Semana de PII | **05/Nov** | **04/Nov** | Orientação e Acompanhamento do Projeto Integrador (PII) | Refinamento da infraestrutura IaC e deploy na AWS. |
-| **15** | Aula | **12/Nov** | **11/Nov** | Deploy da Imagem Docker na AWS: EC2 e ECS | GitHub Actions implantando a mesma imagem do Docker Hub no Docker da EC2 e no ECS, com health check, versionamento e rollback para a tag anterior. |
-| **16** | Aula / Revisão | **19/Nov** | **18/Nov** | Projeto Integrado: ADS Factory Hub Essencial | Entregar por PR ligado à issue, executar Quality Gates, publicar imagem versionada no Docker Hub e validar deploy e rollback nos ambientes EC2 e ECS. |
-| **17** | Avaliação | **26/Nov** | **25/Nov** | **PROVA 2 INDIVIDUAL** & Entrega do Pipeline Final | Avaliação individual cobrindo os conteúdos das Semanas 10 a 16 & Entrega do Projeto. |
+| **15** | Projeto | **12/Nov** | **11/Nov** | ADS Factory Hub: build e deploy direto | Preparar build reproduzível e realizar deploy direto do código/aplicação no ambiente cloud; registrar configuração, secrets, health check e versão implantada. |
+| **16** | Projeto | **19/Nov** | **18/Nov** | ADS Factory Hub: imagem e deploy via Docker Hub | Automatizar build e publicação de imagem versionada no Docker Hub e implantar essa imagem; comparar o fluxo conteinerizado com o deploy direto, com rollback documentado. |
+| **17** | Projeto / Avaliação | **26/Nov** | **25/Nov** | ADS Factory Hub: pipeline final e demonstração | Entregar PR ligado à issue, gates de qualidade, publicação e deploy reproduzíveis; demonstrar health check, logs, versão e recuperação/rollback. |
 | **18** | Semana de PII | **03/Dez** | **02/Dez** | Entrega Geral do PII & Fechamento | Devolutiva dos projetos integradores e fechamento de notas. |
 | **19** | Recuperação | **10/Dez** | **09/Dez** | Exame de Recuperação Síncrono | Revisão e realização da avaliação de recuperação. |
 | **20** | Fechamento | **17/Dez** | **16/Dez** | Conselho de Classe & Fechamento | Divulgação final das médias e encerramento do semestre. |
 
-### Escopo integrado da Semana 16 — ADS Factory Hub Essencial
+### Projeto integrado ADS Factory Hub — Semanas 15 a 17
 
-O trabalho continuará no repositório utilizado antes da P1, mas os testes de integração, E2E e os Quality Gates serão implementados somente nesta etapa pós-P1. Uma nova issue no board deverá originar a branch do GitFlow e o Pull Request vinculado. O GitHub Actions executará os testes e gates antes de publicar uma imagem identificável no Docker Hub e implantar a mesma imagem no Docker da EC2 e no ECS, com `health check`, logs e rollback demonstrável.
+Nas semanas 15 a 17, implemente a entrega em duas rotas comparáveis: deploy direto da aplicação e deploy de imagem Docker versionada publicada no Docker Hub. Use GitHub Actions para automatizar build, verificações e publicação; mantenha secrets fora do repositório e registre passos de implantação, health check, logs e rollback.
