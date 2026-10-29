@@ -241,15 +241,54 @@ timeline
 
 ## 6. Critérios de Avaliação
 
-A disciplina adota instrumentos avaliativos formativos e somativos:
+A Nota Final (NF) da disciplina de **Sistemas de Informação e Tecnologias Emergentes** será composta por:
 
-1. **Avaliação Formativa Contínua (50%):**
-   * Participação ativa e entregas dos exercícios práticos ao final de cada encontro (aulas 1 a 9).
-   * Rubrica com foco em resolução de problemas, capacidade analítica e rigor conceitual.
-2. **Avaliação Somativa - Projeto Integrador (50%):**
-   * Desenvolvimento em grupo e defesa de proposta arquitetural de Sistema de Informação incorporando tecnologias emergentes.
-   * Critérios: clareza arquitetural, viabilidade de implementação, governança (segurança/LGPD) e coerência na escolha tecnológica.
+- **Avaliação Formativa – Atividades Práticas (50%):** média das 8 atividades entregues pelo Microsoft Teams.
+- **Avaliação Somativa – Projeto Final (50%):** desenvolvimento e entrega de um projeto envolvendo os conteúdos e as tecnologias estudadas.
 
+### 6.1. Avaliação Formativa – Atividades Práticas (50%)
+
+As 8 atividades serão avaliadas considerando a qualidade do conteúdo e o cumprimento dos prazos.
+
+**A) Qualidade do conteúdo**
+
+| Nota | Critério |
+|---|---|
+| **10,0** | Coerente e completo. |
+| **7,5** | Parcialmente coerente, mas bem detalhado. |
+| **5,0** | Coerente, porém muito resumido. |
+| **2,5** | Parcialmente coerente e muito resumido. |
+| **0,0** | Incoerente ou não entregue. |
+
+**B) Cumprimento dos prazos**
+
+| Condição | Percentual da nota |
+|---|---|
+| Entrega dentro do prazo | **100%** |
+| Atraso de até 7 dias | **80%** |
+| Atraso superior a 7 dias | **60%** |
+
+**Exceção SETEC:** exclusivamente para a atividade cujo prazo coincidiu com a SETEC, a data de entrega foi prorrogada em **exatos 7 dias**, sem penalização. Para essa atividade, os percentuais por atraso serão aplicados considerando o novo prazo.
+
+A nota de cada atividade será calculada aplicando-se o percentual correspondente ao prazo sobre a nota do conteúdo. A média das 8 atividades representará 50% da NF.
+
+### 6.2. Avaliação Somativa – Projeto Final (50%)
+
+Desenvolvimento e entrega de um projeto envolvendo tecnologias emergentes, considerando:
+
+- Clareza e organização da solução.
+- Viabilidade de implementação.
+- Coerência na escolha das tecnologias.
+- Segurança da informação e LGPD, quando aplicáveis.
+- Qualidade e completude da entrega.
+
+As orientações e o prazo serão informados posteriormente.
+
+### 6.3. Composição da Nota Final
+
+**NF = (Média das 8 atividades × 50%) + (Nota do Projeto Final × 50%)**
+
+Os critérios buscam valorizar a qualidade das entregas, o aprendizado demonstrado e o cumprimento dos prazos, garantindo transparência e uniformidade na avaliação de todos.
 ---
 
 ## 7. Bibliografia de Apoio
