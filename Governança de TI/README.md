@@ -1,4 +1,4 @@
-# Governança de TI
+﻿# Governança de TI
 
 Este repositório contém o plano de ensino, ementa, cronograma semestral detalhado, diretrizes do **Plano Diretor de Governança de TI (PDGTI)** e critérios de avaliação para a unidade curricular de **Governança de TI**.
 
@@ -98,7 +98,7 @@ O projeto da disciplina consiste na elaboração de um **Plano Diretor de Govern
 | **10** | Aula | **07/Out** | **09/Out** | [Gestão de Riscos em TI, Compliance e Segurança da Informação](aulas/semana_10.md) | **Capítulo 6**: Matriz de Riscos, Controles e Mitigação. <br>**ENTREGA PARCIAL 2 (09/Out)** |
 | **11** | Semana Tec. | **14/Out** | **16/Out** | Palestras e Workshops da Semana de Tecnologia. | Atividades institucionais integradas. |
 | **12** | Aula | **21/Out** | **23/Out** | [Frameworks de Governança e Serviços: ISO/IEC 38500, COBIT e ITIL](aulas/semana_12.ipynb) | **Capítulo 7**: Seleção e Justificativa dos Frameworks. |
-| **13** | Aula | **28/Out** | **30/Out** | [Qualidade e Maturidade: CMMI, MR-MPS-SW, ISO 12207 e ISO 9126](aulas/semana_13.md) | **Capítulo 8**: Melhoria nos Processos de Dev e Qualidade. <br>**ENTREGA PARCIAL 3 (30/Out)** |
+| **13** | Aula | **28/Out** | **30/Out** | [Qualidade e Maturidade: CMMI, MR-MPS-SW, ISO 12207 e ISO 25010](aulas/semana_13.ipynb) | **Capítulo 8**: Melhoria nos Processos de Dev e Qualidade. <br>**ENTREGA PARCIAL 3 (30/Out)** |
 | **14** | Semana PII / Exercício | **04/Nov** | **06/Nov** e **07/Nov (Sáb)** | Orientação do PII | **07/Nov (Sábado Letivo)**: Aula Prática / Exercício de consolidação dos frameworks. |
 | **15** | Aula | **11/Nov** | **13/Nov** | [Implantação da Governança de TI, FCS e Gestão da Mudança](aulas/semana_15.md) | **Capítulo 9**: Roadmap de Implantação e Benefícios. |
 | **16** | Aula | **18/Nov** | *20/Nov (Feriado)* | [Consolidação Final do PDGTI e Checklist de Qualidade](aulas/semana_16.md) | Feriado Nacional (20/Nov - compensado pelo dia 07/Nov). |
@@ -198,3 +198,4 @@ A avaliação do documento do PDGTI levará em consideração tanto aspectos est
 - [ ] Roadmap estruturado em Ondas de Maturidade (Curto, Médio e Longo Prazo).
 - [ ] Estimativas de investimento (CAPEX / OPEX) e Fatores Críticos de Sucesso (FCS).
 - [ ] Matriz de Geração de Valor e Benefícios Esperados para a organização.
+
