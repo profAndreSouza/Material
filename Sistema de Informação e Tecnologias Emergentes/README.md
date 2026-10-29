@@ -41,9 +41,7 @@ Antes do início do plano intensivo de 10 aulas, foram desenvolvidos e consolida
 
 ## 3. Diretrizes Metodológicas e Dinâmica de Sala
 
-Cada aula de **1h40min** está rigorosamente estruturada em dois blocos complementares:
-1. **Bloco Teórico-Demonstrativo (~1 hora):** Exposição dialogada dos fundamentos conceituais, análise de diagramas arquiteturais e demonstração ao vivo (*live coding* ou análise de ferramentas).
-2. **Bloco de Exercício Prático Dirigido (~40 minutos):** Resolução individual ou em duplas de desafios aplicados, análise de casos reais, configuração de ambientes ou desenvolvimento de artefatos práticos com entrega/registro formativo ao final da aula.
+Cada aula tem **1h40min** e combina fundamentos conceituais com aplicação prática. A proporção varia conforme o objetivo do encontro: em geral, há exposição dialogada, análise de diagramas ou demonstração, seguida de exercício dirigido. Oficinas de programação podem reservar mais tempo para implementação e depuração, como na Aula 05.
 
 ---
 
@@ -148,14 +146,18 @@ timeline
   * **Entregável:** Relatório curto em PDF com mapa, contexto territorial, fontes, diagrama da solução, tratamento de falhas e cuidados de operação, enviado no Teams.
 
 #### **Aula 05: Telemetria Urbana e Protocolos de Comunicação IoT: MQTT e LoRaWAN**
-* **Objetivo:** Compreender os protocolos de transporte leve de dados e implementar comunicação telemétrica *Publish/Subscribe*.
-* **Conteúdo Teórico (1h):**
-  * Por que HTTP/REST é inadequado para dispositivos de IoT restritos em energia e banda.
-  * Protocolo MQTT (*Message Queuing Telemetry Transport*): padrão *Publish/Subscribe*, papéis de *Broker*, *Publisher* e *Subscriber*, níveis de garantia de entrega (QoS 0, 1 e 2).
-  * Redes LoRaWAN (*Long Range Wide Area Network*): topologia em estrela, frequência sub-GHz e alcance de longa distância com baixo consumo de bateria.
-* **Exercício Prático (40min):**
-  * **Prática:** Conexão prática a um broker MQTT público (ex: HiveMQ/Mosquitto Web Client), simulando a publicação e assinatura de tópicos estruturados de telemetria urbana (`cidade/regiao/sensor/metrica`).
-  * **Entregável:** Script/payload JSON de telemetria emitido e capturado com diferentes níveis de QoS.
+* **Objetivo:** Explicar como MQTT e LoRaWAN atendem a diferentes necessidades de comunicação IoT e programar um ESP32 para trocar mensagens por MQTT.
+* **Guia detalhado:** [Aula05_MQTT_Wokwi_HiveMQ.md](Aulas/Aula_05/Aula05_MQTT_Wokwi_HiveMQ.md).
+* **Slides:** disponíveis no catálogo central de [Slides](../Slides/README.md).
+* **Conteúdo Teórico (aprox. 30min):**
+  * Limites de HTTP/REST em dispositivos restritos: comunicação baseada em requisição e resposta, cabeçalhos e conexões podem aumentar o tráfego e o custo de comunicação. Comparação com MQTT, considerando que HTTP também pode ser usado em IoT conforme os requisitos.
+  * Protocolo MQTT (*Message Queuing Telemetry Transport*): arquitetura *Publish/Subscribe*, funções de *Broker*, *Publisher* e *Subscriber* e níveis QoS 0 (no máximo uma entrega), QoS 1 (ao menos uma entrega) e QoS 2 (uma entrega no protocolo).
+  * Redes LoRaWAN (*Long Range Wide Area Network*): comunicação de longo alcance e baixa taxa de dados, bandas sub-GHz conforme a região, arquitetura estrela de estrelas e dispositivos finais, gateways e servidor de rede. Comparação de uso com MQTT sobre Wi-Fi.
+* **Oficina prática individual (aprox. 55min):**
+  * **Prática:** Cada aluno desenvolve um ESP32 no Wokwi. O dispositivo assina seu tópico (`fatec/ams5/nome_aluno`), recebe mensagens pelo Monitor Serial e publica para o tópico de outro aluno a partir de uma linha digitada no serial.
+  * **Broker:** HiveMQ Public Broker (`broker.hivemq.com`, porta `1883`), sem conta. Os tópicos são definidos pelos clientes; não precisam ser cadastrados no broker.
+  * **Entregável:** Link do projeto Wokwi e registro de uma mensagem enviada e outra recebida. O passo a passo e o código-base estão no [guia da Aula 05](Aulas/Aula_05/Aula05_MQTT_Wokwi_HiveMQ.md).
+  * **Nota de uso:** O broker público não oferece privacidade ou garantia de disponibilidade. Usar nomes de tópico exclusivos e somente mensagens fictícias, sem dados pessoais.
 
 #### **Aula 06: Topologia Computacional: Edge vs. Cloud Computing e Gêmeos Digitais Urbanos**
 * **Objetivo:** Avaliar o balanceamento de processamento entre a borda e a nuvem e modelar Gêmeos Digitais dinâmicos.
@@ -228,7 +230,7 @@ timeline
 | **02** | M3 | Consenso (PoW/PoS), EVM e Economia do Gas | Análise forense de transações reais no Etherscan | Ficha técnica de transação e consumo de Gas |
 | **03** | M3 | Smart Contracts, Tokenização e RWA | Simulação lúdica de contrato, eventos e tokens no Google Colab | Notebook executado e proposta de tokenização |
 | **04** | M4 | Cidades Inteligentes e Sistemas Ciber-Físicos (CPS) | Modelagem arquitetural de solução para crise hídrica/urbana | Diagrama de fluxo do Sistema Ciber-Físico |
-| **05** | M4 | Telemetria Urbana e Protocolos IoT (MQTT/LoRaWAN) | Publicação e assinatura telemétrica em Broker MQTT | Payloads telemétricos capturados com QoS |
+| **05** | M4 | MQTT, LoRaWAN e comunicação IoT | Programação individual de ESP32 no Wokwi para troca de mensagens via MQTT | Projeto Wokwi e evidência de envio e recebimento no serial |
 | **06** | M4 | Edge vs. Cloud Computing e Gêmeos Digitais | Particionamento de dados e desenho de Digital Twin | Matriz de decisão de borda e simulação What-If |
 | **07** | M5 | Transformers, Modelos de Fundação e Prompting | Engenharia de prompt para saídas estruturadas em JSON | Prompt validado gerando payloads para SI |
 | **08** | M5 | Engenharia de RAG e Bancos de Dados Vetoriais | Pipeline de chunking, embedding e busca semântica | Consulta semântica com contexto corporativo |

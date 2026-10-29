@@ -19,7 +19,8 @@ window.SLIDES_CATALOG = [
     lessons: [
       { id: "aula-02", label: "Aula 02", title: "Consenso distribuído, Ethereum e EVM", source: "../Sistema de Informação e Tecnologias Emergentes/Slides/aula-02.js" },
       { id: "aula-03", label: "Aula 03", title: "Smart contracts, tokens e RWA", source: "../Sistema de Informação e Tecnologias Emergentes/Slides/aula-03.js" },
-      { id: "aula-04", label: "Aula 04", title: "Cidades inteligentes e sistemas ciber-físicos", source: "../Sistema de Informação e Tecnologias Emergentes/Slides/aula-04.js" }
+      { id: "aula-04", label: "Aula 04", title: "Cidades inteligentes e sistemas ciber-físicos", source: "../Sistema de Informação e Tecnologias Emergentes/Slides/aula-04.js" },
+      { id: "aula-05", label: "Aula 05", title: "MQTT, LoRaWAN e comunicação IoT", source: "../Sistema de Informação e Tecnologias Emergentes/Slides/aula-05.js" }
     ]
   },
   { id: "automacao-industrial", name: "Automação Industrial", code: "AI", institution: "senai", lessons: [
