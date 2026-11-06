@@ -1,0 +1,30 @@
+name: banco-de-dados-i
+
+services:
+  oracle:
+    image: gvenzl/oracle-xe:11.2.0.2
+    platform: linux/amd64
+    hostname: APOLO
+    restart: unless-stopped
+    ports:
+      - "${ORACLE_BIND_ADDRESS:-127.0.0.1}:1521:1521"
+    environment:
+      ORACLE_PASSWORD: "${ORACLE_PASSWORD:-OracleAdmin123}"
+      APP_USER: BD001
+      APP_USER_PASSWORD: BD001
+    shm_size: 1gb
+    volumes:
+      - oracle-data:/u01/app/oracle/oradata
+    networks:
+      default:
+        aliases:
+          - APOLO
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      start_period: 60s
+      retries: 30
+
+volumes:
+  oracle-data:
