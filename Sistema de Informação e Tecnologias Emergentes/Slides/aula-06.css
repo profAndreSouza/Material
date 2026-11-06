@@ -1,0 +1,45 @@
+/* Aula 06: conteúdo local sobre o apresentador e o tema Fatec existentes. */
+.a06 .slide-content { gap: 16px; font-size: 19px; line-height: 1.48; }
+.a06 .slide-content p { margin: 0; }
+.a06 .a06-lead { font-size: 25px; line-height: 1.4; max-width: 1000px; }
+.a06 .a06-note { font-size: 13px; line-height: 1.5; color: #526174; }
+.a06 .a06-accent { color: #8b1e3f; font-weight: 800; }
+.a06 .a06-two { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+.a06 .a06-two > * { min-width: 0; }
+.a06 .a06-image { display: block; width: 100%; height: min(380px, calc(100vh - 390px)); object-fit: contain; }
+.a06 .a06-cover { display: grid; grid-template-columns: 1fr 1.5fr; gap: 26px; align-items: center; flex: 1; }
+.a06 .a06-cover img { width: 100%; max-height: 330px; object-fit: contain; border-radius: 12px; }
+.a06 .a06-cover p { margin-top: 18px; }
+.a06 .a06-table { width: 100%; border-collapse: collapse; font-size: 17px; line-height: 1.4; }
+.a06 .a06-table th { padding: 10px 12px; background: #8b1e3f; color: white; text-align: left; }
+.a06 .a06-table td { padding: 10px 12px; border-bottom: 1px solid #dce3ea; vertical-align: top; }
+.a06 .a06-table tbody tr:nth-child(even) { background: #f8fafc; }
+.a06 .a06-list { padding-left: 25px; display: grid; gap: 13px; }
+.a06 .a06-rule { padding: 14px 0 14px 20px; border-left: 4px solid #0f766e; font-size: 21px; }
+.a06 .a06-formula { font-size: 28px; font-weight: 700; color: #8b1e3f; padding: 16px 0; }
+.a06 .a06-code { background: #142536; color: #e2e8f0; border-radius: 12px; padding: 24px; font: 16px/1.65 var(--font-mono); white-space: pre-wrap; }
+.a06 .a06-steps { display: grid; gap: 15px; }
+.a06 .a06-steps p { border-bottom: 1px solid #dce3ea; padding-bottom: 12px; }
+.a06 .a06-steps strong { color: #8b1e3f; }
+.a06 .a06-controls { display: grid; gap: 20px; }
+.a06 .a06-controls label { display: grid; gap: 8px; font-weight: 600; }
+.a06 input[type=range] { width: 100%; accent-color: #8b1e3f; }
+.a06 .a06-results { border-left: 3px solid #0f766e; padding-left: 26px; display: grid; gap: 12px; font-size: 20px; }
+.a06 .a06-results strong { color: #8b1e3f; }
+.a06 .a06-status { padding: 12px 16px; background: #f0fdfa; color: #115e59; font-size: 16px; }
+.a06 .a06-status[data-warning=true] { background: #fff7ed; color: #9a3412; }
+.a06 .a06-references { font-size: 17px; line-height: 1.6; }
+.a06 .a06-references a { color: #8b1e3f; }
+.a06.a06-assignment .slide-content { font-size: 16px; gap: 12px; }
+.a06.a06-assignment .a06-list { gap: 10px; }
+.a06.a06-assignment .a06-rule { font-size: 17px; padding: 10px 0 10px 16px; }
+@media (max-width: 900px) {
+  .a06 .a06-cover, .a06 .a06-two { grid-template-columns: 1fr; }
+  .a06 .a06-image { height: auto; max-height: 320px; }
+  .a06 .a06-table { font-size: 15px; }
+}
+@media print {
+  .a06 .a06-cover, .a06 .a06-two { grid-template-columns: 1fr 1fr; }
+  .a06 .a06-image { height: 365px; max-height: 365px; }
+  .a06 .a06-cover img { max-height: 390px; }
+}

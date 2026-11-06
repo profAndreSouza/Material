@@ -160,14 +160,19 @@ timeline
   * **Nota de uso:** O broker público não oferece privacidade ou garantia de disponibilidade. Usar nomes de tópico exclusivos e somente mensagens fictícias, sem dados pessoais.
 
 #### **Aula 06: Topologia Computacional: Edge vs. Cloud Computing e Gêmeos Digitais Urbanos**
-* **Objetivo:** Avaliar o balanceamento de processamento entre a borda e a nuvem e modelar Gêmeos Digitais dinâmicos.
+* 📓 **Notebook da Aula:** [Aula06_Edge_Cloud_Gemeos_Digitais.ipynb](Aulas/Aula_06/Aula06_Edge_Cloud_Gemeos_Digitais.ipynb), com imagens incorporadas, demonstrações executadas e exercício detalhado para entrega.
+* 🖥️ **Slides Interativos (HTML):** [Abrir Aula 06 no apresentador central](../Slides/index.html?disciplina=sistemas-emergentes&aula=aula-06), com simulador What-If e atividade final resumida em um único slide.
+* **Objetivo:** Justificar o particionamento de dados e processamento entre borda e nuvem, desenhar um gêmeo digital e comparar cenários de operação de uma frota urbana.
 * **Conteúdo Teórico (1h):**
-  * *Cloud Computing* (centralizado, alta capacidade, alta latência) vs. *Edge Computing* (descentralizado, latência $< 10\text{ ms}$, resiliência a desconexões).
-  * Critérios de decisão arquitetural para inferência na borda: consumo de banda de rede, privacidade local e decisões de missão crítica (ex: cruzamentos inteligentes).
-  * Gêmeos Digitais Urbanos (*Digital Twins*): espelhamento dinâmico em tempo real de infraestruturas físicas, séries temporais e simulações prospectivas (*What-If Analysis*).
-* **Exercício Prático (40min):**
-  * **Prática:** Exercício de particionamento arquitetural: definir o que deve ser processado no Gateway de Borda (*Edge*) e o que deve ser enviado para o Data Lake em Nuvem em uma frota de transporte público conectada.
-  * **Entregável:** Matriz de decisão técnica discriminando dados de borda vs. nuvem, requisitos de latência e gatilhos de alerta.
+  * *Cloud*, *Edge* e camadas intermediárias: recursos, visão dos dados, gestão e dependência de rede. Orçamento de latência fim a fim e p95, sem pressupor um limite fixo garantido para a borda.
+  * Particionamento de dados e funções: vídeo local, resumos de ocupação, eventos, histórico, retenção e operação offline. Cálculo de banda e matriz de decisão com restrições obrigatórias antes da pontuação ponderada.
+  * Desenho de *Digital Twin*: entidades, relações, estado observado, histórico e modelo de comportamento. Atualização com identificação de eventos duplicados, atrasados e dados desatualizados.
+  * Simulação paramétrica *What-If*: tempo de ciclo, intervalo entre ônibus, capacidade nominal e espera idealizada. Comparação de cenários, sensibilidade e limitações do modelo.
+* **Exercício Prático em Duplas (40min):**
+  * **Prática:** Projetar a arquitetura da Linha L-06, preencher uma matriz para cinco funções, desenhar o gêmeo de Ônibus/Linha/Parada e comparar alternativas de frota em Python. Encontrar a menor frota que atende às metas e testar demanda 10% maior.
+  * **Entregável:** `Aula06_Nome1_Nome2.ipynb`, com matriz, desenho incorporado, tabela e gráfico What-If, análise de sensibilidade e parecer de 8 a 12 linhas. Entrega ao final da aula no Teams.
+  * **Avaliação:** matriz (3 pontos), desenho (2), simulação (3) e parecer/conferência (2). Enunciado, parâmetros, critérios e espaços de resposta na seção 11 do notebook.
+  * **Ambiente:** Python 3 em Jupyter/VS Code ou Google Colab. Dados fictícios gerados localmente, sem conta de nuvem ou hardware. O modelo é didático e não controla veículos reais.
 
 ---
 
