@@ -1,127 +1,260 @@
-# ROTEIRO DE AULA EXPANDIDO — AULA 04
+# Roteiro de Aula — Aula 04
 
-**Componente Curricular:** Banco de Dados I  
-**Data Calendário:** 28/08/2026 &nbsp;|&nbsp; **Data Programada:** 16/10/2026  
-**Modalidade:** Presencial em Laboratório de Informática  
-**Tema:** Mapeamento do Modelo Conceitual (DER) para o Modelo Lógico Relacional (Esquema Tabular)  
-**Ambiente de Software:** brModelo 3.0 e DBeaver  
-**Articulação com o PPC:** Competência 2 — Traduzir modelos semânticos abstratos em esquemas lógicos relacionais normalizados com integridade referencial estrita  
+**Componente curricular:** Banco de Dados I\
+**Tema:** Do DER aos modelos lógico e físico; DDL e operações básicas de dados em Oracle 11g XE\
+**Modalidade:** presencial, com atividade no laboratório na segunda metade\
+**SGBD:** Oracle Database 11g Express Edition 11.2.0.2.0 — banco `XE`, esquema `BD001`\
+**Ferramentas:** brModelo, DBeaver ou SQL*Plus\
+**Duração:** 3h20\
+**Apresentação:** [aula-04.js](../slides/aula-04.js) — 40 slides\
+**Continuidade:** Aula 03, que introduziu associações com atributos, entidades associativas e chaves compostas ou próprias.
 
----
+## Objetivos de aprendizagem
 
-## 1. OBJETIVOS DE APRENDIZAGEM
+Ao final da aula, o estudante deverá ser capaz de:
 
-Ao final desta aula prática em laboratório, você será capaz de:
-1. Compreender a formalização do **Modelo Relacional** estabelecida por Edgar F. Codd (1970) e sua correspondência matemática com a teoria dos conjuntos.
-2. Definir e identificar **Relação (Tabela)**, **Tupla (Linha/Registro)**, **Atributo (Coluna)**, **Domínio** e **Grau da Relação**.
-3. Dominar a taxonomia de chaves: **Superchave**, **Chave Candidata**, **Chave Primária (PK)**, **Chave Alternativa** e **Chave Estrangeira (FK)**.
-4. Aplicar sistematicamente as **7 Regras Algorítmicas de Mapeamento DER $\to$ Relacional** (tratamento de entidades fortes, fracas, cardinalidades $1:1$, $1:N$, $N:N$, atributos multivalorados e herança).
-5. Garantir as três regras fundamentais de integridade relacional:
-   * **Integridade de Entidade:** A chave primária jamais pode assumir valor nulo (`NULL`);
-   * **Integridade Referencial:** Todo valor de chave estrangeira deve corresponder exatamente a uma chave primária existente na tabela referenciada ou ser explicitamente nulo;
-   * **Integridade de Domínio:** Os valores atribuídos a uma coluna devem obedecer estritamente ao tipo, tamanho e restrições pré-definidas.
+1. Converter entidades, relacionamentos e atributos do DER em um esquema relacional com PKs e FKs.
+2. Justificar como o tipo de relacionamento determina a posição das FKs e quando criar uma tabela associativa.
+3. Distinguir modelo lógico de modelo físico e escolher tipos e restrições básicos para Oracle.
+4. Usar `CREATE TABLE` e `ALTER TABLE` para criar e modificar tabelas.
+5. Executar as operações básicas de CRUD: `INSERT`, `SELECT`, `UPDATE` e `DELETE`.
+6. Distinguir a criação de um banco Oracle da criação das tabelas do esquema de um aluno.
 
----
+## Organização do encontro — 3h20
 
-## 2. FUNDAMENTAÇÃO TEÓRICA: AS 7 REGRAS DE MAPEAMENTO
+| Bloco | Duração | Atividade |
+|---|---:|---|
+| 1. Retomada e conversão para o lógico | 35 min | Retomar matrícula e participação da Aula 03; aplicar as regras de mapeamento |
+| 2. Do lógico ao físico em Oracle | 35 min | Tipos, PK/FK, restrições, `CREATE DATABASE`, `CREATE TABLE` e `ALTER TABLE` |
+| 3. Demonstração de DDL e CRUD | 30 min | Executar um exemplo curto e discutir ordem e efeitos dos comandos |
+| Intervalo e preparação | 10 min | Abrir o cliente e verificar a conexão |
+| 4. Laboratório | 80 min | Converter um DER, criar tabelas Oracle e praticar CRUD |
+| Fechamento e entrega | 10 min | Revisar e enviar diagrama, esquema e script |
 
-A conversão do DER conceitual para o modelo lógico relacional não é intuitiva ou arbitrária; segue um **algoritmo determinístico padronizado**:
+Os 100 primeiros minutos introduzem o mapeamento e a implementação. Na segunda metade, a turma trabalha no laboratório com exercícios nos modelos lógico e físico usando Oracle.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│               ALGORITMO DE MAPEAMENTO DER -> RELACIONAL                │
-│                                                                        │
-│ 1. Entidades Fortes          ===> Cria tabela com PK própria           │
-│ 2. Entidades Fracas          ===> Cria tabela com PK Composta (FK + Id)│
-│ 3. Relacionamentos 1:1       ===> FK em um dos lados com UNIQUE        │
-│ 4. Relacionamentos 1:N       ===> FK migra para o lado N               │
-│ 5. Relacionamentos N:N       ===> Nova tabela de junção com PK Composta│
-│ 6. Atributos Multivalorados  ===> Nova tabela com FK da entidade-mãe   │
-│ 7. Especializações           ===> Tabela por classe com mesma PK/FK    │
-└────────────────────────────────────────────────────────────────────────┘
-```
+## 1. Retomada da Aula 03
 
----
+Na Aula 03, uma matrícula foi representada como vínculo entre ALUNO e DISCIPLINA, com semestre, data, nota e frequência. O diagrama pode mostrar o vínculo como relacionamento N:N com atributos ou como entidade associativa `MATRICULA`.
 
-### Regra 1: Mapeamento de Entidades Fortes (Regulares)
-Para cada entidade forte no DER, cria-se uma tabela relacional. Todos os atributos simples tornam-se colunas. Se houver um atributo composto, ele é desmembrado em seus componentes simples. Escolhe-se uma das chaves candidatas para ser a **Chave Primária ($\text{PK}$)**.
-* *Notação:* $\text{CLIENTES} (\underline{\text{id\_cliente}}, \text{nome}, \text{cpf}, \text{rua}, \text{numero}, \text{cidade}, \text{cep})$
+Antes de escrever SQL, responda:
 
-### Regra 2: Mapeamento de Entidades Fracas
-Cria-se uma tabela para a entidade fraca. Sua Chave Primária será obrigatoriamente **composta**: a $\text{PK}$ da entidade forte proprietária (como $\text{FK}$) somada ao identificador parcial (*discriminador*) da entidade fraca.
-* *Notação:* $\text{DEPENDENTES} (\underline{\text{id\_funcionario}}^*, \underline{\text{num\_sequencial}}, \text{nome\_dependente}, \text{grau\_parentesco})$
+- Qual regra identifica uma matrícula: `(id_aluno, id_disciplina)` ou `(id_aluno, id_disciplina, semestre)`?
+- Cada matrícula pode pertencer a vários alunos? A vários componentes curriculares?
+- `nota_final` descreve o aluno, a disciplina ou a matrícula naquele semestre?
+- Se ALUNO ou DISCIPLINA forem removidos, o que deve acontecer aos vínculos?
 
-### Regra 3: Mapeamento de Relacionamentos $1:1$
-Escolhe-se uma das tabelas (preferencialmente a que tem participação obrigatória/total) e insere-se nela a Chave Primária da outra tabela como **Chave Estrangeira ($\text{FK}$)**. Para garantir a cardinalidade máxima $1$, a coluna da $\text{FK}$ deve receber uma restrição de unicidade (**`UNIQUE`**).
-* *Notação:* $\text{DEPARTAMENTOS} (\underline{\text{id\_depto}}, \text{nome\_depto}, \text{id\_gerente\_fk}^* \text{ [UNIQUE]})$
+As respostas definem a estrutura lógica e as restrições que depois implementaremos no Oracle.
 
-### Regra 4: Mapeamento de Relacionamentos $1:N$
-**Regra de Ouro:** A Chave Primária do lado **1** migra como Chave Estrangeira ($\text{FK}$) para o lado **N** (Muitos). Quaisquer atributos próprios do relacionamento também migram para a tabela do lado $N$.
-* *Exemplo (Setor $1:N$ Máquinas):* A tabela $\text{MAQUINAS}$ recebe a coluna $\text{id\_setor}^*$ como $\text{FK}$.
+## 2. Do DER ao modelo lógico relacional
 
-### Regra 5: Mapeamento de Relacionamentos $N:N$
-Cria-se obrigatoriamente uma **nova tabela relacional (Tabela de Junção / Tabela Associativa)**.
-* A Chave Primária da nova tabela é formada pela combinação das Chaves Primárias das entidades participantes ($\text{PK Composta}$);
-* Cada uma dessas colunas atua individualmente como uma $\text{FK}$;
-* Os atributos que residiam no losango do relacionamento migram como colunas comuns dessa nova tabela.
-* *Notação:* $\text{ITENS\_PEDIDO} (\underline{\text{id\_pedido}}^*, \underline{\text{id\_produto}}^*, \text{quantidade}, \text{preco\_unitario\_venda})$
+O **DER** descreve entidades, propriedades, associações e regras do domínio. O **modelo lógico relacional** organiza essas informações em relações (tabelas), colunas e chaves, sem ainda escolher todos os detalhes próprios do Oracle.
 
-### Regra 6: Mapeamento de Atributos Multivalorados
-O modelo relacional clássico proíbe repetições ou coleções dentro de uma mesma célula (princípio da atomicidade). Logo, cada atributo multivalorado gera uma **nova tabela**:
-* A nova tabela conterá o atributo em si e a Chave Primária da entidade-proprietária (atuando como $\text{FK}$).
-* Sua $\text{PK}$ será a combinação da $\text{FK}$ com o próprio valor do atributo.
-* *Notação:* $\text{TELEFONES\_CLIENTES} (\underline{\text{id\_cliente}}^*, \underline{\text{num\_telefone}})$
+### Regras de mapeamento
 
-### Regra 7: Mapeamento de Especialização / Generalização
-Existem 3 abordagens industriais clássicas:
-1. **Tabelas para Superclasse e Subclasses (Padrão Recomendado):** Cria-se uma tabela para a superclasse com atributos comuns e uma tabela para cada subclasse contendo atributos específicos. As subclasses utilizam como $\text{PK}$ a mesma $\text{PK}$ da superclasse (que atua simultaneamente como $\text{PK}$ e $\text{FK}$).
-2. **Apenas Tabelas para Subclasses (Adequado para Especialização Total Disjunta):** Elimina a tabela superclasse e replica os atributos comuns nas tabelas filhas.
-3. **Tabela Única Consolidada (*Single Table Inheritance*):** Junta tudo em uma única tabela com uma coluna indicadora de tipo (`tipo_pessoa = 'F'/'J'`) e atributos específicos aceitando `NULL`.
+| Componente do DER | Representação no modelo relacional |
+|---|---|
+| Entidade | Uma tabela, com colunas para os atributos simples |
+| Identificador da entidade | Chave primária (PK) |
+| Atributo composto | Colunas para os componentes relevantes |
+| Atributo multivalorado | Outra tabela, com FK para a entidade proprietária |
+| Relacionamento 1:N | FK no lado N, apontando para a PK do lado 1 |
+| Relacionamento 1:1 | FK em um dos lados; restrição `UNIQUE` preserva o máximo 1 |
+| Relacionamento N:N | Tabela associativa com FKs para as entidades e colunas para atributos da associação |
+| Atributo derivado | Em geral, calculado em consulta; só armazenar se houver uma regra de negócio que justifique |
+| Entidade associativa | Tabela própria; chave composta ou identificador próprio conforme a regra de unicidade |
 
----
+Cada par de cardinalidade continua importante. No lado N de uma relação 1:N, uma FK com `NOT NULL` exige que cada linha filha aponte para um pai; uma FK nullable deixa essa referência opcional. Isso não garante que cada pai tenha pelo menos uma linha filha: essa participação mínima do lado 1 exige outra regra ou controle. Uma FK `UNIQUE` em um relacionamento 1:1 impede que o mesmo pai seja associado a várias linhas filhas. Confira sempre quais regras as constraints representam e quais ainda dependem de lógica adicional.
 
-## 3. PRÁTICA EM LABORATÓRIO (DER -> LÓGICO)
+### Exemplo 1 — associação de matrícula
 
-Execute a transposição formal do modelo conceitual de uma concessionária de automóveis para o modelo relacional:
+Aplicando a decisão da Aula 03 de permitir uma matrícula por aluno, disciplina e semestre:
 
-```
-    ┌──────────────┐         (1,1)          (0,N) ┌──────────────┐
-    │  AUTOMOVEL   ├──────────────────────────────┤  FABRICANTE  │
-    └──────┬───────┘          [FABRICADO POR]     └──────────────┘
-           │ (1,N)
-           │
-           │ [VENDA] (N:N com data e valor)
-           │
-           │ (0,N)
-    ┌──────┴───────┐
-    │   CLIENTE    │
-    └──────────────┘
+```text
+ALUNO(id_aluno PK, nome)
+DISCIPLINA(id_disciplina PK, nome)
+MATRICULA(
+  id_aluno PK/FK → ALUNO,
+  id_disciplina PK/FK → DISCIPLINA,
+  semestre PK,
+  data_matricula,
+  nota_final,
+  frequencia
+)
 ```
 
-**Resultado Esperado do Esquema Lógico:**
-1. $\text{FABRICANTES} (\underline{\text{id\_fabricante}}, \text{nome\_marca}, \text{pais\_origem})$
-2. $\text{AUTOMOVEIS} (\underline{\text{chassi}}, \text{modelo}, \text{ano\_fab}, \text{cor}, \text{preco\_tabela}, \text{id\_fabricante}^*)$
-3. $\text{CLIENTES} (\underline{\text{id\_cliente}}, \text{nome\_cliente}, \text{cpf}, \text{cidade})$
-4. $\text{VENDAS} (\underline{\text{id\_venda}}, \text{chassi}^*, \text{id\_cliente}^*, \text{data\_venda}, \text{valor\_negociado}, \text{forma\_pagto})$
+A PK composta impede repetir o mesmo aluno, disciplina e semestre. As FKs impedem matrículas para alunos ou disciplinas inexistentes. Se o domínio permitir mais de uma matrícula do mesmo aluno na mesma disciplina e semestre, a chave precisa refletir essa regra, por exemplo, com `id_matricula` próprio.
 
----
+### Exemplo 2 — participação em projeto
 
-## 4. EXERCÍCIOS DE FIXAÇÃO
+A Aula 03 também propôs que cada participação guardasse função, carga semanal e data de início. Como uma pessoa pode voltar ao mesmo projeto, o exemplo usa identificador próprio.
 
-1. Por que não é recomendado colocar a Chave Estrangeira no lado "1" em um relacionamento $1:N$? Demonstre o que aconteceria com os dados na prática.
-2. Defina o que é uma **Chave Primária Composta** e explique como ela garante a integridade em relacionamentos $N:N$.
-3. Explique a diferença entre **Integridade de Entidade** e **Integridade Referencial**. Dê um exemplo de violação para cada uma no SGBD.
+```text
+COLABORADOR(id_colaborador PK, nome)
+PROJETO(id_projeto PK, nome)
+PARTICIPACAO(
+  id_participacao PK,
+  id_colaborador FK → COLABORADOR,
+  id_projeto FK → PROJETO,
+  papel,
+  horas_semanais,
+  data_inicio
+)
+```
 
----
+As colunas `papel`, `horas_semanais` e `data_inicio` pertencem a PARTICIPACAO porque descrevem a relação específica entre um colaborador e um projeto. Uma associação N:N sem tabela própria não consegue guardar essas informações por par.
 
-## 5. REFERÊNCIAS BIBLIOGRÁFICAS UTILIZADAS
+## 3. Do modelo lógico ao modelo físico Oracle
 
-1. **ELMASRI, Ramez; NAVATHE, Shamkant B.** *Sistemas de Banco de Dados: Fundamentos e Aplicações.* 7. ed. São Paulo: Pearson, 2019.  
-   - **Capítulo 9:** *Mapeamento de Modelos de Dados Relacionais: Mapeamento de Esquema ER e EER em Esquema Relacional* (p. 271–296).
-2. **DATE, C. J.** *Projeto de Banco de Dados e Teoria Relacional: Formas Normais e Tudo o Mais.* 1. ed. São Paulo: Novatec Editora, 2015.  
-   - **Capítulo 1:** *Relações vs. Tabelas: Fundamentação Matemática do Modelo Relacional* (p. 15–38).  
-   - **Capítulo 2:** *Chaves e Integridade Referencial: Chaves Candidatas, Primárias e Estrangeiras* (p. 39–60).
-3. **MARTELLI, Rubens; FILHO, Oswaldo V. S.; CABRAL, Almir L.** *Modelagem e banco de dados.* 2. ed. São Paulo: Senac, 2018.  
-   - **Capítulo 3:** *Mapeamento do Modelo Conceitual para o Modelo Lógico Relacional* (p. 67–102).
-4. **SILBERSCHATZ, Abraham; KORTH, Henry F.; SUDARSHAN, S.** *Sistema de Banco de Dados.* 7. ed. Rio de Janeiro: GEN LTC, 2020.  
-   - **Capítulo 2:** *Introdução ao Modelo Relacional: Estrutura dos Bancos de Dados Relacionais e Operações Fundamentais* (p. 33–54).
+O **modelo físico** especifica como o esquema será implementado em um SGBD. No Oracle, escolhemos tipos como `NUMBER`, `VARCHAR2` e `DATE`, nomeamos restrições e traduzimos PKs e FKs em comandos DDL.
+
+### `CREATE DATABASE` e o ambiente desta disciplina
+
+`CREATE DATABASE` cria e configura um banco de dados. No Oracle, essa operação é administrativa: exige uma instância, arquivos, parâmetros e privilégios de `SYSDBA`. Não faz parte da atividade da conta de aluno `BD001`.
+
+O Oracle XE do Compose já inicializa o banco **`XE`**. Os alunos se conectam a esse banco e trabalham no próprio esquema de usuário **`BD001`**. Assim, na prática desta aula, criamos tabelas e objetos dentro do esquema; não criamos outro banco Oracle.
+
+Em outros SGBDs, o comando `CREATE DATABASE nome;` pode ser utilizado por uma conta administrativa para criar uma base lógica. A sintaxe, os privilégios e o significado variam por produto; essa forma geral não deve ser enviada ao SQL*Plus Oracle como se fosse a operação de um usuário comum.
+
+### Tipos e restrições usados no exercício
+
+| Dado | Tipo Oracle | Exemplo |
+|---|---|---|
+| Identificador inteiro | `NUMBER(10)` | `id_aluno NUMBER(10)` |
+| Texto de tamanho limitado | `VARCHAR2(n)` | `nome VARCHAR2(100)` |
+| Data e hora | `DATE` | `data_matricula DATE` |
+| Nota com duas casas decimais | `NUMBER(5,2)` | `nota_final NUMBER(5,2)` |
+
+`PRIMARY KEY` identifica a linha e não aceita valores nulos nem duplicados. `FOREIGN KEY` exige que a referência exista na tabela apontada. `NOT NULL` exige um valor, `UNIQUE` impede repetição e `CHECK` limita os valores conforme uma condição.
+
+### `CREATE TABLE`
+
+O esquema lógico de projeto pode ser implementado em Oracle com tabelas que respeitam a ordem das dependências. Criamos primeiro as tabelas referenciadas e depois a associativa:
+
+```sql
+CREATE TABLE colaboradores (
+    id_colaborador NUMBER(10),
+    nome            VARCHAR2(100) NOT NULL,
+    CONSTRAINT pk_colaboradores PRIMARY KEY (id_colaborador)
+);
+
+CREATE TABLE projetos (
+    id_projeto NUMBER(10),
+    nome       VARCHAR2(100) NOT NULL,
+    CONSTRAINT pk_projetos PRIMARY KEY (id_projeto)
+);
+
+CREATE TABLE participacao (
+    id_participacao  NUMBER(10),
+    id_colaborador   NUMBER(10) NOT NULL,
+    id_projeto       NUMBER(10) NOT NULL,
+    papel            VARCHAR2(40) NOT NULL,
+    horas_semanais   NUMBER(5,2) NOT NULL,
+    data_inicio      DATE NOT NULL,
+    CONSTRAINT pk_participacao PRIMARY KEY (id_participacao),
+    CONSTRAINT fk_part_colaborador FOREIGN KEY (id_colaborador)
+        REFERENCES colaboradores (id_colaborador),
+    CONSTRAINT fk_part_projeto FOREIGN KEY (id_projeto)
+        REFERENCES projetos (id_projeto),
+    CONSTRAINT ck_part_horas CHECK (horas_semanais > 0)
+);
+```
+
+Os nomes das constraints ajudam a identificar a regra caso o Oracle rejeite uma operação. As FKs são criadas depois das PKs referenciadas. Neste exemplo, `horas_semanais` deve ser maior que zero e as colunas obrigatórias usam `NOT NULL`.
+
+### `ALTER TABLE`
+
+`ALTER TABLE` muda uma tabela já criada. Se o caso passar a exigir a área do projeto:
+
+```sql
+ALTER TABLE projetos
+    ADD (area VARCHAR2(60));
+```
+
+Para alterar o tamanho de uma coluna:
+
+```sql
+ALTER TABLE projetos
+    MODIFY (nome VARCHAR2(150));
+```
+
+As alterações devem respeitar os dados existentes. Por exemplo, tornar uma coluna `NOT NULL` requer que as linhas já existentes satisfaçam a regra.
+
+## 4. Operações básicas de CRUD
+
+CRUD designa criar, consultar, atualizar e remover dados. Em SQL, as operações são `INSERT`, `SELECT`, `UPDATE` e `DELETE`.
+
+```sql
+-- C: criar linhas (Create)
+INSERT INTO colaboradores (id_colaborador, nome)
+VALUES (1, 'Ana Lima');
+
+INSERT INTO projetos (id_projeto, nome, area)
+VALUES (10, 'Sistema de Biblioteca', 'Sistemas');
+
+INSERT INTO participacao
+    (id_participacao, id_colaborador, id_projeto, papel,
+     horas_semanais, data_inicio)
+VALUES
+    (100, 1, 10, 'Analista', 12.5, DATE '2026-11-05');
+
+-- R: consultar linhas (Read)
+SELECT id_participacao, papel, horas_semanais, data_inicio
+FROM participacao
+WHERE id_projeto = 10;
+
+-- U: alterar uma linha (Update)
+UPDATE participacao
+SET horas_semanais = 15
+WHERE id_participacao = 100;
+
+-- D: remover uma linha (Delete)
+DELETE FROM participacao
+WHERE id_participacao = 100;
+```
+
+Confira a condição do `WHERE` antes de executar `UPDATE` ou `DELETE`: sem ela, todas as linhas da tabela podem ser afetadas. As linhas-pai só podem ser removidas se nenhuma FK impedir a exclusão. Em Oracle, `INSERT`, `UPDATE` e `DELETE` são DML; `SELECT` é a consulta (DQL).
+
+### Transações e DDL no Oracle
+
+Depois de validar as alterações DML, `COMMIT` confirma a transação e `ROLLBACK` desfaz alterações ainda não confirmadas. DDL, como `CREATE TABLE` e `ALTER TABLE`, tem comportamento de commit implícito no Oracle; `ROLLBACK` não desfaz a criação da tabela. Use a ordem de operações e teste com cuidado.
+
+## 5. Laboratório — transformar, criar e consultar
+
+**Tempo:** 80 minutos. **Organização:** individual ou em dupla. **Conexão:** Oracle XE, host `localhost`, porta `1521`, SID `xe`, usuário `BD001`, senha `BD001`. O roteiro de conexão e de inicialização está em [`../docker/README.md`](../docker/README.md).
+
+### Atividade A — DER de equipe e projetos para modelo lógico
+
+Parta do caso da Aula 03:
+
+- Cada colaborador tem código e nome.
+- Cada projeto tem código e nome.
+- Um colaborador pode participar de vários projetos; cada projeto pode ter vários colaboradores.
+- Cada participação registra papel, horas semanais e data de início.
+- Uma pessoa pode sair de um projeto e voltar mais tarde.
+
+**Entregáveis:** diagrama anotado; esquema relacional com PK e FK indicadas; justificativa da tabela associativa e do identificador escolhido. Verifique que os três atributos da participação não foram colocados apenas em COLABORADOR ou PROJETO.
+
+### Atividade B — criar o modelo físico no Oracle
+
+1. Conecte-se ao schema `BD001` no SQL Developer, DBeaver ou SQL*Plus.
+2. Crie `COLABORADORES`, `PROJETOS` e `PARTICIPACAO` com os tipos e as restrições necessários.
+3. Acrescente a coluna `AREA` a PROJETOS usando `ALTER TABLE`.
+4. Crie um colaborador e um projeto; depois registre sua participação.
+5. Consulte os dados com `SELECT` e `WHERE`.
+6. Atualize as horas semanais com `UPDATE`; consulte novamente para confirmar.
+7. Remova a participação com `DELETE`. Observe que as tabelas-pai permanecem.
+
+**Entrega:** script SQL executado, resultado de uma consulta e breve justificativa das PKs, FKs e demais restrições. Se trabalhar em dupla, identifique os integrantes.
+
+### Questões para conferência
+
+1. Por que PARTICIPACAO precisa de duas FKs?
+2. Por que `papel` e `horas_semanais` pertencem a PARTICIPACAO?
+3. O que uma FK impede? Qual erro ocorre se o projeto informado não existir?
+4. O que pode acontecer se você omitir o `WHERE` em um `UPDATE` ou `DELETE`?
+5. Por que a conta `BD001` cria tabelas, mas não executa `CREATE DATABASE`?
+
+## Fechamento
+
+A passagem entre as três etapas deve preservar as mesmas regras: o DER descreve o domínio, o modelo lógico define relações e chaves, e o modelo físico implementa esse esquema com os recursos do Oracle. Na próxima etapa do curso, o esquema relacional será analisado quanto a redundâncias e formas normais.

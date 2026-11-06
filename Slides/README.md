@@ -24,7 +24,9 @@ Sistema de Informação e Tecnologias Emergentes/
     └── aula-03.js
 ```
 
-O endereço aceita links diretos: `index.html?disciplina=sistemas-emergentes&aula=aula-03#slide-4`.
+Exemplo em Banco de Dados I: a Aula 04 está no catálogo como `aula-04` e seu conteúdo fica em `Banco de Dados I/slides/aula-04.js`.
+
+O endereço aceita links diretos: `index.html?disciplina=banco-de-dados&aula=aula-04#slide-1`.
 
 ## Gerar PDF
 
