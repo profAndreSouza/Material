@@ -6,7 +6,7 @@
 **SGBD:** Oracle Database 11g Express Edition 11.2.0.2.0 — banco `XE`, esquema `BD001`\
 **Ferramentas:** brModelo, DBeaver ou SQL*Plus\
 **Duração:** 3h20\
-**Apresentação:** [aula-04.js](../slides/aula-04.js) — 40 slides\
+**Apresentação:** [aula-04.js](../slides/aula-04.js) — 24 slides\
 **Continuidade:** Aula 03, que introduziu associações com atributos, entidades associativas e chaves compostas ou próprias.
 
 ## Objetivos de aprendizagem

@@ -1,327 +1,178 @@
 window.SLIDE_DECKS["banco-de-dados/aula-04"] = {
-  title: "Do DER ao modelo lógico e físico no Oracle",
+  title: "Da universidade ao modelo relacional e físico",
   slides: [
 `<section class="slide slide-cover active">
   <div class="section-tag">Banco de Dados I • Aula 04</div>
-  <h1 class="cover-title">Do DER ao banco de dados</h1>
-  <p class="slide-subtitle" style="max-width:820px">Conversão para o modelo lógico, implementação física no Oracle e operações básicas de dados.</p>
-  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0 24px">
-    <span class="badge badge-red">Presencial</span><span class="badge badge-blue">Modelo lógico e físico</span><span class="badge badge-green">Segunda metade no laboratório</span>
-  </div>
-  <div class="callout" style="max-width:760px;text-align:left"><strong>Continuidade da Aula 03:</strong> vamos transformar a associação ALUNO–DISCIPLINA e a participação em projetos em tabelas, chaves e comandos SQL executáveis.</div>
+  <h1 class="cover-title">Do DER ao Oracle</h1>
+  <p class="slide-subtitle" style="max-width:850px">Vamos modelar uma universidade comunitária e acompanhar a transformação do diagrama conceitual em relações e tabelas Oracle.</p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0 24px"><span class="badge badge-red">Especialização total e sobreposta</span><span class="badge badge-blue">Relacionamentos acadêmicos</span><span class="badge badge-green">Oracle XE 11g</span></div>
+  <div class="callout" style="max-width:820px;text-align:left"><strong>Pergunta guia:</strong> como preservar no banco cada regra do enunciado — inclusive uma pessoa que seja estudante e funcionária ao mesmo tempo?</div>
 </section>`,
     {
-      category: "Organização do encontro",
-      title: "Da regra de negócio ao exercício no Oracle",
-      subtitle: "A aula começa com a conversão do DER e termina com a criação e manipulação de tabelas no laboratório.",
-      content: `
-        <div class="stepper"><div class="step-item"><div class="step-circle">1</div><div class="step-title">DER → lógico</div><div class="step-desc">Entidades, relações e chaves</div></div><div class="step-item"><div class="step-circle">2</div><div class="step-title">Lógico → físico</div><div class="step-desc">Tipos e restrições Oracle</div></div><div class="step-item"><div class="step-circle">3</div><div class="step-title">Demonstração</div><div class="step-desc">DDL e CRUD</div></div><div class="step-item"><div class="step-circle">4</div><div class="step-title">Laboratório</div><div class="step-desc">Exercício e entrega</div></div></div>
-        <div class="grid-2"><div class="card card-red"><div class="card-title">Primeiros 100 minutos</div><p class="card-desc">Retomada da Aula 03, regras de mapeamento, decisões de chave, tipos e restrições Oracle, CREATE TABLE, ALTER TABLE e demonstração de CRUD.</p></div><div class="card card-blue"><div class="card-title">Segunda metade: laboratório</div><p class="card-desc">Converter o caso de equipe e projetos, implementar o esquema no Oracle XE e exercitar INSERT, SELECT, UPDATE e DELETE.</p></div></div>`
+      category: "Roteiro da aula",
+      title: "Um enunciado, três representações",
+      subtitle: "Nas duas primeiras partes faremos a conversão; no laboratório vamos implementar e consultar o esquema.",
+      content: `<div class="stepper"><div class="step-item"><div class="step-circle">1</div><div class="step-title">DER</div><div class="step-desc">Entidades, atributos e regras</div></div><div class="step-item"><div class="step-circle">2</div><div class="step-title">Relacional</div><div class="step-desc">Relações, PKs e FKs</div></div><div class="step-item"><div class="step-circle">3</div><div class="step-title">Oracle</div><div class="step-desc">Tipos, constraints e DDL</div></div><div class="step-item"><div class="step-circle">4</div><div class="step-title">Laboratório</div><div class="step-desc">CRUD e validação</div></div></div><div class="callout callout-blue">O exemplo de todos os diagramas e scripts será a <strong>Universidade comunitária — Lista 02, exercício 3</strong>.</div>`
     },
     {
-      category: "Retomada • Aula 03",
-      title: "A associação já tem dados e identidade",
-      subtitle: "Na aula anterior, vimos que nota, horas e papel descrevem vínculos específicos entre ocorrências.",
-      content: `
-        <div class="grid-2"><div class="card card-blue"><div class="card-title">Matrícula</div><div class="code-box">ALUNO — cursa — DISCIPLINA<br>semestre, data, nota_final, frequencia</div><p class="card-desc" style="margin-top:10px">A nota pertence à matrícula daquele aluno naquela disciplina e período.</p></div><div class="card card-green"><div class="card-title">Participação em projeto</div><div class="code-box">COLABORADOR — participa — PROJETO<br>papel, horas_semanais, data_inicio</div><p class="card-desc" style="margin-top:10px">Os atributos mudam de acordo com a participação específica.</p></div></div>
-        <div class="callout callout-blue"><strong>Pergunta de partida:</strong> em qual tabela cabem os dados de cada vínculo sem perder o relacionamento entre as entidades?</div>`
+      category: "Ler o domínio",
+      title: "Primeiro extraímos os conceitos do enunciado",
+      subtitle: "Não começamos pelo SQL: identificamos quem existe, quais dados descrevem cada pessoa e como as ocorrências se relacionam.",
+      content: `<div class="grid-2"><div class="card card-red"><div class="card-title">Pessoas e especialização</div><p class="card-desc">Pessoa: nome, documento e endereço composto. Toda pessoa é Estudante, Funcionário ou ambas. Estudante tem matrícula e curso; Funcionário tem registro, admissão e setor.</p></div><div class="card card-blue"><div class="card-title">Relações acadêmicas</div><p class="card-desc">Funcionário orienta estudantes; estudantes cursam disciplinas com semestre, ano e nota; funcionários ministram disciplinas.</p></div></div><div class="callout callout-amber">Diferencie as regras explícitas das decisões ainda abertas. Por exemplo, o enunciado não define se a matrícula pode ser repetida na mesma disciplina e período.</div>`
     },
     {
-      category: "Três etapas do projeto",
-      title: "Cada modelo responde a uma pergunta diferente",
-      subtitle: "A sequência preserva as regras do domínio e acrescenta decisões em cada etapa.",
-      content: `
-        <div class="table-container"><table class="modern-table"><thead><tr><th>Etapa</th><th>O que descreve</th><th>Exemplo de artefato</th></tr></thead><tbody><tr><td><strong>Conceitual</strong></td><td>Entidades, associações e regras do negócio</td><td>DER: ALUNO cursa DISCIPLINA</td></tr><tr><td><strong>Lógica relacional</strong></td><td>Tabelas, colunas, PKs e FKs</td><td>MATRICULA(id_aluno, id_disciplina, semestre, ...)</td></tr><tr><td><strong>Física</strong></td><td>Tipos, constraints e detalhes do Oracle</td><td>CREATE TABLE com NUMBER, DATE e VARCHAR2</td></tr></tbody></table></div>
-        <div class="callout"><strong>Regra:</strong> o modelo físico deve implementar o esquema lógico sem enfraquecer as regras expressas no DER.</div>`
+      category: "Modelo conceitual • DER",
+      title: "O DER mostra os conceitos antes das tabelas",
+      subtitle: "Este desenho reúne a especialização, o endereço composto e os três relacionamentos do exercício.",
+      content: `<div class="diagram-container"><svg class="diagram-svg" viewBox="0 0 1100 630" role="img" aria-label="DER da universidade com Pessoa especializada em Estudante e Funcionário, orientação, curso de disciplina e ministração"><defs><marker id="a4arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#475569"/></marker></defs>
+      <rect x="390" y="30" width="300" height="116" rx="12" fill="#fff1f2" stroke="#b20000" stroke-width="3"/><text x="540" y="62" text-anchor="middle" font-size="24" font-weight="700" fill="#1e293b">PESSOA</text><text x="540" y="91" text-anchor="middle" font-size="16" fill="#334155">documento • nome</text><text x="540" y="117" text-anchor="middle" font-size="14" fill="#475569">endereço {logradouro, número, complemento, bairro, cidade, estado, CEP}</text>
+      <path d="M540 146V188M540 188H265V226M540 188H810V226" fill="none" stroke="#475569" stroke-width="2.5"/><circle cx="540" cy="188" r="19" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="540" y="194" text-anchor="middle" font-size="17" font-weight="700" fill="#92400e">d</text><text x="540" y="219" text-anchor="middle" font-size="13" fill="#92400e">total • sobreposta</text>
+      <rect x="105" y="226" width="320" height="94" rx="12" fill="#eff6ff" stroke="#0284c7" stroke-width="3"/><text x="265" y="258" text-anchor="middle" font-size="23" font-weight="700" fill="#1e293b">ESTUDANTE</text><text x="265" y="287" text-anchor="middle" font-size="15" fill="#334155">matrícula • curso</text>
+      <rect x="650" y="226" width="320" height="94" rx="12" fill="#f0fdf4" stroke="#15803d" stroke-width="3"/><text x="810" y="258" text-anchor="middle" font-size="23" font-weight="700" fill="#1e293b">FUNCIONÁRIO</text><text x="810" y="287" text-anchor="middle" font-size="15" fill="#334155">registro • admissão • setor</text>
+      <rect x="70" y="390" width="245" height="84" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="192" y="424" text-anchor="middle" font-size="21" font-weight="700" fill="#1e293b">ORIENTA</text><text x="192" y="450" text-anchor="middle" font-size="14" fill="#475569">orientador 1 : 0..N orientado</text>
+      <path d="M265 320V352H192V390M810 320V352H192V390" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a4arrow)"/><text x="124" y="377" font-size="13" fill="#475569">Estudante</text><text x="725" y="344" font-size="13" fill="#475569">Funcionário</text>
+      <rect x="425" y="390" width="250" height="84" rx="12" fill="#eff6ff" stroke="#0284c7" stroke-width="2"/><text x="550" y="424" text-anchor="middle" font-size="21" font-weight="700" fill="#1e293b">CURSA</text><text x="550" y="450" text-anchor="middle" font-size="14" fill="#475569">semestre • ano • nota final</text>
+      <rect x="785" y="390" width="245" height="84" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="2"/><text x="907" y="424" text-anchor="middle" font-size="21" font-weight="700" fill="#1e293b">MINISTRA</text><text x="907" y="450" text-anchor="middle" font-size="14" fill="#475569">N : N</text>
+      <path d="M265 320V355H490V390M810 320V355H610V390M810 320V355H850V390" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a4arrow)"/>
+      <rect x="420" y="535" width="260" height="76" rx="12" fill="#fefce8" stroke="#ca8a04" stroke-width="3"/><text x="550" y="565" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">DISCIPLINA</text><text x="550" y="590" text-anchor="middle" font-size="15" fill="#334155">código • nome • carga horária</text>
+      <path d="M550 474V535M907 474V505H650V535" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a4arrow)"/><text x="565" y="515" font-size="13" fill="#475569">Estudante</text><text x="770" y="499" font-size="13" fill="#475569">Funcionário</text>
+      </svg></div><div class="callout callout-blue">No brModelo, use especialização <strong>total e compartilhada</strong>. Os rótulos junto aos relacionamentos indicam os papéis e as cardinalidades.</div>`
     },
     {
-      category: "Método de conversão",
-      title: "Antes de escrever SQL, faça cinco verificações",
-      subtitle: "A conversão fica mais clara quando as decisões são tomadas na ordem certa.",
-      content: `
-        <div class="grid-3"><div class="card card-red"><div class="card-title">1. Entidades</div><p class="card-desc">Cada entidade forte vira uma tabela. Liste atributos simples e marque o identificador.</p></div><div class="card card-blue"><div class="card-title">2. Relações</div><p class="card-desc">Leia as cardinalidades mínimas e máximas para decidir onde ficam as FKs.</p></div><div class="card card-green"><div class="card-title">3. Associativas</div><p class="card-desc">Crie tabela para N:N ou para associação com atributos e identidade própria.</p></div><div class="card"><div class="card-title">4. Atributos</div><p class="card-desc">Separe multivalorados; decomponha compostos; avalie os derivados.</p></div><div class="card card-amber"><div class="card-title">5. Regras</div><p class="card-desc">Registre PK, FK, NOT NULL, UNIQUE e outras restrições necessárias.</p></div><div class="card"><div class="card-title">Depois</div><p class="card-desc">Escolha tipos do Oracle e implemente o esquema físico.</p></div></div>`
+      category: "Especialização",
+      title: "Total significa cobertura; sobreposta permite acumulação",
+      subtitle: "São duas regras diferentes e ambas precisam aparecer no DER.",
+      content: `<div class="grid-2"><div class="card card-red"><div class="card-title">Especialização total</div><p class="card-desc">Toda ocorrência de PESSOA precisa pertencer a pelo menos uma subentidade: ESTUDANTE, FUNCIONÁRIO ou ambas. Não existe pessoa apenas na superentidade.</p></div><div class="card card-blue"><div class="card-title">Especialização sobreposta</div><p class="card-desc">A mesma pessoa pode pertencer às duas subentidades. Uma funcionária que também estuda mantém os dados comuns uma vez e os dados específicos em cada papel.</p></div></div><div class="code-box">PESSOA(documento, nome, endereço...)<br>ESTUDANTE(documento, matrícula, curso)<br>FUNCIONÁRIO(documento, registro, admissão, setor)</div><div class="callout callout-amber">O círculo com “d” representaria exclusividade disjunta. Aqui a especialização é <strong>sobreposta</strong>, então uma mesma pessoa pode estar nos dois ramos.</div>`
     },
     {
-      category: "Regra 1 • Entidades",
-      title: "Uma entidade forte vira uma tabela",
-      subtitle: "O identificador do DER passa a ser a chave primária da tabela.",
-      content: `
-        <div class="grid-2"><div class="card"><div class="card-title">No modelo conceitual</div><div class="code-box">COLABORADOR<br>id_colaborador • nome</div><p class="card-desc" style="margin-top:10px">O identificador distingue cada colaborador.</p></div><div class="card card-green"><div class="card-title">No esquema lógico</div><div class="code-box">COLABORADOR(<u>id_colaborador</u>, nome)</div><p class="card-desc" style="margin-top:10px">A coluna sublinhada é a PK. Cada linha representa um colaborador.</p></div></div>
-        <div class="callout callout-blue">A chave escolhida precisa ser única, estável e obrigatória para cada ocorrência.</div>`
+      category: "Autorrelacionamento",
+      title: "Orientação liga dois papéis de Pessoa",
+      subtitle: "A relação é entre funcionário e estudante, mesmo quando ambos os papéis pertencem à mesma pessoa.",
+      content: `<div class="diagram-container"><svg class="diagram-svg" viewBox="0 0 900 300" role="img" aria-label="Funcionário orientador orienta zero ou muitos estudantes orientados; cada estudante tem zero ou um orientador"><defs><marker id="oriArrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#475569"/></marker></defs><rect x="55" y="90" width="250" height="110" rx="12" fill="#f0fdf4" stroke="#15803d" stroke-width="3"/><text x="180" y="130" text-anchor="middle" font-size="23" font-weight="700" fill="#1e293b">FUNCIONÁRIO</text><text x="180" y="162" text-anchor="middle" font-size="15" fill="#475569">papel: orientador</text><rect x="595" y="90" width="250" height="110" rx="12" fill="#eff6ff" stroke="#0284c7" stroke-width="3"/><text x="720" y="130" text-anchor="middle" font-size="23" font-weight="700" fill="#1e293b">ESTUDANTE</text><text x="720" y="162" text-anchor="middle" font-size="15" fill="#475569">papel: orientado</text><path d="M305 145H595" stroke="#475569" stroke-width="3" marker-end="url(#oriArrow)"/><text x="450" y="126" text-anchor="middle" font-size="18" font-weight="700" fill="#334155">ORIENTA</text><text x="337" y="180" text-anchor="middle" font-size="16" font-weight="700" fill="#15803d">0..N</text><text x="555" y="180" text-anchor="middle" font-size="16" font-weight="700" fill="#0284c7">0..1</text><text x="450" y="250" text-anchor="middle" font-size="15" fill="#475569">Cada estudante tem no máximo um orientador; o enunciado não exige que tenha um.</text></svg></div><div class="callout callout-blue">Os nomes dos papéis evitam a leitura ambígua “Pessoa relaciona-se com Pessoa”. Na implementação, a FK opcional fica no lado ESTUDANTE e aponta para FUNCIONÁRIO.</div>`
     },
     {
-      category: "Regra 2 • Relacionamento 1:N",
-      title: "A chave do lado 1 vai para o lado N",
-      subtitle: "A tabela do lado N guarda uma FK para a tabela do lado 1.",
-      content: `
-        <div class="diagram-container"><svg class="diagram-svg" viewBox="0 0 900 245" role="img" aria-label="Um projeto possui muitas tarefas e cada tarefa pertence a um projeto"><rect x="80" y="65" width="260" height="100" rx="10" fill="#fff1f2" stroke="#b20000" stroke-width="3"/><text x="210" y="107" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">PROJETO</text><text x="210" y="137" text-anchor="middle" font-size="16" fill="#475569">id_projeto (PK)</text><line x1="340" y1="115" x2="560" y2="115" stroke="#475569" stroke-width="3"/><text x="425" y="98" text-anchor="middle" font-size="16" font-weight="700" fill="#b20000">1</text><text x="490" y="98" text-anchor="middle" font-size="16" font-weight="700" fill="#0284c7">N</text><rect x="560" y="65" width="270" height="100" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="3"/><text x="695" y="107" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">TAREFA</text><text x="695" y="137" text-anchor="middle" font-size="16" fill="#475569">id_projeto (FK)</text><text x="450" y="215" text-anchor="middle" font-size="16" fill="#475569">A FK fica em TAREFA, no lado N.</text></svg></div>
-        <div class="code-box">PROJETO(id_projeto PK, nome)<br>TAREFA(id_tarefa PK, descricao, id_projeto FK)</div>`
+      category: "Atributo composto",
+      title: "Endereço é um conjunto de componentes consultáveis",
+      subtitle: "O modelo relacional não guarda um atributo composto como uma única estrutura aninhada neste exercício.",
+      content: `<div class="diagram-container"><svg class="diagram-svg" viewBox="0 0 900 250" role="img" aria-label="Atributo composto endereço de Pessoa se decompõe em logradouro, número, complemento, bairro, cidade, estado e CEP"><rect x="45" y="85" width="190" height="80" rx="10" fill="#fff1f2" stroke="#b20000" stroke-width="3"/><text x="140" y="132" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">PESSOA</text><ellipse cx="365" cy="125" rx="100" ry="48" fill="#fef3c7" stroke="#d97706" stroke-width="3"/><text x="365" y="132" text-anchor="middle" font-size="20" font-weight="700" fill="#92400e">endereço</text><path d="M235 125H265M465 125H515" stroke="#475569" stroke-width="2.5"/><path d="M515 38V212M515 38H555M515 67H555M515 96H555M515 125H555M515 154H555M515 183H555M515 212H555" stroke="#475569" stroke-width="2"/><g fill="#eff6ff" stroke="#0284c7" stroke-width="2"><ellipse cx="710" cy="38" rx="120" ry="21"/><ellipse cx="710" cy="67" rx="120" ry="21"/><ellipse cx="710" cy="96" rx="120" ry="21"/><ellipse cx="710" cy="125" rx="120" ry="21"/><ellipse cx="710" cy="154" rx="120" ry="21"/><ellipse cx="710" cy="183" rx="120" ry="21"/><ellipse cx="710" cy="212" rx="120" ry="21"/></g><g font-size="14" text-anchor="middle" fill="#1e293b"><text x="710" y="43">logradouro</text><text x="710" y="72">número</text><text x="710" y="101">complemento</text><text x="710" y="130">bairro</text><text x="710" y="159">cidade</text><text x="710" y="188">estado</text><text x="710" y="217">CEP</text></g></svg></div><div class="code-box">PESSOA(..., logradouro, numero, complemento, bairro,<br>             cidade, estado, cep)</div><div class="callout callout-amber">O enunciado não declara endereço como multivalorado. Assumimos um endereço cadastral por pessoa. Se houver vários endereços, modele ENDEREÇO como outra relação.</div>`
     },
     {
-      category: "1:N • Obrigatoriedade",
-      title: "NOT NULL representa uma referência obrigatória",
-      subtitle: "Use a regra do domínio para decidir se a FK pode ficar vazia.",
-      content: `
-        <div class="grid-2"><div class="card card-green"><div class="card-title">Todo pedido pertence a um cliente</div><div class="code-box">PEDIDO(id_pedido PK,<br>  id_cliente FK NOT NULL)</div><p class="card-desc" style="margin-top:10px">Cada pedido precisa apontar para um cliente existente.</p></div><div class="card card-amber"><div class="card-title">Pedido pode não ter cliente</div><div class="code-box">PEDIDO(id_pedido PK,<br>  id_cliente FK NULL)</div><p class="card-desc" style="margin-top:10px">A referência é opcional, se o negócio permitir esse estado.</p></div></div>
-        <div class="callout callout-blue"><strong>Limite:</strong> NOT NULL na FK da tabela N obriga cada linha N a apontar para o lado 1. Isso não garante que cada linha do lado 1 tenha ao menos um filho.</div>`
+      category: "Relacionamentos acadêmicos",
+      title: "CURSA e MINISTRA são relações N:N",
+      subtitle: "A relação CURSA tem atributos próprios, pois semestre, ano e nota dependem do par estudante–disciplina.",
+      content: `<div class="grid-2"><div class="card card-blue"><div class="card-title">Estudante — CURSA — Disciplina</div><p class="card-desc">Um estudante pode cursar muitas disciplinas; uma disciplina pode ter muitos estudantes. Semestre, ano e nota final descrevem cada ocorrência do vínculo.</p><div class="code-box" style="margin-top:12px">CURSA(documento, codigo_disciplina,<br>      semestre, ano, nota_final)</div></div><div class="card card-green"><div class="card-title">Funcionário — MINISTRA — Disciplina</div><p class="card-desc">Funcionários podem ministrar várias disciplinas e uma disciplina pode ter vários funcionários. Não há atributos de relacionamento informados.</p><div class="code-box" style="margin-top:12px">MINISTRA(documento_funcionario,<br>         codigo_disciplina)</div></div></div><div class="callout callout-blue">Cada N:N vira uma relação própria. CURSA recebe os atributos do vínculo; MINISTRA recebe pelo menos as duas FKs.</div>`
     },
     {
-      category: "Regra 3 • Relacionamento 1:1",
-      title: "A FK e UNIQUE preservam a cardinalidade 1:1",
-      subtitle: "Escolha a tabela que recebe a FK de acordo com obrigatoriedade e ciclo de vida.",
-      content: `
-        <div class="grid-2"><div class="card"><div class="card-title">Exemplo: funcionário e crachá</div><div class="code-box">FUNCIONARIO(id_funcionario PK, nome)<br>CRACHA(id_cracha PK,<br>  id_funcionario FK UNIQUE NOT NULL)</div></div><div class="card card-blue"><div class="card-title">O que cada regra garante</div><ul style="color:var(--cps-gray-medium);line-height:1.7;padding-left:20px"><li>FK: funcionário referenciado existe.</li><li>UNIQUE: o mesmo funcionário não aparece em vários crachás.</li><li>NOT NULL: todo crachá deve estar atribuído.</li></ul></div></div>
-        <div class="callout callout-amber">A participação mínima do funcionário no relacionamento pode exigir uma regra adicional: a FK em CRACHA não garante que todo funcionário tenha crachá.</div>`
+      category: "Conversão para o modelo relacional",
+      title: "Do DER para relações, PKs e FKs",
+      subtitle: "Uma estratégia é usar o documento como chave compartilhada do supertipo e das subentidades.",
+      content: `<div class="diagram-container"><svg class="diagram-svg" viewBox="0 0 1050 400" role="img" aria-label="Diagrama relacional da universidade mostrando tabelas e relações por chaves estrangeiras"><defs><marker id="relArrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#64748b"/></marker></defs>
+      <g font-family="Arial" font-size="14" fill="#1e293b"><rect x="20" y="20" width="265" height="140" rx="8" fill="#fff1f2" stroke="#b20000" stroke-width="2"/><text x="152" y="45" text-anchor="middle" font-size="18" font-weight="700">PESSOA</text><text x="35" y="72">PK documento</text><text x="35" y="94">nome, logradouro, número</text><text x="35" y="116">complemento, bairro, cidade</text><text x="35" y="138">estado, CEP</text>
+      <rect x="385" y="20" width="260" height="115" rx="8" fill="#eff6ff" stroke="#0284c7" stroke-width="2"/><text x="515" y="45" text-anchor="middle" font-size="18" font-weight="700">ESTUDANTE</text><text x="400" y="72">PK/FK documento → PESSOA</text><text x="400" y="94">UQ matrícula • curso</text><text x="400" y="116">FK orientador → FUNCIONÁRIO</text>
+      <rect x="745" y="20" width="280" height="115" rx="8" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/><text x="885" y="45" text-anchor="middle" font-size="18" font-weight="700">FUNCIONÁRIO</text><text x="760" y="72">PK/FK documento → PESSOA</text><text x="760" y="94">UQ registro • admissão</text><text x="760" y="116">setor</text>
+      <rect x="20" y="235" width="260" height="115" rx="8" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/><text x="150" y="260" text-anchor="middle" font-size="18" font-weight="700">DISCIPLINA</text><text x="35" y="288">PK código</text><text x="35" y="310">nome • carga_horaria</text>
+      <rect x="385" y="220" width="280" height="145" rx="8" fill="#eff6ff" stroke="#0284c7" stroke-width="2"/><text x="525" y="245" text-anchor="middle" font-size="18" font-weight="700">CURSA</text><text x="400" y="273">PK/FK documento → ESTUDANTE</text><text x="400" y="295">PK/FK código → DISCIPLINA</text><text x="400" y="317">PK semestre, ano • nota_final</text><text x="400" y="339" font-size="12">UQ (documento,código,semestre,ano)</text>
+      <rect x="745" y="235" width="280" height="115" rx="8" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/><text x="885" y="260" text-anchor="middle" font-size="18" font-weight="700">MINISTRA</text><text x="760" y="288">PK/FK documento → FUNCIONÁRIO</text><text x="760" y="310">PK/FK código → DISCIPLINA</text>
+      <path d="M285 80H385M645 80H745M200 160V200H445V220M150 160V235M280 285H385M665 285H745" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#relArrow)"/>
+      </g></svg></div><div class="callout callout-amber">A FK de orientação autorreferente foi resumida no quadro ESTUDANTE. A próxima imagem detalha especificamente essa referência e suas regras.</div>`
     },
     {
-      category: "Regra 4 • Relacionamento N:N",
-      title: "Uma associação N:N precisa de uma tabela própria",
-      subtitle: "A tabela associativa liga as entidades e recebe os dados específicos do vínculo.",
-      content: `
-        <div class="grid-3"><div class="card card-red"><div class="card-title">PEDIDO</div><p class="card-desc">Uma compra identificada por número e data.</p></div><div class="card card-blue"><div class="card-title">ITEM_PEDIDO</div><p class="card-desc">Guarda quais produtos aparecem em cada pedido, quantidade e preço praticado.</p></div><div class="card card-green"><div class="card-title">PRODUTO</div><p class="card-desc">Um mesmo produto pode aparecer em muitos pedidos.</p></div></div>
-        <div class="code-box" style="margin-top:14px">ITEM_PEDIDO(id_pedido FK, id_produto FK, quantidade, preco_praticado)</div>
-        <div class="callout callout-blue">Sem a tabela associativa, não há um lugar correto para guardar uma quantidade e um preço diferentes em cada ocorrência do produto no pedido.</div>`
+      category: "Mapeamento da especialização",
+      title: "Chave compartilhada mantém a identidade da Pessoa",
+      subtitle: "As tabelas das subentidades usam a mesma PK da tabela PESSOA, que também funciona como FK.",
+      content: `<div class="diagram-container"><svg class="diagram-svg" viewBox="0 0 900 280" role="img" aria-label="PESSOA se relaciona com ESTUDANTE e FUNCIONARIO usando documento como chave primária e estrangeira"><defs><marker id="specArrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#64748b"/></marker></defs><rect x="325" y="20" width="250" height="90" rx="10" fill="#fff1f2" stroke="#b20000" stroke-width="3"/><text x="450" y="52" text-anchor="middle" font-size="22" font-weight="700" fill="#1e293b">PESSOA</text><text x="450" y="81" text-anchor="middle" font-size="15" fill="#334155">PK documento • nome • endereço</text><rect x="65" y="170" width="300" height="85" rx="10" fill="#eff6ff" stroke="#0284c7" stroke-width="3"/><text x="215" y="202" text-anchor="middle" font-size="21" font-weight="700" fill="#1e293b">ESTUDANTE</text><text x="215" y="230" text-anchor="middle" font-size="14" fill="#334155">PK/FK documento • matrícula • curso</text><rect x="535" y="170" width="300" height="85" rx="10" fill="#f0fdf4" stroke="#15803d" stroke-width="3"/><text x="685" y="202" text-anchor="middle" font-size="21" font-weight="700" fill="#1e293b">FUNCIONÁRIO</text><text x="685" y="230" text-anchor="middle" font-size="14" fill="#334155">PK/FK documento • registro • admissão • setor</text><path d="M390 110L260 170M510 110L640 170" stroke="#64748b" stroke-width="3" marker-end="url(#specArrow)"/><text x="450" y="145" text-anchor="middle" font-size="14" fill="#475569">mesma chave = ocorrência da superentidade</text></svg></div><div class="grid-2"><div class="card card-blue"><div class="card-title">Vantagem</div><p class="card-desc">Uma pessoa presente nos dois papéis tem uma única linha em PESSOA e uma linha em cada subentidade.</p></div><div class="card card-amber"><div class="card-title">Limite importante</div><p class="card-desc">PK/FK garante que subentidades tenham Pessoa, mas sozinha não garante que toda Pessoa esteja em pelo menos uma subentidade.</p></div></div>`
     },
     {
-      category: "PK na tabela associativa",
-      title: "Chave composta ou identificador próprio?",
-      subtitle: "A PK deve representar a regra de unicidade e o histórico permitido pelo domínio.",
-      content: `
-        <div class="grid-2"><div class="card card-blue"><div class="card-title">Chave composta</div><div class="code-box">MATRICULA(<u>id_aluno</u> FK,<br>  <u>id_disciplina</u> FK,<br>  <u>semestre</u>, nota_final)</div><p class="card-desc" style="margin-top:10px">Uma matrícula por aluno, disciplina e semestre.</p></div><div class="card card-green"><div class="card-title">Identificador próprio</div><div class="code-box">PARTICIPACAO(<u>id_participacao</u> PK,<br>  id_colaborador FK,<br>  id_projeto FK, data_inicio)</div><p class="card-desc" style="margin-top:10px">Permite múltiplos vínculos e retornos ao mesmo projeto.</p></div></div>
-        <div class="callout"><strong>Não escolha a PK só por conveniência:</strong> escreva a regra de unicidade que ela precisa garantir.</div>`
+      category: "Orientação no relacional",
+      title: "FK opcional no estudante representa até um orientador",
+      subtitle: "Como cada estudante tem no máximo um orientador, basta uma coluna FK em ESTUDANTE.",
+      content: `<div class="diagram-container"><svg class="diagram-svg" viewBox="0 0 900 240" role="img" aria-label="A coluna documento_orientador em ESTUDANTE referencia FUNCIONARIO.documento"><defs><marker id="fkArrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#64748b"/></marker></defs><rect x="65" y="55" width="330" height="135" rx="10" fill="#eff6ff" stroke="#0284c7" stroke-width="3"/><text x="230" y="88" text-anchor="middle" font-size="21" font-weight="700" fill="#1e293b">ESTUDANTE</text><text x="88" y="122" font-size="15" fill="#334155">PK/FK documento → PESSOA</text><text x="88" y="150" font-size="15" fill="#334155">UQ matrícula • curso</text><text x="88" y="176" font-size="15" fill="#334155">FK documento_orientador (NULL)</text><rect x="550" y="55" width="285" height="135" rx="10" fill="#f0fdf4" stroke="#15803d" stroke-width="3"/><text x="692" y="88" text-anchor="middle" font-size="21" font-weight="700" fill="#1e293b">FUNCIONÁRIO</text><text x="572" y="124" font-size="15" fill="#334155">PK/FK documento → PESSOA</text><text x="572" y="153" font-size="15" fill="#334155">UQ registro</text><path d="M395 164C465 222 510 222 550 155" fill="none" stroke="#64748b" stroke-width="3" marker-end="url(#fkArrow)"/><text x="472" y="215" text-anchor="middle" font-size="14" fill="#475569">documento_orientador → FUNCIONÁRIO.documento</text></svg></div><div class="callout callout-blue"><code>NULL</code> significa que ainda não há orientador. A FK impede indicar uma pessoa que não esteja cadastrada como funcionário. A FK não limita quantos estudantes um funcionário orienta.</div>`
     },
     {
-      category: "Atributos multivalorados",
-      title: "Uma lista de valores vira outra relação",
-      subtitle: "O modelo relacional guarda um valor por célula; cada telefone pode ocupar uma linha própria.",
-      content: `
-        <div class="grid-2"><div class="card card-amber"><div class="card-title">No DER</div><div class="code-box">CLIENTE — telefones<br>telefone é multivalorado</div><p class="card-desc" style="margin-top:10px">Um cliente pode informar celular, telefone comercial e recado.</p></div><div class="card card-green"><div class="card-title">No modelo lógico</div><div class="code-box">CLIENTE(id_cliente PK, nome)<br>TELEFONE_CLIENTE(<br>  id_cliente PK/FK,<br>  telefone PK)</div><p class="card-desc" style="margin-top:10px">Cada linha registra um telefone de um cliente.</p></div></div>
-        <div class="callout callout-blue">A PK composta permite números diferentes para o mesmo cliente e impede repetir o mesmo número na mesma pessoa.</div>`
+      category: "Chave da relação CURSA",
+      title: "O período faz parte da identidade da matrícula",
+      subtitle: "Adotaremos como hipótese uma ocorrência por estudante, disciplina, semestre e ano.",
+      content: `<div class="grid-2"><div class="card card-blue"><div class="card-title">Relação lógica</div><div class="code-box">CURSA(<u>documento</u> PK/FK,<br>       <u>codigo_disciplina</u> PK/FK,<br>       <u>semestre</u> PK,<br>       <u>ano</u> PK,<br>       nota_final)</div></div><div class="card card-green"><div class="card-title">Por que nota_final fica aqui?</div><p class="card-desc">A nota é do estudante naquela disciplina naquele período; não é propriedade permanente da Pessoa nem da Disciplina.</p><p class="card-desc" style="margin-top:10px">Se houver mais de uma tentativa no mesmo período, a chave precisa incluir um número de tentativa ou um identificador de matrícula.</p></div></div><div class="callout callout-amber">O enunciado não define valores e escala da nota. Neste exemplo físico usaremos nota de 0 a 10 e uma regra <code>CHECK</code> como decisão didática explícita.</div>`
     },
     {
-      category: "Atributos compostos e derivados",
-      title: "Separe componentes e recalcule o que deriva de outros dados",
-      subtitle: "O mapeamento transforma a estrutura do DER de acordo com a forma de uso dos atributos.",
-      content: `
-        <div class="grid-2"><div class="card"><div class="card-title">Composto: endereço</div><div class="code-box">ENDERECO → rua, numero,<br>complemento, cidade, CEP</div><p class="card-desc" style="margin-top:10px">Crie uma coluna para cada componente que precise ser consultado ou validado separadamente.</p></div><div class="card card-blue"><div class="card-title">Derivado: total do pedido</div><div class="code-box">total = soma(quantidade ×<br>preco_praticado)</div><p class="card-desc" style="margin-top:10px">Em geral, calcule em consulta para evitar divergências com os itens.</p></div></div>
-        <div class="callout callout-amber">Guardar um valor calculado pode ser uma decisão de desempenho ou histórico, mas exige regra para mantê-lo consistente.</div>`
+      category: "Modelo físico • Oracle 11g",
+      title: "Escolher tipos significa pensar nos dados reais",
+      subtitle: "O modelo físico completa o relacional com tipos, tamanhos, nulidade e regras específicas do SGBD.",
+      content: `<div class="table-container"><table class="modern-table"><thead><tr><th>Coluna do exercício</th><th>Tipo Oracle sugerido</th><th>Justificativa</th></tr></thead><tbody><tr><td>documento, matrícula, registro</td><td><code>VARCHAR2</code></td><td>Identificadores podem ter zeros à esquerda e não são quantidades para cálculo.</td></tr><tr><td>nome, curso, setor, endereço</td><td><code>VARCHAR2</code></td><td>Texto com limite documentado para o exercício.</td></tr><tr><td>carga horária, número</td><td><code>NUMBER</code></td><td>Valores numéricos; precisão definida conforme a regra adotada.</td></tr><tr><td>data de admissão</td><td><code>DATE</code></td><td>Armazena data e hora; formato exibido depende da sessão.</td></tr><tr><td>semestre, ano</td><td><code>NUMBER</code></td><td>Podem receber validação com <code>CHECK</code>.</td></tr><tr><td>nota final</td><td><code>NUMBER(4,2)</code></td><td>Precisão e escala da decisão didática; aplicar limite 0–10.</td></tr></tbody></table></div><div class="callout callout-blue">No Oracle 11g, use <code>VARCHAR2</code>. Identificadores textuais não devem ser guardados como número se zeros à esquerda fizerem parte do código.</div>`
     },
     {
-      category: "Exemplo lógico • Matrícula",
-      title: "A matrícula vira uma relação com três partes da PK",
-      subtitle: "O semestre entra na chave porque o vínculo pode se repetir em períodos diferentes.",
-      content: `
-        <div class="code-box" style="font-size:.92rem;line-height:1.8">ALUNO(id_aluno PK, nome)<br>DISCIPLINA(id_disciplina PK, nome)<br>MATRICULA(id_aluno PK/FK, id_disciplina PK/FK,<br>          semestre PK, data_matricula, nota_final, frequencia)</div>
-        <div class="grid-3" style="margin-top:14px"><div class="card card-red"><div class="card-title">PK de ALUNO</div><p class="card-desc">Identifica o aluno.</p></div><div class="card card-blue"><div class="card-title">FKs de MATRÍCULA</div><p class="card-desc">Apontam para ALUNO e DISCIPLINA.</p></div><div class="card card-green"><div class="card-title">PK composta</div><p class="card-desc">Aluno + disciplina + semestre identifica o vínculo.</p></div></div>`
+      category: "Imagem do modelo físico",
+      title: "O esquema Oracle traduz as relações em tabelas",
+      subtitle: "O mapa abaixo mostra PKs, FKs e o caminho das referências no banco.",
+      content: `<div class="diagram-container"><svg class="diagram-svg" viewBox="0 0 1100 570" role="img" aria-label="Diagrama físico Oracle do esquema universitário com tabelas Pessoa, Estudante, Funcionário, Disciplina, Cursa e Ministra e ligações de chave"><defs><marker id="physArrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#64748b"/></marker></defs><g font-family="Arial" font-size="13" fill="#1e293b">
+      <rect x="22" y="20" width="310" height="195" rx="8" fill="#fff1f2" stroke="#b20000" stroke-width="2"/><text x="177" y="47" text-anchor="middle" font-size="19" font-weight="700">PESSOA</text><text x="40" y="76">PK documento VARCHAR2(20)</text><text x="40" y="100">nome VARCHAR2(100) NOT NULL</text><text x="40" y="124">logradouro, numero, complemento</text><text x="40" y="148">bairro, cidade, estado, cep</text><text x="40" y="178" fill="#64748b">atributos comuns e endereço decomposto</text>
+      <rect x="395" y="20" width="320" height="155" rx="8" fill="#eff6ff" stroke="#0284c7" stroke-width="2"/><text x="555" y="47" text-anchor="middle" font-size="19" font-weight="700">ESTUDANTE</text><text x="413" y="77">PK/FK documento → PESSOA</text><text x="413" y="101">UQ matrícula • curso</text><text x="413" y="125">FK documento_orientador</text><text x="413" y="149">→ FUNCIONÁRIO (opcional)</text>
+      <rect x="785" y="20" width="290" height="155" rx="8" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/><text x="930" y="47" text-anchor="middle" font-size="19" font-weight="700">FUNCIONÁRIO</text><text x="803" y="77">PK/FK documento → PESSOA</text><text x="803" y="101">UQ registro</text><text x="803" y="125">data_admissao DATE NOT NULL</text><text x="803" y="149">setor VARCHAR2(...) NOT NULL</text>
+      <rect x="22" y="300" width="290" height="125" rx="8" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/><text x="167" y="328" text-anchor="middle" font-size="19" font-weight="700">DISCIPLINA</text><text x="40" y="358">PK codigo VARCHAR2(15)</text><text x="40" y="382">nome VARCHAR2(100)</text><text x="40" y="406">carga_horaria NUMBER(4)</text>
+      <rect x="395" y="270" width="320" height="185" rx="8" fill="#eff6ff" stroke="#0284c7" stroke-width="2"/><text x="555" y="298" text-anchor="middle" font-size="19" font-weight="700">CURSA</text><text x="413" y="328">PK/FK documento → ESTUDANTE</text><text x="413" y="352">PK/FK codigo → DISCIPLINA</text><text x="413" y="376">PK semestre • PK ano</text><text x="413" y="400">nota_final NUMBER(4,2)</text><text x="413" y="430">CHECK semestre em (1,2)</text>
+      <rect x="785" y="300" width="290" height="130" rx="8" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/><text x="930" y="328" text-anchor="middle" font-size="19" font-weight="700">MINISTRA</text><text x="803" y="358">PK/FK documento → FUNCIONÁRIO</text><text x="803" y="382">PK/FK codigo → DISCIPLINA</text><text x="803" y="406">uma linha por par</text>
+      <path d="M332 85H395M715 85H785M555 175V220H295V270M167 215V300M312 360H395M715 360H785M930 175V225H675V270" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#physArrow)"/>
+      <text x="550" y="520" text-anchor="middle" font-size="15" fill="#475569">PK/FK nas subentidades preserva identidade; FKs em CURSA e MINISTRA implementam os N:N.</text></g></svg></div><div class="callout callout-amber">A exigência “toda pessoa está em pelo menos uma subentidade” atravessa tabelas; PK e FK simples não a impõem. O slide de integridade discute essa limitação.</div>`
     },
     {
-      category: "Exemplo lógico • Equipe e projetos",
-      title: "A participação preserva atributos e histórico",
-      subtitle: "Este caso será retomado como atividade prática no laboratório.",
-      content: `
-        <div class="code-box" style="font-size:.92rem;line-height:1.8">COLABORADOR(id_colaborador PK, nome)<br>PROJETO(id_projeto PK, nome)<br>PARTICIPACAO(id_participacao PK,<br>             id_colaborador FK, id_projeto FK,<br>             papel, horas_semanais, data_inicio)</div>
-        <div class="callout callout-blue">A PK própria permite que o mesmo colaborador retorne ao mesmo projeto. As FKs identificam as pontas do vínculo; papel, horas e início descrevem essa participação.</div>`
+      category: "DDL • Criar estrutura",
+      title: "CREATE TABLE implementa primeiro as tabelas-pai",
+      subtitle: "A ordem permite que as FKs encontrem as tabelas referenciadas.",
+      content: `<div class="code-box" style="font-size:.78rem;line-height:1.55;white-space:pre-wrap">CREATE TABLE pessoa (\n  documento    VARCHAR2(20) CONSTRAINT pk_pessoa PRIMARY KEY,\n  nome         VARCHAR2(100) NOT NULL,\n  logradouro   VARCHAR2(120), numero VARCHAR2(10),\n  complemento  VARCHAR2(60), bairro VARCHAR2(60),\n  cidade       VARCHAR2(60), estado CHAR(2), cep VARCHAR2(9)\n);\n\nCREATE TABLE disciplina (\n  codigo        VARCHAR2(15) CONSTRAINT pk_disciplina PRIMARY KEY,\n  nome          VARCHAR2(100) NOT NULL,\n  carga_horaria NUMBER(4) NOT NULL\n    CONSTRAINT ck_disc_carga CHECK (carga_horaria &gt; 0)\n);\n\nCREATE TABLE funcionario (\n  documento VARCHAR2(20) CONSTRAINT pk_funcionario PRIMARY KEY,\n  registro  VARCHAR2(20) NOT NULL CONSTRAINT uq_func_reg UNIQUE,\n  data_admissao DATE NOT NULL, setor VARCHAR2(60) NOT NULL,\n  CONSTRAINT fk_func_pessoa FOREIGN KEY (documento)\n    REFERENCES pessoa(documento)\n);</div><div class="callout callout-blue">O banco XE já existe. A conta BD001 cria tabelas no próprio esquema; não executa <code>CREATE DATABASE</code>.</div>`
     },
     {
-      category: "Validação do modelo lógico",
-      title: "Confira o esquema antes de abrir o Oracle",
-      subtitle: "Uma tabela associativa mal desenhada leva o problema para o modelo físico.",
-      content: `
-        <div class="grid-2"><div class="card card-green"><div class="card-title">Revisão de chaves</div><ul style="color:var(--cps-gray-medium);line-height:1.65;padding-left:20px"><li>Toda entidade tem PK?</li><li>As FKs apontam para as PKs certas?</li><li>A PK representa a regra de unicidade?</li></ul></div><div class="card card-blue"><div class="card-title">Revisão de atributos</div><ul style="color:var(--cps-gray-medium);line-height:1.65;padding-left:20px"><li>Dados do vínculo estão na associativa?</li><li>Listas viraram tabelas próprias?</li><li>Tipos e nulabilidade são coerentes?</li></ul></div></div>
-        <div class="callout callout-amber">Se o mesmo fato aparece em lugares diferentes, reveja o modelo antes de criar tabelas.</div>`
+      category: "DDL • Subtipos e vínculos",
+      title: "As tabelas-filhas carregam FKs e regras de unicidade",
+      subtitle: "Aqui traduzimos a especialização, orientação e os dois relacionamentos N:N.",
+      content: `<div class="code-box" style="font-size:.75rem;line-height:1.5;white-space:pre-wrap">CREATE TABLE estudante (\n  documento VARCHAR2(20) CONSTRAINT pk_estudante PRIMARY KEY,\n  matricula VARCHAR2(20) NOT NULL CONSTRAINT uq_est_matricula UNIQUE,\n  curso VARCHAR2(80) NOT NULL, documento_orientador VARCHAR2(20),\n  CONSTRAINT fk_est_pessoa FOREIGN KEY (documento)\n    REFERENCES pessoa(documento),\n  CONSTRAINT fk_est_orientador FOREIGN KEY (documento_orientador)\n    REFERENCES funcionario(documento)\n);\nCREATE TABLE cursa (\n  documento VARCHAR2(20) NOT NULL, codigo VARCHAR2(15) NOT NULL,\n  semestre NUMBER(1) NOT NULL, ano NUMBER(4) NOT NULL,\n  nota_final NUMBER(4,2),\n  CONSTRAINT pk_cursa PRIMARY KEY (documento,codigo,semestre,ano),\n  CONSTRAINT fk_cursa_est FOREIGN KEY (documento) REFERENCES estudante(documento),\n  CONSTRAINT fk_cursa_disc FOREIGN KEY (codigo) REFERENCES disciplina(codigo),\n  CONSTRAINT ck_cursa_sem CHECK (semestre IN (1,2)),\n  CONSTRAINT ck_cursa_nota CHECK (nota_final BETWEEN 0 AND 10)\n);\nCREATE TABLE ministra (\n  documento VARCHAR2(20), codigo VARCHAR2(15),\n  CONSTRAINT pk_ministra PRIMARY KEY (documento,codigo),\n  CONSTRAINT fk_min_func FOREIGN KEY (documento) REFERENCES funcionario(documento),\n  CONSTRAINT fk_min_disc FOREIGN KEY (codigo) REFERENCES disciplina(codigo)\n);</div><div class="callout callout-amber">PK compartilhada implementa “subtipo é uma Pessoa”. A unicidade da matrícula e do registro foi adotada como hipótese para este exercício.</div>`
     },
     {
-      category: "Transição para o físico",
-      title: "O Oracle acrescenta tipos e restrições concretos",
-      subtitle: "O modelo lógico não depende do fornecedor; o modelo físico usa a sintaxe específica do SGBD.",
-      content: `
-        <div class="grid-3"><div class="card"><div class="card-title">Modelo lógico</div><p class="card-desc">nome, data_inicio, chave estrangeira</p></div><div class="card card-blue"><div class="card-title">Modelo físico</div><p class="card-desc">VARCHAR2(100), DATE, NUMBER(10), FOREIGN KEY</p></div><div class="card card-green"><div class="card-title">Implementação</div><p class="card-desc">Comandos DDL executados no schema BD001 do Oracle XE.</p></div></div>
-        <div class="callout callout-blue">O tipo precisa comportar os valores previstos e as constraints precisam traduzir as regras do esquema lógico.</div>`
+      category: "Limites das constraints",
+      title: "Nem toda regra do DER cabe em uma FK ou CHECK",
+      subtitle: "É importante distinguir integridade declarativa simples de regras entre várias tabelas.",
+      content: `<div class="grid-2"><div class="card card-green"><div class="card-title">As constraints deste exemplo asseguram</div><p class="card-desc">PKs sem duplicidade; FKs sem referências órfãs; unicidade de matrícula e registro; campos obrigatórios; semestre e nota dentro dos limites definidos.</p></div><div class="card card-amber"><div class="card-title">Especialização total exige atenção</div><p class="card-desc">Uma FK de ESTUDANTE ou FUNCIONÁRIO para PESSOA não obriga cada linha PESSOA a aparecer em uma delas. Oracle não oferece CHECK que consulte outras tabelas.</p></div></div><div class="callout callout-blue">Em produção, totalidade pode ser garantida por uma rotina transacional controlada, gatilhos cuidadosamente projetados ou outra estratégia de esquema. Para a aula, documente a regra e valide com uma consulta de auditoria.</div><div class="code-box">SELECT p.documento FROM pessoa p<br>WHERE NOT EXISTS (SELECT 1 FROM estudante e WHERE e.documento=p.documento)<br>  AND NOT EXISTS (SELECT 1 FROM funcionario f WHERE f.documento=p.documento);</div>`
     },
     {
-      category: "Banco, usuário e esquema",
-      title: "Nesta aula, o banco XE já está criado",
-      subtitle: "Conectamos ao banco existente e criamos os objetos da turma no esquema BD001.",
-      content: `
-        <div class="diagram-container"><svg class="diagram-svg" viewBox="0 0 900 270" role="img" aria-label="Banco Oracle XE contém o esquema BD001, onde o aluno cria tabelas"><rect x="90" y="35" width="720" height="195" rx="14" fill="#f8fafc" stroke="#64748b" stroke-width="3"/><text x="450" y="75" text-anchor="middle" font-size="23" font-weight="700" fill="#1e293b">BANCO ORACLE XE</text><rect x="230" y="100" width="440" height="95" rx="10" fill="#fff1f2" stroke="#b20000" stroke-width="3"/><text x="450" y="140" text-anchor="middle" font-size="21" font-weight="700" fill="#1e293b">ESQUEMA DO USUÁRIO BD001</text><text x="450" y="172" text-anchor="middle" font-size="16" fill="#475569">COLABORADORES • PROJETOS • PARTICIPACAO</text></svg></div>
-        <div class="callout callout-blue">Os alunos criam tabelas e dados no próprio esquema. O banco XE é inicializado pelo ambiente Docker; não criamos um segundo banco durante o exercício.</div>`
+      category: "Alteração de estrutura",
+      title: "ALTER TABLE evolui o esquema",
+      subtitle: "Uma alteração estrutural deve ser pensada junto com os dados já existentes.",
+      content: `<div class="code-box">ALTER TABLE pessoa ADD email VARCHAR2(120);<br><br>ALTER TABLE pessoa ADD CONSTRAINT uq_pessoa_email UNIQUE (email);<br><br>ALTER TABLE disciplina MODIFY nome VARCHAR2(120) NOT NULL;</div><div class="grid-2" style="margin-top:14px"><div class="card card-blue"><div class="card-title">ADD</div><p class="card-desc">Acrescenta uma coluna ou constraint, conforme a necessidade.</p></div><div class="card card-green"><div class="card-title">MODIFY</div><p class="card-desc">Altera definição de coluna. Pode falhar se os dados existentes não atenderem à nova regra.</p></div></div><div class="callout callout-red">Oracle faz commit implícito em DDL. <code>ROLLBACK</code> não desfaz <code>CREATE TABLE</code> ou <code>ALTER TABLE</code>.</div>`
     },
     {
-      category: "CREATE DATABASE",
-      title: "Criar um banco Oracle é uma tarefa administrativa",
-      subtitle: "Não confunda a criação do banco com a criação de tabelas no esquema do aluno.",
-      content: `
-        <div class="grid-2"><div class="card card-amber"><div class="card-title">Em alguns SGBDs</div><div class="code-box">CREATE DATABASE nome;</div><p class="card-desc" style="margin-top:10px">Um comando semelhante pode criar uma base lógica, com sintaxe e privilégios próprios de cada produto.</p></div><div class="card card-red"><div class="card-title">No Oracle XE da aula</div><p class="card-desc">A criação e configuração do banco exigem privilégios administrativos de SYSDBA, instância e arquivos. O XE já está pronto e recebe conexões pelo SID XE.</p></div></div>
-        <div class="callout callout-blue"><strong>Atividade dos alunos:</strong> conectar como BD001 e executar CREATE TABLE no próprio esquema. Não executar CREATE DATABASE no SQL*Plus da turma.</div>`
+      category: "CRUD • Cadastrar dados",
+      title: "Insira primeiro Pessoa, depois seus papéis",
+      subtitle: "A ordem segue as FKs. O exemplo cadastra Ana como estudante e funcionária — sobreposição em ação.",
+      content: `<div class="code-box" style="font-size:.83rem;line-height:1.6;white-space:pre-wrap">INSERT INTO pessoa (documento,nome,cidade,estado)\nVALUES ('DOC001','Ana Lima','Campinas','SP');\nINSERT INTO funcionario (documento,registro,data_admissao,setor)\nVALUES ('DOC001','RF010',DATE '2024-02-01','Computação');\nINSERT INTO estudante (documento,matricula,curso)\nVALUES ('DOC001','MAT900','Banco de Dados');\nINSERT INTO pessoa (documento,nome,cidade,estado)\nVALUES ('DOC002','Bruno Reis','Campinas','SP');\nINSERT INTO estudante (documento,matricula,curso)\nVALUES ('DOC002','MAT901','Banco de Dados');\nUPDATE estudante SET documento_orientador='DOC001'\nWHERE documento='DOC002';</div><div class="callout callout-blue">DOC001 é uma única Pessoa com linhas nas duas subentidades. DOC002 aponta para DOC001 como orientador; a FK valida que DOC001 é funcionário.</div>`
     },
     {
-      category: "Tipos Oracle",
-      title: "Escolha o tipo conforme o dado que será guardado",
-      subtitle: "Tipos do Oracle usados no exercício de hoje.",
-      content: `
-        <div class="table-container"><table class="modern-table"><thead><tr><th>Dado</th><th>Tipo Oracle</th><th>Exemplo</th><th>Observação</th></tr></thead><tbody><tr><td>Identificador</td><td><code>NUMBER(10)</code></td><td>id_projeto</td><td>Número inteiro com precisão definida</td></tr><tr><td>Texto</td><td><code>VARCHAR2(100)</code></td><td>nome</td><td>Texto variável até o limite declarado</td></tr><tr><td>Data</td><td><code>DATE</code></td><td>data_inicio</td><td>Guarda data e componente de hora</td></tr><tr><td>Decimal</td><td><code>NUMBER(5,2)</code></td><td>horas_semanais</td><td>Precisão e escala explícitas</td></tr></tbody></table></div>
-        <div class="callout callout-amber">Oracle 11g não usa o tipo <code>BOOLEAN</code> em colunas SQL. Para este exercício, selecione tipos compatíveis com a versão XE 11g.</div>`
+      category: "CRUD • Relacionamentos",
+      title: "Cadastre disciplina antes das matrículas e ministração",
+      subtitle: "As tabelas associativas só aceitam chaves que já existam nas entidades relacionadas.",
+      content: `<div class="code-box" style="font-size:.83rem;line-height:1.6;white-space:pre-wrap">INSERT INTO disciplina (codigo,nome,carga_horaria)\nVALUES ('BD101','Fundamentos de Banco de Dados',80);\nINSERT INTO cursa (documento,codigo,semestre,ano,nota_final)\nVALUES ('DOC002','BD101',1,2026,8.50);\nINSERT INTO ministra (documento,codigo)\nVALUES ('DOC001','BD101');\n\nSELECT p.nome, d.nome AS disciplina, c.semestre, c.ano, c.nota_final\nFROM cursa c\nJOIN estudante e ON e.documento=c.documento\nJOIN pessoa p ON p.documento=e.documento\nJOIN disciplina d ON d.codigo=c.codigo;</div><div class="callout callout-green">A consulta recompõe informação legível a partir das relações: nome da pessoa, disciplina e os atributos daquele vínculo letivo.</div>`
     },
     {
-      category: "Constraints",
-      title: "As regras do modelo viram restrições da tabela",
-      subtitle: "Uma constraint faz o banco rejeitar linhas que violem uma regra declarada.",
-      content: `
-        <div class="grid-3"><div class="card card-red"><div class="card-title">PRIMARY KEY</div><p class="card-desc">Identifica uma linha; não aceita NULL nem duplicidade.</p></div><div class="card card-blue"><div class="card-title">FOREIGN KEY</div><p class="card-desc">Exige que o valor referenciado exista na tabela pai.</p></div><div class="card card-green"><div class="card-title">NOT NULL</div><p class="card-desc">Exige um valor para a coluna.</p></div><div class="card"><div class="card-title">UNIQUE</div><p class="card-desc">Impede repetir valores onde a regra exigir unicidade.</p></div><div class="card card-amber"><div class="card-title">CHECK</div><p class="card-desc">Limita os valores por uma condição, como horas &gt; 0.</p></div><div class="card"><div class="card-title">Nomeie as regras</div><p class="card-desc">Nomes claros ajudam a interpretar mensagens de erro.</p></div></div>`
+      category: "CRUD • Alterar e remover",
+      title: "UPDATE e DELETE precisam de uma condição revisada",
+      subtitle: "A condição WHERE determina quais linhas serão afetadas.",
+      content: `<div class="code-box">UPDATE cursa<br>SET nota_final = 9.00<br>WHERE documento = 'DOC002'<br>  AND codigo = 'BD101'<br>  AND semestre = 1 AND ano = 2026;<br><br>DELETE FROM cursa<br>WHERE documento = 'DOC002'<br>  AND codigo = 'BD101'<br>  AND semestre = 1 AND ano = 2026;<br><br>COMMIT;</div><div class="grid-2" style="margin-top:12px"><div class="card card-green"><div class="card-title">Antes do UPDATE</div><p class="card-desc">Execute SELECT com o mesmo WHERE para conferir a linha selecionada.</p></div><div class="card card-red"><div class="card-title">Antes do DELETE</div><p class="card-desc">Remova primeiro a matrícula dependente; FKs protegem referências ainda usadas.</p></div></div>`
     },
     {
-      category: "DDL • CREATE TABLE",
-      title: "A tabela declara colunas, tipos e constraints",
-      subtitle: "Crie primeiro as tabelas referenciadas; depois, as tabelas que guardam suas FKs.",
-      content: `
-        <div class="code-box" style="font-size:.84rem;line-height:1.6;white-space:pre-wrap">CREATE TABLE colaboradores (<br>  id_colaborador NUMBER(10),<br>  nome VARCHAR2(100) NOT NULL,<br>  CONSTRAINT pk_colaboradores<br>    PRIMARY KEY (id_colaborador)<br>);</div>
-        <div class="grid-2" style="margin-top:12px"><div class="card card-blue"><div class="card-title">CREATE TABLE</div><p class="card-desc">Cria uma tabela vazia no esquema conectado.</p></div><div class="card card-green"><div class="card-title">Atenção à ordem</div><p class="card-desc">Uma FK só pode apontar para uma tabela e chave existentes. Crie COLABORADORES e PROJETOS antes de PARTICIPACAO.</p></div></div>`
+      category: "Oracle XE da turma",
+      title: "Conecte ao esquema BD001 no banco XE",
+      subtitle: "A conexão acessa o Oracle já inicializado para a turma; não crie outro banco.",
+      content: `<div class="table-container"><table class="modern-table"><thead><tr><th>Parâmetro</th><th>Valor</th></tr></thead><tbody><tr><td>Host local</td><td><code>localhost</code></td></tr><tr><td>Porta</td><td><code>1521</code></td></tr><tr><td>SID / serviço</td><td><code>xe</code> / <code>XE</code></td></tr><tr><td>Usuário e senha de laboratório</td><td><code>BD001 / BD001</code></td></tr></tbody></table></div><div class="code-box">docker compose exec oracle sqlplus -L BD001/BD001@//localhost:1521/XE</div><div class="callout callout-blue">Para interface gráfica, use DBeaver ou outro cliente Oracle com os mesmos dados descritos no README da pasta <code>docker</code>.</div>`
     },
     {
-      category: "DDL • Tabelas-pai",
-      title: "Crie as tabelas de entidades primeiro",
-      subtitle: "Cada uma recebe sua PK antes de qualquer tabela associativa.",
-      content: `
-        <div class="grid-2"><div class="card card-red"><div class="card-title">COLABORADORES</div><div class="code-box" style="white-space:pre-wrap">CREATE TABLE colaboradores (<br>  id_colaborador NUMBER(10),<br>  nome VARCHAR2(100) NOT NULL,<br>  CONSTRAINT pk_colaboradores<br>    PRIMARY KEY (id_colaborador)<br>);</div></div><div class="card card-blue"><div class="card-title">PROJETOS</div><div class="code-box" style="white-space:pre-wrap">CREATE TABLE projetos (<br>  id_projeto NUMBER(10),<br>  nome VARCHAR2(100) NOT NULL,<br>  CONSTRAINT pk_projetos<br>    PRIMARY KEY (id_projeto)<br>);</div></div></div>
-        <div class="callout callout-blue">Neste exemplo, o aluno informa os identificadores no INSERT. O exercício não depende de geração automática de IDs.</div>`
+      category: "Laboratório • Prática guiada",
+      title: "Implemente o caso da universidade em etapas",
+      subtitle: "Trabalhe em dupla: uma pessoa revisa as regras enquanto a outra executa os comandos; depois troquem.",
+      content: `<div class="grid-2"><div class="card card-blue"><div class="card-title">Parte 1 — lógico</div><ol style="color:var(--cps-gray-medium);line-height:1.65;padding-left:22px"><li>Desenhe Pessoa e sua especialização total e sobreposta.</li><li>Decomponha endereço em atributos simples.</li><li>Marque os papéis orientador e orientado.</li><li>Converta os N:N em CURSA e MINISTRA.</li><li>Declare PKs, FKs e regra da PK de CURSA.</li></ol></div><div class="card card-green"><div class="card-title">Parte 2 — físico e CRUD</div><ol style="color:var(--cps-gray-medium);line-height:1.65;padding-left:22px"><li>Crie as tabelas em ordem de dependência.</li><li>Inclua constraints e tipos Oracle.</li><li>Cadastre uma pessoa estudante e funcionária.</li><li>Cadastre outra estudante e atribua orientação.</li><li>Crie disciplina, CURSA e MINISTRA; consulte os dados.</li></ol></div></div><div class="callout callout-amber">Finalize testando a consulta de auditoria da especialização total. Registre uma regra que as constraints impõem e outra que precisa de validação adicional.</div>`
     },
     {
-      category: "DDL • Tabela associativa",
-      title: "PARTICIPACAO implementa o vínculo N:N",
-      subtitle: "As FKs ligam o vínculo às entidades; as demais colunas registram os dados próprios da participação.",
-      content: `
-        <div class="code-box" style="font-size:.8rem;line-height:1.55;white-space:pre-wrap">CREATE TABLE participacao (<br>  id_participacao NUMBER(10),<br>  id_colaborador NUMBER(10) NOT NULL,<br>  id_projeto NUMBER(10) NOT NULL,<br>  papel VARCHAR2(40) NOT NULL,<br>  horas_semanais NUMBER(5,2) NOT NULL,<br>  data_inicio DATE NOT NULL,<br>  CONSTRAINT pk_participacao PRIMARY KEY (id_participacao),<br>  CONSTRAINT fk_part_colab FOREIGN KEY (id_colaborador)<br>    REFERENCES colaboradores (id_colaborador),<br>  CONSTRAINT fk_part_projeto FOREIGN KEY (id_projeto)<br>    REFERENCES projetos (id_projeto),<br>  CONSTRAINT ck_part_horas CHECK (horas_semanais &gt; 0)<br>);</div>
-        <div class="callout callout-green">Primeiro existem COLABORADORES e PROJETOS; depois, PARTICIPACAO pode referenciá-los.</div>`
-    },
-    {
-      category: "Leitura das constraints",
-      title: "O que o Oracle passa a proteger?",
-      subtitle: "Leia cada constraint em linguagem de negócio.",
-      content: `
-        <div class="table-container"><table class="modern-table"><thead><tr><th>Regra SQL</th><th>Consequência</th><th>Exemplo de violação</th></tr></thead><tbody><tr><td><code>pk_participacao</code></td><td>Id da participação é único e obrigatório</td><td>Duas linhas com id 100</td></tr><tr><td><code>fk_part_colab</code></td><td>Colaborador precisa existir</td><td>Participação com id_colaborador inexistente</td></tr><tr><td><code>NOT NULL</code></td><td>Campos obrigatórios precisam de valor</td><td>Participação sem papel</td></tr><tr><td><code>ck_part_horas</code></td><td>Horas precisam ser maiores que zero</td><td>Valor 0 ou negativo</td></tr></tbody></table></div>
-        <div class="callout callout-amber">A constraint expressa uma regra declarada. Regras como “um projeto deve ter ao menos uma participação” exigem tratamento além da FK.</div>`
-    },
-    {
-      category: "DDL • ALTER TABLE",
-      title: "ALTER TABLE muda a estrutura existente",
-      subtitle: "Use ADD para incluir uma coluna no esquema.",
-      content: `
-        <div class="grid-2"><div class="card card-blue"><div class="card-title">Antes</div><div class="code-box">PROJETOS<br>id_projeto, nome</div></div><div class="card card-green"><div class="card-title">Comando</div><div class="code-box">ALTER TABLE projetos<br>  ADD (area VARCHAR2(60));</div></div></div>
-        <div class="callout callout-blue">Depois do comando, AREA faz parte da tabela. Linhas antigas passam a ter NULL nessa coluna até receberem um valor ou um padrão definido.</div>
-        <p class="card-desc"><strong>Leitura:</strong> ALTER TABLE [tabela] ADD ([coluna] [tipo]);</p>`
-    },
-    {
-      category: "DDL • MODIFY e constraints",
-      title: "Altere uma definição com atenção aos dados existentes",
-      subtitle: "O Oracle rejeita alterações incompatíveis com os valores já armazenados.",
-      content: `
-        <div class="grid-2"><div class="card"><div class="card-title">Aumentar o limite do nome</div><div class="code-box">ALTER TABLE projetos<br>  MODIFY (nome VARCHAR2(150));</div><p class="card-desc" style="margin-top:10px">O novo tamanho precisa acomodar os valores atuais.</p></div><div class="card card-amber"><div class="card-title">Adicionar uma regra</div><div class="code-box">ALTER TABLE projetos<br>  ADD CONSTRAINT uq_proj_nome<br>  UNIQUE (nome);</div><p class="card-desc" style="margin-top:10px">A alteração falha se já houver nomes duplicados.</p></div></div>
-        <div class="callout callout-blue">Também é possível adicionar colunas, constraints ou mudar definições; confirme o efeito antes de aplicar a alteração.</div>`
-    },
-    {
-      category: "CRUD",
-      title: "Quatro operações básicas sobre os dados",
-      subtitle: "CRUD descreve o ciclo de criar, ler, atualizar e remover registros.",
-      content: `
-        <div class="grid-4"><div class="card card-green"><div class="card-title">C • Create</div><p class="card-desc"><code>INSERT</code><br>Insere uma linha.</p></div><div class="card card-blue"><div class="card-title">R • Read</div><p class="card-desc"><code>SELECT</code><br>Consulta linhas.</p></div><div class="card card-amber"><div class="card-title">U • Update</div><p class="card-desc"><code>UPDATE</code><br>Altera linhas.</p></div><div class="card card-red"><div class="card-title">D • Delete</div><p class="card-desc"><code>DELETE</code><br>Remove linhas.</p></div></div>
-        <div class="callout callout-blue">Em SQL, INSERT, UPDATE e DELETE são DML. SELECT é a consulta (DQL). Todas operam sobre o esquema criado com DDL.</div>`
-    },
-    {
-      category: "CRUD • INSERT",
-      title: "Insira primeiro as linhas referenciadas",
-      subtitle: "Respeite as PKs, os campos obrigatórios e a ordem das FKs.",
-      content: `
-        <div class="code-box" style="font-size:.9rem;line-height:1.65;white-space:pre-wrap">INSERT INTO colaboradores (id_colaborador, nome)<br>VALUES (1, 'Ana Lima');<br><br>INSERT INTO projetos (id_projeto, nome, area)<br>VALUES (10, 'Sistema de Biblioteca', 'Sistemas');<br><br>INSERT INTO participacao<br>  (id_participacao, id_colaborador, id_projeto,<br>   papel, horas_semanais, data_inicio)<br>VALUES<br>  (100, 1, 10, 'Analista', 12.5, DATE '2026-11-05');</div>
-        <div class="callout callout-amber">A linha da participação depende de um colaborador 1 e de um projeto 10 já existentes. Se uma FK não encontrar a linha, o Oracle rejeita o INSERT.</div>`
-    },
-    {
-      category: "CRUD • SELECT",
-      title: "SELECT lê dados; WHERE restringe o resultado",
-      subtitle: "Comece escolhendo as colunas necessárias e escreva a condição de seleção.",
-      content: `
-        <div class="grid-2"><div class="card card-blue"><div class="card-title">Consulta das participações</div><div class="code-box" style="white-space:pre-wrap">SELECT id_participacao,<br>       papel,<br>       horas_semanais,<br>       data_inicio<br>FROM participacao<br>WHERE id_projeto = 10;</div></div><div class="card"><div class="card-title">Leia cláusula por cláusula</div><ul style="color:var(--cps-gray-medium);line-height:1.7;padding-left:20px"><li>SELECT: colunas que serão exibidas.</li><li>FROM: tabela consultada.</li><li>WHERE: linhas que atendem à condição.</li></ul></div></div>
-        <div class="callout callout-green">A condição não altera os dados; ela filtra apenas o conjunto de linhas retornado.</div>`
-    },
-    {
-      category: "CRUD • UPDATE",
-      title: "UPDATE modifica as linhas selecionadas",
-      subtitle: "Confirme a condição antes de executar a alteração.",
-      content: `
-        <div class="code-box" style="font-size:1rem;line-height:1.8">UPDATE participacao<br>SET horas_semanais = 15<br>WHERE id_participacao = 100;</div>
-        <div class="grid-2" style="margin-top:14px"><div class="card card-green"><div class="card-title">Com WHERE</div><p class="card-desc">Altera a participação identificada pelo id 100.</p></div><div class="card card-red"><div class="card-title">Sem WHERE</div><p class="card-desc">Altera a carga horária de todas as linhas de PARTICIPACAO.</p></div></div>
-        <div class="callout callout-amber">Uma prática segura é consultar primeiro as linhas que a condição seleciona e depois revisar o UPDATE.</div>`
-    },
-    {
-      category: "CRUD • DELETE",
-      title: "DELETE remove linhas; a FK protege as referências",
-      subtitle: "Remova o vínculo antes das entidades que ele referencia.",
-      content: `
-        <div class="code-box" style="font-size:.98rem;line-height:1.8">DELETE FROM participacao<br>WHERE id_participacao = 100;</div>
-        <div class="diagram-container" style="margin-top:14px"><svg class="diagram-svg" viewBox="0 0 900 150" role="img" aria-label="A tabela associativa é removida antes das tabelas pai"><rect x="40" y="35" width="245" height="75" rx="9" fill="#fff1f2" stroke="#b20000" stroke-width="2"/><text x="162" y="80" text-anchor="middle" font-size="19" font-weight="700" fill="#1e293b">COLABORADORES</text><line x1="290" y1="72" x2="385" y2="72" stroke="#475569" stroke-width="3" marker-end="url(#delArrow)"/><rect x="390" y="35" width="220" height="75" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="500" y="80" text-anchor="middle" font-size="19" font-weight="700" fill="#1e293b">PARTICIPACAO</text><line x1="615" y1="72" x2="710" y2="72" stroke="#475569" stroke-width="3" marker-end="url(#delArrow)"/><rect x="715" y="35" width="150" height="75" rx="9" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/><text x="790" y="80" text-anchor="middle" font-size="19" font-weight="700" fill="#1e293b">PROJETOS</text><defs><marker id="delArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#475569"/></marker></defs></svg></div>
-        <div class="callout callout-amber">Sem WHERE, DELETE remove todas as linhas da tabela. Uma FK pode impedir a exclusão de pai ainda referenciado.</div>`
-    },
-    {
-      category: "Transações Oracle",
-      title: "COMMIT confirma DML; ROLLBACK desfaz o que ainda não foi confirmado",
-      subtitle: "O estado da transação importa ao conferir os exercícios.",
-      content: `
-        <div class="grid-2"><div class="card card-green"><div class="card-title">Confirmar alterações</div><div class="code-box">COMMIT;</div><p class="card-desc" style="margin-top:10px">Grava definitivamente as operações DML da transação.</p></div><div class="card card-amber"><div class="card-title">Desfazer antes da confirmação</div><div class="code-box">ROLLBACK;</div><p class="card-desc" style="margin-top:10px">Desfaz as alterações DML que continuam pendentes.</p></div></div>
-        <div class="callout callout-red"><strong>DDL no Oracle:</strong> CREATE TABLE e ALTER TABLE fazem commit implícito. ROLLBACK não desfaz a criação ou a alteração estrutural da tabela.</div>`
-    },
-    {
-      category: "Conexão • Oracle XE",
-      title: "Use a conexão da turma no seu cliente SQL",
-      subtitle: "A atividade cria objetos no esquema BD001 do banco XE.",
-      content: `
-        <div class="table-container"><table class="modern-table"><thead><tr><th>Campo</th><th>Valor</th></tr></thead><tbody><tr><td>Host</td><td><code>localhost</code></td></tr><tr><td>Porta</td><td><code>1521</code></td></tr><tr><td>Tipo de identificação</td><td>SID</td></tr><tr><td>SID</td><td><code>xe</code></td></tr><tr><td>Usuário / senha</td><td><code>BD001 / BD001</code></td></tr></tbody></table></div>
-        <div class="callout callout-blue">O guia completo de inicialização e conexão está em Banco de Dados I/docker/README.md. Aguarde o container ficar healthy antes de iniciar.</div>`
-    },
-    {
-      category: "Laboratório • Atividade A",
-      title: "Converta o DER de colaboradores e projetos",
-      subtitle: "Trabalhe a partir das regras usadas na Aula 03.",
-      content: `
-        <div class="card card-red"><div class="card-title">Regras do cenário</div><ul style="color:var(--cps-gray-medium);font-size:1rem;line-height:1.7;padding-left:22px"><li>Colaborador tem código e nome; projeto tem código e nome.</li><li>Colaboradores e projetos se relacionam em N:N.</li><li>Cada vínculo guarda papel, horas semanais e data de início.</li><li>Um colaborador pode deixar o projeto e retornar em outra data.</li></ul></div>
-        <div class="callout callout-blue"><strong>Entregável lógico:</strong> escreva COLABORADOR, PROJETO e PARTICIPACAO com PKs e FKs marcadas. Justifique a chave que permite preservar os retornos.</div>`
-    },
-    {
-      category: "Laboratório • Atividade B",
-      title: "Implemente as tabelas e pratique CRUD",
-      subtitle: "Tempo sugerido: 80 minutos, individualmente ou em dupla.",
-      content: `
-        <div class="grid-2"><div class="card card-blue"><div class="card-title">Modelo físico</div><ol style="color:var(--cps-gray-medium);line-height:1.65;padding-left:22px"><li>Crie COLABORADORES e PROJETOS.</li><li>Crie PARTICIPACAO com as duas FKs.</li><li>Inclua PK, NOT NULL e CHECK.</li><li>Acrescente AREA em PROJETOS com ALTER TABLE.</li></ol></div><div class="card card-green"><div class="card-title">Dados e consulta</div><ol style="color:var(--cps-gray-medium);line-height:1.65;padding-left:22px"><li>Insira colaborador e projeto.</li><li>Insira a participação.</li><li>Consulte com SELECT e WHERE.</li><li>Atualize horas e confira o resultado.</li><li>Remova a participação com DELETE.</li></ol></div></div>
-        <div class="callout callout-amber">Não execute CREATE DATABASE. Conecte como BD001, confira o WHERE antes de UPDATE ou DELETE e respeite a ordem das FKs.</div>`
-    },
-    {
-      category: "Laboratório • Roteiro SQL",
-      title: "Sequência de comandos para orientar a prática",
-      subtitle: "Consulte as instruções e adapte os comandos ao seu esquema.",
-      content: `
-        <div class="code-box" style="font-size:.82rem;line-height:1.5;white-space:pre-wrap">-- 1. Criar as tabelas (use o DDL dos slides anteriores)<br>-- 2. Inserir primeiro COLABORADORES e PROJETOS<br>INSERT INTO colaboradores (id_colaborador, nome)<br>VALUES (1, 'Ana Lima');<br>INSERT INTO projetos (id_projeto, nome)<br>VALUES (10, 'Sistema de Biblioteca');<br>-- 3. Registrar o vínculo depois das linhas pai<br>INSERT INTO participacao<br> (id_participacao, id_colaborador, id_projeto, papel,<br>  horas_semanais, data_inicio)<br>VALUES (100, 1, 10, 'Analista', 12.5, DATE '2026-11-05');<br>-- 4. Consultar, atualizar e remover o vínculo<br>SELECT * FROM participacao WHERE id_projeto = 10;<br>UPDATE participacao SET horas_semanais = 15<br> WHERE id_participacao = 100;<br>DELETE FROM participacao WHERE id_participacao = 100;</div>
-        <div class="callout callout-blue">O roteiro SQL do slide demonstra a ordem do DML. Para entregar, inclua também o seu DDL completo.</div>`
-    },
-    {
-      category: "Entrega e revisão",
-      title: "O que precisa estar pronto ao final do laboratório",
-      subtitle: "A entrega demonstra que o DER foi convertido e implementado preservando as regras.",
-      content: `
-        <div class="grid-3"><div class="card card-red"><div class="card-title">Modelo lógico</div><p class="card-desc">Tabelas, PKs e FKs identificadas, com justificativa para PARTICIPACAO.</p></div><div class="card card-blue"><div class="card-title">Script físico</div><p class="card-desc">CREATE TABLE, ALTER TABLE e constraints Oracle usados no esquema.</p></div><div class="card card-green"><div class="card-title">CRUD</div><p class="card-desc">INSERT, SELECT, UPDATE e DELETE demonstrados no caso.</p></div></div>
-        <div class="callout callout-amber">Inclua nome e turma. Registre uma consulta executada e a justificativa das chaves e restrições.</div>`
-    },
-    {
-      category: "Checagem de aprendizagem",
-      title: "Explique as decisões antes de encerrar",
-      subtitle: "Responda em voz alta ou no caderno.",
-      content: `
-        <div class="grid-2"><div class="card"><div class="card-title">Modelo lógico</div><ol style="color:var(--cps-gray-medium);line-height:1.65;padding-left:22px"><li>Por que PARTICIPACAO tem duas FKs?</li><li>Por que papel e horas não pertencem apenas ao colaborador?</li><li>Que regra a PK própria permite representar?</li></ol></div><div class="card card-blue"><div class="card-title">Oracle e SQL</div><ol style="color:var(--cps-gray-medium);line-height:1.65;padding-left:22px"><li>Qual o papel de NOT NULL e CHECK?</li><li>O que acontece ao omitir WHERE?</li><li>Por que BD001 cria tabelas, mas não outro banco XE?</li></ol></div></div>`
-    },
-    {
-      category: "Síntese",
-      title: "Três etapas, as mesmas regras",
-      subtitle: "A implementação está correta quando conserva os vínculos e restrições do domínio.",
-      content: `
-        <div class="stepper"><div class="step-item"><div class="step-circle">1</div><div class="step-title">DER</div><div class="step-desc">Entidades e regras</div></div><div class="step-item"><div class="step-circle">2</div><div class="step-title">Modelo lógico</div><div class="step-desc">Relações, PKs e FKs</div></div><div class="step-item"><div class="step-circle">3</div><div class="step-title">Modelo físico</div><div class="step-desc">Tipos e constraints</div></div><div class="step-item"><div class="step-circle">4</div><div class="step-title">CRUD</div><div class="step-desc">Dados consultados e mantidos</div></div></div>
-        <div class="callout callout-blue"><strong>Próxima etapa:</strong> analisar redundâncias no esquema relacional e estudar as formas normais.</div>`
+      category: "Revisão final",
+      title: "Explique a conversão sem olhar o SQL",
+      subtitle: "Se você consegue justificar essas decisões, compreendeu os três níveis de modelagem.",
+      content: `<div class="grid-3"><div class="card card-red"><div class="card-title">DER</div><p class="card-desc">Por que total e sobreposta são características diferentes? Quais são os papéis da orientação? Qual atributo é composto?</p></div><div class="card card-blue"><div class="card-title">Relacional</div><p class="card-desc">Por que documento é PK/FK nas subentidades? Por que CURSA e MINISTRA viram relações próprias?</p></div><div class="card card-green"><div class="card-title">Físico</div><p class="card-desc">O que a FK garante? Que regra exige validação entre tabelas? Por que aluno não executa CREATE DATABASE?</p></div></div><div class="callout callout-blue"><strong>Ideia central:</strong> o modelo físico está correto quando implementa as relações e preserva, tanto quanto as constraints permitem, as regras descritas no DER.</div>`
     }
   ]
 };
