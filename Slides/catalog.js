@@ -22,7 +22,8 @@ window.SLIDES_CATALOG = [
       { id: "aula-03", label: "Aula 03", title: "Smart contracts, tokens e RWA", source: "../Sistema de Informação e Tecnologias Emergentes/Slides/aula-03.js" },
       { id: "aula-04", label: "Aula 04", title: "Cidades inteligentes e sistemas ciber-físicos", source: "../Sistema de Informação e Tecnologias Emergentes/Slides/aula-04.js" },
       { id: "aula-05", label: "Aula 05", title: "MQTT, LoRaWAN e comunicação IoT", source: "../Sistema de Informação e Tecnologias Emergentes/Slides/aula-05.js" },
-      { id: "aula-06", label: "Aula 06", title: "Edge, Cloud Computing e Gêmeos Digitais", source: "../Sistema de Informação e Tecnologias Emergentes/Slides/aula-06.js" }
+      { id: "aula-06", label: "Aula 06", title: "Edge, Cloud Computing e Gêmeos Digitais", source: "../Sistema de Informação e Tecnologias Emergentes/Slides/aula-06.js" },
+      { id: "aula-07", label: "Aula 07", title: "Modelos de Fundação, Transformers e Engenharia de Prompts", source: "../Sistema de Informação e Tecnologias Emergentes/Slides/aula-07.js" }
     ]
   },
   { id: "automacao-industrial", name: "Automação Industrial", code: "AI", institution: "senai", lessons: [

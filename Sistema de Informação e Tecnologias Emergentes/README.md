@@ -179,14 +179,16 @@ timeline
 ### Bloco C · Módulo 5: Inteligência Artificial Generativa, Engenharia de RAG e Agentes Autônomos
 
 #### **Aula 07: O Salto dos Modelos Preditivos aos Fundacionais: Transformers e LLMs**
-* **Objetivo:** Entender a arquitetura Transformer, o mecanismo de Autoatenção e técnicas avançadas de engenharia de prompt corporativo.
+* **Guia da Aula e atividade:** [Aula07_Modelos_Fundacao_Transformers_Prompt_Engineering.md](Aulas/Aula_07/Aula07_Modelos_Fundacao_Transformers_Prompt_Engineering.md), com roteiro de 100 minutos, oficina de triagem responsável de chamados e critérios formativos.
+* **Slides interativos:** [Abrir Aula 07 no apresentador central](../Slides/index.html?disciplina=sistemas-emergentes&aula=aula-07).
+* **Objetivo:** Entender em nível conceitual como modelos de linguagem baseados em Transformers geram texto e especificar prompts que apoiem tarefas de SI com evidências, limites e revisão humana.
 * **Conteúdo Teórico (1h):**
-  * Evolução da IA em Sistemas de Informação: de modelos discriminativos/estatísticos (regressão, árvore de decisão) aos Modelos de Linguagem de Grande Escala (LLMs).
-  * Arquitetura Transformer e mecanismo de Autoatenção (*Self-Attention*): representação contextual bidirecional.
-  * Engenharia de Prompt para Sistemas de Informação: *Zero-Shot*, *Few-Shot*, *Chain-of-Thought* (CoT) e geração de saídas estruturadas em JSON compatíveis com schemas de API.
+  * Modelos de fundação, LLMs, tokenização, representações, atenção contextual e previsão iterativa do próximo token.
+  * Diferenças entre pré-treinamento, ajuste/alinhamento e inferência; contexto, amostragem e limites factuais.
+  * Engenharia de prompts: tarefa, contexto, formato, critérios, limites e tratamento explícito de informação insuficiente.
 * **Exercício Prático (40min):**
-  * **Prática:** Construção de prompts avançados de extração e transformação de dados legados desestruturados (e-mails e chamados de suporte) em saídas estruturadas válidas em JSON para integração em ERPs.
-  * **Entregável:** Teste comparativo com validação de consistência sintática do output JSON gerado.
+  * **Prática:** Comparar e aprimorar prompts para classificar um chamado fictício de suporte; testar informação ausente ou contraditória e revisar a evidência das respostas.
+  * **Entregável:** Registro do prompt inicial e revisado, comparação das respostas, checagem de evidências e política de revisão humana. Não inserir dados pessoais ou confidenciais em serviços públicos.
 
 #### **Aula 08: Engenharia de RAG (*Retrieval-Augmented Generation*) e Bancos Vetoriais**
 * **Objetivo:** Projetar pipelines de RAG para consulta segura de bases de dados proprietárias de empresas sem risco de alucinações.
