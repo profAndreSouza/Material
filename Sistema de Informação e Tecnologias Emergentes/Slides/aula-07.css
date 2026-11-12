@@ -1,0 +1,57 @@
+.a07 .slide-top { margin-bottom: 14px; }
+.a07 .slide-content { font-size: 18px; line-height: 1.42; gap: 14px; color: #263548; }
+.a07 .slide-content p { margin: 0; }
+.a07-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.a07-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.a07-split { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: center; min-height: 0; }
+.a07-box { padding: 18px 20px; border: 1px solid #d9e2ec; border-radius: 16px; background: linear-gradient(145deg, #fbfdff, #f1f6fa); box-shadow: 0 5px 16px rgba(25,45,70,.05); }
+.a07-box h3 { margin: 0 0 7px; color: #8b1e3f; font-size: 1.02em; }
+.a07-box p { margin: 0; }
+.a07-box.dark { background: #10273c; color: #e9f1f8; border-color: #10273c; }
+.a07-box.dark h3 { color: #67d5cb; }
+.a07-box.warm { background: #fff8eb; border-color: #f1d9a8; }
+.a07-box.warm h3 { color: #a55b10; }
+.a07-list { padding-left: 1.25em; margin: 0; display: grid; gap: 8px; }
+.a07-list li::marker { color: #8b1e3f; }
+.a07-list.compact { gap: 5px; }
+.a07-callout { padding: 13px 17px; border-left: 5px solid #0f766e; background: #edf9f7; border-radius: 8px; }
+.a07-caution { padding: 13px 17px; border-left: 5px solid #d18b27; background: #fff8eb; border-radius: 8px; }
+.a07-diagram { width: 100%; height: min(360px, calc(100vh - 365px)); min-height: 235px; display: block; }
+.a07-diagram text { font-family: 'Plus Jakarta Sans', Arial, sans-serif; fill: #233449; }
+.a07-diagram .svg-title { font-size: 24px; font-weight: 700; }
+.a07-diagram .svg-body { font-size: 18px; fill: #566578; }
+.a07-diagram .svg-small { font-size: 15px; fill: #566578; }
+.a07-diagram .svg-label { font-size: 20px; font-weight: 700; }
+.a07-diagram .svg-white { fill: #f8fbff; }
+.a07-table { width: 100%; border-collapse: collapse; font-size: .82em; line-height: 1.36; }
+.a07-table th { padding: 10px 12px; background: #8b1e3f; color: white; text-align: left; }
+.a07-table td { padding: 9px 12px; border-bottom: 1px solid #dce3ea; vertical-align: top; }
+.a07-table tbody tr:nth-child(even) { background: #f8fafc; }
+.a07-image { display: block; width: 100%; max-height: 355px; object-fit: contain; border-radius: 16px; }
+.a07-image.case { max-height: 390px; }
+.a07-cover { position: relative; flex: 1; min-height: 350px; padding: 40px; display: flex; align-items: center; border-radius: 20px; overflow: hidden; background: #061b30 center / cover no-repeat; }
+.a07-cover::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4,19,35,.88) 0%, rgba(4,19,35,.66) 40%, rgba(4,19,35,.03) 74%); }
+.a07-cover-copy { position: relative; z-index: 1; max-width: 48%; color: #f4f8fb; }
+.a07-cover-copy h2 { margin: 0 0 18px; font-size: clamp(30px, 4vw, 54px); line-height: 1.08; }
+.a07-cover-copy p { color: #cbdde9; font-size: 20px; }
+.a07-cover-copy .eyebrow { margin-bottom: 12px; color: #76ded2; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+.a07-code { overflow-wrap: anywhere; padding: 18px 22px; border-radius: 14px; background: #10263a; color: #d6f5ec; font: 15px/1.62 'Fira Code', Consolas, monospace; white-space: pre-wrap; }
+.a07-code .key { color: #8fe5dc; }
+.a07-foot { margin-top: auto !important; color: #617184 !important; font-size: 12px !important; line-height: 1.4 !important; }
+.a07-source a { color: #8b1e3f; }
+.a07-number { display: flex; align-items: center; gap: 15px; }
+.a07-number strong { min-width: 48px; color: #8b1e3f; font-size: 32px; }
+.a07 .slide-content .large { color: #163047; font-size: 24px; font-weight: 600; line-height: 1.35; }
+.a07 .slide-content .small { color: #64748b; font-size: 14px; }
+@media (max-width: 900px) {
+  .a07-grid, .a07-grid.three, .a07-split { grid-template-columns: 1fr; }
+  .a07-cover-copy { max-width: 70%; }
+  .a07 .slide-content { font-size: 16px; }
+  .a07-diagram { height: auto; min-height: 180px; }
+}
+@media print {
+  .a07-cover-copy { max-width: 48%; }
+  .a07-split { grid-template-columns: 1.1fr .9fr; }
+  .a07-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .a07-diagram { height: 320px; max-height: 320px; }
+}

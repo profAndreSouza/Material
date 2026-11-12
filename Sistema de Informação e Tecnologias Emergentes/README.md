@@ -179,16 +179,10 @@ timeline
 ### Bloco C · Módulo 5: Inteligência Artificial Generativa, Engenharia de RAG e Agentes Autônomos
 
 #### **Aula 07: O Salto dos Modelos Preditivos aos Fundacionais: Transformers e LLMs**
-* **Guia da Aula e atividade:** [Aula07_Modelos_Fundacao_Transformers_Prompt_Engineering.md](Aulas/Aula_07/Aula07_Modelos_Fundacao_Transformers_Prompt_Engineering.md), com roteiro de 100 minutos, oficina de triagem responsável de chamados e critérios formativos.
+* **Material de apoio em PDF:** [Aula 07 — Modelos de Fundação, Transformers e Engenharia de Prompts](../output/pdf/Aula07_Modelos_de_Fundacao_Transformers_e_Prompts.pdf), com explicações, exemplos, referências e exercícios ao final.
+* **Versão em Markdown:** [Aula07_Modelos_Fundacao_Transformers_Prompt_Engineering.md](Aulas/Aula_07/Aula07_Modelos_Fundacao_Transformers_Prompt_Engineering.md).
 * **Slides interativos:** [Abrir Aula 07 no apresentador central](../Slides/index.html?disciplina=sistemas-emergentes&aula=aula-07).
-* **Objetivo:** Entender em nível conceitual como modelos de linguagem baseados em Transformers geram texto e especificar prompts que apoiem tarefas de SI com evidências, limites e revisão humana.
-* **Conteúdo Teórico (1h):**
-  * Modelos de fundação, LLMs, tokenização, representações, atenção contextual e previsão iterativa do próximo token.
-  * Diferenças entre pré-treinamento, ajuste/alinhamento e inferência; contexto, amostragem e limites factuais.
-  * Engenharia de prompts: tarefa, contexto, formato, critérios, limites e tratamento explícito de informação insuficiente.
-* **Exercício Prático (40min):**
-  * **Prática:** Comparar e aprimorar prompts para classificar um chamado fictício de suporte; testar informação ausente ou contraditória e revisar a evidência das respostas.
-  * **Entregável:** Registro do prompt inicial e revisado, comparação das respostas, checagem de evidências e política de revisão humana. Não inserir dados pessoais ou confidenciais em serviços públicos.
+* **Tópicos:** Modelos de fundação e LLMs; tokenização e geração de texto; Transformers e mecanismo de atenção; treinamento e inferência; engenharia de prompts, exemplos de saída estruturada e uso responsável em Sistemas de Informação.
 
 #### **Aula 08: Engenharia de RAG (*Retrieval-Augmented Generation*) e Bancos Vetoriais**
 * **Objetivo:** Projetar pipelines de RAG para consulta segura de bases de dados proprietárias de empresas sem risco de alucinações.
