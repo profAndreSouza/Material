@@ -10,9 +10,9 @@ Modele **Pessoa** com especialização total e sobreposta (compartilhada) em **E
 ```mermaid
 erDiagram
     PESSOA {
-        int codigo_pessoa PK
+        int codigo PK
         varchar nome
-        varchar documento UK
+        varchar documento UQ
         varchar logradouro
         varchar numero
         varchar complemento
@@ -23,30 +23,31 @@ erDiagram
     }
 
     ESTUDANTE {
-        int codigo_pessoa PK,FK
-        varchar matricula UK
+        int codigo PK,FK
+        varchar matricula UQ
         varchar curso
         int codigo_orientador FK
     }
 
     FUNCIONARIO {
-        int codigo_pessoa PK,FK
-        varchar registro_funcional UK
+        int codigo PK,FK
+        varchar registro_funcional UQ
         date data_admissao
         varchar setor_lotacao
     }
 
     DISCIPLINA {
-        varchar codigo_disciplina PK
+        varchar codigo PK
         varchar nome
         int carga_horaria
     }
 
     MATRICULA_DISCIPLINA {
-        int codigo_pessoa_estudante PK,FK
-        varchar codigo_disciplina PK,FK
-        int semestre PK
-        int ano PK
+        int codigo PK
+        int codigo_estudante FK,UQ
+        varchar codigo_disciplina FK,UQ
+        int semestre UQ
+        int ano UQ
         decimal nota_final
     }
 
@@ -73,7 +74,7 @@ erDiagram
 
 ```sql
 CREATE TABLE pessoa (
-    codigo_pessoa NUMBER(10) PRIMARY KEY,
+    codigo NUMBER(10) PRIMARY KEY,
     nome VARCHAR2(100) NOT NULL,
     documento VARCHAR2(20) NOT NULL UNIQUE,
     logradouro VARCHAR2(100),
@@ -90,14 +91,14 @@ CREATE TABLE pessoa (
 
 ```sql
 CREATE TABLE funcionario (
-    codigo_pessoa NUMBER(10) PRIMARY KEY,
+    codigo NUMBER(10) PRIMARY KEY,
     registro_funcional VARCHAR2(20) NOT NULL UNIQUE,
     data_admissao DATE NOT NULL,
     setor_lotacao VARCHAR2(100) NOT NULL,
 
     CONSTRAINT fk_funcionario_pessoa
-        FOREIGN KEY (codigo_pessoa)
-        REFERENCES pessoa(codigo_pessoa)
+        FOREIGN KEY (codigo)
+        REFERENCES pessoa(codigo)
 );
 ```
 
@@ -105,25 +106,25 @@ CREATE TABLE funcionario (
 
 ```sql
 CREATE TABLE estudante (
-    codigo_pessoa NUMBER(10) PRIMARY KEY,
+    codigo NUMBER(10) PRIMARY KEY,
     matricula VARCHAR2(20) NOT NULL UNIQUE,
     curso VARCHAR2(100) NOT NULL,
     codigo_orientador NUMBER(10),
 
     CONSTRAINT fk_estudante_pessoa
-        FOREIGN KEY (codigo_pessoa)
-        REFERENCES pessoa(codigo_pessoa),
+        FOREIGN KEY (codigo)
+        REFERENCES pessoa(codigo),
 
     CONSTRAINT fk_estudante_orientador
         FOREIGN KEY (codigo_orientador)
-        REFERENCES funcionario(codigo_pessoa)
+        REFERENCES funcionario(codigo)
 );
 ```
 ### 4. DISCIPLINA
 
 ```sql
 CREATE TABLE disciplina (
-    codigo_disciplina NUMBER(10) PRIMARY KEY,
+    codigo NUMBER(10) PRIMARY KEY,
     nome VARCHAR2(100) NOT NULL,
     carga_horaria NUMBER(4) NOT NULL
 );
@@ -133,15 +134,16 @@ CREATE TABLE disciplina (
 
 ```sql
 CREATE TABLE matricula_disciplina (
-    codigo_pessoa_estudante NUMBER(10) NOT NULL,
+    codigo NUMBER(10) NOT NULL PRIMARY KEY,
+    codigo_estudante NUMBER(10) NOT NULL,
     codigo_disciplina NUMBER(10) NOT NULL,
     semestre NUMBER(1) NOT NULL,
     ano NUMBER(4) NOT NULL,
     nota_final NUMBER(4,2),
 
-    CONSTRAINT pk_matricula_disciplina
-        PRIMARY KEY (
-            codigo_pessoa_estudante,
+    CONSTRAINT uk_matricula_disciplina
+        UNIQUE (
+            codigo_estudante,
             codigo_disciplina,
             semestre,
             ano
