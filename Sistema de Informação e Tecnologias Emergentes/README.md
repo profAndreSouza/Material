@@ -275,15 +275,24 @@ A nota de cada atividade será calculada aplicando-se o percentual correspondent
 
 ### 6.2. Avaliação Somativa – Projeto Final (50%)
 
-Desenvolvimento e entrega de um projeto envolvendo tecnologias emergentes, considerando:
+O Projeto Final corresponde a 50% da nota final e será realizado individualmente ou em dupla, com no máximo dois integrantes. Cada estudante ou dupla poderá escolher um problema e uma abordagem próprios; os trabalhos não precisam ser iguais.
 
-- Clareza e organização da solução.
-- Viabilidade de implementação.
-- Coerência na escolha das tecnologias.
-- Segurança da informação e LGPD, quando aplicáveis.
-- Qualidade e completude da entrega.
+A entrega será uma monografia ou estudo acadêmico aplicado, com fundamentação teórica, evidências, diagramas e análise de uma proposta de Sistemas de Informação que integre pelo menos **duas tecnologias emergentes estudadas na disciplina**. São aceitos quatro formatos: proposta arquitetural, estudo de caso, comparação de alternativas ou protótipo/simulação. A implementação funcional é opcional.
 
-As orientações e o prazo serão informados posteriormente.
+Os capítulos podem ser adaptados ao tema e ao formato, desde que o trabalho cubra problema e objetivos, fundamentação e fontes, método/evidências, proposta e arquitetura, avaliação/limitações e aspectos de segurança, privacidade, ética e governança. O uso do template acadêmico da disciplina é recomendado. O enunciado completo está em [Projeto Final – Orientações e Escopo](output/pdf/Projeto_Final_ISI022_Enunciado.pdf).
+
+A mesma rubrica será aplicada a todos os formatos:
+
+| Critério | Peso |
+|---|---:|
+| Problema, contexto e objetivos | 15% |
+| Fundamentação teórica e evidências | 20% |
+| Arquitetura e integração de tecnologias | 25% |
+| Análise, viabilidade e limitações | 15% |
+| Segurança, privacidade, ética e governança | 15% |
+| Redação, organização e referências | 10% |
+
+O projeto será apresentado em formato de pitch/defesa arquitetural. O prazo, canal de entrega e orientações para a apresentação serão informados pelo docente.
 
 ### 6.3. Composição da Nota Final
 
