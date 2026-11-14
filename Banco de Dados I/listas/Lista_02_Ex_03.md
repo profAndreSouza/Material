@@ -133,7 +133,7 @@ CREATE TABLE disciplina (
 ### 5. MATRICULA_DISCIPLINA (N:M)
 
 ```sql
-CREATE TABLE matricula_disciplina (
+CREATE TABLE matricula (
     codigo NUMBER(10) NOT NULL PRIMARY KEY,
     codigo_estudante NUMBER(10) NOT NULL,
     codigo_disciplina NUMBER(10) NOT NULL,
@@ -150,12 +150,12 @@ CREATE TABLE matricula_disciplina (
         ),
 
     CONSTRAINT fk_md_estudante
-        FOREIGN KEY (codigo_pessoa_estudante)
-        REFERENCES estudante(codigo_pessoa),
+        FOREIGN KEY (codigo_estudante)
+        REFERENCES estudante(codigo),
 
     CONSTRAINT fk_md_disciplina
         FOREIGN KEY (codigo_disciplina)
-        REFERENCES disciplina(codigo_disciplina),
+        REFERENCES disciplina(codigo),
 
     CONSTRAINT ck_md_semestre
         CHECK (semestre IN (1, 2)),
@@ -165,27 +165,41 @@ CREATE TABLE matricula_disciplina (
 );
 ```
 
+### Exemplos
+```sql
+-- RENOMEAR TABELA
+ALTER TABLE matricula_disciplina
+RENAME TO matricula;
+
+-- RENOMEAR COLUNA
+ALTER TABLE matricula
+RENAME COLUMN codigo_matricula TO codigo;
+
+-- RENOMEAR CONSTRAINT
+ALTER TABLE matricula
+RENAME CONSTRAINT uk_matricula_disciplina TO uq_matricula_disciplina;
+```
+
 ### 6. MINISTRA (N:M)
 
 ```sql
-
 CREATE TABLE ministra (
-    codigo_pessoa_funcionario NUMBER(10) NOT NULL,
+    codigo_funcionario NUMBER(10) NOT NULL,
     codigo_disciplina NUMBER(10) NOT NULL,
 
     CONSTRAINT pk_ministra
         PRIMARY KEY (
-            codigo_pessoa_funcionario,
+            codigo_funcionario,
             codigo_disciplina
         ),
 
     CONSTRAINT fk_ministra_funcionario
-        FOREIGN KEY (codigo_pessoa_funcionario)
-        REFERENCES funcionario(codigo_pessoa),
+        FOREIGN KEY (codigo_funcionario)
+        REFERENCES funcionario(codigo),
 
     CONSTRAINT fk_ministra_disciplina
         FOREIGN KEY (codigo_disciplina)
-        REFERENCES disciplina(codigo_disciplina)
+        REFERENCES disciplina(codigo)
 );
 ```
 
@@ -203,35 +217,54 @@ START WITH 1
 INCREMENT BY 1
 NOCACHE
 NOCYCLE;
+
+CREATE SEQUENCE seq_matricula
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
 ```
 
 ### 8. TRIGGERS DE AUTOINCREMENTO
 
 ```sql
-CREATE OR REPLACE TRIGGER trg_pessoa_bi
+CREATE OR REPLACE TRIGGER trg_seq_pessoa
 BEFORE INSERT ON pessoa
 FOR EACH ROW
 BEGIN
-    IF :NEW.codigo_pessoa IS NULL THEN
+    IF :NEW.codigo IS NULL THEN
         SELECT seq_pessoa.NEXTVAL
-        INTO :NEW.codigo_pessoa
+        INTO :NEW.codigo
         FROM dual;
     END IF;
 END;
 /
 
-CREATE OR REPLACE TRIGGER trg_disciplina_bi
+CREATE OR REPLACE TRIGGER trg_seq_disciplina
 BEFORE INSERT ON disciplina
 FOR EACH ROW
 BEGIN
-    IF :NEW.codigo_disciplina IS NULL THEN
+    IF :NEW.codigo IS NULL THEN
         SELECT seq_disciplina.NEXTVAL
-        INTO :NEW.codigo_disciplina
+        INTO :NEW.codigo
+        FROM dual;
+    END IF;
+END;
+/
+
+CREATE OR REPLACE TRIGGER trg_seq_matricula
+BEFORE INSERT ON matriculal
+FOR EACH ROW
+BEGIN
+    IF :NEW.codigo IS NULL THEN
+        SELECT seq_matricula.NEXTVAL
+        INTO :NEW.codigo
         FROM dual;
     END IF;
 END;
 /
 ```
+
 
 ## DTL
 
