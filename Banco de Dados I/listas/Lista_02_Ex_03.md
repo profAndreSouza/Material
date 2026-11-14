@@ -231,6 +231,15 @@ END;
 /
 ```
 
+## DTL
+
+### Commit
+```sql
+COMMIT;
+```
+
+### Rollback
+
 ## DML
 
 -- ── 1. INSERT em PESSOA ───────────────────────────────────────
@@ -365,5 +374,6 @@ END;
 
 
 -- ── 15. Total de disciplinas e carga horária ministrada por docente 
+
 
 
