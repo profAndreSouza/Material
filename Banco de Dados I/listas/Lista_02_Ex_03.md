@@ -12,7 +12,7 @@ erDiagram
     PESSOA {
         int codigo PK
         varchar nome
-        varchar documento UQ
+        varchar documento UK
         varchar logradouro
         varchar numero
         varchar complemento
@@ -24,14 +24,14 @@ erDiagram
 
     ESTUDANTE {
         int codigo PK,FK
-        varchar matricula UQ
+        varchar matricula UK
         varchar curso
         int codigo_orientador FK
     }
 
     FUNCIONARIO {
         int codigo PK,FK
-        varchar registro_funcional UQ
+        varchar registro_funcional UK
         date data_admissao
         varchar setor_lotacao
     }
@@ -44,15 +44,15 @@ erDiagram
 
     MATRICULA_DISCIPLINA {
         int codigo PK
-        int codigo_estudante FK,UQ
-        varchar codigo_disciplina FK,UQ
-        int semestre UQ
-        int ano UQ
+        int codigo_estudante FK,UK
+        varchar codigo_disciplina FK,UKQ
+        int semestre UK
+        int ano UK
         decimal nota_final
     }
 
     MINISTRA {
-        int codigo_pessoa_funcionario PK,FK
+        int codigo_funcionario PK,FK
         varchar codigo_disciplina PK,FK
     }
 
