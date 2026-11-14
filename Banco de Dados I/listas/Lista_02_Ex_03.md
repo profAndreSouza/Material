@@ -45,7 +45,7 @@ erDiagram
     MATRICULA_DISCIPLINA {
         int codigo PK
         int codigo_estudante FK,UK
-        varchar codigo_disciplina FK,UKQ
+        varchar codigo_disciplina FK,UK
         int semestre UK
         int ano UK
         decimal nota_final
