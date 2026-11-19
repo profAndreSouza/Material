@@ -2,11 +2,6 @@
 
 Este repositório contém o plano de ensino, ementa, cronograma semestral detalhado, diretrizes do **Plano Diretor de Governança de TI (PDGTI)** e critérios de avaliação para a unidade curricular de **Governança de TI**.
 
-> [!IMPORTANT]
-> **Preparação para a Avaliação Regimental P1**  
-> Acesse o roteiro oficial com mapa conceitual, glossário e simulado comentado de 12 questões:  
-> 👉 **[📘 Guia de Estudos Oficial — Prova P1 (GUIA_ESTUDO_P1.md)](./GUIA_ESTUDO_P1.md)**
-
 ---
 
 ## Ementa da Unidade Curricular
