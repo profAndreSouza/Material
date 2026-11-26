@@ -185,6 +185,7 @@ timeline
 * **Tópicos:** Modelos de fundação e LLMs; tokenização e geração de texto; Transformers e mecanismo de atenção; treinamento e inferência; engenharia de prompts, exemplos de saída estruturada e uso responsável em Sistemas de Informação.
 
 #### **Aula 08: Engenharia de RAG (*Retrieval-Augmented Generation*) e Bancos Vetoriais**
+* **Enunciado da atividade:** [Atividade individual ou em dupla — RAG e bancos vetoriais](Aulas/Aula_08/Enunciado_Atividade_Aula08_RAG.md).
 * **Objetivo:** Projetar pipelines de RAG para consulta segura de bases de dados proprietárias de empresas sem risco de alucinações.
 * **Conteúdo Teórico (1h):**
   * O problema da alucinação factual e a falta de contexto privado em modelos públicos de fundação.
@@ -196,6 +197,10 @@ timeline
   * **Entregável:** Demonstração do fluxo de busca por similaridade de cosseno retornando o trecho documental correto para responder à dúvida de negócio.
 
 #### **Aula 09: Agentes Autônomos, Paradigma ReAct e Invocação de Ferramentas (*Tool Calling*)**
+* **Guia da aula:** [Aula09_Agentes_ReAct_Tool_Calling.md](Aulas/Aula_09/Aula09_Agentes_ReAct_Tool_Calling.md).
+* **Notebook conceitual (sem programação):** [Aula09_Agentes_ReAct_Tool_Calling.ipynb](Aulas/Aula_09/Aula09_Agentes_ReAct_Tool_Calling.ipynb).
+* **Slides interativos:** [Abrir Aula 09 no apresentador central](../Slides/index.html?disciplina=sistemas-emergentes&aula=aula-09).
+* **Enunciado da atividade:** [Atividade individual ou em dupla — Agentes e ReAct](Aulas/Aula_09/Enunciado_Atividade_Aula09_ReAct.md).
 * **Objetivo:** Compreender a transição de LLMs conversacionais para agentes autônomos capazes de agir sobre sistemas computacionais.
 * **Conteúdo Teórico (1h):**
   * Do modelo estático ao Agente Ativo: Ciclo de Percepção $\to$ Raciocínio $\to$ Ação (*Reasoning + Acting - ReAct*).
