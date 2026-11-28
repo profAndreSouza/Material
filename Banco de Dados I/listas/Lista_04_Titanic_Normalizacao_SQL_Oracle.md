@@ -13,16 +13,16 @@ Transformar o arquivo de passageiros do Titanic em um esquema relacional, criar 
 
 ## Dados
 
-Use o arquivo de treino **train.csv** da competição [Titanic — Machine Learning from Disaster, no Kaggle](https://www.kaggle.com/competitions/titanic/data). O arquivo contém o atributo **Survived**, que indica o resultado conhecido no conjunto de treino. Não use **test.csv** para as consultas de sobrevivência: esse arquivo não traz o rótulo observado.
+Use o arquivo CSV completo disponibilizado pela docente em anexo. O conjunto está reunido em um único arquivo: trabalhe com todos os registros recebidos, sem baixar ou combinar arquivos train.csv e test.csv. Preserve o arquivo original e seu cabeçalho.
 
-A página do Kaggle contém o dicionário das colunas e está sujeita às regras da competição. Baixe o arquivo conforme essas regras. Se o arquivo tiver sido fornecido pela disciplina, use essa cópia e mantenha o cabeçalho original.
+A atividade utiliza a coluna **Survived** conforme os valores presentes no anexo: 0 = não sobreviveu e 1 = sobreviveu. Se houver valores vazios nessa coluna, mantenha-os como NULL e trate o resultado como desconhecido; não os converta para 0. Para interpretar os códigos das colunas, consulte o [dicionário de dados do Kaggle](https://www.kaggle.com/competitions/titanic/data) como referência.
 
 O CSV traz estas colunas:
 
 | Coluna | Significado para a atividade |
 |---|---|
 | PassengerId | Identificador do registro de passageiro no arquivo |
-| Survived | 0 = não sobreviveu; 1 = sobreviveu |
+| Survived | 0 = não sobreviveu; 1 = sobreviveu; pode estar ausente no arquivo |
 | Pclass | Classe da passagem: 1, 2 ou 3 |
 | Name | Nome registrado |
 | Sex | Valor categórico, como male ou female |
@@ -38,23 +38,24 @@ Os códigos de Pclass e Embarked têm significados descritos no dicionário do K
 
 ## Orientações gerais
 
-1. Preserve o arquivo CSV original. Faça a importação em uma tabela de estágio, sem corrigir ou preencher valores nessa primeira cópia.
+1. Preserve o arquivo CSV único recebido em anexo. Importe-o para uma tabela de estágio sem corrigir, excluir ou preencher valores nessa primeira cópia.
 2. Antes de criar o modelo final, registre as premissas sobre chaves, valores nulos, nomes, bilhetes e cabines.
 3. Use Oracle SQL. Identificadores de bilhete devem ser armazenados como texto, mesmo quando contêm apenas algarismos.
 4. Não substitua idade ausente por zero: isso faria um valor desconhecido parecer uma idade real.
-5. Não deduza relações familiares individuais a partir de SibSp e Parch. Esses campos são contagens, não identificam quais passageiros são parentes.
-6. Entregue os comandos em um script SQL, na ordem de execução, e um breve relatório com o esquema e as justificativas.
+5. Não substitua Survived ausente por zero: resultado desconhecido não significa que a pessoa não sobreviveu.
+6. Não deduza relações familiares individuais a partir de SibSp e Parch. Esses campos são contagens, não identificam quais passageiros são parentes.
+7. Entregue os comandos em um script SQL, na ordem de execução, e um breve relatório com o esquema e as justificativas.
 
 ## Parte 1 — Inspeção do arquivo e tabela de estágio
 
 ### 1. Explore o conjunto bruto
 
-Abra o CSV em uma ferramenta que preserve as colunas. Anote:
+Abra o CSV único recebido em uma ferramenta que preserve as colunas. Anote:
 
 a. Quantas linhas de passageiros e quantas colunas há no arquivo?  
 b. PassengerId é único? Há linhas duplicadas?  
-c. Quantos valores estão ausentes em Age, Cabin e Embarked?  
-d. Quais valores aparecem em Survived, Pclass, Sex e Embarked?  
+c. Quantos valores estão ausentes em Age, Cabin, Embarked e Survived?  
+d. Quais valores aparecem em Survived, Pclass, Sex e Embarked? Indique se há resultados de sobrevivência desconhecidos (NULL).  
 e. Há valores de Cabin com mais de um código? Registre dois exemplos, se existirem.  
 f. Por que Ticket deve ser tratado como texto, e não como número?
 
@@ -69,7 +70,7 @@ Use esta referência de tipos como ponto de partida; justifique qualquer ajuste:
 | Campo | Tipo Oracle sugerido | Observação |
 |---|---|---|
 | PassengerId | NUMBER(4) | Identificador |
-| Survived | NUMBER(1) | Aceita somente 0 ou 1 |
+| Survived | NUMBER(1) | Aceita 0 ou 1; pode ser NULL se o resultado estiver ausente no anexo |
 | Pclass | NUMBER(1) | Aceita 1, 2 ou 3 |
 | Name | VARCHAR2(120) | Texto |
 | Sex | VARCHAR2(6) | Male ou female |
@@ -81,11 +82,11 @@ Use esta referência de tipos como ponto de partida; justifique qualquer ajuste:
 | Cabin | VARCHAR2(60) | Texto opcional |
 | Embarked | CHAR(1) | Código opcional |
 
-Inclua constraints adequadas para a chave e para os domínios simples que puder validar, como Survived e Pclass. Age, Cabin e Embarked podem conter NULL. Não use aspas duplas nos nomes dos identificadores.
+Inclua constraints adequadas para a chave e para os domínios simples que puder validar, como Survived e Pclass. Age, Cabin, Embarked e Survived podem conter NULL quando o valor estiver ausente no arquivo. Não use aspas duplas nos nomes dos identificadores.
 
 ### 3. Importe e confira
 
-Importe train.csv para TITANIC_BRUTO pelo recurso de importação de CSV do seu cliente Oracle. Associe as colunas pelo cabeçalho e confira se campos vazios chegaram como NULL.
+Importe o CSV anexado para TITANIC_BRUTO pelo recurso de importação de CSV do seu cliente Oracle. Associe as colunas pelo cabeçalho e confira se campos vazios chegaram como NULL. Não descarte linhas por elas terem valores desconhecidos.
 
 Use um importador que respeite campos entre aspas: nomes como “Braund, Mr. Owen Harris” contêm vírgula. Preserve o ponto decimal em Fare e não separe os campos manualmente pelo caractere de vírgula.
 
@@ -94,7 +95,8 @@ Depois da importação, escreva consultas que:
 a. Contem os passageiros carregados.  
 b. Contem quantas idades estão preenchidas e quantas estão ausentes.  
 c. Verifiquem se PassengerId tem a mesma quantidade de valores distintos que de linhas.  
-d. Contem registros por Survived, Pclass e Embarked.
+d. Contem registros por Survived, Pclass e Embarked, incluindo os valores ausentes.  
+e. Contem quantos resultados de sobrevivência são conhecidos e quantos estão ausentes.
 
 Se os resultados indicarem perda de linhas ou conversão incorreta de números, corrija o processo de importação antes de prosseguir.
 
@@ -165,7 +167,7 @@ Use DML para:
 
 a. Inserir as três classes e os três portos nas tabelas de referência.  
 b. Transferir os passageiros de TITANIC_BRUTO para o esquema final com INSERT INTO ... SELECT.  
-c. Preservar NULL em idade, cabine ou porto quando o valor estiver ausente.  
+c. Preservar NULL em idade, cabine, porto ou resultado de sobrevivência quando o valor estiver ausente.  
 d. Comparar a quantidade de passageiros na tabela de estágio com a quantidade no esquema final.  
 e. Conferir que toda classe e todo porto não nulo apontam para uma linha válida.
 
@@ -195,30 +197,30 @@ c. Exiba Cabin substituindo NULL por uma indicação como SEM REGISTRO com NVL.
 d. Mostre Age original e responda: seria correto usar NVL(Age, 0) como se idade ausente fosse zero? Justifique.  
 e. Use uma função nativa diferente das listadas e explique a transformação realizada.
 
-Na consulta de idade, conte também quantos valores de Age estão preenchidos. Não interprete a média das idades como se todos os 891 registros tivessem idade conhecida.
+Na consulta de idade, conte também quantos valores de Age estão preenchidos. Não presuma uma quantidade fixa de passageiros ou de idades conhecidas: use os valores observados no arquivo anexado.
 
 ### 10. Agregações e GROUP BY
 
 Escreva consultas para responder:
 
 a. Quantos passageiros há por classe?  
-b. Quantos sobreviveram por classe e sexo? Compare SUM(Survived) e COUNT(*).  
+b. Quantos sobreviveram por classe e sexo? Compare SUM(Survived), COUNT(Survived) e COUNT(*); explique o que cada contagem representa quando há valores NULL.  
 c. Qual é a tarifa média por classe e qual é a idade média por classe? Inclua COUNT(Age) para mostrar a quantidade de idades que entrou no cálculo.  
 d. Qual é a menor e a maior tarifa por classe?  
 e. Quais grupos de classe e sexo têm pelo menos 20 passageiros? Use HAVING COUNT(*) >= 20.
 
-Em cada consulta agrupada, confira se todo campo selecionado que não está dentro de uma agregação aparece no GROUP BY.
+Em cada consulta agrupada, confira se todo campo selecionado que não está dentro de uma agregação aparece no GROUP BY. Lembre-se de que funções como SUM, AVG e COUNT(coluna) ignoram valores NULL; COUNT(*) conta todas as linhas.
 
 ### 11. Diferencie WHERE e HAVING
 
-Escreva uma consulta que calcule, por classe e sexo, a quantidade de passageiros e a taxa média de sobrevivência entre adultos, considerando adultos como idade igual ou superior a 18 anos.
+Escreva uma consulta que calcule, por classe e sexo, a quantidade de passageiros adultos e a taxa de sobrevivência entre adultos, considerando adultos como idade igual ou superior a 18 anos. Mostre também quantos desses passageiros têm Survived conhecido; calcule a taxa somente com os resultados conhecidos.
 
 - Filtre as linhas de idade com WHERE antes de calcular os grupos.
 - Use HAVING para manter apenas grupos com pelo menos 20 passageiros adultos.
 - Arredonde a taxa percentual para duas casas.
 - Ordene a saída pela taxa de sobrevivência, da maior para a menor.
 
-Explique por que idade fica em WHERE e a contagem mínima fica em HAVING. Registre que os passageiros sem idade conhecida não entram neste cálculo específico.
+Explique por que idade fica em WHERE e a contagem mínima fica em HAVING. Registre que passageiros sem idade conhecida não entram neste cálculo e que resultados Survived ausentes não entram no cálculo da taxa.
 
 ## Parte 5 — Function armazenada e view
 
@@ -227,10 +229,12 @@ Explique por que idade fica em WHERE e a contagem mínima fica em HAVING. Regist
 Crie uma função armazenada chamada FN_TAXA_SOBREVIVENCIA que receba:
 
 - a quantidade de sobreviventes;
-- a quantidade total de passageiros do grupo;
+- a quantidade de passageiros do grupo com resultado Survived conhecido;
 - e devolva a taxa percentual arredondada para duas casas.
 
-Declare parâmetros IN, retorno NUMBER e use RETURN no bloco PL/SQL. Decida como a função se comporta quando o total recebido é zero e registre essa regra.
+Não use como denominador passageiros cujo resultado seja NULL. Se todos os resultados do grupo forem desconhecidos, a taxa será NULL, pois não haverá resultados conhecidos para calcular a proporção.
+
+Declare parâmetros IN, retorno NUMBER e use RETURN no bloco PL/SQL. Quando o total de resultados conhecidos for zero, retorne NULL e registre essa regra, pois não há dados para calcular a taxa.
 
 Teste com valores conhecidos, por exemplo, 25 sobreviventes em um grupo de 100 passageiros. Depois, use a função em uma consulta agrupada por classe e sexo. Compare seu resultado com ROUND(AVG(Survived) * 100, 2).
 
@@ -239,10 +243,13 @@ Teste com valores conhecidos, por exemplo, 25 sobreviventes em um grupo de 100 p
 Crie a view VW_RESUMO_TITANIC para reunir, por classe e sexo:
 
 - total de passageiros;
+- total de resultados Survived conhecidos;
 - total de sobreviventes;
 - quantidade de idades conhecidas;
 - tarifa média;
-- taxa de sobrevivência calculada pela FN_TAXA_SOBREVIVENCIA.
+- taxa de sobrevivência calculada pela FN_TAXA_SOBREVIVENCIA usando somente resultados conhecidos.
+
+A taxa deve ficar NULL quando não houver resultado conhecido no grupo, conforme a regra documentada para denominador zero.
 
 Depois:
 
@@ -250,7 +257,7 @@ a. Consulte a view como fonte de linhas.
 b. Filtre grupos com pelo menos 20 passageiros usando WHERE na consulta externa.  
 c. Ordene pela taxa de sobrevivência.  
 d. Explique por que a view comum não armazena uma cópia dos resultados.  
-e. Altere temporariamente Survived ou Fare de um passageiro, consulte a view novamente e observe a agregação afetada; desfaça o teste com ROLLBACK.
+e. Altere temporariamente Survived ou Fare de um passageiro, consulte a view novamente e observe a agregação afetada; para alterar Survived, escolha um registro com valor conhecido. Desfaça o teste com ROLLBACK.
 
 Se sua view tiver junções, inclua as chaves necessárias na definição e nomes claros para as expressões calculadas.
 
@@ -259,7 +266,7 @@ Se sua view tiver junções, inclua as chaves necessárias na definição e nome
 Envie um único PDF ou documento com:
 
 1. Nome do(a) estudante ou da dupla.
-2. Observações da inspeção do CSV e das ausências.
+2. Observações da inspeção do CSV único, incluindo valores ausentes e resultados de sobrevivência desconhecidos.
 3. Dependências, premissas e esquema final com PKs e FKs.
 4. Script SQL completo, organizado em DDL, carga DML, consultas, function e view.
 5. Resultados das consultas principais ou capturas legíveis do Oracle.
@@ -268,7 +275,8 @@ Envie um único PDF ou documento com:
 ### Conferência antes de enviar
 
 - [ ] O arquivo original foi preservado e a tabela de estágio contém as linhas importadas.
-- [ ] Valores ausentes permaneceram NULL quando não havia informação.
+- [ ] Valores ausentes, inclusive em Survived, permaneceram NULL quando não havia informação.
+- [ ] As taxas de sobrevivência usam apenas os passageiros com resultado conhecido.
 - [ ] As regras de 1FN, 2FN e 3FN foram justificadas com dependências e premissas.
 - [ ] As tabelas finais têm PKs, FKs e constraints coerentes.
 - [ ] A carga de DML preserva a quantidade de passageiros.
@@ -280,5 +288,5 @@ Envie um único PDF ou documento com:
 
 ## Fontes dos dados
 
-- [Competição oficial Titanic — página de dados e dicionário do Kaggle](https://www.kaggle.com/competitions/titanic/data).
+- [Dicionário de dados da competição Titanic no Kaggle](https://www.kaggle.com/competitions/titanic/data).
 - Para a sintaxe Oracle, consulte as referências de [funções nativas](https://docs.oracle.com/cd/E11882_01/server.112/e41084/functions001.htm), [agregações](https://docs.oracle.com/cd/E11882_01/server.112/e41084/functions003.htm), [CREATE FUNCTION](https://docs.oracle.com/cd/E11882_01/appdev.112/e25519/create_function.htm) e [CREATE VIEW](https://docs.oracle.com/cd/E11882_01/server.112/e41084/statements_8004.htm).
