@@ -7,6 +7,7 @@
 **Ferramentas:** Oracle Live SQL, SQL Developer ou SQL*Plus  
 **Duração sugerida:** 3h20  
 **Apresentação:** [aula-06.js](../slides/aula-06.js) — 34 slides  
+**Lista integradora:** [Lista 04 — Titanic: normalização e SQL Oracle](../listas/Lista_04_Titanic_Normalizacao_SQL_Oracle.md)  
 **Continuidade:** após normalização, vamos consultar os dados e criar objetos reutilizáveis no banco.
 
 ## Como estudar esta aula
